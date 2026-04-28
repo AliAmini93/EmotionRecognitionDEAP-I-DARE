@@ -1,1 +1,1 @@
-# EmotionRecognitionDEAP-I-DARE
+# Emotion Recognition using DEAP/I-DARE
