@@ -1,0 +1,470 @@
+# Cross-Subject EEG–EMG Emotion Recognition with Trial-Aware Temporal Modeling
+
+## A Controlled Study on DEAP and I-DARE — V1.1
+
+> این نسخه نسبت به V1.0 دو بخش کلیدی اضافه می‌کند:
+> 1. **EMG branch** به‌عنوان modality کمکی، با طراحی محافظه‌کارانه و قابل دفاع
+> 2. **Trial / sequence modeling** برای پاسخ به مسئله‌ی label سطح trial در DEAP
+>
+> در این نسخه هنوز cross-dataset transfer بین DEAP و I-DARE وارد نمی‌شود. تمرکز مقاله روی **cross-subject within-dataset** است.
+
+---
+
+## 1. انگیزه و مسئله پژوهش
+
+تشخیص احساسات از EEG در تنظیم cross-subject دشوار است، چون سیگنال EEG به‌شدت تحت تأثیر تفاوت‌های فردی، نویز، anatomy، attention، fatigue و سبک پاسخ‌دهی افراد قرار دارد. علاوه بر این، در emotion recognition، احساس صرفاً ویژگی محرک نیست؛ بلکه **پاسخ فرد به محرک** است. یک ویدیو یا تصویر ممکن است برای یک فرد هیجان‌انگیز، برای دیگری خنثی و برای فرد سوم ناخوشایند باشد.
+
+انتخاب DEAP و I-DARE به این دلیل است که هر دو EEG و EMG دارند. بنابراین مقاله می‌تواند دو سؤال مشخص را بررسی کند:
+
+1. آیا EMG در کنار EEG بهبود واقعی ایجاد می‌کند؟
+2. آیا مدل‌کردن temporal structure درون trial، مخصوصاً در DEAP، مفید است؟
+
+در DEAP هر trial حدود 60 ثانیه است اما label در سطح کل trial داده شده است. اگر trial را به segmentهای 5 ثانیه‌ای تقسیم کنیم و هر segment را مستقل طبقه‌بندی کنیم، label هر segment یک weak label خواهد بود. بنابراین، برای DEAP باید جدی بررسی کنیم که آیا **trial-level sequence encoding** بهتر از segment-level decision است یا نه.
+
+---
+
+## 2. سؤال‌های پژوهشی
+
+### RQ1 — نقش EMG
+
+آیا اضافه‌کردن EMG به EEG باعث بهبود cross-subject emotion recognition می‌شود؟
+
+### RQ2 — نقش trial-aware temporal modeling
+
+آیا در DEAP، مدل‌کردن sequence دوازده segment پنج‌ثانیه‌ای داخل هر trial بهتر از طبقه‌بندی مستقل segmentهاست؟
+
+### RQ3 — تعامل EMG و sequence modeling
+
+اگر temporal sequence encoder اضافه شود، آیا EMG همچنان ارزش افزوده دارد؟
+
+### RQ4 — محل مناسب fusion
+
+آیا بهتر است EEG و EMG در سطح هر 5 ثانیه fuse شوند یا ابتدا هر modality sequence خودش را بسازد و سپس fusion در سطح trial انجام شود؟
+
+### RQ5 — contrastive learning (ablation بعدی)
+
+آیا یک affective-response-aware contrastive loss می‌تواند generalization را بهتر کند؟
+
+> در V1.1، RQ5 هنوز core contribution نیست. فقط مسیر آن مشخص شده است.
+
+---
+
+## 3. تصمیم‌های قفل‌شده فعلی
+
+### دیتاست‌ها
+
+| Item | Value |
+|------|-------|
+| Main datasets | **DEAP** و **I-DARE** |
+| Evaluation | strict cross-subject / LOSO |
+| Cross-dataset transfer | ❌ فعلاً انجام نمی‌شود |
+
+### تسک‌ها
+
+- Binary valence
+- Binary arousal
+
+**Label harmonization:**
+
+```python
+label = 1 if score > 5 else 0
+# score == 5 → discard (کاهش label noise)
+```
+
+### Windowing
+
+**DEAP:**
+
+```
+60s trial → 12 windows × 5s
+stride = 5s, overlap = 0 در main protocol
+```
+
+**I-DARE:**
+
+```
+5s stimulus block → 1 window
+```
+
+> اگر ساختار eventها اجازه بدهد، بعداً می‌توان subwindowهای داخلی را بررسی کرد، اما در main protocol ادعای sequence روی I-DARE مطرح نمی‌شود.
+
+### Normalization
+
+- فقط با آمار train subjects در هر fold
+- هیچ آماری از test subject نباید برای training یا model selection استفاده شود
+
+---
+
+## 4. مسئله EMG و دلیل طراحی محافظه‌کارانه
+
+در DEAP و I-DARE کانال‌های EMG کاملاً هم‌معنا نیستند. DEAP معمولاً zEMG و tEMG دارد، در حالی‌که I-DARE روی zygomaticus و corrugator بنا شده است. این یعنی raw EMG branch اگر مستقیم و symmetric طراحی شود، ممکن است به تفاوت عضله‌ها، placement و dataset-specific amplitude وابسته شود.
+
+> **تصمیم اصلی V1.1:** EMG در main model به‌صورت **feature-level auxiliary modality** وارد می‌شود، نه raw waveform branch.
+
+این تصمیم ریسک cross-subject و cross-dataset mismatch را کم می‌کند.
+
+---
+
+## 5. طراحی EMG Branch
+
+### 5.1 ورودی EMG
+
+برای هر 5s window، از هر کانال EMG feature استخراج می‌شود:
+
+```
+x_emg_feat: [B, N_emg, F]
+# N_emg = 2, F = 7
+```
+
+### 5.2 Feature‌های پیشنهادی EMG
+
+برای هر کانال EMG و هر 5s window:
+
+| # | Feature |
+|---|---------|
+| 1 | RMS |
+| 2 | MAV |
+| 3 | Waveform Length |
+| 4 | Zero Crossing Rate |
+| 5 | Log-energy |
+| 6 | Mean Frequency |
+| 7 | Median Frequency |
+
+> دو کانال × 7 feature = 14 feature — اما به‌جای flatten مستقیم، هر channel جدا encode می‌شود.
+
+### 5.3 Channel-shared EMG Encoder
+
+برای کم‌کردن وابستگی به identity دقیق عضله، از **shared MLP** روی هر EMG channel استفاده می‌کنیم:
+
+```
+x_emg_feat: [B, N_emg, 7]
+
+shared MLP per channel:
+    Linear(7, 32) → LayerNorm → GELU → Dropout → Linear(32, d_emg)
+
+attention pooling over EMG channels:
+    [B, N_emg, d_emg] → [B, d_emg]
+```
+
+**مزایا:**
+
+- با دو کانال EMG در هر دو دیتاست سازگار است
+- فرض نمی‌کند کانال دوم DEAP و I-DARE معادل آناتومیکاند
+- تعداد پارامتر کم می‌ماند
+- برای ablationهای بعدی قابل توسعه است
+
+### 5.4 EMG-only Baseline
+
+```
+EMG features → shared EMG MLP → channel attention pooling → classifier
+```
+
+> اگر EMG-only نزدیک به chance باشد اما EEG+EMG بهتر شود، یعنی EMG auxiliary cue دارد نه اینکه به‌تنهایی emotion را حل کند.
+
+---
+
+## 6. طراحی EEG Branch
+
+نسخه EEG همان `EEGSegmentClassifier-v1` است:
+
+```
+EEG window [B, C, T]
+→ multi-branch temporal stem
+→ depthwise/grouped TCN
+→ temporal attention pooling
+→ channel position embedding
+→ channel self-attention
+→ channel attention pooling
+→ z_eeg
+```
+
+**Default:**
+
+```python
+window_sec = 5.0
+sampling_rate = 128
+modelsize = "lite"
+stem_fusion = "concat"
+channel_pos_mode = "learnable"
+channel_mixer = "mha"
+norm_kind = "gn"
+use_spectral_branch = False
+```
+
+---
+
+## 7. Trial / Sequence Modeling
+
+### 7.1 چرا sequence modeling لازم است؟
+
+در DEAP، label مربوط به کل trial است، نه segmentهای 5 ثانیه‌ای. اگر هر 5s window را مستقل classify کنیم، مدل مجبور می‌شود label کلی trial را به همه‌ی segmentها نسبت دهد — این weak supervision است.
+
+```
+60s trial → 12 × 5s windows → segment embeddings → trial sequence encoder → trial-level prediction
+```
+
+### 7.2 گزینه‌های EEG Sequence Encoder
+
+به‌ترتیب ریسک و پیچیدگی:
+
+| # | روش | ریسک |
+|---|------|------|
+| 1 | Mean pooling | کمترین |
+| 2 | Temporal attention pooling | کم |
+| 3 | Lightweight TCN + attention pooling | **Default ✓** |
+| 4 | BiGRU + attention pooling | متوسط |
+| 5 | Lightweight Transformer | بالاتر |
+| 6 | Mamba/SSM | فقط اگر sequence length زیاد شود |
+
+> **Default V1.1:** Lightweight TCN + temporal attention pooling — sequence کوتاه است، TCN سبک‌تر از GRU/Transformer، temporal inductive bias خوب، overfitting کمتر.
+
+### 7.3 EMG Sequence Encoder
+
+EMG feature-level و کم‌کانال است. بنابراین EMG sequence encoder نباید بزرگ باشد.
+
+| Default | Ablation |
+|---------|----------|
+| Temporal attention pooling | Tiny TCN + attention pooling |
+
+---
+
+## 8. دو خانواده اصلی Fusion
+
+### 8.1 Segment-level Fusion
+
+در هر 5s window، EEG و EMG fuse می‌شوند:
+
+```
+for each segment t:
+    EEG_t → z_eeg_t
+    EMG_t → z_emg_t
+    fuse(z_eeg_t, z_emg_t) → z_fused_t
+
+then:
+    [z_fused_1, ..., z_fused_12] → shared trial sequence encoder → trial prediction
+```
+
+**مزیت:** ساده‌تر، کم‌پارامترتر، همزمانی EEG و EMG را مدل می‌کند
+**ضعف:** فرض می‌کند EEG و EMG در همان 5s window باید هم‌معنا شوند
+
+### 8.2 Modality-specific Sequence + Trial-level Fusion
+
+هر modality ابتدا sequence خودش را می‌سازد:
+
+```
+EEG: [EEG_1, ..., EEG_12] → EEG sequence encoder → h_eeg_trial
+EMG: [EMG_1, ..., EMG_12] → EMG sequence encoder → h_emg_trial
+Fusion: fuse(h_eeg_trial, h_emg_trial) → classifier
+```
+
+**مزیت:** هر modality dynamics خودش را یاد می‌گیرد، با label سطح trial سازگارتر
+**ضعف:** پارامتر بیشتر، ریسک overfit در EMG sequence encoder
+
+---
+
+## 9. Fusion Operation
+
+در هر دو خانواده، خود operation می‌تواند ساده باشد:
+
+| روش | فرمول |
+|------|-------|
+| concat + MLP | `z = MLP([z_eeg; z_emg])` |
+| **gated fusion (default)** | `g = σ(MLP([z_eeg, z_emg])); z = g·z_eeg + (1-g)·z_emg` |
+
+هر دو در segment-level و trial-level fusion تست می‌شوند.
+
+---
+
+## 10. معماری‌های V1.1
+
+| Model | EEG | EMG | Sequence | Fusion | کاربرد |
+|-------|-----|-----|----------|--------|--------|
+| **M0** | ✓ | ✗ | ✗ | — | EEG segment baseline |
+| **M1** | ✓ | ✗ | ✓ | — | EEG trial sequence (DEAP) |
+| **M2** | ✗ | ✓ | ✗ | — | EMG segment baseline |
+| **M3** | ✗ | ✓ | ✓ | — | EMG trial sequence (DEAP) |
+| **M4** | ✓ | ✓ | ✓ | segment-level | fusion قبل از sequence |
+| **M5** | ✓ | ✓ | ✓ | trial-level | fusion بعد از sequence |
+
+---
+
+## 11. مسیر آزمایش‌های V1.1
+
+### Phase 0 — Data Protocol
+
+- DEAP preprocessed / I-DARE processed EEG/EMG
+- Resample to 128Hz
+- Strict LOSO
+- Validation فقط از train subjects
+- Normalization فقط با آمار train subjects
+
+### Phase 1 — EEG-only Baselines
+
+```
+R0: OldEncoder + classifier
+R1: EEGSegmentClassifier-v1
+R2: EEGNet / ShallowConvNet
+```
+
+> هدف: تثبیت EEG backbone قبل از اضافه‌کردن EMG و sequence.
+
+### Phase 2 — EEG Sequence Modeling (DEAP)
+
+```
+S0: Mean pooling over 12 segment embeddings
+S1: Temporal attention pooling
+S2: Lightweight TCN + attention pooling    ← default candidate
+S3: BiGRU + attention pooling
+```
+
+### Phase 3 — EMG Baselines
+
+```
+E0: EMG-only segment classifier
+E1: EMG-only trial attention model
+E2: EMG-only tiny TCN sequence model
+```
+
+### Phase 4 — EEG+EMG Fusion
+
+```
+F1: Segment-level concat fusion
+F2: Segment-level gated fusion
+F3: Modality-specific sequence + concat fusion
+F4: Modality-specific sequence + gated fusion
+```
+
+> مقایسه کلیدی: **F2 vs F4** — آیا fusion در هر 5s window بهتر است یا fusion بعد از sequence encoding هر modality؟
+
+### Phase 5 — I-DARE
+
+```
+I1: EEG-only
+I2: EMG-only
+I3: EEG+EMG concat
+I4: EEG+EMG gated
+```
+
+> ادعای sequence modeling روی I-DARE مطرح نمی‌شود.
+
+### Phase 6 — Contrastive / Regularization Ablation
+
+```
+CE only → CE + Affective SupCon → CE + VREx → CE + SupCon + VREx
+```
+
+> Contrastive روی trial-level representation اعمال می‌شود.
+
+---
+
+## 12. Contrastive Learning در V1.1
+
+```
+positive:
+    same emotion label + different subject
+    optionally close continuous rating
+
+hard negative:
+    same video/stimulus + different reported emotion
+```
+
+> محل اعمال: **trial-level representation** — نه segment-level.
+
+---
+
+## 13. Metrics
+
+```
+Accuracy, Macro-F1, Balanced Accuracy
+Per-subject accuracy
+Mean ± std across LOSO folds
+95% CI
+Wilcoxon signed-rank برای مقایسه مدل‌های اصلی
+```
+
+> برای DEAP، حتماً هم segment-level و هم trial-level reporting باید از هم جدا باشند. نتیجه اصلی باید trial-level باشد.
+
+---
+
+## 14. Visualizations
+
+| # | Visualization |
+|---|---------------|
+| 1 | Confusion matrix |
+| 2 | Per-subject performance bar plot |
+| 3 | Temporal attention over 12 segments (DEAP) |
+| 4 | EMG channel attention |
+| 5 | Fusion gate distribution |
+| 6 | EEG vs EMG contribution analysis |
+| 7 | UMAP/t-SNE embeddings قبل/بعد از sequence encoder |
+
+---
+
+## 15. Ablation‌های اصلی مقاله
+
+### DEAP
+
+| کد | EEG | EMG | Sequence | Fusion | هدف |
+|----|:---:|:---:|:--------:|--------|-----|
+| D1 | ✓ | ✗ | ✗ | — | EEG segment baseline |
+| D2 | ✓ | ✗ | ✓ | — | اثر sequence روی EEG |
+| D3 | ✗ | ✓ | ✗ | — | EMG segment baseline |
+| D4 | ✗ | ✓ | ✓ | — | EMG temporal dynamics |
+| D5 | ✓ | ✓ | ✗ | segment | اثر EMG بدون sequence |
+| D6 | ✓ | ✓ | ✓ | segment-level | fusion قبل از sequence |
+| D7 | ✓ | ✓ | ✓ | trial-level | fusion بعد از sequence |
+
+**مقایسه‌های کلیدی:**
+
+```
+D2 - D1 = اثر sequence روی EEG
+D5 - D1 = اثر EMG بدون sequence
+D6 - D2 = اثر EMG وقتی sequence مشترک داریم
+D7 - D2 = اثر EMG وقتی sequence modality-specific داریم
+D7 vs D6 = محل بهتر fusion
+```
+
+### I-DARE
+
+| کد | EEG | EMG | Fusion | هدف |
+|----|:---:|:---:|--------|-----|
+| I1 | ✓ | ✗ | — | EEG baseline |
+| I2 | ✗ | ✓ | — | EMG baseline |
+| I3 | ✓ | ✓ | concat | fusion baseline |
+| I4 | ✓ | ✓ | gated | مدل اصلی I-DARE |
+
+---
+
+## 16. Default‌های پیشنهادی V1.1
+
+| Component | Default |
+|-----------|---------|
+| EEG segment encoder | `lite`, `concat`, `learnable`, `mha`, `gn`, no spectral |
+| EEG sequence encoder | Lightweight TCN + temporal attention pooling |
+| EMG encoder | Channel-shared feature MLP + EMG channel attention pooling |
+| EMG sequence encoder | Temporal attention pooling |
+| Fusion (start) | concat + MLP |
+| Fusion (candidate) | gated fusion |
+
+---
+
+## 17. جمع‌بندی نسخه V1.1
+
+در V1.1، مدل از یک EEG segment classifier فراتر می‌رود و مسیر کامل مقاله را شامل می‌شود:
+
+1. EEG-only baseline
+2. EMG-only baseline
+3. EEG sequence modeling
+4. EMG sequence modeling
+5. EEG+EMG segment-level fusion
+6. EEG+EMG modality-specific sequence fusion
+7. Contrastive learning فقط بعد از تثبیت مدل اصلی
+
+**تصمیم کلیدی:** fusion از ابتدا قطعی فرض نمی‌شود. دو فرضیه رقیب:
+
+```
+H1: EEG و EMG بهتر است در هر 5s window fuse شوند.
+H2: EEG و EMG بهتر است ابتدا sequence خودشان را بسازند و سپس در سطح trial fuse شوند.
+```
+
+> مقاله با مقایسه این دو، علاوه بر نقش EMG و sequence modeling، به سؤال مهم **محل مناسب fusion** هم پاسخ می‌دهد.
