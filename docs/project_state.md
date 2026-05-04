@@ -25,15 +25,17 @@ Create a clean local/GitHub-ready project structure before downloading datasets 
 - EEGSegmentClassifier-v1 GPU smoke test passed.
 - Model parameter count:
   - EEGSegmentClassifier-v1 lite: 337,955 trainable parameters.
+- Working proposal V1.1 added:
+  - docs/proposal_v1_1.md
 
 ## In Progress
-- Preparing first clean repository commit.
+- Preparing dataset acquisition and dataset audit.
 
 ## Next Steps
-1. Run `scripts/00_audit_local_setup.py`.
-2. Add proposal V1.1 markdown to docs.
-3. Commit scaffold and model files to GitHub.
-4. Start dataset acquisition and audit.
+1. Commit proposal V1.1 to GitHub.
+2. Start dataset acquisition and audit.
+3. Create `scripts/01_audit_datasets.py`.
+4. Document DEAP and I-DARE file structures after download.
 
 ## Current Open Questions
 - /mnt/HDD is not a separate mount; confirm whether this is acceptable before downloading datasets.

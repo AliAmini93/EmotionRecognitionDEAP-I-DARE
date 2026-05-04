@@ -26,15 +26,16 @@ Evaluate whether auxiliary EMG and trial-aware temporal modeling improve cross-s
   - segment-level fusion vs trial-level fusion
 
 ## Current Code Status
-- Repository scaffold exists locally.
+- Repository scaffold exists locally and has been pushed to GitHub.
 - Three EEG model files are added under `src/emotion_deap_idare/models/`.
 - Virtual environment is created.
 - PyTorch CUDA 12.8 is installed.
 - GPU smoke test passed on NVIDIA GeForce RTX 5090.
 - EEGSegmentClassifier-v1 lite has 337,955 trainable parameters.
+- Working proposal V1.1 is stored at `docs/proposal_v1_1.md`.
 
 ## Immediate Next Step
-Run local setup audit script and commit scaffold/model files.
+Commit proposal V1.1, then begin dataset acquisition and audit.
 
 ## Critical Decisions
 - Dataset files are not tracked by git.
