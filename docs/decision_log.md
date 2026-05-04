@@ -73,3 +73,49 @@ Subject 4 has EMG but no EEG, so it should be excluded from the main EEG+EMG pro
 
 Status:
 Accepted.
+# Decision Log Update — I-DARE Trial Index and Loader Design
+
+Append the following decision to `docs/decision_log.md`.
+
+---
+
+## D005 - Use STIM events as I-DARE emotional trials
+
+Date: 2026-05-04
+
+Decision:
+For the main I-DARE protocol, use only `STIM_*` rows from `Stimuli_Specifications.csv` as emotional stimulus trials.
+
+Use the row order of `Stimuli_Specifications.csv` as the event order corresponding to `event_begin` and `event_end` arrays in each subject `.mat` file.
+
+For labels, strip the `STIM_` prefix and match the remaining stimulus ID to `Valence_SAM.csv` and `Arousal_SAM.csv`.
+
+Reason:
+The I-DARE trial-index probe found:
+- `Stimuli_Specifications.csv` has 100 rows.
+- Each sampled subject `.mat` file has 100 event begin/end pairs.
+- There are exactly 32 `STIM_*` rows.
+- Label CSV files contain exactly 32 matching stimulus IDs after removing the `STIM_` prefix.
+- `stim_rows_match_label_stimuli = true`.
+- Sample subjects 1, 2, and 3 each have:
+  - 32 `STIM_*` rows,
+  - 32 labeled stimulus rows,
+  - EEG stimulus durations between approximately 4.984s and 5.002s,
+  - EMG stimulus durations between approximately 4.986s and 5.004s.
+- Non-stimulus rows such as `BSL_*` and `SAM_*` should not be used as emotional trials.
+
+Implementation implications:
+- Load I-DARE `.mat` files with `h5py`.
+- Treat raw `h5py` data orientation as `time x channels`.
+- EEG sampling rate is 512Hz.
+- EMG sampling rate is 2000Hz.
+- Use one natural stimulus window per `STIM_*` event.
+- Resample EEG from 512Hz to 128Hz later for model input.
+- Extract feature-level EMG descriptors from the corresponding EMG stimulus window.
+- Apply the project label rule:
+  - label = 1 if score > 5
+  - label = 0 if score < 5
+  - score == 5 is discarded for that task
+
+Status:
+Accepted.
