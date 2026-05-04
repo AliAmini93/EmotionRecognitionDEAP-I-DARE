@@ -175,28 +175,27 @@ Decide the exact DEAP and I-DARE dataset versions/files to download, then audit 
 - Next practical step: build `docs/idare_download_manifest.csv` before downloading I-DARE files.
 
 ## Next Steps
-1. Confirm whether `/mnt/HDD` on the root filesystem with around 500GB free space is acceptable for dataset storage.
-2. Decide the exact DEAP version to download.
-   - Current likely starting choice: DEAP preprocessed 128Hz version.
-   - This is not yet confirmed.
-3. Decide the exact I-DARE release/files to download.
-4. Confirm dataset access/permissions for DEAP and I-DARE.
-5. Download datasets into:
-   - /mnt/HDD/AliWorks/DEAP
-   - /mnt/HDD/AliWorks/I-DARE
-6. Build `docs/idare_download_manifest.csv`.
-7. Review the I-DARE download manifest.
-8. Download selected I-DARE files.
-9. Create `scripts/01_audit_datasets.py`.
-10. Generate:
+1. Build `docs/idare_download_manifest.csv` from:
+   - docs/data_sources_idare.json
+2. Review the I-DARE download manifest before downloading files.
+3. Download selected I-DARE first-stage files:
+   - EEG files
+   - EMG files
+   - label CSV files
+   - metadata CSV files
+4. Confirm or request official DEAP access credentials.
+5. Download DEAP preprocessed Python archive:
+   - Data_preprocessed_python.zip
+6. Create `scripts/01_audit_datasets.py`.
+7. Generate:
    - docs/data_audit_deap.md
    - docs/data_audit_idare.md
 
 ## Current Open Questions
-- Is using `/mnt/HDD` acceptable even though it is not a separate mount?
-- Should DEAP start from the preprocessed 128Hz version?
-- What exact I-DARE release/files are available?
-- Are DEAP and I-DARE download permissions/access already ready?
+- Are official DEAP access credentials ready?
+- Has `Data_preprocessed_python.zip` been downloaded from the official DEAP source?
+- Has the I-DARE download manifest been reviewed and approved?
+- Have the selected I-DARE files been downloaded?
 
 ## Last Updated
 2026-05-04
@@ -273,15 +272,18 @@ Evaluate whether auxiliary EMG and trial-aware temporal modeling improve cross-s
 - To verify the latest commit, run `git status` and `git log --oneline -5`.
 
 ## Immediate Next Step
-Begin Milestone 1: dataset acquisition and audit preparation.
+Build and review `docs/idare_download_manifest.csv` before downloading I-DARE files.
 
-Before writing training code or starting any experiment:
-1. Confirm dataset storage location.
-2. Decide the exact DEAP version.
-3. Decide the exact I-DARE files/release.
-4. Confirm access/permissions.
-5. Download datasets.
-6. Create dataset audit script and audit reports.
+Current Milestone 1 status:
+- Storage location accepted for the initial phase.
+- DEAP target version accepted: official preprocessed Python version, 128Hz.
+- I-DARE Figshare source listing completed.
+- Main I-DARE subject set decided: 63 common EEG+EMG subjects.
+- Subject 4 is excluded from the main EEG+EMG protocol.
+
+Do not start training yet.
+Do not implement EMG fusion or sequence modeling yet.
+Next practical step is the I-DARE download manifest.
 
 ## Critical Decisions
 - Dataset files are not tracked by git.

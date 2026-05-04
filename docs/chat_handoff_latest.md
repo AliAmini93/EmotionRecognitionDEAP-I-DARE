@@ -65,15 +65,18 @@ Evaluate whether auxiliary EMG and trial-aware temporal modeling improve cross-s
 - To verify the latest commit, run `git status` and `git log --oneline -5`.
 
 ## Immediate Next Step
-Begin Milestone 1: dataset acquisition and audit preparation.
+Build and review `docs/idare_download_manifest.csv` before downloading I-DARE files.
 
-Before writing training code or starting any experiment:
-1. Confirm dataset storage location.
-2. Decide the exact DEAP version.
-3. Decide the exact I-DARE files/release.
-4. Confirm access/permissions.
-5. Download datasets.
-6. Create dataset audit script and audit reports.
+Current Milestone 1 status:
+- Storage location accepted for the initial phase.
+- DEAP target version accepted: official preprocessed Python version, 128Hz.
+- I-DARE Figshare source listing completed.
+- Main I-DARE subject set decided: 63 common EEG+EMG subjects.
+- Subject 4 is excluded from the main EEG+EMG protocol.
+
+Do not start training yet.
+Do not implement EMG fusion or sequence modeling yet.
+Next practical step is the I-DARE download manifest.
 
 ## Critical Decisions
 - Dataset files are not tracked by git.
