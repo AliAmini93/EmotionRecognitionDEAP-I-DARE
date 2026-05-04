@@ -1,0 +1,227 @@
+#!/usr/bin/env python3
+"""
+List public I-DARE Figshare project files without downloading them.
+
+Outputs:
+- docs/data_sources_idare.md
+- docs/data_sources_idare.json
+
+This script only inspects public metadata.
+It does not download dataset files.
+"""
+
+from __future__ import annotations
+
+import json
+import time
+import urllib.request
+from pathlib import Path
+from typing import Any
+
+
+API_BASE = "https://api.figshare.com/v2"
+PROJECT_ID = 186558
+
+ROOT = Path(__file__).resolve().parents[1]
+OUT_MD = ROOT / "docs" / "data_sources_idare.md"
+OUT_JSON = ROOT / "docs" / "data_sources_idare.json"
+
+
+def fetch_json(url: str) -> Any:
+    req = urllib.request.Request(
+        url,
+        headers={
+            "Accept": "application/json",
+            "User-Agent": "EmotionRecognitionDEAP-IDARE/0.1",
+        },
+    )
+    with urllib.request.urlopen(req, timeout=60) as resp:
+        return json.loads(resp.read().decode("utf-8"))
+
+
+def human_size(num_bytes: int | None) -> str:
+    if num_bytes is None:
+        return "unknown"
+    value = float(num_bytes)
+    units = ["B", "KB", "MB", "GB", "TB"]
+    for unit in units:
+        if value < 1024 or unit == units[-1]:
+            return f"{value:.2f} {unit}"
+        value /= 1024
+    return f"{num_bytes} B"
+
+
+def md_escape(value: Any) -> str:
+    text = "" if value is None else str(value)
+    return text.replace("|", "\\|").replace("\n", " ").strip()
+
+
+def classify_file(name: str, article_title: str = "") -> str:
+    s = f"{name} {article_title}".lower()
+
+    if "eeg" in s:
+        return "EEG"
+    if "emg" in s:
+        return "EMG"
+    if "valence" in s or "arousal" in s or "quadrant" in s or "sam" in s:
+        return "labels"
+    if "stimuli" in s or "sample" in s or "agreement" in s or "metadata" in s:
+        return "metadata"
+    if "sc" in s or "ppg" in s:
+        return "SC/PPG"
+    if "et" in s or "eye" in s:
+        return "ET"
+    if name.lower().endswith(".mat"):
+        return "mat/unknown"
+    if name.lower().endswith(".csv"):
+        return "csv/unknown"
+    return "unknown"
+
+
+def list_project_articles(project_id: int) -> list[dict[str, Any]]:
+    all_articles: list[dict[str, Any]] = []
+    page = 1
+    page_size = 100
+
+    while True:
+        url = f"{API_BASE}/projects/{project_id}/articles?page={page}&page_size={page_size}"
+        items = fetch_json(url)
+
+        if not items:
+            break
+
+        all_articles.extend(items)
+
+        if len(items) < page_size:
+            break
+
+        page += 1
+        time.sleep(0.2)
+
+    return all_articles
+
+
+def main() -> None:
+    project = fetch_json(f"{API_BASE}/projects/{PROJECT_ID}")
+    articles_lite = list_project_articles(PROJECT_ID)
+
+    article_records: list[dict[str, Any]] = []
+    flat_files: list[dict[str, Any]] = []
+
+    for article in articles_lite:
+        article_id = article.get("id")
+        if article_id is None:
+            continue
+
+        full = fetch_json(f"{API_BASE}/articles/{article_id}")
+        title = full.get("title") or article.get("title") or ""
+        doi = full.get("doi") or article.get("doi")
+        url_public = full.get("url_public_html") or full.get("url")
+
+        files = full.get("files") or []
+
+        article_record = {
+            "id": article_id,
+            "title": title,
+            "doi": doi,
+            "url_public": url_public,
+            "defined_type": full.get("defined_type_name") or full.get("defined_type"),
+            "published_date": full.get("published_date"),
+            "modified_date": full.get("modified_date"),
+            "file_count": len(files),
+            "files": [],
+        }
+
+        for f in files:
+            name = f.get("name")
+            size = f.get("size")
+            rec = {
+                "article_id": article_id,
+                "article_title": title,
+                "file_id": f.get("id"),
+                "file_name": name,
+                "size_bytes": size,
+                "size_human": human_size(size),
+                "download_url": f.get("download_url"),
+                "computed_md5": f.get("computed_md5"),
+                "category_guess": classify_file(name or "", title),
+            }
+            article_record["files"].append(rec)
+            flat_files.append(rec)
+
+        article_records.append(article_record)
+        time.sleep(0.2)
+
+    total_size = sum((f.get("size_bytes") or 0) for f in flat_files)
+
+    payload = {
+        "project_id": PROJECT_ID,
+        "project": project,
+        "articles": article_records,
+        "files": flat_files,
+        "file_count": len(flat_files),
+        "total_size_bytes": total_size,
+        "total_size_human": human_size(total_size),
+    }
+
+    OUT_JSON.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
+
+    lines: list[str] = []
+    lines.append("# I-DARE Figshare File Listing\n")
+    lines.append("This file was generated by `scripts/list_idare_figshare_files.py`.\n")
+    lines.append("No dataset files were downloaded by this script.\n")
+
+    lines.append("## Project Summary\n")
+    lines.append(f"- Figshare project ID: `{PROJECT_ID}`")
+    lines.append(f"- Title: {project.get('title')}")
+    lines.append(f"- URL: {project.get('url_public_html') or project.get('url')}")
+    lines.append(f"- Number of articles discovered: {len(article_records)}")
+    lines.append(f"- Number of files discovered: {len(flat_files)}")
+    lines.append(f"- Total listed file size: {human_size(total_size)}")
+    lines.append("")
+
+    lines.append("## Articles\n")
+    lines.append("| Article ID | Title | File count | DOI / URL |")
+    lines.append("|---:|---|---:|---|")
+    for a in article_records:
+        link = a.get("doi") or a.get("url_public") or ""
+        lines.append(
+            f"| {a['id']} | {md_escape(a['title'])} | {a['file_count']} | {md_escape(link)} |"
+        )
+    lines.append("")
+
+    lines.append("## Files\n")
+    lines.append("| Category guess | File name | Size | Article ID | Download URL present |")
+    lines.append("|---|---|---:|---:|---|")
+    for f in flat_files:
+        lines.append(
+            "| "
+            f"{md_escape(f['category_guess'])} | "
+            f"{md_escape(f['file_name'])} | "
+            f"{md_escape(f['size_human'])} | "
+            f"{f['article_id']} | "
+            f"{'yes' if f.get('download_url') else 'no'} |"
+        )
+    lines.append("")
+
+    lines.append("## Next Manual Review\n")
+    lines.append("Inspect this listing and decide which files are required for the first project stage:\n")
+    lines.append("- processed EEG")
+    lines.append("- processed EMG")
+    lines.append("- SAM valence/arousal labels")
+    lines.append("- subject/stimulus metadata")
+    lines.append("")
+    lines.append("Do not download files until the required subset is identified.\n")
+
+    OUT_MD.write_text("\n".join(lines), encoding="utf-8")
+
+    print(f"Project title: {project.get('title')}")
+    print(f"Articles discovered: {len(article_records)}")
+    print(f"Files discovered: {len(flat_files)}")
+    print(f"Total listed file size: {human_size(total_size)}")
+    print(f"Wrote: {OUT_MD}")
+    print(f"Wrote: {OUT_JSON}")
+
+
+if __name__ == "__main__":
+    main()
