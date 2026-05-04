@@ -33,6 +33,7 @@ Evaluate whether auxiliary EMG and trial-aware temporal modeling improve cross-s
 - GPU smoke test passed on NVIDIA GeForce RTX 5090.
 - EEGSegmentClassifier-v1 lite has 337,955 trainable parameters.
 - Working proposal V1.1 is stored at `docs/proposal_v1_1.md`.
+- Dataset acquisition plan is stored at `docs/dataset_acquisition_plan.md`.
 - Complete handoff bundle is stored at `docs/handoff_bundle_latest.md`.
 - Repository was pushed successfully and is expected to be synced with `origin/main` at the time of handoff.
 - To verify the latest commit, run `git status` and `git log --oneline -5`.

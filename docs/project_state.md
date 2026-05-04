@@ -30,6 +30,8 @@ Decide the exact DEAP and I-DARE dataset versions/files to download, then audit 
   - docs/proposal_v1_1.md
 - Complete handoff bundle added:
   - docs/handoff_bundle_latest.md
+- Dataset acquisition plan added:
+  - docs/dataset_acquisition_plan.md
 - Repository was pushed successfully and is expected to be synced with `origin/main` at the time of handoff.
 - To verify the latest commit, run `git status` and `git log --oneline -5`.
 
