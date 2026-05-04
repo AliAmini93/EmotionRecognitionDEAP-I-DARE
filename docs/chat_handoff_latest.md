@@ -33,9 +33,20 @@ Evaluate whether auxiliary EMG and trial-aware temporal modeling improve cross-s
 - GPU smoke test passed on NVIDIA GeForce RTX 5090.
 - EEGSegmentClassifier-v1 lite has 337,955 trainable parameters.
 - Working proposal V1.1 is stored at `docs/proposal_v1_1.md`.
+- Complete handoff bundle is stored at `docs/handoff_bundle_latest.md`.
+- Latest pushed commit:
+  - c65fb1b docs: add working proposal and complete handoff bundle.
 
 ## Immediate Next Step
-Commit proposal V1.1, then begin dataset acquisition and audit.
+Begin Milestone 1: dataset acquisition and audit preparation.
+
+Before writing training code or starting any experiment:
+1. Confirm dataset storage location.
+2. Decide the exact DEAP version.
+3. Decide the exact I-DARE files/release.
+4. Confirm access/permissions.
+5. Download datasets.
+6. Create dataset audit script and audit reports.
 
 ## Critical Decisions
 - Dataset files are not tracked by git.

@@ -1,14 +1,15 @@
 # Project State
 
 ## Current Phase
-Milestone 0 - Project scaffolding and local setup.
+Milestone 1 - Dataset acquisition and audit preparation.
 
 ## Current Goal
-Create a clean local/GitHub-ready project structure before downloading datasets or running experiments.
+Decide the exact DEAP and I-DARE dataset versions/files to download, then audit their structure before any training.
 
 ## Completed
 - Git installed.
 - GitHub repository cloned locally.
+- SSH authentication with GitHub works.
 - Empty local dataset folders created:
   - /mnt/HDD/AliWorks/DEAP
   - /mnt/HDD/AliWorks/I-DARE
@@ -27,21 +28,34 @@ Create a clean local/GitHub-ready project structure before downloading datasets 
   - EEGSegmentClassifier-v1 lite: 337,955 trainable parameters.
 - Working proposal V1.1 added:
   - docs/proposal_v1_1.md
+- Complete handoff bundle added:
+  - docs/handoff_bundle_latest.md
+- Latest pushed commit:
+  - c65fb1b docs: add working proposal and complete handoff bundle
 
 ## In Progress
-- Preparing dataset acquisition and dataset audit.
+- Preparing Milestone 1: dataset acquisition and dataset audit.
 
 ## Next Steps
-1. Commit proposal V1.1 to GitHub.
-2. Start dataset acquisition and audit.
-3. Create `scripts/01_audit_datasets.py`.
-4. Document DEAP and I-DARE file structures after download.
+1. Confirm whether `/mnt/HDD` on the root filesystem with around 500GB free space is acceptable for dataset storage.
+2. Decide the exact DEAP version to download.
+   - Current likely starting choice: DEAP preprocessed 128Hz version.
+   - This is not yet confirmed.
+3. Decide the exact I-DARE release/files to download.
+4. Confirm dataset access/permissions for DEAP and I-DARE.
+5. Download datasets into:
+   - /mnt/HDD/AliWorks/DEAP
+   - /mnt/HDD/AliWorks/I-DARE
+6. Create `scripts/01_audit_datasets.py`.
+7. Generate:
+   - docs/data_audit_deap.md
+   - docs/data_audit_idare.md
 
 ## Current Open Questions
-- /mnt/HDD is not a separate mount; confirm whether this is acceptable before downloading datasets.
-- DEAP and I-DARE are not downloaded yet.
-- Exact DEAP file format after download still needs auditing.
-- Exact I-DARE processed folder structure still needs auditing.
+- Is using `/mnt/HDD` acceptable even though it is not a separate mount?
+- Should DEAP start from the preprocessed 128Hz version?
+- What exact I-DARE release/files are available?
+- Are DEAP and I-DARE download permissions/access already ready?
 
 ## Last Updated
 2026-05-04

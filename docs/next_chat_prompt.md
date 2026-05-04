@@ -26,6 +26,8 @@ Please first read these project memory files:
 
 Current completed status:
 - Milestone 0 is completed.
+- Proposal V1.1 and the complete handoff bundle have been committed and pushed.
+- Latest pushed commit: c65fb1b.
 - Repository scaffold exists and was pushed to GitHub.
 - SSH authentication with GitHub works.
 - Python virtual environment exists at .venv.
@@ -69,7 +71,13 @@ Current proposal decisions:
   - apply contrastive loss at trial-level representation, not raw segment level.
 
 Immediate next step:
-Begin Milestone 1 - Dataset acquisition and audit.
+Begin Milestone 1 - Dataset acquisition and audit preparation.
+
+Before downloading or coding, clarify:
+1. Is /mnt/HDD acceptable even though it is not a separate mount?
+2. Should DEAP start from the preprocessed 128Hz version?
+3. What exact I-DARE release/files are available?
+4. Are dataset access/permissions ready?
 
 Do not jump into training yet. First:
 1. Decide exact DEAP version to download.
