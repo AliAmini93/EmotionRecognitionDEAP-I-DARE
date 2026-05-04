@@ -1,0 +1,66 @@
+{
+  "output_csv": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/.cache/idare_trial_index.csv",
+  "n_rows": 2016,
+  "n_subjects": 63,
+  "expected_subjects": 63,
+  "expected_rows": 2016,
+  "trials_per_subject_min": 32,
+  "trials_per_subject_max": 32,
+  "unique_stimuli": 32,
+  "valence": {
+    "n_total_rows": 2016,
+    "n_scores_present": 2016,
+    "score_counts": {
+      "1": 283,
+      "2": 188,
+      "3": 155,
+      "4": 186,
+      "5": 349,
+      "6": 241,
+      "7": 247,
+      "8": 190,
+      "9": 177
+    },
+    "n_score_eq_5_discard": 349,
+    "binary_label_counts_after_discard": {
+      "0": 812,
+      "1": 855
+    },
+    "n_rows_after_discard": 1667
+  },
+  "arousal": {
+    "n_total_rows": 2016,
+    "n_scores_present": 2016,
+    "score_counts": {
+      "1": 341,
+      "2": 294,
+      "3": 246,
+      "4": 231,
+      "5": 217,
+      "6": 206,
+      "7": 193,
+      "8": 170,
+      "9": 118
+    },
+    "n_score_eq_5_discard": 217,
+    "binary_label_counts_after_discard": {
+      "0": 1112,
+      "1": 687
+    },
+    "n_rows_after_discard": 1799
+  },
+  "eeg_duration_sec": {
+    "min": 4.982421875,
+    "max": 5.064453125,
+    "mean": 4.994547526041667,
+    "all_4p5_to_5p5": true
+  },
+  "emg_duration_sec": {
+    "min": 4.985,
+    "max": 5.067,
+    "mean": 4.996669642857143,
+    "all_4p5_to_5p5": true
+  },
+  "issues": [],
+  "warnings": []
+}
