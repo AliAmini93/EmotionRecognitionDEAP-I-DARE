@@ -1,0 +1,264 @@
+category,article_id,article_title,file_id,file_name,subject_id,size_bytes,size_human,download_url,local_relative_path,include_in_first_stage,include_in_main_protocol,notes
+EEG,24678000,EEG modality,43377408,sbj_P_01.mat,1,97437124,92.92 MB,https://ndownloader.figshare.com/files/43377408,raw_downloads/EEG/sbj_P_01.mat,true,true,
+EEG,24678000,EEG modality,43377591,sbj_P_02.mat,2,93221737,88.90 MB,https://ndownloader.figshare.com/files/43377591,raw_downloads/EEG/sbj_P_02.mat,true,true,
+EEG,24678000,EEG modality,43377363,sbj_P_03.mat,3,77317030,73.74 MB,https://ndownloader.figshare.com/files/43377363,raw_downloads/EEG/sbj_P_03.mat,true,true,
+EEG,24678000,EEG modality,43377417,sbj_P_05.mat,5,80751327,77.01 MB,https://ndownloader.figshare.com/files/43377417,raw_downloads/EEG/sbj_P_05.mat,true,true,
+EEG,24678000,EEG modality,43377561,sbj_P_06.mat,6,87601921,83.54 MB,https://ndownloader.figshare.com/files/43377561,raw_downloads/EEG/sbj_P_06.mat,true,true,
+EEG,24678000,EEG modality,43377465,sbj_P_07.mat,7,83136701,79.29 MB,https://ndownloader.figshare.com/files/43377465,raw_downloads/EEG/sbj_P_07.mat,true,true,
+EEG,24678000,EEG modality,43377441,sbj_P_08.mat,8,81898917,78.10 MB,https://ndownloader.figshare.com/files/43377441,raw_downloads/EEG/sbj_P_08.mat,true,true,
+EEG,24678000,EEG modality,43377432,sbj_P_09.mat,9,81973002,78.18 MB,https://ndownloader.figshare.com/files/43377432,raw_downloads/EEG/sbj_P_09.mat,true,true,
+EEG,24678000,EEG modality,43377411,sbj_P_10.mat,10,80062834,76.35 MB,https://ndownloader.figshare.com/files/43377411,raw_downloads/EEG/sbj_P_10.mat,true,true,
+EEG,24678000,EEG modality,43377384,sbj_P_11.mat,11,77470158,73.88 MB,https://ndownloader.figshare.com/files/43377384,raw_downloads/EEG/sbj_P_11.mat,true,true,
+EEG,24678000,EEG modality,43377360,sbj_P_12.mat,12,71415732,68.11 MB,https://ndownloader.figshare.com/files/43377360,raw_downloads/EEG/sbj_P_12.mat,true,true,
+EEG,24678000,EEG modality,43377645,sbj_P_13.mat,13,97696219,93.17 MB,https://ndownloader.figshare.com/files/43377645,raw_downloads/EEG/sbj_P_13.mat,true,true,
+EEG,24678000,EEG modality,43377399,sbj_P_14.mat,14,78550992,74.91 MB,https://ndownloader.figshare.com/files/43377399,raw_downloads/EEG/sbj_P_14.mat,true,true,
+EEG,24678000,EEG modality,43377372,sbj_P_15.mat,15,75141263,71.66 MB,https://ndownloader.figshare.com/files/43377372,raw_downloads/EEG/sbj_P_15.mat,true,true,
+EEG,24678000,EEG modality,43377513,sbj_P_16.mat,16,82613212,78.79 MB,https://ndownloader.figshare.com/files/43377513,raw_downloads/EEG/sbj_P_16.mat,true,true,
+EEG,24678000,EEG modality,43377663,sbj_P_17.mat,17,93581407,89.25 MB,https://ndownloader.figshare.com/files/43377663,raw_downloads/EEG/sbj_P_17.mat,true,true,
+EEG,24678000,EEG modality,43377594,sbj_P_18.mat,18,84994057,81.06 MB,https://ndownloader.figshare.com/files/43377594,raw_downloads/EEG/sbj_P_18.mat,true,true,
+EEG,24678000,EEG modality,43377495,sbj_P_19.mat,19,83563902,79.69 MB,https://ndownloader.figshare.com/files/43377495,raw_downloads/EEG/sbj_P_19.mat,true,true,
+EEG,24678000,EEG modality,43377429,sbj_P_20.mat,20,80343884,76.62 MB,https://ndownloader.figshare.com/files/43377429,raw_downloads/EEG/sbj_P_20.mat,true,true,
+EEG,24678000,EEG modality,43377705,sbj_P_21.mat,21,102756001,98.00 MB,https://ndownloader.figshare.com/files/43377705,raw_downloads/EEG/sbj_P_21.mat,true,true,
+EEG,24678000,EEG modality,43377396,sbj_P_22.mat,22,78096361,74.48 MB,https://ndownloader.figshare.com/files/43377396,raw_downloads/EEG/sbj_P_22.mat,true,true,
+EEG,24678000,EEG modality,43377507,sbj_P_23.mat,23,83602861,79.73 MB,https://ndownloader.figshare.com/files/43377507,raw_downloads/EEG/sbj_P_23.mat,true,true,
+EEG,24678000,EEG modality,43377588,sbj_P_24.mat,24,84421865,80.51 MB,https://ndownloader.figshare.com/files/43377588,raw_downloads/EEG/sbj_P_24.mat,true,true,
+EEG,24678000,EEG modality,43377648,sbj_P_25.mat,25,88635980,84.53 MB,https://ndownloader.figshare.com/files/43377648,raw_downloads/EEG/sbj_P_25.mat,true,true,
+EEG,24678000,EEG modality,43377444,sbj_P_26.mat,26,79180544,75.51 MB,https://ndownloader.figshare.com/files/43377444,raw_downloads/EEG/sbj_P_26.mat,true,true,
+EEG,24678000,EEG modality,43377699,sbj_P_27.mat,27,92318673,88.04 MB,https://ndownloader.figshare.com/files/43377699,raw_downloads/EEG/sbj_P_27.mat,true,true,
+EEG,24678000,EEG modality,43377684,sbj_P_28.mat,28,89748421,85.59 MB,https://ndownloader.figshare.com/files/43377684,raw_downloads/EEG/sbj_P_28.mat,true,true,
+EEG,24678000,EEG modality,43377393,sbj_P_29.mat,29,77914888,74.31 MB,https://ndownloader.figshare.com/files/43377393,raw_downloads/EEG/sbj_P_29.mat,true,true,
+EEG,24678000,EEG modality,43377597,sbj_P_30.mat,30,83827844,79.94 MB,https://ndownloader.figshare.com/files/43377597,raw_downloads/EEG/sbj_P_30.mat,true,true,
+EEG,24678000,EEG modality,43377450,sbj_P_31.mat,31,80816565,77.07 MB,https://ndownloader.figshare.com/files/43377450,raw_downloads/EEG/sbj_P_31.mat,true,true,
+EEG,24678000,EEG modality,43377621,sbj_P_32.mat,32,85023252,81.08 MB,https://ndownloader.figshare.com/files/43377621,raw_downloads/EEG/sbj_P_32.mat,true,true,
+EEG,24678000,EEG modality,43377492,sbj_P_33.mat,33,81070147,77.31 MB,https://ndownloader.figshare.com/files/43377492,raw_downloads/EEG/sbj_P_33.mat,true,true,
+EEG,24678000,EEG modality,43377693,sbj_P_34.mat,34,86631454,82.62 MB,https://ndownloader.figshare.com/files/43377693,raw_downloads/EEG/sbj_P_34.mat,true,true,
+EEG,24678000,EEG modality,43377642,sbj_P_35.mat,35,83953897,80.06 MB,https://ndownloader.figshare.com/files/43377642,raw_downloads/EEG/sbj_P_35.mat,true,true,
+EEG,24678000,EEG modality,43377618,sbj_P_36.mat,36,83195308,79.34 MB,https://ndownloader.figshare.com/files/43377618,raw_downloads/EEG/sbj_P_36.mat,true,true,
+EEG,24678000,EEG modality,43377405,sbj_P_37.mat,37,78275434,74.65 MB,https://ndownloader.figshare.com/files/43377405,raw_downloads/EEG/sbj_P_37.mat,true,true,
+EEG,24678000,EEG modality,43377687,sbj_P_38.mat,38,86140963,82.15 MB,https://ndownloader.figshare.com/files/43377687,raw_downloads/EEG/sbj_P_38.mat,true,true,
+EEG,24678000,EEG modality,43377741,sbj_P_39.mat,39,100094910,95.46 MB,https://ndownloader.figshare.com/files/43377741,raw_downloads/EEG/sbj_P_39.mat,true,true,
+EEG,24678000,EEG modality,43377420,sbj_P_40.mat,40,77830261,74.22 MB,https://ndownloader.figshare.com/files/43377420,raw_downloads/EEG/sbj_P_40.mat,true,true,
+EEG,24678000,EEG modality,43377747,sbj_P_41.mat,41,106375599,101.45 MB,https://ndownloader.figshare.com/files/43377747,raw_downloads/EEG/sbj_P_41.mat,true,true,
+EEG,24678000,EEG modality,43377738,sbj_P_42.mat,42,92659491,88.37 MB,https://ndownloader.figshare.com/files/43377738,raw_downloads/EEG/sbj_P_42.mat,true,true,
+EEG,24678000,EEG modality,43377522,sbj_P_43.mat,43,81460492,77.69 MB,https://ndownloader.figshare.com/files/43377522,raw_downloads/EEG/sbj_P_43.mat,true,true,
+EEG,24678000,EEG modality,43377390,sbj_P_44.mat,44,76514816,72.97 MB,https://ndownloader.figshare.com/files/43377390,raw_downloads/EEG/sbj_P_44.mat,true,true,
+EEG,24678000,EEG modality,43377414,sbj_P_45.mat,45,78262824,74.64 MB,https://ndownloader.figshare.com/files/43377414,raw_downloads/EEG/sbj_P_45.mat,true,true,
+EEG,24678000,EEG modality,43377510,sbj_P_46.mat,46,80040588,76.33 MB,https://ndownloader.figshare.com/files/43377510,raw_downloads/EEG/sbj_P_46.mat,true,true,
+EEG,24678000,EEG modality,43377423,sbj_P_47.mat,47,78086391,74.47 MB,https://ndownloader.figshare.com/files/43377423,raw_downloads/EEG/sbj_P_47.mat,true,true,
+EEG,24678000,EEG modality,43377462,sbj_P_48.mat,48,79323201,75.65 MB,https://ndownloader.figshare.com/files/43377462,raw_downloads/EEG/sbj_P_48.mat,true,true,
+EEG,24678000,EEG modality,43377726,sbj_P_49.mat,49,86521529,82.51 MB,https://ndownloader.figshare.com/files/43377726,raw_downloads/EEG/sbj_P_49.mat,true,true,
+EEG,24678000,EEG modality,43377435,sbj_P_50.mat,50,78063975,74.45 MB,https://ndownloader.figshare.com/files/43377435,raw_downloads/EEG/sbj_P_50.mat,true,true,
+EEG,24678000,EEG modality,43377375,sbj_P_52.mat,52,74551208,71.10 MB,https://ndownloader.figshare.com/files/43377375,raw_downloads/EEG/sbj_P_52.mat,true,true,
+EEG,24678000,EEG modality,43377378,sbj_P_53.mat,53,75193793,71.71 MB,https://ndownloader.figshare.com/files/43377378,raw_downloads/EEG/sbj_P_53.mat,true,true,
+EEG,24678000,EEG modality,43377498,sbj_P_54.mat,54,80539901,76.81 MB,https://ndownloader.figshare.com/files/43377498,raw_downloads/EEG/sbj_P_54.mat,true,true,
+EEG,24678000,EEG modality,43377426,sbj_P_55.mat,55,78428871,74.80 MB,https://ndownloader.figshare.com/files/43377426,raw_downloads/EEG/sbj_P_55.mat,true,true,
+EEG,24678000,EEG modality,43377666,sbj_P_56.mat,56,82225386,78.42 MB,https://ndownloader.figshare.com/files/43377666,raw_downloads/EEG/sbj_P_56.mat,true,true,
+EEG,24678000,EEG modality,43377519,sbj_P_57.mat,57,80708180,76.97 MB,https://ndownloader.figshare.com/files/43377519,raw_downloads/EEG/sbj_P_57.mat,true,true,
+EEG,24678000,EEG modality,43377750,sbj_P_58.mat,58,89013329,84.89 MB,https://ndownloader.figshare.com/files/43377750,raw_downloads/EEG/sbj_P_58.mat,true,true,
+EEG,24678000,EEG modality,43377696,sbj_P_59.mat,59,83534059,79.66 MB,https://ndownloader.figshare.com/files/43377696,raw_downloads/EEG/sbj_P_59.mat,true,true,
+EEG,24678000,EEG modality,43377711,sbj_P_60.mat,60,84533276,80.62 MB,https://ndownloader.figshare.com/files/43377711,raw_downloads/EEG/sbj_P_60.mat,true,true,
+EEG,24678000,EEG modality,43377381,sbj_P_61.mat,61,74716119,71.25 MB,https://ndownloader.figshare.com/files/43377381,raw_downloads/EEG/sbj_P_61.mat,true,true,
+EEG,24678000,EEG modality,43377690,sbj_P_62.mat,62,82238220,78.43 MB,https://ndownloader.figshare.com/files/43377690,raw_downloads/EEG/sbj_P_62.mat,true,true,
+EEG,24678000,EEG modality,43377459,sbj_P_63.mat,63,79467663,75.79 MB,https://ndownloader.figshare.com/files/43377459,raw_downloads/EEG/sbj_P_63.mat,true,true,
+EEG,24678000,EEG modality,43377447,sbj_P_64.mat,64,78647017,75.00 MB,https://ndownloader.figshare.com/files/43377447,raw_downloads/EEG/sbj_P_64.mat,true,true,
+EEG,24678000,EEG modality,43377729,sbj_P_65.mat,65,84028015,80.14 MB,https://ndownloader.figshare.com/files/43377729,raw_downloads/EEG/sbj_P_65.mat,true,true,
+EMG,24680640,EMG modality,43377576,sbj_P_01.mat,1,38838918,37.04 MB,https://ndownloader.figshare.com/files/43377576,raw_downloads/EMG/sbj_P_01.mat,true,true,
+EMG,24680640,EMG modality,43377564,sbj_P_02.mat,2,37108799,35.39 MB,https://ndownloader.figshare.com/files/43377564,raw_downloads/EMG/sbj_P_02.mat,true,true,
+EMG,24680640,EMG modality,43377534,sbj_P_03.mat,3,34348201,32.76 MB,https://ndownloader.figshare.com/files/43377534,raw_downloads/EMG/sbj_P_03.mat,true,true,
+EMG,24680640,EMG modality,43377474,sbj_P_04.mat,4,32335787,30.84 MB,https://ndownloader.figshare.com/files/43377474,raw_downloads/EMG/sbj_P_04.mat,true,false,EMG-only subject. Exclude from main EEG+EMG protocol; optional EMG-only secondary analysis.
+EMG,24680640,EMG modality,43377477,sbj_P_05.mat,5,32201872,30.71 MB,https://ndownloader.figshare.com/files/43377477,raw_downloads/EMG/sbj_P_05.mat,true,true,
+EMG,24680640,EMG modality,43377555,sbj_P_06.mat,6,35020504,33.40 MB,https://ndownloader.figshare.com/files/43377555,raw_downloads/EMG/sbj_P_06.mat,true,true,
+EMG,24680640,EMG modality,43377489,sbj_P_07.mat,7,33166281,31.63 MB,https://ndownloader.figshare.com/files/43377489,raw_downloads/EMG/sbj_P_07.mat,true,true,
+EMG,24680640,EMG modality,43377480,sbj_P_08.mat,8,32568467,31.06 MB,https://ndownloader.figshare.com/files/43377480,raw_downloads/EMG/sbj_P_08.mat,true,true,
+EMG,24680640,EMG modality,43377537,sbj_P_09.mat,9,33600789,32.04 MB,https://ndownloader.figshare.com/files/43377537,raw_downloads/EMG/sbj_P_09.mat,true,true,
+EMG,24680640,EMG modality,43377468,sbj_P_10.mat,10,31939989,30.46 MB,https://ndownloader.figshare.com/files/43377468,raw_downloads/EMG/sbj_P_10.mat,true,true,
+EMG,24680640,EMG modality,43377453,sbj_P_11.mat,11,30843594,29.41 MB,https://ndownloader.figshare.com/files/43377453,raw_downloads/EMG/sbj_P_11.mat,true,true,
+EMG,24680640,EMG modality,43377402,sbj_P_12.mat,12,28329888,27.02 MB,https://ndownloader.figshare.com/files/43377402,raw_downloads/EMG/sbj_P_12.mat,true,true,
+EMG,24680640,EMG modality,43377627,sbj_P_13.mat,13,38920035,37.12 MB,https://ndownloader.figshare.com/files/43377627,raw_downloads/EMG/sbj_P_13.mat,true,true,
+EMG,24680640,EMG modality,43377456,sbj_P_14.mat,14,31354111,29.90 MB,https://ndownloader.figshare.com/files/43377456,raw_downloads/EMG/sbj_P_14.mat,true,true,
+EMG,24680640,EMG modality,43377438,sbj_P_15.mat,15,30046247,28.65 MB,https://ndownloader.figshare.com/files/43377438,raw_downloads/EMG/sbj_P_15.mat,true,true,
+EMG,24680640,EMG modality,43377540,sbj_P_16.mat,16,32993156,31.46 MB,https://ndownloader.figshare.com/files/43377540,raw_downloads/EMG/sbj_P_16.mat,true,true,
+EMG,24680640,EMG modality,43377624,sbj_P_17.mat,17,37145574,35.42 MB,https://ndownloader.figshare.com/files/43377624,raw_downloads/EMG/sbj_P_17.mat,true,true,
+EMG,24680640,EMG modality,43377558,sbj_P_18.mat,18,33804117,32.24 MB,https://ndownloader.figshare.com/files/43377558,raw_downloads/EMG/sbj_P_18.mat,true,true,
+EMG,24680640,EMG modality,43377543,sbj_P_19.mat,19,33182589,31.65 MB,https://ndownloader.figshare.com/files/43377543,raw_downloads/EMG/sbj_P_19.mat,true,true,
+EMG,24680640,EMG modality,43377504,sbj_P_20.mat,20,31994886,30.51 MB,https://ndownloader.figshare.com/files/43377504,raw_downloads/EMG/sbj_P_20.mat,true,true,
+EMG,24680640,EMG modality,43377675,sbj_P_21.mat,21,40925741,39.03 MB,https://ndownloader.figshare.com/files/43377675,raw_downloads/EMG/sbj_P_21.mat,true,true,
+EMG,24680640,EMG modality,43377471,sbj_P_22.mat,22,30975906,29.54 MB,https://ndownloader.figshare.com/files/43377471,raw_downloads/EMG/sbj_P_22.mat,true,true,
+EMG,24680640,EMG modality,43377552,sbj_P_23.mat,23,33299730,31.76 MB,https://ndownloader.figshare.com/files/43377552,raw_downloads/EMG/sbj_P_23.mat,true,true,
+EMG,24680640,EMG modality,43377603,sbj_P_24.mat,24,33565034,32.01 MB,https://ndownloader.figshare.com/files/43377603,raw_downloads/EMG/sbj_P_24.mat,true,true,
+EMG,24680640,EMG modality,43377615,sbj_P_25.mat,25,35222284,33.59 MB,https://ndownloader.figshare.com/files/43377615,raw_downloads/EMG/sbj_P_25.mat,true,true,
+EMG,24680640,EMG modality,43377528,sbj_P_26.mat,26,31733215,30.26 MB,https://ndownloader.figshare.com/files/43377528,raw_downloads/EMG/sbj_P_26.mat,true,true,
+EMG,24680640,EMG modality,43377657,sbj_P_27.mat,27,36532565,34.84 MB,https://ndownloader.figshare.com/files/43377657,raw_downloads/EMG/sbj_P_27.mat,true,true,
+EMG,24680640,EMG modality,43377654,sbj_P_28.mat,28,35943441,34.28 MB,https://ndownloader.figshare.com/files/43377654,raw_downloads/EMG/sbj_P_28.mat,true,true,
+EMG,24680640,EMG modality,43377483,sbj_P_29.mat,29,31162293,29.72 MB,https://ndownloader.figshare.com/files/43377483,raw_downloads/EMG/sbj_P_29.mat,true,true,
+EMG,24680640,EMG modality,43377600,sbj_P_30.mat,30,33362668,31.82 MB,https://ndownloader.figshare.com/files/43377600,raw_downloads/EMG/sbj_P_30.mat,true,true,
+EMG,24680640,EMG modality,43377549,sbj_P_31.mat,31,32199222,30.71 MB,https://ndownloader.figshare.com/files/43377549,raw_downloads/EMG/sbj_P_31.mat,true,true,
+EMG,24680640,EMG modality,43377633,sbj_P_32.mat,32,34192874,32.61 MB,https://ndownloader.figshare.com/files/43377633,raw_downloads/EMG/sbj_P_32.mat,true,true,
+EMG,24680640,EMG modality,43377573,sbj_P_33.mat,33,32309679,30.81 MB,https://ndownloader.figshare.com/files/43377573,raw_downloads/EMG/sbj_P_33.mat,true,true,
+EMG,24680640,EMG modality,43377651,sbj_P_34.mat,34,34425332,32.83 MB,https://ndownloader.figshare.com/files/43377651,raw_downloads/EMG/sbj_P_34.mat,true,true,
+EMG,24680640,EMG modality,43377636,sbj_P_35.mat,35,33450335,31.90 MB,https://ndownloader.figshare.com/files/43377636,raw_downloads/EMG/sbj_P_35.mat,true,true,
+EMG,24680640,EMG modality,43377639,sbj_P_36.mat,36,33243596,31.70 MB,https://ndownloader.figshare.com/files/43377639,raw_downloads/EMG/sbj_P_36.mat,true,true,
+EMG,24680640,EMG modality,43377546,sbj_P_37.mat,37,31206488,29.76 MB,https://ndownloader.figshare.com/files/43377546,raw_downloads/EMG/sbj_P_37.mat,true,true,
+EMG,24680640,EMG modality,43377678,sbj_P_38.mat,38,34399468,32.81 MB,https://ndownloader.figshare.com/files/43377678,raw_downloads/EMG/sbj_P_38.mat,true,true,
+EMG,24680640,EMG modality,43377723,sbj_P_39.mat,39,39974872,38.12 MB,https://ndownloader.figshare.com/files/43377723,raw_downloads/EMG/sbj_P_39.mat,true,true,
+EMG,24680640,EMG modality,43377567,sbj_P_40.mat,40,31121905,29.68 MB,https://ndownloader.figshare.com/files/43377567,raw_downloads/EMG/sbj_P_40.mat,true,true,
+EMG,24680640,EMG modality,43377735,sbj_P_41.mat,41,42510770,40.54 MB,https://ndownloader.figshare.com/files/43377735,raw_downloads/EMG/sbj_P_41.mat,true,true,
+EMG,24680640,EMG modality,43377720,sbj_P_42.mat,42,36971798,35.26 MB,https://ndownloader.figshare.com/files/43377720,raw_downloads/EMG/sbj_P_42.mat,true,true,
+EMG,24680640,EMG modality,43377609,sbj_P_43.mat,43,32488152,30.98 MB,https://ndownloader.figshare.com/files/43377609,raw_downloads/EMG/sbj_P_43.mat,true,true,
+EMG,24680640,EMG modality,43377531,sbj_P_44.mat,44,30594561,29.18 MB,https://ndownloader.figshare.com/files/43377531,raw_downloads/EMG/sbj_P_44.mat,true,true,
+EMG,24680640,EMG modality,43377582,sbj_P_45.mat,45,31169305,29.73 MB,https://ndownloader.figshare.com/files/43377582,raw_downloads/EMG/sbj_P_45.mat,true,true,
+EMG,24680640,EMG modality,43377612,sbj_P_46.mat,46,31913255,30.43 MB,https://ndownloader.figshare.com/files/43377612,raw_downloads/EMG/sbj_P_46.mat,true,true,
+EMG,24680640,EMG modality,43377570,sbj_P_47.mat,47,31151898,29.71 MB,https://ndownloader.figshare.com/files/43377570,raw_downloads/EMG/sbj_P_47.mat,true,true,
+EMG,24680640,EMG modality,43377606,sbj_P_48.mat,48,31655399,30.19 MB,https://ndownloader.figshare.com/files/43377606,raw_downloads/EMG/sbj_P_48.mat,true,true,
+EMG,24680640,EMG modality,43377708,sbj_P_49.mat,49,34402696,32.81 MB,https://ndownloader.figshare.com/files/43377708,raw_downloads/EMG/sbj_P_49.mat,true,true,
+EMG,24680640,EMG modality,43377579,sbj_P_50.mat,50,31162560,29.72 MB,https://ndownloader.figshare.com/files/43377579,raw_downloads/EMG/sbj_P_50.mat,true,true,
+EMG,24680640,EMG modality,43377486,sbj_P_52.mat,52,29656614,28.28 MB,https://ndownloader.figshare.com/files/43377486,raw_downloads/EMG/sbj_P_52.mat,true,true,
+EMG,24680640,EMG modality,43377525,sbj_P_53.mat,53,30035460,28.64 MB,https://ndownloader.figshare.com/files/43377525,raw_downloads/EMG/sbj_P_53.mat,true,true,
+EMG,24680640,EMG modality,43377660,sbj_P_54.mat,54,32101366,30.61 MB,https://ndownloader.figshare.com/files/43377660,raw_downloads/EMG/sbj_P_54.mat,true,true,
+EMG,24680640,EMG modality,43377585,sbj_P_55.mat,55,31405617,29.95 MB,https://ndownloader.figshare.com/files/43377585,raw_downloads/EMG/sbj_P_55.mat,true,true,
+EMG,24680640,EMG modality,43377681,sbj_P_56.mat,56,32734691,31.22 MB,https://ndownloader.figshare.com/files/43377681,raw_downloads/EMG/sbj_P_56.mat,true,true,
+EMG,24680640,EMG modality,43377669,sbj_P_57.mat,57,32298721,30.80 MB,https://ndownloader.figshare.com/files/43377669,raw_downloads/EMG/sbj_P_57.mat,true,true,
+EMG,24680640,EMG modality,43377744,sbj_P_58.mat,58,35530670,33.88 MB,https://ndownloader.figshare.com/files/43377744,raw_downloads/EMG/sbj_P_58.mat,true,true,
+EMG,24680640,EMG modality,43377717,sbj_P_59.mat,59,33266078,31.73 MB,https://ndownloader.figshare.com/files/43377717,raw_downloads/EMG/sbj_P_59.mat,true,true,
+EMG,24680640,EMG modality,43377714,sbj_P_60.mat,60,33705711,32.14 MB,https://ndownloader.figshare.com/files/43377714,raw_downloads/EMG/sbj_P_60.mat,true,true,
+EMG,24680640,EMG modality,43377501,sbj_P_61.mat,61,29591522,28.22 MB,https://ndownloader.figshare.com/files/43377501,raw_downloads/EMG/sbj_P_61.mat,true,true,
+EMG,24680640,EMG modality,43377702,sbj_P_62.mat,62,32753996,31.24 MB,https://ndownloader.figshare.com/files/43377702,raw_downloads/EMG/sbj_P_62.mat,true,true,
+EMG,24680640,EMG modality,43377672,sbj_P_63.mat,63,31736640,30.27 MB,https://ndownloader.figshare.com/files/43377672,raw_downloads/EMG/sbj_P_63.mat,true,true,
+EMG,24680640,EMG modality,43377630,sbj_P_64.mat,64,31191012,29.75 MB,https://ndownloader.figshare.com/files/43377630,raw_downloads/EMG/sbj_P_64.mat,true,true,
+EMG,24680640,EMG modality,43377732,sbj_P_65.mat,65,33520244,31.97 MB,https://ndownloader.figshare.com/files/43377732,raw_downloads/EMG/sbj_P_65.mat,true,true,
+labels,24680694,Supplementary material,43377903,Arousal_SAM.csv,,4954,4.84 KB,https://ndownloader.figshare.com/files/43377903,labels/Arousal_SAM.csv,true,true,
+labels,24680694,Supplementary material,43377906,Quadrants_SAM.csv,,11280,11.02 KB,https://ndownloader.figshare.com/files/43377906,labels/Quadrants_SAM.csv,true,true,
+labels,24680694,Supplementary material,43377909,Sample.csv,,1236,1.21 KB,https://ndownloader.figshare.com/files/43377909,labels/Sample.csv,true,true,
+labels,24680694,Supplementary material,43377915,Valence_SAM.csv,,4954,4.84 KB,https://ndownloader.figshare.com/files/43377915,labels/Valence_SAM.csv,true,true,
+metadata,24680694,Supplementary material,43377900,Agreement_Raters.csv,,2973,2.90 KB,https://ndownloader.figshare.com/files/43377900,metadata/Agreement_Raters.csv,true,true,
+metadata,24680694,Supplementary material,43377912,Stimuli_Specifications.csv,,41114,40.15 KB,https://ndownloader.figshare.com/files/43377912,metadata/Stimuli_Specifications.csv,true,true,
+ET,24680751,ET modality,43377945,sbj_P_01.mat,1,1261840,1.20 MB,https://ndownloader.figshare.com/files/43377945,unused/ET/sbj_P_01.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43377924,sbj_P_02.mat,2,1212940,1.16 MB,https://ndownloader.figshare.com/files/43377924,unused/ET/sbj_P_02.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43377927,sbj_P_03.mat,3,1143508,1.09 MB,https://ndownloader.figshare.com/files/43377927,unused/ET/sbj_P_03.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43377921,sbj_P_04.mat,4,1027122,1003.05 KB,https://ndownloader.figshare.com/files/43377921,unused/ET/sbj_P_04.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43377933,sbj_P_05.mat,5,1013068,989.32 KB,https://ndownloader.figshare.com/files/43377933,unused/ET/sbj_P_05.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43377930,sbj_P_06.mat,6,1121075,1.07 MB,https://ndownloader.figshare.com/files/43377930,unused/ET/sbj_P_06.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43377939,sbj_P_07.mat,7,1062491,1.01 MB,https://ndownloader.figshare.com/files/43377939,unused/ET/sbj_P_07.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43377936,sbj_P_08.mat,8,1045975,1021.46 KB,https://ndownloader.figshare.com/files/43377936,unused/ET/sbj_P_08.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43377951,sbj_P_09.mat,9,1095197,1.04 MB,https://ndownloader.figshare.com/files/43377951,unused/ET/sbj_P_09.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43377942,sbj_P_10.mat,10,1047554,1023.00 KB,https://ndownloader.figshare.com/files/43377942,unused/ET/sbj_P_10.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43377954,sbj_P_11.mat,11,945152,923.00 KB,https://ndownloader.figshare.com/files/43377954,unused/ET/sbj_P_11.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43377948,sbj_P_12.mat,12,927492,905.75 KB,https://ndownloader.figshare.com/files/43377948,unused/ET/sbj_P_12.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43377960,sbj_P_13.mat,13,1270977,1.21 MB,https://ndownloader.figshare.com/files/43377960,unused/ET/sbj_P_13.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43377957,sbj_P_14.mat,14,1042234,1017.81 KB,https://ndownloader.figshare.com/files/43377957,unused/ET/sbj_P_14.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43377969,sbj_P_15.mat,15,978264,955.34 KB,https://ndownloader.figshare.com/files/43377969,unused/ET/sbj_P_15.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43377963,sbj_P_16.mat,16,1053646,1.00 MB,https://ndownloader.figshare.com/files/43377963,unused/ET/sbj_P_16.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43377972,sbj_P_17.mat,17,1220122,1.16 MB,https://ndownloader.figshare.com/files/43377972,unused/ET/sbj_P_17.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43377966,sbj_P_18.mat,18,1116510,1.06 MB,https://ndownloader.figshare.com/files/43377966,unused/ET/sbj_P_18.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43377975,sbj_P_19.mat,19,1054139,1.01 MB,https://ndownloader.figshare.com/files/43377975,unused/ET/sbj_P_19.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43377978,sbj_P_20.mat,20,1035005,1010.75 KB,https://ndownloader.figshare.com/files/43377978,unused/ET/sbj_P_20.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43377981,sbj_P_21.mat,21,1221292,1.16 MB,https://ndownloader.figshare.com/files/43377981,unused/ET/sbj_P_21.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43377984,sbj_P_22.mat,22,1014829,991.04 KB,https://ndownloader.figshare.com/files/43377984,unused/ET/sbj_P_22.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43377990,sbj_P_23.mat,23,1032154,1007.96 KB,https://ndownloader.figshare.com/files/43377990,unused/ET/sbj_P_23.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43377987,sbj_P_24.mat,24,1069470,1.02 MB,https://ndownloader.figshare.com/files/43377987,unused/ET/sbj_P_24.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43377999,sbj_P_25.mat,25,1149837,1.10 MB,https://ndownloader.figshare.com/files/43377999,unused/ET/sbj_P_25.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43377993,sbj_P_26.mat,26,877608,857.04 KB,https://ndownloader.figshare.com/files/43377993,unused/ET/sbj_P_26.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43377996,sbj_P_27.mat,27,1177984,1.12 MB,https://ndownloader.figshare.com/files/43377996,unused/ET/sbj_P_27.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378002,sbj_P_28.mat,28,1205528,1.15 MB,https://ndownloader.figshare.com/files/43378002,unused/ET/sbj_P_28.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378008,sbj_P_29.mat,29,1023147,999.17 KB,https://ndownloader.figshare.com/files/43378008,unused/ET/sbj_P_29.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378005,sbj_P_30.mat,30,1118421,1.07 MB,https://ndownloader.figshare.com/files/43378005,unused/ET/sbj_P_30.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378011,sbj_P_31.mat,31,1062323,1.01 MB,https://ndownloader.figshare.com/files/43378011,unused/ET/sbj_P_31.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378014,sbj_P_32.mat,32,1068619,1.02 MB,https://ndownloader.figshare.com/files/43378014,unused/ET/sbj_P_32.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378020,sbj_P_33.mat,33,1049761,1.00 MB,https://ndownloader.figshare.com/files/43378020,unused/ET/sbj_P_33.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378026,sbj_P_34.mat,34,1100875,1.05 MB,https://ndownloader.figshare.com/files/43378026,unused/ET/sbj_P_34.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378023,sbj_P_35.mat,35,980965,957.97 KB,https://ndownloader.figshare.com/files/43378023,unused/ET/sbj_P_35.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378032,sbj_P_36.mat,36,1069833,1.02 MB,https://ndownloader.figshare.com/files/43378032,unused/ET/sbj_P_36.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378017,sbj_P_37.mat,37,985111,962.02 KB,https://ndownloader.figshare.com/files/43378017,unused/ET/sbj_P_37.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378038,sbj_P_38.mat,38,1128576,1.08 MB,https://ndownloader.figshare.com/files/43378038,unused/ET/sbj_P_38.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378035,sbj_P_39.mat,39,1305153,1.24 MB,https://ndownloader.figshare.com/files/43378035,unused/ET/sbj_P_39.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378053,sbj_P_40.mat,40,926092,904.39 KB,https://ndownloader.figshare.com/files/43378053,unused/ET/sbj_P_40.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378056,sbj_P_41.mat,41,1290253,1.23 MB,https://ndownloader.figshare.com/files/43378056,unused/ET/sbj_P_41.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378050,sbj_P_42.mat,42,1195596,1.14 MB,https://ndownloader.figshare.com/files/43378050,unused/ET/sbj_P_42.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378029,sbj_P_43.mat,43,1064883,1.02 MB,https://ndownloader.figshare.com/files/43378029,unused/ET/sbj_P_43.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378059,sbj_P_44.mat,44,992652,969.39 KB,https://ndownloader.figshare.com/files/43378059,unused/ET/sbj_P_44.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378041,sbj_P_45.mat,45,1011701,987.99 KB,https://ndownloader.figshare.com/files/43378041,unused/ET/sbj_P_45.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378062,sbj_P_46.mat,46,1006849,983.25 KB,https://ndownloader.figshare.com/files/43378062,unused/ET/sbj_P_46.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378044,sbj_P_47.mat,47,1044511,1020.03 KB,https://ndownloader.figshare.com/files/43378044,unused/ET/sbj_P_47.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378047,sbj_P_48.mat,48,1032125,1007.93 KB,https://ndownloader.figshare.com/files/43378047,unused/ET/sbj_P_48.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378068,sbj_P_49.mat,49,1118568,1.07 MB,https://ndownloader.figshare.com/files/43378068,unused/ET/sbj_P_49.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378080,sbj_P_50.mat,50,1019019,995.14 KB,https://ndownloader.figshare.com/files/43378080,unused/ET/sbj_P_50.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378077,sbj_P_51.mat,51,1151324,1.10 MB,https://ndownloader.figshare.com/files/43378077,unused/ET/sbj_P_51.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378071,sbj_P_52.mat,52,942217,920.13 KB,https://ndownloader.figshare.com/files/43378071,unused/ET/sbj_P_52.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378083,sbj_P_53.mat,53,974137,951.31 KB,https://ndownloader.figshare.com/files/43378083,unused/ET/sbj_P_53.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378089,sbj_P_54.mat,54,1037589,1013.27 KB,https://ndownloader.figshare.com/files/43378089,unused/ET/sbj_P_54.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378095,sbj_P_55.mat,55,1038809,1014.46 KB,https://ndownloader.figshare.com/files/43378095,unused/ET/sbj_P_55.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378092,sbj_P_56.mat,56,1037373,1013.06 KB,https://ndownloader.figshare.com/files/43378092,unused/ET/sbj_P_56.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378074,sbj_P_57.mat,57,1044748,1020.26 KB,https://ndownloader.figshare.com/files/43378074,unused/ET/sbj_P_57.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378101,sbj_P_58.mat,58,1153080,1.10 MB,https://ndownloader.figshare.com/files/43378101,unused/ET/sbj_P_58.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378107,sbj_P_59.mat,59,1083259,1.03 MB,https://ndownloader.figshare.com/files/43378107,unused/ET/sbj_P_59.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378110,sbj_P_60.mat,60,1112557,1.06 MB,https://ndownloader.figshare.com/files/43378110,unused/ET/sbj_P_60.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378086,sbj_P_61.mat,61,949379,927.13 KB,https://ndownloader.figshare.com/files/43378086,unused/ET/sbj_P_61.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378113,sbj_P_62.mat,62,1067219,1.02 MB,https://ndownloader.figshare.com/files/43378113,unused/ET/sbj_P_62.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378098,sbj_P_63.mat,63,1044861,1020.37 KB,https://ndownloader.figshare.com/files/43378098,unused/ET/sbj_P_63.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378104,sbj_P_64.mat,64,929891,908.10 KB,https://ndownloader.figshare.com/files/43378104,unused/ET/sbj_P_64.mat,false,false,Not required for first-stage EEG-EMG project.
+ET,24680751,ET modality,43378116,sbj_P_65.mat,65,986061,962.95 KB,https://ndownloader.figshare.com/files/43378116,unused/ET/sbj_P_65.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43376988,sbj_P_01.mat,1,599107,585.07 KB,https://ndownloader.figshare.com/files/43376988,unused/SC/PPG/sbj_P_01.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43376961,sbj_P_02.mat,2,585386,571.67 KB,https://ndownloader.figshare.com/files/43376961,unused/SC/PPG/sbj_P_02.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43376955,sbj_P_03.mat,3,542717,530.00 KB,https://ndownloader.figshare.com/files/43376955,unused/SC/PPG/sbj_P_03.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43376958,sbj_P_04.mat,4,510965,498.99 KB,https://ndownloader.figshare.com/files/43376958,unused/SC/PPG/sbj_P_04.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43376964,sbj_P_05.mat,5,477658,466.46 KB,https://ndownloader.figshare.com/files/43376964,unused/SC/PPG/sbj_P_05.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43376967,sbj_P_06.mat,6,544951,532.18 KB,https://ndownloader.figshare.com/files/43376967,unused/SC/PPG/sbj_P_06.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43376979,sbj_P_07.mat,7,527368,515.01 KB,https://ndownloader.figshare.com/files/43376979,unused/SC/PPG/sbj_P_07.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43376970,sbj_P_08.mat,8,509973,498.02 KB,https://ndownloader.figshare.com/files/43376970,unused/SC/PPG/sbj_P_08.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43376973,sbj_P_09.mat,9,500909,489.17 KB,https://ndownloader.figshare.com/files/43376973,unused/SC/PPG/sbj_P_09.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43376982,sbj_P_10.mat,10,492865,481.31 KB,https://ndownloader.figshare.com/files/43376982,unused/SC/PPG/sbj_P_10.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43376985,sbj_P_11.mat,11,472900,461.82 KB,https://ndownloader.figshare.com/files/43376985,unused/SC/PPG/sbj_P_11.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43376976,sbj_P_12.mat,12,444005,433.60 KB,https://ndownloader.figshare.com/files/43376976,unused/SC/PPG/sbj_P_12.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377012,sbj_P_13.mat,13,605511,591.32 KB,https://ndownloader.figshare.com/files/43377012,unused/SC/PPG/sbj_P_13.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43376991,sbj_P_14.mat,14,487333,475.91 KB,https://ndownloader.figshare.com/files/43376991,unused/SC/PPG/sbj_P_14.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377000,sbj_P_15.mat,15,463876,453.00 KB,https://ndownloader.figshare.com/files/43377000,unused/SC/PPG/sbj_P_15.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43376994,sbj_P_16.mat,16,509862,497.91 KB,https://ndownloader.figshare.com/files/43376994,unused/SC/PPG/sbj_P_16.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377003,sbj_P_17.mat,17,570733,557.36 KB,https://ndownloader.figshare.com/files/43377003,unused/SC/PPG/sbj_P_17.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377006,sbj_P_18.mat,18,529118,516.72 KB,https://ndownloader.figshare.com/files/43377006,unused/SC/PPG/sbj_P_18.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43376997,sbj_P_19.mat,19,521425,509.20 KB,https://ndownloader.figshare.com/files/43376997,unused/SC/PPG/sbj_P_19.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377009,sbj_P_20.mat,20,477704,466.51 KB,https://ndownloader.figshare.com/files/43377009,unused/SC/PPG/sbj_P_20.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377036,sbj_P_21.mat,21,636449,621.53 KB,https://ndownloader.figshare.com/files/43377036,unused/SC/PPG/sbj_P_21.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377018,sbj_P_22.mat,22,492741,481.19 KB,https://ndownloader.figshare.com/files/43377018,unused/SC/PPG/sbj_P_22.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377015,sbj_P_23.mat,23,521958,509.72 KB,https://ndownloader.figshare.com/files/43377015,unused/SC/PPG/sbj_P_23.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377021,sbj_P_24.mat,24,503975,492.16 KB,https://ndownloader.figshare.com/files/43377021,unused/SC/PPG/sbj_P_24.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377030,sbj_P_25.mat,25,531383,518.93 KB,https://ndownloader.figshare.com/files/43377030,unused/SC/PPG/sbj_P_25.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377024,sbj_P_26.mat,26,499932,488.21 KB,https://ndownloader.figshare.com/files/43377024,unused/SC/PPG/sbj_P_26.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377027,sbj_P_27.mat,27,552784,539.83 KB,https://ndownloader.figshare.com/files/43377027,unused/SC/PPG/sbj_P_27.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377039,sbj_P_28.mat,28,561144,547.99 KB,https://ndownloader.figshare.com/files/43377039,unused/SC/PPG/sbj_P_28.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377033,sbj_P_29.mat,29,473228,462.14 KB,https://ndownloader.figshare.com/files/43377033,unused/SC/PPG/sbj_P_29.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377042,sbj_P_30.mat,30,522360,510.12 KB,https://ndownloader.figshare.com/files/43377042,unused/SC/PPG/sbj_P_30.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377051,sbj_P_31.mat,31,506992,495.11 KB,https://ndownloader.figshare.com/files/43377051,unused/SC/PPG/sbj_P_31.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377048,sbj_P_32.mat,32,520101,507.91 KB,https://ndownloader.figshare.com/files/43377048,unused/SC/PPG/sbj_P_32.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377045,sbj_P_33.mat,33,499241,487.54 KB,https://ndownloader.figshare.com/files/43377045,unused/SC/PPG/sbj_P_33.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377063,sbj_P_34.mat,34,524642,512.35 KB,https://ndownloader.figshare.com/files/43377063,unused/SC/PPG/sbj_P_34.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377054,sbj_P_35.mat,35,494307,482.72 KB,https://ndownloader.figshare.com/files/43377054,unused/SC/PPG/sbj_P_35.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377060,sbj_P_36.mat,36,515990,503.90 KB,https://ndownloader.figshare.com/files/43377060,unused/SC/PPG/sbj_P_36.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377057,sbj_P_37.mat,37,482101,470.80 KB,https://ndownloader.figshare.com/files/43377057,unused/SC/PPG/sbj_P_37.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377078,sbj_P_38.mat,38,532271,519.80 KB,https://ndownloader.figshare.com/files/43377078,unused/SC/PPG/sbj_P_38.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377090,sbj_P_39.mat,39,620356,605.82 KB,https://ndownloader.figshare.com/files/43377090,unused/SC/PPG/sbj_P_39.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377066,sbj_P_40.mat,40,481292,470.01 KB,https://ndownloader.figshare.com/files/43377066,unused/SC/PPG/sbj_P_40.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377093,sbj_P_41.mat,41,653329,638.02 KB,https://ndownloader.figshare.com/files/43377093,unused/SC/PPG/sbj_P_41.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377072,sbj_P_42.mat,42,571426,558.03 KB,https://ndownloader.figshare.com/files/43377072,unused/SC/PPG/sbj_P_42.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377069,sbj_P_43.mat,43,502884,491.10 KB,https://ndownloader.figshare.com/files/43377069,unused/SC/PPG/sbj_P_43.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377081,sbj_P_44.mat,44,471243,460.20 KB,https://ndownloader.figshare.com/files/43377081,unused/SC/PPG/sbj_P_44.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377075,sbj_P_45.mat,45,491035,479.53 KB,https://ndownloader.figshare.com/files/43377075,unused/SC/PPG/sbj_P_45.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377087,sbj_P_46.mat,46,503443,491.64 KB,https://ndownloader.figshare.com/files/43377087,unused/SC/PPG/sbj_P_46.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377111,sbj_P_47.mat,47,472797,461.72 KB,https://ndownloader.figshare.com/files/43377111,unused/SC/PPG/sbj_P_47.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377108,sbj_P_48.mat,48,496995,485.35 KB,https://ndownloader.figshare.com/files/43377108,unused/SC/PPG/sbj_P_48.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377096,sbj_P_49.mat,49,536567,523.99 KB,https://ndownloader.figshare.com/files/43377096,unused/SC/PPG/sbj_P_49.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377105,sbj_P_50.mat,50,485322,473.95 KB,https://ndownloader.figshare.com/files/43377105,unused/SC/PPG/sbj_P_50.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377099,sbj_P_52.mat,52,444019,433.61 KB,https://ndownloader.figshare.com/files/43377099,unused/SC/PPG/sbj_P_52.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377102,sbj_P_53.mat,53,476075,464.92 KB,https://ndownloader.figshare.com/files/43377102,unused/SC/PPG/sbj_P_53.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377117,sbj_P_54.mat,54,490302,478.81 KB,https://ndownloader.figshare.com/files/43377117,unused/SC/PPG/sbj_P_54.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377123,sbj_P_55.mat,55,478051,466.85 KB,https://ndownloader.figshare.com/files/43377123,unused/SC/PPG/sbj_P_55.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377126,sbj_P_56.mat,56,508744,496.82 KB,https://ndownloader.figshare.com/files/43377126,unused/SC/PPG/sbj_P_56.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377114,sbj_P_57.mat,57,499399,487.69 KB,https://ndownloader.figshare.com/files/43377114,unused/SC/PPG/sbj_P_57.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377135,sbj_P_58.mat,58,552808,539.85 KB,https://ndownloader.figshare.com/files/43377135,unused/SC/PPG/sbj_P_58.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377120,sbj_P_59.mat,59,511242,499.26 KB,https://ndownloader.figshare.com/files/43377120,unused/SC/PPG/sbj_P_59.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377138,sbj_P_60.mat,60,525105,512.80 KB,https://ndownloader.figshare.com/files/43377138,unused/SC/PPG/sbj_P_60.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377129,sbj_P_61.mat,61,455615,444.94 KB,https://ndownloader.figshare.com/files/43377129,unused/SC/PPG/sbj_P_61.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377147,sbj_P_62.mat,62,502649,490.87 KB,https://ndownloader.figshare.com/files/43377147,unused/SC/PPG/sbj_P_62.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377144,sbj_P_63.mat,63,499256,487.55 KB,https://ndownloader.figshare.com/files/43377144,unused/SC/PPG/sbj_P_63.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377132,sbj_P_64.mat,64,482934,471.62 KB,https://ndownloader.figshare.com/files/43377132,unused/SC/PPG/sbj_P_64.mat,false,false,Not required for first-stage EEG-EMG project.
+SC/PPG,24680646,SC&PPG modalities,43377141,sbj_P_65.mat,65,525526,513.21 KB,https://ndownloader.figshare.com/files/43377141,unused/SC/PPG/sbj_P_65.mat,false,false,Not required for first-stage EEG-EMG project.
+metadata,24680694,Supplementary material,44157467,Stimuli_Selection.pdf,,191236,186.75 KB,https://ndownloader.figshare.com/files/44157467,metadata/Stimuli_Selection.pdf,false,false,Documentation only; not required for first-stage download.

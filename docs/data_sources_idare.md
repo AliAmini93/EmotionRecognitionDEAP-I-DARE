@@ -113,7 +113,7 @@ metadata
 Required first-stage count:
 
 ```text
-134 files
+133 files
 ```
 
 Required first-stage size:

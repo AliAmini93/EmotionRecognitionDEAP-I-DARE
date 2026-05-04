@@ -39,7 +39,7 @@ Evaluate whether auxiliary EMG and trial-aware temporal modeling improve cross-s
   - Articles discovered: 5
   - Files discovered: 263
   - Total listed size: 6.98 GB
-  - First-stage required files: 134
+  - First-stage required files: 133
   - First-stage required size: 6.88 GB
   - EEG subjects: 63
   - EMG subjects: 64
@@ -48,8 +48,19 @@ Evaluate whether auxiliary EMG and trial-aware temporal modeling improve cross-s
 - Main I-DARE decision:
   - Use the 63 common EEG+EMG subjects for main experiments.
   - Exclude subject 4 from the main EEG+EMG protocol.
+- I-DARE download manifest has been generated.
+- I-DARE manifest files:
+  - scripts/build_idare_download_manifest.py
+  - docs/idare_download_manifest.csv
+  - docs/idare_download_manifest_summary.md
+- I-DARE manifest result:
+  - Total listed files: 263
+  - First-stage files: 133
+  - Main-protocol files: 132
+  - First-stage total size: 6.88 GB
+  - Main-protocol total size: 6.85 GB
 - Next practical step:
-  - Build `docs/idare_download_manifest.csv`.
+  - Review `docs/idare_download_manifest.csv` before downloading I-DARE files.
 
 ## Current Code Status
 - Repository scaffold exists locally and has been pushed to GitHub.
@@ -65,7 +76,7 @@ Evaluate whether auxiliary EMG and trial-aware temporal modeling improve cross-s
 - To verify the latest commit, run `git status` and `git log --oneline -5`.
 
 ## Immediate Next Step
-Build and review `docs/idare_download_manifest.csv` before downloading I-DARE files.
+Review `docs/idare_download_manifest.csv` before downloading I-DARE files.
 
 Current Milestone 1 status:
 - Storage location accepted for the initial phase.

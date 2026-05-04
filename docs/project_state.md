@@ -41,31 +41,39 @@ Decide the exact DEAP and I-DARE dataset versions/files to download, then audit 
   - Articles discovered: 5
   - Files discovered: 263
   - Total listed size: 6.98 GB
-  - First-stage required files: 134
+  - First-stage required files: 133
   - First-stage required size: 6.88 GB
   - Common EEG+EMG subjects: 63
   - EMG-only subject excluded from main protocol: subject 4
+- I-DARE download manifest generated:
+  - scripts/build_idare_download_manifest.py
+  - docs/idare_download_manifest.csv
+  - docs/idare_download_manifest_summary.md
+- I-DARE manifest result:
+  - Total listed files: 263
+  - First-stage files: 133
+  - Main-protocol files: 132
+  - First-stage total size: 6.88 GB
+  - Main-protocol total size: 6.85 GB
 - Repository was pushed successfully and is expected to be synced with `origin/main` at the time of handoff.
 - To verify the latest commit, run `git status` and `git log --oneline -5`.
 
 ## In Progress
 - Preparing Milestone 1: dataset acquisition and dataset audit.
-- Next practical step: build `docs/idare_download_manifest.csv` before downloading I-DARE files.
+- Next practical step: review `docs/idare_download_manifest.csv` before downloading I-DARE files.
 
 ## Next Steps
-1. Build `docs/idare_download_manifest.csv` from:
-   - docs/data_sources_idare.json
-2. Review the I-DARE download manifest before downloading files.
-3. Download selected I-DARE first-stage files:
+1. Review `docs/idare_download_manifest.csv` before downloading files.
+2. Download selected I-DARE first-stage files:
    - EEG files
    - EMG files
    - label CSV files
    - metadata CSV files
-4. Confirm or request official DEAP access credentials.
-5. Download DEAP preprocessed Python archive:
+3. Confirm or request official DEAP access credentials.
+4. Download DEAP preprocessed Python archive:
    - Data_preprocessed_python.zip
-6. Create `scripts/01_audit_datasets.py`.
-7. Generate:
+5. Create `scripts/01_audit_datasets.py`.
+6. Generate:
    - docs/data_audit_deap.md
    - docs/data_audit_idare.md
 

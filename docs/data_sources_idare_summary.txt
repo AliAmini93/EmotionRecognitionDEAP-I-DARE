@@ -23,5 +23,5 @@ EEG/EMG intersection:
 - EMG-only subjects: [4]
 
 First-stage required files:
-- required_files: 134
+- required_files: 133
 - required_total_size: 6.88 GB
