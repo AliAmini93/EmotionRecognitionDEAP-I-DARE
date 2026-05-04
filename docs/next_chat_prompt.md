@@ -27,7 +27,8 @@ Please first read these project memory files:
 Current completed status:
 - Milestone 0 is completed.
 - Proposal V1.1 and the complete handoff bundle have been committed and pushed.
-- Latest pushed commit: c65fb1b.
+- Repository is expected to be synced with `origin/main` at the time of handoff.
+- To verify the latest commit, run `git status` and `git log --oneline -5`.
 - Repository scaffold exists and was pushed to GitHub.
 - SSH authentication with GitHub works.
 - Python virtual environment exists at .venv.

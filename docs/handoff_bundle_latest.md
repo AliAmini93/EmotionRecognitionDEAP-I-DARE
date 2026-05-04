@@ -49,7 +49,8 @@ Please first read these project memory files:
 Current completed status:
 - Milestone 0 is completed.
 - Proposal V1.1 and the complete handoff bundle have been committed and pushed.
-- Latest pushed commit: c65fb1b.
+- Repository is expected to be synced with `origin/main` at the time of handoff.
+- To verify the latest commit, run `git status` and `git log --oneline -5`.
 - Repository scaffold exists and was pushed to GitHub.
 - SSH authentication with GitHub works.
 - Python virtual environment exists at .venv.
@@ -151,8 +152,8 @@ Decide the exact DEAP and I-DARE dataset versions/files to download, then audit 
   - docs/proposal_v1_1.md
 - Complete handoff bundle added:
   - docs/handoff_bundle_latest.md
-- Latest pushed commit:
-  - c65fb1b docs: add working proposal and complete handoff bundle
+- Repository was pushed successfully and is expected to be synced with `origin/main` at the time of handoff.
+- To verify the latest commit, run `git status` and `git log --oneline -5`.
 
 ## In Progress
 - Preparing Milestone 1: dataset acquisition and dataset audit.
@@ -222,8 +223,8 @@ Evaluate whether auxiliary EMG and trial-aware temporal modeling improve cross-s
 - EEGSegmentClassifier-v1 lite has 337,955 trainable parameters.
 - Working proposal V1.1 is stored at `docs/proposal_v1_1.md`.
 - Complete handoff bundle is stored at `docs/handoff_bundle_latest.md`.
-- Latest pushed commit:
-  - c65fb1b docs: add working proposal and complete handoff bundle.
+- Repository was pushed successfully and is expected to be synced with `origin/main` at the time of handoff.
+- To verify the latest commit, run `git status` and `git log --oneline -5`.
 
 ## Immediate Next Step
 Begin Milestone 1: dataset acquisition and audit preparation.

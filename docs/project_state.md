@@ -30,8 +30,8 @@ Decide the exact DEAP and I-DARE dataset versions/files to download, then audit 
   - docs/proposal_v1_1.md
 - Complete handoff bundle added:
   - docs/handoff_bundle_latest.md
-- Latest pushed commit:
-  - c65fb1b docs: add working proposal and complete handoff bundle
+- Repository was pushed successfully and is expected to be synced with `origin/main` at the time of handoff.
+- To verify the latest commit, run `git status` and `git log --oneline -5`.
 
 ## In Progress
 - Preparing Milestone 1: dataset acquisition and dataset audit.
