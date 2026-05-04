@@ -123,89 +123,199 @@ Important local issue:
 # Project State
 
 ## Current Phase
+
 Milestone 1 - Dataset acquisition and audit preparation.
 
 ## Current Goal
-Decide the exact DEAP and I-DARE dataset versions/files to download, then audit their structure before any training.
+
+Audit the downloaded I-DARE first-stage files and continue DEAP acquisition.
+
+No training should be started before dataset audit reports are generated.
+
+---
 
 ## Completed
+
 - Git installed.
 - GitHub repository cloned locally.
 - SSH authentication with GitHub works.
 - Empty local dataset folders created:
-  - /mnt/HDD/AliWorks/DEAP
-  - /mnt/HDD/AliWorks/I-DARE
-- Python version checked: 3.12.3.
+  - `/mnt/HDD/AliWorks/DEAP`
+  - `/mnt/HDD/AliWorks/I-DARE`
+- Python version checked:
+  - Python 3.12.3
 - Project scaffold created.
-- Virtual environment created at `.venv`.
+- Virtual environment created at:
+  - `.venv`
 - PyTorch installed with CUDA 12.8 support.
 - GPU detected successfully:
   - NVIDIA GeForce RTX 5090
 - Three EEG model files added:
-  - eeg_segment_encoder.py
-  - eeg_segment_classifier.py
-  - old_style_eeg_classifier.py
-- EEGSegmentClassifier-v1 GPU smoke test passed.
+  - `src/emotion_deap_idare/models/eeg_segment_encoder.py`
+  - `src/emotion_deap_idare/models/eeg_segment_classifier.py`
+  - `src/emotion_deap_idare/models/old_style_eeg_classifier.py`
+- `EEGSegmentClassifier-v1` GPU smoke test passed.
 - Model parameter count:
-  - EEGSegmentClassifier-v1 lite: 337,955 trainable parameters.
+  - `EEGSegmentClassifier-v1 lite`: 337,955 trainable parameters.
 - Working proposal V1.1 added:
-  - docs/proposal_v1_1.md
+  - `docs/proposal_v1_1.md`
 - Complete handoff bundle added:
-  - docs/handoff_bundle_latest.md
+  - `docs/handoff_bundle_latest.md`
 - Dataset acquisition plan added:
-  - docs/dataset_acquisition_plan.md
-- I-DARE Figshare source listing completed:
-  - scripts/list_idare_figshare_files.py
-  - docs/data_sources_idare.md
-  - docs/data_sources_idare.json
-  - docs/data_sources_idare_summary.txt
-- I-DARE source listing result:
-  - Articles discovered: 5
-  - Files discovered: 263
-  - Total listed size: 6.98 GB
-  - First-stage required files: 133
-  - First-stage required size: 6.88 GB
-  - Common EEG+EMG subjects: 63
-  - EMG-only subject excluded from main protocol: subject 4
-- I-DARE download manifest generated:
-  - scripts/build_idare_download_manifest.py
-  - docs/idare_download_manifest.csv
-  - docs/idare_download_manifest_summary.md
-- I-DARE manifest result:
-  - Total listed files: 263
-  - First-stage files: 133
-  - Main-protocol files: 132
-  - First-stage total size: 6.88 GB
-  - Main-protocol total size: 6.85 GB
-- Repository was pushed successfully and is expected to be synced with `origin/main` at the time of handoff.
-- To verify the latest commit, run `git status` and `git log --oneline -5`.
+  - `docs/dataset_acquisition_plan.md`
+
+---
+
+## I-DARE Source Listing Completed
+
+I-DARE Figshare source listing completed:
+
+```text
+scripts/list_idare_figshare_files.py
+docs/data_sources_idare.md
+docs/data_sources_idare.json
+docs/data_sources_idare_summary.txt
+```
+
+I-DARE source listing result:
+
+```text
+Articles discovered: 5
+Files discovered: 263
+Total listed size: 6.98 GB
+First-stage required files: 133
+First-stage required size: 6.88 GB
+Common EEG+EMG subjects: 63
+EMG-only subject excluded from main protocol: subject 4
+```
+
+---
+
+## I-DARE Download Manifest Completed
+
+I-DARE download manifest generated:
+
+```text
+scripts/build_idare_download_manifest.py
+docs/idare_download_manifest.csv
+docs/idare_download_manifest_summary.md
+```
+
+I-DARE manifest result:
+
+```text
+Total listed files: 263
+First-stage files: 133
+Main-protocol files: 132
+First-stage total size: 6.88 GB
+Main-protocol total size: 6.85 GB
+```
+
+Checksum metadata was added to the manifest:
+
+```text
+computed_md5 present for all 133 first-stage files
+missing md5 in first-stage files: 0
+```
+
+---
+
+## I-DARE Acquisition Completed
+
+I-DARE first-stage files downloaded and verified:
+
+```text
+Downloaded file count: 133
+Verified files: 133
+Verification failures: 0
+Local disk usage: 6.9G
+```
+
+Relevant files:
+
+```text
+docs/idare_acquisition_status.md
+docs/idare_download_report.md
+```
+
+Local I-DARE root:
+
+```text
+/mnt/HDD/AliWorks/I-DARE
+```
+
+Observed folder structure:
+
+```text
+/mnt/HDD/AliWorks/I-DARE
+/mnt/HDD/AliWorks/I-DARE/labels
+/mnt/HDD/AliWorks/I-DARE/metadata
+/mnt/HDD/AliWorks/I-DARE/raw_downloads
+/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG
+/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG
+```
+
+---
+
+## Current Git Status at Last Check
+
+Repository was pushed successfully and is expected to be synced with `origin/main` at the time of handoff.
+
+To verify the latest commit, run:
+
+```bash
+git status
+git log --oneline -5
+```
+
+Latest known pushed commit before this update:
+
+```text
+e2f4c6e scripts: add I-DARE downloader dry run
+```
+
+After committing this update, the latest commit will change.
+
+---
 
 ## In Progress
+
 - Preparing Milestone 1: dataset acquisition and dataset audit.
-- Next practical step: review `docs/idare_download_manifest.csv` before downloading I-DARE files.
+- I-DARE acquisition is complete.
+- Next practical step:
+  - create `scripts/01_audit_datasets.py`
+  - audit I-DARE downloaded files
+  - generate `docs/data_audit_idare.md`
+
+---
 
 ## Next Steps
-1. Review `docs/idare_download_manifest.csv` before downloading files.
-2. Download selected I-DARE first-stage files:
-   - EEG files
-   - EMG files
-   - label CSV files
-   - metadata CSV files
-3. Confirm or request official DEAP access credentials.
-4. Download DEAP preprocessed Python archive:
-   - Data_preprocessed_python.zip
-5. Create `scripts/01_audit_datasets.py`.
-6. Generate:
-   - docs/data_audit_deap.md
-   - docs/data_audit_idare.md
+
+1. Add/update the I-DARE acquisition status docs.
+2. Commit the final I-DARE acquisition verification report:
+   - `docs/idare_download_report.md`
+3. Create:
+   - `scripts/01_audit_datasets.py`
+4. Audit I-DARE downloaded files and generate:
+   - `docs/data_audit_idare.md`
+5. Confirm or request official DEAP access credentials.
+6. Download DEAP preprocessed Python archive:
+   - `Data_preprocessed_python.zip`
+7. Extend the audit script for DEAP and generate:
+   - `docs/data_audit_deap.md`
+
+---
 
 ## Current Open Questions
+
 - Are official DEAP access credentials ready?
 - Has `Data_preprocessed_python.zip` been downloaded from the official DEAP source?
-- Has the I-DARE download manifest been reviewed and approved?
-- Have the selected I-DARE files been downloaded?
+- What are the exact I-DARE `.mat` field shapes, sampling rates, channel names, and event structures after audit?
+
+---
 
 ## Last Updated
+
 2026-05-04
 
 
@@ -216,107 +326,325 @@ Decide the exact DEAP and I-DARE dataset versions/files to download, then audit 
 # Chat Handoff - Latest
 
 ## Project
+
 Cross-subject EEG-EMG emotion recognition on DEAP and I-DARE.
 
 ## Main Goal
+
 Evaluate whether auxiliary EMG and trial-aware temporal modeling improve cross-subject EEG emotion recognition.
 
-## Current Design
-- Main datasets: DEAP and I-DARE.
-- Tasks: binary valence and binary arousal.
-- Evaluation: strict LOSO.
-- Main window: 5 seconds, no overlap.
-- DEAP: 12 windows per 60s trial.
-- I-DARE: 1 natural 5s stimulus window unless subwindowing is later added.
-- Current paper version does not include cross-dataset transfer.
+The current paper focuses on:
 
-## Current Model Plan
-- EEGSegmentEncoder
-- EEGSegmentClassifier
-- OldStyleEEGClassifier
-- Later:
-  - EMG feature-level branch
-  - EEG sequence encoder
-  - EMG sequence encoder
-  - segment-level fusion vs trial-level fusion
+```text
+within-dataset cross-subject generalization
+strict LOSO evaluation
+DEAP and I-DARE
+```
 
-## Current Data Source Status
-- DEAP has not been downloaded yet.
-- DEAP target version: official preprocessed Python version, 128Hz.
-- I-DARE has not been downloaded yet.
-- I-DARE Figshare source listing has been completed.
-- I-DARE listing files:
-  - scripts/list_idare_figshare_files.py
-  - docs/data_sources_idare.md
-  - docs/data_sources_idare.json
-  - docs/data_sources_idare_summary.txt
-- I-DARE listing result:
-  - Articles discovered: 5
-  - Files discovered: 263
-  - Total listed size: 6.98 GB
-  - First-stage required files: 133
-  - First-stage required size: 6.88 GB
-  - EEG subjects: 63
-  - EMG subjects: 64
-  - Common EEG+EMG subjects: 63
-  - EMG-only subject: 4
-- Main I-DARE decision:
-  - Use the 63 common EEG+EMG subjects for main experiments.
-  - Exclude subject 4 from the main EEG+EMG protocol.
-- I-DARE download manifest has been generated.
-- I-DARE manifest files:
-  - scripts/build_idare_download_manifest.py
-  - docs/idare_download_manifest.csv
-  - docs/idare_download_manifest_summary.md
-- I-DARE manifest result:
-  - Total listed files: 263
-  - First-stage files: 133
-  - Main-protocol files: 132
-  - First-stage total size: 6.88 GB
-  - Main-protocol total size: 6.85 GB
-- Next practical step:
-  - Review `docs/idare_download_manifest.csv` before downloading I-DARE files.
+The current paper version does not include cross-dataset transfer.
 
-## Current Code Status
-- Repository scaffold exists locally and has been pushed to GitHub.
-- Three EEG model files are added under `src/emotion_deap_idare/models/`.
-- Virtual environment is created.
-- PyTorch CUDA 12.8 is installed.
-- GPU smoke test passed on NVIDIA GeForce RTX 5090.
-- EEGSegmentClassifier-v1 lite has 337,955 trainable parameters.
-- Working proposal V1.1 is stored at `docs/proposal_v1_1.md`.
-- Dataset acquisition plan is stored at `docs/dataset_acquisition_plan.md`.
-- Complete handoff bundle is stored at `docs/handoff_bundle_latest.md`.
-- Repository was pushed successfully and is expected to be synced with `origin/main` at the time of handoff.
-- To verify the latest commit, run `git status` and `git log --oneline -5`.
+---
 
-## Immediate Next Step
-Review `docs/idare_download_manifest.csv` before downloading I-DARE files.
+## Current Phase
 
-Current Milestone 1 status:
-- Storage location accepted for the initial phase.
-- DEAP target version accepted: official preprocessed Python version, 128Hz.
-- I-DARE Figshare source listing completed.
-- Main I-DARE subject set decided: 63 common EEG+EMG subjects.
-- Subject 4 is excluded from the main EEG+EMG protocol.
+Milestone 1 - Dataset acquisition and audit preparation.
 
-Do not start training yet.
-Do not implement EMG fusion or sequence modeling yet.
-Next practical step is the I-DARE download manifest.
+Milestone 0 has already been completed.
 
-## Critical Decisions
-- Dataset files are not tracked by git.
-- configs/paths.local.yaml is gitignored.
-- EMG main branch will be feature-level, not raw waveform.
-- Fusion location is an experimental question:
-  - segment-level fusion
-  - modality-specific sequence encoding + trial-level fusion
-- Contrastive learning is reserved for later ablation.
+Current status:
+
+```text
+I-DARE first-stage acquisition is complete.
+I-DARE files have been downloaded and checksum-verified.
+DEAP acquisition is still pending.
+```
+
+---
 
 ## Important Local Paths
-- Project root: /mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE
-- DEAP root: /mnt/HDD/AliWorks/DEAP
-- I-DARE root: /mnt/HDD/AliWorks/I-DARE
+
+Project root:
+
+```text
+/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE
+```
+
+DEAP root:
+
+```text
+/mnt/HDD/AliWorks/DEAP
+```
+
+I-DARE root:
+
+```text
+/mnt/HDD/AliWorks/I-DARE
+```
+
+---
+
+## Current Design
+
+- Main datasets:
+  - DEAP
+  - I-DARE
+- Tasks:
+  - binary valence
+  - binary arousal
+- Evaluation:
+  - strict LOSO
+  - within-dataset cross-subject
+- Main window:
+  - 5 seconds
+  - no overlap
+- DEAP:
+  - 60s trial -> 12 non-overlapping 5s windows
+- I-DARE:
+  - one natural 5s stimulus window
+- Current paper version:
+  - no cross-dataset transfer
+
+---
+
+## Current Model Plan
+
+Current EEG model files:
+
+```text
+src/emotion_deap_idare/models/eeg_segment_encoder.py
+src/emotion_deap_idare/models/eeg_segment_classifier.py
+src/emotion_deap_idare/models/old_style_eeg_classifier.py
+```
+
+Current model status:
+
+```text
+EEGSegmentClassifier-v1 lite
+GPU smoke test passed
+trainable parameters: 337,955
+```
+
+Smoke test shapes:
+
+```text
+input: [8, 32, 640]
+logits: [8, 2]
+embedding z: [8, 128]
+projection z_proj: [8, 64]
+temporal attention: [8, 32, 320]
+channel attention: [8, 32]
+```
+
+Later planned modules:
+
+```text
+EMG feature-level branch
+EEG sequence encoder
+EMG sequence encoder
+segment-level fusion
+trial-level modality-specific fusion
+contrastive learning ablation
+```
+
+Do not implement these yet. Dataset audit comes first.
+
+---
+
+## Critical Decisions
+
+- Dataset files are not tracked by Git.
+- `configs/paths.local.yaml` is Git-ignored.
+- Storage location accepted for initial phase:
+  - `/mnt/HDD/AliWorks/DEAP`
+  - `/mnt/HDD/AliWorks/I-DARE`
+- DEAP target version:
+  - official preprocessed Python version, 128Hz
+  - `Data_preprocessed_python.zip`
+- EMG main branch:
+  - feature-level, not raw waveform
+- Fusion location is an experimental question:
+  1. segment-level EEG-EMG fusion
+  2. modality-specific sequence encoding + trial-level fusion
+- Contrastive learning:
+  - later ablation only
+  - not part of the first training step
+- I-DARE main subject set:
+  - use 63 common EEG+EMG subjects
+  - exclude subject 4 from main EEG+EMG protocol
+  - subject 4 may be used only for optional EMG-only secondary analysis
+
+---
+
+## I-DARE Source Listing Status
+
+I-DARE Figshare source listing has been generated.
+
+Listing files:
+
+```text
+scripts/list_idare_figshare_files.py
+docs/data_sources_idare.md
+docs/data_sources_idare.json
+docs/data_sources_idare_summary.txt
+```
+
+Listing result:
+
+```text
+Articles discovered: 5
+Files discovered: 263
+Total listed size: 6.98 GB
+First-stage required files: 133
+First-stage required size: 6.88 GB
+EEG subjects: 63
+EMG subjects: 64
+Common EEG+EMG subjects: 63
+EMG-only subject: 4
+```
+
+---
+
+## I-DARE Download Manifest Status
+
+Manifest files:
+
+```text
+scripts/build_idare_download_manifest.py
+docs/idare_download_manifest.csv
+docs/idare_download_manifest_summary.md
+```
+
+Manifest result:
+
+```text
+Total listed files: 263
+First-stage files: 133
+Main-protocol files: 132
+First-stage total size: 6.88 GB
+Main-protocol total size: 6.85 GB
+```
+
+Checksum status:
+
+```text
+computed_md5 present for all 133 first-stage files
+missing md5 in first-stage files: 0
+```
+
+---
+
+## I-DARE Acquisition Status
+
+I-DARE first-stage files have been downloaded and verified.
+
+Downloaded subset:
+
+```text
+EEG files
+EMG files
+label CSV files
+metadata CSV files
+```
+
+Final verification result:
+
+```text
+selected_files: 133
+selected_total_size: 6.88 GB
+verified_ok: 133
+verify_failed: 0
+```
+
+Local disk usage:
+
+```text
+6.9G /mnt/HDD/AliWorks/I-DARE
+```
+
+Final verification report:
+
+```text
+docs/idare_download_report.md
+```
+
+Acquisition status doc:
+
+```text
+docs/idare_acquisition_status.md
+```
+
+---
+
+## DEAP Status
+
+DEAP has not been downloaded yet.
+
+Target version:
+
+```text
+DEAP official preprocessed Python version
+Data_preprocessed_python.zip
+128Hz
+```
+
+Current open item:
+
+```text
+Confirm or request official DEAP access credentials.
+```
+
+---
+
+## Immediate Next Step
+
+Create and run the dataset audit script:
+
+```text
+scripts/01_audit_datasets.py
+```
+
+Audit I-DARE first, because I-DARE has now been downloaded and verified.
+
+The audit should generate:
+
+```text
+docs/data_audit_idare.md
+```
+
+Do not start training yet.  
+Do not implement EMG fusion yet.  
+Do not implement sequence modeling yet.  
+Do not start contrastive learning yet.
+
+---
+
+## What the I-DARE Audit Must Verify
+
+The I-DARE audit should inspect:
+
+```text
+- folder structure
+- file counts
+- downloaded EEG files
+- downloaded EMG files
+- label CSV files
+- metadata CSV files
+- subject IDs
+- EEG/EMG subject intersection
+- subject 4 handling
+- .mat fields
+- Fs / sampling rates
+- channel names
+- data shapes
+- time vector shapes
+- event_id
+- event_begin
+- event_end
+- feasibility of one 5s stimulus window per event
+- alignment between label CSVs and event IDs
+```
+
+The audit should not assume channel count, sampling rate, event duration, or `.mat` structure. It must verify them from the downloaded files.
 
 
 
@@ -3212,6 +3540,403 @@ No dataset files were downloaded by this script.
 
 ## Next Step
 Review `docs/idare_download_manifest.csv` before downloading files.
+
+
+
+# FILE: docs/idare_acquisition_status.md
+
+
+# I-DARE Acquisition Status
+
+## Status
+
+I-DARE first-stage acquisition is complete.
+
+Dataset files were downloaded into:
+
+```text
+/mnt/HDD/AliWorks/I-DARE
+```
+
+Downloaded first-stage subset:
+
+```text
+EEG files
+EMG files
+label CSV files
+metadata CSV files
+```
+
+The download was performed using:
+
+```text
+scripts/download_idare_from_manifest.py
+```
+
+Source manifest:
+
+```text
+docs/idare_download_manifest.csv
+```
+
+Final verification report:
+
+```text
+docs/idare_download_report.md
+```
+
+---
+
+## Final Verification Result
+
+The full verification command was:
+
+```bash
+python scripts/download_idare_from_manifest.py --verify-only
+```
+
+Final result:
+
+```text
+selected_files: 133
+selected_total_size: 6.88 GB
+verified_ok: 133
+verify_failed: 0
+```
+
+Downloaded file count:
+
+```text
+133
+```
+
+Local disk usage:
+
+```text
+6.9G /mnt/HDD/AliWorks/I-DARE
+```
+
+Available disk space after download:
+
+```text
+about 491G free on /mnt/HDD
+```
+
+---
+
+## Local Folder Structure
+
+Observed folder structure:
+
+```text
+/mnt/HDD/AliWorks/I-DARE
+/mnt/HDD/AliWorks/I-DARE/labels
+/mnt/HDD/AliWorks/I-DARE/metadata
+/mnt/HDD/AliWorks/I-DARE/raw_downloads
+/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG
+/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG
+```
+
+---
+
+## Downloaded Content
+
+The first-stage I-DARE subset includes:
+
+```text
+EEG: 63 subject files
+EMG: 64 subject files
+Labels: 4 CSV files
+Metadata: 2 CSV files
+Total: 133 files
+```
+
+The downloaded subset excludes:
+
+```text
+SC&PPG modality
+ET modality
+Stimuli_Selection.pdf
+```
+
+These files are not required for the first EEG–EMG stage.
+
+---
+
+## Main Protocol Subject Decision
+
+The main I-DARE protocol uses the 63 subjects with both EEG and EMG.
+
+Subject 4 has EMG but no EEG and is excluded from the main EEG+EMG protocol.
+
+Subject 4 remains downloaded and may be used only for optional EMG-only secondary analysis.
+
+---
+
+## Integrity Check
+
+All first-stage downloaded files were verified using the checksum metadata stored in:
+
+```text
+docs/idare_download_manifest.csv
+```
+
+Verification result:
+
+```text
+verified_ok: 133
+verification failures: 0
+```
+
+This means the local I-DARE first-stage files are ready for structural audit.
+
+---
+
+## Next Step
+
+Create and run the dataset audit script:
+
+```text
+scripts/01_audit_datasets.py
+```
+
+The audit should inspect I-DARE first, because I-DARE has now been downloaded and verified.
+
+DEAP acquisition is still pending.
+
+
+
+# FILE: docs/idare_download_report.md
+
+
+# I-DARE Download Report
+
+- Mode: verify-only
+- Main protocol only: False
+- Selected files: 133
+- Selected total size: 6.88 GB
+
+| Status | Category | File | Local path | Notes |
+|---|---|---|---|---|
+| verified_ok | EEG | sbj_P_01.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_01.mat` |  |
+| verified_ok | EEG | sbj_P_02.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_02.mat` |  |
+| verified_ok | EEG | sbj_P_03.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_03.mat` |  |
+| verified_ok | EEG | sbj_P_05.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_05.mat` |  |
+| verified_ok | EEG | sbj_P_06.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_06.mat` |  |
+| verified_ok | EEG | sbj_P_07.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_07.mat` |  |
+| verified_ok | EEG | sbj_P_08.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_08.mat` |  |
+| verified_ok | EEG | sbj_P_09.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_09.mat` |  |
+| verified_ok | EEG | sbj_P_10.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_10.mat` |  |
+| verified_ok | EEG | sbj_P_11.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_11.mat` |  |
+| verified_ok | EEG | sbj_P_12.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_12.mat` |  |
+| verified_ok | EEG | sbj_P_13.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_13.mat` |  |
+| verified_ok | EEG | sbj_P_14.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_14.mat` |  |
+| verified_ok | EEG | sbj_P_15.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_15.mat` |  |
+| verified_ok | EEG | sbj_P_16.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_16.mat` |  |
+| verified_ok | EEG | sbj_P_17.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_17.mat` |  |
+| verified_ok | EEG | sbj_P_18.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_18.mat` |  |
+| verified_ok | EEG | sbj_P_19.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_19.mat` |  |
+| verified_ok | EEG | sbj_P_20.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_20.mat` |  |
+| verified_ok | EEG | sbj_P_21.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_21.mat` |  |
+| verified_ok | EEG | sbj_P_22.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_22.mat` |  |
+| verified_ok | EEG | sbj_P_23.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_23.mat` |  |
+| verified_ok | EEG | sbj_P_24.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_24.mat` |  |
+| verified_ok | EEG | sbj_P_25.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_25.mat` |  |
+| verified_ok | EEG | sbj_P_26.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_26.mat` |  |
+| verified_ok | EEG | sbj_P_27.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_27.mat` |  |
+| verified_ok | EEG | sbj_P_28.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_28.mat` |  |
+| verified_ok | EEG | sbj_P_29.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_29.mat` |  |
+| verified_ok | EEG | sbj_P_30.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_30.mat` |  |
+| verified_ok | EEG | sbj_P_31.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_31.mat` |  |
+| verified_ok | EEG | sbj_P_32.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_32.mat` |  |
+| verified_ok | EEG | sbj_P_33.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_33.mat` |  |
+| verified_ok | EEG | sbj_P_34.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_34.mat` |  |
+| verified_ok | EEG | sbj_P_35.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_35.mat` |  |
+| verified_ok | EEG | sbj_P_36.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_36.mat` |  |
+| verified_ok | EEG | sbj_P_37.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_37.mat` |  |
+| verified_ok | EEG | sbj_P_38.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_38.mat` |  |
+| verified_ok | EEG | sbj_P_39.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_39.mat` |  |
+| verified_ok | EEG | sbj_P_40.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_40.mat` |  |
+| verified_ok | EEG | sbj_P_41.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_41.mat` |  |
+| verified_ok | EEG | sbj_P_42.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_42.mat` |  |
+| verified_ok | EEG | sbj_P_43.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_43.mat` |  |
+| verified_ok | EEG | sbj_P_44.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_44.mat` |  |
+| verified_ok | EEG | sbj_P_45.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_45.mat` |  |
+| verified_ok | EEG | sbj_P_46.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_46.mat` |  |
+| verified_ok | EEG | sbj_P_47.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_47.mat` |  |
+| verified_ok | EEG | sbj_P_48.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_48.mat` |  |
+| verified_ok | EEG | sbj_P_49.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_49.mat` |  |
+| verified_ok | EEG | sbj_P_50.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_50.mat` |  |
+| verified_ok | EEG | sbj_P_52.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_52.mat` |  |
+| verified_ok | EEG | sbj_P_53.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_53.mat` |  |
+| verified_ok | EEG | sbj_P_54.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_54.mat` |  |
+| verified_ok | EEG | sbj_P_55.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_55.mat` |  |
+| verified_ok | EEG | sbj_P_56.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_56.mat` |  |
+| verified_ok | EEG | sbj_P_57.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_57.mat` |  |
+| verified_ok | EEG | sbj_P_58.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_58.mat` |  |
+| verified_ok | EEG | sbj_P_59.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_59.mat` |  |
+| verified_ok | EEG | sbj_P_60.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_60.mat` |  |
+| verified_ok | EEG | sbj_P_61.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_61.mat` |  |
+| verified_ok | EEG | sbj_P_62.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_62.mat` |  |
+| verified_ok | EEG | sbj_P_63.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_63.mat` |  |
+| verified_ok | EEG | sbj_P_64.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_64.mat` |  |
+| verified_ok | EEG | sbj_P_65.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_65.mat` |  |
+| verified_ok | EMG | sbj_P_01.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_01.mat` |  |
+| verified_ok | EMG | sbj_P_02.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_02.mat` |  |
+| verified_ok | EMG | sbj_P_03.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_03.mat` |  |
+| verified_ok | EMG | sbj_P_04.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_04.mat` |  |
+| verified_ok | EMG | sbj_P_05.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_05.mat` |  |
+| verified_ok | EMG | sbj_P_06.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_06.mat` |  |
+| verified_ok | EMG | sbj_P_07.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_07.mat` |  |
+| verified_ok | EMG | sbj_P_08.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_08.mat` |  |
+| verified_ok | EMG | sbj_P_09.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_09.mat` |  |
+| verified_ok | EMG | sbj_P_10.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_10.mat` |  |
+| verified_ok | EMG | sbj_P_11.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_11.mat` |  |
+| verified_ok | EMG | sbj_P_12.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_12.mat` |  |
+| verified_ok | EMG | sbj_P_13.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_13.mat` |  |
+| verified_ok | EMG | sbj_P_14.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_14.mat` |  |
+| verified_ok | EMG | sbj_P_15.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_15.mat` |  |
+| verified_ok | EMG | sbj_P_16.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_16.mat` |  |
+| verified_ok | EMG | sbj_P_17.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_17.mat` |  |
+| verified_ok | EMG | sbj_P_18.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_18.mat` |  |
+| verified_ok | EMG | sbj_P_19.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_19.mat` |  |
+| verified_ok | EMG | sbj_P_20.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_20.mat` |  |
+| verified_ok | EMG | sbj_P_21.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_21.mat` |  |
+| verified_ok | EMG | sbj_P_22.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_22.mat` |  |
+| verified_ok | EMG | sbj_P_23.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_23.mat` |  |
+| verified_ok | EMG | sbj_P_24.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_24.mat` |  |
+| verified_ok | EMG | sbj_P_25.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_25.mat` |  |
+| verified_ok | EMG | sbj_P_26.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_26.mat` |  |
+| verified_ok | EMG | sbj_P_27.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_27.mat` |  |
+| verified_ok | EMG | sbj_P_28.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_28.mat` |  |
+| verified_ok | EMG | sbj_P_29.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_29.mat` |  |
+| verified_ok | EMG | sbj_P_30.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_30.mat` |  |
+| verified_ok | EMG | sbj_P_31.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_31.mat` |  |
+| verified_ok | EMG | sbj_P_32.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_32.mat` |  |
+| verified_ok | EMG | sbj_P_33.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_33.mat` |  |
+| verified_ok | EMG | sbj_P_34.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_34.mat` |  |
+| verified_ok | EMG | sbj_P_35.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_35.mat` |  |
+| verified_ok | EMG | sbj_P_36.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_36.mat` |  |
+| verified_ok | EMG | sbj_P_37.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_37.mat` |  |
+| verified_ok | EMG | sbj_P_38.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_38.mat` |  |
+| verified_ok | EMG | sbj_P_39.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_39.mat` |  |
+| verified_ok | EMG | sbj_P_40.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_40.mat` |  |
+| verified_ok | EMG | sbj_P_41.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_41.mat` |  |
+| verified_ok | EMG | sbj_P_42.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_42.mat` |  |
+| verified_ok | EMG | sbj_P_43.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_43.mat` |  |
+| verified_ok | EMG | sbj_P_44.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_44.mat` |  |
+| verified_ok | EMG | sbj_P_45.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_45.mat` |  |
+| verified_ok | EMG | sbj_P_46.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_46.mat` |  |
+| verified_ok | EMG | sbj_P_47.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_47.mat` |  |
+| verified_ok | EMG | sbj_P_48.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_48.mat` |  |
+| verified_ok | EMG | sbj_P_49.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_49.mat` |  |
+| verified_ok | EMG | sbj_P_50.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_50.mat` |  |
+| verified_ok | EMG | sbj_P_52.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_52.mat` |  |
+| verified_ok | EMG | sbj_P_53.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_53.mat` |  |
+| verified_ok | EMG | sbj_P_54.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_54.mat` |  |
+| verified_ok | EMG | sbj_P_55.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_55.mat` |  |
+| verified_ok | EMG | sbj_P_56.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_56.mat` |  |
+| verified_ok | EMG | sbj_P_57.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_57.mat` |  |
+| verified_ok | EMG | sbj_P_58.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_58.mat` |  |
+| verified_ok | EMG | sbj_P_59.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_59.mat` |  |
+| verified_ok | EMG | sbj_P_60.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_60.mat` |  |
+| verified_ok | EMG | sbj_P_61.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_61.mat` |  |
+| verified_ok | EMG | sbj_P_62.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_62.mat` |  |
+| verified_ok | EMG | sbj_P_63.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_63.mat` |  |
+| verified_ok | EMG | sbj_P_64.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_64.mat` |  |
+| verified_ok | EMG | sbj_P_65.mat | `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_65.mat` |  |
+| verified_ok | labels | Arousal_SAM.csv | `/mnt/HDD/AliWorks/I-DARE/labels/Arousal_SAM.csv` |  |
+| verified_ok | labels | Quadrants_SAM.csv | `/mnt/HDD/AliWorks/I-DARE/labels/Quadrants_SAM.csv` |  |
+| verified_ok | labels | Sample.csv | `/mnt/HDD/AliWorks/I-DARE/labels/Sample.csv` |  |
+| verified_ok | labels | Valence_SAM.csv | `/mnt/HDD/AliWorks/I-DARE/labels/Valence_SAM.csv` |  |
+| verified_ok | metadata | Agreement_Raters.csv | `/mnt/HDD/AliWorks/I-DARE/metadata/Agreement_Raters.csv` |  |
+| verified_ok | metadata | Stimuli_Specifications.csv | `/mnt/HDD/AliWorks/I-DARE/metadata/Stimuli_Specifications.csv` |  |
+
+## Status Counts
+
+- verified_ok: 133
+
+
+
+# FILE: docs/handoff_delta_after_idare_acquisition.md
+
+
+# Handoff Delta - After Verified I-DARE Acquisition
+
+Use this file as a compact addendum if the full handoff bundle has not yet been regenerated.
+
+## New Completed Work
+
+I-DARE first-stage acquisition is complete.
+
+Downloaded files:
+
+```text
+133
+```
+
+Downloaded local root:
+
+```text
+/mnt/HDD/AliWorks/I-DARE
+```
+
+Downloaded subset:
+
+```text
+EEG files
+EMG files
+label CSV files
+metadata CSV files
+```
+
+Verification result:
+
+```text
+selected_files: 133
+selected_total_size: 6.88 GB
+verified_ok: 133
+verify_failed: 0
+```
+
+Local disk usage:
+
+```text
+6.9G /mnt/HDD/AliWorks/I-DARE
+```
+
+## Files to Commit
+
+```text
+docs/idare_acquisition_status.md
+docs/idare_download_report.md
+docs/project_state.md
+docs/chat_handoff_latest.md
+```
+
+The handoff bundle should be regenerated after these files are added locally.
+
+## Immediate Next Step
+
+Create and run:
+
+```text
+scripts/01_audit_datasets.py
+```
+
+First audit target:
+
+```text
+I-DARE
+```
+
+Expected audit report:
+
+```text
+docs/data_audit_idare.md
+```
+
+DEAP acquisition is still pending.
 
 
 
