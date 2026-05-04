@@ -50,3 +50,26 @@ Reason:
 
 Status:
 Accepted.
+
+---
+
+## D004 - Use common EEG+EMG subject set for main I-DARE experiments
+
+Date: 2026-05-04
+
+Decision:
+Use the 63 subjects that have both EEG and EMG files for the main I-DARE experiments.
+
+Reason:
+The I-DARE Figshare source listing found:
+- EEG files: 63 subjects
+- EMG files: 64 subjects
+- Common EEG+EMG subjects: 63
+- EMG-only subjects: [4]
+
+For fair EEG-only, EMG-only, and EEG+EMG comparisons, the main protocol should use the same subject set across all conditions.
+
+Subject 4 has EMG but no EEG, so it should be excluded from the main EEG+EMG protocol. It may be kept only for optional EMG-only secondary analysis.
+
+Status:
+Accepted.

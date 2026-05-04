@@ -25,6 +25,32 @@ Evaluate whether auxiliary EMG and trial-aware temporal modeling improve cross-s
   - EMG sequence encoder
   - segment-level fusion vs trial-level fusion
 
+## Current Data Source Status
+- DEAP has not been downloaded yet.
+- DEAP target version: official preprocessed Python version, 128Hz.
+- I-DARE has not been downloaded yet.
+- I-DARE Figshare source listing has been completed.
+- I-DARE listing files:
+  - scripts/list_idare_figshare_files.py
+  - docs/data_sources_idare.md
+  - docs/data_sources_idare.json
+  - docs/data_sources_idare_summary.txt
+- I-DARE listing result:
+  - Articles discovered: 5
+  - Files discovered: 263
+  - Total listed size: 6.98 GB
+  - First-stage required files: 134
+  - First-stage required size: 6.88 GB
+  - EEG subjects: 63
+  - EMG subjects: 64
+  - Common EEG+EMG subjects: 63
+  - EMG-only subject: 4
+- Main I-DARE decision:
+  - Use the 63 common EEG+EMG subjects for main experiments.
+  - Exclude subject 4 from the main EEG+EMG protocol.
+- Next practical step:
+  - Build `docs/idare_download_manifest.csv`.
+
 ## Current Code Status
 - Repository scaffold exists locally and has been pushed to GitHub.
 - Three EEG model files are added under `src/emotion_deap_idare/models/`.

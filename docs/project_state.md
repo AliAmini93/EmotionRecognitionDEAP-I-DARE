@@ -32,11 +32,25 @@ Decide the exact DEAP and I-DARE dataset versions/files to download, then audit 
   - docs/handoff_bundle_latest.md
 - Dataset acquisition plan added:
   - docs/dataset_acquisition_plan.md
+- I-DARE Figshare source listing completed:
+  - scripts/list_idare_figshare_files.py
+  - docs/data_sources_idare.md
+  - docs/data_sources_idare.json
+  - docs/data_sources_idare_summary.txt
+- I-DARE source listing result:
+  - Articles discovered: 5
+  - Files discovered: 263
+  - Total listed size: 6.98 GB
+  - First-stage required files: 134
+  - First-stage required size: 6.88 GB
+  - Common EEG+EMG subjects: 63
+  - EMG-only subject excluded from main protocol: subject 4
 - Repository was pushed successfully and is expected to be synced with `origin/main` at the time of handoff.
 - To verify the latest commit, run `git status` and `git log --oneline -5`.
 
 ## In Progress
 - Preparing Milestone 1: dataset acquisition and dataset audit.
+- Next practical step: build `docs/idare_download_manifest.csv` before downloading I-DARE files.
 
 ## Next Steps
 1. Confirm whether `/mnt/HDD` on the root filesystem with around 500GB free space is acceptable for dataset storage.
@@ -48,8 +62,11 @@ Decide the exact DEAP and I-DARE dataset versions/files to download, then audit 
 5. Download datasets into:
    - /mnt/HDD/AliWorks/DEAP
    - /mnt/HDD/AliWorks/I-DARE
-6. Create `scripts/01_audit_datasets.py`.
-7. Generate:
+6. Build `docs/idare_download_manifest.csv`.
+7. Review the I-DARE download manifest.
+8. Download selected I-DARE files.
+9. Create `scripts/01_audit_datasets.py`.
+10. Generate:
    - docs/data_audit_deap.md
    - docs/data_audit_idare.md
 
