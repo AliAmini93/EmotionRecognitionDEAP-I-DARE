@@ -1,0 +1,744 @@
+{
+  "trial_index": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/.cache/idare_trial_index.csv",
+  "output_npz": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/.cache/idare_window_smoke_sample.npz",
+  "n_sample_rows": 8,
+  "chosen_slicing": {
+    "candidate": "raw begin/end as Python half-open slices: data[int(begin):int(end), :]",
+    "reason": "This convention gives sample_count = end - begin, matching the duration stored in .cache/idare_trial_index.csv.",
+    "note": "The MATLAB 1-based inclusive convention gives one extra sample. The final loader can revisit this, but the half-open convention is the clean working choice for the first extraction implementation."
+  },
+  "target_eeg_fs": 128.0,
+  "eeg_model_channels": 32,
+  "issues": [],
+  "warnings": [],
+  "windows": [
+    {
+      "subject_id": 1,
+      "stimulus_id": "Dummy_1",
+      "raw_event_name": "STIM_Dummy_1",
+      "event_index_1based": 6,
+      "valence_score": 1,
+      "arousal_score": 4,
+      "valence_label_gt5": 0,
+      "arousal_label_gt5": 0,
+      "valence_is_discard_score5": false,
+      "arousal_is_discard_score5": false,
+      "eeg": {
+        "file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_01.mat",
+        "fs": 512.0,
+        "raw_data_shape": [
+          565159,
+          38
+        ],
+        "begin_raw": 212425.0,
+        "end_raw": 214977.0,
+        "trial_index_duration_samples": 2552.0,
+        "trial_index_duration_sec": 4.984375,
+        "half_open_shape_time_x_channels": [
+          2552,
+          38
+        ],
+        "half_open_duration_sec": 4.984375,
+        "matlab_1based_inclusive_shape_time_x_channels": [
+          2553,
+          38
+        ],
+        "matlab_1based_inclusive_duration_sec": 4.986328125,
+        "model_candidate_first32_shape_channels_x_time": [
+          32,
+          2552
+        ],
+        "model_candidate_first32_resampled_128hz_shape_channels_x_time": [
+          32,
+          638
+        ],
+        "model_candidate_first32_resampled_128hz_duration_sec": 4.984375
+      },
+      "emg": {
+        "file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_01.mat",
+        "fs": 2000.0,
+        "raw_data_shape": [
+          2207651,
+          2
+        ],
+        "begin_raw": 829783.0,
+        "end_raw": 839757.0,
+        "trial_index_duration_samples": 9974.0,
+        "trial_index_duration_sec": 4.987,
+        "half_open_shape_time_x_channels": [
+          9974,
+          2
+        ],
+        "half_open_duration_sec": 4.987,
+        "matlab_1based_inclusive_shape_time_x_channels": [
+          9975,
+          2
+        ],
+        "matlab_1based_inclusive_duration_sec": 4.9875
+      },
+      "preview_values": {
+        "eeg_first_channel_first_10": [
+          -4.782820224761963,
+          -4.1637773513793945,
+          -3.5148842334747314,
+          -2.8383677005767822,
+          -2.1495563983917236,
+          -1.4868236780166626,
+          -0.9435444474220276,
+          -0.6075349450111389,
+          -0.42158588767051697,
+          -0.2274181842803955
+        ],
+        "emg_first_channel_first_10": [
+          -4.4460459042145,
+          -5.763051574151536,
+          -5.64106392660633,
+          -4.694541255573506,
+          -3.446991819532614,
+          -1.9308683798265684,
+          -0.18993024536209965,
+          1.2797845864859412,
+          1.9894547531463285,
+          2.215964126978491
+        ]
+      }
+    },
+    {
+      "subject_id": 1,
+      "stimulus_id": "3053",
+      "raw_event_name": "STIM_3053",
+      "event_index_1based": 9,
+      "valence_score": 1,
+      "arousal_score": 6,
+      "valence_label_gt5": 0,
+      "arousal_label_gt5": 1,
+      "valence_is_discard_score5": false,
+      "arousal_is_discard_score5": false,
+      "eeg": {
+        "file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_01.mat",
+        "fs": 512.0,
+        "raw_data_shape": [
+          565159,
+          38
+        ],
+        "begin_raw": 226483.0,
+        "end_raw": 229044.0,
+        "trial_index_duration_samples": 2561.0,
+        "trial_index_duration_sec": 5.001953125,
+        "half_open_shape_time_x_channels": [
+          2561,
+          38
+        ],
+        "half_open_duration_sec": 5.001953125,
+        "matlab_1based_inclusive_shape_time_x_channels": [
+          2562,
+          38
+        ],
+        "matlab_1based_inclusive_duration_sec": 5.00390625,
+        "model_candidate_first32_shape_channels_x_time": [
+          32,
+          2561
+        ],
+        "model_candidate_first32_resampled_128hz_shape_channels_x_time": [
+          32,
+          641
+        ],
+        "model_candidate_first32_resampled_128hz_duration_sec": 5.0078125
+      },
+      "emg": {
+        "file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_01.mat",
+        "fs": 2000.0,
+        "raw_data_shape": [
+          2207651,
+          2
+        ],
+        "begin_raw": 884697.0,
+        "end_raw": 894705.0,
+        "trial_index_duration_samples": 10008.0,
+        "trial_index_duration_sec": 5.004,
+        "half_open_shape_time_x_channels": [
+          10008,
+          2
+        ],
+        "half_open_duration_sec": 5.004,
+        "matlab_1based_inclusive_shape_time_x_channels": [
+          10009,
+          2
+        ],
+        "matlab_1based_inclusive_duration_sec": 5.0045
+      },
+      "preview_values": {
+        "eeg_first_channel_first_10": [
+          -16.651796340942383,
+          -18.743112564086914,
+          -20.41732406616211,
+          -21.446367263793945,
+          -21.668649673461914,
+          -20.981746673583984,
+          -19.536882400512695,
+          -17.78551483154297,
+          -16.362812042236328,
+          -15.694945335388184
+        ],
+        "emg_first_channel_first_10": [
+          11.732280340856816,
+          14.698426825855565,
+          16.689697920266212,
+          18.090195434886244,
+          19.115751547107273,
+          20.05179983434045,
+          21.707764729428217,
+          24.64075158233673,
+          27.916852058559005,
+          29.52874552934008
+        ]
+      }
+    },
+    {
+      "subject_id": 1,
+      "stimulus_id": "Tumor_1",
+      "raw_event_name": "STIM_Tumor_1",
+      "event_index_1based": 12,
+      "valence_score": 4,
+      "arousal_score": 5,
+      "valence_label_gt5": 0,
+      "arousal_label_gt5": null,
+      "valence_is_discard_score5": false,
+      "arousal_is_discard_score5": true,
+      "eeg": {
+        "file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_01.mat",
+        "fs": 512.0,
+        "raw_data_shape": [
+          565159,
+          38
+        ],
+        "begin_raw": 239003.0,
+        "end_raw": 241563.0,
+        "trial_index_duration_samples": 2560.0,
+        "trial_index_duration_sec": 5.0,
+        "half_open_shape_time_x_channels": [
+          2560,
+          38
+        ],
+        "half_open_duration_sec": 5.0,
+        "matlab_1based_inclusive_shape_time_x_channels": [
+          2561,
+          38
+        ],
+        "matlab_1based_inclusive_duration_sec": 5.001953125,
+        "model_candidate_first32_shape_channels_x_time": [
+          32,
+          2560
+        ],
+        "model_candidate_first32_resampled_128hz_shape_channels_x_time": [
+          32,
+          640
+        ],
+        "model_candidate_first32_resampled_128hz_duration_sec": 5.0
+      },
+      "emg": {
+        "file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_01.mat",
+        "fs": 2000.0,
+        "raw_data_shape": [
+          2207651,
+          2
+        ],
+        "begin_raw": 933601.0,
+        "end_raw": 943605.0,
+        "trial_index_duration_samples": 10004.0,
+        "trial_index_duration_sec": 5.002,
+        "half_open_shape_time_x_channels": [
+          10004,
+          2
+        ],
+        "half_open_duration_sec": 5.002,
+        "matlab_1based_inclusive_shape_time_x_channels": [
+          10005,
+          2
+        ],
+        "matlab_1based_inclusive_duration_sec": 5.0025
+      },
+      "preview_values": {
+        "eeg_first_channel_first_10": [
+          2.3509297370910645,
+          1.6791391372680664,
+          0.8176631927490234,
+          -0.03332233428955078,
+          -0.7120766639709473,
+          -1.0803799629211426,
+          -1.0846138000488281,
+          -0.6775069236755371,
+          0.1295452117919922,
+          1.1730294227600098
+        ],
+        "emg_first_channel_first_10": [
+          11.390987335862075,
+          11.182002602601344,
+          9.36667455049575,
+          7.274093770516533,
+          5.2597210799114436,
+          3.3303960860028905,
+          2.280646414203927,
+          2.944823507866988,
+          4.4515834653549,
+          4.7187988403594625
+        ]
+      }
+    },
+    {
+      "subject_id": 1,
+      "stimulus_id": "Dog_18",
+      "raw_event_name": "STIM_Dog_18",
+      "event_index_1based": 15,
+      "valence_score": 8,
+      "arousal_score": 1,
+      "valence_label_gt5": 1,
+      "arousal_label_gt5": 0,
+      "valence_is_discard_score5": false,
+      "arousal_is_discard_score5": false,
+      "eeg": {
+        "file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_01.mat",
+        "fs": 512.0,
+        "raw_data_shape": [
+          565159,
+          38
+        ],
+        "begin_raw": 253964.0,
+        "end_raw": 256521.0,
+        "trial_index_duration_samples": 2557.0,
+        "trial_index_duration_sec": 4.994140625,
+        "half_open_shape_time_x_channels": [
+          2557,
+          38
+        ],
+        "half_open_duration_sec": 4.994140625,
+        "matlab_1based_inclusive_shape_time_x_channels": [
+          2558,
+          38
+        ],
+        "matlab_1based_inclusive_duration_sec": 4.99609375,
+        "model_candidate_first32_shape_channels_x_time": [
+          32,
+          2557
+        ],
+        "model_candidate_first32_resampled_128hz_shape_channels_x_time": [
+          32,
+          640
+        ],
+        "model_candidate_first32_resampled_128hz_duration_sec": 5.0
+      },
+      "emg": {
+        "file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_01.mat",
+        "fs": 2000.0,
+        "raw_data_shape": [
+          2207651,
+          2
+        ],
+        "begin_raw": 992045.0,
+        "end_raw": 1002039.0,
+        "trial_index_duration_samples": 9994.0,
+        "trial_index_duration_sec": 4.997,
+        "half_open_shape_time_x_channels": [
+          9994,
+          2
+        ],
+        "half_open_duration_sec": 4.997,
+        "matlab_1based_inclusive_shape_time_x_channels": [
+          9995,
+          2
+        ],
+        "matlab_1based_inclusive_duration_sec": 4.9975
+      },
+      "preview_values": {
+        "eeg_first_channel_first_10": [
+          5.606707572937012,
+          6.943462371826172,
+          8.099485397338867,
+          8.855310440063477,
+          8.972139358520508,
+          8.359939575195312,
+          7.183882713317871,
+          5.770382881164551,
+          4.440456390380859,
+          3.3605353832244873
+        ],
+        "emg_first_channel_first_10": [
+          -3.089065038577992,
+          -2.1359951908935564,
+          -1.791404517222492,
+          -1.0191187741726708,
+          0.7740327317433523,
+          3.348553693445686,
+          5.677519080088567,
+          6.624599966213962,
+          6.001734478208389,
+          4.853709356633552
+        ]
+      }
+    },
+    {
+      "subject_id": 1,
+      "stimulus_id": "Miserable_pose_3",
+      "raw_event_name": "STIM_Miserable_pose_3",
+      "event_index_1based": 18,
+      "valence_score": 1,
+      "arousal_score": 5,
+      "valence_label_gt5": 0,
+      "arousal_label_gt5": null,
+      "valence_is_discard_score5": false,
+      "arousal_is_discard_score5": true,
+      "eeg": {
+        "file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_01.mat",
+        "fs": 512.0,
+        "raw_data_shape": [
+          565159,
+          38
+        ],
+        "begin_raw": 264561.0,
+        "end_raw": 267118.0,
+        "trial_index_duration_samples": 2557.0,
+        "trial_index_duration_sec": 4.994140625,
+        "half_open_shape_time_x_channels": [
+          2557,
+          38
+        ],
+        "half_open_duration_sec": 4.994140625,
+        "matlab_1based_inclusive_shape_time_x_channels": [
+          2558,
+          38
+        ],
+        "matlab_1based_inclusive_duration_sec": 4.99609375,
+        "model_candidate_first32_shape_channels_x_time": [
+          32,
+          2557
+        ],
+        "model_candidate_first32_resampled_128hz_shape_channels_x_time": [
+          32,
+          640
+        ],
+        "model_candidate_first32_resampled_128hz_duration_sec": 5.0
+      },
+      "emg": {
+        "file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_01.mat",
+        "fs": 2000.0,
+        "raw_data_shape": [
+          2207651,
+          2
+        ],
+        "begin_raw": 1033439.0,
+        "end_raw": 1043431.0,
+        "trial_index_duration_samples": 9992.0,
+        "trial_index_duration_sec": 4.996,
+        "half_open_shape_time_x_channels": [
+          9992,
+          2
+        ],
+        "half_open_duration_sec": 4.996,
+        "matlab_1based_inclusive_shape_time_x_channels": [
+          9993,
+          2
+        ],
+        "matlab_1based_inclusive_duration_sec": 4.9965
+      },
+      "preview_values": {
+        "eeg_first_channel_first_10": [
+          -4.118329048156738,
+          -3.2942957878112793,
+          -2.2570791244506836,
+          -1.0213818550109863,
+          0.3090171813964844,
+          1.5580039024353027,
+          2.5660581588745117,
+          3.2382149696350098,
+          3.59833025932312,
+          3.7495172023773193
+        ],
+        "emg_first_channel_first_10": [
+          2.802101803119657,
+          1.9208072302974701,
+          0.04664276473365541,
+          -1.2108356189274052,
+          -0.25393789907413905,
+          3.2222633125688143,
+          7.45616357596081,
+          9.487311711556991,
+          7.567323628296912,
+          2.928390832658912
+        ]
+      }
+    },
+    {
+      "subject_id": 1,
+      "stimulus_id": "Pinecone_1",
+      "raw_event_name": "STIM_Pinecone_1",
+      "event_index_1based": 21,
+      "valence_score": 5,
+      "arousal_score": 3,
+      "valence_label_gt5": null,
+      "arousal_label_gt5": 0,
+      "valence_is_discard_score5": true,
+      "arousal_is_discard_score5": false,
+      "eeg": {
+        "file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_01.mat",
+        "fs": 512.0,
+        "raw_data_shape": [
+          565159,
+          38
+        ],
+        "begin_raw": 276235.0,
+        "end_raw": 278795.0,
+        "trial_index_duration_samples": 2560.0,
+        "trial_index_duration_sec": 5.0,
+        "half_open_shape_time_x_channels": [
+          2560,
+          38
+        ],
+        "half_open_duration_sec": 5.0,
+        "matlab_1based_inclusive_shape_time_x_channels": [
+          2561,
+          38
+        ],
+        "matlab_1based_inclusive_duration_sec": 5.001953125,
+        "model_candidate_first32_shape_channels_x_time": [
+          32,
+          2560
+        ],
+        "model_candidate_first32_resampled_128hz_shape_channels_x_time": [
+          32,
+          640
+        ],
+        "model_candidate_first32_resampled_128hz_duration_sec": 5.0
+      },
+      "emg": {
+        "file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_01.mat",
+        "fs": 2000.0,
+        "raw_data_shape": [
+          2207651,
+          2
+        ],
+        "begin_raw": 1079041.0,
+        "end_raw": 1089043.0,
+        "trial_index_duration_samples": 10002.0,
+        "trial_index_duration_sec": 5.001,
+        "half_open_shape_time_x_channels": [
+          10002,
+          2
+        ],
+        "half_open_duration_sec": 5.001,
+        "matlab_1based_inclusive_shape_time_x_channels": [
+          10003,
+          2
+        ],
+        "matlab_1based_inclusive_duration_sec": 5.0015
+      },
+      "preview_values": {
+        "eeg_first_channel_first_10": [
+          -3.7416365146636963,
+          -4.337700843811035,
+          -5.126999855041504,
+          -5.574413776397705,
+          -5.383930206298828,
+          -4.788898468017578,
+          -4.209092140197754,
+          -3.8468034267425537,
+          -3.687851905822754,
+          -3.691762685775757
+        ],
+        "emg_first_channel_first_10": [
+          6.087568134032137,
+          9.43516580373838,
+          14.10149340360417,
+          18.926116852521286,
+          20.677428535346635,
+          16.581440698978117,
+          7.544270199236388,
+          -1.8410434204502808,
+          -7.159342986650571,
+          -7.9874242858335025
+        ]
+      }
+    },
+    {
+      "subject_id": 1,
+      "stimulus_id": "Garbage_dump_6",
+      "raw_event_name": "STIM_Garbage_dump_6",
+      "event_index_1based": 24,
+      "valence_score": 2,
+      "arousal_score": 7,
+      "valence_label_gt5": 0,
+      "arousal_label_gt5": 1,
+      "valence_is_discard_score5": false,
+      "arousal_is_discard_score5": false,
+      "eeg": {
+        "file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_01.mat",
+        "fs": 512.0,
+        "raw_data_shape": [
+          565159,
+          38
+        ],
+        "begin_raw": 287363.0,
+        "end_raw": 289922.0,
+        "trial_index_duration_samples": 2559.0,
+        "trial_index_duration_sec": 4.998046875,
+        "half_open_shape_time_x_channels": [
+          2559,
+          38
+        ],
+        "half_open_duration_sec": 4.998046875,
+        "matlab_1based_inclusive_shape_time_x_channels": [
+          2560,
+          38
+        ],
+        "matlab_1based_inclusive_duration_sec": 5.0,
+        "model_candidate_first32_shape_channels_x_time": [
+          32,
+          2559
+        ],
+        "model_candidate_first32_resampled_128hz_shape_channels_x_time": [
+          32,
+          640
+        ],
+        "model_candidate_first32_resampled_128hz_duration_sec": 5.0
+      },
+      "emg": {
+        "file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_01.mat",
+        "fs": 2000.0,
+        "raw_data_shape": [
+          2207651,
+          2
+        ],
+        "begin_raw": 1122509.0,
+        "end_raw": 1132509.0,
+        "trial_index_duration_samples": 10000.0,
+        "trial_index_duration_sec": 5.0,
+        "half_open_shape_time_x_channels": [
+          10000,
+          2
+        ],
+        "half_open_duration_sec": 5.0,
+        "matlab_1based_inclusive_shape_time_x_channels": [
+          10001,
+          2
+        ],
+        "matlab_1based_inclusive_duration_sec": 5.0005
+      },
+      "preview_values": {
+        "eeg_first_channel_first_10": [
+          2.609724521636963,
+          2.6815106868743896,
+          2.5898332595825195,
+          2.208726644515991,
+          1.5615627765655518,
+          0.9273748397827148,
+          0.6220588684082031,
+          0.8412055969238281,
+          1.5553033351898193,
+          2.5527374744415283
+        ],
+        "emg_first_channel_first_10": [
+          -0.031831802541614024,
+          -0.49068884865533624,
+          0.3274026240542826,
+          1.3313151579891174,
+          1.771039711703173,
+          1.576893708720238,
+          1.2087955835867084,
+          1.2049867929851874,
+          1.8661659401755324,
+          3.260366886659729
+        ]
+      }
+    },
+    {
+      "subject_id": 1,
+      "stimulus_id": "Depressed_pose_4",
+      "raw_event_name": "STIM_Depressed_pose_4",
+      "event_index_1based": 27,
+      "valence_score": 4,
+      "arousal_score": 3,
+      "valence_label_gt5": 0,
+      "arousal_label_gt5": 0,
+      "valence_is_discard_score5": false,
+      "arousal_is_discard_score5": false,
+      "eeg": {
+        "file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_01.mat",
+        "fs": 512.0,
+        "raw_data_shape": [
+          565159,
+          38
+        ],
+        "begin_raw": 296904.0,
+        "end_raw": 299459.0,
+        "trial_index_duration_samples": 2555.0,
+        "trial_index_duration_sec": 4.990234375,
+        "half_open_shape_time_x_channels": [
+          2555,
+          38
+        ],
+        "half_open_duration_sec": 4.990234375,
+        "matlab_1based_inclusive_shape_time_x_channels": [
+          2556,
+          38
+        ],
+        "matlab_1based_inclusive_duration_sec": 4.9921875,
+        "model_candidate_first32_shape_channels_x_time": [
+          32,
+          2555
+        ],
+        "model_candidate_first32_resampled_128hz_shape_channels_x_time": [
+          32,
+          639
+        ],
+        "model_candidate_first32_resampled_128hz_duration_sec": 4.9921875
+      },
+      "emg": {
+        "file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_01.mat",
+        "fs": 2000.0,
+        "raw_data_shape": [
+          2207651,
+          2
+        ],
+        "begin_raw": 1159777.0,
+        "end_raw": 1169761.0,
+        "trial_index_duration_samples": 9984.0,
+        "trial_index_duration_sec": 4.992,
+        "half_open_shape_time_x_channels": [
+          9984,
+          2
+        ],
+        "half_open_duration_sec": 4.992,
+        "matlab_1based_inclusive_shape_time_x_channels": [
+          9985,
+          2
+        ],
+        "matlab_1based_inclusive_duration_sec": 4.9925
+      },
+      "preview_values": {
+        "eeg_first_channel_first_10": [
+          -1.0469353199005127,
+          -2.1905949115753174,
+          -3.5632309913635254,
+          -4.976546764373779,
+          -6.180706977844238,
+          -6.913780212402344,
+          -7.078299522399902,
+          -6.83195686340332,
+          -6.488062858581543,
+          -6.320361137390137
+        ],
+        "emg_first_channel_first_10": [
+          -3.6126818134334897,
+          -6.42580048048127,
+          -7.633502376756665,
+          -6.4756914666930045,
+          -3.8882790409801156,
+          -1.639253898652756,
+          -1.1253234654977253,
+          -2.5297678566971,
+          -4.521431668573784,
+          -4.920218511890614
+        ]
+      }
+    }
+  ]
+}
