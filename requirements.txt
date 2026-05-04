@@ -6,3 +6,4 @@ matplotlib
 tqdm
 pyyaml
 torch
+h5py
