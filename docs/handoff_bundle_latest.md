@@ -124,13 +124,13 @@ Important local issue:
 
 ## Current Phase
 
-Milestone 1 - Dataset acquisition and audit preparation.
+Milestone 1 - Dataset acquisition and audit / I-DARE loader-design preparation.
 
 ## Current Goal
 
-Audit the downloaded I-DARE first-stage files and continue DEAP acquisition.
+Finish the I-DARE dataset audit path by turning the verified acquisition and trial-index probes into a clean I-DARE trial index builder / loader design.
 
-No training should be started before dataset audit reports are generated.
+No model training should be started before dataset audit reports and loader assumptions are finalized.
 
 ---
 
@@ -139,7 +139,7 @@ No training should be started before dataset audit reports are generated.
 - Git installed.
 - GitHub repository cloned locally.
 - SSH authentication with GitHub works.
-- Empty local dataset folders created:
+- Local dataset folders created:
   - `/mnt/HDD/AliWorks/DEAP`
   - `/mnt/HDD/AliWorks/I-DARE`
 - Python version checked:
@@ -159,10 +159,10 @@ No training should be started before dataset audit reports are generated.
   - `EEGSegmentClassifier-v1 lite`: 337,955 trainable parameters.
 - Working proposal V1.1 added:
   - `docs/proposal_v1_1.md`
-- Complete handoff bundle added:
-  - `docs/handoff_bundle_latest.md`
 - Dataset acquisition plan added:
   - `docs/dataset_acquisition_plan.md`
+- Complete handoff bundle exists:
+  - `docs/handoff_bundle_latest.md`
 
 ---
 
@@ -201,7 +201,7 @@ docs/idare_download_manifest.csv
 docs/idare_download_manifest_summary.md
 ```
 
-I-DARE manifest result:
+Manifest result:
 
 ```text
 Total listed files: 263
@@ -211,7 +211,7 @@ First-stage total size: 6.88 GB
 Main-protocol total size: 6.85 GB
 ```
 
-Checksum metadata was added to the manifest:
+Checksum metadata was added:
 
 ```text
 computed_md5 present for all 133 first-stage files
@@ -234,8 +234,10 @@ Local disk usage: 6.9G
 Relevant files:
 
 ```text
-docs/idare_acquisition_status.md
+scripts/download_idare_from_manifest.py
 docs/idare_download_report.md
+docs/idare_acquisition_status.md
+docs/handoff_delta_after_idare_acquisition.md
 ```
 
 Local I-DARE root:
@@ -257,6 +259,163 @@ Observed folder structure:
 
 ---
 
+## I-DARE Dataset Audit Completed
+
+I-DARE dataset audit script added and executed:
+
+```text
+scripts/01_audit_datasets.py
+docs/data_audit_idare.md
+docs/data_audit_idare.json
+```
+
+Audit result after adding `h5py` support:
+
+```text
+Status: PASSED
+Issues: 0
+Warnings: 0
+```
+
+Important loader observation:
+
+```text
+I-DARE `.mat` files are MATLAB v7.3 / HDF5 files.
+They should be read with `h5py`.
+```
+
+Dependency added:
+
+```text
+h5py
+```
+
+---
+
+## I-DARE Structure and Trial-Index Probes Completed
+
+The following probes were created:
+
+```text
+scripts/02_probe_idare_hdf5_structure.py
+docs/idare_hdf5_structure_probe.md
+docs/idare_hdf5_structure_probe.json
+
+scripts/03_probe_idare_mat73_loader.py
+docs/idare_mat73_probe.md
+docs/idare_mat73_probe.json
+
+scripts/04_probe_idare_refs_and_events.py
+docs/idare_refs_and_events_probe.md
+docs/idare_refs_and_events_probe.json
+
+scripts/05_probe_idare_trial_index.py
+docs/idare_trial_index_probe.md
+docs/idare_trial_index_probe.json
+```
+
+Main findings:
+
+```text
+Stimuli_Specifications.csv rows: 100
+I-DARE .mat event_begin/event_end pairs: 100
+STIM_* rows: 32
+Label stimulus IDs: 32
+stim_rows_match_label_stimuli: true
+```
+
+Sample subjects checked:
+
+```text
+sbj_P_01
+sbj_P_02
+sbj_P_03
+```
+
+For each sampled subject:
+
+```text
+stim_rows_count: 32
+labeled_stim_rows_count: 32
+all_labeled_stim_eeg_4p5_to_5p5: true
+all_labeled_stim_emg_4p5_to_5p5: true
+```
+
+---
+
+## Current I-DARE Loader Design Decision
+
+Use only `STIM_*` rows as emotional trials.
+
+Do not use `BSL_*` or `SAM_*` rows as emotion-classification samples.
+
+Map labels by stripping the `STIM_` prefix:
+
+```text
+STIM_3053 -> 3053
+STIM_Dog_18 -> Dog_18
+```
+
+Use the row order in `Stimuli_Specifications.csv` as the event order for `event_begin` and `event_end`.
+
+Candidate loader design:
+
+```text
+1. Load `.mat` files with `h5py`.
+2. Use raw h5py data orientation:
+   - EEG: time x channels
+   - EMG: time x channels
+3. Use the 63 common EEG+EMG subjects for the main protocol.
+4. For each subject:
+   - read EEG file,
+   - read EMG file,
+   - read `Stimuli_Specifications.csv`,
+   - keep only `STIM_*` rows,
+   - extract matching EEG and EMG event windows,
+   - attach valence and arousal scores from label CSV files.
+5. Apply binary label rule:
+   - score > 5 -> 1
+   - score < 5 -> 0
+   - score == 5 -> discard for that specific task
+6. EEG will later be resampled from 512Hz to 128Hz.
+7. EMG will be converted to feature-level descriptors.
+```
+
+Decision registered in:
+
+```text
+docs/decision_log.md
+```
+
+Decision ID:
+
+```text
+D005 - Use STIM events as I-DARE emotional trials
+```
+
+---
+
+## DEAP Status
+
+DEAP has not been downloaded yet.
+
+Expected first DEAP target:
+
+```text
+DEAP preprocessed Python version
+Data_preprocessed_python.zip
+```
+
+DEAP local folder:
+
+```text
+/mnt/HDD/AliWorks/DEAP
+```
+
+DEAP access/credentials still need to be confirmed or requested.
+
+---
+
 ## Current Git Status at Last Check
 
 Repository was pushed successfully and is expected to be synced with `origin/main` at the time of handoff.
@@ -268,40 +427,29 @@ git status
 git log --oneline -5
 ```
 
-Latest known pushed commit before this update:
-
-```text
-e2f4c6e scripts: add I-DARE downloader dry run
-```
-
-After committing this update, the latest commit will change.
-
 ---
 
 ## In Progress
 
-- Preparing Milestone 1: dataset acquisition and dataset audit.
-- I-DARE acquisition is complete.
-- Next practical step:
-  - create `scripts/01_audit_datasets.py`
-  - audit I-DARE downloaded files
-  - generate `docs/data_audit_idare.md`
+- Preparing I-DARE trial index builder / loader implementation.
+- DEAP acquisition is still pending.
 
 ---
 
 ## Next Steps
 
-1. Add/update the I-DARE acquisition status docs.
-2. Commit the final I-DARE acquisition verification report:
-   - `docs/idare_download_report.md`
-3. Create:
-   - `scripts/01_audit_datasets.py`
-4. Audit I-DARE downloaded files and generate:
-   - `docs/data_audit_idare.md`
-5. Confirm or request official DEAP access credentials.
-6. Download DEAP preprocessed Python archive:
+1. Update and commit this project-state / handoff refresh.
+2. Regenerate `docs/handoff_bundle_latest.md`.
+3. Implement an I-DARE trial index builder.
+4. Generate a clean machine-readable I-DARE trial index table.
+5. Validate label counts after applying:
+   - valence: score > 5 / score < 5 / score == 5 discard
+   - arousal: score > 5 / score < 5 / score == 5 discard
+6. Continue DEAP access/download process.
+7. Download DEAP preprocessed Python archive:
    - `Data_preprocessed_python.zip`
-7. Extend the audit script for DEAP and generate:
+8. Extend `scripts/01_audit_datasets.py` to audit DEAP after download.
+9. Generate:
    - `docs/data_audit_deap.md`
 
 ---
@@ -310,9 +458,9 @@ After committing this update, the latest commit will change.
 
 - Are official DEAP access credentials ready?
 - Has `Data_preprocessed_python.zip` been downloaded from the official DEAP source?
-- What are the exact I-DARE `.mat` field shapes, sampling rates, channel names, and event structures after audit?
-
----
+- Should the first I-DARE loader output include only metadata/trial index, or also extracted `.npz` windows?
+- Which exact EEG channels from I-DARE should be used in the first model input after inspecting channel metadata?
+- How should I-DARE EEG channel set be harmonized with DEAP later?
 
 ## Last Updated
 
@@ -333,35 +481,19 @@ Cross-subject EEG-EMG emotion recognition on DEAP and I-DARE.
 
 Evaluate whether auxiliary EMG and trial-aware temporal modeling improve cross-subject EEG emotion recognition.
 
-The current paper focuses on:
-
-```text
-within-dataset cross-subject generalization
-strict LOSO evaluation
-DEAP and I-DARE
-```
-
-The current paper version does not include cross-dataset transfer.
+The current paper version focuses on within-dataset cross-subject generalization. Cross-dataset transfer between DEAP and I-DARE is intentionally excluded from the current paper version.
 
 ---
 
 ## Current Phase
 
-Milestone 1 - Dataset acquisition and audit preparation.
+Milestone 1 - Dataset acquisition and audit / I-DARE loader-design preparation.
 
-Milestone 0 has already been completed.
-
-Current status:
-
-```text
-I-DARE first-stage acquisition is complete.
-I-DARE files have been downloaded and checksum-verified.
-DEAP acquisition is still pending.
-```
+No training should be started yet.
 
 ---
 
-## Important Local Paths
+## Local Paths
 
 Project root:
 
@@ -383,30 +515,25 @@ I-DARE root:
 
 ---
 
-## Current Design
+## Environment Status
 
-- Main datasets:
-  - DEAP
-  - I-DARE
-- Tasks:
-  - binary valence
-  - binary arousal
-- Evaluation:
-  - strict LOSO
-  - within-dataset cross-subject
-- Main window:
-  - 5 seconds
-  - no overlap
-- DEAP:
-  - 60s trial -> 12 non-overlapping 5s windows
-- I-DARE:
-  - one natural 5s stimulus window
-- Current paper version:
-  - no cross-dataset transfer
+- Python version: 3.12.3.
+- Virtual environment: `.venv`.
+- PyTorch with CUDA 12.8 installed.
+- GPU detected: NVIDIA GeForce RTX 5090.
+- GitHub SSH authentication works.
+- Repository has been pushed successfully and is expected to be synced with `origin/main`.
+
+Verify with:
+
+```bash
+git status
+git log --oneline -5
+```
 
 ---
 
-## Current Model Plan
+## Current Code Status
 
 Current EEG model files:
 
@@ -416,15 +543,13 @@ src/emotion_deap_idare/models/eeg_segment_classifier.py
 src/emotion_deap_idare/models/old_style_eeg_classifier.py
 ```
 
-Current model status:
+Main smoke-tested model:
 
 ```text
 EEGSegmentClassifier-v1 lite
-GPU smoke test passed
-trainable parameters: 337,955
 ```
 
-Smoke test shapes:
+Smoke test result:
 
 ```text
 input: [8, 32, 640]
@@ -433,218 +558,327 @@ embedding z: [8, 128]
 projection z_proj: [8, 64]
 temporal attention: [8, 32, 320]
 channel attention: [8, 32]
+trainable parameters: 337,955
+GPU smoke test: passed
 ```
-
-Later planned modules:
-
-```text
-EMG feature-level branch
-EEG sequence encoder
-EMG sequence encoder
-segment-level fusion
-trial-level modality-specific fusion
-contrastive learning ablation
-```
-
-Do not implement these yet. Dataset audit comes first.
 
 ---
 
-## Critical Decisions
+## Project Memory Files
 
-- Dataset files are not tracked by Git.
-- `configs/paths.local.yaml` is Git-ignored.
-- Storage location accepted for initial phase:
-  - `/mnt/HDD/AliWorks/DEAP`
-  - `/mnt/HDD/AliWorks/I-DARE`
-- DEAP target version:
-  - official preprocessed Python version, 128Hz
-  - `Data_preprocessed_python.zip`
-- EMG main branch:
-  - feature-level, not raw waveform
-- Fusion location is an experimental question:
-  1. segment-level EEG-EMG fusion
-  2. modality-specific sequence encoding + trial-level fusion
-- Contrastive learning:
-  - later ablation only
-  - not part of the first training step
-- I-DARE main subject set:
-  - use 63 common EEG+EMG subjects
-  - exclude subject 4 from main EEG+EMG protocol
-  - subject 4 may be used only for optional EMG-only secondary analysis
-
----
-
-## I-DARE Source Listing Status
-
-I-DARE Figshare source listing has been generated.
-
-Listing files:
+Important memory/documentation files:
 
 ```text
-scripts/list_idare_figshare_files.py
+docs/project_state.md
+docs/chat_handoff_latest.md
+docs/decision_log.md
+docs/proposal_v1_1.md
+docs/dataset_acquisition_plan.md
+docs/handoff_bundle_latest.md
+experiments/registry.csv
+```
+
+I-DARE acquisition/audit/probe files:
+
+```text
 docs/data_sources_idare.md
 docs/data_sources_idare.json
 docs/data_sources_idare_summary.txt
+docs/idare_download_manifest.csv
+docs/idare_download_manifest_summary.md
+docs/idare_download_report.md
+docs/idare_acquisition_status.md
+docs/data_audit_idare.md
+docs/data_audit_idare.json
+docs/idare_hdf5_structure_probe.md
+docs/idare_hdf5_structure_probe.json
+docs/idare_mat73_probe.md
+docs/idare_mat73_probe.json
+docs/idare_refs_and_events_probe.md
+docs/idare_refs_and_events_probe.json
+docs/idare_trial_index_probe.md
+docs/idare_trial_index_probe.json
+docs/handoff_delta_after_idare_acquisition.md
+docs/handoff_delta_after_trial_index_probe.md
 ```
 
-Listing result:
+Relevant scripts:
 
 ```text
-Articles discovered: 5
-Files discovered: 263
-Total listed size: 6.98 GB
-First-stage required files: 133
-First-stage required size: 6.88 GB
-EEG subjects: 63
-EMG subjects: 64
-Common EEG+EMG subjects: 63
-EMG-only subject: 4
+scripts/list_idare_figshare_files.py
+scripts/build_idare_download_manifest.py
+scripts/download_idare_from_manifest.py
+scripts/01_audit_datasets.py
+scripts/02_probe_idare_hdf5_structure.py
+scripts/03_probe_idare_mat73_loader.py
+scripts/04_probe_idare_refs_and_events.py
+scripts/05_probe_idare_trial_index.py
 ```
 
 ---
 
-## I-DARE Download Manifest Status
+## Locked Design Decisions
 
-Manifest files:
+### Evaluation
+
+- Strict LOSO / subject-held-out evaluation.
+- Within-dataset cross-subject evaluation.
+- No cross-dataset transfer in the current paper version.
+
+### Tasks
+
+- Binary valence.
+- Binary arousal.
+
+Label rule:
 
 ```text
-scripts/build_idare_download_manifest.py
-docs/idare_download_manifest.csv
-docs/idare_download_manifest_summary.md
+label = 1 if score > 5
+label = 0 if score < 5
+score == 5 is discarded for that task
 ```
 
-Manifest result:
+### Windowing
+
+DEAP:
 
 ```text
-Total listed files: 263
-First-stage files: 133
-Main-protocol files: 132
-First-stage total size: 6.88 GB
-Main-protocol total size: 6.85 GB
+60s trial -> 12 non-overlapping 5s windows
 ```
 
-Checksum status:
+I-DARE:
 
 ```text
-computed_md5 present for all 133 first-stage files
-missing md5 in first-stage files: 0
+one natural 5s STIM window per emotional stimulus
+```
+
+### EMG
+
+- Main EMG path is feature-level, not raw waveform.
+- Raw EMG may be considered later as an ablation.
+
+### Fusion
+
+Fusion location remains an experimental question:
+
+```text
+1. segment-level EEG-EMG fusion
+2. modality-specific sequence encoding + trial-level fusion
+```
+
+### Contrastive Learning
+
+Contrastive learning is reserved for later ablation only.
+
+Planned contrastive design:
+
+```text
+positive = same emotion label + different subject
+hard negative = same stimulus/video + different reported emotion
+loss location = trial-level representation, not raw segment level
 ```
 
 ---
 
 ## I-DARE Acquisition Status
 
-I-DARE first-stage files have been downloaded and verified.
+I-DARE first-stage acquisition is complete.
 
 Downloaded subset:
 
 ```text
-EEG files
-EMG files
-label CSV files
-metadata CSV files
+EEG files: 63
+EMG files: 64
+Label CSV files: 4
+Metadata CSV files: 2
+Total files: 133
 ```
 
-Final verification result:
+Verification result:
 
 ```text
-selected_files: 133
-selected_total_size: 6.88 GB
 verified_ok: 133
 verify_failed: 0
+local disk usage: 6.9G
 ```
 
-Local disk usage:
+Main protocol subject set:
 
 ```text
-6.9G /mnt/HDD/AliWorks/I-DARE
+63 common EEG+EMG subjects
+subject 4 is EMG-only and excluded from main EEG+EMG protocol
 ```
 
-Final verification report:
+---
+
+## I-DARE Dataset Audit Status
+
+Audit script:
 
 ```text
-docs/idare_download_report.md
+scripts/01_audit_datasets.py
 ```
 
-Acquisition status doc:
+Audit outputs:
 
 ```text
-docs/idare_acquisition_status.md
+docs/data_audit_idare.md
+docs/data_audit_idare.json
+```
+
+Current audit result:
+
+```text
+Status: PASSED
+Issues: 0
+Warnings: 0
+```
+
+Important observation:
+
+```text
+I-DARE .mat files are MATLAB v7.3 / HDF5.
+Use h5py.
+```
+
+Dependencies now include:
+
+```text
+h5py
+mat73
+```
+
+Note:
+`mat73` was useful for probing orientation but raw `h5py` remains the safer loader basis because it preserves direct HDF5 structure and event arrays.
+
+---
+
+## I-DARE Trial Index Findings
+
+Trial-index probe:
+
+```text
+scripts/05_probe_idare_trial_index.py
+docs/idare_trial_index_probe.md
+docs/idare_trial_index_probe.json
+```
+
+Main findings:
+
+```text
+Stimuli_Specifications.csv rows: 100
+I-DARE .mat event_begin/event_end pairs: 100
+STIM_* rows: 32
+Label stimulus IDs: 32
+stim_rows_match_label_stimuli: true
+```
+
+Sample subjects checked:
+
+```text
+sbj_P_01
+sbj_P_02
+sbj_P_03
+```
+
+For all three sampled subjects:
+
+```text
+stim_rows_count: 32
+labeled_stim_rows_count: 32
+all_labeled_stim_eeg_4p5_to_5p5: true
+all_labeled_stim_emg_4p5_to_5p5: true
+```
+
+I-DARE loader interpretation:
+
+```text
+Use only STIM_* rows as emotional trials.
+Strip STIM_ prefix to match label CSV stimulus IDs.
+Use row order in Stimuli_Specifications.csv as event order.
+Read data with h5py.
+Raw h5py data orientation is time x channels.
+EEG Fs = 512Hz.
+EMG Fs = 2000Hz.
+```
+
+Decision added:
+
+```text
+D005 - Use STIM events as I-DARE emotional trials
 ```
 
 ---
 
 ## DEAP Status
 
-DEAP has not been downloaded yet.
+DEAP is not downloaded yet.
 
-Target version:
+Planned DEAP starting point:
 
 ```text
-DEAP official preprocessed Python version
+DEAP preprocessed Python version
 Data_preprocessed_python.zip
-128Hz
 ```
 
-Current open item:
-
-```text
-Confirm or request official DEAP access credentials.
-```
+DEAP access/credentials still need confirmation.
 
 ---
 
 ## Immediate Next Step
 
-Create and run the dataset audit script:
+Refresh project state and handoff files after the I-DARE trial-index probe, then implement the I-DARE trial index builder.
 
-```text
-scripts/01_audit_datasets.py
-```
+The next coding target should produce a clean table with one row per subject-stimulus emotional trial.
 
-Audit I-DARE first, because I-DARE has now been downloaded and verified.
-
-The audit should generate:
-
-```text
-docs/data_audit_idare.md
-```
-
-Do not start training yet.  
-Do not implement EMG fusion yet.  
-Do not implement sequence modeling yet.  
-Do not start contrastive learning yet.
+Do not train models yet.
 
 ---
 
-## What the I-DARE Audit Must Verify
+## Next Practical Coding Target
 
-The I-DARE audit should inspect:
+Create an I-DARE trial index builder, likely something like:
 
 ```text
-- folder structure
-- file counts
-- downloaded EEG files
-- downloaded EMG files
-- label CSV files
-- metadata CSV files
-- subject IDs
-- EEG/EMG subject intersection
-- subject 4 handling
-- .mat fields
-- Fs / sampling rates
-- channel names
-- data shapes
-- time vector shapes
-- event_id
-- event_begin
-- event_end
-- feasibility of one 5s stimulus window per event
-- alignment between label CSVs and event IDs
+scripts/06_build_idare_trial_index.py
 ```
 
-The audit should not assume channel count, sampling rate, event duration, or `.mat` structure. It must verify them from the downloaded files.
+Expected output candidates:
+
+```text
+data/idare_trial_index.csv       # likely gitignored if under data/
+docs/idare_trial_index_summary.md
+```
+
+Because dataset-derived tables may reveal dataset contents and may become large later, decide before committing whether the generated trial-index CSV should be tracked or gitignored.
+
+Minimum trial-index columns:
+
+```text
+subject_id
+subject_col
+stimulus_id
+raw_event_name
+event_index_1based
+eeg_file
+emg_file
+eeg_begin
+eeg_end
+eeg_duration_sec
+emg_begin
+emg_end
+emg_duration_sec
+valence_score
+arousal_score
+valence_label_gt5
+arousal_label_gt5
+valence_is_discard_score5
+arousal_is_discard_score5
+quadrant_gs
+quadrant_subject
+```
+
+After the trial index is built, validate label counts for valence/arousal before any training.
 
 
 
@@ -723,6 +957,52 @@ The I-DARE Figshare source listing found:
 For fair EEG-only, EMG-only, and EEG+EMG comparisons, the main protocol should use the same subject set across all conditions.
 
 Subject 4 has EMG but no EEG, so it should be excluded from the main EEG+EMG protocol. It may be kept only for optional EMG-only secondary analysis.
+
+Status:
+Accepted.
+# Decision Log Update — I-DARE Trial Index and Loader Design
+
+Append the following decision to `docs/decision_log.md`.
+
+---
+
+## D005 - Use STIM events as I-DARE emotional trials
+
+Date: 2026-05-04
+
+Decision:
+For the main I-DARE protocol, use only `STIM_*` rows from `Stimuli_Specifications.csv` as emotional stimulus trials.
+
+Use the row order of `Stimuli_Specifications.csv` as the event order corresponding to `event_begin` and `event_end` arrays in each subject `.mat` file.
+
+For labels, strip the `STIM_` prefix and match the remaining stimulus ID to `Valence_SAM.csv` and `Arousal_SAM.csv`.
+
+Reason:
+The I-DARE trial-index probe found:
+- `Stimuli_Specifications.csv` has 100 rows.
+- Each sampled subject `.mat` file has 100 event begin/end pairs.
+- There are exactly 32 `STIM_*` rows.
+- Label CSV files contain exactly 32 matching stimulus IDs after removing the `STIM_` prefix.
+- `stim_rows_match_label_stimuli = true`.
+- Sample subjects 1, 2, and 3 each have:
+  - 32 `STIM_*` rows,
+  - 32 labeled stimulus rows,
+  - EEG stimulus durations between approximately 4.984s and 5.002s,
+  - EMG stimulus durations between approximately 4.986s and 5.004s.
+- Non-stimulus rows such as `BSL_*` and `SAM_*` should not be used as emotional trials.
+
+Implementation implications:
+- Load I-DARE `.mat` files with `h5py`.
+- Treat raw `h5py` data orientation as `time x channels`.
+- EEG sampling rate is 512Hz.
+- EMG sampling rate is 2000Hz.
+- Use one natural stimulus window per `STIM_*` event.
+- Resample EEG from 512Hz to 128Hz later for model input.
+- Extract feature-level EMG descriptors from the corresponding EMG stimulus window.
+- Apply the project label rule:
+  - label = 1 if score > 5
+  - label = 0 if score < 5
+  - score == 5 is discarded for that task
 
 Status:
 Accepted.
@@ -3858,6 +4138,8169 @@ DEAP acquisition is still pending.
 
 
 
+# FILE: docs/data_audit_idare.md
+
+
+# I-DARE Data Audit
+
+This report was generated by `scripts/01_audit_datasets.py`.
+
+No training was performed.
+
+## Audit Status
+
+Status: **PASSED**
+
+## Local Paths
+
+- I-DARE root: `/mnt/HDD/AliWorks/I-DARE`
+
+- Manifest: `/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/idare_download_manifest.csv`
+
+## File Counts
+
+| Item | Count |
+
+|---|---:|
+
+| Manifest first-stage rows | 133 |
+
+| EEG `.mat` files | 63 |
+
+| EMG `.mat` files | 64 |
+
+| Label CSV files | 4 |
+
+| Metadata CSV files | 2 |
+
+| Missing expected first-stage files | 0 |
+
+| Unexpected local files | 0 |
+
+
+## Subject Coverage
+
+- EEG subjects: `63`
+
+- EMG subjects: `64`
+
+- Common EEG+EMG subjects: `63`
+
+- EEG-only subjects: `[]`
+
+- EMG-only subjects: `[4]`
+
+
+### Common Subject IDs
+
+```text
+
+[1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65]
+
+```
+
+## Label and Metadata CSV Summaries
+
+### `Arousal_SAM.csv`
+
+- Path: `/mnt/HDD/AliWorks/I-DARE/labels/Arousal_SAM.csv`
+
+- Shape: `[32, 65]`
+
+- Columns: `['Stimulus', 'sbj_P_01', 'sbj_P_02', 'sbj_P_03', 'sbj_P_04', 'sbj_P_05', 'sbj_P_06', 'sbj_P_07', 'sbj_P_08', 'sbj_P_09', 'sbj_P_10', 'sbj_P_11', 'sbj_P_12', 'sbj_P_13', 'sbj_P_14', 'sbj_P_15', 'sbj_P_16', 'sbj_P_17', 'sbj_P_18', 'sbj_P_19', 'sbj_P_20', 'sbj_P_21', 'sbj_P_22', 'sbj_P_23', 'sbj_P_24', 'sbj_P_25', 'sbj_P_26', 'sbj_P_27', 'sbj_P_28', 'sbj_P_29', 'sbj_P_30 ', 'sbj_P_31', 'sbj_P_32', 'sbj_P_33', 'sbj_P_34', 'sbj_P_35', 'sbj_P_36', 'sbj_P_37', 'sbj_P_38', 'sbj_P_39', 'sbj_P_40', 'sbj_P_41', 'sbj_P_42', 'sbj_P_43', 'sbj_P_44', 'sbj_P_45', 'sbj_P_46', 'sbj_P_47', 'sbj_P_48', 'sbj_P_49', 'sbj_P_50', 'sbj_P_52', 'sbj_P_53', 'sbj_P_54', 'sbj_P_55', 'sbj_P_56', 'sbj_P_57', 'sbj_P_58', 'sbj_P_59', 'sbj_P_60', 'sbj_P_61', 'sbj_P_62', 'sbj_P_63', 'sbj_P_64', 'sbj_P_65']`
+
+- Missing values:
+
+```json
+
+{
+  "Stimulus": 0,
+  "sbj_P_01": 0,
+  "sbj_P_02": 0,
+  "sbj_P_03": 0,
+  "sbj_P_04": 0,
+  "sbj_P_05": 0,
+  "sbj_P_06": 0,
+  "sbj_P_07": 0,
+  "sbj_P_08": 0,
+  "sbj_P_09": 0,
+  "sbj_P_10": 0,
+  "sbj_P_11": 0,
+  "sbj_P_12": 0,
+  "sbj_P_13": 0,
+  "sbj_P_14": 0,
+  "sbj_P_15": 0,
+  "sbj_P_16": 0,
+  "sbj_P_17": 0,
+  "sbj_P_18": 0,
+  "sbj_P_19": 0,
+  "sbj_P_20": 0,
+  "sbj_P_21": 0,
+  "sbj_P_22": 0,
+  "sbj_P_23": 0,
+  "sbj_P_24": 0,
+  "sbj_P_25": 0,
+  "sbj_P_26": 0,
+  "sbj_P_27": 0,
+  "sbj_P_28": 0,
+  "sbj_P_29": 0,
+  "sbj_P_30 ": 0,
+  "sbj_P_31": 0,
+  "sbj_P_32": 0,
+  "sbj_P_33": 0,
+  "sbj_P_34": 0,
+  "sbj_P_35": 0,
+  "sbj_P_36": 0,
+  "sbj_P_37": 0,
+  "sbj_P_38": 0,
+  "sbj_P_39": 0,
+  "sbj_P_40": 0,
+  "sbj_P_41": 0,
+  "sbj_P_42": 0,
+  "sbj_P_43": 0,
+  "sbj_P_44": 0,
+  "sbj_P_45": 0,
+  "sbj_P_46": 0,
+  "sbj_P_47": 0,
+  "sbj_P_48": 0,
+  "sbj_P_49": 0,
+  "sbj_P_50": 0,
+  "sbj_P_52": 0,
+  "sbj_P_53": 0,
+  "sbj_P_54": 0,
+  "sbj_P_55": 0,
+  "sbj_P_56": 0,
+  "sbj_P_57": 0,
+  "sbj_P_58": 0,
+  "sbj_P_59": 0,
+  "sbj_P_60": 0,
+  "sbj_P_61": 0,
+  "sbj_P_62": 0,
+  "sbj_P_63": 0,
+  "sbj_P_64": 0,
+  "sbj_P_65": 0
+}
+
+```
+
+- Preview:
+
+```json
+
+[
+  {
+    "Stimulus": "1441",
+    "sbj_P_01": "2",
+    "sbj_P_02": "8",
+    "sbj_P_03": "4",
+    "sbj_P_04": "2",
+    "sbj_P_05": "6",
+    "sbj_P_06": "8",
+    "sbj_P_07": "2",
+    "sbj_P_08": "1",
+    "sbj_P_09": "3",
+    "sbj_P_10": "3",
+    "sbj_P_11": "2",
+    "sbj_P_12": "5",
+    "sbj_P_13": "2",
+    "sbj_P_14": "2",
+    "sbj_P_15": "1",
+    "sbj_P_16": "2",
+    "sbj_P_17": "1",
+    "sbj_P_18": "1",
+    "sbj_P_19": "5",
+    "sbj_P_20": "7",
+    "sbj_P_21": "2",
+    "sbj_P_22": "1",
+    "sbj_P_23": "3",
+    "sbj_P_24": "4",
+    "sbj_P_25": "2",
+    "sbj_P_26": "1",
+    "sbj_P_27": "3",
+    "sbj_P_28": "2",
+    "sbj_P_29": "3",
+    "sbj_P_30 ": "2",
+    "sbj_P_31": "1",
+    "sbj_P_32": "4",
+    "sbj_P_33": "3",
+    "sbj_P_34": "1",
+    "sbj_P_35": "2",
+    "sbj_P_36": "2",
+    "sbj_P_37": "3",
+    "sbj_P_38": "2",
+    "sbj_P_39": "1",
+    "sbj_P_40": "1",
+    "sbj_P_41": "2",
+    "sbj_P_42": "7",
+    "sbj_P_43": "1",
+    "sbj_P_44": "2",
+    "sbj_P_45": "2",
+    "sbj_P_46": "3",
+    "sbj_P_47": "1",
+    "sbj_P_48": "2",
+    "sbj_P_49": "1",
+    "sbj_P_50": "4",
+    "sbj_P_52": "4",
+    "sbj_P_53": "2",
+    "sbj_P_54": "1",
+    "sbj_P_55": "2",
+    "sbj_P_56": "4",
+    "sbj_P_57": "2",
+    "sbj_P_58": "1",
+    "sbj_P_59": "2",
+    "sbj_P_60": "2",
+    "sbj_P_61": "1",
+    "sbj_P_62": "1",
+    "sbj_P_63": "1",
+    "sbj_P_64": "6",
+    "sbj_P_65": "1"
+  },
+  {
+    "Stimulus": "1750",
+    "sbj_P_01": "3",
+    "sbj_P_02": "6",
+    "sbj_P_03": "4",
+    "sbj_P_04": "5",
+    "sbj_P_05": "2",
+    "sbj_P_06": "8",
+    "sbj_P_07": "3",
+    "sbj_P_08": "2",
+    "sbj_P_09": "7",
+    "sbj_P_10": "2",
+    "sbj_P_11": "6",
+    "sbj_P_12": "4",
+    "sbj_P_13": "1",
+    "sbj_P_14": "3",
+    "sbj_P_15": "4",
+    "sbj_P_16": "2",
+    "sbj_P_17": "3",
+    "sbj_P_18": "1",
+    "sbj_P_19": "4",
+    "sbj_P_20": "6",
+    "sbj_P_21": "3",
+    "sbj_P_22": "2",
+    "sbj_P_23": "2",
+    "sbj_P_24": "3",
+    "sbj_P_25": "1",
+    "sbj_P_26": "1",
+    "sbj_P_27": "3",
+    "sbj_P_28": "1",
+    "sbj_P_29": "3",
+    "sbj_P_30 ": "2",
+    "sbj_P_31": "3",
+    "sbj_P_32": "1",
+    "sbj_P_33": "5",
+    "sbj_P_34": "2",
+    "sbj_P_35": "5",
+    "sbj_P_36": "4",
+    "sbj_P_37": "3",
+    "sbj_P_38": "3",
+    "sbj_P_39": "6",
+    "sbj_P_40": "8",
+    "sbj_P_41": "3",
+    "sbj_P_42": "7",
+    "sbj_P_43": "1",
+    "sbj_P_44": "2",
+    "sbj_P_45": "3",
+    "sbj_P_46": "6",
+    "sbj_P_47": "5",
+    "sbj_P_48": "4",
+    "sbj_P_49": "2",
+    "sbj_P_50": "1",
+    "sbj_P_52": "5",
+    "sbj_P_53": "1",
+    "sbj_P_54": "2",
+    "sbj_P_55": "1",
+    "sbj_P_56": "3",
+    "sbj_P_57": "1",
+    "sbj_P_58": "4",
+    "sbj_P_59": "6",
+    "sbj_P_60": "1",
+    "sbj_P_61": "1",
+    "sbj_P_62": "1",
+    "sbj_P_63": "1",
+    "sbj_P_64": "2",
+    "sbj_P_65": "1"
+  },
+  {
+    "Stimulus": "2314",
+    "sbj_P_01": "4",
+    "sbj_P_02": "6",
+    "sbj_P_03": "2",
+    "sbj_P_04": "5",
+    "sbj_P_05": "4",
+    "sbj_P_06": "7",
+    "sbj_P_07": "3",
+    "sbj_P_08": "1",
+    "sbj_P_09": "7",
+    "sbj_P_10": "4",
+    "sbj_P_11": "6",
+    "sbj_P_12": "4",
+    "sbj_P_13": "1",
+    "sbj_P_14": "3",
+    "sbj_P_15": "3",
+    "sbj_P_16": "2",
+    "sbj_P_17": "1",
+    "sbj_P_18": "7",
+    "sbj_P_19": "6",
+    "sbj_P_20": "4",
+    "sbj_P_21": "4",
+    "sbj_P_22": "1",
+    "sbj_P_23": "3",
+    "sbj_P_24": "2",
+    "sbj_P_25": "2",
+    "sbj_P_26": "1",
+    "sbj_P_27": "6",
+    "sbj_P_28": "3",
+    "sbj_P_29": "5",
+    "sbj_P_30 ": "4",
+    "sbj_P_31": "3",
+    "sbj_P_32": "2",
+    "sbj_P_33": "5",
+    "sbj_P_34": "2",
+    "sbj_P_35": "4",
+    "sbj_P_36": "5",
+    "sbj_P_37": "5",
+    "sbj_P_38": "3",
+    "sbj_P_39": "2",
+    "sbj_P_40": "1",
+    "sbj_P_41": "2",
+    "sbj_P_42": "5",
+    "sbj_P_43": "1",
+    "sbj_P_44": "2",
+    "sbj_P_45": "6",
+    "sbj_P_46": "4",
+    "sbj_P_47": "5",
+    "sbj_P_48": "3",
+    "sbj_P_49": "2",
+    "sbj_P_50": "5",
+    "sbj_P_52": "7",
+    "sbj_P_53": "2",
+    "sbj_P_54": "4",
+    "sbj_P_55": "1",
+    "sbj_P_56": "2",
+    "sbj_P_57": "4",
+    "sbj_P_58": "2",
+    "sbj_P_59": "7",
+    "sbj_P_60": "6",
+    "sbj_P_61": "1",
+    "sbj_P_62": "3",
+    "sbj_P_63": "1",
+    "sbj_P_64": "5",
+    "sbj_P_65": "1"
+  }
+]
+
+```
+
+### `Quadrants_SAM.csv`
+
+- Path: `/mnt/HDD/AliWorks/I-DARE/labels/Quadrants_SAM.csv`
+
+- Shape: `[32, 66]`
+
+- Columns: `['Stimulus', 'Quadrant (GS)', 'sbj_P_01', 'sbj_P_02', 'sbj_P_03', 'sbj_P_04', 'sbj_P_05', 'sbj_P_06', 'sbj_P_07', 'sbj_P_08', 'sbj_P_09', 'sbj_P_10', 'sbj_P_11', 'sbj_P_12', 'sbj_P_13', 'sbj_P_14', 'sbj_P_15', 'sbj_P_16', 'sbj_P_17', 'sbj_P_18', 'sbj_P_19', 'sbj_P_20', 'sbj_P_21', 'sbj_P_22', 'sbj_P_23', 'sbj_P_24', 'sbj_P_25', 'sbj_P_26', 'sbj_P_27', 'sbj_P_28', 'sbj_P_29', 'sbj_P_30 ', 'sbj_P_31', 'sbj_P_32', 'sbj_P_33', 'sbj_P_34', 'sbj_P_35', 'sbj_P_36', 'sbj_P_37', 'sbj_P_38', 'sbj_P_39', 'sbj_P_40', 'sbj_P_41', 'sbj_P_42', 'sbj_P_43', 'sbj_P_44', 'sbj_P_45', 'sbj_P_46', 'sbj_P_47', 'sbj_P_48', 'sbj_P_49', 'sbj_P_50', 'sbj_P_52', 'sbj_P_53', 'sbj_P_54', 'sbj_P_55', 'sbj_P_56', 'sbj_P_57', 'sbj_P_58', 'sbj_P_59', 'sbj_P_60', 'sbj_P_61', 'sbj_P_62', 'sbj_P_63', 'sbj_P_64', 'sbj_P_65']`
+
+- Missing values:
+
+```json
+
+{
+  "Stimulus": 0,
+  "Quadrant (GS)": 0,
+  "sbj_P_01": 0,
+  "sbj_P_02": 0,
+  "sbj_P_03": 0,
+  "sbj_P_04": 0,
+  "sbj_P_05": 0,
+  "sbj_P_06": 0,
+  "sbj_P_07": 0,
+  "sbj_P_08": 0,
+  "sbj_P_09": 0,
+  "sbj_P_10": 0,
+  "sbj_P_11": 0,
+  "sbj_P_12": 0,
+  "sbj_P_13": 0,
+  "sbj_P_14": 0,
+  "sbj_P_15": 0,
+  "sbj_P_16": 0,
+  "sbj_P_17": 0,
+  "sbj_P_18": 0,
+  "sbj_P_19": 0,
+  "sbj_P_20": 0,
+  "sbj_P_21": 0,
+  "sbj_P_22": 0,
+  "sbj_P_23": 0,
+  "sbj_P_24": 0,
+  "sbj_P_25": 0,
+  "sbj_P_26": 0,
+  "sbj_P_27": 0,
+  "sbj_P_28": 0,
+  "sbj_P_29": 0,
+  "sbj_P_30 ": 0,
+  "sbj_P_31": 0,
+  "sbj_P_32": 0,
+  "sbj_P_33": 0,
+  "sbj_P_34": 0,
+  "sbj_P_35": 0,
+  "sbj_P_36": 0,
+  "sbj_P_37": 0,
+  "sbj_P_38": 0,
+  "sbj_P_39": 0,
+  "sbj_P_40": 0,
+  "sbj_P_41": 0,
+  "sbj_P_42": 0,
+  "sbj_P_43": 0,
+  "sbj_P_44": 0,
+  "sbj_P_45": 0,
+  "sbj_P_46": 0,
+  "sbj_P_47": 0,
+  "sbj_P_48": 0,
+  "sbj_P_49": 0,
+  "sbj_P_50": 0,
+  "sbj_P_52": 0,
+  "sbj_P_53": 0,
+  "sbj_P_54": 0,
+  "sbj_P_55": 0,
+  "sbj_P_56": 0,
+  "sbj_P_57": 0,
+  "sbj_P_58": 0,
+  "sbj_P_59": 0,
+  "sbj_P_60": 0,
+  "sbj_P_61": 0,
+  "sbj_P_62": 0,
+  "sbj_P_63": 0,
+  "sbj_P_64": 0,
+  "sbj_P_65": 0
+}
+
+```
+
+- Preview:
+
+```json
+
+[
+  {
+    "Stimulus": "1441",
+    "Quadrant (GS)": "HVLA",
+    "sbj_P_01": "HVLA",
+    "sbj_P_02": "HVHA",
+    "sbj_P_03": "HVLA",
+    "sbj_P_04": "HVLA",
+    "sbj_P_05": "HVHA",
+    "sbj_P_06": "HVHA",
+    "sbj_P_07": "HVLA",
+    "sbj_P_08": "HVLA",
+    "sbj_P_09": "HVLA",
+    "sbj_P_10": "HVLA",
+    "sbj_P_11": "HVLA",
+    "sbj_P_12": "HVLA",
+    "sbj_P_13": "HVLA",
+    "sbj_P_14": "HVLA",
+    "sbj_P_15": "HVLA",
+    "sbj_P_16": "LVLA",
+    "sbj_P_17": "HVLA",
+    "sbj_P_18": "HVLA",
+    "sbj_P_19": "HVLA",
+    "sbj_P_20": "HVHA",
+    "sbj_P_21": "HVLA",
+    "sbj_P_22": "HVLA",
+    "sbj_P_23": "HVLA",
+    "sbj_P_24": "HVLA",
+    "sbj_P_25": "HVLA",
+    "sbj_P_26": "LVLA",
+    "sbj_P_27": "HVLA",
+    "sbj_P_28": "HVLA",
+    "sbj_P_29": "HVLA",
+    "sbj_P_30 ": "HVLA",
+    "sbj_P_31": "HVLA",
+    "sbj_P_32": "HVLA",
+    "sbj_P_33": "HVLA",
+    "sbj_P_34": "HVLA",
+    "sbj_P_35": "HVLA",
+    "sbj_P_36": "HVLA",
+    "sbj_P_37": "HVLA",
+    "sbj_P_38": "HVLA",
+    "sbj_P_39": "HVLA",
+    "sbj_P_40": "HVLA",
+    "sbj_P_41": "HVLA",
+    "sbj_P_42": "HVHA",
+    "sbj_P_43": "HVLA",
+    "sbj_P_44": "HVLA",
+    "sbj_P_45": "HVLA",
+    "sbj_P_46": "HVLA",
+    "sbj_P_47": "HVLA",
+    "sbj_P_48": "HVLA",
+    "sbj_P_49": "HVLA",
+    "sbj_P_50": "HVLA",
+    "sbj_P_52": "HVLA",
+    "sbj_P_53": "HVLA",
+    "sbj_P_54": "HVLA",
+    "sbj_P_55": "HVLA",
+    "sbj_P_56": "HVLA",
+    "sbj_P_57": "HVLA",
+    "sbj_P_58": "HVLA",
+    "sbj_P_59": "HVLA",
+    "sbj_P_60": "HVLA",
+    "sbj_P_61": "HVLA",
+    "sbj_P_62": "HVLA",
+    "sbj_P_63": "HVLA",
+    "sbj_P_64": "LVHA",
+    "sbj_P_65": "HVLA"
+  },
+  {
+    "Stimulus": "1750",
+    "Quadrant (GS)": "HVLA",
+    "sbj_P_01": "LVLA",
+    "sbj_P_02": "HVHA",
+    "sbj_P_03": "HVLA",
+    "sbj_P_04": "HVLA",
+    "sbj_P_05": "HVLA",
+    "sbj_P_06": "HVHA",
+    "sbj_P_07": "HVLA",
+    "sbj_P_08": "HVLA",
+    "sbj_P_09": "HVHA",
+    "sbj_P_10": "HVLA",
+    "sbj_P_11": "HVHA",
+    "sbj_P_12": "HVLA",
+    "sbj_P_13": "HVLA",
+    "sbj_P_14": "HVLA",
+    "sbj_P_15": "HVLA",
+    "sbj_P_16": "HVLA",
+    "sbj_P_17": "HVLA",
+    "sbj_P_18": "HVLA",
+    "sbj_P_19": "HVLA",
+    "sbj_P_20": "HVHA",
+    "sbj_P_21": "HVLA",
+    "sbj_P_22": "LVLA",
+    "sbj_P_23": "HVLA",
+    "sbj_P_24": "HVLA",
+    "sbj_P_25": "HVLA",
+    "sbj_P_26": "LVLA",
+    "sbj_P_27": "HVLA",
+    "sbj_P_28": "HVLA",
+    "sbj_P_29": "HVLA",
+    "sbj_P_30 ": "HVLA",
+    "sbj_P_31": "HVLA",
+    "sbj_P_32": "HVLA",
+    "sbj_P_33": "HVLA",
+    "sbj_P_34": "LVLA",
+    "sbj_P_35": "HVLA",
+    "sbj_P_36": "HVLA",
+    "sbj_P_37": "HVLA",
+    "sbj_P_38": "HVLA",
+    "sbj_P_39": "HVHA",
+    "sbj_P_40": "HVHA",
+    "sbj_P_41": "HVLA",
+    "sbj_P_42": "HVHA",
+    "sbj_P_43": "HVLA",
+    "sbj_P_44": "HVLA",
+    "sbj_P_45": "HVLA",
+    "sbj_P_46": "HVHA",
+    "sbj_P_47": "HVLA",
+    "sbj_P_48": "HVLA",
+    "sbj_P_49": "HVLA",
+    "sbj_P_50": "HVLA",
+    "sbj_P_52": "HVLA",
+    "sbj_P_53": "HVLA",
+    "sbj_P_54": "HVLA",
+    "sbj_P_55": "HVLA",
+    "sbj_P_56": "HVLA",
+    "sbj_P_57": "HVLA",
+    "sbj_P_58": "HVLA",
+    "sbj_P_59": "HVHA",
+    "sbj_P_60": "HVLA",
+    "sbj_P_61": "HVLA",
+    "sbj_P_62": "HVLA",
+    "sbj_P_63": "HVLA",
+    "sbj_P_64": "HVLA",
+    "sbj_P_65": "HVLA"
+  },
+  {
+    "Stimulus": "2314",
+    "Quadrant (GS)": "HVLA",
+    "sbj_P_01": "HVLA",
+    "sbj_P_02": "HVHA",
+    "sbj_P_03": "HVLA",
+    "sbj_P_04": "HVLA",
+    "sbj_P_05": "HVLA",
+    "sbj_P_06": "HVHA",
+    "sbj_P_07": "HVLA",
+    "sbj_P_08": "HVLA",
+    "sbj_P_09": "HVHA",
+    "sbj_P_10": "HVLA",
+    "sbj_P_11": "HVHA",
+    "sbj_P_12": "HVLA",
+    "sbj_P_13": "LVLA",
+    "sbj_P_14": "HVLA",
+    "sbj_P_15": "HVLA",
+    "sbj_P_16": "HVLA",
+    "sbj_P_17": "HVLA",
+    "sbj_P_18": "HVHA",
+    "sbj_P_19": "HVHA",
+    "sbj_P_20": "LVLA",
+    "sbj_P_21": "HVLA",
+    "sbj_P_22": "HVLA",
+    "sbj_P_23": "HVLA",
+    "sbj_P_24": "HVLA",
+    "sbj_P_25": "HVLA",
+    "sbj_P_26": "HVLA",
+    "sbj_P_27": "HVHA",
+    "sbj_P_28": "HVLA",
+    "sbj_P_29": "HVLA",
+    "sbj_P_30 ": "HVLA",
+    "sbj_P_31": "HVLA",
+    "sbj_P_32": "HVLA",
+    "sbj_P_33": "HVLA",
+    "sbj_P_34": "HVLA",
+    "sbj_P_35": "HVLA",
+    "sbj_P_36": "HVLA",
+    "sbj_P_37": "LVLA",
+    "sbj_P_38": "LVLA",
+    "sbj_P_39": "HVLA",
+    "sbj_P_40": "HVLA",
+    "sbj_P_41": "LVLA",
+    "sbj_P_42": "HVLA",
+    "sbj_P_43": "HVLA",
+    "sbj_P_44": "LVLA",
+    "sbj_P_45": "HVHA",
+    "sbj_P_46": "LVLA",
+    "sbj_P_47": "HVLA",
+    "sbj_P_48": "HVLA",
+    "sbj_P_49": "HVLA",
+    "sbj_P_50": "HVLA",
+    "sbj_P_52": "HVHA",
+    "sbj_P_53": "HVLA",
+    "sbj_P_54": "HVLA",
+    "sbj_P_55": "HVLA",
+    "sbj_P_56": "HVLA",
+    "sbj_P_57": "HVLA",
+    "sbj_P_58": "HVLA",
+    "sbj_P_59": "HVHA",
+    "sbj_P_60": "HVHA",
+    "sbj_P_61": "HVLA",
+    "sbj_P_62": "HVLA",
+    "sbj_P_63": "HVLA",
+    "sbj_P_64": "LVLA",
+    "sbj_P_65": "HVLA"
+  }
+]
+
+```
+
+### `Sample.csv`
+
+- Path: `/mnt/HDD/AliWorks/I-DARE/labels/Sample.csv`
+
+- Shape: `[63, 3]`
+
+- Columns: `['Subject', 'Gender', 'Age']`
+
+- Missing values:
+
+```json
+
+{
+  "Subject": 0,
+  "Gender": 0,
+  "Age": 0
+}
+
+```
+
+- Preview:
+
+```json
+
+[
+  {
+    "Subject": "sbj_P_01",
+    "Gender": "FEMALE",
+    "Age": "23"
+  },
+  {
+    "Subject": "sbj_P_02",
+    "Gender": "MALE",
+    "Age": "24"
+  },
+  {
+    "Subject": "sbj_P_03",
+    "Gender": "FEMALE",
+    "Age": "24"
+  }
+]
+
+```
+
+### `Valence_SAM.csv`
+
+- Path: `/mnt/HDD/AliWorks/I-DARE/labels/Valence_SAM.csv`
+
+- Shape: `[32, 65]`
+
+- Columns: `['Stimulus', 'sbj_P_01', 'sbj_P_02', 'sbj_P_03', 'sbj_P_04', 'sbj_P_05', 'sbj_P_06', 'sbj_P_07', 'sbj_P_08', 'sbj_P_09', 'sbj_P_10', 'sbj_P_11', 'sbj_P_12', 'sbj_P_13', 'sbj_P_14', 'sbj_P_15', 'sbj_P_16', 'sbj_P_17', 'sbj_P_18', 'sbj_P_19', 'sbj_P_20', 'sbj_P_21', 'sbj_P_22', 'sbj_P_23', 'sbj_P_24', 'sbj_P_25', 'sbj_P_26', 'sbj_P_27', 'sbj_P_28', 'sbj_P_29', 'sbj_P_30 ', 'sbj_P_31', 'sbj_P_32', 'sbj_P_33', 'sbj_P_34', 'sbj_P_35', 'sbj_P_36', 'sbj_P_37', 'sbj_P_38', 'sbj_P_39', 'sbj_P_40', 'sbj_P_41', 'sbj_P_42', 'sbj_P_43', 'sbj_P_44', 'sbj_P_45', 'sbj_P_46', 'sbj_P_47', 'sbj_P_48', 'sbj_P_49', 'sbj_P_50', 'sbj_P_52', 'sbj_P_53', 'sbj_P_54', 'sbj_P_55', 'sbj_P_56', 'sbj_P_57', 'sbj_P_58', 'sbj_P_59', 'sbj_P_60', 'sbj_P_61', 'sbj_P_62', 'sbj_P_63', 'sbj_P_64', 'sbj_P_65']`
+
+- Missing values:
+
+```json
+
+{
+  "Stimulus": 0,
+  "sbj_P_01": 0,
+  "sbj_P_02": 0,
+  "sbj_P_03": 0,
+  "sbj_P_04": 0,
+  "sbj_P_05": 0,
+  "sbj_P_06": 0,
+  "sbj_P_07": 0,
+  "sbj_P_08": 0,
+  "sbj_P_09": 0,
+  "sbj_P_10": 0,
+  "sbj_P_11": 0,
+  "sbj_P_12": 0,
+  "sbj_P_13": 0,
+  "sbj_P_14": 0,
+  "sbj_P_15": 0,
+  "sbj_P_16": 0,
+  "sbj_P_17": 0,
+  "sbj_P_18": 0,
+  "sbj_P_19": 0,
+  "sbj_P_20": 0,
+  "sbj_P_21": 0,
+  "sbj_P_22": 0,
+  "sbj_P_23": 0,
+  "sbj_P_24": 0,
+  "sbj_P_25": 0,
+  "sbj_P_26": 0,
+  "sbj_P_27": 0,
+  "sbj_P_28": 0,
+  "sbj_P_29": 0,
+  "sbj_P_30 ": 0,
+  "sbj_P_31": 0,
+  "sbj_P_32": 0,
+  "sbj_P_33": 0,
+  "sbj_P_34": 0,
+  "sbj_P_35": 0,
+  "sbj_P_36": 0,
+  "sbj_P_37": 0,
+  "sbj_P_38": 0,
+  "sbj_P_39": 0,
+  "sbj_P_40": 0,
+  "sbj_P_41": 0,
+  "sbj_P_42": 0,
+  "sbj_P_43": 0,
+  "sbj_P_44": 0,
+  "sbj_P_45": 0,
+  "sbj_P_46": 0,
+  "sbj_P_47": 0,
+  "sbj_P_48": 0,
+  "sbj_P_49": 0,
+  "sbj_P_50": 0,
+  "sbj_P_52": 0,
+  "sbj_P_53": 0,
+  "sbj_P_54": 0,
+  "sbj_P_55": 0,
+  "sbj_P_56": 0,
+  "sbj_P_57": 0,
+  "sbj_P_58": 0,
+  "sbj_P_59": 0,
+  "sbj_P_60": 0,
+  "sbj_P_61": 0,
+  "sbj_P_62": 0,
+  "sbj_P_63": 0,
+  "sbj_P_64": 0,
+  "sbj_P_65": 0
+}
+
+```
+
+- Preview:
+
+```json
+
+[
+  {
+    "Stimulus": "1441",
+    "sbj_P_01": "7",
+    "sbj_P_02": "8",
+    "sbj_P_03": "8",
+    "sbj_P_04": "7",
+    "sbj_P_05": "9",
+    "sbj_P_06": "8",
+    "sbj_P_07": "7",
+    "sbj_P_08": "8",
+    "sbj_P_09": "6",
+    "sbj_P_10": "8",
+    "sbj_P_11": "9",
+    "sbj_P_12": "9",
+    "sbj_P_13": "6",
+    "sbj_P_14": "7",
+    "sbj_P_15": "6",
+    "sbj_P_16": "5",
+    "sbj_P_17": "9",
+    "sbj_P_18": "8",
+    "sbj_P_19": "7",
+    "sbj_P_20": "8",
+    "sbj_P_21": "9",
+    "sbj_P_22": "6",
+    "sbj_P_23": "8",
+    "sbj_P_24": "7",
+    "sbj_P_25": "7",
+    "sbj_P_26": "4",
+    "sbj_P_27": "8",
+    "sbj_P_28": "7",
+    "sbj_P_29": "7",
+    "sbj_P_30 ": "8",
+    "sbj_P_31": "9",
+    "sbj_P_32": "6",
+    "sbj_P_33": "7",
+    "sbj_P_34": "6",
+    "sbj_P_35": "7",
+    "sbj_P_36": "9",
+    "sbj_P_37": "6",
+    "sbj_P_38": "8",
+    "sbj_P_39": "7",
+    "sbj_P_40": "9",
+    "sbj_P_41": "6",
+    "sbj_P_42": "8",
+    "sbj_P_43": "7",
+    "sbj_P_44": "6",
+    "sbj_P_45": "7",
+    "sbj_P_46": "8",
+    "sbj_P_47": "9",
+    "sbj_P_48": "8",
+    "sbj_P_49": "7",
+    "sbj_P_50": "8",
+    "sbj_P_52": "7",
+    "sbj_P_53": "7",
+    "sbj_P_54": "8",
+    "sbj_P_55": "8",
+    "sbj_P_56": "8",
+    "sbj_P_57": "9",
+    "sbj_P_58": "8",
+    "sbj_P_59": "9",
+    "sbj_P_60": "8",
+    "sbj_P_61": "9",
+    "sbj_P_62": "8",
+    "sbj_P_63": "9",
+    "sbj_P_64": "5",
+    "sbj_P_65": "9"
+  },
+  {
+    "Stimulus": "1750",
+    "sbj_P_01": "5",
+    "sbj_P_02": "6",
+    "sbj_P_03": "9",
+    "sbj_P_04": "8",
+    "sbj_P_05": "9",
+    "sbj_P_06": "8",
+    "sbj_P_07": "7",
+    "sbj_P_08": "6",
+    "sbj_P_09": "7",
+    "sbj_P_10": "6",
+    "sbj_P_11": "9",
+    "sbj_P_12": "6",
+    "sbj_P_13": "6",
+    "sbj_P_14": "7",
+    "sbj_P_15": "6",
+    "sbj_P_16": "6",
+    "sbj_P_17": "9",
+    "sbj_P_18": "9",
+    "sbj_P_19": "6",
+    "sbj_P_20": "7",
+    "sbj_P_21": "9",
+    "sbj_P_22": "5",
+    "sbj_P_23": "9",
+    "sbj_P_24": "7",
+    "sbj_P_25": "7",
+    "sbj_P_26": "5",
+    "sbj_P_27": "6",
+    "sbj_P_28": "6",
+    "sbj_P_29": "7",
+    "sbj_P_30 ": "7",
+    "sbj_P_31": "8",
+    "sbj_P_32": "6",
+    "sbj_P_33": "8",
+    "sbj_P_34": "5",
+    "sbj_P_35": "7",
+    "sbj_P_36": "9",
+    "sbj_P_37": "6",
+    "sbj_P_38": "7",
+    "sbj_P_39": "7",
+    "sbj_P_40": "9",
+    "sbj_P_41": "6",
+    "sbj_P_42": "8",
+    "sbj_P_43": "7",
+    "sbj_P_44": "7",
+    "sbj_P_45": "6",
+    "sbj_P_46": "6",
+    "sbj_P_47": "9",
+    "sbj_P_48": "7",
+    "sbj_P_49": "6",
+    "sbj_P_50": "9",
+    "sbj_P_52": "8",
+    "sbj_P_53": "6",
+    "sbj_P_54": "8",
+    "sbj_P_55": "9",
+    "sbj_P_56": "8",
+    "sbj_P_57": "6",
+    "sbj_P_58": "8",
+    "sbj_P_59": "8",
+    "sbj_P_60": "8",
+    "sbj_P_61": "8",
+    "sbj_P_62": "9",
+    "sbj_P_63": "7",
+    "sbj_P_64": "6",
+    "sbj_P_65": "7"
+  },
+  {
+    "Stimulus": "2314",
+    "sbj_P_01": "6",
+    "sbj_P_02": "7",
+    "sbj_P_03": "7",
+    "sbj_P_04": "8",
+    "sbj_P_05": "7",
+    "sbj_P_06": "8",
+    "sbj_P_07": "7",
+    "sbj_P_08": "8",
+    "sbj_P_09": "8",
+    "sbj_P_10": "6",
+    "sbj_P_11": "8",
+    "sbj_P_12": "6",
+    "sbj_P_13": "5",
+    "sbj_P_14": "7",
+    "sbj_P_15": "7",
+    "sbj_P_16": "7",
+    "sbj_P_17": "9",
+    "sbj_P_18": "9",
+    "sbj_P_19": "8",
+    "sbj_P_20": "5",
+    "sbj_P_21": "8",
+    "sbj_P_22": "7",
+    "sbj_P_23": "6",
+    "sbj_P_24": "7",
+    "sbj_P_25": "9",
+    "sbj_P_26": "8",
+    "sbj_P_27": "6",
+    "sbj_P_28": "7",
+    "sbj_P_29": "8",
+    "sbj_P_30 ": "7",
+    "sbj_P_31": "9",
+    "sbj_P_32": "6",
+    "sbj_P_33": "7",
+    "sbj_P_34": "7",
+    "sbj_P_35": "6",
+    "sbj_P_36": "9",
+    "sbj_P_37": "5",
+    "sbj_P_38": "4",
+    "sbj_P_39": "7",
+    "sbj_P_40": "9",
+    "sbj_P_41": "5",
+    "sbj_P_42": "9",
+    "sbj_P_43": "8",
+    "sbj_P_44": "5",
+    "sbj_P_45": "7",
+    "sbj_P_46": "4",
+    "sbj_P_47": "9",
+    "sbj_P_48": "8",
+    "sbj_P_49": "7",
+    "sbj_P_50": "8",
+    "sbj_P_52": "6",
+    "sbj_P_53": "7",
+    "sbj_P_54": "8",
+    "sbj_P_55": "9",
+    "sbj_P_56": "7",
+    "sbj_P_57": "8",
+    "sbj_P_58": "7",
+    "sbj_P_59": "8",
+    "sbj_P_60": "9",
+    "sbj_P_61": "9",
+    "sbj_P_62": "7",
+    "sbj_P_63": "6",
+    "sbj_P_64": "5",
+    "sbj_P_65": "9"
+  }
+]
+
+```
+
+### `Agreement_Raters.csv`
+
+- Path: `/mnt/HDD/AliWorks/I-DARE/metadata/Agreement_Raters.csv`
+
+- Shape: `[32, 18]`
+
+- Columns: `['Stimulus', 'Dataset', 'Quadrant', 'Rater 1', 'Rater 2', 'Rater 3', 'Rater 4', 'Rater 5', 'Rater 6', 'Rater 7', 'Rater 8', 'Rater 9', 'Agreement', 'Distance', 'Valence (M)', 'Valence (SD)', 'Arousal (M)', 'Arousal (SD)']`
+
+- Missing values:
+
+```json
+
+{
+  "Stimulus": 0,
+  "Dataset": 0,
+  "Quadrant": 0,
+  "Rater 1": 0,
+  "Rater 2": 0,
+  "Rater 3": 0,
+  "Rater 4": 0,
+  "Rater 5": 0,
+  "Rater 6": 0,
+  "Rater 7": 0,
+  "Rater 8": 0,
+  "Rater 9": 0,
+  "Agreement": 0,
+  "Distance": 0,
+  "Valence (M)": 0,
+  "Valence (SD)": 0,
+  "Arousal (M)": 0,
+  "Arousal (SD)": 0
+}
+
+```
+
+- Preview:
+
+```json
+
+[
+  {
+    "Stimulus": "Flowers 6",
+    "Dataset": "OASIS",
+    "Quadrant": "HVLA",
+    "Rater 1": "1",
+    "Rater 2": "1",
+    "Rater 3": "1",
+    "Rater 4": "1",
+    "Rater 5": "1",
+    "Rater 6": "1",
+    "Rater 7": "1",
+    "Rater 8": "1",
+    "Rater 9": "1",
+    "Agreement": "1.0",
+    "Distance": "0.117",
+    "Valence (M)": "5.944444444",
+    "Valence (SD)": "0.915426802",
+    "Arousal (M)": "3.009615385",
+    "Arousal (SD)": "1.663399212"
+  },
+  {
+    "Stimulus": "1441",
+    "Dataset": "IAPS",
+    "Quadrant": "HVLA",
+    "Rater 1": "1",
+    "Rater 2": "1",
+    "Rater 3": "1",
+    "Rater 4": "1",
+    "Rater 5": "1",
+    "Rater 6": "1",
+    "Rater 7": "1",
+    "Rater 8": "1",
+    "Rater 9": "1",
+    "Agreement": "1.0",
+    "Distance": "0.09",
+    "Valence (M)": "7.97",
+    "Valence (SD)": "1.28",
+    "Arousal (M)": "3.94",
+    "Arousal (SD)": "2.38"
+  },
+  {
+    "Stimulus": "Garbage dump 6",
+    "Dataset": "OASIS",
+    "Quadrant": "LVLA",
+    "Rater 1": "1",
+    "Rater 2": "0",
+    "Rater 3": "1",
+    "Rater 4": "1",
+    "Rater 5": "1",
+    "Rater 6": "1",
+    "Rater 7": "1",
+    "Rater 8": "1",
+    "Rater 9": "1",
+    "Agreement": "0.888888889",
+    "Distance": "0.242",
+    "Valence (M)": "1.962962963",
+    "Valence (SD)": "0.946473296",
+    "Arousal (M)": "3.317307692",
+    "Arousal (SD)": "1.876085695"
+  }
+]
+
+```
+
+### `Stimuli_Specifications.csv`
+
+- Path: `/mnt/HDD/AliWorks/I-DARE/metadata/Stimuli_Specifications.csv`
+
+- Shape: `[100, 66]`
+
+- Columns: `['Stimulus', 'Description', 'sbj_P_01', 'sbj_P_02', 'sbj_P_03', 'sbj_P_04', 'sbj_P_05', 'sbj_P_06', 'sbj_P_07', 'sbj_P_08', 'sbj_P_09', 'sbj_P_10', 'sbj_P_11', 'sbj_P_12', 'sbj_P_13', 'sbj_P_14', 'sbj_P_15', 'sbj_P_16', 'sbj_P_17', 'sbj_P_18', 'sbj_P_19', 'sbj_P_20', 'sbj_P_21', 'sbj_P_22', 'sbj_P_23', 'sbj_P_24', 'sbj_P_25', 'sbj_P_26', 'sbj_P_27', 'sbj_P_28', 'sbj_P_29', 'sbj_P_30', 'sbj_P_31', 'sbj_P_32', 'sbj_P_33', 'sbj_P_34', 'sbj_P_35', 'sbj_P_36', 'sbj_P_37', 'sbj_P_38', 'sbj_P_39', 'sbj_P_40', 'sbj_P_41', 'sbj_P_42', 'sbj_P_43', 'sbj_P_44', 'sbj_P_45', 'sbj_P_46', 'sbj_P_47', 'sbj_P_48', 'sbj_P_49', 'sbj_P_50', 'sbj_P_52', 'sbj_P_53', 'sbj_P_54', 'sbj_P_55', 'sbj_P_56', 'sbj_P_57', 'sbj_P_58', 'sbj_P_59', 'sbj_P_60', 'sbj_P_61', 'sbj_P_62', 'sbj_P_63', 'sbj_P_64', 'sbj_P_65']`
+
+- Missing values:
+
+```json
+
+{
+  "Stimulus": 0,
+  "Description": 0,
+  "sbj_P_01": 0,
+  "sbj_P_02": 0,
+  "sbj_P_03": 0,
+  "sbj_P_04": 0,
+  "sbj_P_05": 0,
+  "sbj_P_06": 0,
+  "sbj_P_07": 0,
+  "sbj_P_08": 0,
+  "sbj_P_09": 0,
+  "sbj_P_10": 0,
+  "sbj_P_11": 0,
+  "sbj_P_12": 0,
+  "sbj_P_13": 0,
+  "sbj_P_14": 0,
+  "sbj_P_15": 0,
+  "sbj_P_16": 0,
+  "sbj_P_17": 0,
+  "sbj_P_18": 0,
+  "sbj_P_19": 0,
+  "sbj_P_20": 0,
+  "sbj_P_21": 0,
+  "sbj_P_22": 0,
+  "sbj_P_23": 0,
+  "sbj_P_24": 0,
+  "sbj_P_25": 0,
+  "sbj_P_26": 0,
+  "sbj_P_27": 0,
+  "sbj_P_28": 0,
+  "sbj_P_29": 0,
+  "sbj_P_30": 0,
+  "sbj_P_31": 0,
+  "sbj_P_32": 0,
+  "sbj_P_33": 0,
+  "sbj_P_34": 0,
+  "sbj_P_35": 0,
+  "sbj_P_36": 0,
+  "sbj_P_37": 0,
+  "sbj_P_38": 0,
+  "sbj_P_39": 0,
+  "sbj_P_40": 0,
+  "sbj_P_41": 0,
+  "sbj_P_42": 0,
+  "sbj_P_43": 0,
+  "sbj_P_44": 0,
+  "sbj_P_45": 0,
+  "sbj_P_46": 0,
+  "sbj_P_47": 0,
+  "sbj_P_48": 0,
+  "sbj_P_49": 0,
+  "sbj_P_50": 0,
+  "sbj_P_52": 0,
+  "sbj_P_53": 0,
+  "sbj_P_54": 0,
+  "sbj_P_55": 0,
+  "sbj_P_56": 0,
+  "sbj_P_57": 0,
+  "sbj_P_58": 0,
+  "sbj_P_59": 0,
+  "sbj_P_60": 0,
+  "sbj_P_61": 0,
+  "sbj_P_62": 0,
+  "sbj_P_63": 0,
+  "sbj_P_64": 0,
+  "sbj_P_65": 0
+}
+
+```
+
+- Preview:
+
+```json
+
+[
+  {
+    "Stimulus": "EYC",
+    "Description": "60s-long eye-closed baseline",
+    "sbj_P_01": "59.997",
+    "sbj_P_02": "59.989",
+    "sbj_P_03": "59.999",
+    "sbj_P_04": "59.996",
+    "sbj_P_05": "59.996",
+    "sbj_P_06": "60.009",
+    "sbj_P_07": "60.007",
+    "sbj_P_08": "60.0",
+    "sbj_P_09": "59.992",
+    "sbj_P_10": "59.997",
+    "sbj_P_11": "60.001",
+    "sbj_P_12": "60.016",
+    "sbj_P_13": "60.004",
+    "sbj_P_14": "60.002",
+    "sbj_P_15": "60.012",
+    "sbj_P_16": "59.996",
+    "sbj_P_17": "59.997",
+    "sbj_P_18": "59.989",
+    "sbj_P_19": "59.991",
+    "sbj_P_20": "59.998",
+    "sbj_P_21": "59.998",
+    "sbj_P_22": "59.999",
+    "sbj_P_23": "59.999",
+    "sbj_P_24": "59.991",
+    "sbj_P_25": "59.997",
+    "sbj_P_26": "60.002",
+    "sbj_P_27": "59.989",
+    "sbj_P_28": "59.999",
+    "sbj_P_29": "60.001",
+    "sbj_P_30": "59.999",
+    "sbj_P_31": "59.999",
+    "sbj_P_32": "59.995",
+    "sbj_P_33": "60.012",
+    "sbj_P_34": "60.011",
+    "sbj_P_35": "60.005",
+    "sbj_P_36": "59.998",
+    "sbj_P_37": "59.997",
+    "sbj_P_38": "60.003",
+    "sbj_P_39": "60.013",
+    "sbj_P_40": "60.013",
+    "sbj_P_41": "59.991",
+    "sbj_P_42": "60.005",
+    "sbj_P_43": "60.0",
+    "sbj_P_44": "59.99",
+    "sbj_P_45": "59.996",
+    "sbj_P_46": "59.997",
+    "sbj_P_47": "59.995",
+    "sbj_P_48": "60.005",
+    "sbj_P_49": "60.0",
+    "sbj_P_50": "59.996",
+    "sbj_P_52": "59.998",
+    "sbj_P_53": "60.001",
+    "sbj_P_54": "59.991",
+    "sbj_P_55": "59.999",
+    "sbj_P_56": "59.998",
+    "sbj_P_57": "59.994",
+    "sbj_P_58": "59.997",
+    "sbj_P_59": "59.999",
+    "sbj_P_60": "59.991",
+    "sbj_P_61": "60.009",
+    "sbj_P_62": "59.995",
+    "sbj_P_63": "59.994",
+    "sbj_P_64": "59.994",
+    "sbj_P_65": "59.994"
+  },
+  {
+    "Stimulus": "IST_BSL",
+    "Description": "Instructions for the 120s-long neutral baseline",
+    "sbj_P_01": "19.995",
+    "sbj_P_02": "14.959",
+    "sbj_P_03": "19.998",
+    "sbj_P_04": "19.996",
+    "sbj_P_05": "20.002",
+    "sbj_P_06": "19.995",
+    "sbj_P_07": "19.988",
+    "sbj_P_08": "19.988",
+    "sbj_P_09": "19.999",
+    "sbj_P_10": "20.0",
+    "sbj_P_11": "20.002",
+    "sbj_P_12": "20.0",
+    "sbj_P_13": "19.992",
+    "sbj_P_14": "19.99",
+    "sbj_P_15": "19.995",
+    "sbj_P_16": "19.991",
+    "sbj_P_17": "20.0",
+    "sbj_P_18": "19.992",
+    "sbj_P_19": "19.992",
+    "sbj_P_20": "19.997",
+    "sbj_P_21": "20.001",
+    "sbj_P_22": "20.0",
+    "sbj_P_23": "19.985",
+    "sbj_P_24": "20.0",
+    "sbj_P_25": "20.0",
+    "sbj_P_26": "19.995",
+    "sbj_P_27": "19.999",
+    "sbj_P_28": "19.99",
+    "sbj_P_29": "19.996",
+    "sbj_P_30": "19.995",
+    "sbj_P_31": "20.014",
+    "sbj_P_32": "20.009",
+    "sbj_P_33": "19.987",
+    "sbj_P_34": "19.998",
+    "sbj_P_35": "19.999",
+    "sbj_P_36": "19.993",
+    "sbj_P_37": "19.993",
+    "sbj_P_38": "20.007",
+    "sbj_P_39": "19.996",
+    "sbj_P_40": "9.057",
+    "sbj_P_41": "19.991",
+    "sbj_P_42": "19.996",
+    "sbj_P_43": "20.008",
+    "sbj_P_44": "19.995",
+    "sbj_P_45": "20.0",
+    "sbj_P_46": "20.001",
+    "sbj_P_47": "19.992",
+    "sbj_P_48": "19.993",
+    "sbj_P_49": "19.999",
+    "sbj_P_50": "20.001",
+    "sbj_P_52": "19.993",
+    "sbj_P_53": "19.996",
+    "sbj_P_54": "19.999",
+    "sbj_P_55": "19.999",
+    "sbj_P_56": "19.993",
+    "sbj_P_57": "19.996",
+    "sbj_P_58": "19.993",
+    "sbj_P_59": "19.997",
+    "sbj_P_60": "19.995",
+    "sbj_P_61": "19.992",
+    "sbj_P_62": "20.012",
+    "sbj_P_63": "19.994",
+    "sbj_P_64": "19.988",
+    "sbj_P_65": "19.989"
+  },
+  {
+    "Stimulus": "BSL",
+    "Description": "120s-long neutral baseline",
+    "sbj_P_01": "119.994",
+    "sbj_P_02": "119.988",
+    "sbj_P_03": "120.001",
+    "sbj_P_04": "120.003",
+    "sbj_P_05": "119.99",
+    "sbj_P_06": "119.997",
+    "sbj_P_07": "119.996",
+    "sbj_P_08": "119.997",
+    "sbj_P_09": "120.005",
+    "sbj_P_10": "119.995",
+    "sbj_P_11": "119.99",
+    "sbj_P_12": "120.005",
+    "sbj_P_13": "120.009",
+    "sbj_P_14": "119.991",
+    "sbj_P_15": "119.993",
+    "sbj_P_16": "119.993",
+    "sbj_P_17": "119.989",
+    "sbj_P_18": "119.989",
+    "sbj_P_19": "119.998",
+    "sbj_P_20": "119.999",
+    "sbj_P_21": "119.985",
+    "sbj_P_22": "119.996",
+    "sbj_P_23": "120.004",
+    "sbj_P_24": "119.994",
+    "sbj_P_25": "119.992",
+    "sbj_P_26": "119.993",
+    "sbj_P_27": "119.994",
+    "sbj_P_28": "120.0",
+    "sbj_P_29": "119.989",
+    "sbj_P_30": "120.0",
+    "sbj_P_31": "119.996",
+    "sbj_P_32": "119.997",
+    "sbj_P_33": "120.0",
+    "sbj_P_34": "119.996",
+    "sbj_P_35": "120.0",
+    "sbj_P_36": "119.999",
+    "sbj_P_37": "120.004",
+    "sbj_P_38": "119.988",
+    "sbj_P_39": "119.997",
+    "sbj_P_40": "119.989",
+    "sbj_P_41": "119.997",
+    "sbj_P_42": "119.991",
+    "sbj_P_43": "120.003",
+    "sbj_P_44": "120.001",
+    "sbj_P_45": "119.999",
+    "sbj_P_46": "120.002",
+    "sbj_P_47": "120.005",
+    "sbj_P_48": "120.01",
+    "sbj_P_49": "119.989",
+    "sbj_P_50": "119.991",
+    "sbj_P_52": "119.999",
+    "sbj_P_53": "119.998",
+    "sbj_P_54": "119.99",
+    "sbj_P_55": "120.001",
+    "sbj_P_56": "119.995",
+    "sbj_P_57": "120.001",
+    "sbj_P_58": "120.003",
+    "sbj_P_59": "119.997",
+    "sbj_P_60": "119.996",
+    "sbj_P_61": "119.992",
+    "sbj_P_62": "119.991",
+    "sbj_P_63": "120.0",
+    "sbj_P_64": "120.01",
+    "sbj_P_65": "119.994"
+  }
+]
+
+```
+
+## Sample `.mat` Structure
+
+Deep-inspected EEG files: `3`
+
+Deep-inspected EMG files: `3`
+
+### EEG
+
+- File: `sbj_P_01.mat`
+  - Subject ID: `1`
+  - Size: `92.92 MB`
+  - Loader: `h5py`
+  - Keys: `['#refs#', '#refs#/a', '#refs#/b', '#refs#/c', '#refs#/d', '#refs#/e', '#refs#/f', '#refs#/g', '#refs#/h', '#refs#/i', '#refs#/j', '#refs#/k', '#subsystem#', '#subsystem#/MCOS', 'sbj_P_01', 'sbj_P_01/Fs', 'sbj_P_01/channels', 'sbj_P_01/channels_type', 'sbj_P_01/channels_unit', 'sbj_P_01/data', 'sbj_P_01/event_begin', 'sbj_P_01/event_end', 'sbj_P_01/event_id', 'sbj_P_01/subject', 'sbj_P_01/time']`
+  - HDF5 content preview:
+    - `#refs#`: {'type': 'Group'}
+    - `#refs#/a`: {'type': 'Dataset', 'shape': [2], 'dtype': 'uint64'}
+    - `#refs#/b`: {'type': 'Dataset', 'shape': [1, 376], 'dtype': 'uint8'}
+    - `#refs#/c`: {'type': 'Dataset', 'shape': [7, 1], 'dtype': 'uint64'}
+    - `#refs#/d`: {'type': 'Dataset', 'shape': [66, 1], 'dtype': 'uint64'}
+    - `#refs#/e`: {'type': 'Dataset', 'shape': [71, 1], 'dtype': 'uint64'}
+    - `#refs#/f`: {'type': 'Dataset', 'shape': [61, 1], 'dtype': 'uint64'}
+    - `#refs#/g`: {'type': 'Dataset', 'shape': [367, 1], 'dtype': 'uint64'}
+    - `#refs#/h`: {'type': 'Dataset', 'shape': [1, 2], 'dtype': 'int32'}
+    - `#refs#/i`: {'type': 'Dataset', 'shape': [1, 2], 'dtype': 'object'}
+    - `#refs#/j`: {'type': 'Dataset', 'shape': [2], 'dtype': 'uint64'}
+    - `#refs#/k`: {'type': 'Dataset', 'shape': [2], 'dtype': 'uint64'}
+    - `#subsystem#`: {'type': 'Group'}
+    - `#subsystem#/MCOS`: {'type': 'Dataset', 'shape': [1, 9], 'dtype': 'object'}
+    - `sbj_P_01`: {'type': 'Group'}
+    - `sbj_P_01/Fs`: {'type': 'Dataset', 'shape': [1, 1], 'dtype': 'float64'}
+    - `sbj_P_01/channels`: {'type': 'Dataset', 'shape': [1, 6], 'dtype': 'uint32'}
+    - `sbj_P_01/channels_type`: {'type': 'Dataset', 'shape': [1, 6], 'dtype': 'uint32'}
+    - `sbj_P_01/channels_unit`: {'type': 'Dataset', 'shape': [1, 6], 'dtype': 'uint32'}
+    - `sbj_P_01/data`: {'type': 'Dataset', 'shape': [565159, 38], 'dtype': 'float64'}
+    - `sbj_P_01/event_begin`: {'type': 'Dataset', 'shape': [100, 1], 'dtype': 'float64'}
+    - `sbj_P_01/event_end`: {'type': 'Dataset', 'shape': [100, 1], 'dtype': 'float64'}
+    - `sbj_P_01/event_id`: {'type': 'Dataset', 'shape': [1, 6], 'dtype': 'uint32'}
+    - `sbj_P_01/subject`: {'type': 'Dataset', 'shape': [1, 6], 'dtype': 'uint32'}
+    - `sbj_P_01/time`: {'type': 'Dataset', 'shape': [565159, 1], 'dtype': 'float64'}
+
+- File: `sbj_P_02.mat`
+  - Subject ID: `2`
+  - Size: `88.90 MB`
+  - Loader: `h5py`
+  - Keys: `['#refs#', '#refs#/a', '#refs#/b', '#refs#/c', '#refs#/d', '#refs#/e', '#refs#/f', '#refs#/g', '#refs#/h', '#refs#/i', '#refs#/j', '#refs#/k', '#subsystem#', '#subsystem#/MCOS', 'sbj_P_02', 'sbj_P_02/Fs', 'sbj_P_02/channels', 'sbj_P_02/channels_type', 'sbj_P_02/channels_unit', 'sbj_P_02/data', 'sbj_P_02/event_begin', 'sbj_P_02/event_end', 'sbj_P_02/event_id', 'sbj_P_02/subject', 'sbj_P_02/time']`
+  - HDF5 content preview:
+    - `#refs#`: {'type': 'Group'}
+    - `#refs#/a`: {'type': 'Dataset', 'shape': [2], 'dtype': 'uint64'}
+    - `#refs#/b`: {'type': 'Dataset', 'shape': [1, 376], 'dtype': 'uint8'}
+    - `#refs#/c`: {'type': 'Dataset', 'shape': [7, 1], 'dtype': 'uint64'}
+    - `#refs#/d`: {'type': 'Dataset', 'shape': [66, 1], 'dtype': 'uint64'}
+    - `#refs#/e`: {'type': 'Dataset', 'shape': [71, 1], 'dtype': 'uint64'}
+    - `#refs#/f`: {'type': 'Dataset', 'shape': [61, 1], 'dtype': 'uint64'}
+    - `#refs#/g`: {'type': 'Dataset', 'shape': [367, 1], 'dtype': 'uint64'}
+    - `#refs#/h`: {'type': 'Dataset', 'shape': [1, 2], 'dtype': 'int32'}
+    - `#refs#/i`: {'type': 'Dataset', 'shape': [1, 2], 'dtype': 'object'}
+    - `#refs#/j`: {'type': 'Dataset', 'shape': [2], 'dtype': 'uint64'}
+    - `#refs#/k`: {'type': 'Dataset', 'shape': [2], 'dtype': 'uint64'}
+    - `#subsystem#`: {'type': 'Group'}
+    - `#subsystem#/MCOS`: {'type': 'Dataset', 'shape': [1, 9], 'dtype': 'object'}
+    - `sbj_P_02`: {'type': 'Group'}
+    - `sbj_P_02/Fs`: {'type': 'Dataset', 'shape': [1, 1], 'dtype': 'float64'}
+    - `sbj_P_02/channels`: {'type': 'Dataset', 'shape': [1, 6], 'dtype': 'uint32'}
+    - `sbj_P_02/channels_type`: {'type': 'Dataset', 'shape': [1, 6], 'dtype': 'uint32'}
+    - `sbj_P_02/channels_unit`: {'type': 'Dataset', 'shape': [1, 6], 'dtype': 'uint32'}
+    - `sbj_P_02/data`: {'type': 'Dataset', 'shape': [540472, 38], 'dtype': 'float64'}
+    - `sbj_P_02/event_begin`: {'type': 'Dataset', 'shape': [100, 1], 'dtype': 'float64'}
+    - `sbj_P_02/event_end`: {'type': 'Dataset', 'shape': [100, 1], 'dtype': 'float64'}
+    - `sbj_P_02/event_id`: {'type': 'Dataset', 'shape': [1, 6], 'dtype': 'uint32'}
+    - `sbj_P_02/subject`: {'type': 'Dataset', 'shape': [1, 6], 'dtype': 'uint32'}
+    - `sbj_P_02/time`: {'type': 'Dataset', 'shape': [540472, 1], 'dtype': 'float64'}
+
+- File: `sbj_P_03.mat`
+  - Subject ID: `3`
+  - Size: `73.74 MB`
+  - Loader: `h5py`
+  - Keys: `['#refs#', '#refs#/a', '#refs#/b', '#refs#/c', '#refs#/d', '#refs#/e', '#refs#/f', '#refs#/g', '#refs#/h', '#refs#/i', '#refs#/j', '#refs#/k', '#subsystem#', '#subsystem#/MCOS', 'sbj_P_03', 'sbj_P_03/Fs', 'sbj_P_03/channels', 'sbj_P_03/channels_type', 'sbj_P_03/channels_unit', 'sbj_P_03/data', 'sbj_P_03/event_begin', 'sbj_P_03/event_end', 'sbj_P_03/event_id', 'sbj_P_03/subject', 'sbj_P_03/time']`
+  - HDF5 content preview:
+    - `#refs#`: {'type': 'Group'}
+    - `#refs#/a`: {'type': 'Dataset', 'shape': [2], 'dtype': 'uint64'}
+    - `#refs#/b`: {'type': 'Dataset', 'shape': [1, 376], 'dtype': 'uint8'}
+    - `#refs#/c`: {'type': 'Dataset', 'shape': [7, 1], 'dtype': 'uint64'}
+    - `#refs#/d`: {'type': 'Dataset', 'shape': [66, 1], 'dtype': 'uint64'}
+    - `#refs#/e`: {'type': 'Dataset', 'shape': [71, 1], 'dtype': 'uint64'}
+    - `#refs#/f`: {'type': 'Dataset', 'shape': [61, 1], 'dtype': 'uint64'}
+    - `#refs#/g`: {'type': 'Dataset', 'shape': [367, 1], 'dtype': 'uint64'}
+    - `#refs#/h`: {'type': 'Dataset', 'shape': [1, 2], 'dtype': 'int32'}
+    - `#refs#/i`: {'type': 'Dataset', 'shape': [1, 2], 'dtype': 'object'}
+    - `#refs#/j`: {'type': 'Dataset', 'shape': [2], 'dtype': 'uint64'}
+    - `#refs#/k`: {'type': 'Dataset', 'shape': [2], 'dtype': 'uint64'}
+    - `#subsystem#`: {'type': 'Group'}
+    - `#subsystem#/MCOS`: {'type': 'Dataset', 'shape': [1, 9], 'dtype': 'object'}
+    - `sbj_P_03`: {'type': 'Group'}
+    - `sbj_P_03/Fs`: {'type': 'Dataset', 'shape': [1, 1], 'dtype': 'float64'}
+    - `sbj_P_03/channels`: {'type': 'Dataset', 'shape': [1, 6], 'dtype': 'uint32'}
+    - `sbj_P_03/channels_type`: {'type': 'Dataset', 'shape': [1, 6], 'dtype': 'uint32'}
+    - `sbj_P_03/channels_unit`: {'type': 'Dataset', 'shape': [1, 6], 'dtype': 'uint32'}
+    - `sbj_P_03/data`: {'type': 'Dataset', 'shape': [501013, 38], 'dtype': 'float64'}
+    - `sbj_P_03/event_begin`: {'type': 'Dataset', 'shape': [100, 1], 'dtype': 'float64'}
+    - `sbj_P_03/event_end`: {'type': 'Dataset', 'shape': [100, 1], 'dtype': 'float64'}
+    - `sbj_P_03/event_id`: {'type': 'Dataset', 'shape': [1, 6], 'dtype': 'uint32'}
+    - `sbj_P_03/subject`: {'type': 'Dataset', 'shape': [1, 6], 'dtype': 'uint32'}
+    - `sbj_P_03/time`: {'type': 'Dataset', 'shape': [501013, 1], 'dtype': 'float64'}
+
+### EMG
+
+- File: `sbj_P_01.mat`
+  - Subject ID: `1`
+  - Size: `37.04 MB`
+  - Loader: `h5py`
+  - Keys: `['#refs#', '#refs#/a', '#refs#/b', '#refs#/c', '#refs#/d', '#refs#/e', '#refs#/f', '#refs#/g', '#refs#/h', '#refs#/i', '#refs#/j', '#refs#/k', '#subsystem#', '#subsystem#/MCOS', 'sbj_P_01', 'sbj_P_01/Fs', 'sbj_P_01/channels', 'sbj_P_01/channels_type', 'sbj_P_01/channels_unit', 'sbj_P_01/data', 'sbj_P_01/event_begin', 'sbj_P_01/event_end', 'sbj_P_01/event_id', 'sbj_P_01/subject', 'sbj_P_01/time']`
+  - HDF5 content preview:
+    - `#refs#`: {'type': 'Group'}
+    - `#refs#/a`: {'type': 'Dataset', 'shape': [2], 'dtype': 'uint64'}
+    - `#refs#/b`: {'type': 'Dataset', 'shape': [1, 376], 'dtype': 'uint8'}
+    - `#refs#/c`: {'type': 'Dataset', 'shape': [7, 1], 'dtype': 'uint64'}
+    - `#refs#/d`: {'type': 'Dataset', 'shape': [8, 1], 'dtype': 'uint64'}
+    - `#refs#/e`: {'type': 'Dataset', 'shape': [8, 1], 'dtype': 'uint64'}
+    - `#refs#/f`: {'type': 'Dataset', 'shape': [7, 1], 'dtype': 'uint64'}
+    - `#refs#/g`: {'type': 'Dataset', 'shape': [367, 1], 'dtype': 'uint64'}
+    - `#refs#/h`: {'type': 'Dataset', 'shape': [1, 2], 'dtype': 'int32'}
+    - `#refs#/i`: {'type': 'Dataset', 'shape': [1, 2], 'dtype': 'object'}
+    - `#refs#/j`: {'type': 'Dataset', 'shape': [2], 'dtype': 'uint64'}
+    - `#refs#/k`: {'type': 'Dataset', 'shape': [2], 'dtype': 'uint64'}
+    - `#subsystem#`: {'type': 'Group'}
+    - `#subsystem#/MCOS`: {'type': 'Dataset', 'shape': [1, 9], 'dtype': 'object'}
+    - `sbj_P_01`: {'type': 'Group'}
+    - `sbj_P_01/Fs`: {'type': 'Dataset', 'shape': [1, 1], 'dtype': 'float64'}
+    - `sbj_P_01/channels`: {'type': 'Dataset', 'shape': [1, 6], 'dtype': 'uint32'}
+    - `sbj_P_01/channels_type`: {'type': 'Dataset', 'shape': [1, 6], 'dtype': 'uint32'}
+    - `sbj_P_01/channels_unit`: {'type': 'Dataset', 'shape': [1, 6], 'dtype': 'uint32'}
+    - `sbj_P_01/data`: {'type': 'Dataset', 'shape': [2207651, 2], 'dtype': 'float64'}
+    - `sbj_P_01/event_begin`: {'type': 'Dataset', 'shape': [100, 1], 'dtype': 'float64'}
+    - `sbj_P_01/event_end`: {'type': 'Dataset', 'shape': [100, 1], 'dtype': 'float64'}
+    - `sbj_P_01/event_id`: {'type': 'Dataset', 'shape': [1, 6], 'dtype': 'uint32'}
+    - `sbj_P_01/subject`: {'type': 'Dataset', 'shape': [1, 6], 'dtype': 'uint32'}
+    - `sbj_P_01/time`: {'type': 'Dataset', 'shape': [2207651, 1], 'dtype': 'float64'}
+
+- File: `sbj_P_02.mat`
+  - Subject ID: `2`
+  - Size: `35.39 MB`
+  - Loader: `h5py`
+  - Keys: `['#refs#', '#refs#/a', '#refs#/b', '#refs#/c', '#refs#/d', '#refs#/e', '#refs#/f', '#refs#/g', '#refs#/h', '#refs#/i', '#refs#/j', '#refs#/k', '#subsystem#', '#subsystem#/MCOS', 'sbj_P_02', 'sbj_P_02/Fs', 'sbj_P_02/channels', 'sbj_P_02/channels_type', 'sbj_P_02/channels_unit', 'sbj_P_02/data', 'sbj_P_02/event_begin', 'sbj_P_02/event_end', 'sbj_P_02/event_id', 'sbj_P_02/subject', 'sbj_P_02/time']`
+  - HDF5 content preview:
+    - `#refs#`: {'type': 'Group'}
+    - `#refs#/a`: {'type': 'Dataset', 'shape': [2], 'dtype': 'uint64'}
+    - `#refs#/b`: {'type': 'Dataset', 'shape': [1, 376], 'dtype': 'uint8'}
+    - `#refs#/c`: {'type': 'Dataset', 'shape': [7, 1], 'dtype': 'uint64'}
+    - `#refs#/d`: {'type': 'Dataset', 'shape': [8, 1], 'dtype': 'uint64'}
+    - `#refs#/e`: {'type': 'Dataset', 'shape': [8, 1], 'dtype': 'uint64'}
+    - `#refs#/f`: {'type': 'Dataset', 'shape': [7, 1], 'dtype': 'uint64'}
+    - `#refs#/g`: {'type': 'Dataset', 'shape': [367, 1], 'dtype': 'uint64'}
+    - `#refs#/h`: {'type': 'Dataset', 'shape': [1, 2], 'dtype': 'int32'}
+    - `#refs#/i`: {'type': 'Dataset', 'shape': [1, 2], 'dtype': 'object'}
+    - `#refs#/j`: {'type': 'Dataset', 'shape': [2], 'dtype': 'uint64'}
+    - `#refs#/k`: {'type': 'Dataset', 'shape': [2], 'dtype': 'uint64'}
+    - `#subsystem#`: {'type': 'Group'}
+    - `#subsystem#/MCOS`: {'type': 'Dataset', 'shape': [1, 9], 'dtype': 'object'}
+    - `sbj_P_02`: {'type': 'Group'}
+    - `sbj_P_02/Fs`: {'type': 'Dataset', 'shape': [1, 1], 'dtype': 'float64'}
+    - `sbj_P_02/channels`: {'type': 'Dataset', 'shape': [1, 6], 'dtype': 'uint32'}
+    - `sbj_P_02/channels_type`: {'type': 'Dataset', 'shape': [1, 6], 'dtype': 'uint32'}
+    - `sbj_P_02/channels_unit`: {'type': 'Dataset', 'shape': [1, 6], 'dtype': 'uint32'}
+    - `sbj_P_02/data`: {'type': 'Dataset', 'shape': [2111215, 2], 'dtype': 'float64'}
+    - `sbj_P_02/event_begin`: {'type': 'Dataset', 'shape': [100, 1], 'dtype': 'float64'}
+    - `sbj_P_02/event_end`: {'type': 'Dataset', 'shape': [100, 1], 'dtype': 'float64'}
+    - `sbj_P_02/event_id`: {'type': 'Dataset', 'shape': [1, 6], 'dtype': 'uint32'}
+    - `sbj_P_02/subject`: {'type': 'Dataset', 'shape': [1, 6], 'dtype': 'uint32'}
+    - `sbj_P_02/time`: {'type': 'Dataset', 'shape': [2111215, 1], 'dtype': 'float64'}
+
+- File: `sbj_P_03.mat`
+  - Subject ID: `3`
+  - Size: `32.76 MB`
+  - Loader: `h5py`
+  - Keys: `['#refs#', '#refs#/a', '#refs#/b', '#refs#/c', '#refs#/d', '#refs#/e', '#refs#/f', '#refs#/g', '#refs#/h', '#refs#/i', '#refs#/j', '#refs#/k', '#subsystem#', '#subsystem#/MCOS', 'sbj_P_03', 'sbj_P_03/Fs', 'sbj_P_03/channels', 'sbj_P_03/channels_type', 'sbj_P_03/channels_unit', 'sbj_P_03/data', 'sbj_P_03/event_begin', 'sbj_P_03/event_end', 'sbj_P_03/event_id', 'sbj_P_03/subject', 'sbj_P_03/time']`
+  - HDF5 content preview:
+    - `#refs#`: {'type': 'Group'}
+    - `#refs#/a`: {'type': 'Dataset', 'shape': [2], 'dtype': 'uint64'}
+    - `#refs#/b`: {'type': 'Dataset', 'shape': [1, 376], 'dtype': 'uint8'}
+    - `#refs#/c`: {'type': 'Dataset', 'shape': [7, 1], 'dtype': 'uint64'}
+    - `#refs#/d`: {'type': 'Dataset', 'shape': [8, 1], 'dtype': 'uint64'}
+    - `#refs#/e`: {'type': 'Dataset', 'shape': [8, 1], 'dtype': 'uint64'}
+    - `#refs#/f`: {'type': 'Dataset', 'shape': [7, 1], 'dtype': 'uint64'}
+    - `#refs#/g`: {'type': 'Dataset', 'shape': [367, 1], 'dtype': 'uint64'}
+    - `#refs#/h`: {'type': 'Dataset', 'shape': [1, 2], 'dtype': 'int32'}
+    - `#refs#/i`: {'type': 'Dataset', 'shape': [1, 2], 'dtype': 'object'}
+    - `#refs#/j`: {'type': 'Dataset', 'shape': [2], 'dtype': 'uint64'}
+    - `#refs#/k`: {'type': 'Dataset', 'shape': [2], 'dtype': 'uint64'}
+    - `#subsystem#`: {'type': 'Group'}
+    - `#subsystem#/MCOS`: {'type': 'Dataset', 'shape': [1, 9], 'dtype': 'object'}
+    - `sbj_P_03`: {'type': 'Group'}
+    - `sbj_P_03/Fs`: {'type': 'Dataset', 'shape': [1, 1], 'dtype': 'float64'}
+    - `sbj_P_03/channels`: {'type': 'Dataset', 'shape': [1, 6], 'dtype': 'uint32'}
+    - `sbj_P_03/channels_type`: {'type': 'Dataset', 'shape': [1, 6], 'dtype': 'uint32'}
+    - `sbj_P_03/channels_unit`: {'type': 'Dataset', 'shape': [1, 6], 'dtype': 'uint32'}
+    - `sbj_P_03/data`: {'type': 'Dataset', 'shape': [1957081, 2], 'dtype': 'float64'}
+    - `sbj_P_03/event_begin`: {'type': 'Dataset', 'shape': [100, 1], 'dtype': 'float64'}
+    - `sbj_P_03/event_end`: {'type': 'Dataset', 'shape': [100, 1], 'dtype': 'float64'}
+    - `sbj_P_03/event_id`: {'type': 'Dataset', 'shape': [1, 6], 'dtype': 'uint32'}
+    - `sbj_P_03/subject`: {'type': 'Dataset', 'shape': [1, 6], 'dtype': 'uint32'}
+    - `sbj_P_03/time`: {'type': 'Dataset', 'shape': [1957081, 1], 'dtype': 'float64'}
+
+## Issues
+
+- None.
+
+## Warnings
+
+- None.
+
+## Audit Interpretation
+
+- The downloaded I-DARE first-stage files are present according to the manifest.
+
+- EEG and EMG subject coverage matches the expected main protocol decision.
+
+- Subject 4 remains EMG-only and should be excluded from main EEG+EMG experiments.
+
+- The next step is to inspect the `.mat` fields in this report and decide the exact loader design.
+
+
+
+# FILE: docs/idare_hdf5_structure_probe.md
+
+
+# I-DARE HDF5 Structure Probe
+
+This report was generated by `scripts/02_probe_idare_hdf5_structure.py`.
+
+No training or preprocessing was performed.
+
+## Label Stimulus Summary
+
+### `Arousal_SAM.csv`
+
+- Exists: `True`
+
+- Shape: `[32, 1]`
+
+- Stimulus count: `None`
+
+- First 10 stimulus values: `[]`
+
+### `Valence_SAM.csv`
+
+- Exists: `True`
+
+- Shape: `[32, 1]`
+
+- Stimulus count: `None`
+
+- First 10 stimulus values: `[]`
+
+### `Quadrants_SAM.csv`
+
+- Exists: `True`
+
+- Shape: `[32, 1]`
+
+- Stimulus count: `None`
+
+- First 10 stimulus values: `[]`
+
+## EEG Sample Files
+
+### `sbj_P_01.mat`
+
+- Subject: `{'shape': [1, 6], 'dtype': 'uint32', 'values': [3707764736, 2, 1, 1, 1, 1], 'decoded': [3707764736, 2, 1, 1, 1, 1]}`
+
+- Exists: `True`
+
+- Group keys: `['Fs', 'channels', 'channels_type', 'channels_unit', 'data', 'event_begin', 'event_end', 'event_id', 'subject', 'time']`
+
+- `Fs`: shape=[1, 1], dtype=float64
+
+  - decoded preview: `512.0`
+
+- `data`: shape=[565159, 38], dtype=float64
+
+- `time`: shape=[565159, 1], dtype=float64
+
+- `event_begin`: shape=[100, 1], dtype=float64
+
+  - decoded preview: `[102228.0, 132965.0, 143230.0, 204692.0, 209831.0, 212425.0, 214994.0, 223897.0, 226483.0, 229073.0, 236411.0, 239003.0, 241576.0, 251362.0, 253964.0, 256541.0, 261968.0, 264561.0, 267131.0, 273642.0]`
+
+- `event_end`: shape=[100, 1], dtype=float64
+
+  - decoded preview: `[132945.0, 143201.0, 204666.0, 209809.0, 212386.0, 214977.0, 223869.0, 226451.0, 229044.0, 236395.0, 238971.0, 241563.0, 251335.0, 253924.0, 256521.0, 261927.0, 264521.0, 267118.0, 273593.0, 276194.0]`
+
+- `event_id`: shape=[1, 6], dtype=uint32
+
+  - decoded preview: `[3707764736, 2, 1, 1, 5, 1]`
+
+- `channels`: shape=[1, 6], dtype=uint32
+
+  - decoded preview: `[3707764736, 2, 1, 1, 2, 1]`
+
+- `channels_type`: shape=[1, 6], dtype=uint32
+
+  - decoded preview: `[3707764736, 2, 1, 1, 3, 1]`
+
+- `channels_unit`: shape=[1, 6], dtype=uint32
+
+  - decoded preview: `[3707764736, 2, 1, 1, 4, 1]`
+
+- `subject`: shape=[1, 6], dtype=uint32
+
+  - decoded preview: `[3707764736, 2, 1, 1, 1, 1]`
+
+- Data orientation guess:
+
+```json
+
+{
+  "data_shape": [
+    565159,
+    38
+  ],
+  "time_shape": [
+    565159,
+    1
+  ],
+  "n_decoded_channels": 6,
+  "guess": "unknown"
+}
+
+```
+
+- Derived event summary:
+
+```json
+
+{
+  "fs": 512.0,
+  "num_events": 6,
+  "event_id_preview": [
+    "3707764736",
+    "2",
+    "1",
+    "1",
+    "5",
+    "1"
+  ],
+  "event_begin_preview": [
+    102228.0,
+    132965.0,
+    143230.0,
+    204692.0,
+    209831.0,
+    212425.0,
+    214994.0,
+    223897.0,
+    226483.0,
+    229073.0
+  ],
+  "event_end_preview": [
+    132945.0,
+    143201.0,
+    204666.0,
+    209809.0,
+    212386.0,
+    214977.0,
+    223869.0,
+    226451.0,
+    229044.0,
+    236395.0
+  ],
+  "duration_samples_preview": [
+    30717.0,
+    10236.0,
+    61436.0,
+    5117.0,
+    2555.0,
+    2552.0,
+    8875.0,
+    2554.0,
+    2561.0,
+    7322.0
+  ],
+  "duration_sec_preview": [
+    59.994140625,
+    19.9921875,
+    119.9921875,
+    9.994140625,
+    4.990234375,
+    4.984375,
+    17.333984375,
+    4.98828125,
+    5.001953125,
+    14.30078125
+  ],
+  "duration_sec_unique_rounded": [
+    4.984375,
+    4.986328,
+    4.988281,
+    4.990234,
+    4.992188,
+    4.994141,
+    4.996094,
+    4.998047,
+    5.0,
+    5.001953,
+    5.003906,
+    5.013672,
+    5.394531,
+    6.304688,
+    6.410156,
+    6.662109,
+    6.708984,
+    7.380859,
+    7.416016,
+    7.5,
+    7.976562,
+    8.03125,
+    8.09375,
+    8.421875,
+    8.466797,
+    8.490234,
+    8.595703,
+    8.759766,
+    8.980469,
+    9.046875,
+    9.107422,
+    9.251953,
+    9.724609,
+    9.814453,
+    9.994141,
+    10.519531,
+    10.542969,
+    10.599609,
+    11.318359,
+    11.583984,
+    12.621094,
+    14.300781,
+    17.333984,
+    19.060547,
+    19.992188,
+    59.994141,
+    74.21875,
+    119.992188
+  ],
+  "min_duration_sec": 4.984375,
+  "max_duration_sec": 119.9921875
+}
+
+```
+
+### `sbj_P_02.mat`
+
+- Subject: `{'shape': [1, 6], 'dtype': 'uint32', 'values': [3707764736, 2, 1, 1, 1, 1], 'decoded': [3707764736, 2, 1, 1, 1, 1]}`
+
+- Exists: `True`
+
+- Group keys: `['Fs', 'channels', 'channels_type', 'channels_unit', 'data', 'event_begin', 'event_end', 'event_id', 'subject', 'time']`
+
+- `Fs`: shape=[1, 1], dtype=float64
+
+  - decoded preview: `512.0`
+
+- `data`: shape=[540472, 38], dtype=float64
+
+- `time`: shape=[540472, 1], dtype=float64
+
+- `event_begin`: shape=[100, 1], dtype=float64
+
+  - decoded preview: `[81581.0, 112322.0, 120021.0, 181485.0, 186638.0, 189235.0, 191823.0, 201146.0, 203757.0, 206348.0, 215138.0, 217743.0, 220336.0, 224853.0, 227464.0, 230055.0, 233693.0, 236337.0, 238927.0, 242991.0]`
+
+- `event_end`: shape=[100, 1], dtype=float64
+
+  - decoded preview: `[112294.0, 119980.0, 181454.0, 186598.0, 189191.0, 191792.0, 201100.0, 203701.0, 206310.0, 215095.0, 217696.0, 220302.0, 224808.0, 227407.0, 230024.0, 233647.0, 236247.0, 238895.0, 242921.0, 245543.0]`
+
+- `event_id`: shape=[1, 6], dtype=uint32
+
+  - decoded preview: `[3707764736, 2, 1, 1, 5, 1]`
+
+- `channels`: shape=[1, 6], dtype=uint32
+
+  - decoded preview: `[3707764736, 2, 1, 1, 2, 1]`
+
+- `channels_type`: shape=[1, 6], dtype=uint32
+
+  - decoded preview: `[3707764736, 2, 1, 1, 3, 1]`
+
+- `channels_unit`: shape=[1, 6], dtype=uint32
+
+  - decoded preview: `[3707764736, 2, 1, 1, 4, 1]`
+
+- `subject`: shape=[1, 6], dtype=uint32
+
+  - decoded preview: `[3707764736, 2, 1, 1, 1, 1]`
+
+- Data orientation guess:
+
+```json
+
+{
+  "data_shape": [
+    540472,
+    38
+  ],
+  "time_shape": [
+    540472,
+    1
+  ],
+  "n_decoded_channels": 6,
+  "guess": "unknown"
+}
+
+```
+
+- Derived event summary:
+
+```json
+
+{
+  "fs": 512.0,
+  "num_events": 6,
+  "event_id_preview": [
+    "3707764736",
+    "2",
+    "1",
+    "1",
+    "5",
+    "1"
+  ],
+  "event_begin_preview": [
+    81581.0,
+    112322.0,
+    120021.0,
+    181485.0,
+    186638.0,
+    189235.0,
+    191823.0,
+    201146.0,
+    203757.0,
+    206348.0
+  ],
+  "event_end_preview": [
+    112294.0,
+    119980.0,
+    181454.0,
+    186598.0,
+    189191.0,
+    191792.0,
+    201100.0,
+    203701.0,
+    206310.0,
+    215095.0
+  ],
+  "duration_samples_preview": [
+    30713.0,
+    7658.0,
+    61433.0,
+    5113.0,
+    2553.0,
+    2557.0,
+    9277.0,
+    2555.0,
+    2553.0,
+    8747.0
+  ],
+  "duration_sec_preview": [
+    59.986328125,
+    14.95703125,
+    119.986328125,
+    9.986328125,
+    4.986328125,
+    4.994140625,
+    18.119140625,
+    4.990234375,
+    4.986328125,
+    17.083984375
+  ],
+  "duration_sec_unique_rounded": [
+    3.994141,
+    4.154297,
+    4.587891,
+    4.599609,
+    4.728516,
+    4.779297,
+    4.984375,
+    4.986328,
+    4.988281,
+    4.990234,
+    4.992188,
+    4.994141,
+    4.996094,
+    4.998047,
+    5.0,
+    5.001953,
+    5.085938,
+    5.1875,
+    5.3125,
+    6.185547,
+    6.730469,
+    7.015625,
+    7.800781,
+    7.886719,
+    8.609375,
+    8.734375,
+    8.884766,
+    9.412109,
+    9.986328,
+    10.529297,
+    12.675781,
+    14.669922,
+    14.921875,
+    14.957031,
+    15.302734,
+    16.021484,
+    16.908203,
+    17.083984,
+    18.119141,
+    19.490234,
+    19.943359,
+    20.117188,
+    24.898438,
+    28.335938,
+    59.986328,
+    119.986328
+  ],
+  "min_duration_sec": 3.994140625,
+  "max_duration_sec": 119.986328125
+}
+
+```
+
+### `sbj_P_03.mat`
+
+- Subject: `{'shape': [1, 6], 'dtype': 'uint32', 'values': [3707764736, 2, 1, 1, 1, 1], 'decoded': [3707764736, 2, 1, 1, 1, 1]}`
+
+- Exists: `True`
+
+- Group keys: `['Fs', 'channels', 'channels_type', 'channels_unit', 'data', 'event_begin', 'event_end', 'event_id', 'subject', 'time']`
+
+- `Fs`: shape=[1, 1], dtype=float64
+
+  - decoded preview: `512.0`
+
+- `data`: shape=[501013, 38], dtype=float64
+
+- `time`: shape=[501013, 1], dtype=float64
+
+- `event_begin`: shape=[100, 1], dtype=float64
+
+  - decoded preview: `[101655.0, 132425.0, 142720.0, 204206.0, 209372.0, 212000.0, 214606.0, 222288.0, 224907.0, 227511.0, 231051.0, 233661.0, 236285.0, 242299.0, 244928.0, 247534.0, 251876.0, 254512.0, 257118.0, 261837.0]`
+
+- `event_end`: shape=[100, 1], dtype=float64
+
+  - decoded preview: `[132373.0, 142663.0, 204160.0, 209319.0, 211929.0, 214559.0, 222237.0, 224845.0, 227465.0, 230990.0, 233605.0, 236216.0, 242226.0, 244854.0, 247486.0, 251812.0, 254431.0, 257071.0, 261770.0, 264389.0]`
+
+- `event_id`: shape=[1, 6], dtype=uint32
+
+  - decoded preview: `[3707764736, 2, 1, 1, 5, 1]`
+
+- `channels`: shape=[1, 6], dtype=uint32
+
+  - decoded preview: `[3707764736, 2, 1, 1, 2, 1]`
+
+- `channels_type`: shape=[1, 6], dtype=uint32
+
+  - decoded preview: `[3707764736, 2, 1, 1, 3, 1]`
+
+- `channels_unit`: shape=[1, 6], dtype=uint32
+
+  - decoded preview: `[3707764736, 2, 1, 1, 4, 1]`
+
+- `subject`: shape=[1, 6], dtype=uint32
+
+  - decoded preview: `[3707764736, 2, 1, 1, 1, 1]`
+
+- Data orientation guess:
+
+```json
+
+{
+  "data_shape": [
+    501013,
+    38
+  ],
+  "time_shape": [
+    501013,
+    1
+  ],
+  "n_decoded_channels": 6,
+  "guess": "unknown"
+}
+
+```
+
+- Derived event summary:
+
+```json
+
+{
+  "fs": 512.0,
+  "num_events": 6,
+  "event_id_preview": [
+    "3707764736",
+    "2",
+    "1",
+    "1",
+    "5",
+    "1"
+  ],
+  "event_begin_preview": [
+    101655.0,
+    132425.0,
+    142720.0,
+    204206.0,
+    209372.0,
+    212000.0,
+    214606.0,
+    222288.0,
+    224907.0,
+    227511.0
+  ],
+  "event_end_preview": [
+    132373.0,
+    142663.0,
+    204160.0,
+    209319.0,
+    211929.0,
+    214559.0,
+    222237.0,
+    224845.0,
+    227465.0,
+    230990.0
+  ],
+  "duration_samples_preview": [
+    30718.0,
+    10238.0,
+    61440.0,
+    5113.0,
+    2557.0,
+    2559.0,
+    7631.0,
+    2557.0,
+    2558.0,
+    3479.0
+  ],
+  "duration_sec_preview": [
+    59.99609375,
+    19.99609375,
+    120.0,
+    9.986328125,
+    4.994140625,
+    4.998046875,
+    14.904296875,
+    4.994140625,
+    4.99609375,
+    6.794921875
+  ],
+  "duration_sec_unique_rounded": [
+    3.373047,
+    3.945312,
+    4.443359,
+    4.447266,
+    4.982422,
+    4.984375,
+    4.986328,
+    4.988281,
+    4.990234,
+    4.992188,
+    4.994141,
+    4.996094,
+    4.998047,
+    5.0,
+    5.001953,
+    5.003906,
+    5.027344,
+    5.564453,
+    5.611328,
+    6.470703,
+    6.550781,
+    6.597656,
+    6.621094,
+    6.726562,
+    6.794922,
+    6.927734,
+    7.003906,
+    7.066406,
+    7.095703,
+    7.134766,
+    7.164062,
+    7.324219,
+    7.357422,
+    7.494141,
+    7.904297,
+    8.355469,
+    9.085938,
+    9.478516,
+    9.488281,
+    9.597656,
+    9.767578,
+    9.986328,
+    11.591797,
+    11.603516,
+    14.904297,
+    19.996094,
+    59.996094,
+    120.0
+  ],
+  "min_duration_sec": 3.373046875,
+  "max_duration_sec": 120.0
+}
+
+```
+
+## EMG Sample Files
+
+### `sbj_P_01.mat`
+
+- Subject: `{'shape': [1, 6], 'dtype': 'uint32', 'values': [3707764736, 2, 1, 1, 1, 1], 'decoded': [3707764736, 2, 1, 1, 1, 1]}`
+
+- Exists: `True`
+
+- Group keys: `['Fs', 'channels', 'channels_type', 'channels_unit', 'data', 'event_begin', 'event_end', 'event_id', 'subject', 'time']`
+
+- `Fs`: shape=[1, 1], dtype=float64
+
+  - decoded preview: `2000.0`
+
+- `data`: shape=[2207651, 2], dtype=float64
+
+- `time`: shape=[2207651, 1], dtype=float64
+
+- `event_begin`: shape=[100, 1], dtype=float64
+
+  - decoded preview: `[399327.0, 519391.0, 559491.0, 799575.0, 819649.0, 829783.0, 839817.0, 874593.0, 884697.0, 894815.0, 923477.0, 933601.0, 943653.0, 981881.0, 992045.0, 1002111.0, 1023311.0, 1033439.0, 1043479.0, 1068911.0]`
+
+- `event_end`: shape=[100, 1], dtype=float64
+
+  - decoded preview: `[519321.0, 559381.0, 799479.0, 819567.0, 829635.0, 839757.0, 874489.0, 884575.0, 894705.0, 923419.0, 933479.0, 943605.0, 981777.0, 991893.0, 1002039.0, 1023155.0, 1033289.0, 1043431.0, 1068727.0, 1078883.0]`
+
+- `event_id`: shape=[1, 6], dtype=uint32
+
+  - decoded preview: `[3707764736, 2, 1, 1, 5, 1]`
+
+- `channels`: shape=[1, 6], dtype=uint32
+
+  - decoded preview: `[3707764736, 2, 1, 1, 2, 1]`
+
+- `channels_type`: shape=[1, 6], dtype=uint32
+
+  - decoded preview: `[3707764736, 2, 1, 1, 3, 1]`
+
+- `channels_unit`: shape=[1, 6], dtype=uint32
+
+  - decoded preview: `[3707764736, 2, 1, 1, 4, 1]`
+
+- `subject`: shape=[1, 6], dtype=uint32
+
+  - decoded preview: `[3707764736, 2, 1, 1, 1, 1]`
+
+- Data orientation guess:
+
+```json
+
+{
+  "data_shape": [
+    2207651,
+    2
+  ],
+  "time_shape": [
+    2207651,
+    1
+  ],
+  "n_decoded_channels": 6,
+  "guess": "unknown"
+}
+
+```
+
+- Derived event summary:
+
+```json
+
+{
+  "fs": 2000.0,
+  "num_events": 6,
+  "event_id_preview": [
+    "3707764736",
+    "2",
+    "1",
+    "1",
+    "5",
+    "1"
+  ],
+  "event_begin_preview": [
+    399327.0,
+    519391.0,
+    559491.0,
+    799575.0,
+    819649.0,
+    829783.0,
+    839817.0,
+    874593.0,
+    884697.0,
+    894815.0
+  ],
+  "event_end_preview": [
+    519321.0,
+    559381.0,
+    799479.0,
+    819567.0,
+    829635.0,
+    839757.0,
+    874489.0,
+    884575.0,
+    894705.0,
+    923419.0
+  ],
+  "duration_samples_preview": [
+    119994.0,
+    39990.0,
+    239988.0,
+    19992.0,
+    9986.0,
+    9974.0,
+    34672.0,
+    9982.0,
+    10008.0,
+    28604.0
+  ],
+  "duration_sec_preview": [
+    59.997,
+    19.995,
+    119.994,
+    9.996,
+    4.993,
+    4.987,
+    17.336,
+    4.991,
+    5.004,
+    14.302
+  ],
+  "duration_sec_unique_rounded": [
+    4.986,
+    4.987,
+    4.988,
+    4.989,
+    4.99,
+    4.991,
+    4.992,
+    4.993,
+    4.994,
+    4.995,
+    4.996,
+    4.997,
+    4.998,
+    4.999,
+    5.0,
+    5.001,
+    5.002,
+    5.004,
+    5.006,
+    5.016,
+    5.397,
+    6.307,
+    6.412,
+    6.664,
+    6.71,
+    7.383,
+    7.417,
+    7.501,
+    7.978,
+    8.034,
+    8.095,
+    8.423,
+    8.468,
+    8.493,
+    8.598,
+    8.762,
+    8.982,
+    9.048,
+    9.109,
+    9.254,
+    9.727,
+    9.817,
+    9.996,
+    10.522,
+    10.545,
+    10.601,
+    11.321,
+    11.586,
+    12.624,
+    14.302,
+    17.336,
+    19.062,
+    19.995,
+    59.997,
+    74.22,
+    119.994
+  ],
+  "min_duration_sec": 4.986,
+  "max_duration_sec": 119.994
+}
+
+```
+
+### `sbj_P_02.mat`
+
+- Subject: `{'shape': [1, 6], 'dtype': 'uint32', 'values': [3707764736, 2, 1, 1, 1, 1], 'decoded': [3707764736, 2, 1, 1, 1, 1]}`
+
+- Exists: `True`
+
+- Group keys: `['Fs', 'channels', 'channels_type', 'channels_unit', 'data', 'event_begin', 'event_end', 'event_id', 'subject', 'time']`
+
+- `Fs`: shape=[1, 1], dtype=float64
+
+  - decoded preview: `2000.0`
+
+- `data`: shape=[2111215, 2], dtype=float64
+
+- `time`: shape=[2111215, 1], dtype=float64
+
+- `event_begin`: shape=[100, 1], dtype=float64
+
+  - decoded preview: `[318673.0, 438755.0, 468831.0, 708923.0, 729051.0, 739195.0, 749307.0, 785725.0, 795923.0, 806043.0, 840379.0, 850557.0, 860683.0, 878331.0, 888529.0, 898651.0, 912859.0, 923189.0, 933307.0, 949179.0]`
+
+- `event_end`: shape=[100, 1], dtype=float64
+
+  - decoded preview: `[438651.0, 468673.0, 708807.0, 728899.0, 739027.0, 749189.0, 785549.0, 795711.0, 805901.0, 840213.0, 850377.0, 860557.0, 878155.0, 888313.0, 898533.0, 912687.0, 922841.0, 933187.0, 948913.0, 959153.0]`
+
+- `event_id`: shape=[1, 6], dtype=uint32
+
+  - decoded preview: `[3707764736, 2, 1, 1, 5, 1]`
+
+- `channels`: shape=[1, 6], dtype=uint32
+
+  - decoded preview: `[3707764736, 2, 1, 1, 2, 1]`
+
+- `channels_type`: shape=[1, 6], dtype=uint32
+
+  - decoded preview: `[3707764736, 2, 1, 1, 3, 1]`
+
+- `channels_unit`: shape=[1, 6], dtype=uint32
+
+  - decoded preview: `[3707764736, 2, 1, 1, 4, 1]`
+
+- `subject`: shape=[1, 6], dtype=uint32
+
+  - decoded preview: `[3707764736, 2, 1, 1, 1, 1]`
+
+- Data orientation guess:
+
+```json
+
+{
+  "data_shape": [
+    2111215,
+    2
+  ],
+  "time_shape": [
+    2111215,
+    1
+  ],
+  "n_decoded_channels": 6,
+  "guess": "unknown"
+}
+
+```
+
+- Derived event summary:
+
+```json
+
+{
+  "fs": 2000.0,
+  "num_events": 6,
+  "event_id_preview": [
+    "3707764736",
+    "2",
+    "1",
+    "1",
+    "5",
+    "1"
+  ],
+  "event_begin_preview": [
+    318673.0,
+    438755.0,
+    468831.0,
+    708923.0,
+    729051.0,
+    739195.0,
+    749307.0,
+    785725.0,
+    795923.0,
+    806043.0
+  ],
+  "event_end_preview": [
+    438651.0,
+    468673.0,
+    708807.0,
+    728899.0,
+    739027.0,
+    749189.0,
+    785549.0,
+    795711.0,
+    805901.0,
+    840213.0
+  ],
+  "duration_samples_preview": [
+    119978.0,
+    29918.0,
+    239976.0,
+    19976.0,
+    9976.0,
+    9994.0,
+    36242.0,
+    9986.0,
+    9978.0,
+    34170.0
+  ],
+  "duration_sec_preview": [
+    59.989,
+    14.959,
+    119.988,
+    9.988,
+    4.988,
+    4.997,
+    18.121,
+    4.993,
+    4.989,
+    17.085
+  ],
+  "duration_sec_unique_rounded": [
+    3.997,
+    4.157,
+    4.589,
+    4.602,
+    4.73,
+    4.782,
+    4.987,
+    4.988,
+    4.989,
+    4.99,
+    4.991,
+    4.992,
+    4.993,
+    4.994,
+    4.995,
+    4.996,
+    4.997,
+    4.998,
+    4.999,
+    5.0,
+    5.001,
+    5.002,
+    5.004,
+    5.087,
+    5.19,
+    5.315,
+    6.188,
+    6.733,
+    7.018,
+    7.803,
+    7.888,
+    8.611,
+    8.736,
+    8.887,
+    9.414,
+    9.988,
+    10.531,
+    12.677,
+    14.672,
+    14.923,
+    14.959,
+    15.305,
+    16.024,
+    16.91,
+    17.085,
+    18.121,
+    19.492,
+    19.945,
+    20.119,
+    24.9,
+    28.338,
+    59.989,
+    119.988
+  ],
+  "min_duration_sec": 3.997,
+  "max_duration_sec": 119.988
+}
+
+```
+
+### `sbj_P_03.mat`
+
+- Subject: `{'shape': [1, 6], 'dtype': 'uint32', 'values': [3707764736, 2, 1, 1, 1, 1], 'decoded': [3707764736, 2, 1, 1, 1, 1]}`
+
+- Exists: `True`
+
+- Group keys: `['Fs', 'channels', 'channels_type', 'channels_unit', 'data', 'event_begin', 'event_end', 'event_id', 'subject', 'time']`
+
+- `Fs`: shape=[1, 1], dtype=float64
+
+  - decoded preview: `2000.0`
+
+- `data`: shape=[1957081, 2], dtype=float64
+
+- `time`: shape=[1957081, 1], dtype=float64
+
+- `event_begin`: shape=[100, 1], dtype=float64
+
+  - decoded preview: `[397087.0, 517281.0, 557497.0, 797677.0, 817857.0, 828123.0, 838301.0, 868311.0, 878541.0, 888711.0, 902541.0, 912735.0, 922987.0, 946477.0, 956749.0, 966925.0, 983887.0, 994185.0, 1004365.0, 1022799.0]`
+
+- `event_end`: shape=[100, 1], dtype=float64
+
+  - decoded preview: `[517085.0, 557277.0, 797499.0, 817653.0, 827851.0, 838123.0, 868113.0, 878303.0, 888537.0, 902305.0, 912523.0, 922719.0, 946197.0, 956461.0, 966747.0, 983641.0, 993873.0, 1004185.0, 1022541.0, 1032773.0]`
+
+- `event_id`: shape=[1, 6], dtype=uint32
+
+  - decoded preview: `[3707764736, 2, 1, 1, 5, 1]`
+
+- `channels`: shape=[1, 6], dtype=uint32
+
+  - decoded preview: `[3707764736, 2, 1, 1, 2, 1]`
+
+- `channels_type`: shape=[1, 6], dtype=uint32
+
+  - decoded preview: `[3707764736, 2, 1, 1, 3, 1]`
+
+- `channels_unit`: shape=[1, 6], dtype=uint32
+
+  - decoded preview: `[3707764736, 2, 1, 1, 4, 1]`
+
+- `subject`: shape=[1, 6], dtype=uint32
+
+  - decoded preview: `[3707764736, 2, 1, 1, 1, 1]`
+
+- Data orientation guess:
+
+```json
+
+{
+  "data_shape": [
+    1957081,
+    2
+  ],
+  "time_shape": [
+    1957081,
+    1
+  ],
+  "n_decoded_channels": 6,
+  "guess": "unknown"
+}
+
+```
+
+- Derived event summary:
+
+```json
+
+{
+  "fs": 2000.0,
+  "num_events": 6,
+  "event_id_preview": [
+    "3707764736",
+    "2",
+    "1",
+    "1",
+    "5",
+    "1"
+  ],
+  "event_begin_preview": [
+    397087.0,
+    517281.0,
+    557497.0,
+    797677.0,
+    817857.0,
+    828123.0,
+    838301.0,
+    868311.0,
+    878541.0,
+    888711.0
+  ],
+  "event_end_preview": [
+    517085.0,
+    557277.0,
+    797499.0,
+    817653.0,
+    827851.0,
+    838123.0,
+    868113.0,
+    878303.0,
+    888537.0,
+    902305.0
+  ],
+  "duration_samples_preview": [
+    119998.0,
+    39996.0,
+    240002.0,
+    19976.0,
+    9994.0,
+    10000.0,
+    29812.0,
+    9992.0,
+    9996.0,
+    13594.0
+  ],
+  "duration_sec_preview": [
+    59.999,
+    19.998,
+    120.001,
+    9.988,
+    4.997,
+    5.0,
+    14.906,
+    4.996,
+    4.998,
+    6.797
+  ],
+  "duration_sec_unique_rounded": [
+    3.375,
+    3.948,
+    4.446,
+    4.45,
+    4.985,
+    4.986,
+    4.987,
+    4.988,
+    4.989,
+    4.99,
+    4.991,
+    4.992,
+    4.993,
+    4.994,
+    4.995,
+    4.996,
+    4.997,
+    4.998,
+    4.999,
+    5.0,
+    5.001,
+    5.002,
+    5.004,
+    5.005,
+    5.029,
+    5.567,
+    5.613,
+    6.473,
+    6.553,
+    6.599,
+    6.623,
+    6.729,
+    6.797,
+    6.929,
+    7.006,
+    7.068,
+    7.098,
+    7.137,
+    7.166,
+    7.327,
+    7.359,
+    7.497,
+    7.907,
+    8.358,
+    9.088,
+    9.48,
+    9.49,
+    9.599,
+    9.77,
+    9.988,
+    11.594,
+    11.605,
+    14.906,
+    19.998,
+    59.999,
+    120.001
+  ],
+  "min_duration_sec": 3.375,
+  "max_duration_sec": 120.001
+}
+
+```
+
+
+
+# FILE: docs/idare_mat73_probe.md
+
+
+# I-DARE mat73 Loader Probe
+
+This report was generated by `scripts/03_probe_idare_mat73_loader.py`.
+
+No training or preprocessing was performed.
+
+## CSV Label Summary
+
+### `Arousal_SAM.csv`
+
+- Exists: `True`
+
+- Shape: `[32, 65]`
+
+- Columns preview: `['Stimulus', 'sbj_P_01', 'sbj_P_02', 'sbj_P_03', 'sbj_P_04', 'sbj_P_05', 'sbj_P_06', 'sbj_P_07', 'sbj_P_08', 'sbj_P_09', 'sbj_P_10', 'sbj_P_11']`
+
+- Stimulus count: `32`
+
+- First 10 stimulus values: `['1441', '1750', '2314', '2491', '3053', '3063', '3080', '3170', '4220', '5760']`
+
+### `Valence_SAM.csv`
+
+- Exists: `True`
+
+- Shape: `[32, 65]`
+
+- Columns preview: `['Stimulus', 'sbj_P_01', 'sbj_P_02', 'sbj_P_03', 'sbj_P_04', 'sbj_P_05', 'sbj_P_06', 'sbj_P_07', 'sbj_P_08', 'sbj_P_09', 'sbj_P_10', 'sbj_P_11']`
+
+- Stimulus count: `32`
+
+- First 10 stimulus values: `['1441', '1750', '2314', '2491', '3053', '3063', '3080', '3170', '4220', '5760']`
+
+### `Quadrants_SAM.csv`
+
+- Exists: `True`
+
+- Shape: `[32, 66]`
+
+- Columns preview: `['Stimulus', 'Quadrant (GS)', 'sbj_P_01', 'sbj_P_02', 'sbj_P_03', 'sbj_P_04', 'sbj_P_05', 'sbj_P_06', 'sbj_P_07', 'sbj_P_08', 'sbj_P_09', 'sbj_P_10']`
+
+- Stimulus count: `32`
+
+- First 10 stimulus values: `['1441', '1750', '2314', '2491', '3053', '3063', '3080', '3170', '4220', '5760']`
+
+### `Sample.csv`
+
+- Exists: `True`
+
+- Shape: `[63, 3]`
+
+- Columns preview: `['Subject', 'Gender', 'Age']`
+
+## EEG Sample Files
+
+### `sbj_P_01.mat`
+
+- Exists: `True`
+
+- Top-level keys: `['sbj_P_01']`
+
+- Field names: `['Fs', 'channels', 'channels_type', 'channels_unit', 'data', 'event_begin', 'event_end', 'event_id', 'subject', 'time']`
+
+### Field summaries
+
+- `Fs`: present=True, type=ndarray, shape=[], dtype=float64
+
+  - preview: `[512.0]`
+
+- `data`: present=True, type=ndarray, shape=[38, 565159], dtype=float64
+
+  - preview: `[-12.527053833007812, -15.028985977172852, -17.420482635498047, -19.55874252319336, -21.465940475463867, -23.274446487426758, -25.04665756225586, -26.729000091552734, -28.126327514648438, -29.112709045410156, -29.641557693481445, -29.747081756591797, -29.44567108154297, -28.8461856842041, -28.167417526245117, -27.708518981933594, -27.651073455810547, -28.063655853271484, -28.926898956298828, -30.141313552856445]`
+
+- `time`: present=True, type=ndarray, shape=[565159], dtype=float64
+
+  - preview: `[1.953125e-06, 0.001955078125, 0.003908203125, 0.005861328125, 0.007814453125, 0.009767578125, 0.011720703125, 0.013673828125, 0.015626953125, 0.017580078125, 0.019533203125, 0.021486328125, 0.023439453125, 0.025392578125, 0.027345703125, 0.029298828125, 0.031251953125, 0.033205078125, 0.035158203125, 0.037111328125]`
+
+- `channels`: present=True, type=NoneType, shape=[], dtype=object
+
+  - preview: `['None']`
+
+- `channels_type`: present=True, type=NoneType, shape=[], dtype=object
+
+  - preview: `['None']`
+
+- `channels_unit`: present=True, type=NoneType, shape=[], dtype=object
+
+  - preview: `['None']`
+
+- `event_begin`: present=True, type=ndarray, shape=[100], dtype=float64
+
+  - preview: `[102228.0, 132965.0, 143230.0, 204692.0, 209831.0, 212425.0, 214994.0, 223897.0, 226483.0, 229073.0, 236411.0, 239003.0, 241576.0, 251362.0, 253964.0, 256541.0, 261968.0, 264561.0, 267131.0, 273642.0]`
+
+- `event_end`: present=True, type=ndarray, shape=[100], dtype=float64
+
+  - preview: `[132945.0, 143201.0, 204666.0, 209809.0, 212386.0, 214977.0, 223869.0, 226451.0, 229044.0, 236395.0, 238971.0, 241563.0, 251335.0, 253924.0, 256521.0, 261927.0, 264521.0, 267118.0, 273593.0, 276194.0]`
+
+- `event_id`: present=True, type=NoneType, shape=[], dtype=object
+
+  - preview: `['None']`
+
+- `subject`: present=True, type=NoneType, shape=[], dtype=object
+
+  - preview: `['None']`
+
+### Derived summary
+
+```json
+
+{
+  "fs": 512.0,
+  "data_shape": [
+    38,
+    565159
+  ],
+  "time_shape": [
+    565159
+  ],
+  "event_begin_shape": [
+    100
+  ],
+  "event_end_shape": [
+    100
+  ],
+  "event_id_shape": [],
+  "num_event_begin": 100,
+  "num_event_end": 100,
+  "num_event_id": 1,
+  "event_id_preview": [
+    "None"
+  ],
+  "duration_sec_preview": [
+    59.994141,
+    19.992188,
+    119.992188,
+    9.994141,
+    4.990234,
+    4.984375,
+    17.333984,
+    4.988281,
+    5.001953,
+    14.300781,
+    5.0,
+    5.0,
+    19.060547,
+    5.003906,
+    4.994141,
+    10.519531,
+    4.986328,
+    4.994141,
+    12.621094,
+    4.984375
+  ],
+  "duration_sec_unique_rounded": [
+    4.984375,
+    4.986328,
+    4.988281,
+    4.990234,
+    4.992188,
+    4.994141,
+    4.996094,
+    4.998047,
+    5.0,
+    5.001953,
+    5.003906,
+    5.013672,
+    5.394531,
+    6.304688,
+    6.410156,
+    6.662109,
+    6.708984,
+    7.380859,
+    7.416016,
+    7.5,
+    7.976562,
+    8.03125,
+    8.09375,
+    8.421875,
+    8.466797,
+    8.490234,
+    8.595703,
+    8.759766,
+    8.980469,
+    9.046875,
+    9.107422,
+    9.251953,
+    9.724609,
+    9.814453,
+    9.994141,
+    10.519531,
+    10.542969,
+    10.599609,
+    11.318359,
+    11.583984,
+    12.621094,
+    14.300781,
+    17.333984,
+    19.060547,
+    19.992188,
+    59.994141,
+    74.21875,
+    119.992188
+  ],
+  "num_around_5s_events_4p5_to_5p5": 65,
+  "min_duration_sec": 4.984375,
+  "max_duration_sec": 119.9921875,
+  "data_orientation_guess": "channels x time",
+  "n_channels_from_data": null
+}
+
+```
+
+### `sbj_P_02.mat`
+
+- Exists: `True`
+
+- Top-level keys: `['sbj_P_02']`
+
+- Field names: `['Fs', 'channels', 'channels_type', 'channels_unit', 'data', 'event_begin', 'event_end', 'event_id', 'subject', 'time']`
+
+### Field summaries
+
+- `Fs`: present=True, type=ndarray, shape=[], dtype=float64
+
+  - preview: `[512.0]`
+
+- `data`: present=True, type=ndarray, shape=[38, 540472], dtype=float64
+
+  - preview: `[-4.999059677124023, -5.850787162780762, -6.570327281951904, -7.013596057891846, -7.083208084106445, -6.812187194824219, -6.273292064666748, -5.585827350616455, -4.882972717285156, -4.255456447601318, -3.8219194412231445, -3.6530561447143555, -3.806394577026367, -4.273313522338867, -4.968592643737793, -5.774641990661621, -6.540451526641846, -7.168474197387695, -7.629125595092773, -8.012873649597168]`
+
+- `time`: present=True, type=ndarray, shape=[540472], dtype=float64
+
+  - preview: `[1.953125e-06, 0.001955078125, 0.003908203125, 0.005861328125, 0.007814453125, 0.009767578125, 0.011720703125, 0.013673828125, 0.015626953125, 0.017580078125, 0.019533203125, 0.021486328125, 0.023439453125, 0.025392578125, 0.027345703125, 0.029298828125, 0.031251953125, 0.033205078125, 0.035158203125, 0.037111328125]`
+
+- `channels`: present=True, type=NoneType, shape=[], dtype=object
+
+  - preview: `['None']`
+
+- `channels_type`: present=True, type=NoneType, shape=[], dtype=object
+
+  - preview: `['None']`
+
+- `channels_unit`: present=True, type=NoneType, shape=[], dtype=object
+
+  - preview: `['None']`
+
+- `event_begin`: present=True, type=ndarray, shape=[100], dtype=float64
+
+  - preview: `[81581.0, 112322.0, 120021.0, 181485.0, 186638.0, 189235.0, 191823.0, 201146.0, 203757.0, 206348.0, 215138.0, 217743.0, 220336.0, 224853.0, 227464.0, 230055.0, 233693.0, 236337.0, 238927.0, 242991.0]`
+
+- `event_end`: present=True, type=ndarray, shape=[100], dtype=float64
+
+  - preview: `[112294.0, 119980.0, 181454.0, 186598.0, 189191.0, 191792.0, 201100.0, 203701.0, 206310.0, 215095.0, 217696.0, 220302.0, 224808.0, 227407.0, 230024.0, 233647.0, 236247.0, 238895.0, 242921.0, 245543.0]`
+
+- `event_id`: present=True, type=NoneType, shape=[], dtype=object
+
+  - preview: `['None']`
+
+- `subject`: present=True, type=NoneType, shape=[], dtype=object
+
+  - preview: `['None']`
+
+### Derived summary
+
+```json
+
+{
+  "fs": 512.0,
+  "data_shape": [
+    38,
+    540472
+  ],
+  "time_shape": [
+    540472
+  ],
+  "event_begin_shape": [
+    100
+  ],
+  "event_end_shape": [
+    100
+  ],
+  "event_id_shape": [],
+  "num_event_begin": 100,
+  "num_event_end": 100,
+  "num_event_id": 1,
+  "event_id_preview": [
+    "None"
+  ],
+  "duration_sec_preview": [
+    59.986328,
+    14.957031,
+    119.986328,
+    9.986328,
+    4.986328,
+    4.994141,
+    18.119141,
+    4.990234,
+    4.986328,
+    17.083984,
+    4.996094,
+    4.998047,
+    8.734375,
+    4.988281,
+    5.0,
+    7.015625,
+    4.988281,
+    4.996094,
+    7.800781,
+    4.984375
+  ],
+  "duration_sec_unique_rounded": [
+    3.994141,
+    4.154297,
+    4.587891,
+    4.599609,
+    4.728516,
+    4.779297,
+    4.984375,
+    4.986328,
+    4.988281,
+    4.990234,
+    4.992188,
+    4.994141,
+    4.996094,
+    4.998047,
+    5.0,
+    5.001953,
+    5.085938,
+    5.1875,
+    5.3125,
+    6.185547,
+    6.730469,
+    7.015625,
+    7.800781,
+    7.886719,
+    8.609375,
+    8.734375,
+    8.884766,
+    9.412109,
+    9.986328,
+    10.529297,
+    12.675781,
+    14.669922,
+    14.921875,
+    14.957031,
+    15.302734,
+    16.021484,
+    16.908203,
+    17.083984,
+    18.119141,
+    19.490234,
+    19.943359,
+    20.117188,
+    24.898438,
+    28.335938,
+    59.986328,
+    119.986328
+  ],
+  "num_around_5s_events_4p5_to_5p5": 71,
+  "min_duration_sec": 3.994140625,
+  "max_duration_sec": 119.986328125,
+  "data_orientation_guess": "channels x time",
+  "n_channels_from_data": null
+}
+
+```
+
+### `sbj_P_03.mat`
+
+- Exists: `True`
+
+- Top-level keys: `['sbj_P_03']`
+
+- Field names: `['Fs', 'channels', 'channels_type', 'channels_unit', 'data', 'event_begin', 'event_end', 'event_id', 'subject', 'time']`
+
+### Field summaries
+
+- `Fs`: present=True, type=ndarray, shape=[], dtype=float64
+
+  - preview: `[512.0]`
+
+- `data`: present=True, type=ndarray, shape=[38, 501013], dtype=float64
+
+  - preview: `[-4.540689468383789, -1.8396668434143066, 0.05031871795654297, 0.7081766128540039, -0.05244302749633789, -1.852433204650879, -3.991023063659668, -5.480795860290527, -5.793539047241211, -4.889490127563477, -2.856779098510742, -0.15314483642578125, 2.66793155670166, 4.870136260986328, 5.976276874542236, 5.878448963165283, 4.63348388671875, 2.411409854888916, -0.4327049255371094, -3.4172754287719727]`
+
+- `time`: present=True, type=ndarray, shape=[501013], dtype=float64
+
+  - preview: `[1.953125e-06, 0.001955078125, 0.003908203125, 0.005861328125, 0.007814453125, 0.009767578125, 0.011720703125, 0.013673828125, 0.015626953125, 0.017580078125, 0.019533203125, 0.021486328125, 0.023439453125, 0.025392578125, 0.027345703125, 0.029298828125, 0.031251953125, 0.033205078125, 0.035158203125, 0.037111328125]`
+
+- `channels`: present=True, type=NoneType, shape=[], dtype=object
+
+  - preview: `['None']`
+
+- `channels_type`: present=True, type=NoneType, shape=[], dtype=object
+
+  - preview: `['None']`
+
+- `channels_unit`: present=True, type=NoneType, shape=[], dtype=object
+
+  - preview: `['None']`
+
+- `event_begin`: present=True, type=ndarray, shape=[100], dtype=float64
+
+  - preview: `[101655.0, 132425.0, 142720.0, 204206.0, 209372.0, 212000.0, 214606.0, 222288.0, 224907.0, 227511.0, 231051.0, 233661.0, 236285.0, 242299.0, 244928.0, 247534.0, 251876.0, 254512.0, 257118.0, 261837.0]`
+
+- `event_end`: present=True, type=ndarray, shape=[100], dtype=float64
+
+  - preview: `[132373.0, 142663.0, 204160.0, 209319.0, 211929.0, 214559.0, 222237.0, 224845.0, 227465.0, 230990.0, 233605.0, 236216.0, 242226.0, 244854.0, 247486.0, 251812.0, 254431.0, 257071.0, 261770.0, 264389.0]`
+
+- `event_id`: present=True, type=NoneType, shape=[], dtype=object
+
+  - preview: `['None']`
+
+- `subject`: present=True, type=NoneType, shape=[], dtype=object
+
+  - preview: `['None']`
+
+### Derived summary
+
+```json
+
+{
+  "fs": 512.0,
+  "data_shape": [
+    38,
+    501013
+  ],
+  "time_shape": [
+    501013
+  ],
+  "event_begin_shape": [
+    100
+  ],
+  "event_end_shape": [
+    100
+  ],
+  "event_id_shape": [],
+  "num_event_begin": 100,
+  "num_event_end": 100,
+  "num_event_id": 1,
+  "event_id_preview": [
+    "None"
+  ],
+  "duration_sec_preview": [
+    59.996094,
+    19.996094,
+    120.0,
+    9.986328,
+    4.994141,
+    4.998047,
+    14.904297,
+    4.994141,
+    4.996094,
+    6.794922,
+    4.988281,
+    4.990234,
+    11.603516,
+    4.990234,
+    4.996094,
+    8.355469,
+    4.990234,
+    4.998047,
+    9.085938,
+    4.984375
+  ],
+  "duration_sec_unique_rounded": [
+    3.373047,
+    3.945312,
+    4.443359,
+    4.447266,
+    4.982422,
+    4.984375,
+    4.986328,
+    4.988281,
+    4.990234,
+    4.992188,
+    4.994141,
+    4.996094,
+    4.998047,
+    5.0,
+    5.001953,
+    5.003906,
+    5.027344,
+    5.564453,
+    5.611328,
+    6.470703,
+    6.550781,
+    6.597656,
+    6.621094,
+    6.726562,
+    6.794922,
+    6.927734,
+    7.003906,
+    7.066406,
+    7.095703,
+    7.134766,
+    7.164062,
+    7.324219,
+    7.357422,
+    7.494141,
+    7.904297,
+    8.355469,
+    9.085938,
+    9.478516,
+    9.488281,
+    9.597656,
+    9.767578,
+    9.986328,
+    11.591797,
+    11.603516,
+    14.904297,
+    19.996094,
+    59.996094,
+    120.0
+  ],
+  "num_around_5s_events_4p5_to_5p5": 65,
+  "min_duration_sec": 3.373046875,
+  "max_duration_sec": 120.0,
+  "data_orientation_guess": "channels x time",
+  "n_channels_from_data": null
+}
+
+```
+
+## EMG Sample Files
+
+### `sbj_P_01.mat`
+
+- Exists: `True`
+
+- Top-level keys: `['sbj_P_01']`
+
+- Field names: `['Fs', 'channels', 'channels_type', 'channels_unit', 'data', 'event_begin', 'event_end', 'event_id', 'subject', 'time']`
+
+### Field summaries
+
+- `Fs`: present=True, type=ndarray, shape=[], dtype=float64
+
+  - preview: `[2000.0]`
+
+- `data`: present=True, type=ndarray, shape=[2, 2207651], dtype=float64
+
+  - preview: `[-4.349200904047668, 0.3615707479026422, 2.9005301213739414, 2.447689359422288, 0.09329228676698009, -1.975751243666318, -2.1931511058968822, -0.7300767336828953, 0.9835942131865443, 1.7004903221919299, 1.2948465689627202, 0.48440880750780174, -0.07773407500525292, -0.3169975994853398, -0.5633596249577445, -1.1674142791621953, -2.2161966771926767, -3.278271168192877, -3.453455965207174, -2.159983050034433]`
+
+- `time`: present=True, type=ndarray, shape=[2207651], dtype=float64
+
+  - preview: `[0.0, 0.0005000000000023874, 0.0010000000000012221, 0.0015000000000000568, 0.0020000000000024443, 0.002500000000001279, 0.0030000000000001137, 0.003500000000002501, 0.004000000000001336, 0.0045000000000001705, 0.005000000000002558, 0.005500000000001393, 0.006000000000000227, 0.006500000000002615, 0.0070000000000014495, 0.007500000000000284, 0.008000000000002672, 0.008500000000001506, 0.009000000000000341, 0.009500000000002728]`
+
+- `channels`: present=True, type=NoneType, shape=[], dtype=object
+
+  - preview: `['None']`
+
+- `channels_type`: present=True, type=NoneType, shape=[], dtype=object
+
+  - preview: `['None']`
+
+- `channels_unit`: present=True, type=NoneType, shape=[], dtype=object
+
+  - preview: `['None']`
+
+- `event_begin`: present=True, type=ndarray, shape=[100], dtype=float64
+
+  - preview: `[399327.0, 519391.0, 559491.0, 799575.0, 819649.0, 829783.0, 839817.0, 874593.0, 884697.0, 894815.0, 923477.0, 933601.0, 943653.0, 981881.0, 992045.0, 1002111.0, 1023311.0, 1033439.0, 1043479.0, 1068911.0]`
+
+- `event_end`: present=True, type=ndarray, shape=[100], dtype=float64
+
+  - preview: `[519321.0, 559381.0, 799479.0, 819567.0, 829635.0, 839757.0, 874489.0, 884575.0, 894705.0, 923419.0, 933479.0, 943605.0, 981777.0, 991893.0, 1002039.0, 1023155.0, 1033289.0, 1043431.0, 1068727.0, 1078883.0]`
+
+- `event_id`: present=True, type=NoneType, shape=[], dtype=object
+
+  - preview: `['None']`
+
+- `subject`: present=True, type=NoneType, shape=[], dtype=object
+
+  - preview: `['None']`
+
+### Derived summary
+
+```json
+
+{
+  "fs": 2000.0,
+  "data_shape": [
+    2,
+    2207651
+  ],
+  "time_shape": [
+    2207651
+  ],
+  "event_begin_shape": [
+    100
+  ],
+  "event_end_shape": [
+    100
+  ],
+  "event_id_shape": [],
+  "num_event_begin": 100,
+  "num_event_end": 100,
+  "num_event_id": 1,
+  "event_id_preview": [
+    "None"
+  ],
+  "duration_sec_preview": [
+    59.997,
+    19.995,
+    119.994,
+    9.996,
+    4.993,
+    4.987,
+    17.336,
+    4.991,
+    5.004,
+    14.302,
+    5.001,
+    5.002,
+    19.062,
+    5.006,
+    4.997,
+    10.522,
+    4.989,
+    4.996,
+    12.624,
+    4.986
+  ],
+  "duration_sec_unique_rounded": [
+    4.986,
+    4.987,
+    4.988,
+    4.989,
+    4.99,
+    4.991,
+    4.992,
+    4.993,
+    4.994,
+    4.995,
+    4.996,
+    4.997,
+    4.998,
+    4.999,
+    5.0,
+    5.001,
+    5.002,
+    5.004,
+    5.006,
+    5.016,
+    5.397,
+    6.307,
+    6.412,
+    6.664,
+    6.71,
+    7.383,
+    7.417,
+    7.501,
+    7.978,
+    8.034,
+    8.095,
+    8.423,
+    8.468,
+    8.493,
+    8.598,
+    8.762,
+    8.982,
+    9.048,
+    9.109,
+    9.254,
+    9.727,
+    9.817,
+    9.996,
+    10.522,
+    10.545,
+    10.601,
+    11.321,
+    11.586,
+    12.624,
+    14.302,
+    17.336,
+    19.062,
+    19.995,
+    59.997,
+    74.22,
+    119.994
+  ],
+  "num_around_5s_events_4p5_to_5p5": 65,
+  "min_duration_sec": 4.986,
+  "max_duration_sec": 119.994,
+  "data_orientation_guess": "channels x time",
+  "n_channels_from_data": null
+}
+
+```
+
+### `sbj_P_02.mat`
+
+- Exists: `True`
+
+- Top-level keys: `['sbj_P_02']`
+
+- Field names: `['Fs', 'channels', 'channels_type', 'channels_unit', 'data', 'event_begin', 'event_end', 'event_id', 'subject', 'time']`
+
+### Field summaries
+
+- `Fs`: present=True, type=ndarray, shape=[], dtype=float64
+
+  - preview: `[2000.0]`
+
+- `data`: present=True, type=ndarray, shape=[2, 2111215], dtype=float64
+
+  - preview: `[-0.15845215858831085, -9.470981310194984, -14.718281544775795, -14.558700998557194, -10.490869416166351, -4.884396345500187, 0.536723463233371, 4.665294733566835, 6.624945311750676, 6.077117234861623, 3.6116848292031203, 0.2942325185232495, -3.2834533500668517, -7.296899645418183, -11.89964251006615, -16.21113228975524, -18.325220449035356, -16.657931213764616, -11.531780549599745, -5.333117595356799]`
+
+- `time`: present=True, type=ndarray, shape=[2111215], dtype=float64
+
+  - preview: `[0.0, 0.0005000000000023874, 0.000999999999990564, 0.0014999999999929514, 0.001999999999995339, 0.0024999999999977263, 0.0030000000000001137, 0.003500000000002501, 0.003999999999990678, 0.004499999999993065, 0.0049999999999954525, 0.00549999999999784, 0.006000000000000227, 0.006500000000002615, 0.006999999999990791, 0.007499999999993179, 0.007999999999995566, 0.008499999999997954, 0.009000000000000341, 0.009499999999988518]`
+
+- `channels`: present=True, type=NoneType, shape=[], dtype=object
+
+  - preview: `['None']`
+
+- `channels_type`: present=True, type=NoneType, shape=[], dtype=object
+
+  - preview: `['None']`
+
+- `channels_unit`: present=True, type=NoneType, shape=[], dtype=object
+
+  - preview: `['None']`
+
+- `event_begin`: present=True, type=ndarray, shape=[100], dtype=float64
+
+  - preview: `[318673.0, 438755.0, 468831.0, 708923.0, 729051.0, 739195.0, 749307.0, 785725.0, 795923.0, 806043.0, 840379.0, 850557.0, 860683.0, 878331.0, 888529.0, 898651.0, 912859.0, 923189.0, 933307.0, 949179.0]`
+
+- `event_end`: present=True, type=ndarray, shape=[100], dtype=float64
+
+  - preview: `[438651.0, 468673.0, 708807.0, 728899.0, 739027.0, 749189.0, 785549.0, 795711.0, 805901.0, 840213.0, 850377.0, 860557.0, 878155.0, 888313.0, 898533.0, 912687.0, 922841.0, 933187.0, 948913.0, 959153.0]`
+
+- `event_id`: present=True, type=NoneType, shape=[], dtype=object
+
+  - preview: `['None']`
+
+- `subject`: present=True, type=NoneType, shape=[], dtype=object
+
+  - preview: `['None']`
+
+### Derived summary
+
+```json
+
+{
+  "fs": 2000.0,
+  "data_shape": [
+    2,
+    2111215
+  ],
+  "time_shape": [
+    2111215
+  ],
+  "event_begin_shape": [
+    100
+  ],
+  "event_end_shape": [
+    100
+  ],
+  "event_id_shape": [],
+  "num_event_begin": 100,
+  "num_event_end": 100,
+  "num_event_id": 1,
+  "event_id_preview": [
+    "None"
+  ],
+  "duration_sec_preview": [
+    59.989,
+    14.959,
+    119.988,
+    9.988,
+    4.988,
+    4.997,
+    18.121,
+    4.993,
+    4.989,
+    17.085,
+    4.999,
+    5.0,
+    8.736,
+    4.991,
+    5.002,
+    7.018,
+    4.991,
+    4.999,
+    7.803,
+    4.987
+  ],
+  "duration_sec_unique_rounded": [
+    3.997,
+    4.157,
+    4.589,
+    4.602,
+    4.73,
+    4.782,
+    4.987,
+    4.988,
+    4.989,
+    4.99,
+    4.991,
+    4.992,
+    4.993,
+    4.994,
+    4.995,
+    4.996,
+    4.997,
+    4.998,
+    4.999,
+    5.0,
+    5.001,
+    5.002,
+    5.004,
+    5.087,
+    5.19,
+    5.315,
+    6.188,
+    6.733,
+    7.018,
+    7.803,
+    7.888,
+    8.611,
+    8.736,
+    8.887,
+    9.414,
+    9.988,
+    10.531,
+    12.677,
+    14.672,
+    14.923,
+    14.959,
+    15.305,
+    16.024,
+    16.91,
+    17.085,
+    18.121,
+    19.492,
+    19.945,
+    20.119,
+    24.9,
+    28.338,
+    59.989,
+    119.988
+  ],
+  "num_around_5s_events_4p5_to_5p5": 71,
+  "min_duration_sec": 3.997,
+  "max_duration_sec": 119.988,
+  "data_orientation_guess": "channels x time",
+  "n_channels_from_data": null
+}
+
+```
+
+### `sbj_P_03.mat`
+
+- Exists: `True`
+
+- Top-level keys: `['sbj_P_03']`
+
+- Field names: `['Fs', 'channels', 'channels_type', 'channels_unit', 'data', 'event_begin', 'event_end', 'event_id', 'subject', 'time']`
+
+### Field summaries
+
+- `Fs`: present=True, type=ndarray, shape=[], dtype=float64
+
+  - preview: `[2000.0]`
+
+- `data`: present=True, type=ndarray, shape=[2, 1957081], dtype=float64
+
+  - preview: `[1.2334977315650155, -1.1264692675461407, -1.2571325667026443, -0.025963386197955962, -0.2323861276191088, -2.782509564585221, -5.415614932412712, -5.591492545464672, -3.451052588727357, -0.9956058002174535, 0.8630965627207637, 3.072437718430791, 6.3675480475726935, 9.786316600806174, 11.822724271246745, 12.08754627644893, 10.92697076118856, 8.106418714946349, 3.256582694142954, -2.341223736783592]`
+
+- `time`: present=True, type=ndarray, shape=[1957081], dtype=float64
+
+  - preview: `[0.0, 0.000499999999995282, 0.0009999999999976694, 0.0015000000000000568, 0.001999999999995339, 0.0024999999999977263, 0.0030000000000001137, 0.0034999999999953957, 0.003999999999997783, 0.0045000000000001705, 0.0049999999999954525, 0.00549999999999784, 0.006000000000000227, 0.006499999999995509, 0.006999999999997897, 0.007500000000000284, 0.007999999999995566, 0.008499999999997954, 0.009000000000000341, 0.009499999999995623]`
+
+- `channels`: present=True, type=NoneType, shape=[], dtype=object
+
+  - preview: `['None']`
+
+- `channels_type`: present=True, type=NoneType, shape=[], dtype=object
+
+  - preview: `['None']`
+
+- `channels_unit`: present=True, type=NoneType, shape=[], dtype=object
+
+  - preview: `['None']`
+
+- `event_begin`: present=True, type=ndarray, shape=[100], dtype=float64
+
+  - preview: `[397087.0, 517281.0, 557497.0, 797677.0, 817857.0, 828123.0, 838301.0, 868311.0, 878541.0, 888711.0, 902541.0, 912735.0, 922987.0, 946477.0, 956749.0, 966925.0, 983887.0, 994185.0, 1004365.0, 1022799.0]`
+
+- `event_end`: present=True, type=ndarray, shape=[100], dtype=float64
+
+  - preview: `[517085.0, 557277.0, 797499.0, 817653.0, 827851.0, 838123.0, 868113.0, 878303.0, 888537.0, 902305.0, 912523.0, 922719.0, 946197.0, 956461.0, 966747.0, 983641.0, 993873.0, 1004185.0, 1022541.0, 1032773.0]`
+
+- `event_id`: present=True, type=NoneType, shape=[], dtype=object
+
+  - preview: `['None']`
+
+- `subject`: present=True, type=NoneType, shape=[], dtype=object
+
+  - preview: `['None']`
+
+### Derived summary
+
+```json
+
+{
+  "fs": 2000.0,
+  "data_shape": [
+    2,
+    1957081
+  ],
+  "time_shape": [
+    1957081
+  ],
+  "event_begin_shape": [
+    100
+  ],
+  "event_end_shape": [
+    100
+  ],
+  "event_id_shape": [],
+  "num_event_begin": 100,
+  "num_event_end": 100,
+  "num_event_id": 1,
+  "event_id_preview": [
+    "None"
+  ],
+  "duration_sec_preview": [
+    59.999,
+    19.998,
+    120.001,
+    9.988,
+    4.997,
+    5.0,
+    14.906,
+    4.996,
+    4.998,
+    6.797,
+    4.991,
+    4.992,
+    11.605,
+    4.992,
+    4.999,
+    8.358,
+    4.993,
+    5.0,
+    9.088,
+    4.987
+  ],
+  "duration_sec_unique_rounded": [
+    3.375,
+    3.948,
+    4.446,
+    4.45,
+    4.985,
+    4.986,
+    4.987,
+    4.988,
+    4.989,
+    4.99,
+    4.991,
+    4.992,
+    4.993,
+    4.994,
+    4.995,
+    4.996,
+    4.997,
+    4.998,
+    4.999,
+    5.0,
+    5.001,
+    5.002,
+    5.004,
+    5.005,
+    5.029,
+    5.567,
+    5.613,
+    6.473,
+    6.553,
+    6.599,
+    6.623,
+    6.729,
+    6.797,
+    6.929,
+    7.006,
+    7.068,
+    7.098,
+    7.137,
+    7.166,
+    7.327,
+    7.359,
+    7.497,
+    7.907,
+    8.358,
+    9.088,
+    9.48,
+    9.49,
+    9.599,
+    9.77,
+    9.988,
+    11.594,
+    11.605,
+    14.906,
+    19.998,
+    59.999,
+    120.001
+  ],
+  "num_around_5s_events_4p5_to_5p5": 65,
+  "min_duration_sec": 3.375,
+  "max_duration_sec": 120.001,
+  "data_orientation_guess": "channels x time",
+  "n_channels_from_data": null
+}
+
+```
+
+
+
+# FILE: docs/idare_refs_and_events_probe.md
+
+
+# I-DARE MATLAB References and Event Probe
+
+This report was generated by `scripts/04_probe_idare_refs_and_events.py`.
+
+No training or preprocessing was performed.
+
+## CSV / Stimulus Cross-check
+
+```json
+
+{
+  "arousal_count": 32,
+  "valence_count": 32,
+  "specs_count": 100,
+  "arousal_equals_valence": true,
+  "labels_subset_of_specs": false,
+  "label_stimuli_not_in_specs": [
+    "1441",
+    "1750",
+    "2314",
+    "2491",
+    "3053",
+    "3063",
+    "3080",
+    "3170",
+    "4220",
+    "5760",
+    "8080",
+    "8370",
+    "8492",
+    "9220",
+    "9331",
+    "9360",
+    "Angry_face_1",
+    "Beach_1",
+    "Depressed_pose_4",
+    "Dog_18",
+    "Dog_26",
+    "Dog_6",
+    "Dummy_1",
+    "Flowers_6",
+    "Garbage_dump_6",
+    "Lake_12",
+    "Lake_3",
+    "Miserable_pose_3",
+    "Pinecone_1",
+    "Snow_1",
+    "Tumor_1",
+    "Yarn_1"
+  ],
+  "specs_stimuli_not_in_labels_count": 100,
+  "label_stimuli_sorted": [
+    "1441",
+    "1750",
+    "2314",
+    "2491",
+    "3053",
+    "3063",
+    "3080",
+    "3170",
+    "4220",
+    "5760",
+    "8080",
+    "8370",
+    "8492",
+    "9220",
+    "9331",
+    "9360",
+    "Angry_face_1",
+    "Beach_1",
+    "Depressed_pose_4",
+    "Dog_18",
+    "Dog_26",
+    "Dog_6",
+    "Dummy_1",
+    "Flowers_6",
+    "Garbage_dump_6",
+    "Lake_12",
+    "Lake_3",
+    "Miserable_pose_3",
+    "Pinecone_1",
+    "Snow_1",
+    "Tumor_1",
+    "Yarn_1"
+  ]
+}
+
+```
+
+### `Stimuli_Specifications.csv`
+
+- Exists: `True`
+
+- Shape: `[100, 66]`
+
+- Columns preview: `['Stimulus', 'Description', 'sbj_P_01', 'sbj_P_02', 'sbj_P_03', 'sbj_P_04', 'sbj_P_05', 'sbj_P_06', 'sbj_P_07', 'sbj_P_08', 'sbj_P_09', 'sbj_P_10', 'sbj_P_11', 'sbj_P_12', 'sbj_P_13']`
+
+- Stimulus count: `100`
+
+- First 10 stimulus values: `['EYC', 'IST_BSL', 'BSL', 'IST_START', 'BSL_Dummy_1', 'STIM_Dummy_1', 'SAM_Dummy_1', 'BSL_3053', 'STIM_3053', 'SAM_3053']`
+
+- `sbj_P_01` non-empty count: `100`
+
+- `sbj_P_01` non-empty preview:
+
+```json
+
+[
+  {
+    "Stimulus": "EYC",
+    "Description": "60s-long eye-closed baseline",
+    "sbj_P_01": "59.997"
+  },
+  {
+    "Stimulus": "IST_BSL",
+    "Description": "Instructions for the 120s-long neutral baseline",
+    "sbj_P_01": "19.995"
+  },
+  {
+    "Stimulus": "BSL",
+    "Description": "120s-long neutral baseline",
+    "sbj_P_01": "119.994"
+  },
+  {
+    "Stimulus": "IST_START",
+    "Description": "Experiment description",
+    "sbj_P_01": "9.996"
+  },
+  {
+    "Stimulus": "BSL_Dummy_1",
+    "Description": "Black-screen baseline",
+    "sbj_P_01": "4.993"
+  },
+  {
+    "Stimulus": "STIM_Dummy_1",
+    "Description": "Emotional stimulus",
+    "sbj_P_01": "4.987"
+  },
+  {
+    "Stimulus": "SAM_Dummy_1",
+    "Description": "SAM evaluation",
+    "sbj_P_01": "17.336"
+  },
+  {
+    "Stimulus": "BSL_3053",
+    "Description": "Black-screen baseline",
+    "sbj_P_01": "4.991"
+  },
+  {
+    "Stimulus": "STIM_3053",
+    "Description": "Emotional stimulus",
+    "sbj_P_01": "5.004"
+  },
+  {
+    "Stimulus": "SAM_3053",
+    "Description": "SAM evaluation",
+    "sbj_P_01": "14.302"
+  }
+]
+
+```
+
+- `sbj_P_02` non-empty count: `100`
+
+- `sbj_P_02` non-empty preview:
+
+```json
+
+[
+  {
+    "Stimulus": "EYC",
+    "Description": "60s-long eye-closed baseline",
+    "sbj_P_02": "59.989"
+  },
+  {
+    "Stimulus": "IST_BSL",
+    "Description": "Instructions for the 120s-long neutral baseline",
+    "sbj_P_02": "14.959"
+  },
+  {
+    "Stimulus": "BSL",
+    "Description": "120s-long neutral baseline",
+    "sbj_P_02": "119.988"
+  },
+  {
+    "Stimulus": "IST_START",
+    "Description": "Experiment description",
+    "sbj_P_02": "9.988"
+  },
+  {
+    "Stimulus": "BSL_Dummy_1",
+    "Description": "Black-screen baseline",
+    "sbj_P_02": "4.996"
+  },
+  {
+    "Stimulus": "STIM_Dummy_1",
+    "Description": "Emotional stimulus",
+    "sbj_P_02": "4.996"
+  },
+  {
+    "Stimulus": "SAM_Dummy_1",
+    "Description": "SAM evaluation",
+    "sbj_P_02": "4.602"
+  },
+  {
+    "Stimulus": "BSL_3053",
+    "Description": "Black-screen baseline",
+    "sbj_P_02": "4.993"
+  },
+  {
+    "Stimulus": "STIM_3053",
+    "Description": "Emotional stimulus",
+    "sbj_P_02": "5.0"
+  },
+  {
+    "Stimulus": "SAM_3053",
+    "Description": "SAM evaluation",
+    "sbj_P_02": "4.157"
+  }
+]
+
+```
+
+- `sbj_P_03` non-empty count: `100`
+
+- `sbj_P_03` non-empty preview:
+
+```json
+
+[
+  {
+    "Stimulus": "EYC",
+    "Description": "60s-long eye-closed baseline",
+    "sbj_P_03": "59.999"
+  },
+  {
+    "Stimulus": "IST_BSL",
+    "Description": "Instructions for the 120s-long neutral baseline",
+    "sbj_P_03": "19.998"
+  },
+  {
+    "Stimulus": "BSL",
+    "Description": "120s-long neutral baseline",
+    "sbj_P_03": "120.001"
+  },
+  {
+    "Stimulus": "IST_START",
+    "Description": "Experiment description",
+    "sbj_P_03": "9.988"
+  },
+  {
+    "Stimulus": "BSL_Dummy_1",
+    "Description": "Black-screen baseline",
+    "sbj_P_03": "4.986"
+  },
+  {
+    "Stimulus": "STIM_Dummy_1",
+    "Description": "Emotional stimulus",
+    "sbj_P_03": "5.001"
+  },
+  {
+    "Stimulus": "SAM_Dummy_1",
+    "Description": "SAM evaluation",
+    "sbj_P_03": "11.594"
+  },
+  {
+    "Stimulus": "BSL_3053",
+    "Description": "Black-screen baseline",
+    "sbj_P_03": "4.992"
+  },
+  {
+    "Stimulus": "STIM_3053",
+    "Description": "Emotional stimulus",
+    "sbj_P_03": "4.999"
+  },
+  {
+    "Stimulus": "SAM_3053",
+    "Description": "SAM evaluation",
+    "sbj_P_03": "5.613"
+  }
+]
+
+```
+
+### `Arousal_SAM.csv`
+
+- Exists: `True`
+
+- Shape: `[32, 65]`
+
+- Columns preview: `['Stimulus', 'sbj_P_01', 'sbj_P_02', 'sbj_P_03', 'sbj_P_04', 'sbj_P_05', 'sbj_P_06', 'sbj_P_07', 'sbj_P_08', 'sbj_P_09', 'sbj_P_10', 'sbj_P_11', 'sbj_P_12', 'sbj_P_13', 'sbj_P_14']`
+
+- Stimulus count: `32`
+
+- First 10 stimulus values: `['1441', '1750', '2314', '2491', '3053', '3063', '3080', '3170', '4220', '5760']`
+
+### `Valence_SAM.csv`
+
+- Exists: `True`
+
+- Shape: `[32, 65]`
+
+- Columns preview: `['Stimulus', 'sbj_P_01', 'sbj_P_02', 'sbj_P_03', 'sbj_P_04', 'sbj_P_05', 'sbj_P_06', 'sbj_P_07', 'sbj_P_08', 'sbj_P_09', 'sbj_P_10', 'sbj_P_11', 'sbj_P_12', 'sbj_P_13', 'sbj_P_14']`
+
+- Stimulus count: `32`
+
+- First 10 stimulus values: `['1441', '1750', '2314', '2491', '3053', '3063', '3080', '3170', '4220', '5760']`
+
+### `Quadrants_SAM.csv`
+
+- Exists: `True`
+
+- Shape: `[32, 66]`
+
+- Columns preview: `['Stimulus', 'Quadrant (GS)', 'sbj_P_01', 'sbj_P_02', 'sbj_P_03', 'sbj_P_04', 'sbj_P_05', 'sbj_P_06', 'sbj_P_07', 'sbj_P_08', 'sbj_P_09', 'sbj_P_10', 'sbj_P_11', 'sbj_P_12', 'sbj_P_13']`
+
+- Stimulus count: `32`
+
+- First 10 stimulus values: `['1441', '1750', '2314', '2491', '3053', '3063', '3080', '3170', '4220', '5760']`
+
+### `Agreement_Raters.csv`
+
+- Exists: `True`
+
+- Shape: `[32, 18]`
+
+- Columns preview: `['Stimulus', 'Dataset', 'Quadrant', 'Rater 1', 'Rater 2', 'Rater 3', 'Rater 4', 'Rater 5', 'Rater 6', 'Rater 7', 'Rater 8', 'Rater 9', 'Agreement', 'Distance', 'Valence (M)']`
+
+- Stimulus count: `32`
+
+- First 10 stimulus values: `['Flowers 6', '1441', 'Garbage dump 6', 'Snow 1', 'Pinecone 1', 'Dog 6', '3053', '1750', '4220', 'Depressed pose 4']`
+
+## HDF5 File: `EEG_sbj_P_01`
+
+- Path: `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_01.mat`
+
+- Top keys: `['#refs#', '#subsystem#', 'sbj_P_01']`
+
+- Group keys: `['Fs', 'channels', 'channels_type', 'channels_unit', 'data', 'event_begin', 'event_end', 'event_id', 'subject', 'time']`
+
+- Refs keys: `['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k']`
+
+### Raw data orientation
+
+```json
+
+{
+  "data_shape": [
+    565159,
+    38
+  ],
+  "time_shape": [
+    565159,
+    1
+  ],
+  "guess": "time x channels"
+}
+
+```
+
+### Event timing summary
+
+```json
+
+{
+  "fs": 512.0,
+  "num_events": 100,
+  "num_around_5s_4p5_to_5p5": 65,
+  "duration_unique_rounded": [
+    4.984375,
+    4.986328,
+    4.988281,
+    4.990234,
+    4.992188,
+    4.994141,
+    4.996094,
+    4.998047,
+    5.0,
+    5.001953,
+    5.003906,
+    5.013672,
+    5.394531,
+    6.304688,
+    6.410156,
+    6.662109,
+    6.708984,
+    7.380859,
+    7.416016,
+    7.5,
+    7.976562,
+    8.03125,
+    8.09375,
+    8.421875,
+    8.466797,
+    8.490234,
+    8.595703,
+    8.759766,
+    8.980469,
+    9.046875,
+    9.107422,
+    9.251953,
+    9.724609,
+    9.814453,
+    9.994141,
+    10.519531,
+    10.542969,
+    10.599609,
+    11.318359,
+    11.583984,
+    12.621094,
+    14.300781,
+    17.333984,
+    19.060547,
+    19.992188,
+    59.994141,
+    74.21875,
+    119.992188
+  ],
+  "events_first_40": [
+    {
+      "event_index_1based": 1,
+      "event_begin": 102228.0,
+      "event_end": 132945.0,
+      "duration_sec": 59.994140625,
+      "is_around_5s_4p5_to_5p5": false
+    },
+    {
+      "event_index_1based": 2,
+      "event_begin": 132965.0,
+      "event_end": 143201.0,
+      "duration_sec": 19.9921875,
+      "is_around_5s_4p5_to_5p5": false
+    },
+    {
+      "event_index_1based": 3,
+      "event_begin": 143230.0,
+      "event_end": 204666.0,
+      "duration_sec": 119.9921875,
+      "is_around_5s_4p5_to_5p5": false
+    },
+    {
+      "event_index_1based": 4,
+      "event_begin": 204692.0,
+      "event_end": 209809.0,
+      "duration_sec": 9.994140625,
+      "is_around_5s_4p5_to_5p5": false
+    },
+    {
+      "event_index_1based": 5,
+      "event_begin": 209831.0,
+      "event_end": 212386.0,
+      "duration_sec": 4.990234375,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 6,
+      "event_begin": 212425.0,
+      "event_end": 214977.0,
+      "duration_sec": 4.984375,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 7,
+      "event_begin": 214994.0,
+      "event_end": 223869.0,
+      "duration_sec": 17.333984375,
+      "is_around_5s_4p5_to_5p5": false
+    },
+    {
+      "event_index_1based": 8,
+      "event_begin": 223897.0,
+      "event_end": 226451.0,
+      "duration_sec": 4.98828125,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 9,
+      "event_begin": 226483.0,
+      "event_end": 229044.0,
+      "duration_sec": 5.001953125,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 10,
+      "event_begin": 229073.0,
+      "event_end": 236395.0,
+      "duration_sec": 14.30078125,
+      "is_around_5s_4p5_to_5p5": false
+    },
+    {
+      "event_index_1based": 11,
+      "event_begin": 236411.0,
+      "event_end": 238971.0,
+      "duration_sec": 5.0,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 12,
+      "event_begin": 239003.0,
+      "event_end": 241563.0,
+      "duration_sec": 5.0,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 13,
+      "event_begin": 241576.0,
+      "event_end": 251335.0,
+      "duration_sec": 19.060546875,
+      "is_around_5s_4p5_to_5p5": false
+    },
+    {
+      "event_index_1based": 14,
+      "event_begin": 251362.0,
+      "event_end": 253924.0,
+      "duration_sec": 5.00390625,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 15,
+      "event_begin": 253964.0,
+      "event_end": 256521.0,
+      "duration_sec": 4.994140625,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 16,
+      "event_begin": 256541.0,
+      "event_end": 261927.0,
+      "duration_sec": 10.51953125,
+      "is_around_5s_4p5_to_5p5": false
+    },
+    {
+      "event_index_1based": 17,
+      "event_begin": 261968.0,
+      "event_end": 264521.0,
+      "duration_sec": 4.986328125,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 18,
+      "event_begin": 264561.0,
+      "event_end": 267118.0,
+      "duration_sec": 4.994140625,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 19,
+      "event_begin": 267131.0,
+      "event_end": 273593.0,
+      "duration_sec": 12.62109375,
+      "is_around_5s_4p5_to_5p5": false
+    },
+    {
+      "event_index_1based": 20,
+      "event_begin": 273642.0,
+      "event_end": 276194.0,
+      "duration_sec": 4.984375,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 21,
+      "event_begin": 276235.0,
+      "event_end": 278795.0,
+      "duration_sec": 5.0,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 22,
+      "event_begin": 278813.0,
+      "event_end": 284744.0,
+      "duration_sec": 11.583984375,
+      "is_around_5s_4p5_to_5p5": false
+    },
+    {
+      "event_index_1based": 23,
+      "event_begin": 284769.0,
+      "event_end": 287321.0,
+      "duration_sec": 4.984375,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 24,
+      "event_begin": 287363.0,
+      "event_end": 289922.0,
+      "duration_sec": 4.998046875,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 25,
+      "event_begin": 289940.0,
+      "event_end": 294252.0,
+      "duration_sec": 8.421875,
+      "is_around_5s_4p5_to_5p5": false
+    },
+    {
+      "event_index_1based": 26,
+      "event_begin": 294299.0,
+      "event_end": 296857.0,
+      "duration_sec": 4.99609375,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 27,
+      "event_begin": 296904.0,
+      "event_end": 299459.0,
+      "duration_sec": 4.990234375,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 28,
+      "event_begin": 299489.0,
+      "event_end": 303268.0,
+      "duration_sec": 7.380859375,
+      "is_around_5s_4p5_to_5p5": false
+    },
+    {
+      "event_index_1based": 29,
+      "event_begin": 303295.0,
+      "event_end": 305850.0,
+      "duration_sec": 4.990234375,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 30,
+      "event_begin": 305880.0,
+      "event_end": 308434.0,
+      "duration_sec": 4.98828125,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 31,
+      "event_begin": 308463.0,
+      "event_end": 312810.0,
+      "duration_sec": 8.490234375,
+      "is_around_5s_4p5_to_5p5": false
+    },
+    {
+      "event_index_1based": 32,
+      "event_begin": 312835.0,
+      "event_end": 315394.0,
+      "duration_sec": 4.998046875,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 33,
+      "event_begin": 315458.0,
+      "event_end": 318018.0,
+      "duration_sec": 5.0,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 34,
+      "event_begin": 318048.0,
+      "event_end": 323446.0,
+      "duration_sec": 10.54296875,
+      "is_around_5s_4p5_to_5p5": false
+    },
+    {
+      "event_index_1based": 35,
+      "event_begin": 323478.0,
+      "event_end": 326034.0,
+      "duration_sec": 4.9921875,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 36,
+      "event_begin": 326070.0,
+      "event_end": 328625.0,
+      "duration_sec": 4.990234375,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 37,
+      "event_begin": 328638.0,
+      "event_end": 332782.0,
+      "duration_sec": 8.09375,
+      "is_around_5s_4p5_to_5p5": false
+    },
+    {
+      "event_index_1based": 38,
+      "event_begin": 332819.0,
+      "event_end": 335377.0,
+      "duration_sec": 4.99609375,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 39,
+      "event_begin": 335422.0,
+      "event_end": 337978.0,
+      "duration_sec": 4.9921875,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 40,
+      "event_begin": 337995.0,
+      "event_end": 342658.0,
+      "duration_sec": 9.107421875,
+      "is_around_5s_4p5_to_5p5": false
+    }
+  ],
+  "around_5s_event_indices_1based": [
+    5,
+    6,
+    8,
+    9,
+    11,
+    12,
+    14,
+    15,
+    17,
+    18,
+    20,
+    21,
+    23,
+    24,
+    26,
+    27,
+    29,
+    30,
+    32,
+    33,
+    35,
+    36,
+    38,
+    39,
+    41,
+    42,
+    44,
+    45,
+    47,
+    48,
+    50,
+    51,
+    53,
+    54,
+    56,
+    57,
+    59,
+    60,
+    62,
+    63,
+    65,
+    66,
+    68,
+    69,
+    71,
+    72,
+    74,
+    75,
+    77,
+    78,
+    80,
+    81,
+    83,
+    84,
+    85,
+    86,
+    87,
+    89,
+    90,
+    92,
+    93,
+    95,
+    96,
+    98,
+    99
+  ]
+}
+
+```
+
+### Field reference candidates
+
+#### `subject`
+
+```json
+
+{
+  "field": "subject",
+  "shape": [
+    1,
+    6
+  ],
+  "dtype": "uint32",
+  "attrs": {
+    "H5PATH": "/sbj_P_01",
+    "MATLAB_class": "string",
+    "MATLAB_object_decode": 3
+  },
+  "values": [
+    3707764736,
+    2,
+    1,
+    1,
+    1,
+    1
+  ],
+  "candidate": {
+    "raw": [
+      3707764736,
+      2,
+      1,
+      1,
+      1,
+      1
+    ],
+    "is_candidate": true,
+    "ref_index_guess": 1,
+    "ref_name_guess": "a"
+  },
+  "referenced_object_preview": {
+    "type": "Dataset",
+    "shape": [
+      2
+    ],
+    "dtype": "uint64",
+    "attrs": {
+      "MATLAB_class": "canonical empty",
+      "MATLAB_empty": 1
+    },
+    "values": [
+      0,
+      0
+    ]
+  }
+}
+
+```
+
+#### `channels`
+
+```json
+
+{
+  "field": "channels",
+  "shape": [
+    1,
+    6
+  ],
+  "dtype": "uint32",
+  "attrs": {
+    "H5PATH": "/sbj_P_01",
+    "MATLAB_class": "string",
+    "MATLAB_object_decode": 3
+  },
+  "values": [
+    3707764736,
+    2,
+    1,
+    1,
+    2,
+    1
+  ],
+  "candidate": {
+    "raw": [
+      3707764736,
+      2,
+      1,
+      1,
+      2,
+      1
+    ],
+    "is_candidate": true,
+    "ref_index_guess": 2,
+    "ref_name_guess": "b"
+  },
+  "referenced_object_preview": {
+    "type": "Dataset",
+    "shape": [
+      1,
+      376
+    ],
+    "dtype": "uint8",
+    "attrs": {
+      "H5PATH": "/#refs#/b",
+      "MATLAB_class": "uint8"
+    },
+    "preview": [
+      3,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      56,
+      0,
+      0,
+      0,
+      88,
+      0,
+      0,
+      0,
+      176,
+      0,
+      0,
+      0,
+      64,
+      1,
+      0,
+      0,
+      72,
+      1,
+      0,
+      0,
+      120,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      97,
+      110,
+      121,
+      0,
+      115,
+      116,
+      114,
+      105,
+      110,
+      103,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "uint_char_decode": "\u0003\u00028X°@\u0001H\u0001x\u0001anystring\u0002\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0002\u0001\u0001\u0001\u0003\u0001\u0001\u0001\u0004\u0001\u0001\u0001\u0001\u0002\u0002\u0001\u0003\u0003\u0001\u0004\u0004\u0001\u0005\u0005"
+  }
+}
+
+```
+
+#### `channels_type`
+
+```json
+
+{
+  "field": "channels_type",
+  "shape": [
+    1,
+    6
+  ],
+  "dtype": "uint32",
+  "attrs": {
+    "H5PATH": "/sbj_P_01",
+    "MATLAB_class": "string",
+    "MATLAB_object_decode": 3
+  },
+  "values": [
+    3707764736,
+    2,
+    1,
+    1,
+    3,
+    1
+  ],
+  "candidate": {
+    "raw": [
+      3707764736,
+      2,
+      1,
+      1,
+      3,
+      1
+    ],
+    "is_candidate": true,
+    "ref_index_guess": 3,
+    "ref_name_guess": "c"
+  },
+  "referenced_object_preview": {
+    "type": "Dataset",
+    "shape": [
+      7,
+      1
+    ],
+    "dtype": "uint64",
+    "attrs": {
+      "H5PATH": "/#refs#/c",
+      "MATLAB_class": "uint64"
+    },
+    "values": [
+      1,
+      2,
+      1,
+      1,
+      8,
+      26740578060468339,
+      13792480023478352
+    ],
+    "uint_char_decode": "\u0001\u0002\u0001\u0001\b"
+  }
+}
+
+```
+
+#### `channels_unit`
+
+```json
+
+{
+  "field": "channels_unit",
+  "shape": [
+    1,
+    6
+  ],
+  "dtype": "uint32",
+  "attrs": {
+    "H5PATH": "/sbj_P_01",
+    "MATLAB_class": "string",
+    "MATLAB_object_decode": 3
+  },
+  "values": [
+    3707764736,
+    2,
+    1,
+    1,
+    4,
+    1
+  ],
+  "candidate": {
+    "raw": [
+      3707764736,
+      2,
+      1,
+      1,
+      4,
+      1
+    ],
+    "is_candidate": true,
+    "ref_index_guess": 4,
+    "ref_name_guess": "d"
+  },
+  "referenced_object_preview": {
+    "type": "Dataset",
+    "shape": [
+      66,
+      1
+    ],
+    "dtype": "uint64",
+    "attrs": {
+      "H5PATH": "/#refs#/d",
+      "MATLAB_class": "uint64"
+    },
+    "values": [
+      1,
+      2,
+      38,
+      1,
+      3,
+      3,
+      3,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      3,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      3,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      2,
+      3,
+      2,
+      2,
+      2,
+      3,
+      19703458830483526,
+      31525498047299696,
+      19703484597534770,
+      19703772360343603,
+      19703488892502068,
+      27866323345670260,
+      34340372365049907,
+      19703471714533446,
+      14355584593166452,
+      34340234924851267,
+      14637059569614915,
+      18859059670155348,
+      31525485157744752,
+      14637179829682298,
+      23644138569203796,
+      22518217185427509,
+      23644121387237498,
+      22518225775362102,
+      31244066015608943,
+      14637175535566970,
+      31244066015805520,
+      22236733618716727,
+      22518212890394746,
+      3670127
+    ],
+    "uint_char_decode": "\u0001\u0002&\u0001\u0003\u0003\u0003\u0002\u0002\u0002\u0002\u0002\u0003\u0003\u0003\u0003\u0003\u0002\u0002\u0002\u0002\u0002\u0003\u0003\u0003\u0003\u0003\u0002\u0002\u0002\u0002\u0002\u0002\u0003\u0003\u0003\u0002\u0003\u0002\u0002\u0002\u0003"
+  }
+}
+
+```
+
+#### `event_id`
+
+```json
+
+{
+  "field": "event_id",
+  "shape": [
+    1,
+    6
+  ],
+  "dtype": "uint32",
+  "attrs": {
+    "H5PATH": "/sbj_P_01",
+    "MATLAB_class": "string",
+    "MATLAB_object_decode": 3
+  },
+  "values": [
+    3707764736,
+    2,
+    1,
+    1,
+    5,
+    1
+  ],
+  "candidate": {
+    "raw": [
+      3707764736,
+      2,
+      1,
+      1,
+      5,
+      1
+    ],
+    "is_candidate": true,
+    "ref_index_guess": 5,
+    "ref_name_guess": "e"
+  },
+  "referenced_object_preview": {
+    "type": "Dataset",
+    "shape": [
+      71,
+      1
+    ],
+    "dtype": "uint64",
+    "attrs": {
+      "H5PATH": "/#refs#/e",
+      "MATLAB_class": "uint64"
+    },
+    "values": [
+      1,
+      2,
+      38,
+      1,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      19422078340235333,
+      19422069750431813,
+      19985019703722055,
+      19422078340235333,
+      19422069750431813,
+      19985019703722055,
+      19422078340235333,
+      19422069750431813,
+      19985019703722055,
+      19422078340235333,
+      19422069750431813,
+      19985019703722055,
+      19422078340235333,
+      19422069750431813,
+      19985019703722055,
+      19422078340235333,
+      19422069750431813,
+      19985019703722055,
+      19422078340235333,
+      19422069750431813,
+      19985019703722055,
+      19422078340235333,
+      19422069750431813,
+      19985019703722055,
+      19422078340235333,
+      19422069750431813,
+      19985019703722055,
+      19422078340235333,
+      4653125
+    ],
+    "uint_char_decode": "\u0001\u0002&\u0001\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003"
+  }
+}
+
+```
+
+### `#refs#` object previews
+
+#### `#refs#/a`
+
+```json
+
+{
+  "type": "Dataset",
+  "shape": [
+    2
+  ],
+  "dtype": "uint64",
+  "attrs": {
+    "MATLAB_class": "canonical empty",
+    "MATLAB_empty": 1
+  },
+  "values": [
+    0,
+    0
+  ]
+}
+
+```
+
+#### `#refs#/b`
+
+```json
+
+{
+  "type": "Dataset",
+  "shape": [
+    1,
+    376
+  ],
+  "dtype": "uint8",
+  "attrs": {
+    "H5PATH": "/#refs#/b",
+    "MATLAB_class": "uint8"
+  },
+  "preview": [
+    3,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    56,
+    0,
+    0,
+    0,
+    88,
+    0,
+    0,
+    0,
+    176,
+    0,
+    0,
+    0,
+    64,
+    1,
+    0,
+    0,
+    72,
+    1,
+    0,
+    0,
+    120,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    97,
+    110,
+    121,
+    0,
+    115,
+    116,
+    114,
+    105,
+    110,
+    103,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    0
+  ],
+  "uint_char_decode": "\u0003\u00028X°@\u0001H\u0001x\u0001anystring\u0002\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0002\u0001\u0001\u0001\u0003\u0001\u0001\u0001\u0004\u0001\u0001\u0001\u0001\u0002\u0002\u0001\u0003\u0003\u0001\u0004\u0004\u0001\u0005\u0005"
+}
+
+```
+
+#### `#refs#/c`
+
+```json
+
+{
+  "type": "Dataset",
+  "shape": [
+    7,
+    1
+  ],
+  "dtype": "uint64",
+  "attrs": {
+    "H5PATH": "/#refs#/c",
+    "MATLAB_class": "uint64"
+  },
+  "values": [
+    1,
+    2,
+    1,
+    1,
+    8,
+    26740578060468339,
+    13792480023478352
+  ],
+  "uint_char_decode": "\u0001\u0002\u0001\u0001\b"
+}
+
+```
+
+#### `#refs#/d`
+
+```json
+
+{
+  "type": "Dataset",
+  "shape": [
+    66,
+    1
+  ],
+  "dtype": "uint64",
+  "attrs": {
+    "H5PATH": "/#refs#/d",
+    "MATLAB_class": "uint64"
+  },
+  "values": [
+    1,
+    2,
+    38,
+    1,
+    3,
+    3,
+    3,
+    2,
+    2,
+    2,
+    2,
+    2,
+    3,
+    3,
+    3,
+    3,
+    3,
+    2,
+    2,
+    2,
+    2,
+    2,
+    3,
+    3,
+    3,
+    3,
+    3,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    3,
+    3,
+    3,
+    2,
+    3,
+    2,
+    2,
+    2,
+    3,
+    19703458830483526,
+    31525498047299696,
+    19703484597534770,
+    19703772360343603,
+    19703488892502068,
+    27866323345670260,
+    34340372365049907,
+    19703471714533446,
+    14355584593166452,
+    34340234924851267,
+    14637059569614915,
+    18859059670155348,
+    31525485157744752,
+    14637179829682298,
+    23644138569203796,
+    22518217185427509,
+    23644121387237498,
+    22518225775362102,
+    31244066015608943,
+    14637175535566970,
+    31244066015805520,
+    22236733618716727,
+    22518212890394746,
+    3670127
+  ],
+  "uint_char_decode": "\u0001\u0002&\u0001\u0003\u0003\u0003\u0002\u0002\u0002\u0002\u0002\u0003\u0003\u0003\u0003\u0003\u0002\u0002\u0002\u0002\u0002\u0003\u0003\u0003\u0003\u0003\u0002\u0002\u0002\u0002\u0002\u0002\u0003\u0003\u0003\u0002\u0003\u0002\u0002\u0002\u0003"
+}
+
+```
+
+#### `#refs#/e`
+
+```json
+
+{
+  "type": "Dataset",
+  "shape": [
+    71,
+    1
+  ],
+  "dtype": "uint64",
+  "attrs": {
+    "H5PATH": "/#refs#/e",
+    "MATLAB_class": "uint64"
+  },
+  "values": [
+    1,
+    2,
+    38,
+    1,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    19422078340235333,
+    19422069750431813,
+    19985019703722055,
+    19422078340235333,
+    19422069750431813,
+    19985019703722055,
+    19422078340235333,
+    19422069750431813,
+    19985019703722055,
+    19422078340235333,
+    19422069750431813,
+    19985019703722055,
+    19422078340235333,
+    19422069750431813,
+    19985019703722055,
+    19422078340235333,
+    19422069750431813,
+    19985019703722055,
+    19422078340235333,
+    19422069750431813,
+    19985019703722055,
+    19422078340235333,
+    19422069750431813,
+    19985019703722055,
+    19422078340235333,
+    19422069750431813,
+    19985019703722055,
+    19422078340235333,
+    4653125
+  ],
+  "uint_char_decode": "\u0001\u0002&\u0001\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003"
+}
+
+```
+
+#### `#refs#/f`
+
+```json
+
+{
+  "type": "Dataset",
+  "shape": [
+    61,
+    1
+  ],
+  "dtype": "uint64",
+  "attrs": {
+    "H5PATH": "/#refs#/f",
+    "MATLAB_class": "uint64"
+  },
+  "values": [
+    1,
+    2,
+    38,
+    1,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    24207350513926261,
+    24207350513926261,
+    24207350513926261,
+    24207350513926261,
+    24207350513926261,
+    24207350513926261,
+    24207350513926261,
+    24207350513926261,
+    24207350513926261,
+    24207350513926261,
+    24207350513926261,
+    24207350513926261,
+    24207350513926261,
+    24207350513926261,
+    24207350513926261,
+    24207350513926261,
+    24207350513926261,
+    24207350513926261,
+    24207350513926261
+  ],
+  "uint_char_decode": "\u0001\u0002&\u0001\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002\u0002"
+}
+
+```
+
+#### `#refs#/g`
+
+```json
+
+{
+  "type": "Dataset",
+  "shape": [
+    367,
+    1
+  ],
+  "dtype": "uint64",
+  "attrs": {
+    "H5PATH": "/#refs#/g",
+    "MATLAB_class": "uint64"
+  },
+  "preview": [
+    1,
+    2,
+    1,
+    100,
+    3,
+    7,
+    3,
+    9,
+    11,
+    12,
+    11,
+    8,
+    9,
+    8,
+    11,
+    12,
+    11,
+    10,
+    11,
+    10,
+    20,
+    21,
+    20,
+    14,
+    15,
+    14,
+    18,
+    19,
+    18,
+    20,
+    21,
+    20,
+    16,
+    17,
+    16,
+    10,
+    11,
+    10,
+    8,
+    9,
+    8,
+    9,
+    10,
+    9,
+    8,
+    9,
+    8,
+    11,
+    12,
+    11,
+    8,
+    9,
+    8,
+    8,
+    9,
+    8,
+    8,
+    9,
+    8,
+    8,
+    9,
+    8,
+    13,
+    14,
+    13,
+    10,
+    11,
+    10,
+    8,
+    9,
+    8,
+    11,
+    12,
+    11,
+    8,
+    9,
+    8,
+    8,
+    9,
+    8
+  ],
+  "uint_char_decode": "\u0001\u0002\u0001d\u0003\u0007\u0003\t\u000b\f\u000b\b\t\b\u000b\f\u000b\n\u000b\n\u0014\u0015\u0014\u000e\u000f\u000e\u0012\u0013\u0012\u0014\u0015\u0014\u0010\u0011\u0010\n\u000b\n\b\t\b\t\n\t\b\t\b\u000b\f\u000b\b\t\b\b\t\b\b\t\b\b\t\b\r\u000e\r\n\u000b\n\b\t\b\u000b\f\u000b\b\t\b\b\t\b\n\u000b\n\b\t\b\b\t\b\n\u000b\n\b\t\b\b\t\b\b\t\b\b\t\b"
+}
+
+```
+
+#### `#refs#/h`
+
+```json
+
+{
+  "type": "Dataset",
+  "shape": [
+    1,
+    2
+  ],
+  "dtype": "int32",
+  "attrs": {
+    "H5PATH": "/#refs#/h",
+    "MATLAB_class": "int32"
+  },
+  "values": [
+    0,
+    0
+  ]
+}
+
+```
+
+#### `#refs#/i`
+
+```json
+
+{
+  "type": "Dataset",
+  "shape": [
+    1,
+    2
+  ],
+  "dtype": "object",
+  "attrs": {
+    "H5PATH": "/#refs#/i",
+    "MATLAB_class": "cell"
+  },
+  "values": [
+    "<HDF5 object reference>",
+    "<HDF5 object reference>"
+  ]
+}
+
+```
+
+#### `#refs#/j`
+
+```json
+
+{
+  "type": "Dataset",
+  "shape": [
+    2
+  ],
+  "dtype": "uint64",
+  "attrs": {
+    "H5PATH": "/#refs#/j",
+    "MATLAB_class": "struct",
+    "MATLAB_empty": 1
+  },
+  "values": [
+    1,
+    0
+  ],
+  "uint_char_decode": "\u0001"
+}
+
+```
+
+#### `#refs#/k`
+
+```json
+
+{
+  "type": "Dataset",
+  "shape": [
+    2
+  ],
+  "dtype": "uint64",
+  "attrs": {
+    "H5PATH": "/#refs#/k",
+    "MATLAB_class": "struct",
+    "MATLAB_empty": 1
+  },
+  "values": [
+    1,
+    0
+  ],
+  "uint_char_decode": "\u0001"
+}
+
+```
+
+## HDF5 File: `EMG_sbj_P_01`
+
+- Path: `/mnt/HDD/AliWorks/I-DARE/raw_downloads/EMG/sbj_P_01.mat`
+
+- Top keys: `['#refs#', '#subsystem#', 'sbj_P_01']`
+
+- Group keys: `['Fs', 'channels', 'channels_type', 'channels_unit', 'data', 'event_begin', 'event_end', 'event_id', 'subject', 'time']`
+
+- Refs keys: `['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k']`
+
+### Raw data orientation
+
+```json
+
+{
+  "data_shape": [
+    2207651,
+    2
+  ],
+  "time_shape": [
+    2207651,
+    1
+  ],
+  "guess": "time x channels"
+}
+
+```
+
+### Event timing summary
+
+```json
+
+{
+  "fs": 2000.0,
+  "num_events": 100,
+  "num_around_5s_4p5_to_5p5": 65,
+  "duration_unique_rounded": [
+    4.986,
+    4.987,
+    4.988,
+    4.989,
+    4.99,
+    4.991,
+    4.992,
+    4.993,
+    4.994,
+    4.995,
+    4.996,
+    4.997,
+    4.998,
+    4.999,
+    5.0,
+    5.001,
+    5.002,
+    5.004,
+    5.006,
+    5.016,
+    5.397,
+    6.307,
+    6.412,
+    6.664,
+    6.71,
+    7.383,
+    7.417,
+    7.501,
+    7.978,
+    8.034,
+    8.095,
+    8.423,
+    8.468,
+    8.493,
+    8.598,
+    8.762,
+    8.982,
+    9.048,
+    9.109,
+    9.254,
+    9.727,
+    9.817,
+    9.996,
+    10.522,
+    10.545,
+    10.601,
+    11.321,
+    11.586,
+    12.624,
+    14.302,
+    17.336,
+    19.062,
+    19.995,
+    59.997,
+    74.22,
+    119.994
+  ],
+  "events_first_40": [
+    {
+      "event_index_1based": 1,
+      "event_begin": 399327.0,
+      "event_end": 519321.0,
+      "duration_sec": 59.997,
+      "is_around_5s_4p5_to_5p5": false
+    },
+    {
+      "event_index_1based": 2,
+      "event_begin": 519391.0,
+      "event_end": 559381.0,
+      "duration_sec": 19.995,
+      "is_around_5s_4p5_to_5p5": false
+    },
+    {
+      "event_index_1based": 3,
+      "event_begin": 559491.0,
+      "event_end": 799479.0,
+      "duration_sec": 119.994,
+      "is_around_5s_4p5_to_5p5": false
+    },
+    {
+      "event_index_1based": 4,
+      "event_begin": 799575.0,
+      "event_end": 819567.0,
+      "duration_sec": 9.996,
+      "is_around_5s_4p5_to_5p5": false
+    },
+    {
+      "event_index_1based": 5,
+      "event_begin": 819649.0,
+      "event_end": 829635.0,
+      "duration_sec": 4.993,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 6,
+      "event_begin": 829783.0,
+      "event_end": 839757.0,
+      "duration_sec": 4.987,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 7,
+      "event_begin": 839817.0,
+      "event_end": 874489.0,
+      "duration_sec": 17.336,
+      "is_around_5s_4p5_to_5p5": false
+    },
+    {
+      "event_index_1based": 8,
+      "event_begin": 874593.0,
+      "event_end": 884575.0,
+      "duration_sec": 4.991,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 9,
+      "event_begin": 884697.0,
+      "event_end": 894705.0,
+      "duration_sec": 5.004,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 10,
+      "event_begin": 894815.0,
+      "event_end": 923419.0,
+      "duration_sec": 14.302,
+      "is_around_5s_4p5_to_5p5": false
+    },
+    {
+      "event_index_1based": 11,
+      "event_begin": 923477.0,
+      "event_end": 933479.0,
+      "duration_sec": 5.001,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 12,
+      "event_begin": 933601.0,
+      "event_end": 943605.0,
+      "duration_sec": 5.002,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 13,
+      "event_begin": 943653.0,
+      "event_end": 981777.0,
+      "duration_sec": 19.062,
+      "is_around_5s_4p5_to_5p5": false
+    },
+    {
+      "event_index_1based": 14,
+      "event_begin": 981881.0,
+      "event_end": 991893.0,
+      "duration_sec": 5.006,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 15,
+      "event_begin": 992045.0,
+      "event_end": 1002039.0,
+      "duration_sec": 4.997,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 16,
+      "event_begin": 1002111.0,
+      "event_end": 1023155.0,
+      "duration_sec": 10.522,
+      "is_around_5s_4p5_to_5p5": false
+    },
+    {
+      "event_index_1based": 17,
+      "event_begin": 1023311.0,
+      "event_end": 1033289.0,
+      "duration_sec": 4.989,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 18,
+      "event_begin": 1033439.0,
+      "event_end": 1043431.0,
+      "duration_sec": 4.996,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 19,
+      "event_begin": 1043479.0,
+      "event_end": 1068727.0,
+      "duration_sec": 12.624,
+      "is_around_5s_4p5_to_5p5": false
+    },
+    {
+      "event_index_1based": 20,
+      "event_begin": 1068911.0,
+      "event_end": 1078883.0,
+      "duration_sec": 4.986,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 21,
+      "event_begin": 1079041.0,
+      "event_end": 1089043.0,
+      "duration_sec": 5.001,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 22,
+      "event_begin": 1089111.0,
+      "event_end": 1112283.0,
+      "duration_sec": 11.586,
+      "is_around_5s_4p5_to_5p5": false
+    },
+    {
+      "event_index_1based": 23,
+      "event_begin": 1112377.0,
+      "event_end": 1122349.0,
+      "duration_sec": 4.986,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 24,
+      "event_begin": 1122509.0,
+      "event_end": 1132509.0,
+      "duration_sec": 5.0,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 25,
+      "event_begin": 1132577.0,
+      "event_end": 1149423.0,
+      "duration_sec": 8.423,
+      "is_around_5s_4p5_to_5p5": false
+    },
+    {
+      "event_index_1based": 26,
+      "event_begin": 1149601.0,
+      "event_end": 1159599.0,
+      "duration_sec": 4.999,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 27,
+      "event_begin": 1159777.0,
+      "event_end": 1169761.0,
+      "duration_sec": 4.992,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 28,
+      "event_begin": 1169877.0,
+      "event_end": 1184643.0,
+      "duration_sec": 7.383,
+      "is_around_5s_4p5_to_5p5": false
+    },
+    {
+      "event_index_1based": 29,
+      "event_begin": 1184743.0,
+      "event_end": 1194727.0,
+      "duration_sec": 4.992,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 30,
+      "event_begin": 1194841.0,
+      "event_end": 1204823.0,
+      "duration_sec": 4.991,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 31,
+      "event_begin": 1204929.0,
+      "event_end": 1221915.0,
+      "duration_sec": 8.493,
+      "is_around_5s_4p5_to_5p5": false
+    },
+    {
+      "event_index_1based": 32,
+      "event_begin": 1222009.0,
+      "event_end": 1232009.0,
+      "duration_sec": 5.0,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 33,
+      "event_begin": 1232255.0,
+      "event_end": 1242257.0,
+      "duration_sec": 5.001,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 34,
+      "event_begin": 1242373.0,
+      "event_end": 1263463.0,
+      "duration_sec": 10.545,
+      "is_around_5s_4p5_to_5p5": false
+    },
+    {
+      "event_index_1based": 35,
+      "event_begin": 1263583.0,
+      "event_end": 1273573.0,
+      "duration_sec": 4.995,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 36,
+      "event_begin": 1273707.0,
+      "event_end": 1283693.0,
+      "duration_sec": 4.993,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 37,
+      "event_begin": 1283739.0,
+      "event_end": 1299929.0,
+      "duration_sec": 8.095,
+      "is_around_5s_4p5_to_5p5": false
+    },
+    {
+      "event_index_1based": 38,
+      "event_begin": 1300073.0,
+      "event_end": 1310071.0,
+      "duration_sec": 4.999,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 39,
+      "event_begin": 1310239.0,
+      "event_end": 1320227.0,
+      "duration_sec": 4.994,
+      "is_around_5s_4p5_to_5p5": true
+    },
+    {
+      "event_index_1based": 40,
+      "event_begin": 1320291.0,
+      "event_end": 1338509.0,
+      "duration_sec": 9.109,
+      "is_around_5s_4p5_to_5p5": false
+    }
+  ],
+  "around_5s_event_indices_1based": [
+    5,
+    6,
+    8,
+    9,
+    11,
+    12,
+    14,
+    15,
+    17,
+    18,
+    20,
+    21,
+    23,
+    24,
+    26,
+    27,
+    29,
+    30,
+    32,
+    33,
+    35,
+    36,
+    38,
+    39,
+    41,
+    42,
+    44,
+    45,
+    47,
+    48,
+    50,
+    51,
+    53,
+    54,
+    56,
+    57,
+    59,
+    60,
+    62,
+    63,
+    65,
+    66,
+    68,
+    69,
+    71,
+    72,
+    74,
+    75,
+    77,
+    78,
+    80,
+    81,
+    83,
+    84,
+    85,
+    86,
+    87,
+    89,
+    90,
+    92,
+    93,
+    95,
+    96,
+    98,
+    99
+  ]
+}
+
+```
+
+### Field reference candidates
+
+#### `subject`
+
+```json
+
+{
+  "field": "subject",
+  "shape": [
+    1,
+    6
+  ],
+  "dtype": "uint32",
+  "attrs": {
+    "H5PATH": "/sbj_P_01",
+    "MATLAB_class": "string",
+    "MATLAB_object_decode": 3
+  },
+  "values": [
+    3707764736,
+    2,
+    1,
+    1,
+    1,
+    1
+  ],
+  "candidate": {
+    "raw": [
+      3707764736,
+      2,
+      1,
+      1,
+      1,
+      1
+    ],
+    "is_candidate": true,
+    "ref_index_guess": 1,
+    "ref_name_guess": "a"
+  },
+  "referenced_object_preview": {
+    "type": "Dataset",
+    "shape": [
+      2
+    ],
+    "dtype": "uint64",
+    "attrs": {
+      "MATLAB_class": "canonical empty",
+      "MATLAB_empty": 1
+    },
+    "values": [
+      0,
+      0
+    ]
+  }
+}
+
+```
+
+#### `channels`
+
+```json
+
+{
+  "field": "channels",
+  "shape": [
+    1,
+    6
+  ],
+  "dtype": "uint32",
+  "attrs": {
+    "H5PATH": "/sbj_P_01",
+    "MATLAB_class": "string",
+    "MATLAB_object_decode": 3
+  },
+  "values": [
+    3707764736,
+    2,
+    1,
+    1,
+    2,
+    1
+  ],
+  "candidate": {
+    "raw": [
+      3707764736,
+      2,
+      1,
+      1,
+      2,
+      1
+    ],
+    "is_candidate": true,
+    "ref_index_guess": 2,
+    "ref_name_guess": "b"
+  },
+  "referenced_object_preview": {
+    "type": "Dataset",
+    "shape": [
+      1,
+      376
+    ],
+    "dtype": "uint8",
+    "attrs": {
+      "H5PATH": "/#refs#/b",
+      "MATLAB_class": "uint8"
+    },
+    "preview": [
+      3,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      56,
+      0,
+      0,
+      0,
+      88,
+      0,
+      0,
+      0,
+      176,
+      0,
+      0,
+      0,
+      64,
+      1,
+      0,
+      0,
+      72,
+      1,
+      0,
+      0,
+      120,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      97,
+      110,
+      121,
+      0,
+      115,
+      116,
+      114,
+      105,
+      110,
+      103,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "uint_char_decode": "\u0003\u00028X°@\u0001H\u0001x\u0001anystring\u0002\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0002\u0001\u0001\u0001\u0003\u0001\u0001\u0001\u0004\u0001\u0001\u0001\u0001\u0002\u0002\u0001\u0003\u0003\u0001\u0004\u0004\u0001\u0005\u0005"
+  }
+}
+
+```
+
+#### `channels_type`
+
+```json
+
+{
+  "field": "channels_type",
+  "shape": [
+    1,
+    6
+  ],
+  "dtype": "uint32",
+  "attrs": {
+    "H5PATH": "/sbj_P_01",
+    "MATLAB_class": "string",
+    "MATLAB_object_decode": 3
+  },
+  "values": [
+    3707764736,
+    2,
+    1,
+    1,
+    3,
+    1
+  ],
+  "candidate": {
+    "raw": [
+      3707764736,
+      2,
+      1,
+      1,
+      3,
+      1
+    ],
+    "is_candidate": true,
+    "ref_index_guess": 3,
+    "ref_name_guess": "c"
+  },
+  "referenced_object_preview": {
+    "type": "Dataset",
+    "shape": [
+      7,
+      1
+    ],
+    "dtype": "uint64",
+    "attrs": {
+      "H5PATH": "/#refs#/c",
+      "MATLAB_class": "uint64"
+    },
+    "values": [
+      1,
+      2,
+      1,
+      1,
+      8,
+      26740578060468339,
+      13792480023478352
+    ],
+    "uint_char_decode": "\u0001\u0002\u0001\u0001\b"
+  }
+}
+
+```
+
+#### `channels_unit`
+
+```json
+
+{
+  "field": "channels_unit",
+  "shape": [
+    1,
+    6
+  ],
+  "dtype": "uint32",
+  "attrs": {
+    "H5PATH": "/sbj_P_01",
+    "MATLAB_class": "string",
+    "MATLAB_object_decode": 3
+  },
+  "values": [
+    3707764736,
+    2,
+    1,
+    1,
+    4,
+    1
+  ],
+  "candidate": {
+    "raw": [
+      3707764736,
+      2,
+      1,
+      1,
+      4,
+      1
+    ],
+    "is_candidate": true,
+    "ref_index_guess": 4,
+    "ref_name_guess": "d"
+  },
+  "referenced_object_preview": {
+    "type": "Dataset",
+    "shape": [
+      8,
+      1
+    ],
+    "dtype": "uint64",
+    "attrs": {
+      "H5PATH": "/#refs#/d",
+      "MATLAB_class": "uint64"
+    },
+    "values": [
+      1,
+      2,
+      2,
+      1,
+      3,
+      4,
+      18859265828126810,
+      489633742959
+    ],
+    "uint_char_decode": "\u0001\u0002\u0002\u0001\u0003\u0004"
+  }
+}
+
+```
+
+#### `event_id`
+
+```json
+
+{
+  "field": "event_id",
+  "shape": [
+    1,
+    6
+  ],
+  "dtype": "uint32",
+  "attrs": {
+    "H5PATH": "/sbj_P_01",
+    "MATLAB_class": "string",
+    "MATLAB_object_decode": 3
+  },
+  "values": [
+    3707764736,
+    2,
+    1,
+    1,
+    5,
+    1
+  ],
+  "candidate": {
+    "raw": [
+      3707764736,
+      2,
+      1,
+      1,
+      5,
+      1
+    ],
+    "is_candidate": true,
+    "ref_index_guess": 5,
+    "ref_name_guess": "e"
+  },
+  "referenced_object_preview": {
+    "type": "Dataset",
+    "shape": [
+      8,
+      1
+    ],
+    "dtype": "uint64",
+    "attrs": {
+      "H5PATH": "/#refs#/e",
+      "MATLAB_class": "uint64"
+    },
+    "values": [
+      1,
+      2,
+      2,
+      1,
+      3,
+      3,
+      19422078340759621,
+      4653133
+    ],
+    "uint_char_decode": "\u0001\u0002\u0002\u0001\u0003\u0003"
+  }
+}
+
+```
+
+### `#refs#` object previews
+
+#### `#refs#/a`
+
+```json
+
+{
+  "type": "Dataset",
+  "shape": [
+    2
+  ],
+  "dtype": "uint64",
+  "attrs": {
+    "MATLAB_class": "canonical empty",
+    "MATLAB_empty": 1
+  },
+  "values": [
+    0,
+    0
+  ]
+}
+
+```
+
+#### `#refs#/b`
+
+```json
+
+{
+  "type": "Dataset",
+  "shape": [
+    1,
+    376
+  ],
+  "dtype": "uint8",
+  "attrs": {
+    "H5PATH": "/#refs#/b",
+    "MATLAB_class": "uint8"
+  },
+  "preview": [
+    3,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    56,
+    0,
+    0,
+    0,
+    88,
+    0,
+    0,
+    0,
+    176,
+    0,
+    0,
+    0,
+    64,
+    1,
+    0,
+    0,
+    72,
+    1,
+    0,
+    0,
+    120,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    97,
+    110,
+    121,
+    0,
+    115,
+    116,
+    114,
+    105,
+    110,
+    103,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    0
+  ],
+  "uint_char_decode": "\u0003\u00028X°@\u0001H\u0001x\u0001anystring\u0002\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0002\u0001\u0001\u0001\u0003\u0001\u0001\u0001\u0004\u0001\u0001\u0001\u0001\u0002\u0002\u0001\u0003\u0003\u0001\u0004\u0004\u0001\u0005\u0005"
+}
+
+```
+
+#### `#refs#/c`
+
+```json
+
+{
+  "type": "Dataset",
+  "shape": [
+    7,
+    1
+  ],
+  "dtype": "uint64",
+  "attrs": {
+    "H5PATH": "/#refs#/c",
+    "MATLAB_class": "uint64"
+  },
+  "values": [
+    1,
+    2,
+    1,
+    1,
+    8,
+    26740578060468339,
+    13792480023478352
+  ],
+  "uint_char_decode": "\u0001\u0002\u0001\u0001\b"
+}
+
+```
+
+#### `#refs#/d`
+
+```json
+
+{
+  "type": "Dataset",
+  "shape": [
+    8,
+    1
+  ],
+  "dtype": "uint64",
+  "attrs": {
+    "H5PATH": "/#refs#/d",
+    "MATLAB_class": "uint64"
+  },
+  "values": [
+    1,
+    2,
+    2,
+    1,
+    3,
+    4,
+    18859265828126810,
+    489633742959
+  ],
+  "uint_char_decode": "\u0001\u0002\u0002\u0001\u0003\u0004"
+}
+
+```
+
+#### `#refs#/e`
+
+```json
+
+{
+  "type": "Dataset",
+  "shape": [
+    8,
+    1
+  ],
+  "dtype": "uint64",
+  "attrs": {
+    "H5PATH": "/#refs#/e",
+    "MATLAB_class": "uint64"
+  },
+  "values": [
+    1,
+    2,
+    2,
+    1,
+    3,
+    3,
+    19422078340759621,
+    4653133
+  ],
+  "uint_char_decode": "\u0001\u0002\u0002\u0001\u0003\u0003"
+}
+
+```
+
+#### `#refs#/f`
+
+```json
+
+{
+  "type": "Dataset",
+  "shape": [
+    7,
+    1
+  ],
+  "dtype": "uint64",
+  "attrs": {
+    "H5PATH": "/#refs#/f",
+    "MATLAB_class": "uint64"
+  },
+  "values": [
+    1,
+    2,
+    2,
+    1,
+    2,
+    2,
+    24207350513926261
+  ],
+  "uint_char_decode": "\u0001\u0002\u0002\u0001\u0002\u0002"
+}
+
+```
+
+#### `#refs#/g`
+
+```json
+
+{
+  "type": "Dataset",
+  "shape": [
+    367,
+    1
+  ],
+  "dtype": "uint64",
+  "attrs": {
+    "H5PATH": "/#refs#/g",
+    "MATLAB_class": "uint64"
+  },
+  "preview": [
+    1,
+    2,
+    1,
+    100,
+    3,
+    7,
+    3,
+    9,
+    11,
+    12,
+    11,
+    8,
+    9,
+    8,
+    11,
+    12,
+    11,
+    10,
+    11,
+    10,
+    20,
+    21,
+    20,
+    14,
+    15,
+    14,
+    18,
+    19,
+    18,
+    20,
+    21,
+    20,
+    16,
+    17,
+    16,
+    10,
+    11,
+    10,
+    8,
+    9,
+    8,
+    9,
+    10,
+    9,
+    8,
+    9,
+    8,
+    11,
+    12,
+    11,
+    8,
+    9,
+    8,
+    8,
+    9,
+    8,
+    8,
+    9,
+    8,
+    8,
+    9,
+    8,
+    13,
+    14,
+    13,
+    10,
+    11,
+    10,
+    8,
+    9,
+    8,
+    11,
+    12,
+    11,
+    8,
+    9,
+    8,
+    8,
+    9,
+    8
+  ],
+  "uint_char_decode": "\u0001\u0002\u0001d\u0003\u0007\u0003\t\u000b\f\u000b\b\t\b\u000b\f\u000b\n\u000b\n\u0014\u0015\u0014\u000e\u000f\u000e\u0012\u0013\u0012\u0014\u0015\u0014\u0010\u0011\u0010\n\u000b\n\b\t\b\t\n\t\b\t\b\u000b\f\u000b\b\t\b\b\t\b\b\t\b\b\t\b\r\u000e\r\n\u000b\n\b\t\b\u000b\f\u000b\b\t\b\b\t\b\n\u000b\n\b\t\b\b\t\b\n\u000b\n\b\t\b\b\t\b\b\t\b\b\t\b"
+}
+
+```
+
+#### `#refs#/h`
+
+```json
+
+{
+  "type": "Dataset",
+  "shape": [
+    1,
+    2
+  ],
+  "dtype": "int32",
+  "attrs": {
+    "H5PATH": "/#refs#/h",
+    "MATLAB_class": "int32"
+  },
+  "values": [
+    0,
+    0
+  ]
+}
+
+```
+
+#### `#refs#/i`
+
+```json
+
+{
+  "type": "Dataset",
+  "shape": [
+    1,
+    2
+  ],
+  "dtype": "object",
+  "attrs": {
+    "H5PATH": "/#refs#/i",
+    "MATLAB_class": "cell"
+  },
+  "values": [
+    "<HDF5 object reference>",
+    "<HDF5 object reference>"
+  ]
+}
+
+```
+
+#### `#refs#/j`
+
+```json
+
+{
+  "type": "Dataset",
+  "shape": [
+    2
+  ],
+  "dtype": "uint64",
+  "attrs": {
+    "H5PATH": "/#refs#/j",
+    "MATLAB_class": "struct",
+    "MATLAB_empty": 1
+  },
+  "values": [
+    1,
+    0
+  ],
+  "uint_char_decode": "\u0001"
+}
+
+```
+
+#### `#refs#/k`
+
+```json
+
+{
+  "type": "Dataset",
+  "shape": [
+    2
+  ],
+  "dtype": "uint64",
+  "attrs": {
+    "H5PATH": "/#refs#/k",
+    "MATLAB_class": "struct",
+    "MATLAB_empty": 1
+  },
+  "values": [
+    1,
+    0
+  ],
+  "uint_char_decode": "\u0001"
+}
+
+```
+
+
+
+# FILE: docs/idare_trial_index_probe.md
+
+
+# I-DARE Trial Index Probe
+
+This report was generated by `scripts/05_probe_idare_trial_index.py`.
+
+No training or preprocessing was performed.
+
+## Summary
+
+```json
+
+{
+  "specs_rows": 100,
+  "specs_stim_rows": 32,
+  "label_stimuli": 32,
+  "stim_rows_match_label_stimuli": true,
+  "specs_stim_ids_sorted": [
+    "1441",
+    "1750",
+    "2314",
+    "2491",
+    "3053",
+    "3063",
+    "3080",
+    "3170",
+    "4220",
+    "5760",
+    "8080",
+    "8370",
+    "8492",
+    "9220",
+    "9331",
+    "9360",
+    "Angry_face_1",
+    "Beach_1",
+    "Depressed_pose_4",
+    "Dog_18",
+    "Dog_26",
+    "Dog_6",
+    "Dummy_1",
+    "Flowers_6",
+    "Garbage_dump_6",
+    "Lake_12",
+    "Lake_3",
+    "Miserable_pose_3",
+    "Pinecone_1",
+    "Snow_1",
+    "Tumor_1",
+    "Yarn_1"
+  ],
+  "label_stim_ids_sorted": [
+    "1441",
+    "1750",
+    "2314",
+    "2491",
+    "3053",
+    "3063",
+    "3080",
+    "3170",
+    "4220",
+    "5760",
+    "8080",
+    "8370",
+    "8492",
+    "9220",
+    "9331",
+    "9360",
+    "Angry_face_1",
+    "Beach_1",
+    "Depressed_pose_4",
+    "Dog_18",
+    "Dog_26",
+    "Dog_6",
+    "Dummy_1",
+    "Flowers_6",
+    "Garbage_dump_6",
+    "Lake_12",
+    "Lake_3",
+    "Miserable_pose_3",
+    "Pinecone_1",
+    "Snow_1",
+    "Tumor_1",
+    "Yarn_1"
+  ],
+  "common_subject_count": 63,
+  "sample_subjects": [
+    1,
+    2,
+    3
+  ]
+}
+
+```
+
+## Loader Interpretation
+
+- `Stimuli_Specifications.csv` has 100 rows.
+
+- Each subject `.mat` file has 100 event begin/end pairs.
+
+- Rows appear to align with event indices in order.
+
+- Main emotional trials should use `STIM_*` rows only.
+
+- Label CSV files store stimulus IDs without the `STIM_` prefix.
+
+- Therefore, loader should map `STIM_<id>` to label stimulus `<id>`.
+
+## Subject `sbj_P_01`
+
+### Event summaries
+
+```json
+
+{
+  "eeg": {
+    "fs": 512.0,
+    "data_shape": [
+      565159,
+      38
+    ],
+    "time_shape": [
+      565159,
+      1
+    ],
+    "num_events": 100
+  },
+  "emg": {
+    "fs": 2000.0,
+    "data_shape": [
+      2207651,
+      2
+    ],
+    "time_shape": [
+      2207651,
+      1
+    ],
+    "num_events": 100
+  },
+  "all_rows_count": 100,
+  "stim_rows_count": 32,
+  "labeled_stim_rows_count": 32,
+  "duration_checks": {
+    "all_labeled_stim_eeg_4p5_to_5p5": true,
+    "all_labeled_stim_emg_4p5_to_5p5": true,
+    "eeg_labeled_stim_min_duration": 4.984375,
+    "eeg_labeled_stim_max_duration": 5.001953125,
+    "emg_labeled_stim_min_duration": 4.986,
+    "emg_labeled_stim_max_duration": 5.004
+  }
+}
+
+```
+
+### Labeled STIM row preview
+
+```json
+
+[
+  {
+    "subject_id": 1,
+    "subject_col": "sbj_P_01",
+    "event_index_1based": 6,
+    "raw_event_name": "STIM_Dummy_1",
+    "stimulus_id": "Dummy_1",
+    "description": "Emotional stimulus",
+    "is_stim_event": true,
+    "is_labeled": true,
+    "metadata_duration_sec": 4.987,
+    "eeg_begin": 212425.0,
+    "eeg_end": 214977.0,
+    "eeg_duration_sec": 4.984375,
+    "emg_begin": 829783.0,
+    "emg_end": 839757.0,
+    "emg_duration_sec": 4.987,
+    "valence_score": 1,
+    "arousal_score": 4,
+    "valence_binary_gt5_discard5": 0,
+    "arousal_binary_gt5_discard5": 0,
+    "quadrant_gs": "LVHA",
+    "quadrant_subject": "LVLA"
+  },
+  {
+    "subject_id": 1,
+    "subject_col": "sbj_P_01",
+    "event_index_1based": 9,
+    "raw_event_name": "STIM_3053",
+    "stimulus_id": "3053",
+    "description": "Emotional stimulus",
+    "is_stim_event": true,
+    "is_labeled": true,
+    "metadata_duration_sec": 5.004,
+    "eeg_begin": 226483.0,
+    "eeg_end": 229044.0,
+    "eeg_duration_sec": 5.001953125,
+    "emg_begin": 884697.0,
+    "emg_end": 894705.0,
+    "emg_duration_sec": 5.004,
+    "valence_score": 1,
+    "arousal_score": 6,
+    "valence_binary_gt5_discard5": 0,
+    "arousal_binary_gt5_discard5": 1,
+    "quadrant_gs": "LVHA",
+    "quadrant_subject": "LVHA"
+  },
+  {
+    "subject_id": 1,
+    "subject_col": "sbj_P_01",
+    "event_index_1based": 12,
+    "raw_event_name": "STIM_Tumor_1",
+    "stimulus_id": "Tumor_1",
+    "description": "Emotional stimulus",
+    "is_stim_event": true,
+    "is_labeled": true,
+    "metadata_duration_sec": 5.002,
+    "eeg_begin": 239003.0,
+    "eeg_end": 241563.0,
+    "eeg_duration_sec": 5.0,
+    "emg_begin": 933601.0,
+    "emg_end": 943605.0,
+    "emg_duration_sec": 5.002,
+    "valence_score": 4,
+    "arousal_score": 5,
+    "valence_binary_gt5_discard5": 0,
+    "arousal_binary_gt5_discard5": null,
+    "quadrant_gs": "LVHA",
+    "quadrant_subject": "LVLA"
+  },
+  {
+    "subject_id": 1,
+    "subject_col": "sbj_P_01",
+    "event_index_1based": 15,
+    "raw_event_name": "STIM_Dog_18",
+    "stimulus_id": "Dog_18",
+    "description": "Emotional stimulus",
+    "is_stim_event": true,
+    "is_labeled": true,
+    "metadata_duration_sec": 4.997,
+    "eeg_begin": 253964.0,
+    "eeg_end": 256521.0,
+    "eeg_duration_sec": 4.994140625,
+    "emg_begin": 992045.0,
+    "emg_end": 1002039.0,
+    "emg_duration_sec": 4.997,
+    "valence_score": 8,
+    "arousal_score": 1,
+    "valence_binary_gt5_discard5": 1,
+    "arousal_binary_gt5_discard5": 0,
+    "quadrant_gs": "HVHA ",
+    "quadrant_subject": "HVLA"
+  },
+  {
+    "subject_id": 1,
+    "subject_col": "sbj_P_01",
+    "event_index_1based": 18,
+    "raw_event_name": "STIM_Miserable_pose_3",
+    "stimulus_id": "Miserable_pose_3",
+    "description": "Emotional stimulus",
+    "is_stim_event": true,
+    "is_labeled": true,
+    "metadata_duration_sec": 4.996,
+    "eeg_begin": 264561.0,
+    "eeg_end": 267118.0,
+    "eeg_duration_sec": 4.994140625,
+    "emg_begin": 1033439.0,
+    "emg_end": 1043431.0,
+    "emg_duration_sec": 4.996,
+    "valence_score": 1,
+    "arousal_score": 5,
+    "valence_binary_gt5_discard5": 0,
+    "arousal_binary_gt5_discard5": null,
+    "quadrant_gs": "LVHA",
+    "quadrant_subject": "LVLA"
+  },
+  {
+    "subject_id": 1,
+    "subject_col": "sbj_P_01",
+    "event_index_1based": 21,
+    "raw_event_name": "STIM_Pinecone_1",
+    "stimulus_id": "Pinecone_1",
+    "description": "Emotional stimulus",
+    "is_stim_event": true,
+    "is_labeled": true,
+    "metadata_duration_sec": 5.001,
+    "eeg_begin": 276235.0,
+    "eeg_end": 278795.0,
+    "eeg_duration_sec": 5.0,
+    "emg_begin": 1079041.0,
+    "emg_end": 1089043.0,
+    "emg_duration_sec": 5.001,
+    "valence_score": 5,
+    "arousal_score": 3,
+    "valence_binary_gt5_discard5": null,
+    "arousal_binary_gt5_discard5": 0,
+    "quadrant_gs": "HVLA",
+    "quadrant_subject": "LVLA"
+  },
+  {
+    "subject_id": 1,
+    "subject_col": "sbj_P_01",
+    "event_index_1based": 24,
+    "raw_event_name": "STIM_Garbage_dump_6",
+    "stimulus_id": "Garbage_dump_6",
+    "description": "Emotional stimulus",
+    "is_stim_event": true,
+    "is_labeled": true,
+    "metadata_duration_sec": 5.0,
+    "eeg_begin": 287363.0,
+    "eeg_end": 289922.0,
+    "eeg_duration_sec": 4.998046875,
+    "emg_begin": 1122509.0,
+    "emg_end": 1132509.0,
+    "emg_duration_sec": 5.0,
+    "valence_score": 2,
+    "arousal_score": 7,
+    "valence_binary_gt5_discard5": 0,
+    "arousal_binary_gt5_discard5": 1,
+    "quadrant_gs": "LVLA",
+    "quadrant_subject": "LVHA"
+  },
+  {
+    "subject_id": 1,
+    "subject_col": "sbj_P_01",
+    "event_index_1based": 27,
+    "raw_event_name": "STIM_Depressed_pose_4",
+    "stimulus_id": "Depressed_pose_4",
+    "description": "Emotional stimulus",
+    "is_stim_event": true,
+    "is_labeled": true,
+    "metadata_duration_sec": 4.992,
+    "eeg_begin": 296904.0,
+    "eeg_end": 299459.0,
+    "eeg_duration_sec": 4.990234375,
+    "emg_begin": 1159777.0,
+    "emg_end": 1169761.0,
+    "emg_duration_sec": 4.992,
+    "valence_score": 4,
+    "arousal_score": 3,
+    "valence_binary_gt5_discard5": 0,
+    "arousal_binary_gt5_discard5": 0,
+    "quadrant_gs": "LVLA",
+    "quadrant_subject": "LVLA"
+  },
+  {
+    "subject_id": 1,
+    "subject_col": "sbj_P_01",
+    "event_index_1based": 30,
+    "raw_event_name": "STIM_Angry_face_1",
+    "stimulus_id": "Angry_face_1",
+    "description": "Emotional stimulus",
+    "is_stim_event": true,
+    "is_labeled": true,
+    "metadata_duration_sec": 4.991,
+    "eeg_begin": 305880.0,
+    "eeg_end": 308434.0,
+    "eeg_duration_sec": 4.98828125,
+    "emg_begin": 1194841.0,
+    "emg_end": 1204823.0,
+    "emg_duration_sec": 4.991,
+    "valence_score": 5,
+    "arousal_score": 3,
+    "valence_binary_gt5_discard5": null,
+    "arousal_binary_gt5_discard5": 0,
+    "quadrant_gs": "LVLA",
+    "quadrant_subject": "LVLA"
+  },
+  {
+    "subject_id": 1,
+    "subject_col": "sbj_P_01",
+    "event_index_1based": 33,
+    "raw_event_name": "STIM_Dog_26",
+    "stimulus_id": "Dog_26",
+    "description": "Emotional stimulus",
+    "is_stim_event": true,
+    "is_labeled": true,
+    "metadata_duration_sec": 5.001,
+    "eeg_begin": 315458.0,
+    "eeg_end": 318018.0,
+    "eeg_duration_sec": 5.0,
+    "emg_begin": 1232255.0,
+    "emg_end": 1242257.0,
+    "emg_duration_sec": 5.001,
+    "valence_score": 2,
+    "arousal_score": 6,
+    "valence_binary_gt5_discard5": 0,
+    "arousal_binary_gt5_discard5": 1,
+    "quadrant_gs": "LVHA",
+    "quadrant_subject": "LVHA"
+  },
+  {
+    "subject_id": 1,
+    "subject_col": "sbj_P_01",
+    "event_index_1based": 36,
+    "raw_event_name": "STIM_8370",
+    "stimulus_id": "8370",
+    "description": "Emotional stimulus",
+    "is_stim_event": true,
+    "is_labeled": true,
+    "metadata_duration_sec": 4.993,
+    "eeg_begin": 326070.0,
+    "eeg_end": 328625.0,
+    "eeg_duration_sec": 4.990234375,
+    "emg_begin": 1273707.0,
+    "emg_end": 1283693.0,
+    "emg_duration_sec": 4.993,
+    "valence_score": 6,
+    "arousal_score": 8,
+    "valence_binary_gt5_discard5": 1,
+    "arousal_binary_gt5_discard5": 1,
+    "quadrant_gs": "HVHA ",
+    "quadrant_subject": "HVHA"
+  },
+  {
+    "subject_id": 1,
+    "subject_col": "sbj_P_01",
+    "event_index_1based": 39,
+    "raw_event_name": "STIM_Dog_6",
+    "stimulus_id": "Dog_6",
+    "description": "Emotional stimulus",
+    "is_stim_event": true,
+    "is_labeled": true,
+    "metadata_duration_sec": 4.994,
+    "eeg_begin": 335422.0,
+    "eeg_end": 337978.0,
+    "eeg_duration_sec": 4.9921875,
+    "emg_begin": 1310239.0,
+    "emg_end": 1320227.0,
+    "emg_duration_sec": 4.994,
+    "valence_score": 7,
+    "arousal_score": 1,
+    "valence_binary_gt5_discard5": 1,
+    "arousal_binary_gt5_discard5": 0,
+    "quadrant_gs": "HVHA ",
+    "quadrant_subject": "HVLA"
+  }
+]
+
+```
+
+## Subject `sbj_P_02`
+
+### Event summaries
+
+```json
+
+{
+  "eeg": {
+    "fs": 512.0,
+    "data_shape": [
+      540472,
+      38
+    ],
+    "time_shape": [
+      540472,
+      1
+    ],
+    "num_events": 100
+  },
+  "emg": {
+    "fs": 2000.0,
+    "data_shape": [
+      2111215,
+      2
+    ],
+    "time_shape": [
+      2111215,
+      1
+    ],
+    "num_events": 100
+  },
+  "all_rows_count": 100,
+  "stim_rows_count": 32,
+  "labeled_stim_rows_count": 32,
+  "duration_checks": {
+    "all_labeled_stim_eeg_4p5_to_5p5": true,
+    "all_labeled_stim_emg_4p5_to_5p5": true,
+    "eeg_labeled_stim_min_duration": 4.984375,
+    "eeg_labeled_stim_max_duration": 5.001953125,
+    "emg_labeled_stim_min_duration": 4.987,
+    "emg_labeled_stim_max_duration": 5.004
+  }
+}
+
+```
+
+### Labeled STIM row preview
+
+```json
+
+[
+  {
+    "subject_id": 2,
+    "subject_col": "sbj_P_02",
+    "event_index_1based": 6,
+    "raw_event_name": "STIM_Dummy_1",
+    "stimulus_id": "Dummy_1",
+    "description": "Emotional stimulus",
+    "is_stim_event": true,
+    "is_labeled": true,
+    "metadata_duration_sec": 4.996,
+    "eeg_begin": 189235.0,
+    "eeg_end": 191792.0,
+    "eeg_duration_sec": 4.994140625,
+    "emg_begin": 739195.0,
+    "emg_end": 749189.0,
+    "emg_duration_sec": 4.997,
+    "valence_score": 2,
+    "arousal_score": 8,
+    "valence_binary_gt5_discard5": 0,
+    "arousal_binary_gt5_discard5": 1,
+    "quadrant_gs": "LVHA",
+    "quadrant_subject": "LVHA"
+  },
+  {
+    "subject_id": 2,
+    "subject_col": "sbj_P_02",
+    "event_index_1based": 9,
+    "raw_event_name": "STIM_3053",
+    "stimulus_id": "3053",
+    "description": "Emotional stimulus",
+    "is_stim_event": true,
+    "is_labeled": true,
+    "metadata_duration_sec": 5.0,
+    "eeg_begin": 203757.0,
+    "eeg_end": 206310.0,
+    "eeg_duration_sec": 4.986328125,
+    "emg_begin": 795923.0,
+    "emg_end": 805901.0,
+    "emg_duration_sec": 4.989,
+    "valence_score": 1,
+    "arousal_score": 9,
+    "valence_binary_gt5_discard5": 0,
+    "arousal_binary_gt5_discard5": 1,
+    "quadrant_gs": "LVHA",
+    "quadrant_subject": "LVHA"
+  },
+  {
+    "subject_id": 2,
+    "subject_col": "sbj_P_02",
+    "event_index_1based": 12,
+    "raw_event_name": "STIM_Tumor_1",
+    "stimulus_id": "Tumor_1",
+    "description": "Emotional stimulus",
+    "is_stim_event": true,
+    "is_labeled": true,
+    "metadata_duration_sec": 5.004,
+    "eeg_begin": 217743.0,
+    "eeg_end": 220302.0,
+    "eeg_duration_sec": 4.998046875,
+    "emg_begin": 850557.0,
+    "emg_end": 860557.0,
+    "emg_duration_sec": 5.0,
+    "valence_score": 1,
+    "arousal_score": 9,
+    "valence_binary_gt5_discard5": 0,
+    "arousal_binary_gt5_discard5": 1,
+    "quadrant_gs": "LVHA",
+    "quadrant_subject": "LVHA"
+  },
+  {
+    "subject_id": 2,
+    "subject_col": "sbj_P_02",
+    "event_index_1based": 15,
+    "raw_event_name": "STIM_Dog_18",
+    "stimulus_id": "Dog_18",
+    "description": "Emotional stimulus",
+    "is_stim_event": true,
+    "is_labeled": true,
+    "metadata_duration_sec": 4.994,
+    "eeg_begin": 227464.0,
+    "eeg_end": 230024.0,
+    "eeg_duration_sec": 5.0,
+    "emg_begin": 888529.0,
+    "emg_end": 898533.0,
+    "emg_duration_sec": 5.002,
+    "valence_score": 3,
+    "arousal_score": 8,
+    "valence_binary_gt5_discard5": 0,
+    "arousal_binary_gt5_discard5": 1,
+    "quadrant_gs": "HVHA ",
+    "quadrant_subject": "LVHA"
+  },
+  {
+    "subject_id": 2,
+    "subject_col": "sbj_P_02",
+    "event_index_1based": 18,
+    "raw_event_name": "STIM_Miserable_pose_3",
+    "stimulus_id": "Miserable_pose_3",
+    "description": "Emotional stimulus",
+    "is_stim_event": true,
+    "is_labeled": true,
+    "metadata_duration_sec": 4.992,
+    "eeg_begin": 236337.0,
+    "eeg_end": 238895.0,
+    "eeg_duration_sec": 4.99609375,
+    "emg_begin": 923189.0,
+    "emg_end": 933187.0,
+    "emg_duration_sec": 4.999,
+    "valence_score": 1,
+    "arousal_score": 9,
+    "valence_binary_gt5_discard5": 0,
+    "arousal_binary_gt5_discard5": 1,
+    "quadrant_gs": "LVHA",
+    "quadrant_subject": "LVHA"
+  },
+  {
+    "subject_id": 2,
+    "subject_col": "sbj_P_02",
+    "event_index_1based": 21,
+    "raw_event_name": "STIM_Pinecone_1",
+    "stimulus_id": "Pinecone_1",
+    "description": "Emotional stimulus",
+    "is_stim_event": true,
+    "is_labeled": true,
+    "metadata_duration_sec": 4.992,
+    "eeg_begin": 245587.0,
+    "eeg_end": 248144.0,
+    "eeg_duration_sec": 4.994140625,
+    "emg_begin": 959323.0,
+    "emg_end": 969317.0,
+    "emg_duration_sec": 4.997,
+    "valence_score": 6,
+    "arousal_score": 2,
+    "valence_binary_gt5_discard5": 1,
+    "arousal_binary_gt5_discard5": 0,
+    "quadrant_gs": "HVLA",
+    "quadrant_subject": "HVLA"
+  },
+  {
+    "subject_id": 2,
+    "subject_col": "sbj_P_02",
+    "event_index_1based": 24,
+    "raw_event_name": "STIM_Garbage_dump_6",
+    "stimulus_id": "Garbage_dump_6",
+    "description": "Emotional stimulus",
+    "is_stim_event": true,
+    "is_labeled": true,
+    "metadata_duration_sec": 4.992,
+    "eeg_begin": 255389.0,
+    "eeg_end": 257945.0,
+    "eeg_duration_sec": 4.9921875,
+    "emg_begin": 997609.0,
+    "emg_end": 1007597.0,
+    "emg_duration_sec": 4.994,
+    "valence_score": 2,
+    "arousal_score": 5,
+    "valence_binary_gt5_discard5": 0,
+    "arousal_binary_gt5_discard5": null,
+    "quadrant_gs": "LVLA",
+    "quadrant_subject": "LVLA"
+  },
+  {
+    "subject_id": 2,
+    "subject_col": "sbj_P_02",
+    "event_index_1based": 27,
+    "raw_event_name": "STIM_Depressed_pose_4",
+    "stimulus_id": "Depressed_pose_4",
+    "description": "Emotional stimulus",
+    "is_stim_event": true,
+    "is_labeled": true,
+    "metadata_duration_sec": 4.991,
+    "eeg_begin": 269309.0,
+    "eeg_end": 271862.0,
+    "eeg_duration_sec": 4.986328125,
+    "emg_begin": 1051985.0,
+    "emg_end": 1061963.0,
+    "emg_duration_sec": 4.989,
+    "valence_score": 4,
+    "arousal_score": 6,
+    "valence_binary_gt5_discard5": 0,
+    "arousal_binary_gt5_discard5": 1,
+    "quadrant_gs": "LVLA",
+    "quadrant_subject": "LVHA"
+  },
+  {
+    "subject_id": 2,
+    "subject_col": "sbj_P_02",
+    "event_index_1based": 30,
+    "raw_event_name": "STIM_Angry_face_1",
+    "stimulus_id": "Angry_face_1",
+    "description": "Emotional stimulus",
+    "is_stim_event": true,
+    "is_labeled": true,
+    "metadata_duration_sec": 4.996,
+    "eeg_begin": 276987.0,
+    "eeg_end": 279543.0,
+    "eeg_duration_sec": 4.9921875,
+    "emg_begin": 1081979.0,
+    "emg_end": 1091969.0,
+    "emg_duration_sec": 4.995,
+    "valence_score": 3,
+    "arousal_score": 7,
+    "valence_binary_gt5_discard5": 0,
+    "arousal_binary_gt5_discard5": 1,
+    "quadrant_gs": "LVLA",
+    "quadrant_subject": "LVHA"
+  },
+  {
+    "subject_id": 2,
+    "subject_col": "sbj_P_02",
+    "event_index_1based": 33,
+    "raw_event_name": "STIM_Dog_26",
+    "stimulus_id": "Dog_26",
+    "description": "Emotional stimulus",
+    "is_stim_event": true,
+    "is_labeled": true,
+    "metadata_duration_sec": 4.998,
+    "eeg_begin": 284295.0,
+    "eeg_end": 286849.0,
+    "eeg_duration_sec": 4.98828125,
+    "emg_begin": 1110523.0,
+    "emg_end": 1120505.0,
+    "emg_duration_sec": 4.991,
+    "valence_score": 1,
+    "arousal_score": 8,
+    "valence_binary_gt5_discard5": 0,
+    "arousal_binary_gt5_discard5": 1,
+    "quadrant_gs": "LVHA",
+    "quadrant_subject": "LVHA"
+  },
+  {
+    "subject_id": 2,
+    "subject_col": "sbj_P_02",
+    "event_index_1based": 36,
+    "raw_event_name": "STIM_8370",
+    "stimulus_id": "8370",
+    "description": "Emotional stimulus",
+    "is_stim_event": true,
+    "is_labeled": true,
+    "metadata_duration_sec": 5.0,
+    "eeg_begin": 297065.0,
+    "eeg_end": 299624.0,
+    "eeg_duration_sec": 4.998046875,
+    "emg_begin": 1160407.0,
+    "emg_end": 1170407.0,
+    "emg_duration_sec": 5.0,
+    "valence_score": 8,
+    "arousal_score": 8,
+    "valence_binary_gt5_discard5": 1,
+    "arousal_binary_gt5_discard5": 1,
+    "quadrant_gs": "HVHA ",
+    "quadrant_subject": "HVHA"
+  },
+  {
+    "subject_id": 2,
+    "subject_col": "sbj_P_02",
+    "event_index_1based": 39,
+    "raw_event_name": "STIM_Dog_6",
+    "stimulus_id": "Dog_6",
+    "description": "Emotional stimulus",
+    "is_stim_event": true,
+    "is_labeled": true,
+    "metadata_duration_sec": 4.998,
+    "eeg_begin": 308805.0,
+    "eeg_end": 311359.0,
+    "eeg_duration_sec": 4.98828125,
+    "emg_begin": 1206267.0,
+    "emg_end": 1216247.0,
+    "emg_duration_sec": 4.99,
+    "valence_score": 9,
+    "arousal_score": 8,
+    "valence_binary_gt5_discard5": 1,
+    "arousal_binary_gt5_discard5": 1,
+    "quadrant_gs": "HVHA ",
+    "quadrant_subject": "HVHA"
+  }
+]
+
+```
+
+## Subject `sbj_P_03`
+
+### Event summaries
+
+```json
+
+{
+  "eeg": {
+    "fs": 512.0,
+    "data_shape": [
+      501013,
+      38
+    ],
+    "time_shape": [
+      501013,
+      1
+    ],
+    "num_events": 100
+  },
+  "emg": {
+    "fs": 2000.0,
+    "data_shape": [
+      1957081,
+      2
+    ],
+    "time_shape": [
+      1957081,
+      1
+    ],
+    "num_events": 100
+  },
+  "all_rows_count": 100,
+  "stim_rows_count": 32,
+  "labeled_stim_rows_count": 32,
+  "duration_checks": {
+    "all_labeled_stim_eeg_4p5_to_5p5": true,
+    "all_labeled_stim_emg_4p5_to_5p5": true,
+    "eeg_labeled_stim_min_duration": 4.984375,
+    "eeg_labeled_stim_max_duration": 5.001953125,
+    "emg_labeled_stim_min_duration": 4.986,
+    "emg_labeled_stim_max_duration": 5.004
+  }
+}
+
+```
+
+### Labeled STIM row preview
+
+```json
+
+[
+  {
+    "subject_id": 3,
+    "subject_col": "sbj_P_03",
+    "event_index_1based": 6,
+    "raw_event_name": "STIM_Dummy_1",
+    "stimulus_id": "Dummy_1",
+    "description": "Emotional stimulus",
+    "is_stim_event": true,
+    "is_labeled": true,
+    "metadata_duration_sec": 5.001,
+    "eeg_begin": 212000.0,
+    "eeg_end": 214559.0,
+    "eeg_duration_sec": 4.998046875,
+    "emg_begin": 828123.0,
+    "emg_end": 838123.0,
+    "emg_duration_sec": 5.0,
+    "valence_score": 1,
+    "arousal_score": 4,
+    "valence_binary_gt5_discard5": 0,
+    "arousal_binary_gt5_discard5": 0,
+    "quadrant_gs": "LVHA",
+    "quadrant_subject": "LVLA"
+  },
+  {
+    "subject_id": 3,
+    "subject_col": "sbj_P_03",
+    "event_index_1based": 9,
+    "raw_event_name": "STIM_3053",
+    "stimulus_id": "3053",
+    "description": "Emotional stimulus",
+    "is_stim_event": true,
+    "is_labeled": true,
+    "metadata_duration_sec": 4.999,
+    "eeg_begin": 224907.0,
+    "eeg_end": 227465.0,
+    "eeg_duration_sec": 4.99609375,
+    "emg_begin": 878541.0,
+    "emg_end": 888537.0,
+    "emg_duration_sec": 4.998,
+    "valence_score": 1,
+    "arousal_score": 6,
+    "valence_binary_gt5_discard5": 0,
+    "arousal_binary_gt5_discard5": 1,
+    "quadrant_gs": "LVHA",
+    "quadrant_subject": "LVHA"
+  },
+  {
+    "subject_id": 3,
+    "subject_col": "sbj_P_03",
+    "event_index_1based": 12,
+    "raw_event_name": "STIM_Tumor_1",
+    "stimulus_id": "Tumor_1",
+    "description": "Emotional stimulus",
+    "is_stim_event": true,
+    "is_labeled": true,
+    "metadata_duration_sec": 4.997,
+    "eeg_begin": 233661.0,
+    "eeg_end": 236216.0,
+    "eeg_duration_sec": 4.990234375,
+    "emg_begin": 912735.0,
+    "emg_end": 922719.0,
+    "emg_duration_sec": 4.992,
+    "valence_score": 2,
+    "arousal_score": 5,
+    "valence_binary_gt5_discard5": 0,
+    "arousal_binary_gt5_discard5": null,
+    "quadrant_gs": "LVHA",
+    "quadrant_subject": "LVLA"
+  },
+  {
+    "subject_id": 3,
+    "subject_col": "sbj_P_03",
+    "event_index_1based": 15,
+    "raw_event_name": "STIM_Dog_18",
+    "stimulus_id": "Dog_18",
+    "description": "Emotional stimulus",
+    "is_stim_event": true,
+    "is_labeled": true,
+    "metadata_duration_sec": 4.988,
+    "eeg_begin": 244928.0,
+    "eeg_end": 247486.0,
+    "eeg_duration_sec": 4.99609375,
+    "emg_begin": 956749.0,
+    "emg_end": 966747.0,
+    "emg_duration_sec": 4.999,
+    "valence_score": 9,
+    "arousal_score": 4,
+    "valence_binary_gt5_discard5": 1,
+    "arousal_binary_gt5_discard5": 0,
+    "quadrant_gs": "HVHA ",
+    "quadrant_subject": "HVLA"
+  },
+  {
+    "subject_id": 3,
+    "subject_col": "sbj_P_03",
+    "event_index_1based": 18,
+    "raw_event_name": "STIM_Miserable_pose_3",
+    "stimulus_id": "Miserable_pose_3",
+    "description": "Emotional stimulus",
+    "is_stim_event": true,
+    "is_labeled": true,
+    "metadata_duration_sec": 4.999,
+    "eeg_begin": 254512.0,
+    "eeg_end": 257071.0,
+    "eeg_duration_sec": 4.998046875,
+    "emg_begin": 994185.0,
+    "emg_end": 1004185.0,
+    "emg_duration_sec": 5.0,
+    "valence_score": 1,
+    "arousal_score": 4,
+    "valence_binary_gt5_discard5": 0,
+    "arousal_binary_gt5_discard5": 0,
+    "quadrant_gs": "LVHA",
+    "quadrant_subject": "LVLA"
+  },
+  {
+    "subject_id": 3,
+    "subject_col": "sbj_P_03",
+    "event_index_1based": 21,
+    "raw_event_name": "STIM_Pinecone_1",
+    "stimulus_id": "Pinecone_1",
+    "description": "Emotional stimulus",
+    "is_stim_event": true,
+    "is_labeled": true,
+    "metadata_duration_sec": 4.999,
+    "eeg_begin": 264450.0,
+    "eeg_end": 267008.0,
+    "eeg_duration_sec": 4.99609375,
+    "emg_begin": 1033005.0,
+    "emg_end": 1043003.0,
+    "emg_duration_sec": 4.999,
+    "valence_score": 5,
+    "arousal_score": 1,
+    "valence_binary_gt5_discard5": null,
+    "arousal_binary_gt5_discard5": 0,
+    "quadrant_gs": "HVLA",
+    "quadrant_subject": "LVLA"
+  },
+  {
+    "subject_id": 3,
+    "subject_col": "sbj_P_03",
+    "event_index_1based": 24,
+    "raw_event_name": "STIM_Garbage_dump_6",
+    "stimulus_id": "Garbage_dump_6",
+    "description": "Emotional stimulus",
+    "is_stim_event": true,
+    "is_labeled": true,
+    "metadata_duration_sec": 4.988,
+    "eeg_begin": 273293.0,
+    "eeg_end": 275846.0,
+    "eeg_duration_sec": 4.986328125,
+    "emg_begin": 1067547.0,
+    "emg_end": 1077525.0,
+    "emg_duration_sec": 4.989,
+    "valence_score": 1,
+    "arousal_score": 2,
+    "valence_binary_gt5_discard5": 0,
+    "arousal_binary_gt5_discard5": 0,
+    "quadrant_gs": "LVLA",
+    "quadrant_subject": "LVLA"
+  },
+  {
+    "subject_id": 3,
+    "subject_col": "sbj_P_03",
+    "event_index_1based": 27,
+    "raw_event_name": "STIM_Depressed_pose_4",
+    "stimulus_id": "Depressed_pose_4",
+    "description": "Emotional stimulus",
+    "is_stim_event": true,
+    "is_labeled": true,
+    "metadata_duration_sec": 4.998,
+    "eeg_begin": 283478.0,
+    "eeg_end": 286030.0,
+    "eeg_duration_sec": 4.984375,
+    "emg_begin": 1107333.0,
+    "emg_end": 1117307.0,
+    "emg_duration_sec": 4.987,
+    "valence_score": 4,
+    "arousal_score": 3,
+    "valence_binary_gt5_discard5": 0,
+    "arousal_binary_gt5_discard5": 0,
+    "quadrant_gs": "LVLA",
+    "quadrant_subject": "LVLA"
+  },
+  {
+    "subject_id": 3,
+    "subject_col": "sbj_P_03",
+    "event_index_1based": 30,
+    "raw_event_name": "STIM_Angry_face_1",
+    "stimulus_id": "Angry_face_1",
+    "description": "Emotional stimulus",
+    "is_stim_event": true,
+    "is_labeled": true,
+    "metadata_duration_sec": 4.998,
+    "eeg_begin": 292147.0,
+    "eeg_end": 294701.0,
+    "eeg_duration_sec": 4.98828125,
+    "emg_begin": 1141197.0,
+    "emg_end": 1151177.0,
+    "emg_duration_sec": 4.99,
+    "valence_score": 3,
+    "arousal_score": 4,
+    "valence_binary_gt5_discard5": 0,
+    "arousal_binary_gt5_discard5": 0,
+    "quadrant_gs": "LVLA",
+    "quadrant_subject": "LVLA"
+  },
+  {
+    "subject_id": 3,
+    "subject_col": "sbj_P_03",
+    "event_index_1based": 33,
+    "raw_event_name": "STIM_Dog_26",
+    "stimulus_id": "Dog_26",
+    "description": "Emotional stimulus",
+    "is_stim_event": true,
+    "is_labeled": true,
+    "metadata_duration_sec": 4.988,
+    "eeg_begin": 302306.0,
+    "eeg_end": 304862.0,
+    "eeg_duration_sec": 4.9921875,
+    "emg_begin": 1180879.0,
+    "emg_end": 1190869.0,
+    "emg_duration_sec": 4.995,
+    "valence_score": 2,
+    "arousal_score": 5,
+    "valence_binary_gt5_discard5": 0,
+    "arousal_binary_gt5_discard5": null,
+    "quadrant_gs": "LVHA",
+    "quadrant_subject": "LVLA"
+  },
+  {
+    "subject_id": 3,
+    "subject_col": "sbj_P_03",
+    "event_index_1based": 36,
+    "raw_event_name": "STIM_8370",
+    "stimulus_id": "8370",
+    "description": "Emotional stimulus",
+    "is_stim_event": true,
+    "is_labeled": true,
+    "metadata_duration_sec": 5.001,
+    "eeg_begin": 311428.0,
+    "eeg_end": 313984.0,
+    "eeg_duration_sec": 4.9921875,
+    "emg_begin": 1216513.0,
+    "emg_end": 1226501.0,
+    "emg_duration_sec": 4.994,
+    "valence_score": 8,
+    "arousal_score": 4,
+    "valence_binary_gt5_discard5": 1,
+    "arousal_binary_gt5_discard5": 0,
+    "quadrant_gs": "HVHA ",
+    "quadrant_subject": "HVLA"
+  },
+  {
+    "subject_id": 3,
+    "subject_col": "sbj_P_03",
+    "event_index_1based": 39,
+    "raw_event_name": "STIM_Dog_6",
+    "stimulus_id": "Dog_6",
+    "description": "Emotional stimulus",
+    "is_stim_event": true,
+    "is_labeled": true,
+    "metadata_duration_sec": 5.004,
+    "eeg_begin": 320053.0,
+    "eeg_end": 322606.0,
+    "eeg_duration_sec": 4.986328125,
+    "emg_begin": 1250203.0,
+    "emg_end": 1260179.0,
+    "emg_duration_sec": 4.988,
+    "valence_score": 9,
+    "arousal_score": 5,
+    "valence_binary_gt5_discard5": 1,
+    "arousal_binary_gt5_discard5": null,
+    "quadrant_gs": "HVHA ",
+    "quadrant_subject": "HVLA"
+  }
+]
+
+```
+
+## Candidate Loader Decision
+
+Use the following candidate design unless later evidence contradicts it:
+
+1. Load I-DARE `.mat` files with `h5py`.
+
+2. Use data orientation as `time x channels`.
+
+3. Use `Stimuli_Specifications.csv` row order as the event order.
+
+4. Keep only rows whose `Stimulus` starts with `STIM_`.
+
+5. Strip `STIM_` to match label CSV stimulus IDs.
+
+6. Extract one natural stimulus window per STIM event.
+
+7. EEG: resample from 512Hz to 128Hz later for model input.
+
+8. EMG: extract window-level features from 2000Hz EMG.
+
+
+
 # FILE: docs/handoff_delta_after_idare_acquisition.md
 
 
@@ -3937,6 +12380,101 @@ docs/data_audit_idare.md
 ```
 
 DEAP acquisition is still pending.
+
+
+
+# FILE: docs/handoff_delta_after_trial_index_probe.md
+
+
+# Handoff Delta — After I-DARE Trial Index Probe
+
+## New Completed Work
+
+The I-DARE trial/event alignment was probed using:
+
+```text
+scripts/05_probe_idare_trial_index.py
+```
+
+Generated outputs:
+
+```text
+docs/idare_trial_index_probe.md
+docs/idare_trial_index_probe.json
+```
+
+## Main Findings
+
+The probe confirmed:
+
+```text
+Stimuli_Specifications.csv rows: 100
+I-DARE .mat event_begin/event_end pairs: 100
+STIM_* rows: 32
+Label stimulus IDs: 32
+stim_rows_match_label_stimuli: true
+```
+
+Sample subjects checked:
+
+```text
+sbj_P_01
+sbj_P_02
+sbj_P_03
+```
+
+For each sampled subject:
+
+```text
+stim_rows_count: 32
+labeled_stim_rows_count: 32
+all_labeled_stim_eeg_4p5_to_5p5: true
+all_labeled_stim_emg_4p5_to_5p5: true
+```
+
+## I-DARE Loader Design Decision
+
+Use only `STIM_*` rows as emotional trials.
+
+Do not use `BSL_*` or `SAM_*` rows as emotion-classification samples.
+
+Map labels by stripping the `STIM_` prefix:
+
+```text
+STIM_3053 -> 3053
+STIM_Dog_18 -> Dog_18
+```
+
+Use the row order in `Stimuli_Specifications.csv` as the event order for `event_begin` and `event_end`.
+
+## Current Candidate Loader Design
+
+1. Load `.mat` files with `h5py`.
+2. Use raw `h5py` data orientation:
+   - EEG: `time x channels`
+   - EMG: `time x channels`
+3. Use the 63 common EEG+EMG subjects for the main protocol.
+4. For each subject:
+   - read EEG file,
+   - read EMG file,
+   - read `Stimuli_Specifications.csv`,
+   - keep only `STIM_*` rows,
+   - extract matching EEG and EMG event windows,
+   - attach valence and arousal scores from label CSV files.
+5. Apply binary label rule:
+   - score > 5 -> 1
+   - score < 5 -> 0
+   - score == 5 -> discard for that specific task
+6. EEG will later be resampled from 512Hz to 128Hz.
+7. EMG will be converted to feature-level descriptors.
+
+## Immediate Next Step
+
+Commit the probe scripts/reports and decision update, then update the handoff bundle.
+
+After that, begin implementing the actual I-DARE trial index builder / dataset loader.
+
+Do not start model training yet.
 
 
 

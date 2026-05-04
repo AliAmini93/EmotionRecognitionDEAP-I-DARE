@@ -8,35 +8,19 @@ Cross-subject EEG-EMG emotion recognition on DEAP and I-DARE.
 
 Evaluate whether auxiliary EMG and trial-aware temporal modeling improve cross-subject EEG emotion recognition.
 
-The current paper focuses on:
-
-```text
-within-dataset cross-subject generalization
-strict LOSO evaluation
-DEAP and I-DARE
-```
-
-The current paper version does not include cross-dataset transfer.
+The current paper version focuses on within-dataset cross-subject generalization. Cross-dataset transfer between DEAP and I-DARE is intentionally excluded from the current paper version.
 
 ---
 
 ## Current Phase
 
-Milestone 1 - Dataset acquisition and audit preparation.
+Milestone 1 - Dataset acquisition and audit / I-DARE loader-design preparation.
 
-Milestone 0 has already been completed.
-
-Current status:
-
-```text
-I-DARE first-stage acquisition is complete.
-I-DARE files have been downloaded and checksum-verified.
-DEAP acquisition is still pending.
-```
+No training should be started yet.
 
 ---
 
-## Important Local Paths
+## Local Paths
 
 Project root:
 
@@ -58,30 +42,25 @@ I-DARE root:
 
 ---
 
-## Current Design
+## Environment Status
 
-- Main datasets:
-  - DEAP
-  - I-DARE
-- Tasks:
-  - binary valence
-  - binary arousal
-- Evaluation:
-  - strict LOSO
-  - within-dataset cross-subject
-- Main window:
-  - 5 seconds
-  - no overlap
-- DEAP:
-  - 60s trial -> 12 non-overlapping 5s windows
-- I-DARE:
-  - one natural 5s stimulus window
-- Current paper version:
-  - no cross-dataset transfer
+- Python version: 3.12.3.
+- Virtual environment: `.venv`.
+- PyTorch with CUDA 12.8 installed.
+- GPU detected: NVIDIA GeForce RTX 5090.
+- GitHub SSH authentication works.
+- Repository has been pushed successfully and is expected to be synced with `origin/main`.
+
+Verify with:
+
+```bash
+git status
+git log --oneline -5
+```
 
 ---
 
-## Current Model Plan
+## Current Code Status
 
 Current EEG model files:
 
@@ -91,15 +70,13 @@ src/emotion_deap_idare/models/eeg_segment_classifier.py
 src/emotion_deap_idare/models/old_style_eeg_classifier.py
 ```
 
-Current model status:
+Main smoke-tested model:
 
 ```text
 EEGSegmentClassifier-v1 lite
-GPU smoke test passed
-trainable parameters: 337,955
 ```
 
-Smoke test shapes:
+Smoke test result:
 
 ```text
 input: [8, 32, 640]
@@ -108,215 +85,324 @@ embedding z: [8, 128]
 projection z_proj: [8, 64]
 temporal attention: [8, 32, 320]
 channel attention: [8, 32]
+trainable parameters: 337,955
+GPU smoke test: passed
 ```
-
-Later planned modules:
-
-```text
-EMG feature-level branch
-EEG sequence encoder
-EMG sequence encoder
-segment-level fusion
-trial-level modality-specific fusion
-contrastive learning ablation
-```
-
-Do not implement these yet. Dataset audit comes first.
 
 ---
 
-## Critical Decisions
+## Project Memory Files
 
-- Dataset files are not tracked by Git.
-- `configs/paths.local.yaml` is Git-ignored.
-- Storage location accepted for initial phase:
-  - `/mnt/HDD/AliWorks/DEAP`
-  - `/mnt/HDD/AliWorks/I-DARE`
-- DEAP target version:
-  - official preprocessed Python version, 128Hz
-  - `Data_preprocessed_python.zip`
-- EMG main branch:
-  - feature-level, not raw waveform
-- Fusion location is an experimental question:
-  1. segment-level EEG-EMG fusion
-  2. modality-specific sequence encoding + trial-level fusion
-- Contrastive learning:
-  - later ablation only
-  - not part of the first training step
-- I-DARE main subject set:
-  - use 63 common EEG+EMG subjects
-  - exclude subject 4 from main EEG+EMG protocol
-  - subject 4 may be used only for optional EMG-only secondary analysis
-
----
-
-## I-DARE Source Listing Status
-
-I-DARE Figshare source listing has been generated.
-
-Listing files:
+Important memory/documentation files:
 
 ```text
-scripts/list_idare_figshare_files.py
+docs/project_state.md
+docs/chat_handoff_latest.md
+docs/decision_log.md
+docs/proposal_v1_1.md
+docs/dataset_acquisition_plan.md
+docs/handoff_bundle_latest.md
+experiments/registry.csv
+```
+
+I-DARE acquisition/audit/probe files:
+
+```text
 docs/data_sources_idare.md
 docs/data_sources_idare.json
 docs/data_sources_idare_summary.txt
+docs/idare_download_manifest.csv
+docs/idare_download_manifest_summary.md
+docs/idare_download_report.md
+docs/idare_acquisition_status.md
+docs/data_audit_idare.md
+docs/data_audit_idare.json
+docs/idare_hdf5_structure_probe.md
+docs/idare_hdf5_structure_probe.json
+docs/idare_mat73_probe.md
+docs/idare_mat73_probe.json
+docs/idare_refs_and_events_probe.md
+docs/idare_refs_and_events_probe.json
+docs/idare_trial_index_probe.md
+docs/idare_trial_index_probe.json
+docs/handoff_delta_after_idare_acquisition.md
+docs/handoff_delta_after_trial_index_probe.md
 ```
 
-Listing result:
+Relevant scripts:
 
 ```text
-Articles discovered: 5
-Files discovered: 263
-Total listed size: 6.98 GB
-First-stage required files: 133
-First-stage required size: 6.88 GB
-EEG subjects: 63
-EMG subjects: 64
-Common EEG+EMG subjects: 63
-EMG-only subject: 4
+scripts/list_idare_figshare_files.py
+scripts/build_idare_download_manifest.py
+scripts/download_idare_from_manifest.py
+scripts/01_audit_datasets.py
+scripts/02_probe_idare_hdf5_structure.py
+scripts/03_probe_idare_mat73_loader.py
+scripts/04_probe_idare_refs_and_events.py
+scripts/05_probe_idare_trial_index.py
 ```
 
 ---
 
-## I-DARE Download Manifest Status
+## Locked Design Decisions
 
-Manifest files:
+### Evaluation
+
+- Strict LOSO / subject-held-out evaluation.
+- Within-dataset cross-subject evaluation.
+- No cross-dataset transfer in the current paper version.
+
+### Tasks
+
+- Binary valence.
+- Binary arousal.
+
+Label rule:
 
 ```text
-scripts/build_idare_download_manifest.py
-docs/idare_download_manifest.csv
-docs/idare_download_manifest_summary.md
+label = 1 if score > 5
+label = 0 if score < 5
+score == 5 is discarded for that task
 ```
 
-Manifest result:
+### Windowing
+
+DEAP:
 
 ```text
-Total listed files: 263
-First-stage files: 133
-Main-protocol files: 132
-First-stage total size: 6.88 GB
-Main-protocol total size: 6.85 GB
+60s trial -> 12 non-overlapping 5s windows
 ```
 
-Checksum status:
+I-DARE:
 
 ```text
-computed_md5 present for all 133 first-stage files
-missing md5 in first-stage files: 0
+one natural 5s STIM window per emotional stimulus
+```
+
+### EMG
+
+- Main EMG path is feature-level, not raw waveform.
+- Raw EMG may be considered later as an ablation.
+
+### Fusion
+
+Fusion location remains an experimental question:
+
+```text
+1. segment-level EEG-EMG fusion
+2. modality-specific sequence encoding + trial-level fusion
+```
+
+### Contrastive Learning
+
+Contrastive learning is reserved for later ablation only.
+
+Planned contrastive design:
+
+```text
+positive = same emotion label + different subject
+hard negative = same stimulus/video + different reported emotion
+loss location = trial-level representation, not raw segment level
 ```
 
 ---
 
 ## I-DARE Acquisition Status
 
-I-DARE first-stage files have been downloaded and verified.
+I-DARE first-stage acquisition is complete.
 
 Downloaded subset:
 
 ```text
-EEG files
-EMG files
-label CSV files
-metadata CSV files
+EEG files: 63
+EMG files: 64
+Label CSV files: 4
+Metadata CSV files: 2
+Total files: 133
 ```
 
-Final verification result:
+Verification result:
 
 ```text
-selected_files: 133
-selected_total_size: 6.88 GB
 verified_ok: 133
 verify_failed: 0
+local disk usage: 6.9G
 ```
 
-Local disk usage:
+Main protocol subject set:
 
 ```text
-6.9G /mnt/HDD/AliWorks/I-DARE
+63 common EEG+EMG subjects
+subject 4 is EMG-only and excluded from main EEG+EMG protocol
 ```
 
-Final verification report:
+---
+
+## I-DARE Dataset Audit Status
+
+Audit script:
 
 ```text
-docs/idare_download_report.md
+scripts/01_audit_datasets.py
 ```
 
-Acquisition status doc:
+Audit outputs:
 
 ```text
-docs/idare_acquisition_status.md
+docs/data_audit_idare.md
+docs/data_audit_idare.json
+```
+
+Current audit result:
+
+```text
+Status: PASSED
+Issues: 0
+Warnings: 0
+```
+
+Important observation:
+
+```text
+I-DARE .mat files are MATLAB v7.3 / HDF5.
+Use h5py.
+```
+
+Dependencies now include:
+
+```text
+h5py
+mat73
+```
+
+Note:
+`mat73` was useful for probing orientation but raw `h5py` remains the safer loader basis because it preserves direct HDF5 structure and event arrays.
+
+---
+
+## I-DARE Trial Index Findings
+
+Trial-index probe:
+
+```text
+scripts/05_probe_idare_trial_index.py
+docs/idare_trial_index_probe.md
+docs/idare_trial_index_probe.json
+```
+
+Main findings:
+
+```text
+Stimuli_Specifications.csv rows: 100
+I-DARE .mat event_begin/event_end pairs: 100
+STIM_* rows: 32
+Label stimulus IDs: 32
+stim_rows_match_label_stimuli: true
+```
+
+Sample subjects checked:
+
+```text
+sbj_P_01
+sbj_P_02
+sbj_P_03
+```
+
+For all three sampled subjects:
+
+```text
+stim_rows_count: 32
+labeled_stim_rows_count: 32
+all_labeled_stim_eeg_4p5_to_5p5: true
+all_labeled_stim_emg_4p5_to_5p5: true
+```
+
+I-DARE loader interpretation:
+
+```text
+Use only STIM_* rows as emotional trials.
+Strip STIM_ prefix to match label CSV stimulus IDs.
+Use row order in Stimuli_Specifications.csv as event order.
+Read data with h5py.
+Raw h5py data orientation is time x channels.
+EEG Fs = 512Hz.
+EMG Fs = 2000Hz.
+```
+
+Decision added:
+
+```text
+D005 - Use STIM events as I-DARE emotional trials
 ```
 
 ---
 
 ## DEAP Status
 
-DEAP has not been downloaded yet.
+DEAP is not downloaded yet.
 
-Target version:
+Planned DEAP starting point:
 
 ```text
-DEAP official preprocessed Python version
+DEAP preprocessed Python version
 Data_preprocessed_python.zip
-128Hz
 ```
 
-Current open item:
-
-```text
-Confirm or request official DEAP access credentials.
-```
+DEAP access/credentials still need confirmation.
 
 ---
 
 ## Immediate Next Step
 
-Create and run the dataset audit script:
+Refresh project state and handoff files after the I-DARE trial-index probe, then implement the I-DARE trial index builder.
 
-```text
-scripts/01_audit_datasets.py
-```
+The next coding target should produce a clean table with one row per subject-stimulus emotional trial.
 
-Audit I-DARE first, because I-DARE has now been downloaded and verified.
-
-The audit should generate:
-
-```text
-docs/data_audit_idare.md
-```
-
-Do not start training yet.  
-Do not implement EMG fusion yet.  
-Do not implement sequence modeling yet.  
-Do not start contrastive learning yet.
+Do not train models yet.
 
 ---
 
-## What the I-DARE Audit Must Verify
+## Next Practical Coding Target
 
-The I-DARE audit should inspect:
+Create an I-DARE trial index builder, likely something like:
 
 ```text
-- folder structure
-- file counts
-- downloaded EEG files
-- downloaded EMG files
-- label CSV files
-- metadata CSV files
-- subject IDs
-- EEG/EMG subject intersection
-- subject 4 handling
-- .mat fields
-- Fs / sampling rates
-- channel names
-- data shapes
-- time vector shapes
-- event_id
-- event_begin
-- event_end
-- feasibility of one 5s stimulus window per event
-- alignment between label CSVs and event IDs
+scripts/06_build_idare_trial_index.py
 ```
 
-The audit should not assume channel count, sampling rate, event duration, or `.mat` structure. It must verify them from the downloaded files.
+Expected output candidates:
+
+```text
+data/idare_trial_index.csv       # likely gitignored if under data/
+docs/idare_trial_index_summary.md
+```
+
+Because dataset-derived tables may reveal dataset contents and may become large later, decide before committing whether the generated trial-index CSV should be tracked or gitignored.
+
+Minimum trial-index columns:
+
+```text
+subject_id
+subject_col
+stimulus_id
+raw_event_name
+event_index_1based
+eeg_file
+emg_file
+eeg_begin
+eeg_end
+eeg_duration_sec
+emg_begin
+emg_end
+emg_duration_sec
+valence_score
+arousal_score
+valence_label_gt5
+arousal_label_gt5
+valence_is_discard_score5
+arousal_is_discard_score5
+quadrant_gs
+quadrant_subject
+```
+
+After the trial index is built, validate label counts for valence/arousal before any training.
