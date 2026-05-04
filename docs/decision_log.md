@@ -183,3 +183,54 @@ Label summary:
 
 Status:
 Accepted.
+
+---
+
+## D007 - Use Python half-open slicing and fixed-length EEG windows for I-DARE
+
+Date: 2026-05-04
+
+Decision:
+Use raw I-DARE event begin/end values as Python half-open slices:
+
+```python
+data[int(begin):int(end), :]
+```
+
+For EEG, resample each STIM window from 512 Hz to 128 Hz and then enforce exactly 640 samples using crop/pad.
+
+Reason:
+The I-DARE window extraction smoke test passed with this slicing convention. It gives:
+
+```text
+sample_count = end - begin
+```
+
+which matches the duration stored in `.cache/idare_trial_index.csv`.
+
+The MATLAB 1-based inclusive interpretation gives one extra sample and is not the current working convention.
+
+Observed resampled EEG lengths can be slightly different from 640 because the I-DARE STIM durations are close to, but not always exactly, 5.000 seconds. The smoke test observed examples such as:
+
+```text
+638
+640
+641
+```
+
+Therefore, resampling alone is not enough. The loader must apply a deterministic fixed-length policy.
+
+Current fixed-length policy:
+- EEG raw window: slice with Python half-open indexing.
+- EEG channel selection: first 32 channels for the first implementation.
+- EEG resampling: 512 Hz to 128 Hz.
+- EEG final length: crop/pad to exactly 640 samples.
+- EEG output shape: `[32, 640]`.
+
+For EMG, keep the main feature-level design:
+- slice the same STIM window,
+- keep raw 2-channel EMG only long enough to compute features,
+- do not build a raw EMG deep branch in the main first implementation.
+
+Status:
+Accepted.
