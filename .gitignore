@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+.env
+
+# Local configs
+configs/paths.local.yaml
+
+# Data and large files
+data/
+*.mat
+*.bdf
+*.edf
+*.set
+*.fdt
+*.npy
+*.npz
+*.pkl
+*.pickle
+*.h5
+*.hdf5
+*.pt
+*.pth
+*.ckpt
+
+# Experiments / logs
+experiments/runs/
+wandb/
+mlruns/
+lightning_logs/
+
+# Cache
+.cache/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/

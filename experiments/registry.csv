@@ -1,0 +1,2 @@
+run_id,date,dataset,task,split,model,config,status,main_metric,notes,commit_hash
+R001,2026-05-04,DEAP,valence,LOSO,EEGSegmentClassifier-v1,configs/deap_eeg_segment_v1.yaml,planned,,First EEG-only DEAP run,

@@ -1,0 +1,9 @@
+project_root: /mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE
+
+datasets:
+  deap_root: /mnt/HDD/AliWorks/DEAP
+  idare_root: /mnt/HDD/AliWorks/I-DARE
+
+outputs:
+  experiments_root: /mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/experiments/runs
+  cache_root: /mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/.cache
