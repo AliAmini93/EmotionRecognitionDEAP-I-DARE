@@ -469,3 +469,45 @@ but code should continue to accept:
 ### Current Status
 
 This decision is provisional. It should be revisited after a cache-based full baseline or LOSO-style baseline with consistent splits, seeds, and metrics.
+---
+
+## D012 - Accept cache-based I-DARE EEG main baseline as current working baseline
+
+Date: 2026-05-05
+
+Decision:
+Use the cache-based EEG main baseline as the current working I-DARE EEG-only baseline status.
+
+Temporary main score-5 policy:
+
+```text
+valence: midpoint_as_high
+arousal: midpoint_as_high
+```
+
+Main baseline configuration:
+
+```text
+6 subject folds
+2 seeds: 11, 13
+5 epochs
+batch size: 32
+class-weighted CrossEntropyLoss
+cache source: .cache/idare_eeg_windows_32x640_float32.npy
+```
+
+Aggregate result:
+
+```text
+arousal/midpoint_as_high: macro_f1=0.4825, bal_acc=0.5159, best_f1=0.4918, one_class=1/12
+valence/midpoint_as_high: macro_f1=0.3953, bal_acc=0.4995, best_f1=0.4566, one_class=4/12
+```
+
+Interpretation:
+- This is not a final LOSO result.
+- Arousal is currently more promising than valence.
+- Valence still shows notable one-class-collapse risk.
+- `discard_midpoint` remains a supported ablation / sanity policy and should be run next in compact form.
+
+Status:
+Accepted as current working baseline, not as final experimental evidence.

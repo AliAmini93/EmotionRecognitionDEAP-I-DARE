@@ -19,7 +19,7 @@ This status note records the current cache-based I-DARE EEG main baseline.
 ## Interpretation
 
 - Arousal is currently more promising than valence.
-- Valence still shows notable one-class collapse risk.
+- Valence still shows notable one-class-collapse risk.
 - The next technical priority is not a bigger final experiment yet; it is a controlled sanity run for `discard_midpoint` and then small training-recipe stabilization.
 
 ## Source Report
