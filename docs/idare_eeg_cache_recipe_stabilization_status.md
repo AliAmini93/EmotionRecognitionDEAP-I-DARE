@@ -1080,3 +1080,79 @@ Keep the next run tiny:
 --max-runs 2
 --epochs 2
 ```
+
+## I-DARE Baseline-Correction Feasibility Audit
+
+Audit file:
+
+```text
+docs/idare_baseline_correction_audit.md
+docs/idare_baseline_correction_audit.json
+scripts/22_audit_idare_baseline_correction_feasibility.py
+```
+
+This was a metadata/cache-index audit only.
+
+It did not:
+
+- train a model
+- build a new cache
+- modify existing cache files
+- load raw MATLAB/HDF5 files inside training loops
+
+### Result
+
+The audit found that baseline correction is feasible for a future separate I-DARE EEG cache.
+
+Key findings:
+
+```text
+Stimuli specs: /mnt/HDD/AliWorks/I-DARE/metadata/Stimuli_Specifications.csv
+Event/stimulus column: Stimulus
+Subject duration columns: 64
+STIM rows: 32
+BSL_<stimulus> rows: 32
+Cached stimulus count: 32
+Cache stimulus column: stimulus_id
+```
+
+Pair feasibility:
+
+```text
+Has STIM row:                 32 / 32 pass
+Has matching BSL row:         32 / 32 pass
+BSL immediately before STIM:  32 / 32 pass
+BSL mean duration 4.5-5.5s:   32 / 32 pass
+STIM mean duration 4.5-5.5s:  32 / 32 pass
+```
+
+Final decision:
+
+```text
+feasible_for_future_baseline_corrected_cache = true
+```
+
+### Important interpretation
+
+The current cache index has no explicit metadata evidence of baseline correction:
+
+```text
+baseline metadata evidence columns = []
+```
+
+This does not prove that the numerical NPY values were not baseline-corrected, but there is no cache-index evidence that baseline correction was applied.
+
+Therefore, if baseline correction is tested, it should be done by building a separate cache file, not by overwriting the current cache.
+
+### Recommendation
+
+A future technical step may build a separate baseline-corrected I-DARE EEG cache, for example:
+
+```text
+.cache/idare_eeg_windows_32x640_float32_baseline_corrected.npy
+.cache/idare_eeg_cache_index_baseline_corrected.csv
+```
+
+Any baseline-corrected cache must be smoke-tested first, preferably on arousal only, because arousal is currently the more promising task.
+
+Do not jump directly to a full LOSO/final run.
