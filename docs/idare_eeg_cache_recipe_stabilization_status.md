@@ -974,3 +974,109 @@ max-runs = 2
 ```
 
 Only after reviewing that smoke should any broader run be considered.
+
+## Valence Label Smoothing Smoke
+
+A tiny smoke tested the new `ce_label_smoothing_0p05` recipe.
+
+Configuration:
+
+```text
+task = valence
+label_policy = midpoint_as_high
+recipes = ce_class_weighted, ce_label_smoothing_0p05
+lr = 3e-4
+epochs = 2
+folds = 6
+seed = 11
+max_runs = 2
+```
+
+Outputs:
+
+```text
+docs/idare_valence_label_smoothing_smoke.md
+docs/idare_valence_label_smoothing_smoke.json
+```
+
+This remained cache-only and did not use raw MATLAB/HDF5 `.mat` loading inside training loops.
+
+### Engineering result
+
+The recipe path now works after fixing two metadata/criterion issues:
+
+```text
+1. ce_label_smoothing_0p05 now defines train_criterion and eval_criterion.
+2. class_weights metadata now safely uses locals().get("class_weights_out") so recipes without class weights record null instead of crashing.
+```
+
+### Smoke result
+
+| Recipe | Fold | Val pred 0 | Val pred 1 | Val macro F1 | Val balanced acc | One-class final | Train P1 mean | Val P1 mean | Threshold macro F1 |
+|---|---:|---:|---:|---:|---:|---|---:|---:|---:|
+| `ce_class_weighted` | 1 | `274` | `78` | `0.4394` | `0.5133` | `false` | `0.4901` | `0.4909` | `0.4394` |
+| `ce_label_smoothing_0p05` | 1 | `0` | `352` | `0.3748` | `0.5000` | `true` | `0.5794` | `0.5809` | `0.3926` |
+
+### Key finding
+
+`ce_label_smoothing_0p05` is not promising in this smoke.
+
+It immediately collapsed to class 1 on valence fold 1:
+
+```text
+train pred_counts = {"0": 2, "1": 1662}
+val pred_counts   = {"0": 0, "1": 352}
+```
+
+The model probability distribution is shifted strongly above 0.50:
+
+```text
+train prob1_mean = 0.5794
+val prob1_mean   = 0.5809
+```
+
+Threshold sweep gives only a small diagnostic recovery:
+
+```text
+best threshold = 0.55
+threshold macro F1 = 0.3926
+threshold balanced acc = 0.5012
+```
+
+This remains below the `ce_class_weighted` comparator on the same fold.
+
+### Interpretation
+
+Label smoothing alone does not stabilize valence boundaries in the desired direction.
+
+It appears to increase class-1 bias rather than reduce boundary instability.
+
+### Updated Recommendation
+
+Do not expand `ce_label_smoothing_0p05` to more folds or seeds.
+
+Do not run a full experiment yet.
+
+The next useful work should either:
+
+```text
+1. close this mini-recipe branch as non-promising, or
+2. test a different, single-change boundary-stability recipe in a tiny smoke.
+```
+
+A reasonable next technical candidate is not stronger label smoothing, but a diagnostic/recipe that explicitly constrains class prediction balance or addresses thresholding more directly.
+
+Possible next smoke directions:
+
+```text
+- add per-class train/val recall aggregates to script 20 reports
+- test a fixed threshold diagnostic recipe/report rather than treating argmax as final
+- test focal loss only if implemented as one small recipe and smoke-tested first
+```
+
+Keep the next run tiny:
+
+```text
+--max-runs 2
+--epochs 2
+```
