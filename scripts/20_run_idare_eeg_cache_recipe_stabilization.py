@@ -49,7 +49,7 @@ DEFAULT_OUT_JSON = ROOT / "docs" / "idare_eeg_cache_recipe_stabilization.json"
 
 VALID_TASKS = {"valence", "arousal"}
 VALID_POLICIES = {"discard_midpoint", "midpoint_as_low", "midpoint_as_high"}
-VALID_RECIPES = {"ce_class_weighted", "ce_no_class_weight", "balanced_sampler_ce"}
+VALID_RECIPES = {"ce_class_weighted", "ce_no_class_weight", "balanced_sampler_ce", "ce_label_smoothing_0p05"}
 
 
 @dataclass(frozen=True)
@@ -574,6 +574,9 @@ def train_one(
     elif spec.recipe in {"ce_no_class_weight", "balanced_sampler_ce"}:
         train_criterion = torch.nn.CrossEntropyLoss()
         class_weights_out = None
+    elif spec.recipe == "ce_label_smoothing_0p05":
+        train_criterion = torch.nn.CrossEntropyLoss(label_smoothing=0.05)
+        eval_criterion = torch.nn.CrossEntropyLoss()
     else:
         raise ValueError(f"Unsupported recipe: {spec.recipe}")
 
@@ -653,6 +656,7 @@ def train_one(
         "task": spec.task,
         "policy": spec.policy,
         "recipe": spec.recipe,
+        "label_smoothing": 0.05 if spec.recipe == "ce_label_smoothing_0p05" else 0.0,
         "fold_id": int(spec.fold.fold_id),
         "val_subjects": [int(s) for s in spec.fold.val_subjects],
         "train_subject_count": int(len(spec.fold.train_subjects)),
@@ -667,7 +671,7 @@ def train_one(
         "val_n": int(len(val_ds)),
         "train_counts": train_counts,
         "val_counts": val_counts,
-        "class_weights": class_weights_out,
+        "class_weights": locals().get("class_weights_out"),
         "sampler": sampler_name,
         "final": final_metrics,
         "train_final": train_final_metrics,

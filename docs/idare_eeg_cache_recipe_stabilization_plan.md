@@ -87,3 +87,10 @@ This is intended for fold/class-bias diagnostics only. It should be used first w
 Script 20 now records final train-set probability diagnostics alongside validation diagnostics.
 
 This is intended to diagnose fold-level probability offsets, especially valence fold/class-bias behavior. It remains diagnostic-only and should first be used with tiny smoke runs such as `--max-runs 2` or `--max-runs 4`.
+
+
+## Added Label Smoothing Smoke Candidate
+
+Script 20 now supports `ce_label_smoothing_0p05`.
+
+This recipe uses `torch.nn.CrossEntropyLoss(label_smoothing=0.05)` and is intended as a small boundary-stability smoke test for valence. It must remain cache-only and smoke-first. The first test should stay tiny, for example `--max-runs 2 --epochs 2`, before any broader run is considered.
