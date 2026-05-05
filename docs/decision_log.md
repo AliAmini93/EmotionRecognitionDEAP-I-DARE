@@ -234,3 +234,57 @@ For EMG, keep the main feature-level design:
 
 Status:
 Accepted.
+---
+
+## D008 - Accept I-DARE loader v1 after validation
+
+Date: 2026-05-04
+
+Decision:
+Accept `IDARETrialDataset` as the working I-DARE loader v1 for controlled baseline smoke tests.
+
+Accepted implementation:
+- Loader module:
+  - `src/emotion_deap_idare/datasets/idare_loader.py`
+- Validation script:
+  - `scripts/08_validate_idare_loader.py`
+- Validation reports:
+  - `docs/idare_loader_validation.md`
+  - `docs/idare_loader_validation.json`
+
+Loader assumptions:
+- Use the 63 common EEG+EMG subjects.
+- Use one emotional `STIM_*` event as one trial.
+- Use task-specific binary labels:
+  - `label = 1 if score > 5 else 0`
+  - `score == 5` is discarded separately for valence and arousal.
+- Slice signals from `event_begin`.
+- Extract exactly 5.0 seconds for fixed-size tensors.
+- EEG:
+  - source sampling rate: 512Hz
+  - use first 32 channels
+  - downsample by taking every 4th sample
+  - target tensor shape: `[32, 640]`
+- EMG:
+  - source sampling rate: 2000Hz
+  - use two channels
+  - target tensor shape: `[2, 10000]`
+- Apply per-window, per-channel z-normalization by default.
+
+Validation result:
+- Status: PASSED
+- Issues: 0
+- Warnings: 0
+- Valence rows after discard: 1667
+- Arousal rows after discard: 1799
+- EEG batch shape: `[4, 32, 640]`
+- EMG batch shape: `[4, 2, 10000]`
+
+Reason:
+The validation confirms that the trial index, HDF5 signal extraction, label filtering, tensor shapes, and PyTorch DataLoader batching are working consistently for both valence and arousal.
+
+Status:
+Accepted.
+
+Next controlled step:
+Run a small I-DARE EEG-only model-forward smoke test using `EEGSegmentClassifier-v1`. This should test forward pass, loss computation, and one optimizer step only. It should not become full training yet.

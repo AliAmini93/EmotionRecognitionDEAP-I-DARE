@@ -1,0 +1,403 @@
+{
+  "status": "PASSED",
+  "tasks": {
+    "valence": {
+      "task": "valence",
+      "return_mode": "both",
+      "n_rows": 1667,
+      "n_subjects": 63,
+      "label_counts": {
+        "0": 812,
+        "1": 855
+      },
+      "checked_items": [
+        {
+          "index": 0,
+          "subject_id": 1,
+          "stimulus_id": "Dummy_1",
+          "label": 0,
+          "eeg_shape": [
+            32,
+            640
+          ],
+          "eeg_isfinite": true,
+          "eeg_mean": 3.7834979593753815e-08,
+          "eeg_std": 1.000024437904358,
+          "emg_shape": [
+            2,
+            10000
+          ],
+          "emg_isfinite": true,
+          "emg_mean": -7.575750693433747e-09,
+          "emg_std": 1.0000247955322266
+        },
+        {
+          "index": 1,
+          "subject_id": 1,
+          "stimulus_id": "3053",
+          "label": 0,
+          "eeg_shape": [
+            32,
+            640
+          ],
+          "eeg_isfinite": true,
+          "eeg_mean": 2.9802322831784522e-09,
+          "eeg_std": 1.000024437904358,
+          "emg_shape": [
+            2,
+            10000
+          ],
+          "emg_isfinite": true,
+          "emg_mean": -1.0251999249533128e-09,
+          "emg_std": 1.0000252723693848
+        },
+        {
+          "index": 2,
+          "subject_id": 1,
+          "stimulus_id": "Tumor_1",
+          "label": 0,
+          "eeg_shape": [
+            32,
+            640
+          ],
+          "eeg_isfinite": true,
+          "eeg_mean": 8.568167508826718e-09,
+          "eeg_std": 1.000024437904358,
+          "emg_shape": [
+            2,
+            10000
+          ],
+          "emg_isfinite": true,
+          "emg_mean": 1.771450008902775e-08,
+          "emg_std": 1.0000263452529907
+        },
+        {
+          "index": 3,
+          "subject_id": 1,
+          "stimulus_id": "Dog_18",
+          "label": 1,
+          "eeg_shape": [
+            32,
+            640
+          ],
+          "eeg_isfinite": true,
+          "eeg_mean": 5.995389074087143e-09,
+          "eeg_std": 1.000024437904358,
+          "emg_shape": [
+            2,
+            10000
+          ],
+          "emg_isfinite": true,
+          "emg_mean": 3.6478042808596456e-09,
+          "emg_std": 1.0000241994857788
+        },
+        {
+          "index": 4,
+          "subject_id": 1,
+          "stimulus_id": "Miserable_pose_3",
+          "label": 0,
+          "eeg_shape": [
+            32,
+            640
+          ],
+          "eeg_isfinite": true,
+          "eeg_mean": 3.0151567909086907e-09,
+          "eeg_std": 1.000024437904358,
+          "emg_shape": [
+            2,
+            10000
+          ],
+          "emg_isfinite": true,
+          "emg_mean": 1.9073485846288207e-10,
+          "emg_std": 1.0000249147415161
+        },
+        {
+          "index": 5,
+          "subject_id": 1,
+          "stimulus_id": "Garbage_dump_6",
+          "label": 0,
+          "eeg_shape": [
+            32,
+            640
+          ],
+          "eeg_isfinite": true,
+          "eeg_mean": 5.4249539971351624e-08,
+          "eeg_std": 1.000024437904358,
+          "emg_shape": [
+            2,
+            10000
+          ],
+          "emg_isfinite": true,
+          "emg_mean": -2.342462446236482e-09,
+          "emg_std": 1.0000253915786743
+        },
+        {
+          "index": 6,
+          "subject_id": 1,
+          "stimulus_id": "Depressed_pose_4",
+          "label": 0,
+          "eeg_shape": [
+            32,
+            640
+          ],
+          "eeg_isfinite": true,
+          "eeg_mean": 1.9825529662398367e-08,
+          "eeg_std": 1.0000243186950684,
+          "emg_shape": [
+            2,
+            10000
+          ],
+          "emg_isfinite": true,
+          "emg_mean": 1.0097027214328591e-08,
+          "emg_std": 1.0000250339508057
+        },
+        {
+          "index": 7,
+          "subject_id": 1,
+          "stimulus_id": "Dog_26",
+          "label": 0,
+          "eeg_shape": [
+            32,
+            640
+          ],
+          "eeg_isfinite": true,
+          "eeg_mean": 1.706648689037138e-08,
+          "eeg_std": 1.000024437904358,
+          "emg_shape": [
+            2,
+            10000
+          ],
+          "emg_isfinite": true,
+          "emg_mean": 2.5391577729294568e-09,
+          "emg_std": 1.0000252723693848
+        }
+      ],
+      "batch_summary": {
+        "eeg_shape": [
+          4,
+          32,
+          640
+        ],
+        "emg_shape": [
+          4,
+          2,
+          10000
+        ],
+        "label_shape": [
+          4
+        ],
+        "label_values": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "eeg_isfinite": true,
+        "emg_isfinite": true
+      },
+      "issues": [],
+      "warnings": [],
+      "status": "PASSED"
+    },
+    "arousal": {
+      "task": "arousal",
+      "return_mode": "both",
+      "n_rows": 1799,
+      "n_subjects": 63,
+      "label_counts": {
+        "0": 1112,
+        "1": 687
+      },
+      "checked_items": [
+        {
+          "index": 0,
+          "subject_id": 1,
+          "stimulus_id": "Dummy_1",
+          "label": 0,
+          "eeg_shape": [
+            32,
+            640
+          ],
+          "eeg_isfinite": true,
+          "eeg_mean": 3.7834979593753815e-08,
+          "eeg_std": 1.000024437904358,
+          "emg_shape": [
+            2,
+            10000
+          ],
+          "emg_isfinite": true,
+          "emg_mean": -7.575750693433747e-09,
+          "emg_std": 1.0000247955322266
+        },
+        {
+          "index": 1,
+          "subject_id": 1,
+          "stimulus_id": "3053",
+          "label": 1,
+          "eeg_shape": [
+            32,
+            640
+          ],
+          "eeg_isfinite": true,
+          "eeg_mean": 2.9802322831784522e-09,
+          "eeg_std": 1.000024437904358,
+          "emg_shape": [
+            2,
+            10000
+          ],
+          "emg_isfinite": true,
+          "emg_mean": -1.0251999249533128e-09,
+          "emg_std": 1.0000252723693848
+        },
+        {
+          "index": 2,
+          "subject_id": 1,
+          "stimulus_id": "Dog_18",
+          "label": 0,
+          "eeg_shape": [
+            32,
+            640
+          ],
+          "eeg_isfinite": true,
+          "eeg_mean": 5.995389074087143e-09,
+          "eeg_std": 1.000024437904358,
+          "emg_shape": [
+            2,
+            10000
+          ],
+          "emg_isfinite": true,
+          "emg_mean": 3.6478042808596456e-09,
+          "emg_std": 1.0000241994857788
+        },
+        {
+          "index": 3,
+          "subject_id": 1,
+          "stimulus_id": "Pinecone_1",
+          "label": 0,
+          "eeg_shape": [
+            32,
+            640
+          ],
+          "eeg_isfinite": true,
+          "eeg_mean": 1.90921123355281e-09,
+          "eeg_std": 1.000024437904358,
+          "emg_shape": [
+            2,
+            10000
+          ],
+          "emg_isfinite": true,
+          "emg_mean": 2.145767119543507e-09,
+          "emg_std": 1.0000262260437012
+        },
+        {
+          "index": 4,
+          "subject_id": 1,
+          "stimulus_id": "Garbage_dump_6",
+          "label": 1,
+          "eeg_shape": [
+            32,
+            640
+          ],
+          "eeg_isfinite": true,
+          "eeg_mean": 5.4249539971351624e-08,
+          "eeg_std": 1.000024437904358,
+          "emg_shape": [
+            2,
+            10000
+          ],
+          "emg_isfinite": true,
+          "emg_mean": -2.342462446236482e-09,
+          "emg_std": 1.0000253915786743
+        },
+        {
+          "index": 5,
+          "subject_id": 1,
+          "stimulus_id": "Depressed_pose_4",
+          "label": 0,
+          "eeg_shape": [
+            32,
+            640
+          ],
+          "eeg_isfinite": true,
+          "eeg_mean": 1.9825529662398367e-08,
+          "eeg_std": 1.0000243186950684,
+          "emg_shape": [
+            2,
+            10000
+          ],
+          "emg_isfinite": true,
+          "emg_mean": 1.0097027214328591e-08,
+          "emg_std": 1.0000250339508057
+        },
+        {
+          "index": 6,
+          "subject_id": 1,
+          "stimulus_id": "Angry_face_1",
+          "label": 0,
+          "eeg_shape": [
+            32,
+            640
+          ],
+          "eeg_isfinite": true,
+          "eeg_mean": -8.288770558806391e-09,
+          "eeg_std": 1.000024437904358,
+          "emg_shape": [
+            2,
+            10000
+          ],
+          "emg_isfinite": true,
+          "emg_mean": 6.258487617039066e-10,
+          "emg_std": 1.0000251531600952
+        },
+        {
+          "index": 7,
+          "subject_id": 1,
+          "stimulus_id": "Dog_26",
+          "label": 1,
+          "eeg_shape": [
+            32,
+            640
+          ],
+          "eeg_isfinite": true,
+          "eeg_mean": 1.706648689037138e-08,
+          "eeg_std": 1.000024437904358,
+          "emg_shape": [
+            2,
+            10000
+          ],
+          "emg_isfinite": true,
+          "emg_mean": 2.5391577729294568e-09,
+          "emg_std": 1.0000252723693848
+        }
+      ],
+      "batch_summary": {
+        "eeg_shape": [
+          4,
+          32,
+          640
+        ],
+        "emg_shape": [
+          4,
+          2,
+          10000
+        ],
+        "label_shape": [
+          4
+        ],
+        "label_values": [
+          0,
+          1,
+          0,
+          0
+        ],
+        "eeg_isfinite": true,
+        "emg_isfinite": true
+      },
+      "issues": [],
+      "warnings": [],
+      "status": "PASSED"
+    }
+  },
+  "issues": [],
+  "warnings": []
+}
