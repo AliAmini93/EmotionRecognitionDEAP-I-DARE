@@ -502,3 +502,70 @@ max-runs = 4
 ```
 
 Only after reviewing that smoke should any broader stabilization run be considered.
+
+## Valence Aggregate Threshold Comparison Smoke
+
+After the arousal aggregate threshold comparison, a matching tiny valence smoke was run to check whether threshold calibration shows the same pattern.
+
+Configuration:
+
+```text
+task = valence
+label_policy = midpoint_as_high
+recipes = ce_class_weighted, balanced_sampler_ce
+lr = 3e-4
+weight_decay = 1e-3
+epochs = 2
+folds = 6
+seed = 11
+max_runs = 4
+```
+
+This remained cache-only and did not use raw MATLAB/HDF5 `.mat` loading inside training loops.
+
+### Argmax aggregate
+
+| Recipe | Runs | Argmax macro F1 | Argmax balanced acc | Argmax accuracy | One-class final runs |
+|---|---:|---:|---:|---:|---:|
+| `balanced_sampler_ce` | 2 | `0.4404` | `0.5040` | `0.5739` | `0/2` |
+| `ce_class_weighted` | 2 | `0.4142` | `0.5090` | `0.5298` | `0/2` |
+
+### Aggregate threshold diagnostics
+
+| Recipe | Runs | Threshold macro F1 | Threshold balanced acc | Mean threshold | Macro F1 gain | Balanced acc gain | Threshold one-class runs |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| `balanced_sampler_ce` | 2 | `0.4404` | `0.5040` | `0.5000` | `0.0000` | `0.0000` | `0/2` |
+| `ce_class_weighted` | 2 | `0.4142` | `0.5090` | `0.5000` | `0.0000` | `0.0000` | `0/2` |
+
+### Interpretation
+
+Unlike arousal, threshold calibration did not improve valence in this smoke.
+
+Current smoke-level conclusion:
+
+- For valence, best thresholds remained at `0.50` for both recipes.
+- Threshold macro F1 and threshold balanced accuracy were identical to argmax metrics.
+- The main remaining issue is not threshold calibration; it is fold/class-bias instability.
+- Fold 2 remains near-collapse toward class 1:
+  - `ce_class_weighted`: pred_counts = `{"0": 3, "1": 349}`
+  - `balanced_sampler_ce`: pred_counts = `{"0": 1, "1": 351}`
+
+This is still diagnostic only and should not be reported as final model performance.
+
+### Updated Recommendation
+
+Do not run a full experiment yet.
+
+The next technical step for valence should focus on fold/class-bias diagnostics rather than threshold calibration.
+
+A reasonable next smoke direction is to keep the same cache-based path and inspect whether the near-collapse behavior is driven by:
+
+```text
+fold-specific label distribution
+subject composition
+training prediction distribution
+validation probability compression
+sampler-induced class bias
+```
+
+Any such follow-up must remain smoke-first, for example using `--max-runs 2` or `--max-runs 4`, before any broader stabilization run is considered.
