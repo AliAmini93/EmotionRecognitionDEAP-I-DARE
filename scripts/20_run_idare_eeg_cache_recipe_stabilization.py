@@ -75,6 +75,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--cache-index", type=Path, default=DEFAULT_CACHE_INDEX)
     parser.add_argument("--out-md", type=Path, default=DEFAULT_OUT_MD)
     parser.add_argument("--out-json", type=Path, default=DEFAULT_OUT_JSON)
+    parser.add_argument(
+        "--out-predictions-csv",
+        type=Path,
+        default=None,
+        help="Optional CSV path for final validation per-sample predictions.",
+    )
     parser.add_argument("--tasks", nargs="+", default=["valence"], choices=sorted(VALID_TASKS))
     parser.add_argument("--label-policy", default="midpoint_as_high", choices=sorted(VALID_POLICIES))
     parser.add_argument(
@@ -405,12 +411,14 @@ def eval_model(
     *,
     device: torch.device,
     criterion: torch.nn.Module,
+    collect_predictions: bool = False,
 ) -> dict[str, Any]:
     model.eval()
     y_true: list[int] = []
     y_pred: list[int] = []
     prob1_values: list[float] = []
     logit_margin_values: list[float] = []
+    prediction_rows: list[dict[str, Any]] = []
     loss_sum = 0.0
     n_seen = 0
 
@@ -430,10 +438,32 @@ def eval_model(
             loss_sum += float(loss.item()) * batch_n
             n_seen += batch_n
 
-            y_true.extend(int(v) for v in y.detach().cpu().tolist())
-            y_pred.extend(int(v) for v in pred.detach().cpu().tolist())
-            prob1_values.extend(float(v) for v in prob1.detach().cpu().tolist())
-            logit_margin_values.extend(float(v) for v in margin.detach().cpu().tolist())
+            y_cpu = [int(v) for v in y.detach().cpu().tolist()]
+            pred_cpu = [int(v) for v in pred.detach().cpu().tolist()]
+            prob1_cpu = [float(v) for v in prob1.detach().cpu().tolist()]
+            margin_cpu = [float(v) for v in margin.detach().cpu().tolist()]
+
+            y_true.extend(y_cpu)
+            y_pred.extend(pred_cpu)
+            prob1_values.extend(prob1_cpu)
+            logit_margin_values.extend(margin_cpu)
+
+            if collect_predictions:
+                cache_rows = [int(v) for v in batch["cache_row"]]
+                subject_ids = [int(v) for v in batch["subject_id"]]
+                stimulus_ids = [str(v) for v in batch["stimulus_id"]]
+                for i in range(len(y_cpu)):
+                    prediction_rows.append(
+                        {
+                            "cache_row": cache_rows[i],
+                            "subject_id": subject_ids[i],
+                            "stimulus_id": stimulus_ids[i],
+                            "y_true": y_cpu[i],
+                            "y_pred": pred_cpu[i],
+                            "prob1": prob1_cpu[i],
+                            "logit_margin": margin_cpu[i],
+                        }
+                    )
 
     metrics = binary_metrics(y_true, y_pred)
     metrics["loss_mean"] = safe_div(loss_sum, n_seen)
@@ -441,6 +471,8 @@ def eval_model(
     metrics["prob1_summary"] = numeric_summary(prob1_values)
     metrics["logit_margin_summary"] = numeric_summary(logit_margin_values)
     metrics["threshold_sweep"] = threshold_sweep_from_probs(y_true, prob1_values)
+    if collect_predictions:
+        metrics["prediction_rows"] = prediction_rows
     return metrics
 
 
@@ -456,6 +488,7 @@ def train_one(
     weight_decay: float,
     grad_clip: float,
     num_workers: int,
+    collect_final_predictions: bool = False,
 ) -> dict[str, Any]:
     set_seed(spec.seed)
     start = time.perf_counter()
@@ -588,6 +621,14 @@ def train_one(
                 best_epoch = epoch
 
     final_metrics = epoch_records[-1]["val"]
+    if collect_final_predictions:
+        final_metrics = eval_model(
+            model,
+            val_loader,
+            device=device,
+            criterion=eval_criterion,
+            collect_predictions=True,
+        )
     assert best_metrics is not None
 
     duration_sec = time.perf_counter() - start
@@ -966,6 +1007,7 @@ def main() -> None:
     print(f"[INFO] device={device}")
 
     runs: list[dict[str, Any]] = []
+    prediction_rows: list[dict[str, Any]] = []
 
     for spec in specs:
         print(
@@ -993,7 +1035,25 @@ def main() -> None:
             weight_decay=args.weight_decay,
             grad_clip=args.grad_clip,
             num_workers=args.num_workers,
+            collect_final_predictions=bool(args.out_predictions_csv),
         )
+
+        if args.out_predictions_csv:
+            rows = run["final"].pop("prediction_rows", [])
+            for row in rows:
+                prediction_rows.append(
+                    {
+                        "run_id": run["run_id"],
+                        "task": run["task"],
+                        "policy": run["policy"],
+                        "recipe": run["recipe"],
+                        "sampler": run.get("sampler"),
+                        "fold_id": run["fold_id"],
+                        "seed": run["seed"],
+                        **row,
+                    }
+                )
+
         runs.append(run)
 
         final = run["final"]
@@ -1038,6 +1098,7 @@ def main() -> None:
             "num_workers": int(args.num_workers),
             "max_runs": int(args.max_runs),
             "device": str(device),
+            "out_predictions_csv": str(args.out_predictions_csv) if args.out_predictions_csv else None,
         },
         "aggregate": aggregate,
         "runs": runs,
@@ -1045,8 +1106,14 @@ def main() -> None:
 
     write_reports(report, args.out_md, args.out_json)
 
+    if args.out_predictions_csv:
+        args.out_predictions_csv.parent.mkdir(parents=True, exist_ok=True)
+        pd.DataFrame(prediction_rows).to_csv(args.out_predictions_csv, index=False)
+
     print(f"[DONE] wrote {args.out_md}")
     print(f"[DONE] wrote {args.out_json}")
+    if args.out_predictions_csv:
+        print(f"[DONE] wrote {args.out_predictions_csv}")
 
 
 if __name__ == "__main__":

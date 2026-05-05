@@ -73,3 +73,10 @@ After threshold-sweep diagnostics showed useful calibration information, script 
 - threshold one-class count
 
 This reporting is diagnostic only and does not justify a full experiment by itself.
+
+
+## Added Per-Sample Prediction Export
+
+Script 20 can optionally export final validation per-sample predictions with `--out-predictions-csv`.
+
+This is intended for fold/class-bias diagnostics only. It should be used first with tiny smoke runs such as `--max-runs 2` or `--max-runs 4`, not with a full experiment.
