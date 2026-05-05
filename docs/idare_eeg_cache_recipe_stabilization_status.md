@@ -631,3 +631,4 @@ rather than a trivial label-count imbalance.
 Do not run a full experiment yet.
 
 The next technical step should remain diagnostic and smoke-first. A reasonable next step is to add optional per-sample validation prediction export to script 20, then run a tiny smoke to inspect which subjects/stimuli drive fold 2 class-1 bias.
+
