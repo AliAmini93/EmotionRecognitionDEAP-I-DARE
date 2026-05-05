@@ -569,3 +569,65 @@ sampler-induced class bias
 ```
 
 Any such follow-up must remain smoke-first, for example using `--max-runs 2` or `--max-runs 4`, before any broader stabilization run is considered.
+
+## Valence Fold-Bias Diagnostic
+
+A cache-index and smoke-JSON diagnostic was added:
+
+```text
+scripts/21_analyze_idare_valence_fold_bias_diagnostics.py
+```
+
+Outputs:
+
+```text
+docs/idare_valence_fold_bias_diagnostics.md
+docs/idare_valence_fold_bias_diagnostics.json
+```
+
+This diagnostic does not train a model and does not load raw MATLAB/HDF5 `.mat` files. It reads only:
+
+```text
+.cache/idare_eeg_cache_index.csv
+docs/idare_eeg_cache_recipe_stabilization_valence_threshold_aggregate_compare_smoke.json
+```
+
+### Key finding
+
+Valence fold 1 and fold 2 have identical aggregate label counts in the smoke:
+
+```text
+train counts = {"0": 671, "1": 993}
+val counts   = {"0": 141, "1": 211}
+```
+
+Therefore, the fold 2 near-collapse toward class 1 is not explained by simple train/validation label imbalance.
+
+### Fold behavior
+
+| Fold | Recipe | Pred 0 | Pred 1 | P1 mean | P1 median | Macro F1 | Balanced acc |
+|---:|---|---:|---:|---:|---:|---:|---:|
+| 1 | `ce_class_weighted` | `274` | `78` | `0.4909` | `0.4911` | `0.4394` | `0.5133` |
+| 1 | `balanced_sampler_ce` | `103` | `249` | `0.5146` | `0.5194` | `0.4982` | `0.5044` |
+| 2 | `ce_class_weighted` | `3` | `349` | `0.5235` | `0.5234` | `0.3889` | `0.5047` |
+| 2 | `balanced_sampler_ce` | `1` | `351` | `0.5294` | `0.5300` | `0.3825` | `0.5035` |
+
+### Interpretation
+
+The valence fold 2 issue is more likely related to:
+
+```text
+subject composition
+fold-specific learned boundary
+probability/logit bias
+sampler-induced class bias
+validation probability compression
+```
+
+rather than a trivial label-count imbalance.
+
+### Updated Recommendation
+
+Do not run a full experiment yet.
+
+The next technical step should remain diagnostic and smoke-first. A reasonable next step is to add optional per-sample validation prediction export to script 20, then run a tiny smoke to inspect which subjects/stimuli drive fold 2 class-1 bias.
