@@ -1156,3 +1156,108 @@ A future technical step may build a separate baseline-corrected I-DARE EEG cache
 Any baseline-corrected cache must be smoke-tested first, preferably on arousal only, because arousal is currently the more promising task.
 
 Do not jump directly to a full LOSO/final run.
+
+## Baseline-Corrected I-DARE EEG Cache Builder Smoke
+
+Checkpoint commit before this status update:
+
+```text
+d72f878 exp: add baseline corrected I-DARE EEG cache builder smoke
+```
+
+A separate baseline-corrected I-DARE EEG cache builder was added:
+
+```text
+scripts/23_build_idare_eeg_baseline_corrected_cache.py
+```
+
+The builder is intentionally separate from the original cache builder and does not overwrite the existing cache.
+
+### Smoke build
+
+Smoke output files:
+
+```text
+docs/idare_eeg_baseline_corrected_cache_build_smoke.md
+docs/idare_eeg_baseline_corrected_cache_build_smoke.json
+```
+
+Smoke cache files were generated locally only and should not be committed:
+
+```text
+.cache/idare_eeg_windows_32x640_float32_baseline_corrected_smoke.npy
+.cache/idare_eeg_cache_index_baseline_corrected_smoke.csv
+```
+
+Smoke command used a small limit:
+
+```text
+--limit 64
+```
+
+### Smoke result
+
+The smoke build passed.
+
+```text
+Status: PASSED
+Rows extracted: 64 / 64
+Issues: 0
+Warnings: 0
+Cache shape: [64, 32, 640]
+Cache dtype: float32
+Cache size: 5.00 MB
+```
+
+Array sanity:
+
+```text
+global_mean ≈ 0
+global_std = 1.0
+```
+
+### Baseline-correction policy implemented
+
+For each `STIM_<id>` event:
+
+```text
+1. locate matching immediately preceding `BSL_<id>`
+2. extract STIM and BSL windows from the same subject EEG file
+3. downsample 512Hz -> 128Hz with stride 4
+4. subtract BSL per-channel mean from STIM
+5. apply per-trial global z-score
+```
+
+The cache index includes baseline-specific metadata columns such as:
+
+```text
+bsl_raw_event_name
+bsl_eeg_begin_raw
+stim_event_index_0based
+bsl_event_index_0based
+baseline_correction
+diag_baseline_mean_global
+diag_baseline_mean_abs_mean
+diag_corrected_mean_before_zscore
+diag_corrected_std_before_zscore
+```
+
+### Interpretation
+
+The baseline-corrected cache builder is now smoke-tested and ready for the next guarded step.
+
+The full baseline-corrected cache has not been built yet.
+
+### Recommended next action
+
+Next step should be a full cache build only, not training yet:
+
+```text
+Build the separate full baseline-corrected I-DARE EEG cache.
+Validate the full baseline-corrected cache.
+Then run one tiny arousal-only smoke using the baseline-corrected cache.
+```
+
+Do not overwrite the original cache.
+
+Do not run a full LOSO/final experiment yet.
