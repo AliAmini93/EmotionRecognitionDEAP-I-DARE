@@ -1,0 +1,243 @@
+{
+  "status": "PASSED",
+  "environment": {
+    "device": "cuda",
+    "torch_version": "2.11.0+cu128",
+    "cuda_available": true,
+    "cuda_device_name": "NVIDIA GeForce RTX 5090",
+    "seed": 7,
+    "batch_size": 4
+  },
+  "tasks": [
+    {
+      "task": "valence",
+      "status": "PASSED",
+      "device": "cuda",
+      "dataset_rows_after_score5_discard": 1667,
+      "subjects": 63,
+      "label_counts": {
+        "0": 812,
+        "1": 855
+      },
+      "batch": {
+        "eeg_shape": [
+          4,
+          32,
+          640
+        ],
+        "label_shape": [
+          4
+        ],
+        "label_values": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "subject_ids": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "stimulus_ids": [
+          "Dummy_1",
+          "3053",
+          "Tumor_1",
+          "Dog_18"
+        ],
+        "eeg_isfinite": true,
+        "eeg_mean": 1.4901161193847656e-08,
+        "eeg_std": 1.000006079673767
+      },
+      "model": {
+        "class": "EEGSegmentClassifier",
+        "variant": "v1-lite",
+        "trainable_parameters": 337955,
+        "input_shape": [
+          4,
+          32,
+          640
+        ],
+        "logits_shape": [
+          4,
+          2
+        ],
+        "loss_before_step": 0.7549957633018494,
+        "loss_after_one_step": 0.5620092153549194,
+        "grad_global_norm": 4.064231687469075,
+        "aux_tensor_summary": {
+          "z": {
+            "shape": [
+              4,
+              128
+            ],
+            "dtype": "torch.float32",
+            "isfinite": true
+          },
+          "temporal_attn": {
+            "shape": [
+              4,
+              32,
+              320
+            ],
+            "dtype": "torch.float32",
+            "isfinite": true
+          },
+          "channel_pool_attn": {
+            "shape": [
+              4,
+              32
+            ],
+            "dtype": "torch.float32",
+            "isfinite": true
+          },
+          "channel_mha_attn": {
+            "shape": [
+              4,
+              2,
+              32,
+              32
+            ],
+            "dtype": "torch.float32",
+            "isfinite": true
+          },
+          "logits": {
+            "shape": [
+              4,
+              2
+            ],
+            "dtype": "torch.float32",
+            "isfinite": true
+          },
+          "z_proj": {
+            "shape": [
+              4,
+              64
+            ],
+            "dtype": "torch.float32",
+            "isfinite": true
+          }
+        }
+      },
+      "issues": [],
+      "warnings": []
+    },
+    {
+      "task": "arousal",
+      "status": "PASSED",
+      "device": "cuda",
+      "dataset_rows_after_score5_discard": 1799,
+      "subjects": 63,
+      "label_counts": {
+        "0": 1112,
+        "1": 687
+      },
+      "batch": {
+        "eeg_shape": [
+          4,
+          32,
+          640
+        ],
+        "label_shape": [
+          4
+        ],
+        "label_values": [
+          0,
+          1,
+          0,
+          0
+        ],
+        "subject_ids": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "stimulus_ids": [
+          "Dummy_1",
+          "3053",
+          "Dog_18",
+          "Pinecone_1"
+        ],
+        "eeg_isfinite": true,
+        "eeg_mean": 1.415610295651959e-08,
+        "eeg_std": 1.000006079673767
+      },
+      "model": {
+        "class": "EEGSegmentClassifier",
+        "variant": "v1-lite",
+        "trainable_parameters": 337955,
+        "input_shape": [
+          4,
+          32,
+          640
+        ],
+        "logits_shape": [
+          4,
+          2
+        ],
+        "loss_before_step": 0.6223983764648438,
+        "loss_after_one_step": 0.5857142806053162,
+        "grad_global_norm": 3.6561265711546853,
+        "aux_tensor_summary": {
+          "z": {
+            "shape": [
+              4,
+              128
+            ],
+            "dtype": "torch.float32",
+            "isfinite": true
+          },
+          "temporal_attn": {
+            "shape": [
+              4,
+              32,
+              320
+            ],
+            "dtype": "torch.float32",
+            "isfinite": true
+          },
+          "channel_pool_attn": {
+            "shape": [
+              4,
+              32
+            ],
+            "dtype": "torch.float32",
+            "isfinite": true
+          },
+          "channel_mha_attn": {
+            "shape": [
+              4,
+              2,
+              32,
+              32
+            ],
+            "dtype": "torch.float32",
+            "isfinite": true
+          },
+          "logits": {
+            "shape": [
+              4,
+              2
+            ],
+            "dtype": "torch.float32",
+            "isfinite": true
+          },
+          "z_proj": {
+            "shape": [
+              4,
+              64
+            ],
+            "dtype": "torch.float32",
+            "isfinite": true
+          }
+        }
+      },
+      "issues": [],
+      "warnings": []
+    }
+  ],
+  "issues": [],
+  "warnings": []
+}
