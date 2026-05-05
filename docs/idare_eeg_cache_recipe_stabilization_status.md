@@ -754,3 +754,106 @@ arousal:
 
 valence:
   fold-level probability offset/class-bias is the main issue.
+
+## Valence Train-vs-Validation Probability Shift Diagnostic
+
+Script 20 was extended to record final train-set probability diagnostics alongside validation diagnostics.
+
+A tiny valence smoke was run with:
+
+```text
+task = valence
+label_policy = midpoint_as_high
+recipes = ce_class_weighted, balanced_sampler_ce
+lr = 3e-4
+weight_decay = 1e-3
+epochs = 2
+folds = 6
+seed = 11
+max_runs = 4
+```
+
+Outputs:
+
+```text
+docs/idare_valence_train_val_probability_shift_smoke.md
+docs/idare_valence_train_val_probability_shift_smoke.json
+```
+
+This remained cache-only and did not use raw MATLAB/HDF5 `.mat` loading inside training loops.
+
+### Train-vs-validation probability summary
+
+| Run | Recipe | Fold | Train pred 0 | Train pred 1 | Val pred 0 | Val pred 1 | Train P1 mean | Val P1 mean | Mean shift | Train P1 median | Val P1 median | Median shift |
+|---:|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 1 | `ce_class_weighted` | 1 | `1309` | `355` | `274` | `78` | `0.4901` | `0.4909` | `+0.0008` | `0.4910` | `0.4911` | `+0.0001` |
+| 2 | `balanced_sampler_ce` | 1 | `420` | `1244` | `103` | `249` | `0.5174` | `0.5146` | `-0.0028` | `0.5236` | `0.5194` | `-0.0042` |
+| 3 | `ce_class_weighted` | 2 | `109` | `1555` | `3` | `349` | `0.5200` | `0.5235` | `+0.0035` | `0.5205` | `0.5234` | `+0.0028` |
+| 4 | `balanced_sampler_ce` | 2 | `29` | `1635` | `1` | `351` | `0.5296` | `0.5294` | `-0.0002` | `0.5308` | `0.5300` | `-0.0008` |
+
+### Key finding
+
+The valence fold 2 near-collapse is not a validation-only shift.
+
+For fold 2, both recipes are already strongly biased toward class 1 on the training set:
+
+```text
+ce_class_weighted / fold 2:
+  train pred_counts = {"0": 109, "1": 1555}
+  val pred_counts   = {"0": 3, "1": 349}
+
+balanced_sampler_ce / fold 2:
+  train pred_counts = {"0": 29, "1": 1635}
+  val pred_counts   = {"0": 1, "1": 351}
+```
+
+The train/validation probability shifts are small:
+
+```text
+ce_class_weighted / fold 2:
+  val_mean - train_mean = +0.0035
+
+balanced_sampler_ce / fold 2:
+  val_mean - train_mean = -0.0002
+```
+
+### Interpretation
+
+The current evidence suggests that valence fold 2 near-collapse is a learned boundary / recipe bias toward class 1, not:
+
+```text
+simple label imbalance
+a single-subject issue
+validation-only probability shift
+```
+
+This makes threshold calibration less useful for valence, because the probability distribution is already compressed close to and above `0.50` on both train and validation.
+
+### Updated Recommendation
+
+Do not run a full experiment yet.
+
+The next technical step should remain smoke-first and should test one small mitigation at a time against this learned class-1 boundary bias.
+
+Reasonable next smoke directions:
+
+```text
+1. Reduce class-1 bias with a stronger or different class-balancing mechanism.
+2. Compare class-weighted CE against balanced sampler using train-vs-val diagnostics.
+3. Try one mild regularization/calibration change at a time.
+4. Add a small diagnostic for train-set per-class recall / prediction collapse.
+```
+
+Any next run should stay tiny first, for example:
+
+```text
+--max-runs 2
+--epochs 2
+```
+
+or at most the existing diagnostic scope:
+
+```text
+--max-runs 4
+--epochs 2
+```
