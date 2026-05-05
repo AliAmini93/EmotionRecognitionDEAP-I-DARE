@@ -343,3 +343,53 @@ git log --oneline -5
 ## Last Updated
 
 2026-05-04
+
+<!-- BEGIN EEG_CACHE_RECIPE_STABILIZATION_HANDOFF_2026_05_05 -->
+## EEG Cache Recipe Stabilization Update
+
+Latest checkpoint for this handoff:
+
+```text
+7586c99 docs: summarize EEG cache recipe stabilization phase
+```
+
+Main summary document:
+
+```text
+docs/idare_eeg_cache_recipe_stabilization_summary.md
+```
+
+Main cache-based stabilization runner:
+
+```text
+scripts/20_run_idare_eeg_cache_recipe_stabilization.py
+```
+
+Current hard constraints remain:
+
+- Use EEG cache only:
+  - `.cache/idare_eeg_windows_32x640_float32.npy`
+  - `.cache/idare_eeg_cache_index.csv`
+- Cache shape is `[2016, 32, 640]`.
+- Do not load raw MATLAB/HDF5 `.mat` files inside training loops.
+- Current main label policy remains `midpoint_as_high`.
+- Every new script/training recipe/experiment runner must be smoke-tested first.
+- Do not launch a full LOSO/final/full experiment from the current recipes.
+
+Recipe-stabilization findings:
+
+- `arousal` is more promising than `valence`.
+- Best small-scope arousal direction observed: `balanced_sampler_ce` plus threshold diagnostics.
+- Valence remains unstable and appears dominated by fold-sensitive learned boundary behavior near `0.50`.
+- `lr=3e-4` on valence fold 2 drifted strongly toward class 1.
+- `lr=1e-4` on valence fold 2 reversed the bias toward class 0 rather than solving stability.
+- `ce_label_smoothing_0p05` is non-promising and should not be expanded.
+- Threshold diagnostics are useful for analysis, especially arousal, but are not yet a final evaluation policy.
+
+Recommended next work:
+
+1. Prefer documentation/handoff closeout before more recipe exploration.
+2. If one more technical diagnostic is needed, add per-class train/validation recall aggregates to script 20 reports.
+3. Any next technical command must remain tiny and smoke-first, for example `--max-runs 2 --epochs 2`.
+4. Do not run a broader/full experiment until smoke diagnostics are reviewed and a stable recipe is selected.
+<!-- END EEG_CACHE_RECIPE_STABILIZATION_HANDOFF_2026_05_05 -->

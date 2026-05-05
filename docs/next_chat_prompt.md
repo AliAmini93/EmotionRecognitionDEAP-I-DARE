@@ -109,3 +109,66 @@ Do not jump into training yet. First:
 
 Important local issue:
 /mnt/HDD is currently not a separate mount. It is on the root filesystem. There is around 500GB free space, but before downloading large datasets, confirm whether this is acceptable.
+
+<!-- BEGIN EEG_CACHE_RECIPE_STABILIZATION_HANDOFF_2026_05_05 -->
+## Current Next-Chat Prompt Addendum
+
+Continue the `EmotionRecognitionDEAP-I-DARE` project from the current repository state.
+
+Latest known commit after EEG cache recipe stabilization summary:
+
+```text
+7586c99 docs: summarize EEG cache recipe stabilization phase
+```
+
+Before proposing any new experiment, training recipe, or script, first verify that project context files were read.
+
+Important context files to inspect:
+
+```bash
+git status --short
+git log --oneline -10
+
+sed -n '1,260p' docs/new_chat_start_protocol.md
+sed -n '1,260p' docs/project_state.md
+sed -n '1,260p' docs/chat_handoff_latest.md
+sed -n '1,260p' docs/next_chat_prompt.md
+sed -n '1,320p' docs/idare_eeg_cache_recipe_stabilization_summary.md
+sed -n '1,260p' docs/idare_eeg_cache_recipe_stabilization_status.md
+```
+
+Facts the next assistant must preserve:
+
+1. The project is smoke-first.
+2. Do not run a full LOSO/final/full experiment yet.
+3. Do not load raw MATLAB/HDF5 `.mat` files inside training loops.
+4. Use EEG cache only:
+   - `.cache/idare_eeg_windows_32x640_float32.npy`
+   - `.cache/idare_eeg_cache_index.csv`
+5. Cache shape is `[2016, 32, 640]`.
+6. Current main label policy is `midpoint_as_high`.
+7. `discard_midpoint` remains a documented secondary sanity/ablation candidate, not the main policy.
+8. The current main phase is cache-based EEG training-recipe stabilization / closeout.
+
+Current stabilization findings:
+
+- Arousal is more promising than valence.
+- Arousal's best current diagnostic direction is `balanced_sampler_ce` plus threshold diagnostics.
+- Valence remains unstable with fold-sensitive learned boundary behavior near `0.50`.
+- Valence `lr=3e-4` fold 2 drifted mostly to class 1.
+- Valence `lr=1e-4` fold 2 drifted mostly to class 0.
+- `ce_label_smoothing_0p05` is non-promising and should not be expanded.
+- Threshold diagnostics are useful but are not a final evaluation policy.
+
+Recommended next action:
+
+- Prefer closing handoff/project-state docs.
+- If doing one more technical item, add per-class train/validation recall aggregate diagnostics to script 20.
+- Any next technical change must be tested first with a tiny smoke command such as:
+
+```bash
+--max-runs 2 --epochs 2
+```
+
+Do not provide a full-run command until a relevant smoke test passes and the output is reviewed.
+<!-- END EEG_CACHE_RECIPE_STABILIZATION_HANDOFF_2026_05_05 -->

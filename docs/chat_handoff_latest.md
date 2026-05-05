@@ -423,3 +423,46 @@ quadrant_subject
 ```
 
 After the trial index is built, validate label counts for valence/arousal before any training.
+
+<!-- BEGIN EEG_CACHE_RECIPE_STABILIZATION_HANDOFF_2026_05_05 -->
+## Latest Handoff: EEG Cache Recipe Stabilization
+
+Latest known commit:
+
+```text
+7586c99 docs: summarize EEG cache recipe stabilization phase
+```
+
+Important recent files:
+
+```text
+docs/idare_eeg_cache_recipe_stabilization_summary.md
+docs/idare_eeg_cache_recipe_stabilization_status.md
+docs/idare_eeg_cache_recipe_stabilization_plan.md
+scripts/20_run_idare_eeg_cache_recipe_stabilization.py
+```
+
+The stabilization phase is approximately 90-95% complete.
+
+Do not start a full LOSO/final/full run yet.
+
+Current technical read:
+
+- The cache-only path is validated and should remain the only training path.
+- Script 20 supports cache-based smoke diagnostics for recipe stabilization.
+- Arousal is more promising than valence.
+- Arousal's best current small-scope path is `balanced_sampler_ce` with threshold diagnostics.
+- Valence shows fold-sensitive boundary instability near `0.50`.
+- Valence instability is not explained by simple validation-label imbalance or validation-only probability shift.
+- Lowering LR from `3e-4` to `1e-4` did not solve valence; it reversed the bias direction.
+- `ce_label_smoothing_0p05` collapsed to class 1 on valence fold 1 and is not promising.
+- Do not expand label smoothing.
+
+Recommended next step for a new chat:
+
+1. Read the context docs first.
+2. Confirm latest commit is at least `7586c99`.
+3. Treat `docs/idare_eeg_cache_recipe_stabilization_summary.md` as the current phase summary.
+4. If continuing technically, propose only a tiny smoke-tested diagnostic, preferably per-class train/validation recall aggregates in script 20 reports.
+5. Do not propose a full experiment until the smoke-first protocol is satisfied and reviewed.
+<!-- END EEG_CACHE_RECIPE_STABILIZATION_HANDOFF_2026_05_05 -->
