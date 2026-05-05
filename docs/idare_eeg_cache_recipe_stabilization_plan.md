@@ -59,3 +59,17 @@ After the initial `ce_class_weighted` / `ce_no_class_weight` smoke tests, the ne
 - `balanced_sampler_ce`
 
 This recipe uses a weighted random sampler on the training split and standard CrossEntropyLoss. It must remain cache-based and must be tested first with a tiny smoke command before any fuller run is considered.
+
+
+## Added Threshold Aggregate Reporting
+
+After threshold-sweep diagnostics showed useful calibration information, script 20 should report aggregate threshold metrics by recipe:
+
+- best-threshold macro F1
+- best-threshold balanced accuracy
+- mean selected threshold
+- macro F1 gain over argmax
+- balanced accuracy gain over argmax
+- threshold one-class count
+
+This reporting is diagnostic only and does not justify a full experiment by itself.

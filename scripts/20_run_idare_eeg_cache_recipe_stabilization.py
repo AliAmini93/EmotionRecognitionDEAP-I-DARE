@@ -709,6 +709,35 @@ def aggregate_runs(runs: list[dict[str, Any]]) -> list[dict[str, Any]]:
         majority_acc = [float(r["final"]["majority_baseline"]["accuracy"]) for r in group]
         one_class = [bool(r["final"]["one_class_pred"]) for r in group]
 
+        threshold_best_macro_f1 = [
+            float(r["final"]["threshold_sweep"]["best"]["macro_f1"])
+            for r in group
+        ]
+        threshold_best_bal_acc = [
+            float(r["final"]["threshold_sweep"]["best"]["balanced_accuracy"])
+            for r in group
+        ]
+        threshold_best_accuracy = [
+            float(r["final"]["threshold_sweep"]["best"]["accuracy"])
+            for r in group
+        ]
+        threshold_best_values = [
+            float(r["final"]["threshold_sweep"]["best"]["threshold"])
+            for r in group
+        ]
+        threshold_one_class = [
+            bool(r["final"]["threshold_sweep"]["best"]["one_class_pred"])
+            for r in group
+        ]
+        threshold_gain_macro_f1 = [
+            float(r["final"]["threshold_sweep"]["best"]["macro_f1"]) - float(r["final"]["macro_f1"])
+            for r in group
+        ]
+        threshold_gain_bal_acc = [
+            float(r["final"]["threshold_sweep"]["best"]["balanced_accuracy"]) - float(r["final"]["balanced_accuracy"])
+            for r in group
+        ]
+
         rows.append(
             {
                 "task": task,
@@ -722,6 +751,13 @@ def aggregate_runs(runs: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 "best_balanced_accuracy": summarize(best_bal_acc),
                 "majority_accuracy": summarize(majority_acc),
                 "one_class_final_runs": int(sum(1 for v in one_class if v)),
+                "threshold_best_macro_f1": summarize(threshold_best_macro_f1),
+                "threshold_best_balanced_accuracy": summarize(threshold_best_bal_acc),
+                "threshold_best_accuracy": summarize(threshold_best_accuracy),
+                "threshold_best_value": summarize(threshold_best_values),
+                "threshold_one_class_final_runs": int(sum(1 for v in threshold_one_class if v)),
+                "threshold_gain_macro_f1": summarize(threshold_gain_macro_f1),
+                "threshold_gain_balanced_accuracy": summarize(threshold_gain_bal_acc),
             }
         )
 
@@ -785,6 +821,30 @@ def write_reports(report: dict[str, Any], out_md: Path, out_json: Path) -> None:
                 bmf1=fmt(row["best_macro_f1"]["mean"]),
                 one=row["one_class_final_runs"],
                 maj=fmt(row["majority_accuracy"]["mean"]),
+            )
+        )
+
+    lines.append("")
+    lines.append("## Aggregate Threshold Diagnostics")
+    lines.append("")
+    lines.append(
+        "| Task | Policy | Recipe | Runs | Threshold macro F1 | Threshold bal acc | "
+        "Mean threshold | Macro F1 gain | Bal acc gain | Threshold one-class runs |"
+    )
+    lines.append("|---|---|---|---:|---:|---:|---:|---:|---:|---:|")
+    for row in report["aggregate"]:
+        lines.append(
+            "| {task} | {policy} | {recipe} | {runs} | {tmf1} | {tba} | {thr} | {gmf1} | {gba} | {tone} |".format(
+                task=row["task"],
+                policy=row["policy"],
+                recipe=row["recipe"],
+                runs=row["runs"],
+                tmf1=fmt(row["threshold_best_macro_f1"]["mean"]),
+                tba=fmt(row["threshold_best_balanced_accuracy"]["mean"]),
+                thr=fmt(row["threshold_best_value"]["mean"]),
+                gmf1=fmt(row["threshold_gain_macro_f1"]["mean"]),
+                gba=fmt(row["threshold_gain_balanced_accuracy"]["mean"]),
+                tone=row["threshold_one_class_final_runs"],
             )
         )
 
