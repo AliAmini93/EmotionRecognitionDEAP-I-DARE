@@ -105,3 +105,69 @@ Recommended next smoke:
 - keep `--epochs 2`
 
 This should still be treated as a smoke test, not a final or full run.
+
+## Two-Fold Stability Smoke - ce_class_weighted / lr 3e-4
+
+A tiny two-fold stability smoke was run after the initial fold-1 recipe check.
+
+Configuration:
+
+```text
+recipe = ce_class_weighted
+lr = 3e-4
+weight_decay = 1e-3
+epochs = 2
+label_policy = midpoint_as_high
+folds = 6
+seeds = 11
+max_runs = 2 per task
+```
+
+This remained cache-only and did not use raw MATLAB/HDF5 `.mat` loading inside training loops.
+
+### Valence result
+
+| Fold | Macro F1 | Balanced acc | Accuracy | Pred 0 | Pred 1 | One-class |
+|---:|---:|---:|---:|---:|---:|---|
+| 1 | `0.4394` | `0.5133` | `0.4574` | `274` | `78` | false |
+| 2 | `0.3889` | `0.5047` | `0.6023` | `3` | `349` | false |
+
+Aggregate:
+
+```text
+macro F1 = 0.4142
+balanced accuracy = 0.5090
+one-class final runs = 0/2
+```
+
+### Arousal result
+
+| Fold | Macro F1 | Balanced acc | Accuracy | Pred 0 | Pred 1 | One-class |
+|---:|---:|---:|---:|---:|---:|---|
+| 1 | `0.4725` | `0.4748` | `0.5142` | `235` | `117` | false |
+| 2 | `0.4033` | `0.4920` | `0.4290` | `67` | `285` | false |
+
+Aggregate:
+
+```text
+macro F1 = 0.4379
+balanced accuracy = 0.4834
+one-class final runs = 0/2
+```
+
+### Interpretation
+
+`ce_class_weighted + lr=3e-4` is a better anti-collapse candidate than the earlier `lr=1e-3` setting because it avoided strict one-class final predictions in both tasks across the first two folds.
+
+However, this is still not stable enough for a full experiment:
+
+- Valence fold 2 is technically not one-class, but it is almost fully biased toward class 1.
+- Arousal fold 2 is also strongly biased toward class 1.
+- Balanced accuracy remains close to chance.
+- Threshold diagnostics suggest calibration/class-bias remains an issue.
+
+### Updated Recommendation
+
+Do not run a full experiment yet.
+
+The next useful step should be another tiny smoke test that changes only one thing. The strongest next candidate is to add and smoke-test a `balanced_sampler_ce` recipe against `ce_class_weighted`, still cache-only and still with a tiny smoke cap.
