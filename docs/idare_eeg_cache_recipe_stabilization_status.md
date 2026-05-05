@@ -857,3 +857,120 @@ or at most the existing diagnostic scope:
 --max-runs 4
 --epochs 2
 ```
+
+## Valence Low-LR Boundary Bias Smoke
+
+A tiny mitigation smoke tested whether lowering the learning rate from `3e-4` to `1e-4` reduces the valence fold-level boundary bias.
+
+Configuration:
+
+```text
+task = valence
+label_policy = midpoint_as_high
+recipes = ce_class_weighted, balanced_sampler_ce
+lr = 1e-4
+weight_decay = 1e-3
+epochs = 2
+folds = 6
+seed = 11
+max_runs = 4
+```
+
+Outputs:
+
+```text
+docs/idare_valence_lr1e4_boundary_bias_smoke.md
+docs/idare_valence_lr1e4_boundary_bias_smoke.json
+```
+
+This remained cache-only and did not use raw MATLAB/HDF5 `.mat` loading inside training loops.
+
+### Aggregate result
+
+| Recipe | Runs | Argmax macro F1 | Argmax balanced acc | Threshold macro F1 | Threshold balanced acc | Threshold gain macro F1 |
+|---|---:|---:|---:|---:|---:|---:|
+| `ce_class_weighted` | 2 | `0.3958` | `0.4875` | `0.4253` | `0.4904` | `+0.0295` |
+| `balanced_sampler_ce` | 2 | `0.3502` | `0.5042` | `0.4648` | `0.5093` | `+0.1146` |
+
+### Key finding
+
+Lowering LR to `1e-4` did not solve the valence fold-2 boundary-bias problem.
+
+Instead, it reversed the direction of the fold-2 bias.
+
+At `lr=3e-4`, fold 2 was biased toward class 1:
+
+```text
+ce_class_weighted / fold 2:
+  val pred_counts = {"0": 3, "1": 349}
+
+balanced_sampler_ce / fold 2:
+  val pred_counts = {"0": 1, "1": 351}
+```
+
+At `lr=1e-4`, fold 2 became biased toward class 0:
+
+```text
+ce_class_weighted / fold 2:
+  train pred_counts = {"0": 1475, "1": 189}
+  val pred_counts   = {"0": 326, "1": 26}
+  train prob1_mean  = 0.4770
+  val prob1_mean    = 0.4805
+
+balanced_sampler_ce / fold 2:
+  train pred_counts = {"0": 1653, "1": 11}
+  val pred_counts   = {"0": 351, "1": 1}
+  train prob1_mean  = 0.4647
+  val prob1_mean    = 0.4648
+```
+
+### Interpretation
+
+The valence issue is not simply “learning rate too high.”
+
+Current evidence suggests the valence decision boundary is highly unstable near `0.50`:
+
+```text
+lr = 3e-4:
+  fold 2 drifts above 0.50 and predicts mostly class 1
+
+lr = 1e-4:
+  fold 2 drifts below 0.50 and predicts mostly class 0
+```
+
+This confirms that valence requires boundary-stability work rather than a simple LR reduction.
+
+The low-LR smoke also shows that threshold calibration can recover some macro F1, especially for `balanced_sampler_ce`, but this is still diagnostic only because the argmax predictions remain heavily biased.
+
+### Updated Recommendation
+
+Do not run a full experiment yet.
+
+The next technical step should remain smoke-first and should test one boundary-stabilization idea at a time.
+
+Reasonable next smoke directions:
+
+```text
+1. Add/compare label smoothing CE as a mild boundary-stabilization recipe.
+2. Add a diagnostic that reports train and validation per-class recall for every run.
+3. Test threshold-calibrated evaluation as diagnostic only, but do not treat it as final performance.
+4. Keep runs tiny first, such as --max-runs 2 or --max-runs 4.
+```
+
+Most likely next recipe candidate:
+
+```text
+ce_label_smoothing_0p05
+```
+
+The first test should be tiny and cache-only, for example:
+
+```text
+tasks = valence
+recipes = ce_class_weighted, ce_label_smoothing_0p05
+epochs = 2
+lr = 3e-4
+max-runs = 2
+```
+
+Only after reviewing that smoke should any broader run be considered.
