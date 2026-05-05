@@ -1,0 +1,132 @@
+{
+  "status": "PASSED",
+  "task": "valence",
+  "policy": "discard_midpoint",
+  "seed": 11,
+  "device": "cuda",
+  "cache_npy": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/.cache/idare_eeg_windows_32x640_float32.npy",
+  "cache_index": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/.cache/idare_eeg_cache_index.csv",
+  "train_subjects": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "val_subjects": [
+    1,
+    2,
+    3,
+    13
+  ],
+  "train_rows": 223,
+  "val_rows": 107,
+  "batch_size": 16,
+  "epochs": 3,
+  "elapsed_sec": 0.8190478468313813,
+  "history": [
+    {
+      "epoch": 1,
+      "elapsed_sec": 0.5302184261381626,
+      "train": {
+        "accuracy": 0.5067264573991032,
+        "balanced_accuracy": 0.5044844861021331,
+        "macro_f1": 0.5044844861021331,
+        "true_counts": {
+          "0": 104,
+          "1": 119
+        },
+        "pred_counts": {
+          "0": 104,
+          "1": 119
+        },
+        "loss_mean": 0.7179402538708278
+      },
+      "val": {
+        "accuracy": 0.4766355140186916,
+        "balanced_accuracy": 0.4691031073446328,
+        "macro_f1": 0.4687943262411348,
+        "true_counts": {
+          "0": 59,
+          "1": 48
+        },
+        "pred_counts": {
+          "0": 61,
+          "1": 46
+        },
+        "loss_mean": 0.6938973665237427,
+        "batches": 7
+      }
+    },
+    {
+      "epoch": 2,
+      "elapsed_sec": 0.14446442993357778,
+      "train": {
+        "accuracy": 0.45739910313901344,
+        "balanced_accuracy": 0.4631140917905624,
+        "macro_f1": 0.45582333366945654,
+        "true_counts": {
+          "0": 104,
+          "1": 119
+        },
+        "pred_counts": {
+          "0": 131,
+          "1": 92
+        },
+        "loss_mean": 0.7635278105735779
+      },
+      "val": {
+        "accuracy": 0.5514018691588785,
+        "balanced_accuracy": 0.5,
+        "macro_f1": 0.35542168674698793,
+        "true_counts": {
+          "0": 59,
+          "1": 48
+        },
+        "pred_counts": {
+          "0": 107
+        },
+        "loss_mean": 0.6811038936887469,
+        "batches": 7
+      }
+    },
+    {
+      "epoch": 3,
+      "elapsed_sec": 0.14428890915587544,
+      "train": {
+        "accuracy": 0.515695067264574,
+        "balanced_accuracy": 0.506827731092437,
+        "macro_f1": 0.501985111662531,
+        "true_counts": {
+          "0": 104,
+          "1": 119
+        },
+        "pred_counts": {
+          "0": 82,
+          "1": 141
+        },
+        "loss_mean": 0.71784879054342
+      },
+      "val": {
+        "accuracy": 0.5514018691588785,
+        "balanced_accuracy": 0.5019420903954802,
+        "macro_f1": 0.3736585365853659,
+        "true_counts": {
+          "0": 59,
+          "1": 48
+        },
+        "pred_counts": {
+          "0": 105,
+          "1": 2
+        },
+        "loss_mean": 0.6899375319480896,
+        "batches": 7
+      }
+    }
+  ],
+  "issues": [],
+  "warnings": []
+}
