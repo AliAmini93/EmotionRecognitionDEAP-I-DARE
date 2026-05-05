@@ -1740,3 +1740,201 @@ label_policy: midpoint_as_high
 ```
 
 Do not run full LOSO/final training yet.
+
+## Four-Fold Arousal Baseline-Corrected Recipe Comparison
+
+Checkpoint commit before this status update:
+
+```text
+815b9c5 exp: compare arousal recipes across four baseline corrected folds
+```
+
+A balanced four-fold recipe comparison was run for arousal on the full baseline-corrected I-DARE EEG cache.
+
+### Inputs
+
+Baseline-corrected cache files used locally:
+
+```text
+.cache/idare_eeg_windows_32x640_float32_baseline_corrected.npy
+.cache/idare_eeg_cache_index_baseline_corrected.csv
+```
+
+These generated cache files remain local artifacts and should not be committed.
+
+Smoke report files committed:
+
+```text
+docs/idare_arousal_baseline_corrected_recipe_compare_4fold_smoke.md
+docs/idare_arousal_baseline_corrected_recipe_compare_4fold_smoke.json
+```
+
+### Smoke command scope
+
+```text
+task: arousal
+label_policy: midpoint_as_high
+recipes: ce_class_weighted, balanced_sampler_ce
+folds: 6
+seed: 11
+epochs: 2
+lr: 3e-4
+max-runs: 8
+device: cuda
+```
+
+Because the runner interleaves recipes, `max-runs 8` covered four folds for each recipe.
+
+### Aggregate result
+
+`balanced_sampler_ce`:
+
+```text
+runs:                      4
+argmax macro F1 mean:      0.4958
+argmax balanced acc mean:  0.5339
+argmax accuracy mean:      0.5185
+threshold macro F1 mean:   0.5321
+threshold balanced acc:    0.5390
+mean threshold:            0.5000
+macro F1 threshold gain:   +0.0363
+balanced acc gain:         +0.0051
+one-class final runs:      0
+threshold one-class runs:  0
+majority accuracy mean:    0.5798
+```
+
+`ce_class_weighted`:
+
+```text
+runs:                      4
+argmax macro F1 mean:      0.4882
+argmax balanced acc mean:  0.5295
+argmax accuracy mean:      0.5311
+threshold macro F1 mean:   0.5269
+threshold balanced acc:    0.5356
+mean threshold:            0.5000
+macro F1 threshold gain:   +0.0387
+balanced acc gain:         +0.0061
+one-class final runs:      0
+threshold one-class runs:  0
+majority accuracy mean:    0.5798
+```
+
+### Per-fold highlights
+
+Fold 1:
+
+```text
+ce_class_weighted:
+  argmax macro F1:         0.5152
+  argmax balanced acc:     0.5249
+  threshold macro F1:      0.5152
+  threshold balanced acc:  0.5249
+
+balanced_sampler_ce:
+  argmax macro F1:         0.4375
+  argmax balanced acc:     0.5394
+  threshold macro F1:      0.5315
+  threshold balanced acc:  0.5321
+```
+
+Fold 2:
+
+```text
+ce_class_weighted:
+  argmax macro F1:         0.4792
+  argmax balanced acc:     0.5222
+  threshold macro F1:      0.5101
+  threshold balanced acc:  0.5102
+
+balanced_sampler_ce:
+  argmax macro F1:         0.5182
+  argmax balanced acc:     0.5299
+  threshold macro F1:      0.5243
+  threshold balanced acc:  0.5245
+```
+
+Fold 3:
+
+```text
+ce_class_weighted:
+  argmax macro F1:         0.3820
+  argmax balanced acc:     0.4948
+  threshold macro F1:      0.5060
+  threshold balanced acc:  0.5311
+
+balanced_sampler_ce:
+  argmax macro F1:         0.5143
+  argmax balanced acc:     0.5398
+  threshold macro F1:      0.5296
+  threshold balanced acc:  0.5364
+```
+
+Fold 4:
+
+```text
+ce_class_weighted:
+  argmax macro F1:         0.5763
+  argmax balanced acc:     0.5761
+  threshold macro F1:      0.5763
+  threshold balanced acc:  0.5761
+
+balanced_sampler_ce:
+  argmax macro F1:         0.5130
+  argmax balanced acc:     0.5265
+  threshold macro F1:      0.5429
+  threshold balanced acc:  0.5630
+```
+
+### Interpretation
+
+This four-fold comparison shows that baseline correction improved arousal stability for both recipes.
+
+Important conclusions:
+
+```text
+- neither recipe produced one-class collapse across the four audited folds
+- both recipes benefit from threshold diagnostics
+- balanced_sampler_ce remains slightly ahead on aggregate argmax balanced accuracy
+- balanced_sampler_ce remains slightly ahead on aggregate threshold macro F1 and threshold balanced accuracy
+- ce_class_weighted is still competitive and had the strongest single-fold result on fold 4
+```
+
+Current best small-scope arousal direction remains:
+
+```text
+baseline-corrected I-DARE EEG cache
+balanced_sampler_ce
+threshold diagnostics
+midpoint_as_high
+```
+
+However, `ce_class_weighted` should remain a close comparison baseline because the aggregate gap is small.
+
+### Recommendation
+
+Continue smoke-first.
+
+Suggested next step:
+
+```text
+Run a seed-stability smoke on the current leading arousal direction:
+baseline-corrected cache
+task: arousal
+recipe: balanced_sampler_ce
+label_policy: midpoint_as_high
+folds: 6
+seeds: 11 22
+epochs: 2
+lr: 3e-4
+max-runs: 8
+```
+
+Purpose:
+
+```text
+Check whether the promising balanced_sampler_ce arousal result is stable across seed, not only fold.
+```
+
+Do not run full LOSO/final training yet.
