@@ -361,3 +361,80 @@ scope:
 ```
 
 The goal should be to compare argmax metrics against threshold-calibrated metrics, not to claim final performance.
+
+## Arousal Threshold-Comparison Smoke
+
+A tiny threshold-comparison smoke was run for arousal after the balanced-sampler stability checks.
+
+Configuration:
+
+```text
+task = arousal
+label_policy = midpoint_as_high
+recipes = ce_class_weighted, balanced_sampler_ce
+lr = 3e-4
+weight_decay = 1e-3
+epochs = 2
+folds = 6
+seed = 11
+max_runs = 4
+```
+
+This smoke covered:
+
+```text
+fold 1 / ce_class_weighted
+fold 1 / balanced_sampler_ce
+fold 2 / ce_class_weighted
+fold 2 / balanced_sampler_ce
+```
+
+It remained cache-only and did not use raw MATLAB/HDF5 `.mat` loading inside training loops.
+
+### Argmax aggregate
+
+| Recipe | Runs | Final macro F1 | Final balanced acc | Final accuracy | One-class final runs |
+|---|---:|---:|---:|---:|---:|
+| `balanced_sampler_ce` | 2 | `0.4428` | `0.5019` | `0.4716` | `0/2` |
+| `ce_class_weighted` | 2 | `0.4379` | `0.4834` | `0.4716` | `0/2` |
+
+### Per-run threshold observations
+
+| Run | Recipe | Fold | Argmax macro F1 | Argmax bal acc | Best threshold | Threshold macro F1 | Threshold bal acc |
+|---:|---|---:|---:|---:|---:|---:|---:|
+| 1 | `ce_class_weighted` | 1 | `0.4725` | `0.4748` | `0.50` | `0.4725` | `0.4748` |
+| 2 | `balanced_sampler_ce` | 1 | `0.3897` | `0.5079` | `0.60` | `0.5291` | `0.5306` |
+| 3 | `ce_class_weighted` | 2 | `0.4033` | `0.4920` | `0.55` | `0.5071` | `0.5155` |
+| 4 | `balanced_sampler_ce` | 2 | `0.4960` | `0.4960` | `0.45` | `0.5079` | `0.5228` |
+
+### Interpretation
+
+Threshold-calibrated evaluation appears more informative than raw argmax for arousal.
+
+The strongest observation is that `balanced_sampler_ce` improved after threshold adjustment in both folds:
+
+```text
+fold 1: macro F1 0.3897 -> 0.5291, balanced acc 0.5079 -> 0.5306
+fold 2: macro F1 0.4960 -> 0.5079, balanced acc 0.4960 -> 0.5228
+```
+
+`ce_class_weighted` also benefited from threshold adjustment in fold 2.
+
+This supports adding report-level aggregate threshold metrics before any broader experiment.
+
+### Updated Recommendation
+
+Do not run a full experiment yet.
+
+Next step should be a small script/report patch that aggregates threshold-sweep best metrics by recipe, so future smoke reports directly compare:
+
+```text
+argmax macro F1
+argmax balanced accuracy
+best-threshold macro F1
+best-threshold balanced accuracy
+best threshold distribution
+one-class counts
+```
+
+After that patch, run only a tiny smoke test again.
