@@ -511,3 +511,37 @@ Interpretation:
 
 Status:
 Accepted as current working baseline, not as final experimental evidence.
+
+---
+
+## D013 - Keep `midpoint_as_high` as temporary I-DARE EEG main score-5 policy after discard-midpoint sanity run
+
+Date: 2026-05-05
+
+### Context
+
+After selecting `midpoint_as_high` as the temporary main score-5 policy, a secondary cache-based sanity baseline was run for `discard_midpoint`.
+
+### Compared Results
+
+| Policy | Task | Final macro F1 | Final balanced acc | Best macro F1 | One-class final runs |
+|---|---|---:|---:|---:|---:|
+| midpoint_as_high | valence | 0.3953 | 0.4995 | 0.4566 | 4/12 |
+| discard_midpoint | valence | 0.3877 | 0.5018 | 0.4280 | 6/12 |
+| midpoint_as_high | arousal | 0.4825 | 0.5159 | 0.4918 | 1/12 |
+| discard_midpoint | arousal | 0.4202 | 0.5190 | 0.4915 | 1/12 |
+
+### Decision
+
+Keep `midpoint_as_high` as the temporary main score-5 policy for both valence and arousal.
+
+### Rationale
+
+- `midpoint_as_high` has better final macro F1 for both tasks.
+- `midpoint_as_high` has better best macro F1 for both tasks.
+- For valence, `midpoint_as_high` has fewer one-class final runs than `discard_midpoint`.
+- `discard_midpoint` has slightly better balanced accuracy, but the gain is too small to override the macro-F1 and collapse-risk evidence.
+
+### Consequence
+
+`discard_midpoint` remains a documented secondary sanity / ablation candidate, but it is not promoted as the temporary main I-DARE EEG policy.
