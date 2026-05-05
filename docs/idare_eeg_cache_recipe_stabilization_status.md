@@ -632,3 +632,125 @@ Do not run a full experiment yet.
 
 The next technical step should remain diagnostic and smoke-first. A reasonable next step is to add optional per-sample validation prediction export to script 20, then run a tiny smoke to inspect which subjects/stimuli drive fold 2 class-1 bias.
 
+## Valence Per-Sample Prediction Export Diagnostic
+
+Script 20 was extended with optional final-validation per-sample prediction export:
+
+```text
+--out-predictions-csv
+```
+
+This is intended for diagnostics only. It should be used with tiny smoke runs, not full experiments.
+
+A valence fold-bias prediction smoke was run with:
+
+```text
+task = valence
+label_policy = midpoint_as_high
+recipes = ce_class_weighted, balanced_sampler_ce
+lr = 3e-4
+weight_decay = 1e-3
+epochs = 2
+folds = 6
+seed = 11
+max_runs = 4
+```
+
+Outputs:
+
+```text
+docs/idare_valence_fold_bias_predictions_smoke.md
+docs/idare_valence_fold_bias_predictions_smoke.json
+docs/idare_valence_fold_bias_predictions_smoke.csv
+```
+
+The CSV contains per-sample validation predictions and probabilities:
+
+```text
+run_id
+task
+policy
+recipe
+sampler
+fold_id
+seed
+cache_row
+subject_id
+stimulus_id
+y_true
+y_pred
+prob1
+logit_margin
+```
+
+### Key finding
+
+The per-sample export confirmed that valence fold 2 near-collapse is a fold-level probability/logit offset, not a single-subject issue.
+
+In fold 2, nearly all validation subjects had `prob1_mean` above `0.51`, so the default `0.50` threshold pushed almost all predictions to class 1.
+
+### Fold 2 subject-level behavior
+
+For `ce_class_weighted` / fold 2:
+
+```text
+subject 8:  pred_counts = {"0": 1, "1": 31}, prob1_mean = 0.5132
+subject 10: pred_counts = {"0": 0, "1": 32}, prob1_mean = 0.5217
+subject 18: pred_counts = {"0": 0, "1": 32}, prob1_mean = 0.5332
+subject 24: pred_counts = {"0": 0, "1": 32}, prob1_mean = 0.5208
+subject 29: pred_counts = {"0": 0, "1": 32}, prob1_mean = 0.5238
+subject 31: pred_counts = {"0": 1, "1": 31}, prob1_mean = 0.5185
+subject 34: pred_counts = {"0": 0, "1": 32}, prob1_mean = 0.5265
+subject 41: pred_counts = {"0": 1, "1": 31}, prob1_mean = 0.5208
+subject 43: pred_counts = {"0": 0, "1": 32}, prob1_mean = 0.5362
+subject 46: pred_counts = {"0": 0, "1": 32}, prob1_mean = 0.5214
+subject 53: pred_counts = {"0": 0, "1": 32}, prob1_mean = 0.5226
+```
+
+For `balanced_sampler_ce` / fold 2:
+
+```text
+subject 8:  pred_counts = {"0": 0, "1": 32}, prob1_mean = 0.5297
+subject 10: pred_counts = {"0": 0, "1": 32}, prob1_mean = 0.5307
+subject 18: pred_counts = {"0": 0, "1": 32}, prob1_mean = 0.5297
+subject 24: pred_counts = {"0": 0, "1": 32}, prob1_mean = 0.5293
+subject 29: pred_counts = {"0": 0, "1": 32}, prob1_mean = 0.5283
+subject 31: pred_counts = {"0": 1, "1": 31}, prob1_mean = 0.5289
+subject 34: pred_counts = {"0": 0, "1": 32}, prob1_mean = 0.5252
+subject 41: pred_counts = {"0": 0, "1": 32}, prob1_mean = 0.5264
+subject 43: pred_counts = {"0": 0, "1": 32}, prob1_mean = 0.5315
+subject 46: pred_counts = {"0": 0, "1": 32}, prob1_mean = 0.5307
+subject 53: pred_counts = {"0": 0, "1": 32}, prob1_mean = 0.5330
+```
+
+### Interpretation
+
+The fold 2 behavior is not driven by one outlier subject.
+
+It is better described as a fold-level probability shift where validation probabilities are compressed slightly above `0.50`.
+
+This explains why threshold calibration did not help valence in the earlier aggregate threshold smoke: the best threshold stayed at `0.50`, and the probabilities were not sufficiently separable.
+
+### Updated Recommendation
+
+Do not run a full experiment yet.
+
+The next technical step should remain smoke-first and should target fold-level probability offset mitigation or diagnostics.
+
+Reasonable next smoke directions include:
+
+```text
+1. Add train/validation probability summaries to compare calibration shift directly.
+2. Add per-subject aggregate diagnostics to the script report.
+3. Test one mild regularization/calibration change at a time.
+4. Keep max-runs small, such as --max-runs 2 or --max-runs 4.
+```
+
+The strongest current distinction remains:
+
+```text
+arousal:
+  threshold calibration appears useful.
+
+valence:
+  fold-level probability offset/class-bias is the main issue.
