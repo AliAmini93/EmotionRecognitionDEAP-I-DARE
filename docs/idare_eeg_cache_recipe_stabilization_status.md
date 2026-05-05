@@ -438,3 +438,67 @@ one-class counts
 ```
 
 After that patch, run only a tiny smoke test again.
+
+## Arousal Aggregate Threshold Comparison Smoke
+
+After adding aggregate threshold diagnostics to `scripts/20_run_idare_eeg_cache_recipe_stabilization.py`, a tiny arousal smoke was rerun to verify the new report-level aggregate table.
+
+Configuration:
+
+```text
+task = arousal
+label_policy = midpoint_as_high
+recipes = ce_class_weighted, balanced_sampler_ce
+lr = 3e-4
+weight_decay = 1e-3
+epochs = 2
+folds = 6
+seed = 11
+max_runs = 4
+```
+
+This remained cache-only and did not use raw MATLAB/HDF5 `.mat` loading inside training loops.
+
+### Argmax aggregate
+
+| Recipe | Runs | Argmax macro F1 | Argmax balanced acc | Argmax accuracy | One-class final runs |
+|---|---:|---:|---:|---:|---:|
+| `balanced_sampler_ce` | 2 | `0.4428` | `0.5019` | `0.4716` | `0/2` |
+| `ce_class_weighted` | 2 | `0.4379` | `0.4834` | `0.4716` | `0/2` |
+
+### Aggregate threshold diagnostics
+
+| Recipe | Runs | Threshold macro F1 | Threshold balanced acc | Mean threshold | Macro F1 gain | Balanced acc gain | Threshold one-class runs |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| `balanced_sampler_ce` | 2 | `0.5185` | `0.5267` | `0.5250` | `+0.0757` | `+0.0248` | `0/2` |
+| `ce_class_weighted` | 2 | `0.4898` | `0.4952` | `0.5250` | `+0.0519` | `+0.0118` | `0/2` |
+
+### Interpretation
+
+The aggregate threshold diagnostics table is working and makes the arousal calibration effect easier to inspect.
+
+Current smoke-level conclusion:
+
+- `balanced_sampler_ce` has the better threshold-calibrated aggregate result for arousal.
+- `balanced_sampler_ce` improved from argmax macro F1 `0.4428` to threshold macro F1 `0.5185`.
+- `balanced_sampler_ce` improved from argmax balanced accuracy `0.5019` to threshold balanced accuracy `0.5267`.
+- `ce_class_weighted` also improved with threshold adjustment, but less strongly.
+- No threshold-selected run became one-class.
+
+This is still diagnostic only. The thresholds were selected on the validation split, so these numbers should not be reported as final model performance.
+
+### Updated Recommendation
+
+Do not run a full experiment yet.
+
+The next technical step should remain smoke-first. A reasonable next smoke is to test whether the same aggregate threshold pattern appears for valence, using the same small scope:
+
+```text
+task = valence
+recipes = ce_class_weighted, balanced_sampler_ce
+lr = 3e-4
+epochs = 2
+max-runs = 4
+```
+
+Only after reviewing that smoke should any broader stabilization run be considered.
