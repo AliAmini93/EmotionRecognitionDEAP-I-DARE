@@ -262,3 +262,102 @@ max_runs = 2
 ```
 
 Run separately for valence and arousal with task-specific output files.
+
+## Balanced Sampler CE Two-Fold Stability Smoke
+
+A two-fold stability smoke was run for `balanced_sampler_ce`.
+
+Configuration:
+
+```text
+recipe = balanced_sampler_ce
+sampler = weighted_random_sampler
+lr = 3e-4
+weight_decay = 1e-3
+epochs = 2
+label_policy = midpoint_as_high
+folds = 6
+seed = 11
+max_runs = 2 per task
+```
+
+This remained cache-only and did not use raw MATLAB/HDF5 `.mat` loading inside training loops.
+
+### Valence result
+
+| Fold | Macro F1 | Balanced acc | Accuracy | Pred 0 | Pred 1 | One-class |
+|---:|---:|---:|---:|---:|---:|---|
+| 1 | `0.4982` | `0.5044` | `0.5455` | `103` | `249` | false |
+| 2 | `0.3825` | `0.5035` | `0.6023` | `1` | `351` | false |
+
+Aggregate:
+
+```text
+macro F1 = 0.4404
+balanced accuracy = 0.5040
+one-class final runs = 0/2
+```
+
+Interpretation:
+
+- `balanced_sampler_ce` avoided strict one-class collapse for valence.
+- However, fold 2 is effectively near-collapse toward class 1.
+- This is not stable enough for a full experiment.
+
+### Arousal result
+
+| Fold | Macro F1 | Balanced acc | Accuracy | Pred 0 | Pred 1 | One-class |
+|---:|---:|---:|---:|---:|---:|---|
+| 1 | `0.3897` | `0.5079` | `0.4261` | `50` | `302` | false |
+| 2 | `0.4960` | `0.4960` | `0.5170` | `212` | `140` | false |
+
+Aggregate:
+
+```text
+macro F1 = 0.4428
+balanced accuracy = 0.5019
+one-class final runs = 0/2
+```
+
+Threshold diagnostics:
+
+```text
+fold 1 best threshold = 0.60
+fold 1 best threshold macro F1 = 0.5291
+fold 1 best threshold balanced accuracy = 0.5306
+
+fold 2 best threshold = 0.45
+fold 2 best threshold macro F1 = 0.5079
+fold 2 best threshold balanced accuracy = 0.5228
+```
+
+Interpretation:
+
+- `balanced_sampler_ce` avoided strict one-class collapse for arousal.
+- Threshold sweep suggests useful calibration signal for arousal.
+- Arousal is currently the stronger candidate for threshold-calibrated follow-up smoke.
+
+### Updated Recommendation
+
+Do not run a full experiment yet.
+
+The next useful step should be a tiny threshold-calibration smoke, still cache-only, using the existing probability/threshold diagnostics.
+
+Recommended next smoke direction:
+
+```text
+recipe candidates:
+  ce_class_weighted
+  balanced_sampler_ce
+
+lr:
+  3e-4
+
+epochs:
+  2
+
+scope:
+  max-runs 2 or 4 only
+```
+
+The goal should be to compare argmax metrics against threshold-calibrated metrics, not to claim final performance.
