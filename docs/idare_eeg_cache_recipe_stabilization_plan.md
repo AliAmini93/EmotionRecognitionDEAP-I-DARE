@@ -50,3 +50,12 @@ The script writes:
 - `docs/idare_eeg_cache_recipe_stabilization.json`
 
 These outputs should be inspected after the smoke test before any fuller run is considered.
+
+
+## Added Follow-up Recipe Candidate
+
+After the initial `ce_class_weighted` / `ce_no_class_weight` smoke tests, the next smoke-tested recipe candidate is:
+
+- `balanced_sampler_ce`
+
+This recipe uses a weighted random sampler on the training split and standard CrossEntropyLoss. It must remain cache-based and must be tested first with a tiny smoke command before any fuller run is considered.

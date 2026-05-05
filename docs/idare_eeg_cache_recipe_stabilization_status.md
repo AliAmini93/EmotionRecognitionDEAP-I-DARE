@@ -171,3 +171,94 @@ However, this is still not stable enough for a full experiment:
 Do not run a full experiment yet.
 
 The next useful step should be another tiny smoke test that changes only one thing. The strongest next candidate is to add and smoke-test a `balanced_sampler_ce` recipe against `ce_class_weighted`, still cache-only and still with a tiny smoke cap.
+
+## Balanced Sampler CE Smoke
+
+A new recipe candidate was added to `scripts/20_run_idare_eeg_cache_recipe_stabilization.py`:
+
+```text
+balanced_sampler_ce
+```
+
+Implementation summary:
+
+- Uses `WeightedRandomSampler` on the training split.
+- Uses standard `CrossEntropyLoss`.
+- Remains fully cache-based.
+- Does not load raw MATLAB/HDF5 `.mat` files inside training loops.
+- Records sampler mode in JSON:
+  - `shuffle`
+  - `weighted_random_sampler`
+
+### Smoke Configuration
+
+```text
+label_policy = midpoint_as_high
+lr = 3e-4
+weight_decay = 1e-3
+epochs = 2
+folds = 6
+seed = 11
+max_runs = 2
+```
+
+This is still a smoke test, not a full experiment.
+
+### Arousal / fold 1
+
+| Recipe | Sampler | Macro F1 | Balanced acc | Accuracy | Pred 0 | Pred 1 | One-class |
+|---|---|---:|---:|---:|---:|---:|---|
+| `ce_class_weighted` | `shuffle` | `0.4725` | `0.4748` | `0.5142` | `235` | `117` | false |
+| `balanced_sampler_ce` | `weighted_random_sampler` | `0.3897` | `0.5079` | `0.4261` | `50` | `302` | false |
+
+Threshold diagnostic for `balanced_sampler_ce`:
+
+```text
+best threshold = 0.60
+best threshold macro F1 = 0.5291
+best threshold balanced accuracy = 0.5306
+best threshold pred_counts = {"0": 241, "1": 111}
+```
+
+### Valence / fold 1
+
+| Recipe | Sampler | Macro F1 | Balanced acc | Accuracy | Pred 0 | Pred 1 | One-class |
+|---|---|---:|---:|---:|---:|---:|---|
+| `ce_class_weighted` | `shuffle` | `0.4394` | `0.5133` | `0.4574` | `274` | `78` | false |
+| `balanced_sampler_ce` | `weighted_random_sampler` | `0.4982` | `0.5044` | `0.5455` | `103` | `249` | false |
+
+Threshold diagnostic for `balanced_sampler_ce`:
+
+```text
+best threshold = 0.50
+best threshold macro F1 = 0.4982
+best threshold balanced accuracy = 0.5044
+best threshold pred_counts = {"0": 103, "1": 249}
+```
+
+### Interpretation
+
+`balanced_sampler_ce` avoided strict one-class collapse in both task smoke tests.
+
+It may be useful as an anti-collapse / calibration candidate, but it is not yet clearly better than `ce_class_weighted`:
+
+- For valence fold 1, it improved macro F1 but not balanced accuracy.
+- For arousal fold 1, argmax macro F1 dropped, but threshold sweep improved both macro F1 and balanced accuracy.
+- It can push predictions strongly toward class 1.
+
+### Updated Recommendation
+
+Do not run a full experiment yet.
+
+The next useful step should be a tiny two-fold stability smoke for `balanced_sampler_ce`, analogous to the previous `ce_class_weighted + lr=3e-4` stability smoke.
+
+Use:
+
+```text
+recipes = balanced_sampler_ce
+lr = 3e-4
+epochs = 2
+max_runs = 2
+```
+
+Run separately for valence and arousal with task-specific output files.

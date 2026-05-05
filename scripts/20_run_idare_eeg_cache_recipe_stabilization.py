@@ -33,7 +33,7 @@ from typing import Any
 import numpy as np
 import pandas as pd
 import torch
-from torch.utils.data import DataLoader, Dataset
+from torch.utils.data import DataLoader, Dataset, WeightedRandomSampler
 
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "src"
@@ -49,7 +49,7 @@ DEFAULT_OUT_JSON = ROOT / "docs" / "idare_eeg_cache_recipe_stabilization.json"
 
 VALID_TASKS = {"valence", "arousal"}
 VALID_POLICIES = {"discard_midpoint", "midpoint_as_low", "midpoint_as_high"}
-VALID_RECIPES = {"ce_class_weighted", "ce_no_class_weight"}
+VALID_RECIPES = {"ce_class_weighted", "ce_no_class_weight", "balanced_sampler_ce"}
 
 
 @dataclass(frozen=True)
@@ -483,13 +483,39 @@ def train_one(
     generator = torch.Generator()
     generator.manual_seed(spec.seed)
 
-    train_loader = DataLoader(
-        train_ds,
-        batch_size=batch_size,
-        shuffle=True,
-        num_workers=num_workers,
-        generator=generator,
-    )
+    train_sampler = None
+    sampler_name = "shuffle"
+
+    if spec.recipe == "balanced_sampler_ce":
+        count_lookup = {
+            0: int(train_counts["0"]),
+            1: int(train_counts["1"]),
+        }
+        sample_weights = [
+            1.0 / float(count_lookup[int(label)]) if count_lookup[int(label)] > 0 else 0.0
+            for label in train_labels
+        ]
+        train_sampler = WeightedRandomSampler(
+            weights=torch.as_tensor(sample_weights, dtype=torch.double),
+            num_samples=len(sample_weights),
+            replacement=True,
+            generator=generator,
+        )
+        sampler_name = "weighted_random_sampler"
+
+    train_loader_kwargs: dict[str, Any] = {
+        "batch_size": batch_size,
+        "num_workers": num_workers,
+    }
+
+    if train_sampler is None:
+        train_loader_kwargs["shuffle"] = True
+        train_loader_kwargs["generator"] = generator
+    else:
+        train_loader_kwargs["shuffle"] = False
+        train_loader_kwargs["sampler"] = train_sampler
+
+    train_loader = DataLoader(train_ds, **train_loader_kwargs)
     val_loader = DataLoader(
         val_ds,
         batch_size=batch_size,
@@ -506,7 +532,7 @@ def train_one(
         class_weights_out: list[float] | None = [
             float(v) for v in class_weights.detach().cpu().tolist()
         ]
-    elif spec.recipe == "ce_no_class_weight":
+    elif spec.recipe in {"ce_no_class_weight", "balanced_sampler_ce"}:
         train_criterion = torch.nn.CrossEntropyLoss()
         class_weights_out = None
     else:
@@ -586,6 +612,7 @@ def train_one(
         "train_counts": train_counts,
         "val_counts": val_counts,
         "class_weights": class_weights_out,
+        "sampler": sampler_name,
         "final": final_metrics,
         "best": {
             "epoch": int(best_epoch),
