@@ -1567,3 +1567,176 @@ Confirm whether the improvement is due to baseline correction generally or speci
 ```
 
 Do not run full LOSO/final training yet.
+
+## Arousal Baseline-Corrected Recipe Comparison Smoke
+
+Checkpoint commit before this status update:
+
+```text
+2619e29 exp: compare arousal recipes on baseline corrected cache
+```
+
+A direct arousal recipe comparison was run on the full baseline-corrected I-DARE EEG cache.
+
+### Inputs
+
+Baseline-corrected cache files used locally:
+
+```text
+.cache/idare_eeg_windows_32x640_float32_baseline_corrected.npy
+.cache/idare_eeg_cache_index_baseline_corrected.csv
+```
+
+These generated cache files remain local artifacts and should not be committed.
+
+Smoke report files committed:
+
+```text
+docs/idare_arousal_baseline_corrected_recipe_compare_smoke.md
+docs/idare_arousal_baseline_corrected_recipe_compare_smoke.json
+```
+
+### Smoke command scope
+
+```text
+task: arousal
+label_policy: midpoint_as_high
+recipes: ce_class_weighted, balanced_sampler_ce
+folds: 6
+seed: 11
+epochs: 2
+lr: 3e-4
+max_runs: 4
+device: cuda
+```
+
+Important: because two recipes were included, `max-runs 4` means two folds per recipe, not four folds per recipe.
+
+### Aggregate result
+
+`ce_class_weighted`:
+
+```text
+runs:                      2
+argmax macro F1 mean:      0.4972
+argmax balanced acc mean:  0.5236
+argmax accuracy mean:      0.5327
+threshold macro F1 mean:   0.5127
+threshold balanced acc:    0.5176
+mean threshold:            0.5250
+macro F1 threshold gain:   +0.0155
+balanced acc gain:         -0.0060
+one-class final runs:      0
+threshold one-class runs:  0
+```
+
+`balanced_sampler_ce`:
+
+```text
+runs:                      2
+argmax macro F1 mean:      0.4779
+argmax balanced acc mean:  0.5346
+argmax accuracy mean:      0.4915
+threshold macro F1 mean:   0.5279
+threshold balanced acc:    0.5283
+mean threshold:            0.5750
+macro F1 threshold gain:   +0.0501
+balanced acc gain:         -0.0063
+one-class final runs:      0
+threshold one-class runs:  0
+```
+
+### Per-run summary
+
+Fold 1, `ce_class_weighted`:
+
+```text
+argmax pred_counts:        {"0": 267, "1": 85}
+argmax macro F1:           0.5152
+argmax balanced acc:       0.5249
+best threshold:            0.50
+threshold macro F1:        0.5152
+threshold balanced acc:    0.5249
+one_class_pred:            false
+```
+
+Fold 1, `balanced_sampler_ce`:
+
+```text
+argmax pred_counts:        {"0": 61, "1": 291}
+argmax macro F1:           0.4375
+argmax balanced acc:       0.5394
+best threshold:            0.60
+threshold macro F1:        0.5315
+threshold balanced acc:    0.5321
+one_class_pred:            false
+```
+
+Fold 2, `ce_class_weighted`:
+
+```text
+argmax pred_counts:        {"0": 110, "1": 242}
+argmax macro F1:           0.4792
+argmax balanced acc:       0.5222
+best threshold:            0.55
+threshold macro F1:        0.5101
+threshold balanced acc:    0.5102
+one_class_pred:            false
+```
+
+Fold 2, `balanced_sampler_ce`:
+
+```text
+argmax pred_counts:        {"0": 161, "1": 191}
+argmax macro F1:           0.5182
+argmax balanced acc:       0.5299
+best threshold:            0.55
+threshold macro F1:        0.5243
+threshold balanced acc:    0.5245
+one_class_pred:            false
+```
+
+### Interpretation
+
+This direct comparison suggests:
+
+```text
+- baseline correction itself is beneficial for arousal stability
+- ce_class_weighted is slightly better on argmax macro F1 in this two-fold comparison
+- balanced_sampler_ce remains stronger on argmax balanced accuracy and threshold-calibrated metrics
+- neither recipe collapsed to one class
+```
+
+Current best small-scope arousal direction remains:
+
+```text
+baseline-corrected I-DARE EEG cache
+balanced_sampler_ce
+threshold diagnostics
+midpoint_as_high
+```
+
+But `ce_class_weighted` should not be discarded, because it showed competitive argmax macro F1.
+
+### Recommendation
+
+Continue smoke-first.
+
+Suggested next step:
+
+```text
+Run a broader baseline-corrected arousal recipe comparison where each recipe covers the same 4 folds.
+```
+
+Because the runner interleaves recipes, that means:
+
+```text
+recipes: ce_class_weighted balanced_sampler_ce
+max-runs: 8
+epochs: 2
+lr: 3e-4
+task: arousal
+label_policy: midpoint_as_high
+```
+
+Do not run full LOSO/final training yet.
