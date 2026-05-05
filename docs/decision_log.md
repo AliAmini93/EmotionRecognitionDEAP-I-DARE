@@ -408,3 +408,64 @@ docs/idare_eeg_cache_policy_multifold_selection_plan.md
 docs/idare_eeg_cache_policy_multifold_selection.md
 docs/idare_eeg_cache_policy_multifold_selection.json
 ```
+
+---
+
+## D011 - Keep score-5 policies available; promote midpoint-as-high as temporary primary preset
+
+Date: 2026-05-05
+
+### Decision
+
+For I-DARE EEG-only binary experiments, keep all three score-5 label policies available in code and documentation:
+
+```text
+discard_midpoint
+midpoint_as_low
+midpoint_as_high
+```
+
+Promote `midpoint_as_high` as the temporary primary preset for both current I-DARE binary tasks:
+
+```text
+valence: midpoint_as_high
+arousal: midpoint_as_high
+```
+
+Retain `discard_midpoint` as a first-class supported policy, not as dead code and not as a removed branch.
+
+### Rationale
+
+The focused cache-based baseline compared the two surviving candidate policies, `midpoint_as_low` and `midpoint_as_high`, across both tasks. The focused run recommended `midpoint_as_high` for both valence and arousal, but the result is still not a final LOSO experiment and should not be treated as a final paper claim.
+
+`discard_midpoint` is kept because dropping the midpoint is a common and defensible binary-affect setup when score 5 is treated as neutral/ambiguous. It also provides an important comparability baseline and a useful sensitivity check for whether the model gains are coming from a label-policy choice rather than a genuinely better EEG representation.
+
+### Practical Policy
+
+Use this order for upcoming experiments:
+
+1. `midpoint_as_high` as the temporary default / primary preset.
+2. `midpoint_as_low` as the secondary candidate when budget allows.
+3. `discard_midpoint` as a retained ablation / sensitivity baseline, not the current default.
+
+### Implementation Guidance
+
+Training scripts should expose label policy as a CLI/config option. Do not hard-code only one policy.
+
+Default behavior may use:
+
+```text
+--label-policy midpoint_as_high
+```
+
+but code should continue to accept:
+
+```text
+--label-policy discard_midpoint
+--label-policy midpoint_as_low
+--label-policy midpoint_as_high
+```
+
+### Current Status
+
+This decision is provisional. It should be revisited after a cache-based full baseline or LOSO-style baseline with consistent splits, seeds, and metrics.
