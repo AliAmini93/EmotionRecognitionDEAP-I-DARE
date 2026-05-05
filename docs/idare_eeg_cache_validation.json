@@ -1,0 +1,128 @@
+{
+  "status": "PASSED",
+  "inputs": {
+    "cache_npy": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/.cache/idare_eeg_windows_32x640_float32.npy",
+    "cache_index": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/.cache/idare_eeg_cache_index.csv"
+  },
+  "outputs": {
+    "validation_md": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/idare_eeg_cache_validation.md",
+    "validation_json": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/idare_eeg_cache_validation.json"
+  },
+  "cache": {
+    "shape": [
+      2016,
+      32,
+      640
+    ],
+    "dtype": "float32",
+    "finite_ok": true,
+    "global_min": -95.50147247314453,
+    "global_max": 58.872657775878906,
+    "per_trial_mean_abs_max": 2.9802322387695312e-08,
+    "per_trial_std_min": 0.9999998211860657,
+    "per_trial_std_max": 1.0000001192092896
+  },
+  "label_counts": {
+    "valence_discard_midpoint": {
+      "0": 812,
+      "1": 855,
+      "discard": 349
+    },
+    "valence_midpoint_as_low": {
+      "0": 1161,
+      "1": 855
+    },
+    "valence_midpoint_as_high": {
+      "0": 812,
+      "1": 1204
+    },
+    "arousal_discard_midpoint": {
+      "0": 1112,
+      "1": 687,
+      "discard": 217
+    },
+    "arousal_midpoint_as_low": {
+      "0": 1329,
+      "1": 687
+    },
+    "arousal_midpoint_as_high": {
+      "0": 1112,
+      "1": 904
+    }
+  },
+  "speed_check": {
+    "rows_read": 256,
+    "elapsed_sec": 0.0010850848630070686,
+    "rows_per_sec": 235926.2475476375
+  },
+  "sample_preview": [
+    {
+      "cache_row": 0,
+      "subject_id": 1,
+      "stimulus_id": "Dummy_1",
+      "shape": [
+        32,
+        640
+      ],
+      "mean": -1.1920929132713809e-08,
+      "std": 1.0,
+      "min": -3.4667344093322754,
+      "max": 5.546881675720215
+    },
+    {
+      "cache_row": 1,
+      "subject_id": 1,
+      "stimulus_id": "3053",
+      "shape": [
+        32,
+        640
+      ],
+      "mean": 0.0,
+      "std": 1.0,
+      "min": -11.238338470458984,
+      "max": 9.055227279663086
+    },
+    {
+      "cache_row": 2,
+      "subject_id": 1,
+      "stimulus_id": "Tumor_1",
+      "shape": [
+        32,
+        640
+      ],
+      "mean": -4.470348535789981e-09,
+      "std": 1.0,
+      "min": -17.479442596435547,
+      "max": 11.96259593963623
+    },
+    {
+      "cache_row": 3,
+      "subject_id": 1,
+      "stimulus_id": "Dog_18",
+      "shape": [
+        32,
+        640
+      ],
+      "mean": 8.940697071579962e-09,
+      "std": 0.9999999403953552,
+      "min": -5.07011079788208,
+      "max": 8.355810165405273
+    },
+    {
+      "cache_row": 4,
+      "subject_id": 1,
+      "stimulus_id": "Miserable_pose_3",
+      "shape": [
+        32,
+        640
+      ],
+      "mean": 5.9604645663569045e-09,
+      "std": 1.0,
+      "min": -18.649972915649414,
+      "max": 17.21774673461914
+    }
+  ],
+  "elapsed_sec": 0.06746005499735475,
+  "issues": [],
+  "warnings": []
+}

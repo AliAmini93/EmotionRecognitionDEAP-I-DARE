@@ -1,0 +1,72 @@
+{
+  "status": "PASSED",
+  "config": {
+    "source_fs": 512.0,
+    "target_fs": 128.0,
+    "source_samples": 2560,
+    "target_samples": 640,
+    "target_channels": 32,
+    "downsample": 4,
+    "normalization": "per-trial global z-score"
+  },
+  "inputs": {
+    "trial_index": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/.cache/idare_trial_index.csv"
+  },
+  "outputs": {
+    "eeg_cache_npy": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/.cache/idare_eeg_windows_32x640_float32.npy",
+    "cache_index_csv": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/.cache/idare_eeg_cache_index.csv",
+    "build_report_md": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/idare_eeg_cache_build_report.md",
+    "build_report_json": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/idare_eeg_cache_build_report.json"
+  },
+  "counts": {
+    "trial_index_rows": 2016,
+    "extracted_rows": 2016,
+    "cache_index_rows": 2016,
+    "subject_files": 63
+  },
+  "cache": {
+    "shape": [
+      2016,
+      32,
+      640
+    ],
+    "dtype": "float32",
+    "file_size": 165150848,
+    "file_size_human": "157.50 MB"
+  },
+  "label_counts": {
+    "valence": {
+      "discard_midpoint": {
+        "0": 812,
+        "1": 855,
+        "discard": 349
+      },
+      "midpoint_as_low": {
+        "0": 1161,
+        "1": 855
+      },
+      "midpoint_as_high": {
+        "0": 812,
+        "1": 1204
+      }
+    },
+    "arousal": {
+      "discard_midpoint": {
+        "0": 1112,
+        "1": 687,
+        "discard": 217
+      },
+      "midpoint_as_low": {
+        "0": 1329,
+        "1": 687
+      },
+      "midpoint_as_high": {
+        "0": 1112,
+        "1": 904
+      }
+    }
+  },
+  "elapsed_sec": 5.300245374906808,
+  "issues": [],
+  "warnings": []
+}
