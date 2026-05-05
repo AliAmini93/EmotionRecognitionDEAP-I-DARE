@@ -555,6 +555,12 @@ def train_one(
         shuffle=False,
         num_workers=num_workers,
     )
+    train_eval_loader = DataLoader(
+        train_ds,
+        batch_size=batch_size,
+        shuffle=False,
+        num_workers=num_workers,
+    )
 
     model = make_model(device)
     optimizer = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=weight_decay)
@@ -629,6 +635,15 @@ def train_one(
             criterion=eval_criterion,
             collect_predictions=True,
         )
+
+    train_final_metrics = eval_model(
+        model,
+        train_eval_loader,
+        device=device,
+        criterion=eval_criterion,
+        collect_predictions=False,
+    )
+
     assert best_metrics is not None
 
     duration_sec = time.perf_counter() - start
@@ -655,6 +670,7 @@ def train_one(
         "class_weights": class_weights_out,
         "sampler": sampler_name,
         "final": final_metrics,
+        "train_final": train_final_metrics,
         "best": {
             "epoch": int(best_epoch),
             **best_metrics,
@@ -922,6 +938,52 @@ def write_reports(report: dict[str, Any], out_md: Path, out_json: Path) -> None:
                 tp=conf["tp"],
                 one=str(final["one_class_pred"]).lower(),
                 maj=fmt(final["majority_baseline"]["accuracy"]),
+            )
+        )
+
+    lines.append("")
+    lines.append("## Train vs Validation Probability Diagnostics")
+    lines.append("")
+    lines.append(
+        "| Run | Task | Recipe | Fold | Train P1 mean | Val P1 mean | Mean shift | Train P1 median | Val P1 median | Median shift | Train pred 0 | Train pred 1 | Val pred 0 | Val pred 1 |"
+    )
+    lines.append("|---:|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|")
+    for run in report["runs"]:
+        train_final = run.get("train_final", {})
+        train_prob = train_final.get("prob1_summary", {})
+        val_prob = run["final"].get("prob1_summary", {})
+        train_pred = train_final.get("pred_counts", {"0": "", "1": ""})
+        val_pred = run["final"].get("pred_counts", {"0": "", "1": ""})
+
+        train_mean = train_prob.get("mean")
+        val_mean = val_prob.get("mean")
+        train_median = train_prob.get("median")
+        val_median = val_prob.get("median")
+
+        mean_shift = None
+        if train_mean is not None and val_mean is not None:
+            mean_shift = float(val_mean) - float(train_mean)
+
+        median_shift = None
+        if train_median is not None and val_median is not None:
+            median_shift = float(val_median) - float(train_median)
+
+        lines.append(
+            "| {run_id} | {task} | {recipe} | {fold} | {tmean} | {vmean} | {mshift} | {tmed} | {vmed} | {medshift} | {tp0} | {tp1} | {vp0} | {vp1} |".format(
+                run_id=run["run_id"],
+                task=run["task"],
+                recipe=run["recipe"],
+                fold=run["fold_id"],
+                tmean=fmt(train_mean),
+                vmean=fmt(val_mean),
+                mshift=fmt(mean_shift),
+                tmed=fmt(train_median),
+                vmed=fmt(val_median),
+                medshift=fmt(median_shift),
+                tp0=train_pred.get("0", ""),
+                tp1=train_pred.get("1", ""),
+                vp0=val_pred.get("0", ""),
+                vp1=val_pred.get("1", ""),
             )
         )
 

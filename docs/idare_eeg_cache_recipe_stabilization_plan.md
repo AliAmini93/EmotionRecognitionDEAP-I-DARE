@@ -80,3 +80,10 @@ This reporting is diagnostic only and does not justify a full experiment by itse
 Script 20 can optionally export final validation per-sample predictions with `--out-predictions-csv`.
 
 This is intended for fold/class-bias diagnostics only. It should be used first with tiny smoke runs such as `--max-runs 2` or `--max-runs 4`, not with a full experiment.
+
+
+## Added Train-vs-Validation Probability Diagnostics
+
+Script 20 now records final train-set probability diagnostics alongside validation diagnostics.
+
+This is intended to diagnose fold-level probability offsets, especially valence fold/class-bias behavior. It remains diagnostic-only and should first be used with tiny smoke runs such as `--max-runs 2` or `--max-runs 4`.
