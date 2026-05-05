@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Validate the I-DARE PyTorch loader.
+Validate the I-DARE PyTorch loader across score-5 label policies.
 
 Outputs:
 - docs/idare_loader_validation.md
@@ -30,10 +30,21 @@ from emotion_deap_idare.datasets import IDARETrialDataset, summarize_dataset  # 
 OUT_MD = ROOT / "docs" / "idare_loader_validation.md"
 OUT_JSON = ROOT / "docs" / "idare_loader_validation.json"
 
+LABEL_POLICIES = ["discard_midpoint", "midpoint_as_low", "midpoint_as_high"]
 
 EXPECTED_COUNTS = {
-    "valence": 1667,
-    "arousal": 1799,
+    "discard_midpoint": {
+        "valence": {"rows": 1667, "labels": {"0": 812, "1": 855}},
+        "arousal": {"rows": 1799, "labels": {"0": 1112, "1": 687}},
+    },
+    "midpoint_as_low": {
+        "valence": {"rows": 2016, "labels": {"0": 1161, "1": 855}},
+        "arousal": {"rows": 2016, "labels": {"0": 1329, "1": 687}},
+    },
+    "midpoint_as_high": {
+        "valence": {"rows": 2016, "labels": {"0": 812, "1": 1204}},
+        "arousal": {"rows": 2016, "labels": {"0": 1112, "1": 904}},
+    },
 }
 
 
@@ -43,30 +54,39 @@ def tensor_shape(value: Any) -> list[int] | None:
     return None
 
 
-def validate_task(task: str) -> dict[str, Any]:
-    dataset = IDARETrialDataset(task=task, return_mode="both")
+def validate_task(task: str, label_policy: str) -> dict[str, Any]:
+    dataset = IDARETrialDataset(task=task, return_mode="both", label_policy=label_policy)
 
     issues: list[str] = []
     warnings: list[str] = []
 
-    expected_rows = EXPECTED_COUNTS[task]
-    if len(dataset) != expected_rows:
-        issues.append(f"{task}: expected {expected_rows} rows after score==5 discard, got {len(dataset)}")
+    expected = EXPECTED_COUNTS[label_policy][task]
+    if len(dataset) != expected["rows"]:
+        issues.append(
+            f"{task}/{label_policy}: expected {expected['rows']} rows, got {len(dataset)}"
+        )
 
     if dataset.df["subject_id"].nunique() != 63:
-        issues.append(f"{task}: expected 63 subjects, got {dataset.df['subject_id'].nunique()}")
+        issues.append(
+            f"{task}/{label_policy}: expected 63 subjects, got {dataset.df['subject_id'].nunique()}"
+        )
 
     summary = summarize_dataset(dataset, n_items_to_check=8)
+    if summary["label_counts"] != expected["labels"]:
+        issues.append(
+            f"{task}/{label_policy}: expected label counts {expected['labels']}, "
+            f"got {summary['label_counts']}"
+        )
 
     for item in summary["checked_items"]:
         if item.get("eeg_shape") != [32, 640]:
-            issues.append(f"{task}: bad EEG shape at index {item['index']}: {item.get('eeg_shape')}")
+            issues.append(f"{task}/{label_policy}: bad EEG shape at index {item['index']}: {item.get('eeg_shape')}")
         if item.get("emg_shape") != [2, 10000]:
-            issues.append(f"{task}: bad EMG shape at index {item['index']}: {item.get('emg_shape')}")
+            issues.append(f"{task}/{label_policy}: bad EMG shape at index {item['index']}: {item.get('emg_shape')}")
         if item.get("eeg_isfinite") is not True:
-            issues.append(f"{task}: non-finite EEG at index {item['index']}")
+            issues.append(f"{task}/{label_policy}: non-finite EEG at index {item['index']}")
         if item.get("emg_isfinite") is not True:
-            issues.append(f"{task}: non-finite EMG at index {item['index']}")
+            issues.append(f"{task}/{label_policy}: non-finite EMG at index {item['index']}")
 
     loader = DataLoader(dataset, batch_size=4, shuffle=False, num_workers=0)
     batch = next(iter(loader))
@@ -76,16 +96,17 @@ def validate_task(task: str) -> dict[str, Any]:
         "emg_shape": tensor_shape(batch.get("emg")),
         "label_shape": tensor_shape(batch.get("label")),
         "label_values": batch["label"].tolist(),
+        "score_values": batch["score"].tolist(),
         "eeg_isfinite": bool(torch.isfinite(batch["eeg"]).all().item()),
         "emg_isfinite": bool(torch.isfinite(batch["emg"]).all().item()),
     }
 
     if batch_summary["eeg_shape"] != [4, 32, 640]:
-        issues.append(f"{task}: bad batch EEG shape: {batch_summary['eeg_shape']}")
+        issues.append(f"{task}/{label_policy}: bad batch EEG shape: {batch_summary['eeg_shape']}")
     if batch_summary["emg_shape"] != [4, 2, 10000]:
-        issues.append(f"{task}: bad batch EMG shape: {batch_summary['emg_shape']}")
+        issues.append(f"{task}/{label_policy}: bad batch EMG shape: {batch_summary['emg_shape']}")
     if batch_summary["label_shape"] != [4]:
-        issues.append(f"{task}: bad batch label shape: {batch_summary['label_shape']}")
+        issues.append(f"{task}/{label_policy}: bad batch label shape: {batch_summary['label_shape']}")
 
     summary["batch_summary"] = batch_summary
     summary["issues"] = issues
@@ -98,88 +119,79 @@ def validate_task(task: str) -> dict[str, Any]:
 def write_markdown(payload: dict[str, Any]) -> None:
     lines: list[str] = []
 
-    lines.append("# I-DARE Loader Validation")
-    lines.append("")
-    lines.append("This report was generated by `scripts/08_validate_idare_loader.py`.")
-    lines.append("")
-    lines.append("No model training was performed.")
-    lines.append("")
-    lines.append("## Status")
-    lines.append("")
-    lines.append(f"Status: **{payload['status']}**")
-    lines.append("")
-    lines.append("## Design Being Validated")
-    lines.append("")
-    lines.append("- Main subject set: 63 common EEG+EMG subjects.")
-    lines.append("- Task labels: `label = 1 if score > 5 else 0`; `score == 5` discarded per task.")
-    lines.append("- Trial unit: one I-DARE emotional `STIM_*` event.")
-    lines.append("- Slicing policy: start at `event_begin`, extract exactly 5.0 seconds.")
-    lines.append("- EEG source: 512Hz, first 32 channels, downsampled by 4 to 128Hz.")
-    lines.append("- EEG tensor shape: `[32, 640]`.")
-    lines.append("- EMG source: 2000Hz, two channels.")
-    lines.append("- EMG tensor shape: `[2, 10000]`.")
-    lines.append("")
+    lines.append("# I-DARE Loader Validation\n")
+    lines.append("This report was generated by `scripts/08_validate_idare_loader.py`.\n")
+    lines.append("No model training was performed.\n")
+    lines.append("\n## Status\n")
+    lines.append(f"Status: **{payload['status']}**\n")
+    lines.append("\n## Design Being Validated\n")
+    lines.append("- Main subject set: 63 common EEG+EMG subjects.\n")
+    lines.append("- Trial unit: one I-DARE emotional `STIM_*` event.\n")
+    lines.append("- Slicing policy: start at `event_begin`, extract exactly 5.0 seconds.\n")
+    lines.append("- EEG source: 512Hz, first 32 channels, downsampled by 4 to 128Hz.\n")
+    lines.append("- EEG tensor shape: `[32, 640]`.\n")
+    lines.append("- EMG source: 2000Hz, two channels.\n")
+    lines.append("- EMG tensor shape: `[2, 10000]`.\n")
+    lines.append("- Label policies validated: `discard_midpoint`, `midpoint_as_low`, `midpoint_as_high`.\n")
 
-    for task, result in payload["tasks"].items():
-        lines.append(f"## Task: `{task}`")
-        lines.append("")
-        lines.append(f"- Status: **{result['status']}**")
-        lines.append(f"- Rows after discard: `{result['n_rows']}`")
-        lines.append(f"- Subjects: `{result['n_subjects']}`")
-        lines.append(f"- Label counts: `{result['label_counts']}`")
-        lines.append("")
-        lines.append("### Batch Smoke Test")
-        lines.append("")
-        lines.append("```json")
-        lines.append(json.dumps(result["batch_summary"], indent=2, ensure_ascii=False))
-        lines.append("```")
-        lines.append("")
-        lines.append("### Checked Item Preview")
-        lines.append("")
-        lines.append("```json")
-        lines.append(json.dumps(result["checked_items"][:4], indent=2, ensure_ascii=False))
-        lines.append("```")
-        lines.append("")
-        lines.append("### Issues")
-        lines.append("")
-        if result["issues"]:
-            for issue in result["issues"]:
-                lines.append(f"- {issue}")
-        else:
-            lines.append("- None.")
-        lines.append("")
-        lines.append("### Warnings")
-        lines.append("")
-        if result["warnings"]:
-            for warning in result["warnings"]:
-                lines.append(f"- {warning}")
-        else:
-            lines.append("- None.")
-        lines.append("")
+    lines.append("\n## Expected Policy Counts\n")
+    lines.append("```json\n")
+    lines.append(json.dumps(EXPECTED_COUNTS, indent=2, ensure_ascii=False))
+    lines.append("\n```\n")
 
-    lines.append("## Next Step")
-    lines.append("")
-    lines.append("Use this validated loader to run an I-DARE EEG-only baseline smoke test. Do not start full experiment training until the baseline smoke test is documented.")
-    lines.append("")
+    for policy, tasks in payload["policies"].items():
+        lines.append(f"\n## Label Policy: `{policy}`\n")
+        for task, result in tasks.items():
+            lines.append(f"\n### Task: `{task}`\n")
+            lines.append(f"- Status: **{result['status']}**\n")
+            lines.append(f"- Rows: `{result['n_rows']}`\n")
+            lines.append(f"- Subjects: `{result['n_subjects']}`\n")
+            lines.append(f"- Label counts: `{result['label_counts']}`\n")
+            lines.append("\n#### Batch Smoke Test\n")
+            lines.append("```json\n")
+            lines.append(json.dumps(result["batch_summary"], indent=2, ensure_ascii=False))
+            lines.append("\n```\n")
+            lines.append("\n#### Checked Item Preview\n")
+            lines.append("```json\n")
+            lines.append(json.dumps(result["checked_items"][:4], indent=2, ensure_ascii=False))
+            lines.append("\n```\n")
+            lines.append("\n#### Issues\n")
+            if result["issues"]:
+                for issue in result["issues"]:
+                    lines.append(f"- {issue}\n")
+            else:
+                lines.append("- None.\n")
+            lines.append("\n#### Warnings\n")
+            if result["warnings"]:
+                for warning in result["warnings"]:
+                    lines.append(f"- {warning}\n")
+            else:
+                lines.append("- None.\n")
 
-    OUT_MD.write_text("\n".join(lines), encoding="utf-8")
+    lines.append("\n## Next Step\n")
+    lines.append("Use `scripts/10_compare_idare_label_policies.py` for a tiny EEG-only policy pilot. Treat pilot metrics as directional only, not final LOSO evidence.\n")
+    OUT_MD.write_text("".join(lines), encoding="utf-8")
 
 
 def main() -> None:
-    tasks = {
-        "valence": validate_task("valence"),
-        "arousal": validate_task("arousal"),
-    }
+    policies: dict[str, Any] = {}
+
+    for policy in LABEL_POLICIES:
+        policies[policy] = {
+            "valence": validate_task("valence", policy),
+            "arousal": validate_task("arousal", policy),
+        }
 
     issues = []
     warnings = []
-    for result in tasks.values():
-        issues.extend(result["issues"])
-        warnings.extend(result["warnings"])
+    for tasks in policies.values():
+        for result in tasks.values():
+            issues.extend(result["issues"])
+            warnings.extend(result["warnings"])
 
     payload = {
         "status": "PASSED" if not issues else "FAILED",
-        "tasks": tasks,
+        "policies": policies,
         "issues": issues,
         "warnings": warnings,
     }
@@ -193,8 +205,9 @@ def main() -> None:
     print(f"Issues: {len(issues)}")
     print(f"Warnings: {len(warnings)}")
 
-    for task, result in tasks.items():
-        print(f"{task}: rows={result['n_rows']} subjects={result['n_subjects']} labels={result['label_counts']}")
+    for policy, tasks in policies.items():
+        for task, result in tasks.items():
+            print(f"{policy}/{task}: rows={result['n_rows']} subjects={result['n_subjects']} labels={result['label_counts']}")
 
     if issues:
         raise SystemExit(1)

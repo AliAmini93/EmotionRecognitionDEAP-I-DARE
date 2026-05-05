@@ -288,3 +288,47 @@ Accepted.
 
 Next controlled step:
 Run a small I-DARE EEG-only model-forward smoke test using `EEGSegmentClassifier-v1`. This should test forward pass, loss computation, and one optimizer step only. It should not become full training yet.
+
+---
+
+## D009 - Treat score-5 handling as a configurable I-DARE label policy
+
+Date: 2026-05-05
+
+Decision:
+Do not hard-code score == 5 handling as a final scientific choice for I-DARE.
+
+Implement and test three binary label policies:
+
+1. `discard_midpoint`
+   - low: score < 5
+   - high: score > 5
+   - drop: score == 5
+
+2. `midpoint_as_low`
+   - low: score <= 5
+   - high: score > 5
+
+3. `midpoint_as_high`
+   - low: score < 5
+   - high: score >= 5
+
+Reason:
+The midpoint score is ambiguous. Dropping it gives cleaner low/high labels but removes non-trivial data. Keeping it improves coverage and may better match common binary thresholding practice. Since `midpoint_as_high` is also a plausible threshold convention, all three policies should be tested in a small controlled pilot before deciding which policies deserve full LOSO baseline runs.
+
+Current I-DARE counts:
+- Valence:
+  - total rows: 2016
+  - score == 5 rows: 349
+  - discard_midpoint rows: 1667
+  - midpoint_as_low rows: 2016
+  - midpoint_as_high rows: 2016
+- Arousal:
+  - total rows: 2016
+  - score == 5 rows: 217
+  - discard_midpoint rows: 1799
+  - midpoint_as_low rows: 2016
+  - midpoint_as_high rows: 2016
+
+Status:
+Accepted as a pre-baseline policy decision.

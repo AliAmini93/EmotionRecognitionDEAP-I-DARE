@@ -16,7 +16,10 @@ Design decisions:
 - EEG output shape: (32, 640).
 - EMG source sampling rate: 2000 Hz.
 - EMG output shape: (2, 10000).
-- Label rule: label = 1 if score > 5 else 0; score == 5 is discarded per task.
+- Label policies are configurable:
+  - discard_midpoint: score < 5 -> 0, score > 5 -> 1, score == 5 dropped.
+  - midpoint_as_low: score <= 5 -> 0, score > 5 -> 1.
+  - midpoint_as_high: score < 5 -> 0, score >= 5 -> 1.
 
 No training code is included here.
 """
@@ -27,6 +30,7 @@ from dataclasses import dataclass
 from functools import lru_cache
 from pathlib import Path
 from typing import Any, Literal
+import warnings
 
 import h5py
 import numpy as np
@@ -37,6 +41,7 @@ from torch.utils.data import Dataset
 
 TaskName = Literal["valence", "arousal"]
 ReturnMode = Literal["eeg", "emg", "both"]
+LabelPolicy = Literal["discard_midpoint", "midpoint_as_low", "midpoint_as_high"]
 
 
 @dataclass(frozen=True)
@@ -56,25 +61,85 @@ def _ensure_path(path: Path, description: str) -> None:
         raise FileNotFoundError(f"{description} not found: {path}")
 
 
+def normalize_label_policy(
+    label_policy: LabelPolicy = "discard_midpoint",
+    *,
+    keep_score5: bool | None = None,
+) -> LabelPolicy:
+    """Normalize label policy while preserving backward compatibility.
+
+    Previous code exposed `keep_score5`, but the cached trial-index labels made
+    score==5 effectively dropped anyway. New code should use `label_policy`.
+
+    Mapping for legacy calls:
+    - keep_score5=False -> discard_midpoint
+    - keep_score5=True  -> midpoint_as_low
+    """
+    valid = {"discard_midpoint", "midpoint_as_low", "midpoint_as_high"}
+    if label_policy not in valid:
+        raise ValueError(f"Unsupported label_policy={label_policy!r}; expected one of {sorted(valid)}")
+
+    if keep_score5 is None:
+        return label_policy
+
+    warnings.warn(
+        "`keep_score5` is deprecated. Use `label_policy` instead. "
+        "keep_score5=False maps to discard_midpoint; keep_score5=True maps to midpoint_as_low.",
+        DeprecationWarning,
+        stacklevel=2,
+    )
+
+    if keep_score5 is False:
+        return "discard_midpoint"
+    return "midpoint_as_low"
+
+
+def labels_from_scores(scores: pd.Series, *, label_policy: LabelPolicy) -> pd.Series:
+    """Convert numeric SAM scores to binary labels under a selected policy."""
+    score_values = pd.to_numeric(scores, errors="coerce")
+
+    if label_policy == "discard_midpoint":
+        labels = pd.Series(np.nan, index=score_values.index, dtype="float64")
+        labels.loc[score_values < 5] = 0
+        labels.loc[score_values > 5] = 1
+        return labels
+
+    if label_policy == "midpoint_as_low":
+        labels = pd.Series(np.nan, index=score_values.index, dtype="float64")
+        labels.loc[score_values <= 5] = 0
+        labels.loc[score_values > 5] = 1
+        return labels
+
+    if label_policy == "midpoint_as_high":
+        labels = pd.Series(np.nan, index=score_values.index, dtype="float64")
+        labels.loc[score_values < 5] = 0
+        labels.loc[score_values >= 5] = 1
+        return labels
+
+    raise ValueError(f"Unsupported label_policy: {label_policy!r}")
+
+
 def build_idare_dataframe(
     *,
     task: TaskName,
     paths: IDAREPaths | None = None,
     include_subjects: list[int] | None = None,
-    keep_score5: bool = False,
+    label_policy: LabelPolicy = "discard_midpoint",
+    keep_score5: bool | None = None,
 ) -> pd.DataFrame:
     """Load and filter the cached I-DARE trial index."""
     if task not in {"valence", "arousal"}:
         raise ValueError(f"Unsupported task: {task!r}")
+
+    label_policy = normalize_label_policy(label_policy, keep_score5=keep_score5)
 
     paths = paths or IDAREPaths()
     _ensure_path(paths.trial_index_csv, "I-DARE trial index CSV")
 
     df = pd.read_csv(paths.trial_index_csv)
 
-    label_col = f"{task}_label_gt5"
-    discard_col = f"{task}_is_discard_score5"
     score_col = f"{task}_score"
+    discard_col = f"{task}_is_discard_score5"
 
     required_cols = [
         "subject_id",
@@ -86,8 +151,6 @@ def build_idare_dataframe(
         "eeg_fs",
         "emg_fs",
         score_col,
-        label_col,
-        discard_col,
     ]
 
     missing = [col for col in required_cols if col not in df.columns]
@@ -98,11 +161,17 @@ def build_idare_dataframe(
         subject_set = set(int(s) for s in include_subjects)
         df = df[df["subject_id"].astype(int).isin(subject_set)].copy()
 
-    if not keep_score5:
-        df = df[df[discard_col].astype(bool) == False].copy()  # noqa: E712
+    df["score"] = pd.to_numeric(df[score_col], errors="coerce")
+    df["label"] = labels_from_scores(df["score"], label_policy=label_policy)
+    df["label_policy"] = label_policy
 
-    df = df[df[label_col].notna()].copy()
-    df["label"] = df[label_col].astype(int)
+    if discard_col in df.columns:
+        df["is_score5"] = df[discard_col].astype(bool)
+    else:
+        df["is_score5"] = df["score"] == 5
+
+    df = df[df["label"].notna()].copy()
+    df["label"] = df["label"].astype(int)
 
     df = df.sort_values(["subject_id", "event_index_1based"]).reset_index(drop=True)
     return df
@@ -189,7 +258,8 @@ class IDARETrialDataset(Dataset):
         paths: IDAREPaths | None = None,
         return_mode: ReturnMode = "both",
         include_subjects: list[int] | None = None,
-        keep_score5: bool = False,
+        label_policy: LabelPolicy = "discard_midpoint",
+        keep_score5: bool | None = None,
         seconds: float = 5.0,
         eeg_channels: int = 32,
         standardize_eeg: bool = True,
@@ -201,6 +271,7 @@ class IDARETrialDataset(Dataset):
 
         self.paths = paths or IDAREPaths()
         self.task = task
+        self.label_policy = normalize_label_policy(label_policy, keep_score5=keep_score5)
         self.return_mode = return_mode
         self.seconds = float(seconds)
         self.eeg_channels = int(eeg_channels)
@@ -212,7 +283,7 @@ class IDARETrialDataset(Dataset):
             task=task,
             paths=self.paths,
             include_subjects=include_subjects,
-            keep_score5=keep_score5,
+            label_policy=self.label_policy,
         )
 
         if self.df.empty:
@@ -288,6 +359,8 @@ class IDARETrialDataset(Dataset):
 
         item: dict[str, Any] = {
             "label": torch.tensor(int(row["label"]), dtype=torch.long),
+            "score": float(row["score"]),
+            "label_policy": self.label_policy,
             "subject_id": int(row["subject_id"]),
             "stimulus_id": str(row["stimulus_id"]),
             "event_index_1based": int(row["event_index_1based"]),
@@ -314,7 +387,9 @@ def summarize_dataset(dataset: IDARETrialDataset, *, n_items_to_check: int = 8) 
             "index": idx,
             "subject_id": item["subject_id"],
             "stimulus_id": item["stimulus_id"],
+            "score": float(item["score"]),
             "label": int(item["label"].item()),
+            "label_policy": item["label_policy"],
         }
 
         if "eeg" in item:
@@ -338,6 +413,7 @@ def summarize_dataset(dataset: IDARETrialDataset, *, n_items_to_check: int = 8) 
 
     return {
         "task": dataset.task,
+        "label_policy": dataset.label_policy,
         "return_mode": dataset.return_mode,
         "n_rows": len(dataset),
         "n_subjects": subject_count,

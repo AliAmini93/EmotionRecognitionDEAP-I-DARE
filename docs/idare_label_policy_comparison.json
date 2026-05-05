@@ -1,0 +1,521 @@
+{
+  "status": "PASSED",
+  "config": {
+    "run_pilot": true,
+    "tasks": [
+      "valence",
+      "arousal"
+    ],
+    "policies": [
+      "discard_midpoint",
+      "midpoint_as_low",
+      "midpoint_as_high"
+    ],
+    "train_subjects": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "test_subjects": [
+      1,
+      2
+    ],
+    "epochs": 1,
+    "max_train_batches": 8,
+    "max_eval_batches": 8,
+    "batch_size": 8,
+    "seed": 11,
+    "device": "cuda",
+    "torch_version": "2.11.0+cu128",
+    "cuda_available": true,
+    "cuda_device_name": "NVIDIA GeForce RTX 5090"
+  },
+  "dataset_summaries": [
+    {
+      "task": "valence",
+      "label_policy": "discard_midpoint",
+      "rows": 1667,
+      "subjects": 63,
+      "label_counts": {
+        "0": 812,
+        "1": 855
+      }
+    },
+    {
+      "task": "valence",
+      "label_policy": "midpoint_as_low",
+      "rows": 2016,
+      "subjects": 63,
+      "label_counts": {
+        "0": 1161,
+        "1": 855
+      }
+    },
+    {
+      "task": "valence",
+      "label_policy": "midpoint_as_high",
+      "rows": 2016,
+      "subjects": 63,
+      "label_counts": {
+        "0": 812,
+        "1": 1204
+      }
+    },
+    {
+      "task": "arousal",
+      "label_policy": "discard_midpoint",
+      "rows": 1799,
+      "subjects": 63,
+      "label_counts": {
+        "0": 1112,
+        "1": 687
+      }
+    },
+    {
+      "task": "arousal",
+      "label_policy": "midpoint_as_low",
+      "rows": 2016,
+      "subjects": 63,
+      "label_counts": {
+        "0": 1329,
+        "1": 687
+      }
+    },
+    {
+      "task": "arousal",
+      "label_policy": "midpoint_as_high",
+      "rows": 2016,
+      "subjects": 63,
+      "label_counts": {
+        "0": 1112,
+        "1": 904
+      }
+    }
+  ],
+  "pilot_results": [
+    {
+      "task": "valence",
+      "label_policy": "discard_midpoint",
+      "train_subjects": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "test_subjects": [
+        1,
+        2
+      ],
+      "train_rows": 116,
+      "test_rows": 56,
+      "train_label_counts": {
+        "0": 57,
+        "1": 59
+      },
+      "test_label_counts": {
+        "0": 31,
+        "1": 25
+      },
+      "model_trainable_parameters": 337955,
+      "train_history": [
+        {
+          "epoch": 1,
+          "batches": 8,
+          "loss_mean": 0.8339532017707825,
+          "accuracy_mean": 0.453125
+        }
+      ],
+      "eval": {
+        "n": 56,
+        "accuracy": 0.44642857142857145,
+        "balanced_accuracy": 0.5,
+        "macro_f1": 0.308641975308642,
+        "true_counts": {
+          "0": 31,
+          "1": 25
+        },
+        "pred_counts": {
+          "0": 0,
+          "1": 56
+        },
+        "per_class": {
+          "0": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 31,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 31
+          },
+          "1": {
+            "tp": 25,
+            "fp": 31,
+            "fn": 0,
+            "precision": 0.44642857142857145,
+            "recall": 1.0,
+            "f1": 0.617283950617284,
+            "support": 25
+          }
+        },
+        "loss_mean": 0.9985445780413491,
+        "batches": 7
+      }
+    },
+    {
+      "task": "valence",
+      "label_policy": "midpoint_as_low",
+      "train_subjects": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "test_subjects": [
+        1,
+        2
+      ],
+      "train_rows": 128,
+      "test_rows": 64,
+      "train_label_counts": {
+        "0": 69,
+        "1": 59
+      },
+      "test_label_counts": {
+        "0": 39,
+        "1": 25
+      },
+      "model_trainable_parameters": 337955,
+      "train_history": [
+        {
+          "epoch": 1,
+          "batches": 8,
+          "loss_mean": 0.7596856504678726,
+          "accuracy_mean": 0.5
+        }
+      ],
+      "eval": {
+        "n": 64,
+        "accuracy": 0.609375,
+        "balanced_accuracy": 0.5,
+        "macro_f1": 0.3786407766990291,
+        "true_counts": {
+          "0": 39,
+          "1": 25
+        },
+        "pred_counts": {
+          "0": 64,
+          "1": 0
+        },
+        "per_class": {
+          "0": {
+            "tp": 39,
+            "fp": 25,
+            "fn": 0,
+            "precision": 0.609375,
+            "recall": 1.0,
+            "f1": 0.7572815533980582,
+            "support": 39
+          },
+          "1": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 25,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 25
+          }
+        },
+        "loss_mean": 0.6795012876391411,
+        "batches": 8
+      }
+    },
+    {
+      "task": "valence",
+      "label_policy": "midpoint_as_high",
+      "train_subjects": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "test_subjects": [
+        1,
+        2
+      ],
+      "train_rows": 128,
+      "test_rows": 64,
+      "train_label_counts": {
+        "0": 57,
+        "1": 71
+      },
+      "test_label_counts": {
+        "0": 31,
+        "1": 33
+      },
+      "model_trainable_parameters": 337955,
+      "train_history": [
+        {
+          "epoch": 1,
+          "batches": 8,
+          "loss_mean": 0.7238559797406197,
+          "accuracy_mean": 0.578125
+        }
+      ],
+      "eval": {
+        "n": 64,
+        "accuracy": 0.515625,
+        "balanced_accuracy": 0.5,
+        "macro_f1": 0.3402061855670103,
+        "true_counts": {
+          "0": 31,
+          "1": 33
+        },
+        "pred_counts": {
+          "0": 0,
+          "1": 64
+        },
+        "per_class": {
+          "0": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 31,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 31
+          },
+          "1": {
+            "tp": 33,
+            "fp": 31,
+            "fn": 0,
+            "precision": 0.515625,
+            "recall": 1.0,
+            "f1": 0.6804123711340206,
+            "support": 33
+          }
+        },
+        "loss_mean": 0.718896821141243,
+        "batches": 8
+      }
+    },
+    {
+      "task": "arousal",
+      "label_policy": "discard_midpoint",
+      "train_subjects": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "test_subjects": [
+        1,
+        2
+      ],
+      "train_rows": 119,
+      "test_rows": 58,
+      "train_label_counts": {
+        "0": 63,
+        "1": 56
+      },
+      "test_label_counts": {
+        "0": 24,
+        "1": 34
+      },
+      "model_trainable_parameters": 337955,
+      "train_history": [
+        {
+          "epoch": 1,
+          "batches": 8,
+          "loss_mean": 0.7214820608496666,
+          "accuracy_mean": 0.546875
+        }
+      ],
+      "eval": {
+        "n": 58,
+        "accuracy": 0.5862068965517241,
+        "balanced_accuracy": 0.5,
+        "macro_f1": 0.3695652173913043,
+        "true_counts": {
+          "0": 24,
+          "1": 34
+        },
+        "pred_counts": {
+          "0": 0,
+          "1": 58
+        },
+        "per_class": {
+          "0": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 24,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 24
+          },
+          "1": {
+            "tp": 34,
+            "fp": 24,
+            "fn": 0,
+            "precision": 0.5862068965517241,
+            "recall": 1.0,
+            "f1": 0.7391304347826086,
+            "support": 34
+          }
+        },
+        "loss_mean": 0.6736609041690826,
+        "batches": 8
+      }
+    },
+    {
+      "task": "arousal",
+      "label_policy": "midpoint_as_low",
+      "train_subjects": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "test_subjects": [
+        1,
+        2
+      ],
+      "train_rows": 128,
+      "test_rows": 64,
+      "train_label_counts": {
+        "0": 72,
+        "1": 56
+      },
+      "test_label_counts": {
+        "0": 30,
+        "1": 34
+      },
+      "model_trainable_parameters": 337955,
+      "train_history": [
+        {
+          "epoch": 1,
+          "batches": 8,
+          "loss_mean": 0.7355424240231514,
+          "accuracy_mean": 0.515625
+        }
+      ],
+      "eval": {
+        "n": 64,
+        "accuracy": 0.46875,
+        "balanced_accuracy": 0.5,
+        "macro_f1": 0.3191489361702128,
+        "true_counts": {
+          "0": 30,
+          "1": 34
+        },
+        "pred_counts": {
+          "0": 64,
+          "1": 0
+        },
+        "per_class": {
+          "0": {
+            "tp": 30,
+            "fp": 34,
+            "fn": 0,
+            "precision": 0.46875,
+            "recall": 1.0,
+            "f1": 0.6382978723404256,
+            "support": 30
+          },
+          "1": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 34,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 34
+          }
+        },
+        "loss_mean": 0.6974713876843452,
+        "batches": 8
+      }
+    },
+    {
+      "task": "arousal",
+      "label_policy": "midpoint_as_high",
+      "train_subjects": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "test_subjects": [
+        1,
+        2
+      ],
+      "train_rows": 128,
+      "test_rows": 64,
+      "train_label_counts": {
+        "0": 63,
+        "1": 65
+      },
+      "test_label_counts": {
+        "0": 24,
+        "1": 40
+      },
+      "model_trainable_parameters": 337955,
+      "train_history": [
+        {
+          "epoch": 1,
+          "batches": 8,
+          "loss_mean": 0.7509438991546631,
+          "accuracy_mean": 0.40625
+        }
+      ],
+      "eval": {
+        "n": 64,
+        "accuracy": 0.625,
+        "balanced_accuracy": 0.5,
+        "macro_f1": 0.38461538461538464,
+        "true_counts": {
+          "0": 24,
+          "1": 40
+        },
+        "pred_counts": {
+          "0": 0,
+          "1": 64
+        },
+        "per_class": {
+          "0": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 24,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 24
+          },
+          "1": {
+            "tp": 40,
+            "fp": 24,
+            "fn": 0,
+            "precision": 0.625,
+            "recall": 1.0,
+            "f1": 0.7692307692307693,
+            "support": 40
+          }
+        },
+        "loss_mean": 0.6741974502801895,
+        "batches": 8
+      }
+    }
+  ],
+  "issues": [],
+  "warnings": [
+    "valence/discard_midpoint: tiny pilot predicted only one class on evaluated batches.",
+    "valence/midpoint_as_low: tiny pilot predicted only one class on evaluated batches.",
+    "valence/midpoint_as_high: tiny pilot predicted only one class on evaluated batches.",
+    "arousal/discard_midpoint: tiny pilot predicted only one class on evaluated batches.",
+    "arousal/midpoint_as_low: tiny pilot predicted only one class on evaluated batches.",
+    "arousal/midpoint_as_high: tiny pilot predicted only one class on evaluated batches."
+  ]
+}
