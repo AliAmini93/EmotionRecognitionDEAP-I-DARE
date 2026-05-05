@@ -1261,3 +1261,150 @@ Then run one tiny arousal-only smoke using the baseline-corrected cache.
 Do not overwrite the original cache.
 
 Do not run a full LOSO/final experiment yet.
+
+## Arousal Smoke on Full Baseline-Corrected I-DARE EEG Cache
+
+Checkpoint commit before this status update:
+
+```text
+748c001 exp: smoke arousal training on baseline corrected I-DARE EEG cache
+```
+
+A tiny arousal-only smoke was run on the full baseline-corrected I-DARE EEG cache.
+
+### Inputs
+
+Baseline-corrected cache files used locally:
+
+```text
+.cache/idare_eeg_windows_32x640_float32_baseline_corrected.npy
+.cache/idare_eeg_cache_index_baseline_corrected.csv
+```
+
+These cache files are local generated artifacts and should not be committed.
+
+Smoke report files committed:
+
+```text
+docs/idare_arousal_baseline_corrected_balanced_sampler_smoke.md
+docs/idare_arousal_baseline_corrected_balanced_sampler_smoke.json
+```
+
+### Smoke command scope
+
+```text
+task: arousal
+label_policy: midpoint_as_high
+recipe: balanced_sampler_ce
+folds: 6
+seed: 11
+epochs: 2
+lr: 3e-4
+max_runs: 2
+device: cuda
+```
+
+### Aggregate result
+
+```text
+argmax macro F1 mean:      0.4779
+argmax balanced acc mean:  0.5346
+argmax accuracy mean:      0.4915
+threshold macro F1 mean:   0.5279
+threshold balanced acc:    0.5283
+mean threshold:            0.5750
+one-class final runs:      0
+threshold one-class runs:  0
+majority accuracy mean:    0.6080
+```
+
+### Per-run summary
+
+Fold 1:
+
+```text
+argmax pred_counts:        {"0": 61, "1": 291}
+argmax macro F1:           0.4375
+argmax balanced acc:       0.5394
+best threshold:            0.60
+threshold macro F1:        0.5315
+threshold balanced acc:    0.5321
+threshold pred_counts:     {"0": 208, "1": 144}
+one_class_pred:            false
+```
+
+Fold 2:
+
+```text
+argmax pred_counts:        {"0": 161, "1": 191}
+argmax macro F1:           0.5182
+argmax balanced acc:       0.5299
+best threshold:            0.55
+threshold macro F1:        0.5243
+threshold balanced acc:    0.5245
+threshold pred_counts:     {"0": 209, "1": 143}
+one_class_pred:            false
+```
+
+### Comparison against previous non-baseline-corrected arousal balanced sampler smoke
+
+Previous non-baseline-corrected arousal balanced sampler aggregate:
+
+```text
+argmax macro F1 mean:      0.4428
+argmax balanced acc mean:  0.5019
+threshold macro F1 mean:   0.5185
+threshold balanced acc:    0.5267
+```
+
+New baseline-corrected arousal balanced sampler aggregate:
+
+```text
+argmax macro F1 mean:      0.4779
+argmax balanced acc mean:  0.5346
+threshold macro F1 mean:   0.5279
+threshold balanced acc:    0.5283
+```
+
+Observed smoke-level gains:
+
+```text
+argmax macro F1 gain:      +0.0351
+argmax balanced acc gain:  +0.0327
+threshold macro F1 gain:   +0.0094
+threshold balanced gain:   +0.0016
+```
+
+### Interpretation
+
+The baseline-corrected cache is promising for arousal in tiny smoke conditions.
+
+It improved argmax macro F1 and balanced accuracy relative to the previous non-baseline-corrected arousal balanced sampler smoke.
+
+Threshold diagnostics remain useful, but the argmax results also improved after baseline correction.
+
+There was no one-class collapse in either fold.
+
+### Recommendation
+
+Promote the baseline-corrected I-DARE EEG cache as the next arousal diagnostic path.
+
+Next action should remain smoke-first:
+
+```text
+Run a slightly broader arousal-only baseline-corrected smoke before any full/final run.
+```
+
+Suggested next technical step:
+
+```text
+arousal
+baseline-corrected cache
+balanced_sampler_ce
+midpoint_as_high
+lr=3e-4
+epochs=2
+increase max_runs from 2 to 4
+```
+
+Do not run full LOSO/final training yet.
