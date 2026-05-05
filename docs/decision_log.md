@@ -332,3 +332,79 @@ Current I-DARE counts:
 
 Status:
 Accepted as a pre-baseline policy decision.
+
+---
+
+## D010 - I-DARE score-5 policy selection remains unresolved after cache-based multi-fold pilot
+
+Date: 2026-05-05
+
+Decision status: provisional / not final.
+
+A cache-based multi-fold EEG-only score-5 policy-selection pilot was run after building the I-DARE EEG cache.
+
+Compared policies:
+
+```text
+discard_midpoint
+midpoint_as_low
+midpoint_as_high
+```
+
+Tasks:
+
+```text
+valence
+arousal
+```
+
+Pilot configuration:
+
+```text
+4 subject-held-out validation folds
+2 seeds: 11, 13
+3 epochs
+batch size: 32
+class-weighted CrossEntropyLoss
+cache source: .cache/idare_eeg_windows_32x640_float32.npy
+```
+
+Aggregate result:
+
+```text
+arousal/midpoint_as_low:  macro_f1=0.4433, bal_acc=0.4998, best_f1=0.4646, one_class=0/8
+arousal/midpoint_as_high: macro_f1=0.4369, bal_acc=0.4884, best_f1=0.4733, one_class=1/8
+arousal/discard_midpoint: macro_f1=0.3975, bal_acc=0.5004, best_f1=0.4531, one_class=2/8
+
+valence/midpoint_as_low:  macro_f1=0.3697, bal_acc=0.4959, best_f1=0.3991, one_class=3/8
+valence/midpoint_as_high: macro_f1=0.3428, bal_acc=0.4993, best_f1=0.3751, one_class=6/8
+valence/discard_midpoint: macro_f1=0.3332, bal_acc=0.5000, best_f1=0.3538, one_class=8/8
+```
+
+Interpretation:
+
+- `midpoint_as_low` is the best aggregate policy by final macro F1 for both valence and arousal.
+- The margin is not strong enough to declare it a final policy.
+- `discard_midpoint` performs poorly for valence in this pilot because it collapses to one-class predictions in all 8 final runs.
+- `midpoint_as_high` remains competitive for arousal by best F1, but is weaker and less stable for valence.
+
+Decision:
+
+- Do not permanently promote one score-5 policy yet.
+- Keep all three policies implemented as loader presets.
+- Use `midpoint_as_low` as the provisional primary policy for the next short cache-based baseline.
+- Keep `midpoint_as_high` as the secondary comparison policy.
+- Deprioritize `discard_midpoint` for the next expanded baseline, especially for valence, unless a literature-alignment argument requires retaining it.
+
+Rationale:
+
+This avoids prematurely discarding data while still respecting that the score-5 midpoint may be ambiguous. The current evidence supports narrowing the next baseline to the most promising policies rather than expanding the ablation space.
+
+Related files:
+
+```text
+scripts/16_run_idare_eeg_cache_policy_multifold_selection.py
+docs/idare_eeg_cache_policy_multifold_selection_plan.md
+docs/idare_eeg_cache_policy_multifold_selection.md
+docs/idare_eeg_cache_policy_multifold_selection.json
+```
