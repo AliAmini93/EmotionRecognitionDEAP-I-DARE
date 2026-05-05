@@ -1,0 +1,976 @@
+{
+  "cache_index": {
+    "baseline_metadata_evidence": {
+      "has_explicit_metadata_evidence": false,
+      "interpretation": "No explicit cache-index columns indicate baseline correction. This is not proof of absence in the NPY values, but there is no metadata evidence.",
+      "matching_columns": []
+    },
+    "cached_stimulus_count": 32,
+    "cached_stimulus_ids": [
+      "1441",
+      "1750",
+      "2314",
+      "2491",
+      "3053",
+      "3063",
+      "3080",
+      "3170",
+      "4220",
+      "5760",
+      "8080",
+      "8370",
+      "8492",
+      "9220",
+      "9331",
+      "9360",
+      "Angry_face_1",
+      "Beach_1",
+      "Depressed_pose_4",
+      "Dog_18",
+      "Dog_26",
+      "Dog_6",
+      "Dummy_1",
+      "Flowers_6",
+      "Garbage_dump_6",
+      "Lake_12",
+      "Lake_3",
+      "Miserable_pose_3",
+      "Pinecone_1",
+      "Snow_1",
+      "Tumor_1",
+      "Yarn_1"
+    ],
+    "columns": [
+      "cache_row",
+      "subject_id",
+      "subject_col",
+      "stimulus_id",
+      "raw_event_name",
+      "eeg_file",
+      "eeg_begin_raw",
+      "valence_score",
+      "arousal_score",
+      "valence_discard_midpoint",
+      "valence_midpoint_as_low",
+      "valence_midpoint_as_high",
+      "arousal_discard_midpoint",
+      "arousal_midpoint_as_low",
+      "arousal_midpoint_as_high"
+    ],
+    "path": ".cache/idare_eeg_cache_index.csv",
+    "rows": 2016,
+    "stimulus_column": "stimulus_id"
+  },
+  "config": {
+    "cache_index": ".cache/idare_eeg_cache_index.csv",
+    "out_json": "docs/idare_baseline_correction_audit.json",
+    "out_md": "docs/idare_baseline_correction_audit.md",
+    "stimuli_specs": "/mnt/HDD/AliWorks/I-DARE/metadata/Stimuli_Specifications.csv"
+  },
+  "feasibility": {
+    "all_bsl_immediately_before_stim": true,
+    "all_bsl_mean_durations_4p5_to_5p5": true,
+    "all_stim_mean_durations_4p5_to_5p5": true,
+    "can_map_stim_to_bsl_for_all_audited_ids": true,
+    "feasible_for_future_baseline_corrected_cache": true,
+    "recommendation": "Feasible to build a separate baseline-corrected I-DARE EEG cache in a future step. Do not overwrite the current cache."
+  },
+  "find_notes": [
+    "found candidate: /mnt/HDD/AliWorks/I-DARE/metadata/Stimuli_Specifications.csv"
+  ],
+  "interpretation": {
+    "current_cache_baseline_corrected": "no_explicit_metadata_evidence",
+    "notes": [
+      "This audit only checks metadata/index feasibility.",
+      "It does not inspect NPY signal values and cannot prove whether numerical baseline correction was already applied.",
+      "A future baseline-corrected cache should be written to a new filename and smoke-tested before any broader run.",
+      "Training loops should continue reading cache files only; raw MATLAB/HDF5 access should stay outside training."
+    ]
+  },
+  "pair_rows": [
+    {
+      "bsl_duration_summary": {
+        "max": 5.01,
+        "mean": 4.994375,
+        "median": 4.9945,
+        "min": 4.985,
+        "missing": 0,
+        "n": 64
+      },
+      "bsl_event_index_1based": 56,
+      "bsl_immediately_before_stim": true,
+      "has_bsl_row": true,
+      "has_stim_row": true,
+      "stim_duration_summary": {
+        "max": 5.009,
+        "mean": 4.997921874999999,
+        "median": 4.9985,
+        "min": 4.987,
+        "missing": 0,
+        "n": 64
+      },
+      "stim_event_index_1based": 57,
+      "stimulus_id": "1441"
+    },
+    {
+      "bsl_duration_summary": {
+        "max": 5.026,
+        "mean": 4.99725,
+        "median": 4.998,
+        "min": 4.985,
+        "missing": 0,
+        "n": 64
+      },
+      "bsl_event_index_1based": 50,
+      "bsl_immediately_before_stim": true,
+      "has_bsl_row": true,
+      "has_stim_row": true,
+      "stim_duration_summary": {
+        "max": 5.018,
+        "mean": 4.996718749999999,
+        "median": 4.996,
+        "min": 4.986,
+        "missing": 0,
+        "n": 64
+      },
+      "stim_event_index_1based": 51,
+      "stimulus_id": "1750"
+    },
+    {
+      "bsl_duration_summary": {
+        "max": 5.011,
+        "mean": 4.99496875,
+        "median": 4.995,
+        "min": 4.985,
+        "missing": 0,
+        "n": 64
+      },
+      "bsl_event_index_1based": 47,
+      "bsl_immediately_before_stim": true,
+      "has_bsl_row": true,
+      "has_stim_row": true,
+      "stim_duration_summary": {
+        "max": 5.013,
+        "mean": 4.997125,
+        "median": 4.9975000000000005,
+        "min": 4.985,
+        "missing": 0,
+        "n": 64
+      },
+      "stim_event_index_1based": 48,
+      "stimulus_id": "2314"
+    },
+    {
+      "bsl_duration_summary": {
+        "max": 5.026,
+        "mean": 4.997671875,
+        "median": 4.999,
+        "min": 4.985,
+        "missing": 0,
+        "n": 64
+      },
+      "bsl_event_index_1based": 71,
+      "bsl_immediately_before_stim": true,
+      "has_bsl_row": true,
+      "has_stim_row": true,
+      "stim_duration_summary": {
+        "max": 5.016,
+        "mean": 4.995796875,
+        "median": 4.9955,
+        "min": 4.986,
+        "missing": 0,
+        "n": 64
+      },
+      "stim_event_index_1based": 72,
+      "stimulus_id": "2491"
+    },
+    {
+      "bsl_duration_summary": {
+        "max": 5.009,
+        "mean": 4.995484375,
+        "median": 4.996,
+        "min": 4.986,
+        "missing": 0,
+        "n": 64
+      },
+      "bsl_event_index_1based": 8,
+      "bsl_immediately_before_stim": true,
+      "has_bsl_row": true,
+      "has_stim_row": true,
+      "stim_duration_summary": {
+        "max": 5.018,
+        "mean": 4.9973125,
+        "median": 4.998,
+        "min": 4.985,
+        "missing": 0,
+        "n": 64
+      },
+      "stim_event_index_1based": 9,
+      "stimulus_id": "3053"
+    },
+    {
+      "bsl_duration_summary": {
+        "max": 5.01,
+        "mean": 4.99528125,
+        "median": 4.9945,
+        "min": 4.985,
+        "missing": 0,
+        "n": 64
+      },
+      "bsl_event_index_1based": 95,
+      "bsl_immediately_before_stim": true,
+      "has_bsl_row": true,
+      "has_stim_row": true,
+      "stim_duration_summary": {
+        "max": 5.008,
+        "mean": 4.9968593750000005,
+        "median": 4.998,
+        "min": 4.986,
+        "missing": 0,
+        "n": 64
+      },
+      "stim_event_index_1based": 96,
+      "stimulus_id": "3063"
+    },
+    {
+      "bsl_duration_summary": {
+        "max": 5.022,
+        "mean": 4.996890625,
+        "median": 4.997,
+        "min": 4.985,
+        "missing": 0,
+        "n": 64
+      },
+      "bsl_event_index_1based": 98,
+      "bsl_immediately_before_stim": true,
+      "has_bsl_row": true,
+      "has_stim_row": true,
+      "stim_duration_summary": {
+        "max": 5.018,
+        "mean": 4.996859375,
+        "median": 4.9965,
+        "min": 4.985,
+        "missing": 0,
+        "n": 64
+      },
+      "stim_event_index_1based": 99,
+      "stimulus_id": "3080"
+    },
+    {
+      "bsl_duration_summary": {
+        "max": 5.011,
+        "mean": 4.997187500000001,
+        "median": 4.998,
+        "min": 4.987,
+        "missing": 0,
+        "n": 64
+      },
+      "bsl_event_index_1based": 80,
+      "bsl_immediately_before_stim": true,
+      "has_bsl_row": true,
+      "has_stim_row": true,
+      "stim_duration_summary": {
+        "max": 5.013,
+        "mean": 4.996343749999999,
+        "median": 4.996,
+        "min": 4.986,
+        "missing": 0,
+        "n": 64
+      },
+      "stim_event_index_1based": 81,
+      "stimulus_id": "3170"
+    },
+    {
+      "bsl_duration_summary": {
+        "max": 5.029,
+        "mean": 4.998390625000001,
+        "median": 4.998,
+        "min": 4.986,
+        "missing": 0,
+        "n": 64
+      },
+      "bsl_event_index_1based": 89,
+      "bsl_immediately_before_stim": true,
+      "has_bsl_row": true,
+      "has_stim_row": true,
+      "stim_duration_summary": {
+        "max": 5.023,
+        "mean": 4.9970156249999995,
+        "median": 4.9965,
+        "min": 4.987,
+        "missing": 0,
+        "n": 64
+      },
+      "stim_event_index_1based": 90,
+      "stimulus_id": "4220"
+    },
+    {
+      "bsl_duration_summary": {
+        "max": 5.014,
+        "mean": 4.9959375,
+        "median": 4.996,
+        "min": 4.986,
+        "missing": 0,
+        "n": 64
+      },
+      "bsl_event_index_1based": 92,
+      "bsl_immediately_before_stim": true,
+      "has_bsl_row": true,
+      "has_stim_row": true,
+      "stim_duration_summary": {
+        "max": 5.017,
+        "mean": 4.995125,
+        "median": 4.995,
+        "min": 4.985,
+        "missing": 0,
+        "n": 64
+      },
+      "stim_event_index_1based": 93,
+      "stimulus_id": "5760"
+    },
+    {
+      "bsl_duration_summary": {
+        "max": 5.01,
+        "mean": 4.9963750000000005,
+        "median": 4.996,
+        "min": 4.985,
+        "missing": 0,
+        "n": 64
+      },
+      "bsl_event_index_1based": 83,
+      "bsl_immediately_before_stim": true,
+      "has_bsl_row": true,
+      "has_stim_row": true,
+      "stim_duration_summary": {
+        "max": 5.009,
+        "mean": 4.99596875,
+        "median": 4.997,
+        "min": 4.985,
+        "missing": 0,
+        "n": 64
+      },
+      "stim_event_index_1based": 84,
+      "stimulus_id": "8080"
+    },
+    {
+      "bsl_duration_summary": {
+        "max": 5.025,
+        "mean": 4.996953125,
+        "median": 4.997,
+        "min": 4.985,
+        "missing": 0,
+        "n": 64
+      },
+      "bsl_event_index_1based": 35,
+      "bsl_immediately_before_stim": true,
+      "has_bsl_row": true,
+      "has_stim_row": true,
+      "stim_duration_summary": {
+        "max": 5.025,
+        "mean": 4.9967500000000005,
+        "median": 4.9965,
+        "min": 4.987,
+        "missing": 0,
+        "n": 64
+      },
+      "stim_event_index_1based": 36,
+      "stimulus_id": "8370"
+    },
+    {
+      "bsl_duration_summary": {
+        "max": 5.024,
+        "mean": 4.997515625,
+        "median": 4.998,
+        "min": 4.987,
+        "missing": 0,
+        "n": 64
+      },
+      "bsl_event_index_1based": 53,
+      "bsl_immediately_before_stim": true,
+      "has_bsl_row": true,
+      "has_stim_row": true,
+      "stim_duration_summary": {
+        "max": 5.008,
+        "mean": 4.9964375,
+        "median": 4.997,
+        "min": 4.985,
+        "missing": 0,
+        "n": 64
+      },
+      "stim_event_index_1based": 54,
+      "stimulus_id": "8492"
+    },
+    {
+      "bsl_duration_summary": {
+        "max": 5.008,
+        "mean": 4.996593750000001,
+        "median": 4.997,
+        "min": 4.987,
+        "missing": 0,
+        "n": 64
+      },
+      "bsl_event_index_1based": 41,
+      "bsl_immediately_before_stim": true,
+      "has_bsl_row": true,
+      "has_stim_row": true,
+      "stim_duration_summary": {
+        "max": 5.043,
+        "mean": 4.995734375,
+        "median": 4.995,
+        "min": 4.985,
+        "missing": 0,
+        "n": 64
+      },
+      "stim_event_index_1based": 42,
+      "stimulus_id": "9220"
+    },
+    {
+      "bsl_duration_summary": {
+        "max": 5.014,
+        "mean": 4.99646875,
+        "median": 4.997,
+        "min": 4.986,
+        "missing": 0,
+        "n": 64
+      },
+      "bsl_event_index_1based": 65,
+      "bsl_immediately_before_stim": true,
+      "has_bsl_row": true,
+      "has_stim_row": true,
+      "stim_duration_summary": {
+        "max": 5.013,
+        "mean": 4.996515625,
+        "median": 4.997,
+        "min": 4.985,
+        "missing": 0,
+        "n": 64
+      },
+      "stim_event_index_1based": 66,
+      "stimulus_id": "9331"
+    },
+    {
+      "bsl_duration_summary": {
+        "max": 5.018,
+        "mean": 4.996984374999999,
+        "median": 4.998,
+        "min": 4.985,
+        "missing": 0,
+        "n": 64
+      },
+      "bsl_event_index_1based": 74,
+      "bsl_immediately_before_stim": true,
+      "has_bsl_row": true,
+      "has_stim_row": true,
+      "stim_duration_summary": {
+        "max": 5.067,
+        "mean": 4.9971250000000005,
+        "median": 4.996,
+        "min": 4.985,
+        "missing": 0,
+        "n": 64
+      },
+      "stim_event_index_1based": 75,
+      "stimulus_id": "9360"
+    },
+    {
+      "bsl_duration_summary": {
+        "max": 5.012,
+        "mean": 4.995375,
+        "median": 4.995,
+        "min": 4.985,
+        "missing": 0,
+        "n": 64
+      },
+      "bsl_event_index_1based": 29,
+      "bsl_immediately_before_stim": true,
+      "has_bsl_row": true,
+      "has_stim_row": true,
+      "stim_duration_summary": {
+        "max": 5.024,
+        "mean": 4.998015625,
+        "median": 4.998,
+        "min": 4.985,
+        "missing": 0,
+        "n": 64
+      },
+      "stim_event_index_1based": 30,
+      "stimulus_id": "Angry_face_1"
+    },
+    {
+      "bsl_duration_summary": {
+        "max": 5.011,
+        "mean": 4.9973125,
+        "median": 4.998,
+        "min": 4.985,
+        "missing": 0,
+        "n": 64
+      },
+      "bsl_event_index_1based": 68,
+      "bsl_immediately_before_stim": true,
+      "has_bsl_row": true,
+      "has_stim_row": true,
+      "stim_duration_summary": {
+        "max": 5.015,
+        "mean": 4.996703125,
+        "median": 4.997,
+        "min": 4.986,
+        "missing": 0,
+        "n": 64
+      },
+      "stim_event_index_1based": 69,
+      "stimulus_id": "Beach_1"
+    },
+    {
+      "bsl_duration_summary": {
+        "max": 5.014,
+        "mean": 4.996484375,
+        "median": 4.997,
+        "min": 4.985,
+        "missing": 0,
+        "n": 64
+      },
+      "bsl_event_index_1based": 26,
+      "bsl_immediately_before_stim": true,
+      "has_bsl_row": true,
+      "has_stim_row": true,
+      "stim_duration_summary": {
+        "max": 5.012,
+        "mean": 4.9964531249999995,
+        "median": 4.997,
+        "min": 4.986,
+        "missing": 0,
+        "n": 64
+      },
+      "stim_event_index_1based": 27,
+      "stimulus_id": "Depressed_pose_4"
+    },
+    {
+      "bsl_duration_summary": {
+        "max": 5.019,
+        "mean": 4.99715625,
+        "median": 4.9975000000000005,
+        "min": 4.985,
+        "missing": 0,
+        "n": 64
+      },
+      "bsl_event_index_1based": 14,
+      "bsl_immediately_before_stim": true,
+      "has_bsl_row": true,
+      "has_stim_row": true,
+      "stim_duration_summary": {
+        "max": 5.027,
+        "mean": 4.99665625,
+        "median": 4.9965,
+        "min": 4.987,
+        "missing": 0,
+        "n": 64
+      },
+      "stim_event_index_1based": 15,
+      "stimulus_id": "Dog_18"
+    },
+    {
+      "bsl_duration_summary": {
+        "max": 5.027,
+        "mean": 4.996828125,
+        "median": 4.998,
+        "min": 4.986,
+        "missing": 0,
+        "n": 64
+      },
+      "bsl_event_index_1based": 32,
+      "bsl_immediately_before_stim": true,
+      "has_bsl_row": true,
+      "has_stim_row": true,
+      "stim_duration_summary": {
+        "max": 5.015,
+        "mean": 4.996875,
+        "median": 4.9965,
+        "min": 4.986,
+        "missing": 0,
+        "n": 64
+      },
+      "stim_event_index_1based": 33,
+      "stimulus_id": "Dog_26"
+    },
+    {
+      "bsl_duration_summary": {
+        "max": 5.017,
+        "mean": 4.9971250000000005,
+        "median": 4.997,
+        "min": 4.986,
+        "missing": 0,
+        "n": 64
+      },
+      "bsl_event_index_1based": 38,
+      "bsl_immediately_before_stim": true,
+      "has_bsl_row": true,
+      "has_stim_row": true,
+      "stim_duration_summary": {
+        "max": 5.019,
+        "mean": 4.9966718750000005,
+        "median": 4.997,
+        "min": 4.988,
+        "missing": 0,
+        "n": 64
+      },
+      "stim_event_index_1based": 39,
+      "stimulus_id": "Dog_6"
+    },
+    {
+      "bsl_duration_summary": {
+        "max": 5.011,
+        "mean": 4.996078125,
+        "median": 4.997,
+        "min": 4.985,
+        "missing": 0,
+        "n": 64
+      },
+      "bsl_event_index_1based": 5,
+      "bsl_immediately_before_stim": true,
+      "has_bsl_row": true,
+      "has_stim_row": true,
+      "stim_duration_summary": {
+        "max": 5.016,
+        "mean": 4.996421875,
+        "median": 4.997,
+        "min": 4.986,
+        "missing": 0,
+        "n": 64
+      },
+      "stim_event_index_1based": 6,
+      "stimulus_id": "Dummy_1"
+    },
+    {
+      "bsl_duration_summary": {
+        "max": 5.014,
+        "mean": 4.9959375,
+        "median": 4.9955,
+        "min": 4.985,
+        "missing": 0,
+        "n": 64
+      },
+      "bsl_event_index_1based": 59,
+      "bsl_immediately_before_stim": true,
+      "has_bsl_row": true,
+      "has_stim_row": true,
+      "stim_duration_summary": {
+        "max": 5.008,
+        "mean": 4.9956875,
+        "median": 4.996,
+        "min": 4.986,
+        "missing": 0,
+        "n": 64
+      },
+      "stim_event_index_1based": 60,
+      "stimulus_id": "Flowers_6"
+    },
+    {
+      "bsl_duration_summary": {
+        "max": 5.092,
+        "mean": 4.99775,
+        "median": 4.9975000000000005,
+        "min": 4.986,
+        "missing": 0,
+        "n": 64
+      },
+      "bsl_event_index_1based": 23,
+      "bsl_immediately_before_stim": true,
+      "has_bsl_row": true,
+      "has_stim_row": true,
+      "stim_duration_summary": {
+        "max": 5.019,
+        "mean": 4.996765625,
+        "median": 4.997,
+        "min": 4.986,
+        "missing": 0,
+        "n": 64
+      },
+      "stim_event_index_1based": 24,
+      "stimulus_id": "Garbage_dump_6"
+    },
+    {
+      "bsl_duration_summary": {
+        "max": 5.014,
+        "mean": 4.996703125,
+        "median": 4.997,
+        "min": 4.985,
+        "missing": 0,
+        "n": 64
+      },
+      "bsl_event_index_1based": 44,
+      "bsl_immediately_before_stim": true,
+      "has_bsl_row": true,
+      "has_stim_row": true,
+      "stim_duration_summary": {
+        "max": 5.01,
+        "mean": 4.996390625,
+        "median": 4.997,
+        "min": 4.985,
+        "missing": 0,
+        "n": 64
+      },
+      "stim_event_index_1based": 45,
+      "stimulus_id": "Lake_12"
+    },
+    {
+      "bsl_duration_summary": {
+        "max": 5.011,
+        "mean": 4.995765625000001,
+        "median": 4.996,
+        "min": 4.986,
+        "missing": 0,
+        "n": 64
+      },
+      "bsl_event_index_1based": 77,
+      "bsl_immediately_before_stim": true,
+      "has_bsl_row": true,
+      "has_stim_row": true,
+      "stim_duration_summary": {
+        "max": 5.01,
+        "mean": 4.996765625,
+        "median": 4.997,
+        "min": 4.985,
+        "missing": 0,
+        "n": 64
+      },
+      "stim_event_index_1based": 78,
+      "stimulus_id": "Lake_3"
+    },
+    {
+      "bsl_duration_summary": {
+        "max": 5.016,
+        "mean": 4.99728125,
+        "median": 4.9985,
+        "min": 4.984,
+        "missing": 0,
+        "n": 64
+      },
+      "bsl_event_index_1based": 17,
+      "bsl_immediately_before_stim": true,
+      "has_bsl_row": true,
+      "has_stim_row": true,
+      "stim_duration_summary": {
+        "max": 5.017,
+        "mean": 4.995843750000001,
+        "median": 4.995,
+        "min": 4.986,
+        "missing": 0,
+        "n": 64
+      },
+      "stim_event_index_1based": 18,
+      "stimulus_id": "Miserable_pose_3"
+    },
+    {
+      "bsl_duration_summary": {
+        "max": 5.011,
+        "mean": 4.997109375,
+        "median": 4.998,
+        "min": 4.985,
+        "missing": 0,
+        "n": 64
+      },
+      "bsl_event_index_1based": 20,
+      "bsl_immediately_before_stim": true,
+      "has_bsl_row": true,
+      "has_stim_row": true,
+      "stim_duration_summary": {
+        "max": 5.031,
+        "mean": 4.996765625,
+        "median": 4.997,
+        "min": 4.986,
+        "missing": 0,
+        "n": 64
+      },
+      "stim_event_index_1based": 21,
+      "stimulus_id": "Pinecone_1"
+    },
+    {
+      "bsl_duration_summary": {
+        "max": 5.009,
+        "mean": 4.997125,
+        "median": 4.9965,
+        "min": 4.986,
+        "missing": 0,
+        "n": 64
+      },
+      "bsl_event_index_1based": 86,
+      "bsl_immediately_before_stim": true,
+      "has_bsl_row": true,
+      "has_stim_row": true,
+      "stim_duration_summary": {
+        "max": 5.014,
+        "mean": 4.997515625,
+        "median": 4.997,
+        "min": 4.986,
+        "missing": 0,
+        "n": 64
+      },
+      "stim_event_index_1based": 87,
+      "stimulus_id": "Snow_1"
+    },
+    {
+      "bsl_duration_summary": {
+        "max": 5.026,
+        "mean": 4.997406250000001,
+        "median": 4.998,
+        "min": 4.985,
+        "missing": 0,
+        "n": 64
+      },
+      "bsl_event_index_1based": 11,
+      "bsl_immediately_before_stim": true,
+      "has_bsl_row": true,
+      "has_stim_row": true,
+      "stim_duration_summary": {
+        "max": 5.015,
+        "mean": 4.997671875,
+        "median": 4.9975000000000005,
+        "min": 4.986,
+        "missing": 0,
+        "n": 64
+      },
+      "stim_event_index_1based": 12,
+      "stimulus_id": "Tumor_1"
+    },
+    {
+      "bsl_duration_summary": {
+        "max": 5.016,
+        "mean": 4.996171875,
+        "median": 4.997,
+        "min": 4.985,
+        "missing": 0,
+        "n": 64
+      },
+      "bsl_event_index_1based": 62,
+      "bsl_immediately_before_stim": true,
+      "has_bsl_row": true,
+      "has_stim_row": true,
+      "stim_duration_summary": {
+        "max": 5.013,
+        "mean": 4.996968750000001,
+        "median": 4.9975000000000005,
+        "min": 4.985,
+        "missing": 0,
+        "n": 64
+      },
+      "stim_event_index_1based": 63,
+      "stimulus_id": "Yarn_1"
+    }
+  ],
+  "pair_summary": {
+    "audited_stimulus_count": 32,
+    "bsl_immediately_before_stim": {
+      "all_true": true,
+      "false": 0,
+      "total": 32,
+      "true": 32
+    },
+    "bsl_mean_duration_4p5_to_5p5": {
+      "all_true": true,
+      "false": 0,
+      "total": 32,
+      "true": 32
+    },
+    "has_bsl_row": {
+      "all_true": true,
+      "false": 0,
+      "total": 32,
+      "true": 32
+    },
+    "has_stim_row": {
+      "all_true": true,
+      "false": 0,
+      "total": 32,
+      "true": 32
+    },
+    "stim_mean_duration_4p5_to_5p5": {
+      "all_true": true,
+      "false": 0,
+      "total": 32,
+      "true": 32
+    }
+  },
+  "stimuli_specs": {
+    "bsl_stim_rows": 32,
+    "duplicate_stimulus_ids_in_bsl_rows": [],
+    "duplicate_stimulus_ids_in_stim_rows": [],
+    "duration_subject_column_count": 64,
+    "duration_subject_columns": [
+      "sbj_P_01",
+      "sbj_P_02",
+      "sbj_P_03",
+      "sbj_P_04",
+      "sbj_P_05",
+      "sbj_P_06",
+      "sbj_P_07",
+      "sbj_P_08",
+      "sbj_P_09",
+      "sbj_P_10",
+      "sbj_P_11",
+      "sbj_P_12",
+      "sbj_P_13",
+      "sbj_P_14",
+      "sbj_P_15",
+      "sbj_P_16",
+      "sbj_P_17",
+      "sbj_P_18",
+      "sbj_P_19",
+      "sbj_P_20",
+      "sbj_P_21",
+      "sbj_P_22",
+      "sbj_P_23",
+      "sbj_P_24",
+      "sbj_P_25",
+      "sbj_P_26",
+      "sbj_P_27",
+      "sbj_P_28",
+      "sbj_P_29",
+      "sbj_P_30",
+      "sbj_P_31",
+      "sbj_P_32",
+      "sbj_P_33",
+      "sbj_P_34",
+      "sbj_P_35",
+      "sbj_P_36",
+      "sbj_P_37",
+      "sbj_P_38",
+      "sbj_P_39",
+      "sbj_P_40",
+      "sbj_P_41",
+      "sbj_P_42",
+      "sbj_P_43",
+      "sbj_P_44",
+      "sbj_P_45",
+      "sbj_P_46",
+      "sbj_P_47",
+      "sbj_P_48",
+      "sbj_P_49",
+      "sbj_P_50",
+      "sbj_P_52",
+      "sbj_P_53",
+      "sbj_P_54",
+      "sbj_P_55",
+      "sbj_P_56",
+      "sbj_P_57",
+      "sbj_P_58",
+      "sbj_P_59",
+      "sbj_P_60",
+      "sbj_P_61",
+      "sbj_P_62",
+      "sbj_P_63",
+      "sbj_P_64",
+      "sbj_P_65"
+    ],
+    "event_kind_counts": {
+      "BSL_GLOBAL": 1,
+      "BSL_STIM": 32,
+      "EYC": 1,
+      "INSTRUCTION": 2,
+      "SAM": 32,
+      "STIM": 32
+    },
+    "rows": 100,
+    "stim_rows": 32,
+    "stimulus_event_column": "Stimulus"
+  }
+}
