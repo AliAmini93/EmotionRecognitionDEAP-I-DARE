@@ -1,0 +1,1170 @@
+{
+  "deap_dir": "/mnt/HDD/AliWorks/DEAP/data_preprocessed_python",
+  "file_count": 32,
+  "files": [
+    "s01.dat",
+    "s02.dat",
+    "s03.dat",
+    "s04.dat",
+    "s05.dat",
+    "s06.dat",
+    "s07.dat",
+    "s08.dat",
+    "s09.dat",
+    "s10.dat",
+    "s11.dat",
+    "s12.dat",
+    "s13.dat",
+    "s14.dat",
+    "s15.dat",
+    "s16.dat",
+    "s17.dat",
+    "s18.dat",
+    "s19.dat",
+    "s20.dat",
+    "s21.dat",
+    "s22.dat",
+    "s23.dat",
+    "s24.dat",
+    "s25.dat",
+    "s26.dat",
+    "s27.dat",
+    "s28.dat",
+    "s29.dat",
+    "s30.dat",
+    "s31.dat",
+    "s32.dat"
+  ],
+  "expected_files_present": true,
+  "subjects": [
+    {
+      "file": "s01.dat",
+      "size_mb": 98.44,
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "labels_shape": [
+        40,
+        4
+      ],
+      "data_dtype": "float64",
+      "labels_dtype": "float64",
+      "data_nan_count": 0,
+      "data_inf_count": 0,
+      "label_min": 1.36,
+      "label_max": 9.0,
+      "baseline_samples": 384,
+      "stimulus_samples": 7680,
+      "baseline_shape": [
+        40,
+        40,
+        384
+      ],
+      "stimulus_shape": [
+        40,
+        40,
+        7680
+      ]
+    },
+    {
+      "file": "s02.dat",
+      "size_mb": 98.44,
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "labels_shape": [
+        40,
+        4
+      ],
+      "data_dtype": "float64",
+      "labels_dtype": "float64",
+      "data_nan_count": 0,
+      "data_inf_count": 0,
+      "label_min": 1.0,
+      "label_max": 9.0,
+      "baseline_samples": 384,
+      "stimulus_samples": 7680,
+      "baseline_shape": [
+        40,
+        40,
+        384
+      ],
+      "stimulus_shape": [
+        40,
+        40,
+        7680
+      ]
+    },
+    {
+      "file": "s03.dat",
+      "size_mb": 98.44,
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "labels_shape": [
+        40,
+        4
+      ],
+      "data_dtype": "float64",
+      "labels_dtype": "float64",
+      "data_nan_count": 0,
+      "data_inf_count": 0,
+      "label_min": 1.0,
+      "label_max": 8.14,
+      "baseline_samples": 384,
+      "stimulus_samples": 7680,
+      "baseline_shape": [
+        40,
+        40,
+        384
+      ],
+      "stimulus_shape": [
+        40,
+        40,
+        7680
+      ]
+    },
+    {
+      "file": "s04.dat",
+      "size_mb": 98.44,
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "labels_shape": [
+        40,
+        4
+      ],
+      "data_dtype": "float64",
+      "labels_dtype": "float64",
+      "data_nan_count": 0,
+      "data_inf_count": 0,
+      "label_min": 1.0,
+      "label_max": 9.0,
+      "baseline_samples": 384,
+      "stimulus_samples": 7680,
+      "baseline_shape": [
+        40,
+        40,
+        384
+      ],
+      "stimulus_shape": [
+        40,
+        40,
+        7680
+      ]
+    },
+    {
+      "file": "s05.dat",
+      "size_mb": 98.44,
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "labels_shape": [
+        40,
+        4
+      ],
+      "data_dtype": "float64",
+      "labels_dtype": "float64",
+      "data_nan_count": 0,
+      "data_inf_count": 0,
+      "label_min": 1.0,
+      "label_max": 9.0,
+      "baseline_samples": 384,
+      "stimulus_samples": 7680,
+      "baseline_shape": [
+        40,
+        40,
+        384
+      ],
+      "stimulus_shape": [
+        40,
+        40,
+        7680
+      ]
+    },
+    {
+      "file": "s06.dat",
+      "size_mb": 98.44,
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "labels_shape": [
+        40,
+        4
+      ],
+      "data_dtype": "float64",
+      "labels_dtype": "float64",
+      "data_nan_count": 0,
+      "data_inf_count": 0,
+      "label_min": 2.18,
+      "label_max": 8.49,
+      "baseline_samples": 384,
+      "stimulus_samples": 7680,
+      "baseline_shape": [
+        40,
+        40,
+        384
+      ],
+      "stimulus_shape": [
+        40,
+        40,
+        7680
+      ]
+    },
+    {
+      "file": "s07.dat",
+      "size_mb": 98.44,
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "labels_shape": [
+        40,
+        4
+      ],
+      "data_dtype": "float64",
+      "labels_dtype": "float64",
+      "data_nan_count": 0,
+      "data_inf_count": 0,
+      "label_min": 1.0,
+      "label_max": 9.0,
+      "baseline_samples": 384,
+      "stimulus_samples": 7680,
+      "baseline_shape": [
+        40,
+        40,
+        384
+      ],
+      "stimulus_shape": [
+        40,
+        40,
+        7680
+      ]
+    },
+    {
+      "file": "s08.dat",
+      "size_mb": 98.44,
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "labels_shape": [
+        40,
+        4
+      ],
+      "data_dtype": "float64",
+      "labels_dtype": "float64",
+      "data_nan_count": 0,
+      "data_inf_count": 0,
+      "label_min": 1.19,
+      "label_max": 9.0,
+      "baseline_samples": 384,
+      "stimulus_samples": 7680,
+      "baseline_shape": [
+        40,
+        40,
+        384
+      ],
+      "stimulus_shape": [
+        40,
+        40,
+        7680
+      ]
+    },
+    {
+      "file": "s09.dat",
+      "size_mb": 98.44,
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "labels_shape": [
+        40,
+        4
+      ],
+      "data_dtype": "float64",
+      "labels_dtype": "float64",
+      "data_nan_count": 0,
+      "data_inf_count": 0,
+      "label_min": 1.99,
+      "label_max": 8.17,
+      "baseline_samples": 384,
+      "stimulus_samples": 7680,
+      "baseline_shape": [
+        40,
+        40,
+        384
+      ],
+      "stimulus_shape": [
+        40,
+        40,
+        7680
+      ]
+    },
+    {
+      "file": "s10.dat",
+      "size_mb": 98.44,
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "labels_shape": [
+        40,
+        4
+      ],
+      "data_dtype": "float64",
+      "labels_dtype": "float64",
+      "data_nan_count": 0,
+      "data_inf_count": 0,
+      "label_min": 1.38,
+      "label_max": 9.0,
+      "baseline_samples": 384,
+      "stimulus_samples": 7680,
+      "baseline_shape": [
+        40,
+        40,
+        384
+      ],
+      "stimulus_shape": [
+        40,
+        40,
+        7680
+      ]
+    },
+    {
+      "file": "s11.dat",
+      "size_mb": 98.44,
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "labels_shape": [
+        40,
+        4
+      ],
+      "data_dtype": "float64",
+      "labels_dtype": "float64",
+      "data_nan_count": 0,
+      "data_inf_count": 0,
+      "label_min": 1.0,
+      "label_max": 8.7,
+      "baseline_samples": 384,
+      "stimulus_samples": 7680,
+      "baseline_shape": [
+        40,
+        40,
+        384
+      ],
+      "stimulus_shape": [
+        40,
+        40,
+        7680
+      ]
+    },
+    {
+      "file": "s12.dat",
+      "size_mb": 98.44,
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "labels_shape": [
+        40,
+        4
+      ],
+      "data_dtype": "float64",
+      "labels_dtype": "float64",
+      "data_nan_count": 0,
+      "data_inf_count": 0,
+      "label_min": 1.0,
+      "label_max": 9.0,
+      "baseline_samples": 384,
+      "stimulus_samples": 7680,
+      "baseline_shape": [
+        40,
+        40,
+        384
+      ],
+      "stimulus_shape": [
+        40,
+        40,
+        7680
+      ]
+    },
+    {
+      "file": "s13.dat",
+      "size_mb": 98.44,
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "labels_shape": [
+        40,
+        4
+      ],
+      "data_dtype": "float64",
+      "labels_dtype": "float64",
+      "data_nan_count": 0,
+      "data_inf_count": 0,
+      "label_min": 1.0,
+      "label_max": 9.0,
+      "baseline_samples": 384,
+      "stimulus_samples": 7680,
+      "baseline_shape": [
+        40,
+        40,
+        384
+      ],
+      "stimulus_shape": [
+        40,
+        40,
+        7680
+      ]
+    },
+    {
+      "file": "s14.dat",
+      "size_mb": 98.44,
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "labels_shape": [
+        40,
+        4
+      ],
+      "data_dtype": "float64",
+      "labels_dtype": "float64",
+      "data_nan_count": 0,
+      "data_inf_count": 0,
+      "label_min": 1.03,
+      "label_max": 8.92,
+      "baseline_samples": 384,
+      "stimulus_samples": 7680,
+      "baseline_shape": [
+        40,
+        40,
+        384
+      ],
+      "stimulus_shape": [
+        40,
+        40,
+        7680
+      ]
+    },
+    {
+      "file": "s15.dat",
+      "size_mb": 98.44,
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "labels_shape": [
+        40,
+        4
+      ],
+      "data_dtype": "float64",
+      "labels_dtype": "float64",
+      "data_nan_count": 0,
+      "data_inf_count": 0,
+      "label_min": 1.0,
+      "label_max": 9.0,
+      "baseline_samples": 384,
+      "stimulus_samples": 7680,
+      "baseline_shape": [
+        40,
+        40,
+        384
+      ],
+      "stimulus_shape": [
+        40,
+        40,
+        7680
+      ]
+    },
+    {
+      "file": "s16.dat",
+      "size_mb": 98.44,
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "labels_shape": [
+        40,
+        4
+      ],
+      "data_dtype": "float64",
+      "labels_dtype": "float64",
+      "data_nan_count": 0,
+      "data_inf_count": 0,
+      "label_min": 1.0,
+      "label_max": 9.0,
+      "baseline_samples": 384,
+      "stimulus_samples": 7680,
+      "baseline_shape": [
+        40,
+        40,
+        384
+      ],
+      "stimulus_shape": [
+        40,
+        40,
+        7680
+      ]
+    },
+    {
+      "file": "s17.dat",
+      "size_mb": 98.44,
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "labels_shape": [
+        40,
+        4
+      ],
+      "data_dtype": "float64",
+      "labels_dtype": "float64",
+      "data_nan_count": 0,
+      "data_inf_count": 0,
+      "label_min": 1.0,
+      "label_max": 8.15,
+      "baseline_samples": 384,
+      "stimulus_samples": 7680,
+      "baseline_shape": [
+        40,
+        40,
+        384
+      ],
+      "stimulus_shape": [
+        40,
+        40,
+        7680
+      ]
+    },
+    {
+      "file": "s18.dat",
+      "size_mb": 98.44,
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "labels_shape": [
+        40,
+        4
+      ],
+      "data_dtype": "float64",
+      "labels_dtype": "float64",
+      "data_nan_count": 0,
+      "data_inf_count": 0,
+      "label_min": 2.81,
+      "label_max": 8.51,
+      "baseline_samples": 384,
+      "stimulus_samples": 7680,
+      "baseline_shape": [
+        40,
+        40,
+        384
+      ],
+      "stimulus_shape": [
+        40,
+        40,
+        7680
+      ]
+    },
+    {
+      "file": "s19.dat",
+      "size_mb": 98.44,
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "labels_shape": [
+        40,
+        4
+      ],
+      "data_dtype": "float64",
+      "labels_dtype": "float64",
+      "data_nan_count": 0,
+      "data_inf_count": 0,
+      "label_min": 1.0,
+      "label_max": 9.0,
+      "baseline_samples": 384,
+      "stimulus_samples": 7680,
+      "baseline_shape": [
+        40,
+        40,
+        384
+      ],
+      "stimulus_shape": [
+        40,
+        40,
+        7680
+      ]
+    },
+    {
+      "file": "s20.dat",
+      "size_mb": 98.44,
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "labels_shape": [
+        40,
+        4
+      ],
+      "data_dtype": "float64",
+      "labels_dtype": "float64",
+      "data_nan_count": 0,
+      "data_inf_count": 0,
+      "label_min": 2.04,
+      "label_max": 8.82,
+      "baseline_samples": 384,
+      "stimulus_samples": 7680,
+      "baseline_shape": [
+        40,
+        40,
+        384
+      ],
+      "stimulus_shape": [
+        40,
+        40,
+        7680
+      ]
+    },
+    {
+      "file": "s21.dat",
+      "size_mb": 98.44,
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "labels_shape": [
+        40,
+        4
+      ],
+      "data_dtype": "float64",
+      "labels_dtype": "float64",
+      "data_nan_count": 0,
+      "data_inf_count": 0,
+      "label_min": 1.0,
+      "label_max": 9.0,
+      "baseline_samples": 384,
+      "stimulus_samples": 7680,
+      "baseline_shape": [
+        40,
+        40,
+        384
+      ],
+      "stimulus_shape": [
+        40,
+        40,
+        7680
+      ]
+    },
+    {
+      "file": "s22.dat",
+      "size_mb": 98.44,
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "labels_shape": [
+        40,
+        4
+      ],
+      "data_dtype": "float64",
+      "labels_dtype": "float64",
+      "data_nan_count": 0,
+      "data_inf_count": 0,
+      "label_min": 1.0,
+      "label_max": 9.0,
+      "baseline_samples": 384,
+      "stimulus_samples": 7680,
+      "baseline_shape": [
+        40,
+        40,
+        384
+      ],
+      "stimulus_shape": [
+        40,
+        40,
+        7680
+      ]
+    },
+    {
+      "file": "s23.dat",
+      "size_mb": 98.44,
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "labels_shape": [
+        40,
+        4
+      ],
+      "data_dtype": "float64",
+      "labels_dtype": "float64",
+      "data_nan_count": 0,
+      "data_inf_count": 0,
+      "label_min": 1.0,
+      "label_max": 9.0,
+      "baseline_samples": 384,
+      "stimulus_samples": 7680,
+      "baseline_shape": [
+        40,
+        40,
+        384
+      ],
+      "stimulus_shape": [
+        40,
+        40,
+        7680
+      ]
+    },
+    {
+      "file": "s24.dat",
+      "size_mb": 98.44,
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "labels_shape": [
+        40,
+        4
+      ],
+      "data_dtype": "float64",
+      "labels_dtype": "float64",
+      "data_nan_count": 0,
+      "data_inf_count": 0,
+      "label_min": 1.0,
+      "label_max": 8.96,
+      "baseline_samples": 384,
+      "stimulus_samples": 7680,
+      "baseline_shape": [
+        40,
+        40,
+        384
+      ],
+      "stimulus_shape": [
+        40,
+        40,
+        7680
+      ]
+    },
+    {
+      "file": "s25.dat",
+      "size_mb": 98.44,
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "labels_shape": [
+        40,
+        4
+      ],
+      "data_dtype": "float64",
+      "labels_dtype": "float64",
+      "data_nan_count": 0,
+      "data_inf_count": 0,
+      "label_min": 1.0,
+      "label_max": 9.0,
+      "baseline_samples": 384,
+      "stimulus_samples": 7680,
+      "baseline_shape": [
+        40,
+        40,
+        384
+      ],
+      "stimulus_shape": [
+        40,
+        40,
+        7680
+      ]
+    },
+    {
+      "file": "s26.dat",
+      "size_mb": 98.44,
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "labels_shape": [
+        40,
+        4
+      ],
+      "data_dtype": "float64",
+      "labels_dtype": "float64",
+      "data_nan_count": 0,
+      "data_inf_count": 0,
+      "label_min": 1.0,
+      "label_max": 9.0,
+      "baseline_samples": 384,
+      "stimulus_samples": 7680,
+      "baseline_shape": [
+        40,
+        40,
+        384
+      ],
+      "stimulus_shape": [
+        40,
+        40,
+        7680
+      ]
+    },
+    {
+      "file": "s27.dat",
+      "size_mb": 98.44,
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "labels_shape": [
+        40,
+        4
+      ],
+      "data_dtype": "float64",
+      "labels_dtype": "float64",
+      "data_nan_count": 0,
+      "data_inf_count": 0,
+      "label_min": 1.0,
+      "label_max": 9.0,
+      "baseline_samples": 384,
+      "stimulus_samples": 7680,
+      "baseline_shape": [
+        40,
+        40,
+        384
+      ],
+      "stimulus_shape": [
+        40,
+        40,
+        7680
+      ]
+    },
+    {
+      "file": "s28.dat",
+      "size_mb": 98.44,
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "labels_shape": [
+        40,
+        4
+      ],
+      "data_dtype": "float64",
+      "labels_dtype": "float64",
+      "data_nan_count": 0,
+      "data_inf_count": 0,
+      "label_min": 1.0,
+      "label_max": 9.0,
+      "baseline_samples": 384,
+      "stimulus_samples": 7680,
+      "baseline_shape": [
+        40,
+        40,
+        384
+      ],
+      "stimulus_shape": [
+        40,
+        40,
+        7680
+      ]
+    },
+    {
+      "file": "s29.dat",
+      "size_mb": 98.44,
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "labels_shape": [
+        40,
+        4
+      ],
+      "data_dtype": "float64",
+      "labels_dtype": "float64",
+      "data_nan_count": 0,
+      "data_inf_count": 0,
+      "label_min": 1.0,
+      "label_max": 9.0,
+      "baseline_samples": 384,
+      "stimulus_samples": 7680,
+      "baseline_shape": [
+        40,
+        40,
+        384
+      ],
+      "stimulus_shape": [
+        40,
+        40,
+        7680
+      ]
+    },
+    {
+      "file": "s30.dat",
+      "size_mb": 98.44,
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "labels_shape": [
+        40,
+        4
+      ],
+      "data_dtype": "float64",
+      "labels_dtype": "float64",
+      "data_nan_count": 0,
+      "data_inf_count": 0,
+      "label_min": 1.0,
+      "label_max": 9.0,
+      "baseline_samples": 384,
+      "stimulus_samples": 7680,
+      "baseline_shape": [
+        40,
+        40,
+        384
+      ],
+      "stimulus_shape": [
+        40,
+        40,
+        7680
+      ]
+    },
+    {
+      "file": "s31.dat",
+      "size_mb": 98.44,
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "labels_shape": [
+        40,
+        4
+      ],
+      "data_dtype": "float64",
+      "labels_dtype": "float64",
+      "data_nan_count": 0,
+      "data_inf_count": 0,
+      "label_min": 1.0,
+      "label_max": 9.0,
+      "baseline_samples": 384,
+      "stimulus_samples": 7680,
+      "baseline_shape": [
+        40,
+        40,
+        384
+      ],
+      "stimulus_shape": [
+        40,
+        40,
+        7680
+      ]
+    },
+    {
+      "file": "s32.dat",
+      "size_mb": 98.44,
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "labels_shape": [
+        40,
+        4
+      ],
+      "data_dtype": "float64",
+      "labels_dtype": "float64",
+      "data_nan_count": 0,
+      "data_inf_count": 0,
+      "label_min": 1.0,
+      "label_max": 9.0,
+      "baseline_samples": 384,
+      "stimulus_samples": 7680,
+      "baseline_shape": [
+        40,
+        40,
+        384
+      ],
+      "stimulus_shape": [
+        40,
+        40,
+        7680
+      ]
+    }
+  ],
+  "issues": [],
+  "summary": {
+    "file_count": 32,
+    "expected_files_present": true,
+    "all_data_shapes_ok": true,
+    "all_label_shapes_ok": true,
+    "issues_count": 0,
+    "status": "PASSED"
+  }
+}
