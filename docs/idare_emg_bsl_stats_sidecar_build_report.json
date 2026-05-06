@@ -1,0 +1,295 @@
+{
+  "status": "PASSED",
+  "generated_at_utc": "2026-05-06T15:42:03.219546+00:00",
+  "config": {
+    "source": "I-DARE raw_downloads/EMG HDF5 .mat",
+    "trial_index": ".cache/idare_trial_index.csv",
+    "source_fs": 2000.0,
+    "window_sec": 5.0,
+    "window_samples": 10000,
+    "emg_channels": [
+      {
+        "name": "emg_ch1",
+        "index_0based": 0,
+        "channel_1based": 1
+      },
+      {
+        "name": "emg_ch2",
+        "index_0based": 1,
+        "channel_1based": 2
+      }
+    ],
+    "sidecar_policy": "store compact preceding-BSL EMG summary stats only",
+    "does_not_store": [
+      "full_BSL",
+      "full_STIM",
+      "full_STIM_minus_BSL_triplet"
+    ],
+    "intended_mainline_response_cache": "existing baseline-corrected STIM-BSL EMG feature cache",
+    "feature_names": [
+      "mean",
+      "std",
+      "rms",
+      "mav",
+      "iemg",
+      "waveform_length",
+      "zero_crossings",
+      "slope_sign_changes",
+      "min",
+      "max",
+      "log_variance"
+    ],
+    "feature_columns": [
+      "bsl_emg_ch1_mean",
+      "bsl_emg_ch1_std",
+      "bsl_emg_ch1_rms",
+      "bsl_emg_ch1_mav",
+      "bsl_emg_ch1_iemg",
+      "bsl_emg_ch1_waveform_length",
+      "bsl_emg_ch1_zero_crossings",
+      "bsl_emg_ch1_slope_sign_changes",
+      "bsl_emg_ch1_min",
+      "bsl_emg_ch1_max",
+      "bsl_emg_ch1_log_variance",
+      "bsl_emg_ch2_mean",
+      "bsl_emg_ch2_std",
+      "bsl_emg_ch2_rms",
+      "bsl_emg_ch2_mav",
+      "bsl_emg_ch2_iemg",
+      "bsl_emg_ch2_waveform_length",
+      "bsl_emg_ch2_zero_crossings",
+      "bsl_emg_ch2_slope_sign_changes",
+      "bsl_emg_ch2_min",
+      "bsl_emg_ch2_max",
+      "bsl_emg_ch2_log_variance"
+    ],
+    "feature_dim": 22,
+    "limit_subjects": null,
+    "limit_rows": null
+  },
+  "outputs": {
+    "bsl_stats_npy": ".cache/idare_emg_bsl_stats.npy",
+    "bsl_stats_index_csv": ".cache/idare_emg_bsl_stats_index.csv",
+    "build_report_md": "docs/idare_emg_bsl_stats_sidecar_build_report.md",
+    "build_report_json": "docs/idare_emg_bsl_stats_sidecar_build_report.json"
+  },
+  "counts": {
+    "selected_rows": 2016,
+    "extracted_rows": 2016,
+    "cache_index_rows": 2016,
+    "subject_files": 63,
+    "feature_dim": 22
+  },
+  "cache": {
+    "shape": [
+      2016,
+      22
+    ],
+    "dtype": "float32",
+    "file_size": 177536,
+    "file_size_human": "173.38 KB",
+    "nan_count": 0,
+    "inf_count": 0
+  },
+  "diagnostics": {
+    "bsl_mean_global": {
+      "mean": 0.0002804093858281807,
+      "median": 0.001000553136691451,
+      "min": -1.6687222719192505,
+      "max": 0.14233267307281494
+    },
+    "bsl_mean_abs_mean": {
+      "mean": 10.00271819803923,
+      "median": 8.368410587310791,
+      "min": 2.733412981033325,
+      "max": 1727.0372314453125
+    },
+    "bsl_std_global": {
+      "mean": 19.88846172605242,
+      "median": 11.772953033447266,
+      "min": 5.027537822723389,
+      "max": 13952.5126953125
+    },
+    "bsl_rms_global": {
+      "mean": 19.888488678964098,
+      "median": 11.772967332052023,
+      "min": 5.027537752361256,
+      "max": 13952.513397910046
+    },
+    "feature_mean": {
+      "mean": 12389.746607462564,
+      "median": 10525.76953125,
+      "min": 3516.476318359375,
+      "max": 1702038.125
+    },
+    "feature_std": {
+      "mean": 31151.6987183586,
+      "median": 25267.9013671875,
+      "min": 11009.2021484375,
+      "max": 7136437.0
+    }
+  },
+  "feature_stats_preview": [
+    {
+      "feature": "bsl_emg_ch1_mean",
+      "mean": 0.0007114749850808807,
+      "std": 0.01823893433968135,
+      "min": -0.28069519996643066,
+      "max": 0.14164727926254272
+    },
+    {
+      "feature": "bsl_emg_ch1_std",
+      "mean": 20.937167894763338,
+      "std": 439.15023500858484,
+      "min": 2.9134793066987186e-07,
+      "max": 19731.80078125
+    },
+    {
+      "feature": "bsl_emg_ch1_rms",
+      "mean": 20.93718039143813,
+      "std": 439.1502347478413,
+      "min": 2.9134940859876224e-07,
+      "max": 19731.80078125
+    },
+    {
+      "feature": "bsl_emg_ch1_mav",
+      "mean": 9.538562759529889,
+      "std": 76.27308647859302,
+      "min": 2.3926966719045595e-07,
+      "max": 3428.256591796875
+    },
+    {
+      "feature": "bsl_emg_ch1_iemg",
+      "mean": 95385.62871711922,
+      "std": 762730.9110825724,
+      "min": 0.0023926966823637486,
+      "max": 34282568.0
+    },
+    {
+      "feature": "bsl_emg_ch1_waveform_length",
+      "mean": 31542.584378379608,
+      "std": 67100.60039620084,
+      "min": 9.331938781542704e-05,
+      "max": 2940552.75
+    },
+    {
+      "feature": "bsl_emg_ch1_zero_crossings",
+      "mean": 1240.4459325396826,
+      "std": 187.16637528420324,
+      "min": 119.0,
+      "max": 2041.0
+    },
+    {
+      "feature": "bsl_emg_ch1_slope_sign_changes",
+      "mean": 2288.5089285714284,
+      "std": 199.1912739322604,
+      "min": 195.0,
+      "max": 3329.0
+    },
+    {
+      "feature": "bsl_emg_ch1_log_variance",
+      "mean": 4.586808875439659,
+      "std": 1.2392905759395496,
+      "min": -27.549549102783203,
+      "max": 19.77997398376465
+    },
+    {
+      "feature": "bsl_emg_ch2_mean",
+      "mean": -0.00015064110899864198,
+      "std": 0.08226400731608836,
+      "min": -3.3576574325561523,
+      "max": 0.23904328048229218
+    },
+    {
+      "feature": "bsl_emg_ch2_std",
+      "mean": 14.262346742653852,
+      "std": 6.081681938408752,
+      "min": 3.470763374480157e-07,
+      "max": 78.15612030029297
+    },
+    {
+      "feature": "bsl_emg_ch2_rms",
+      "mean": 14.262422670456365,
+      "std": 6.082060177975525,
+      "min": 3.4707704799075145e-07,
+      "max": 78.22821044921875
+    },
+    {
+      "feature": "bsl_emg_ch2_mav",
+      "mean": 10.466873719424447,
+      "std": 4.283640772888086,
+      "min": 2.834038355103985e-07,
+      "max": 41.11256408691406
+    },
+    {
+      "feature": "bsl_emg_ch2_iemg",
+      "mean": 104668.73723099877,
+      "std": 42836.40772447434,
+      "min": 0.002834038343280554,
+      "max": 411125.65625
+    },
+    {
+      "feature": "bsl_emg_ch2_waveform_length",
+      "mean": 34218.00007423164,
+      "std": 16804.65980447048,
+      "min": 0.00010058202315121889,
+      "max": 170048.90625
+    },
+    {
+      "feature": "bsl_emg_ch2_zero_crossings",
+      "mean": 1057.6493055555557,
+      "std": 207.8984569025327,
+      "min": 95.0,
+      "max": 1907.0
+    },
+    {
+      "feature": "bsl_emg_ch2_slope_sign_changes",
+      "mean": 2172.8854166666665,
+      "std": 259.34086793135765,
+      "min": 160.0,
+      "max": 3103.0
+    },
+    {
+      "feature": "bsl_emg_ch2_log_variance",
+      "mean": 5.009761045612986,
+      "std": 2.511464902496308,
+      "min": -27.51728057861328,
+      "max": 8.717416763305664
+    }
+  ],
+  "label_counts": {
+    "valence": {
+      "discard_midpoint": {
+        "0": 812,
+        "1": 855,
+        "discard": 349
+      },
+      "midpoint_as_low": {
+        "0": 1161,
+        "1": 855
+      },
+      "midpoint_as_high": {
+        "0": 812,
+        "1": 1204
+      }
+    },
+    "arousal": {
+      "discard_midpoint": {
+        "0": 1112,
+        "1": 687,
+        "discard": 217
+      },
+      "midpoint_as_low": {
+        "0": 1329,
+        "1": 687
+      },
+      "midpoint_as_high": {
+        "0": 1112,
+        "1": 904
+      }
+    }
+  },
+  "issues": [],
+  "warnings": [],
+  "elapsed_sec": 3.3831887198612094
+}
