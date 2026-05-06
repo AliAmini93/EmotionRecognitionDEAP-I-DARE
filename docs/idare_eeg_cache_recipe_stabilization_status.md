@@ -1938,3 +1938,115 @@ Check whether the promising balanced_sampler_ce arousal result is stable across 
 ```
 
 Do not run full LOSO/final training yet.
+
+## Arousal Baseline-Corrected Discard-Midpoint Sanity Smoke
+
+Latest related commit:
+
+```text
+a2f0611 exp: test arousal discard midpoint on baseline corrected cache
+```
+
+A discard-midpoint sanity smoke was run on the current strongest I-DARE EEG diagnostic path:
+
+```text
+cache: .cache/idare_eeg_windows_32x640_float32_baseline_corrected.npy
+index: .cache/idare_eeg_cache_index_baseline_corrected.csv
+task: arousal
+label_policy: discard_midpoint
+recipes: ce_class_weighted, balanced_sampler_ce
+folds: 6
+seeds: 11
+epochs: 2
+lr: 3e-4
+max_runs: 8
+```
+
+Outputs:
+
+```text
+docs/idare_arousal_baseline_corrected_discard_midpoint_sanity_smoke.md
+docs/idare_arousal_baseline_corrected_discard_midpoint_sanity_smoke.json
+```
+
+### Result
+
+For `discard_midpoint`:
+
+```text
+balanced_sampler_ce:
+  argmax macro F1 mean      = 0.4546
+  argmax balanced acc mean  = 0.5196
+  threshold macro F1 mean   = 0.5295
+  threshold balanced acc    = 0.5411
+
+ce_class_weighted:
+  argmax macro F1 mean      = 0.4839
+  argmax balanced acc mean  = 0.5009
+  threshold macro F1 mean   = 0.5006
+  threshold balanced acc    = 0.5138
+```
+
+Compared with the prior `midpoint_as_high` four-fold baseline-corrected arousal smoke:
+
+```text
+midpoint_as_high / balanced_sampler_ce:
+  argmax macro F1 mean      = 0.4958
+  argmax balanced acc mean  = 0.5339
+  threshold macro F1 mean   = 0.5321
+  threshold balanced acc    = 0.5390
+
+midpoint_as_high / ce_class_weighted:
+  argmax macro F1 mean      = 0.4882
+  argmax balanced acc mean  = 0.5295
+  threshold macro F1 mean   = 0.5269
+  threshold balanced acc    = 0.5356
+```
+
+### Interpretation
+
+`discard_midpoint` did not provide a convincing improvement over `midpoint_as_high`.
+
+The `balanced_sampler_ce` threshold result was close, but not materially better:
+
+```text
+threshold macro F1:
+  midpoint_as_high = 0.5321
+  discard_midpoint = 0.5295
+
+threshold balanced accuracy:
+  midpoint_as_high = 0.5390
+  discard_midpoint = 0.5411
+```
+
+The small balanced-accuracy gain under `discard_midpoint` is not enough to justify switching the working I-DARE policy, especially because discard reduces sample count and produces higher majority baselines in several folds.
+
+### Decision
+
+Keep:
+
+```text
+midpoint_as_high
+```
+
+as the current working I-DARE label policy.
+
+Keep:
+
+```text
+discard_midpoint
+```
+
+as a documented secondary sanity / ablation policy only.
+
+Do not expand discard-midpoint I-DARE EEG experiments at this stage.
+
+### Phase Decision
+
+I-DARE EEG cache diagnostics should now be frozen unless a specific paper-critical question requires reopening them.
+
+Recommended next macro step:
+
+```text
+Start DEAP audit / preprocessing / cache-design phase.
+```
