@@ -1,0 +1,299 @@
+{
+  "status": "COMPARISON_BUILT",
+  "scope": "I-DARE EMG-only smoke comparison; not final LOSO",
+  "sources": [
+    {
+      "representation": "feature",
+      "task": "valence",
+      "path": "docs/idare_emg_feature_valence_training_smoke.json"
+    },
+    {
+      "representation": "feature",
+      "task": "arousal",
+      "path": "docs/idare_emg_feature_arousal_training_smoke.json"
+    },
+    {
+      "representation": "raw",
+      "task": "valence",
+      "path": "docs/idare_raw_emg_valence_training_smoke.json"
+    },
+    {
+      "representation": "raw",
+      "task": "arousal",
+      "path": "docs/idare_raw_emg_arousal_training_smoke.json"
+    }
+  ],
+  "rows": [
+    {
+      "representation": "feature",
+      "task": "valence",
+      "policy": "midpoint_as_high",
+      "recipe": "balanced_sampler_ce",
+      "runs": 2,
+      "final_macro_f1": 0.4775904560766845,
+      "final_balanced_accuracy": 0.4935372089165819,
+      "final_accuracy": 0.5511363636363636,
+      "threshold_best_macro_f1": 0.47980242234195136,
+      "threshold_best_balanced_accuracy": 0.4902005221291909,
+      "threshold_best_value": 0.525,
+      "majority_accuracy": 0.6065340909090908,
+      "one_class_final_runs": 0,
+      "source_json": "docs/idare_emg_feature_valence_training_smoke.json"
+    },
+    {
+      "representation": "feature",
+      "task": "valence",
+      "policy": "midpoint_as_high",
+      "recipe": "ce_class_weighted",
+      "runs": 2,
+      "final_macro_f1": 0.5003511030890991,
+      "final_balanced_accuracy": 0.5083174675291895,
+      "final_accuracy": 0.515625,
+      "threshold_best_macro_f1": 0.5003511030890991,
+      "threshold_best_balanced_accuracy": 0.5083174675291895,
+      "threshold_best_value": 0.5,
+      "majority_accuracy": 0.6065340909090908,
+      "one_class_final_runs": 0,
+      "source_json": "docs/idare_emg_feature_valence_training_smoke.json"
+    },
+    {
+      "representation": "feature",
+      "task": "arousal",
+      "policy": "midpoint_as_high",
+      "recipe": "balanced_sampler_ce",
+      "runs": 2,
+      "final_macro_f1": 0.5064931111239346,
+      "final_balanced_accuracy": 0.5130080055725444,
+      "final_accuracy": 0.5142045454545454,
+      "threshold_best_macro_f1": 0.5202436476202839,
+      "threshold_best_balanced_accuracy": 0.5235180770475283,
+      "threshold_best_value": 0.525,
+      "majority_accuracy": 0.5838068181818181,
+      "one_class_final_runs": 0,
+      "source_json": "docs/idare_emg_feature_arousal_training_smoke.json"
+    },
+    {
+      "representation": "feature",
+      "task": "arousal",
+      "policy": "midpoint_as_high",
+      "recipe": "ce_class_weighted",
+      "runs": 2,
+      "final_macro_f1": 0.5223495539328417,
+      "final_balanced_accuracy": 0.5319194747936112,
+      "final_accuracy": 0.5326704545454546,
+      "threshold_best_macro_f1": 0.5223495539328417,
+      "threshold_best_balanced_accuracy": 0.5319194747936112,
+      "threshold_best_value": 0.5,
+      "majority_accuracy": 0.5838068181818181,
+      "one_class_final_runs": 0,
+      "source_json": "docs/idare_emg_feature_arousal_training_smoke.json"
+    },
+    {
+      "representation": "raw",
+      "task": "valence",
+      "policy": "midpoint_as_high",
+      "recipe": "balanced_sampler_ce",
+      "runs": 2,
+      "final_macro_f1": 0.46070328958029494,
+      "final_balanced_accuracy": 0.5318282781965052,
+      "final_accuracy": 0.5198863636363636,
+      "threshold_best_macro_f1": 0.506657895201976,
+      "threshold_best_balanced_accuracy": 0.5289644185027755,
+      "threshold_best_value": 0.42500000000000004,
+      "majority_accuracy": 0.5752840909090909,
+      "one_class_final_runs": 0,
+      "source_json": "docs/idare_raw_emg_valence_training_smoke.json"
+    },
+    {
+      "representation": "raw",
+      "task": "valence",
+      "policy": "midpoint_as_high",
+      "recipe": "ce_class_weighted",
+      "runs": 2,
+      "final_macro_f1": 0.48627864625196765,
+      "final_balanced_accuracy": 0.5000483512223362,
+      "final_accuracy": 0.5085227272727273,
+      "threshold_best_macro_f1": 0.4944713884909608,
+      "threshold_best_balanced_accuracy": 0.5005333006578725,
+      "threshold_best_value": 0.5,
+      "majority_accuracy": 0.5752840909090909,
+      "one_class_final_runs": 0,
+      "source_json": "docs/idare_raw_emg_valence_training_smoke.json"
+    },
+    {
+      "representation": "raw",
+      "task": "arousal",
+      "policy": "midpoint_as_high",
+      "recipe": "balanced_sampler_ce",
+      "runs": 2,
+      "final_macro_f1": 0.44640855487250475,
+      "final_balanced_accuracy": 0.49687175238344394,
+      "final_accuracy": 0.47869318181818177,
+      "threshold_best_macro_f1": 0.5186512418661806,
+      "threshold_best_balanced_accuracy": 0.5293772182789471,
+      "threshold_best_value": 0.875,
+      "majority_accuracy": 0.5625,
+      "one_class_final_runs": 0,
+      "source_json": "docs/idare_raw_emg_arousal_training_smoke.json"
+    },
+    {
+      "representation": "raw",
+      "task": "arousal",
+      "policy": "midpoint_as_high",
+      "recipe": "ce_class_weighted",
+      "runs": 2,
+      "final_macro_f1": 0.413073827707974,
+      "final_balanced_accuracy": 0.5005821985658535,
+      "final_accuracy": 0.5170454545454546,
+      "threshold_best_macro_f1": 0.4760936461253097,
+      "threshold_best_balanced_accuracy": 0.5085626061734573,
+      "threshold_best_value": 0.5,
+      "majority_accuracy": 0.5625,
+      "one_class_final_runs": 0,
+      "source_json": "docs/idare_raw_emg_arousal_training_smoke.json"
+    }
+  ],
+  "best": {
+    "final_macro_f1": {
+      "arousal": {
+        "representation": "feature",
+        "task": "arousal",
+        "policy": "midpoint_as_high",
+        "recipe": "ce_class_weighted",
+        "runs": 2,
+        "final_macro_f1": 0.5223495539328417,
+        "final_balanced_accuracy": 0.5319194747936112,
+        "final_accuracy": 0.5326704545454546,
+        "threshold_best_macro_f1": 0.5223495539328417,
+        "threshold_best_balanced_accuracy": 0.5319194747936112,
+        "threshold_best_value": 0.5,
+        "majority_accuracy": 0.5838068181818181,
+        "one_class_final_runs": 0,
+        "source_json": "docs/idare_emg_feature_arousal_training_smoke.json"
+      },
+      "valence": {
+        "representation": "feature",
+        "task": "valence",
+        "policy": "midpoint_as_high",
+        "recipe": "ce_class_weighted",
+        "runs": 2,
+        "final_macro_f1": 0.5003511030890991,
+        "final_balanced_accuracy": 0.5083174675291895,
+        "final_accuracy": 0.515625,
+        "threshold_best_macro_f1": 0.5003511030890991,
+        "threshold_best_balanced_accuracy": 0.5083174675291895,
+        "threshold_best_value": 0.5,
+        "majority_accuracy": 0.6065340909090908,
+        "one_class_final_runs": 0,
+        "source_json": "docs/idare_emg_feature_valence_training_smoke.json"
+      }
+    },
+    "final_balanced_accuracy": {
+      "arousal": {
+        "representation": "feature",
+        "task": "arousal",
+        "policy": "midpoint_as_high",
+        "recipe": "ce_class_weighted",
+        "runs": 2,
+        "final_macro_f1": 0.5223495539328417,
+        "final_balanced_accuracy": 0.5319194747936112,
+        "final_accuracy": 0.5326704545454546,
+        "threshold_best_macro_f1": 0.5223495539328417,
+        "threshold_best_balanced_accuracy": 0.5319194747936112,
+        "threshold_best_value": 0.5,
+        "majority_accuracy": 0.5838068181818181,
+        "one_class_final_runs": 0,
+        "source_json": "docs/idare_emg_feature_arousal_training_smoke.json"
+      },
+      "valence": {
+        "representation": "raw",
+        "task": "valence",
+        "policy": "midpoint_as_high",
+        "recipe": "balanced_sampler_ce",
+        "runs": 2,
+        "final_macro_f1": 0.46070328958029494,
+        "final_balanced_accuracy": 0.5318282781965052,
+        "final_accuracy": 0.5198863636363636,
+        "threshold_best_macro_f1": 0.506657895201976,
+        "threshold_best_balanced_accuracy": 0.5289644185027755,
+        "threshold_best_value": 0.42500000000000004,
+        "majority_accuracy": 0.5752840909090909,
+        "one_class_final_runs": 0,
+        "source_json": "docs/idare_raw_emg_valence_training_smoke.json"
+      }
+    },
+    "threshold_best_macro_f1": {
+      "arousal": {
+        "representation": "feature",
+        "task": "arousal",
+        "policy": "midpoint_as_high",
+        "recipe": "ce_class_weighted",
+        "runs": 2,
+        "final_macro_f1": 0.5223495539328417,
+        "final_balanced_accuracy": 0.5319194747936112,
+        "final_accuracy": 0.5326704545454546,
+        "threshold_best_macro_f1": 0.5223495539328417,
+        "threshold_best_balanced_accuracy": 0.5319194747936112,
+        "threshold_best_value": 0.5,
+        "majority_accuracy": 0.5838068181818181,
+        "one_class_final_runs": 0,
+        "source_json": "docs/idare_emg_feature_arousal_training_smoke.json"
+      },
+      "valence": {
+        "representation": "raw",
+        "task": "valence",
+        "policy": "midpoint_as_high",
+        "recipe": "balanced_sampler_ce",
+        "runs": 2,
+        "final_macro_f1": 0.46070328958029494,
+        "final_balanced_accuracy": 0.5318282781965052,
+        "final_accuracy": 0.5198863636363636,
+        "threshold_best_macro_f1": 0.506657895201976,
+        "threshold_best_balanced_accuracy": 0.5289644185027755,
+        "threshold_best_value": 0.42500000000000004,
+        "majority_accuracy": 0.5752840909090909,
+        "one_class_final_runs": 0,
+        "source_json": "docs/idare_raw_emg_valence_training_smoke.json"
+      }
+    },
+    "threshold_best_balanced_accuracy": {
+      "arousal": {
+        "representation": "feature",
+        "task": "arousal",
+        "policy": "midpoint_as_high",
+        "recipe": "ce_class_weighted",
+        "runs": 2,
+        "final_macro_f1": 0.5223495539328417,
+        "final_balanced_accuracy": 0.5319194747936112,
+        "final_accuracy": 0.5326704545454546,
+        "threshold_best_macro_f1": 0.5223495539328417,
+        "threshold_best_balanced_accuracy": 0.5319194747936112,
+        "threshold_best_value": 0.5,
+        "majority_accuracy": 0.5838068181818181,
+        "one_class_final_runs": 0,
+        "source_json": "docs/idare_emg_feature_arousal_training_smoke.json"
+      },
+      "valence": {
+        "representation": "raw",
+        "task": "valence",
+        "policy": "midpoint_as_high",
+        "recipe": "balanced_sampler_ce",
+        "runs": 2,
+        "final_macro_f1": 0.46070328958029494,
+        "final_balanced_accuracy": 0.5318282781965052,
+        "final_accuracy": 0.5198863636363636,
+        "threshold_best_macro_f1": 0.506657895201976,
+        "threshold_best_balanced_accuracy": 0.5289644185027755,
+        "threshold_best_value": 0.42500000000000004,
+        "majority_accuracy": 0.5752840909090909,
+        "one_class_final_runs": 0,
+        "source_json": "docs/idare_raw_emg_valence_training_smoke.json"
+      }
+    }
+  },
+  "decision": {
+    "mainline": "Use feature-level I-DARE EMG first.",
+    "ablation": "Keep raw EMG-only as an ablation path.",
+    "reason": "Feature-level EMG is at least competitive for valence and clearly stronger for arousal in the current smoke reports, while raw EMG shows calibration instability."
+  }
+}
