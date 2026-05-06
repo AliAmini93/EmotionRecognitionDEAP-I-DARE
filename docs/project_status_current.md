@@ -50,9 +50,11 @@ Final claims should not lock to `midpoint_as_high` until these policies are comp
 
 These rows summarize the best final macro-F1 row in each available smoke report. They are not final LOSO results.
 
+Note: DEAP EMG feature rows are sourced from the frozen `docs/deap_emg_feature_only_status.md` status document.
+
 | Report | Exists | Best task / recipe | Final macro F1 | Final balanced acc |
 |---|---|---|---:|---:|
-| DEAP EMG feature valence | missing | NA | NA | NA |
+| DEAP EMG feature valence | present | valence / ce_class_weighted | 0.5394 | 0.5454 |
 | DEAP EMG feature arousal | present | arousal / balanced_sampler_ce | 0.4911 | 0.4926 |
 | I-DARE EMG feature valence | present | valence / ce_class_weighted | 0.5004 | 0.5083 |
 | I-DARE EMG feature arousal | present | arousal / ce_class_weighted | 0.5223 | 0.5319 |

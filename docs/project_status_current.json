@@ -3218,390 +3218,479 @@
       }
     },
     "deap_emg_feature_valence": {
-      "path": "docs/deap_emg_feature_valence_training_smoke.json",
-      "exists": false,
-      "rows": [],
-      "best_final_macro_f1": null,
-      "best_final_balanced_accuracy": null,
-      "best_threshold_macro_f1": null,
-      "best_threshold_balanced_accuracy": null
-    },
-    "deap_emg_feature_arousal": {
-      "path": "docs/deap_emg_feature_arousal_training_smoke.json",
+      "path": "docs/deap_emg_feature_only_status.md",
       "exists": true,
+      "source_kind": "frozen_status_doc",
       "rows": [
         {
-          "final_accuracy": {
-            "max": 0.5628472222222223,
-            "mean": 0.5269097222222222,
-            "min": 0.4909722222222222,
-            "std": 0.03593750000000004
-          },
-          "final_balanced_accuracy": {
-            "max": 0.4982211651859423,
-            "mean": 0.4926282333271167,
-            "min": 0.48703530146829116,
-            "std": 0.005592931858825562
-          },
-          "final_macro_f1": {
-            "max": 0.49801576176681306,
-            "mean": 0.4911493923086053,
-            "min": 0.48428302285039754,
-            "std": 0.006866369458207761
-          },
-          "majority_accuracy": {
-            "max": 0.6708333333333333,
-            "mean": 0.6333333333333333,
-            "min": 0.5958333333333333,
-            "std": 0.03749999999999998
-          },
-          "one_class_final_runs": 0,
+          "task": "valence",
           "policy": "midpoint_as_high",
           "recipe": "balanced_sampler_ce",
           "runs": 2,
-          "task": "arousal",
-          "threshold_best_balanced_accuracy": {
-            "max": 0.4982211651859423,
-            "mean": 0.4926282333271167,
-            "min": 0.48703530146829116,
-            "std": 0.005592931858825562
-          },
-          "threshold_best_macro_f1": {
-            "max": 0.49801576176681306,
-            "mean": 0.4911493923086053,
-            "min": 0.48428302285039754,
-            "std": 0.006866369458207761
-          },
-          "threshold_best_value": {
-            "max": 0.5,
-            "mean": 0.5,
-            "min": 0.5,
-            "std": 0.0
-          },
-          "threshold_gain_balanced_accuracy": {
-            "max": 0.0,
-            "mean": 0.0,
-            "min": 0.0,
-            "std": 0.0
-          },
-          "threshold_gain_macro_f1": {
-            "max": 0.0,
-            "mean": 0.0,
-            "min": 0.0,
-            "std": 0.0
-          },
-          "threshold_one_class_final_runs": 0
-        },
-        {
-          "final_accuracy": {
-            "max": 0.578125,
-            "mean": 0.5401041666666666,
-            "min": 0.5020833333333333,
-            "std": 0.03802083333333334
+          "final_macro_f1": {
+            "mean": 0.5245,
+            "std": 0.0,
+            "min": 0.5245,
+            "max": 0.5245
           },
           "final_balanced_accuracy": {
-            "max": 0.4942965904028095,
-            "mean": 0.49297892505265317,
-            "min": 0.4916612597024968,
-            "std": 0.001317665350156344
+            "mean": 0.5295,
+            "std": 0.0,
+            "min": 0.5295,
+            "max": 0.5295
           },
-          "final_macro_f1": {
-            "max": 0.4908383650490876,
-            "mean": 0.49078935413043634,
-            "min": 0.49074034321178506,
-            "std": 4.9010918651282154e-05
+          "final_accuracy": null,
+          "threshold_best_macro_f1": {
+            "mean": 0.5294,
+            "std": 0.0,
+            "min": 0.5294,
+            "max": 0.5294
           },
+          "threshold_best_balanced_accuracy": {
+            "mean": 0.5294,
+            "std": 0.0,
+            "min": 0.5294,
+            "max": 0.5294
+          },
+          "threshold_best_value": null,
           "majority_accuracy": {
-            "max": 0.6708333333333333,
-            "mean": 0.6333333333333333,
-            "min": 0.5958333333333333,
-            "std": 0.03749999999999998
+            "mean": 0.5729,
+            "std": 0.0,
+            "min": 0.5729,
+            "max": 0.5729
           },
           "one_class_final_runs": 0,
+          "threshold_one_class_final_runs": 0,
+          "source_note": "sourced_from_docs/deap_emg_feature_only_status.md"
+        },
+        {
+          "task": "valence",
           "policy": "midpoint_as_high",
           "recipe": "ce_class_weighted",
           "runs": 2,
-          "task": "arousal",
-          "threshold_best_balanced_accuracy": {
-            "max": 0.5087893440259978,
-            "mean": 0.5002253018642473,
-            "min": 0.4916612597024968,
-            "std": 0.008564042161750524
+          "final_macro_f1": {
+            "mean": 0.5394,
+            "std": 0.0,
+            "min": 0.5394,
+            "max": 0.5394
           },
+          "final_balanced_accuracy": {
+            "mean": 0.5454,
+            "std": 0.0,
+            "min": 0.5454,
+            "max": 0.5454
+          },
+          "final_accuracy": null,
           "threshold_best_macro_f1": {
-            "max": 0.5053588590165518,
-            "mean": 0.4980986120328197,
-            "min": 0.4908383650490876,
-            "std": 0.007260246983732066
+            "mean": 0.5494,
+            "std": 0.0,
+            "min": 0.5494,
+            "max": 0.5494
           },
-          "threshold_best_value": {
-            "max": 0.55,
-            "mean": 0.525,
-            "min": 0.5,
-            "std": 0.025000000000000022
+          "threshold_best_balanced_accuracy": {
+            "mean": 0.5508,
+            "std": 0.0,
+            "min": 0.5508,
+            "max": 0.5508
           },
-          "threshold_gain_balanced_accuracy": {
-            "max": 0.01449275362318836,
-            "mean": 0.00724637681159418,
-            "min": 0.0,
-            "std": 0.00724637681159418
+          "threshold_best_value": null,
+          "majority_accuracy": {
+            "mean": 0.5729,
+            "std": 0.0,
+            "min": 0.5729,
+            "max": 0.5729
           },
-          "threshold_gain_macro_f1": {
-            "max": 0.014618515804766696,
-            "mean": 0.007309257902383348,
-            "min": 0.0,
-            "std": 0.007309257902383348
-          },
-          "threshold_one_class_final_runs": 0
+          "one_class_final_runs": 0,
+          "threshold_one_class_final_runs": 0,
+          "source_note": "sourced_from_docs/deap_emg_feature_only_status.md"
         }
       ],
       "best_final_macro_f1": {
-        "final_accuracy": {
-          "max": 0.5628472222222223,
-          "mean": 0.5269097222222222,
-          "min": 0.4909722222222222,
-          "std": 0.03593750000000004
+        "task": "valence",
+        "policy": "midpoint_as_high",
+        "recipe": "ce_class_weighted",
+        "runs": 2,
+        "final_macro_f1": {
+          "mean": 0.5394,
+          "std": 0.0,
+          "min": 0.5394,
+          "max": 0.5394
         },
         "final_balanced_accuracy": {
-          "max": 0.4982211651859423,
-          "mean": 0.4926282333271167,
-          "min": 0.48703530146829116,
-          "std": 0.005592931858825562
+          "mean": 0.5454,
+          "std": 0.0,
+          "min": 0.5454,
+          "max": 0.5454
         },
-        "final_macro_f1": {
-          "max": 0.49801576176681306,
-          "mean": 0.4911493923086053,
-          "min": 0.48428302285039754,
-          "std": 0.006866369458207761
+        "final_accuracy": null,
+        "threshold_best_macro_f1": {
+          "mean": 0.5494,
+          "std": 0.0,
+          "min": 0.5494,
+          "max": 0.5494
         },
+        "threshold_best_balanced_accuracy": {
+          "mean": 0.5508,
+          "std": 0.0,
+          "min": 0.5508,
+          "max": 0.5508
+        },
+        "threshold_best_value": null,
         "majority_accuracy": {
-          "max": 0.6708333333333333,
-          "mean": 0.6333333333333333,
-          "min": 0.5958333333333333,
-          "std": 0.03749999999999998
+          "mean": 0.5729,
+          "std": 0.0,
+          "min": 0.5729,
+          "max": 0.5729
         },
         "one_class_final_runs": 0,
+        "threshold_one_class_final_runs": 0,
+        "source_note": "sourced_from_docs/deap_emg_feature_only_status.md"
+      },
+      "best_final_balanced_accuracy": {
+        "task": "valence",
+        "policy": "midpoint_as_high",
+        "recipe": "ce_class_weighted",
+        "runs": 2,
+        "final_macro_f1": {
+          "mean": 0.5394,
+          "std": 0.0,
+          "min": 0.5394,
+          "max": 0.5394
+        },
+        "final_balanced_accuracy": {
+          "mean": 0.5454,
+          "std": 0.0,
+          "min": 0.5454,
+          "max": 0.5454
+        },
+        "final_accuracy": null,
+        "threshold_best_macro_f1": {
+          "mean": 0.5494,
+          "std": 0.0,
+          "min": 0.5494,
+          "max": 0.5494
+        },
+        "threshold_best_balanced_accuracy": {
+          "mean": 0.5508,
+          "std": 0.0,
+          "min": 0.5508,
+          "max": 0.5508
+        },
+        "threshold_best_value": null,
+        "majority_accuracy": {
+          "mean": 0.5729,
+          "std": 0.0,
+          "min": 0.5729,
+          "max": 0.5729
+        },
+        "one_class_final_runs": 0,
+        "threshold_one_class_final_runs": 0,
+        "source_note": "sourced_from_docs/deap_emg_feature_only_status.md"
+      },
+      "best_threshold_macro_f1": {
+        "task": "valence",
+        "policy": "midpoint_as_high",
+        "recipe": "ce_class_weighted",
+        "runs": 2,
+        "final_macro_f1": {
+          "mean": 0.5394,
+          "std": 0.0,
+          "min": 0.5394,
+          "max": 0.5394
+        },
+        "final_balanced_accuracy": {
+          "mean": 0.5454,
+          "std": 0.0,
+          "min": 0.5454,
+          "max": 0.5454
+        },
+        "final_accuracy": null,
+        "threshold_best_macro_f1": {
+          "mean": 0.5494,
+          "std": 0.0,
+          "min": 0.5494,
+          "max": 0.5494
+        },
+        "threshold_best_balanced_accuracy": {
+          "mean": 0.5508,
+          "std": 0.0,
+          "min": 0.5508,
+          "max": 0.5508
+        },
+        "threshold_best_value": null,
+        "majority_accuracy": {
+          "mean": 0.5729,
+          "std": 0.0,
+          "min": 0.5729,
+          "max": 0.5729
+        },
+        "one_class_final_runs": 0,
+        "threshold_one_class_final_runs": 0,
+        "source_note": "sourced_from_docs/deap_emg_feature_only_status.md"
+      },
+      "best_threshold_balanced_accuracy": {
+        "task": "valence",
+        "policy": "midpoint_as_high",
+        "recipe": "ce_class_weighted",
+        "runs": 2,
+        "final_macro_f1": {
+          "mean": 0.5394,
+          "std": 0.0,
+          "min": 0.5394,
+          "max": 0.5394
+        },
+        "final_balanced_accuracy": {
+          "mean": 0.5454,
+          "std": 0.0,
+          "min": 0.5454,
+          "max": 0.5454
+        },
+        "final_accuracy": null,
+        "threshold_best_macro_f1": {
+          "mean": 0.5494,
+          "std": 0.0,
+          "min": 0.5494,
+          "max": 0.5494
+        },
+        "threshold_best_balanced_accuracy": {
+          "mean": 0.5508,
+          "std": 0.0,
+          "min": 0.5508,
+          "max": 0.5508
+        },
+        "threshold_best_value": null,
+        "majority_accuracy": {
+          "mean": 0.5729,
+          "std": 0.0,
+          "min": 0.5729,
+          "max": 0.5729
+        },
+        "one_class_final_runs": 0,
+        "threshold_one_class_final_runs": 0,
+        "source_note": "sourced_from_docs/deap_emg_feature_only_status.md"
+      }
+    },
+    "deap_emg_feature_arousal": {
+      "path": "docs/deap_emg_feature_only_status.md",
+      "exists": true,
+      "source_kind": "frozen_status_doc",
+      "rows": [
+        {
+          "task": "arousal",
+          "policy": "midpoint_as_high",
+          "recipe": "ce_class_weighted",
+          "runs": 2,
+          "final_macro_f1": {
+            "mean": 0.4908,
+            "std": 0.0,
+            "min": 0.4908,
+            "max": 0.4908
+          },
+          "final_balanced_accuracy": {
+            "mean": 0.493,
+            "std": 0.0,
+            "min": 0.493,
+            "max": 0.493
+          },
+          "final_accuracy": null,
+          "threshold_best_macro_f1": {
+            "mean": 0.4981,
+            "std": 0.0,
+            "min": 0.4981,
+            "max": 0.4981
+          },
+          "threshold_best_balanced_accuracy": {
+            "mean": 0.5002,
+            "std": 0.0,
+            "min": 0.5002,
+            "max": 0.5002
+          },
+          "threshold_best_value": null,
+          "majority_accuracy": null,
+          "one_class_final_runs": 0,
+          "threshold_one_class_final_runs": 0,
+          "source_note": "sourced_from_docs/deap_emg_feature_only_status.md"
+        },
+        {
+          "task": "arousal",
+          "policy": "midpoint_as_high",
+          "recipe": "balanced_sampler_ce",
+          "runs": 2,
+          "final_macro_f1": {
+            "mean": 0.4911,
+            "std": 0.0,
+            "min": 0.4911,
+            "max": 0.4911
+          },
+          "final_balanced_accuracy": {
+            "mean": 0.4926,
+            "std": 0.0,
+            "min": 0.4926,
+            "max": 0.4926
+          },
+          "final_accuracy": null,
+          "threshold_best_macro_f1": {
+            "mean": 0.4911,
+            "std": 0.0,
+            "min": 0.4911,
+            "max": 0.4911
+          },
+          "threshold_best_balanced_accuracy": {
+            "mean": 0.4926,
+            "std": 0.0,
+            "min": 0.4926,
+            "max": 0.4926
+          },
+          "threshold_best_value": null,
+          "majority_accuracy": null,
+          "one_class_final_runs": 0,
+          "threshold_one_class_final_runs": 0,
+          "source_note": "sourced_from_docs/deap_emg_feature_only_status.md"
+        }
+      ],
+      "best_final_macro_f1": {
+        "task": "arousal",
         "policy": "midpoint_as_high",
         "recipe": "balanced_sampler_ce",
         "runs": 2,
-        "task": "arousal",
-        "threshold_best_balanced_accuracy": {
-          "max": 0.4982211651859423,
-          "mean": 0.4926282333271167,
-          "min": 0.48703530146829116,
-          "std": 0.005592931858825562
+        "final_macro_f1": {
+          "mean": 0.4911,
+          "std": 0.0,
+          "min": 0.4911,
+          "max": 0.4911
         },
+        "final_balanced_accuracy": {
+          "mean": 0.4926,
+          "std": 0.0,
+          "min": 0.4926,
+          "max": 0.4926
+        },
+        "final_accuracy": null,
         "threshold_best_macro_f1": {
-          "max": 0.49801576176681306,
-          "mean": 0.4911493923086053,
-          "min": 0.48428302285039754,
-          "std": 0.006866369458207761
+          "mean": 0.4911,
+          "std": 0.0,
+          "min": 0.4911,
+          "max": 0.4911
         },
-        "threshold_best_value": {
-          "max": 0.5,
-          "mean": 0.5,
-          "min": 0.5,
-          "std": 0.0
+        "threshold_best_balanced_accuracy": {
+          "mean": 0.4926,
+          "std": 0.0,
+          "min": 0.4926,
+          "max": 0.4926
         },
-        "threshold_gain_balanced_accuracy": {
-          "max": 0.0,
-          "mean": 0.0,
-          "min": 0.0,
-          "std": 0.0
-        },
-        "threshold_gain_macro_f1": {
-          "max": 0.0,
-          "mean": 0.0,
-          "min": 0.0,
-          "std": 0.0
-        },
-        "threshold_one_class_final_runs": 0
+        "threshold_best_value": null,
+        "majority_accuracy": null,
+        "one_class_final_runs": 0,
+        "threshold_one_class_final_runs": 0,
+        "source_note": "sourced_from_docs/deap_emg_feature_only_status.md"
       },
       "best_final_balanced_accuracy": {
-        "final_accuracy": {
-          "max": 0.578125,
-          "mean": 0.5401041666666666,
-          "min": 0.5020833333333333,
-          "std": 0.03802083333333334
-        },
-        "final_balanced_accuracy": {
-          "max": 0.4942965904028095,
-          "mean": 0.49297892505265317,
-          "min": 0.4916612597024968,
-          "std": 0.001317665350156344
-        },
-        "final_macro_f1": {
-          "max": 0.4908383650490876,
-          "mean": 0.49078935413043634,
-          "min": 0.49074034321178506,
-          "std": 4.9010918651282154e-05
-        },
-        "majority_accuracy": {
-          "max": 0.6708333333333333,
-          "mean": 0.6333333333333333,
-          "min": 0.5958333333333333,
-          "std": 0.03749999999999998
-        },
-        "one_class_final_runs": 0,
+        "task": "arousal",
         "policy": "midpoint_as_high",
         "recipe": "ce_class_weighted",
         "runs": 2,
-        "task": "arousal",
-        "threshold_best_balanced_accuracy": {
-          "max": 0.5087893440259978,
-          "mean": 0.5002253018642473,
-          "min": 0.4916612597024968,
-          "std": 0.008564042161750524
+        "final_macro_f1": {
+          "mean": 0.4908,
+          "std": 0.0,
+          "min": 0.4908,
+          "max": 0.4908
         },
+        "final_balanced_accuracy": {
+          "mean": 0.493,
+          "std": 0.0,
+          "min": 0.493,
+          "max": 0.493
+        },
+        "final_accuracy": null,
         "threshold_best_macro_f1": {
-          "max": 0.5053588590165518,
-          "mean": 0.4980986120328197,
-          "min": 0.4908383650490876,
-          "std": 0.007260246983732066
+          "mean": 0.4981,
+          "std": 0.0,
+          "min": 0.4981,
+          "max": 0.4981
         },
-        "threshold_best_value": {
-          "max": 0.55,
-          "mean": 0.525,
-          "min": 0.5,
-          "std": 0.025000000000000022
+        "threshold_best_balanced_accuracy": {
+          "mean": 0.5002,
+          "std": 0.0,
+          "min": 0.5002,
+          "max": 0.5002
         },
-        "threshold_gain_balanced_accuracy": {
-          "max": 0.01449275362318836,
-          "mean": 0.00724637681159418,
-          "min": 0.0,
-          "std": 0.00724637681159418
-        },
-        "threshold_gain_macro_f1": {
-          "max": 0.014618515804766696,
-          "mean": 0.007309257902383348,
-          "min": 0.0,
-          "std": 0.007309257902383348
-        },
-        "threshold_one_class_final_runs": 0
+        "threshold_best_value": null,
+        "majority_accuracy": null,
+        "one_class_final_runs": 0,
+        "threshold_one_class_final_runs": 0,
+        "source_note": "sourced_from_docs/deap_emg_feature_only_status.md"
       },
       "best_threshold_macro_f1": {
-        "final_accuracy": {
-          "max": 0.578125,
-          "mean": 0.5401041666666666,
-          "min": 0.5020833333333333,
-          "std": 0.03802083333333334
-        },
-        "final_balanced_accuracy": {
-          "max": 0.4942965904028095,
-          "mean": 0.49297892505265317,
-          "min": 0.4916612597024968,
-          "std": 0.001317665350156344
-        },
-        "final_macro_f1": {
-          "max": 0.4908383650490876,
-          "mean": 0.49078935413043634,
-          "min": 0.49074034321178506,
-          "std": 4.9010918651282154e-05
-        },
-        "majority_accuracy": {
-          "max": 0.6708333333333333,
-          "mean": 0.6333333333333333,
-          "min": 0.5958333333333333,
-          "std": 0.03749999999999998
-        },
-        "one_class_final_runs": 0,
+        "task": "arousal",
         "policy": "midpoint_as_high",
         "recipe": "ce_class_weighted",
         "runs": 2,
-        "task": "arousal",
-        "threshold_best_balanced_accuracy": {
-          "max": 0.5087893440259978,
-          "mean": 0.5002253018642473,
-          "min": 0.4916612597024968,
-          "std": 0.008564042161750524
+        "final_macro_f1": {
+          "mean": 0.4908,
+          "std": 0.0,
+          "min": 0.4908,
+          "max": 0.4908
         },
+        "final_balanced_accuracy": {
+          "mean": 0.493,
+          "std": 0.0,
+          "min": 0.493,
+          "max": 0.493
+        },
+        "final_accuracy": null,
         "threshold_best_macro_f1": {
-          "max": 0.5053588590165518,
-          "mean": 0.4980986120328197,
-          "min": 0.4908383650490876,
-          "std": 0.007260246983732066
+          "mean": 0.4981,
+          "std": 0.0,
+          "min": 0.4981,
+          "max": 0.4981
         },
-        "threshold_best_value": {
-          "max": 0.55,
-          "mean": 0.525,
-          "min": 0.5,
-          "std": 0.025000000000000022
+        "threshold_best_balanced_accuracy": {
+          "mean": 0.5002,
+          "std": 0.0,
+          "min": 0.5002,
+          "max": 0.5002
         },
-        "threshold_gain_balanced_accuracy": {
-          "max": 0.01449275362318836,
-          "mean": 0.00724637681159418,
-          "min": 0.0,
-          "std": 0.00724637681159418
-        },
-        "threshold_gain_macro_f1": {
-          "max": 0.014618515804766696,
-          "mean": 0.007309257902383348,
-          "min": 0.0,
-          "std": 0.007309257902383348
-        },
-        "threshold_one_class_final_runs": 0
+        "threshold_best_value": null,
+        "majority_accuracy": null,
+        "one_class_final_runs": 0,
+        "threshold_one_class_final_runs": 0,
+        "source_note": "sourced_from_docs/deap_emg_feature_only_status.md"
       },
       "best_threshold_balanced_accuracy": {
-        "final_accuracy": {
-          "max": 0.578125,
-          "mean": 0.5401041666666666,
-          "min": 0.5020833333333333,
-          "std": 0.03802083333333334
-        },
-        "final_balanced_accuracy": {
-          "max": 0.4942965904028095,
-          "mean": 0.49297892505265317,
-          "min": 0.4916612597024968,
-          "std": 0.001317665350156344
-        },
-        "final_macro_f1": {
-          "max": 0.4908383650490876,
-          "mean": 0.49078935413043634,
-          "min": 0.49074034321178506,
-          "std": 4.9010918651282154e-05
-        },
-        "majority_accuracy": {
-          "max": 0.6708333333333333,
-          "mean": 0.6333333333333333,
-          "min": 0.5958333333333333,
-          "std": 0.03749999999999998
-        },
-        "one_class_final_runs": 0,
+        "task": "arousal",
         "policy": "midpoint_as_high",
         "recipe": "ce_class_weighted",
         "runs": 2,
-        "task": "arousal",
-        "threshold_best_balanced_accuracy": {
-          "max": 0.5087893440259978,
-          "mean": 0.5002253018642473,
-          "min": 0.4916612597024968,
-          "std": 0.008564042161750524
+        "final_macro_f1": {
+          "mean": 0.4908,
+          "std": 0.0,
+          "min": 0.4908,
+          "max": 0.4908
         },
+        "final_balanced_accuracy": {
+          "mean": 0.493,
+          "std": 0.0,
+          "min": 0.493,
+          "max": 0.493
+        },
+        "final_accuracy": null,
         "threshold_best_macro_f1": {
-          "max": 0.5053588590165518,
-          "mean": 0.4980986120328197,
-          "min": 0.4908383650490876,
-          "std": 0.007260246983732066
+          "mean": 0.4981,
+          "std": 0.0,
+          "min": 0.4981,
+          "max": 0.4981
         },
-        "threshold_best_value": {
-          "max": 0.55,
-          "mean": 0.525,
-          "min": 0.5,
-          "std": 0.025000000000000022
+        "threshold_best_balanced_accuracy": {
+          "mean": 0.5002,
+          "std": 0.0,
+          "min": 0.5002,
+          "max": 0.5002
         },
-        "threshold_gain_balanced_accuracy": {
-          "max": 0.01449275362318836,
-          "mean": 0.00724637681159418,
-          "min": 0.0,
-          "std": 0.00724637681159418
-        },
-        "threshold_gain_macro_f1": {
-          "max": 0.014618515804766696,
-          "mean": 0.007309257902383348,
-          "min": 0.0,
-          "std": 0.007309257902383348
-        },
-        "threshold_one_class_final_runs": 0
+        "threshold_best_value": null,
+        "majority_accuracy": null,
+        "one_class_final_runs": 0,
+        "threshold_one_class_final_runs": 0,
+        "source_note": "sourced_from_docs/deap_emg_feature_only_status.md"
       }
     }
   },
@@ -3825,5 +3914,8 @@
       "next_allowed_step": "Run controlled comparison of discard_midpoint, midpoint_as_low, and midpoint_as_high using fixed splits/seeds.",
       "not_started_here": "Locking midpoint_as_high as the final paper policy."
     }
-  ]
+  ],
+  "notes": {
+    "deap_emg_snapshot_source": "DEAP EMG valence/arousal snapshot values are sourced from docs/deap_emg_feature_only_status.md because the central status should reflect the frozen status doc, not require task-specific JSON files."
+  }
 }
