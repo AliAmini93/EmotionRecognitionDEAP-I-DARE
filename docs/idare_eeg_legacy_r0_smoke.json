@@ -1,0 +1,536 @@
+{
+  "aggregate": [
+    {
+      "best_macro_f1": {
+        "max": 0.3747779751332149,
+        "mean": 0.3747779751332149,
+        "min": 0.3747779751332149,
+        "std": 0.0
+      },
+      "final_accuracy": {
+        "max": 0.5994318181818182,
+        "mean": 0.5994318181818182,
+        "min": 0.5994318181818182,
+        "std": 0.0
+      },
+      "final_balanced_accuracy": {
+        "max": 0.5,
+        "mean": 0.5,
+        "min": 0.5,
+        "std": 0.0
+      },
+      "final_macro_f1": {
+        "max": 0.3747779751332149,
+        "mean": 0.3747779751332149,
+        "min": 0.3747779751332149,
+        "std": 0.0
+      },
+      "majority_accuracy": {
+        "max": 0.5994318181818182,
+        "mean": 0.5994318181818182,
+        "min": 0.5994318181818182,
+        "std": 0.0
+      },
+      "model_name": "eeg_segment_v1",
+      "one_class_final_runs": 1,
+      "policy": "midpoint_as_high",
+      "recipe": "ce_class_weighted",
+      "runs": 1,
+      "task": "valence"
+    },
+    {
+      "best_macro_f1": {
+        "max": 0.3747779751332149,
+        "mean": 0.3747779751332149,
+        "min": 0.3747779751332149,
+        "std": 0.0
+      },
+      "final_accuracy": {
+        "max": 0.5994318181818182,
+        "mean": 0.5994318181818182,
+        "min": 0.5994318181818182,
+        "std": 0.0
+      },
+      "final_balanced_accuracy": {
+        "max": 0.5,
+        "mean": 0.5,
+        "min": 0.5,
+        "std": 0.0
+      },
+      "final_macro_f1": {
+        "max": 0.3747779751332149,
+        "mean": 0.3747779751332149,
+        "min": 0.3747779751332149,
+        "std": 0.0
+      },
+      "majority_accuracy": {
+        "max": 0.5994318181818182,
+        "mean": 0.5994318181818182,
+        "min": 0.5994318181818182,
+        "std": 0.0
+      },
+      "model_name": "legacy_r0",
+      "one_class_final_runs": 1,
+      "policy": "midpoint_as_high",
+      "recipe": "ce_class_weighted",
+      "runs": 1,
+      "task": "valence"
+    }
+  ],
+  "config": {
+    "batch_size": 32,
+    "cache_index": ".cache/idare_eeg_cache_index.csv",
+    "cache_npy": ".cache/idare_eeg_windows_32x640_float32.npy",
+    "cache_shape": [
+      2016,
+      32,
+      640
+    ],
+    "device": "cuda",
+    "epochs": 1,
+    "folds": 6,
+    "grad_clip": 1.0,
+    "label_policy": "midpoint_as_high",
+    "lr": 0.001,
+    "max_runs": 2,
+    "models": [
+      "legacy_r0",
+      "eeg_segment_v1"
+    ],
+    "num_workers": 0,
+    "recipes": [
+      "ce_class_weighted"
+    ],
+    "seeds": [
+      11
+    ],
+    "tasks": [
+      "valence"
+    ],
+    "weight_decay": 0.001
+  },
+  "generated_at_utc": "2026-05-06T08:10:50.773787+00:00",
+  "runs": [
+    {
+      "batch_size": 32,
+      "best": {
+        "accuracy": 0.5994318181818182,
+        "balanced_accuracy": 0.5,
+        "batches": 11,
+        "collapsed_to_label": 1,
+        "confusion": {
+          "fn": 0,
+          "fp": 141,
+          "tn": 0,
+          "tp": 211
+        },
+        "epoch": 1,
+        "loss_mean": 0.6783602075143293,
+        "macro_f1": 0.3747779751332149,
+        "majority_baseline": {
+          "accuracy": 0.5994318181818182,
+          "balanced_accuracy": 0.5,
+          "label": 1,
+          "macro_f1": 0.3747779751332149
+        },
+        "n": 352,
+        "one_class_pred": true,
+        "per_class": {
+          "0": {
+            "f1": 0.0,
+            "fn": 141,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 141,
+            "tp": 0
+          },
+          "1": {
+            "f1": 0.7495559502664298,
+            "fn": 0,
+            "fp": 141,
+            "precision": 0.5994318181818182,
+            "recall": 1.0,
+            "support": 211,
+            "tp": 211
+          }
+        },
+        "pred_counts": {
+          "0": 0,
+          "1": 352
+        },
+        "pred_unique_labels": [
+          1
+        ],
+        "true_counts": {
+          "0": 141,
+          "1": 211
+        }
+      },
+      "class_weights": [
+        1.2399404048919678,
+        0.8378650546073914
+      ],
+      "duration_sec": 1.5177577189169824,
+      "epoch_records": [
+        {
+          "epoch": 1,
+          "train_loss_mean": 0.7081222110069715,
+          "val": {
+            "accuracy": 0.5994318181818182,
+            "balanced_accuracy": 0.5,
+            "batches": 11,
+            "collapsed_to_label": 1,
+            "confusion": {
+              "fn": 0,
+              "fp": 141,
+              "tn": 0,
+              "tp": 211
+            },
+            "loss_mean": 0.6783602075143293,
+            "macro_f1": 0.3747779751332149,
+            "majority_baseline": {
+              "accuracy": 0.5994318181818182,
+              "balanced_accuracy": 0.5,
+              "label": 1,
+              "macro_f1": 0.3747779751332149
+            },
+            "n": 352,
+            "one_class_pred": true,
+            "per_class": {
+              "0": {
+                "f1": 0.0,
+                "fn": 141,
+                "fp": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "support": 141,
+                "tp": 0
+              },
+              "1": {
+                "f1": 0.7495559502664298,
+                "fn": 0,
+                "fp": 141,
+                "precision": 0.5994318181818182,
+                "recall": 1.0,
+                "support": 211,
+                "tp": 211
+              }
+            },
+            "pred_counts": {
+              "0": 0,
+              "1": 352
+            },
+            "pred_unique_labels": [
+              1
+            ],
+            "true_counts": {
+              "0": 141,
+              "1": 211
+            }
+          }
+        }
+      ],
+      "epochs": 1,
+      "final": {
+        "accuracy": 0.5994318181818182,
+        "balanced_accuracy": 0.5,
+        "batches": 11,
+        "collapsed_to_label": 1,
+        "confusion": {
+          "fn": 0,
+          "fp": 141,
+          "tn": 0,
+          "tp": 211
+        },
+        "loss_mean": 0.6783602075143293,
+        "macro_f1": 0.3747779751332149,
+        "majority_baseline": {
+          "accuracy": 0.5994318181818182,
+          "balanced_accuracy": 0.5,
+          "label": 1,
+          "macro_f1": 0.3747779751332149
+        },
+        "n": 352,
+        "one_class_pred": true,
+        "per_class": {
+          "0": {
+            "f1": 0.0,
+            "fn": 141,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 141,
+            "tp": 0
+          },
+          "1": {
+            "f1": 0.7495559502664298,
+            "fn": 0,
+            "fp": 141,
+            "precision": 0.5994318181818182,
+            "recall": 1.0,
+            "support": 211,
+            "tp": 211
+          }
+        },
+        "pred_counts": {
+          "0": 0,
+          "1": 352
+        },
+        "pred_unique_labels": [
+          1
+        ],
+        "true_counts": {
+          "0": 141,
+          "1": 211
+        }
+      },
+      "fold_id": 1,
+      "grad_clip": 1.0,
+      "lr": 0.001,
+      "model_name": "legacy_r0",
+      "policy": "midpoint_as_high",
+      "recipe": "ce_class_weighted",
+      "run_id": 1,
+      "seed": 11,
+      "task": "valence",
+      "train_counts": {
+        "0": 671,
+        "1": 993
+      },
+      "train_n": 1664,
+      "train_subject_count": 52,
+      "val_counts": {
+        "0": 141,
+        "1": 211
+      },
+      "val_n": 352,
+      "val_subject_count": 11,
+      "val_subjects": [
+        1,
+        12,
+        13,
+        15,
+        26,
+        28,
+        30,
+        38,
+        57,
+        62,
+        64
+      ],
+      "weight_decay": 0.001
+    },
+    {
+      "batch_size": 32,
+      "best": {
+        "accuracy": 0.5994318181818182,
+        "balanced_accuracy": 0.5,
+        "batches": 11,
+        "collapsed_to_label": 1,
+        "confusion": {
+          "fn": 0,
+          "fp": 141,
+          "tn": 0,
+          "tp": 211
+        },
+        "epoch": 1,
+        "loss_mean": 0.6847709200598977,
+        "macro_f1": 0.3747779751332149,
+        "majority_baseline": {
+          "accuracy": 0.5994318181818182,
+          "balanced_accuracy": 0.5,
+          "label": 1,
+          "macro_f1": 0.3747779751332149
+        },
+        "n": 352,
+        "one_class_pred": true,
+        "per_class": {
+          "0": {
+            "f1": 0.0,
+            "fn": 141,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 141,
+            "tp": 0
+          },
+          "1": {
+            "f1": 0.7495559502664298,
+            "fn": 0,
+            "fp": 141,
+            "precision": 0.5994318181818182,
+            "recall": 1.0,
+            "support": 211,
+            "tp": 211
+          }
+        },
+        "pred_counts": {
+          "0": 0,
+          "1": 352
+        },
+        "pred_unique_labels": [
+          1
+        ],
+        "true_counts": {
+          "0": 141,
+          "1": 211
+        }
+      },
+      "class_weights": [
+        1.2399404048919678,
+        0.8378650546073914
+      ],
+      "duration_sec": 0.6062772101722658,
+      "epoch_records": [
+        {
+          "epoch": 1,
+          "train_loss_mean": 0.7086886901121873,
+          "val": {
+            "accuracy": 0.5994318181818182,
+            "balanced_accuracy": 0.5,
+            "batches": 11,
+            "collapsed_to_label": 1,
+            "confusion": {
+              "fn": 0,
+              "fp": 141,
+              "tn": 0,
+              "tp": 211
+            },
+            "loss_mean": 0.6847709200598977,
+            "macro_f1": 0.3747779751332149,
+            "majority_baseline": {
+              "accuracy": 0.5994318181818182,
+              "balanced_accuracy": 0.5,
+              "label": 1,
+              "macro_f1": 0.3747779751332149
+            },
+            "n": 352,
+            "one_class_pred": true,
+            "per_class": {
+              "0": {
+                "f1": 0.0,
+                "fn": 141,
+                "fp": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "support": 141,
+                "tp": 0
+              },
+              "1": {
+                "f1": 0.7495559502664298,
+                "fn": 0,
+                "fp": 141,
+                "precision": 0.5994318181818182,
+                "recall": 1.0,
+                "support": 211,
+                "tp": 211
+              }
+            },
+            "pred_counts": {
+              "0": 0,
+              "1": 352
+            },
+            "pred_unique_labels": [
+              1
+            ],
+            "true_counts": {
+              "0": 141,
+              "1": 211
+            }
+          }
+        }
+      ],
+      "epochs": 1,
+      "final": {
+        "accuracy": 0.5994318181818182,
+        "balanced_accuracy": 0.5,
+        "batches": 11,
+        "collapsed_to_label": 1,
+        "confusion": {
+          "fn": 0,
+          "fp": 141,
+          "tn": 0,
+          "tp": 211
+        },
+        "loss_mean": 0.6847709200598977,
+        "macro_f1": 0.3747779751332149,
+        "majority_baseline": {
+          "accuracy": 0.5994318181818182,
+          "balanced_accuracy": 0.5,
+          "label": 1,
+          "macro_f1": 0.3747779751332149
+        },
+        "n": 352,
+        "one_class_pred": true,
+        "per_class": {
+          "0": {
+            "f1": 0.0,
+            "fn": 141,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 141,
+            "tp": 0
+          },
+          "1": {
+            "f1": 0.7495559502664298,
+            "fn": 0,
+            "fp": 141,
+            "precision": 0.5994318181818182,
+            "recall": 1.0,
+            "support": 211,
+            "tp": 211
+          }
+        },
+        "pred_counts": {
+          "0": 0,
+          "1": 352
+        },
+        "pred_unique_labels": [
+          1
+        ],
+        "true_counts": {
+          "0": 141,
+          "1": 211
+        }
+      },
+      "fold_id": 1,
+      "grad_clip": 1.0,
+      "lr": 0.001,
+      "model_name": "eeg_segment_v1",
+      "policy": "midpoint_as_high",
+      "recipe": "ce_class_weighted",
+      "run_id": 2,
+      "seed": 11,
+      "task": "valence",
+      "train_counts": {
+        "0": 671,
+        "1": 993
+      },
+      "train_n": 1664,
+      "train_subject_count": 52,
+      "val_counts": {
+        "0": 141,
+        "1": 211
+      },
+      "val_n": 352,
+      "val_subject_count": 11,
+      "val_subjects": [
+        1,
+        12,
+        13,
+        15,
+        26,
+        28,
+        30,
+        38,
+        57,
+        62,
+        64
+      ],
+      "weight_decay": 0.001
+    }
+  ],
+  "status": "smoke_complete"
+}
