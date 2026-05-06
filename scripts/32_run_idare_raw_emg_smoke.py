@@ -468,7 +468,7 @@ def write_predictions_csv(path: Path, runs: list[dict[str, Any]], index_df: pd.D
         "run_id", "task", "policy", "recipe", "fold_id", "seed", "cache_row", "subject_id", "stimulus_id", "y_true", "y_pred", "p1",
     ]
     with path.open("w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer = csv.DictWriter(f, fieldnames=fieldnames, lineterminator='\\n')
         writer.writeheader()
         for run in runs:
             rows = run["prediction_rows"]
