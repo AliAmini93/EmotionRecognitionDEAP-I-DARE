@@ -1,0 +1,37 @@
+{
+  "status": "PLANNED",
+  "topic": "I-DARE baseline-aware EEG modeling",
+  "decision": {
+    "mainline": "STIM-BSL",
+    "first_ablation": "STIM-BSL + BSL stats",
+    "later_ablation": "model(BSL, STIM, STIM-BSL)",
+    "raw_stim_only": "legacy/control baseline"
+  },
+  "outputs": {
+    "markdown": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/idare_baseline_modeling_literature_plan.md",
+    "json": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/idare_baseline_modeling_literature_plan.json"
+  },
+  "recommended_next_step": "Create an audit for I-DARE EEG BSL stats sidecar before implementing paired neural branches.",
+  "modeling_candidates": [
+    {
+      "id": "A",
+      "name": "STIM-only legacy baseline"
+    },
+    {
+      "id": "B",
+      "name": "STIM-BSL mainline"
+    },
+    {
+      "id": "C",
+      "name": "STIM-BSL + BSL summary stats"
+    },
+    {
+      "id": "D",
+      "name": "two-branch paired BSL/STIM model"
+    },
+    {
+      "id": "E",
+      "name": "three-branch model(BSL, STIM, STIM-BSL)"
+    }
+  ]
+}
