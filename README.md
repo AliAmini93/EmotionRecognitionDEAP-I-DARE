@@ -65,6 +65,10 @@ label = 1 if score > 5 else 0
 # score == 5 -> discard (کاهش label noise)
 ```
 
+<!-- PROJECT_STATUS_LABEL_POLICY_NOTE_START -->
+> **Current implementation note:** the original label harmonization rule above is a proposal-stage default, not a locked final decision. Recent smoke runs keep all three policies available and mostly use `midpoint_as_high` for early stability/comparability. Final paper claims should treat label policy as a serious ablation across `discard_midpoint`, `midpoint_as_low`, and `midpoint_as_high`.
+<!-- PROJECT_STATUS_LABEL_POLICY_NOTE_END -->
+
 ### Windowing فعلی
 
 **Main protocol:**
