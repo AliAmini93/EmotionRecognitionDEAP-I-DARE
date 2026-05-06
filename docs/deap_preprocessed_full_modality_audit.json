@@ -1,0 +1,3188 @@
+{
+  "channel_statistics": [
+    {
+      "baseline_mean": -2.584015177757119e-19,
+      "baseline_std": 44.98183803049971,
+      "channel_index_0based": 0,
+      "channel_number_1based": 1,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 952.1217661673381,
+      "mean": 0.012004659797567686,
+      "min": -1021.7115297466528,
+      "modality": "EEG",
+      "name": "Fp1",
+      "nan_count": 0,
+      "std": 29.804618634610694,
+      "stimulus_mean": 0.01260489278744607,
+      "stimulus_std": 28.836829946378195
+    },
+    {
+      "baseline_mean": 3.8863226872742905e-17,
+      "baseline_std": 72.89387421354589,
+      "channel_index_0based": 1,
+      "channel_number_1based": 2,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 1571.4377213401078,
+      "mean": -0.008925266727610319,
+      "min": -2052.3391357672313,
+      "modality": "EEG",
+      "name": "AF3",
+      "nan_count": 0,
+      "std": 42.34264877265133,
+      "stimulus_mean": -0.009371530063990845,
+      "stimulus_std": 40.210310260717144
+    },
+    {
+      "baseline_mean": 2.437286483747414e-17,
+      "baseline_std": 70.51820455903741,
+      "channel_index_0based": 2,
+      "channel_number_1based": 3,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 1593.7646432244185,
+      "mean": -0.025302600087591203,
+      "min": -2043.8069939020675,
+      "modality": "EEG",
+      "name": "F3",
+      "nan_count": 0,
+      "std": 39.39122864881019,
+      "stimulus_mean": -0.026567730091970755,
+      "stimulus_std": 37.15658012873146
+    },
+    {
+      "baseline_mean": 5.476305173224283e-17,
+      "baseline_std": 58.91569711473015,
+      "channel_index_0based": 3,
+      "channel_number_1based": 4,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 2843.9056801961733,
+      "mean": 0.00993745822643284,
+      "min": -2656.4252330049085,
+      "modality": "EEG",
+      "name": "F7",
+      "nan_count": 0,
+      "std": 51.64258801315367,
+      "stimulus_mean": 0.010434331137754483,
+      "stimulus_std": 51.25184648401334
+    },
+    {
+      "baseline_mean": -4.472424311683746e-17,
+      "baseline_std": 55.45087342041394,
+      "channel_index_0based": 4,
+      "channel_number_1based": 5,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 1136.6254687329322,
+      "mean": -0.013128456895947127,
+      "min": -1489.9627078202695,
+      "modality": "EEG",
+      "name": "FC5",
+      "nan_count": 0,
+      "std": 36.273560090297224,
+      "stimulus_mean": -0.013784879740744485,
+      "stimulus_std": 35.04025888178589
+    },
+    {
+      "baseline_mean": 1.1132949307805322e-17,
+      "baseline_std": 39.12198477843139,
+      "channel_index_0based": 5,
+      "channel_number_1based": 6,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 1110.7619045321567,
+      "mean": -0.011819353993145841,
+      "min": -949.5700097445148,
+      "modality": "EEG",
+      "name": "FC1",
+      "nan_count": 0,
+      "std": 26.391977701220334,
+      "stimulus_mean": -0.012410321692803128,
+      "stimulus_std": 25.58977958768904
+    },
+    {
+      "baseline_mean": 3.635149183981816e-17,
+      "baseline_std": 44.478554269538435,
+      "channel_index_0based": 6,
+      "channel_number_1based": 7,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 1362.0728467652502,
+      "mean": -0.03592115699678605,
+      "min": -1198.349776182128,
+      "modality": "EEG",
+      "name": "C3",
+      "nan_count": 0,
+      "std": 29.350052152164768,
+      "stimulus_mean": -0.037717214846625345,
+      "stimulus_std": 28.382735635660943
+    },
+    {
+      "baseline_mean": 4.925891870325808e-17,
+      "baseline_std": 35.76555142137204,
+      "channel_index_0based": 7,
+      "channel_number_1based": 8,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 857.2720367832355,
+      "mean": 0.014223012118770416,
+      "min": -776.0792293949434,
+      "modality": "EEG",
+      "name": "T7",
+      "nan_count": 0,
+      "std": 25.368577027786706,
+      "stimulus_mean": 0.01493416272470893,
+      "stimulus_std": 24.734271596133684
+    },
+    {
+      "baseline_mean": 1.5834772729150793e-17,
+      "baseline_std": 53.25296975086824,
+      "channel_index_0based": 8,
+      "channel_number_1based": 9,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 1988.0747945214398,
+      "mean": 0.028281356513760632,
+      "min": -2311.915662877814,
+      "modality": "EEG",
+      "name": "CP5",
+      "nan_count": 0,
+      "std": 34.46607277837632,
+      "stimulus_mean": 0.029695424339448665,
+      "stimulus_std": 33.24923608215476
+    },
+    {
+      "baseline_mean": 6.246811517137315e-18,
+      "baseline_std": 31.647020297041006,
+      "channel_index_0based": 9,
+      "channel_number_1based": 10,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 828.2482899985747,
+      "mean": -0.00632947074117167,
+      "min": -714.8762417237074,
+      "modality": "EEG",
+      "name": "CP1",
+      "nan_count": 0,
+      "std": 22.112920544766524,
+      "stimulus_mean": -0.006645944278230254,
+      "stimulus_std": 21.525650303365598
+    },
+    {
+      "baseline_mean": -3.688094390071524e-18,
+      "baseline_std": 29.10395077658926,
+      "channel_index_0based": 10,
+      "channel_number_1based": 11,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 944.6516696310968,
+      "mean": -0.004026546312487909,
+      "min": -798.9240080833216,
+      "modality": "EEG",
+      "name": "P3",
+      "nan_count": 0,
+      "std": 19.34921831337989,
+      "stimulus_mean": -0.0042278736281123035,
+      "stimulus_std": 18.728584127324854
+    },
+    {
+      "baseline_mean": 1.3005005058963626e-17,
+      "baseline_std": 37.11856900708553,
+      "channel_index_0based": 11,
+      "channel_number_1based": 12,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 886.2484860569714,
+      "mean": 0.004511103074640779,
+      "min": -935.2453087439462,
+      "modality": "EEG",
+      "name": "P7",
+      "nan_count": 0,
+      "std": 26.68203462860733,
+      "stimulus_mean": 0.0047366582283728175,
+      "stimulus_std": 26.05068350721809
+    },
+    {
+      "baseline_mean": 1.6678643420068676e-18,
+      "baseline_std": 52.418687896624576,
+      "channel_index_0based": 12,
+      "channel_number_1based": 13,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 1200.4724562594054,
+      "mean": 0.0027120985450873394,
+      "min": -1540.1094342640542,
+      "modality": "EEG",
+      "name": "PO3",
+      "nan_count": 0,
+      "std": 28.50013717271714,
+      "stimulus_mean": 0.0028477034723417075,
+      "stimulus_std": 26.748547014380588
+    },
+    {
+      "baseline_mean": 1.7021974108022419e-18,
+      "baseline_std": 74.79828897802027,
+      "channel_index_0based": 13,
+      "channel_number_1based": 14,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 2313.109132433821,
+      "mean": -0.0011979278488288177,
+      "min": -1677.7397236089487,
+      "modality": "EEG",
+      "name": "O1",
+      "nan_count": 0,
+      "std": 43.24350821024574,
+      "stimulus_mean": -0.0012578242412702632,
+      "stimulus_std": 41.033667282717495
+    },
+    {
+      "baseline_mean": 4.955346029344998e-17,
+      "baseline_std": 57.27336517567195,
+      "channel_index_0based": 14,
+      "channel_number_1based": 15,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 1309.4316545986276,
+      "mean": -0.006765800312499501,
+      "min": -1468.2027921464867,
+      "modality": "EEG",
+      "name": "Oz",
+      "nan_count": 0,
+      "std": 36.19516669432875,
+      "stimulus_mean": -0.007104090328124482,
+      "stimulus_std": 34.80779620000699
+    },
+    {
+      "baseline_mean": -1.6685871434551914e-17,
+      "baseline_std": 26.89480049083263,
+      "channel_index_0based": 15,
+      "channel_number_1based": 16,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 1163.8802520384775,
+      "mean": 0.01200463567041334,
+      "min": -972.9231244362395,
+      "modality": "EEG",
+      "name": "Pz",
+      "nan_count": 0,
+      "std": 20.68954969529127,
+      "stimulus_mean": 0.012604867453934005,
+      "stimulus_std": 20.329629059225272
+    },
+    {
+      "baseline_mean": 7.039001904500057e-17,
+      "baseline_std": 77.8316967024423,
+      "channel_index_0based": 16,
+      "channel_number_1based": 17,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 1958.7029431760147,
+      "mean": 0.030227581480664394,
+      "min": -2311.061849643746,
+      "modality": "EEG",
+      "name": "Fp2",
+      "nan_count": 0,
+      "std": 47.203943121928056,
+      "stimulus_mean": 0.031738960554697604,
+      "stimulus_std": 45.13019122519293
+    },
+    {
+      "baseline_mean": 7.170190367370803e-18,
+      "baseline_std": 61.21851453050109,
+      "channel_index_0based": 17,
+      "channel_number_1based": 18,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 1551.65761069178,
+      "mean": 0.017963170694773968,
+      "min": -1358.9205499894388,
+      "modality": "EEG",
+      "name": "AF4",
+      "nan_count": 0,
+      "std": 39.24609755030803,
+      "stimulus_mean": 0.01886132922951267,
+      "stimulus_std": 37.81380222310614
+    },
+    {
+      "baseline_mean": -1.3465790982269965e-17,
+      "baseline_std": 59.99276344134569,
+      "channel_index_0based": 18,
+      "channel_number_1based": 19,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 1292.9988482051403,
+      "mean": -0.01635761681024035,
+      "min": -1661.1699174937153,
+      "modality": "EEG",
+      "name": "Fz",
+      "nan_count": 0,
+      "std": 35.04578464388441,
+      "stimulus_mean": -0.017175497650752367,
+      "stimulus_std": 33.311571188654945
+    },
+    {
+      "baseline_mean": 2.402411313865797e-18,
+      "baseline_std": 57.40969567241225,
+      "channel_index_0based": 19,
+      "channel_number_1based": 20,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 1204.8388335888997,
+      "mean": 0.024264491509741585,
+      "min": -1269.7743051511918,
+      "modality": "EEG",
+      "name": "F4",
+      "nan_count": 0,
+      "std": 39.51210265631651,
+      "stimulus_mean": 0.025477716085228672,
+      "stimulus_std": 38.398865613053175
+    },
+    {
+      "baseline_mean": -2.4490320072826735e-17,
+      "baseline_std": 47.10868517675131,
+      "channel_index_0based": 20,
+      "channel_number_1based": 21,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 1392.8027055588925,
+      "mean": -0.0043171378022040735,
+      "min": -1324.8027976969654,
+      "modality": "EEG",
+      "name": "F8",
+      "nan_count": 0,
+      "std": 31.264614322436476,
+      "stimulus_mean": -0.004532994692314274,
+      "stimulus_std": 30.255387986846955
+    },
+    {
+      "baseline_mean": 1.144194692696369e-17,
+      "baseline_std": 45.1075690901561,
+      "channel_index_0based": 21,
+      "channel_number_1based": 22,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 1204.8337915917425,
+      "mean": -0.020564144348796207,
+      "min": -1170.5220944299294,
+      "modality": "EEG",
+      "name": "FC6",
+      "nan_count": 0,
+      "std": 32.560715130926404,
+      "stimulus_mean": -0.021592351566236026,
+      "stimulus_std": 31.803702876656274
+    },
+    {
+      "baseline_mean": 5.1289990773047596e-17,
+      "baseline_std": 54.114915158453286,
+      "channel_index_0based": 22,
+      "channel_number_1based": 23,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 1418.0023805602293,
+      "mean": 0.012924260674098567,
+      "min": -2000.3212873158654,
+      "modality": "EEG",
+      "name": "FC2",
+      "nan_count": 0,
+      "std": 34.48010277279635,
+      "stimulus_mean": 0.013570473707803494,
+      "stimulus_std": 33.19488139282895
+    },
+    {
+      "baseline_mean": 2.7430314963883262e-17,
+      "baseline_std": 41.27138018937208,
+      "channel_index_0based": 23,
+      "channel_number_1based": 24,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 1639.5542021385832,
+      "mean": -0.010621809108447785,
+      "min": -1527.2524017126339,
+      "modality": "EEG",
+      "name": "Cz",
+      "nan_count": 0,
+      "std": 31.015826003436537,
+      "stimulus_mean": -0.011152899563870174,
+      "stimulus_std": 30.412401890499204
+    },
+    {
+      "baseline_mean": -1.1826838698196044e-17,
+      "baseline_std": 37.00169918269294,
+      "channel_index_0based": 24,
+      "channel_number_1based": 25,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 2026.6257245030633,
+      "mean": -0.019945768439732916,
+      "min": -1884.2283507325305,
+      "modality": "EEG",
+      "name": "C4",
+      "nan_count": 0,
+      "std": 30.088733626515705,
+      "stimulus_mean": -0.02094305686171957,
+      "stimulus_std": 29.700878401205497
+    },
+    {
+      "baseline_mean": -1.9819215713035022e-17,
+      "baseline_std": 63.49878024389816,
+      "channel_index_0based": 25,
+      "channel_number_1based": 26,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 1781.5512349522496,
+      "mean": 0.027424162279529762,
+      "min": -1327.8695540040417,
+      "modality": "EEG",
+      "name": "T8",
+      "nan_count": 0,
+      "std": 37.94415268175629,
+      "stimulus_mean": 0.028795370393506256,
+      "stimulus_std": 36.195881875783414
+    },
+    {
+      "baseline_mean": 2.3422380932928514e-17,
+      "baseline_std": 41.920874936363276,
+      "channel_index_0based": 26,
+      "channel_number_1based": 27,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 1810.1819227937372,
+      "mean": -0.01295158290948317,
+      "min": -1680.8809965694234,
+      "modality": "EEG",
+      "name": "CP6",
+      "nan_count": 0,
+      "std": 32.02328312920328,
+      "stimulus_mean": -0.013599162054957332,
+      "stimulus_std": 31.446735902375096
+    },
+    {
+      "baseline_mean": 3.3223568572197475e-17,
+      "baseline_std": 37.15171909642672,
+      "channel_index_0based": 27,
+      "channel_number_1based": 28,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 937.8030108761792,
+      "mean": -0.011235983483448522,
+      "min": -786.6564936566385,
+      "modality": "EEG",
+      "name": "CP2",
+      "nan_count": 0,
+      "std": 24.086368727912763,
+      "stimulus_mean": -0.011797782657620942,
+      "stimulus_std": 23.24109072747767
+    },
+    {
+      "baseline_mean": -1.0076755691442359e-17,
+      "baseline_std": 50.7330318500331,
+      "channel_index_0based": 28,
+      "channel_number_1based": 29,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 1060.5532115367441,
+      "mean": -0.006145105649871771,
+      "min": -1367.5932210032151,
+      "modality": "EEG",
+      "name": "P4",
+      "nan_count": 0,
+      "std": 30.777721499168205,
+      "stimulus_mean": -0.006452360932365359,
+      "stimulus_std": 29.426850319003446
+    },
+    {
+      "baseline_mean": -1.0012607062903633e-17,
+      "baseline_std": 27.1432462020913,
+      "channel_index_0based": 29,
+      "channel_number_1based": 30,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 888.7964525273173,
+      "mean": 0.000555560137111969,
+      "min": -949.4943181246583,
+      "modality": "EEG",
+      "name": "P8",
+      "nan_count": 0,
+      "std": 20.780718029798777,
+      "stimulus_mean": 0.000583338143967567,
+      "stimulus_std": 20.410594386007798
+    },
+    {
+      "baseline_mean": -6.4564239371511786e-18,
+      "baseline_std": 59.07116983615758,
+      "channel_index_0based": 30,
+      "channel_number_1based": 31,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 1343.7694957745937,
+      "mean": 0.008299280774353867,
+      "min": -1056.5027752614824,
+      "modality": "EEG",
+      "name": "PO4",
+      "nan_count": 0,
+      "std": 36.959796033642355,
+      "stimulus_mean": 0.00871424481307156,
+      "stimulus_std": 35.49447407814576
+    },
+    {
+      "baseline_mean": 2.573173156032264e-18,
+      "baseline_std": 40.76012826218577,
+      "channel_index_0based": 31,
+      "channel_number_1based": 32,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 1140.3571832171021,
+      "mean": 0.010222896971346058,
+      "min": -1156.8914830204626,
+      "modality": "EEG",
+      "name": "O2",
+      "nan_count": 0,
+      "std": 25.435707953596044,
+      "stimulus_mean": 0.010734041819913357,
+      "stimulus_std": 24.41832493787234
+    },
+    {
+      "baseline_mean": 5.642810755694209e-12,
+      "baseline_std": 114.65279017399091,
+      "channel_index_0based": 32,
+      "channel_number_1based": 33,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 2833.473605602021,
+      "mean": 14.372375168406519,
+      "min": -5490.62714311885,
+      "modality": "EOG",
+      "name": "hEOG",
+      "nan_count": 0,
+      "std": 219.53794439673518,
+      "stimulus_mean": 15.090993926826556,
+      "stimulus_std": 223.46956547903366
+    },
+    {
+      "baseline_mean": 1.500251312069878e-12,
+      "baseline_std": 215.30775111102693,
+      "channel_index_0based": 33,
+      "channel_number_1based": 34,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 17657.60254573486,
+      "mean": -19.172328379390418,
+      "min": -6305.03961941001,
+      "modality": "EOG",
+      "name": "vEOG",
+      "nan_count": 0,
+      "std": 427.2933225896357,
+      "stimulus_mean": -20.130944798360026,
+      "stimulus_std": 435.1682358209725
+    },
+    {
+      "baseline_mean": 6.840217050182081e-12,
+      "baseline_std": 27.289509354612207,
+      "channel_index_0based": 34,
+      "channel_number_1based": 35,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 15145.62289361913,
+      "mean": -14.647800960978742,
+      "min": -3171.9418115788358,
+      "modality": "EMG",
+      "name": "zEMG",
+      "nan_count": 0,
+      "std": 247.17210687866293,
+      "stimulus_mean": -15.380191009028012,
+      "stimulus_std": 253.18027722337726
+    },
+    {
+      "baseline_mean": 1.2907920797037657e-11,
+      "baseline_std": 106.50348872893075,
+      "channel_index_0based": 35,
+      "channel_number_1based": 36,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 19362.188344658374,
+      "mean": 1.9156514208839939,
+      "min": -38476.736033612986,
+      "modality": "EMG",
+      "name": "tEMG",
+      "nan_count": 0,
+      "std": 663.6581978810932,
+      "stimulus_mean": 2.0114339919275532,
+      "stimulus_std": 679.6300254400392
+    },
+    {
+      "baseline_mean": 1.1668438437695272e-11,
+      "baseline_std": 2132.7700937157024,
+      "channel_index_0based": 36,
+      "channel_number_1based": 37,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 103263.93064754683,
+      "mean": 2918.0045601573397,
+      "min": -206259.3943791547,
+      "modality": "GSR",
+      "name": "GSR",
+      "nan_count": 0,
+      "std": 13217.641610607694,
+      "stimulus_mean": 3063.9047881652045,
+      "stimulus_std": 13519.130608621668
+    },
+    {
+      "baseline_mean": -8.650440549059132e-12,
+      "baseline_std": 1769.3300979516523,
+      "channel_index_0based": 37,
+      "channel_number_1based": 38,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 69335.14288225597,
+      "mean": -975.7930133704336,
+      "min": -27281.91801438303,
+      "modality": "RESP",
+      "name": "Respiration_belt",
+      "nan_count": 0,
+      "std": 3307.710208082571,
+      "stimulus_mean": -1024.5826640389548,
+      "stimulus_std": 3358.7912530627686
+    },
+    {
+      "baseline_mean": -3.941729350328179e-12,
+      "baseline_std": 14814.082583683396,
+      "channel_index_0based": 38,
+      "channel_number_1based": 39,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 1059702.9986999228,
+      "mean": 4496.9524162516955,
+      "min": -708660.4896780138,
+      "modality": "PLET",
+      "name": "Plethysmograph",
+      "nan_count": 0,
+      "std": 46322.488232425,
+      "stimulus_mean": 4721.80003706428,
+      "stimulus_std": 47339.486944845674
+    },
+    {
+      "baseline_mean": -2.586533175141792e-11,
+      "baseline_std": 63.56134436054178,
+      "channel_index_0based": 39,
+      "channel_number_1based": 40,
+      "finite_n": 10321920,
+      "inf_count": 0,
+      "max": 19385.584785802628,
+      "mean": -6.348523551235769,
+      "min": -38172.52761133837,
+      "modality": "TEMP",
+      "name": "Temperature",
+      "nan_count": 0,
+      "std": 595.7102615217436,
+      "stimulus_mean": -6.665949728796266,
+      "stimulus_std": 610.254154672159
+    }
+  ],
+  "config": {
+    "baseline_samples": 384,
+    "baseline_sec": 3.0,
+    "deap_dir": "/mnt/HDD/AliWorks/DEAP/data_preprocessed_python",
+    "expected_data_shape_per_subject": [
+      40,
+      40,
+      8064
+    ],
+    "expected_labels_shape_per_subject": [
+      40,
+      4
+    ],
+    "expected_subject_files": "s01.dat ... s32.dat",
+    "limit_subjects": null,
+    "sampling_rate_hz": 128.0,
+    "source": "DEAP data_preprocessed_python",
+    "stimulus_samples": 7680,
+    "stimulus_sec": 60.0,
+    "window_samples": 640,
+    "window_sec": 5.0,
+    "windows_per_trial": 12
+  },
+  "counts": {
+    "expected_windows_if_cached": 15360,
+    "subjects_selected": 32,
+    "trials": 1280
+  },
+  "generated_at_utc": "2026-05-06T09:29:54.529199+00:00",
+  "inputs": {
+    "deap_dir": "/mnt/HDD/AliWorks/DEAP/data_preprocessed_python",
+    "expected_files_present": true,
+    "missing_expected_files": [],
+    "subject_files_selected": 32,
+    "subject_files_total_on_disk": 32,
+    "unexpected_files": []
+  },
+  "issues": [],
+  "label_counts": {
+    "trial_level": {
+      "arousal": {
+        "discard_midpoint": {
+          "0": 526,
+          "1": 737,
+          "discard": 17
+        },
+        "midpoint_as_high": {
+          "0": 526,
+          "1": 754
+        },
+        "midpoint_as_low": {
+          "0": 543,
+          "1": 737
+        }
+      },
+      "dominance": {
+        "discard_midpoint": {
+          "0": 485,
+          "1": 780,
+          "discard": 15
+        },
+        "midpoint_as_high": {
+          "0": 485,
+          "1": 795
+        },
+        "midpoint_as_low": {
+          "0": 500,
+          "1": 780
+        }
+      },
+      "liking": {
+        "discard_midpoint": {
+          "0": 423,
+          "1": 851,
+          "discard": 6
+        },
+        "midpoint_as_high": {
+          "0": 423,
+          "1": 857
+        },
+        "midpoint_as_low": {
+          "0": 429,
+          "1": 851
+        }
+      },
+      "valence": {
+        "discard_midpoint": {
+          "0": 556,
+          "1": 708,
+          "discard": 16
+        },
+        "midpoint_as_high": {
+          "0": 556,
+          "1": 724
+        },
+        "midpoint_as_low": {
+          "0": 572,
+          "1": 708
+        }
+      }
+    },
+    "window_level_if_12x_replicated": {
+      "arousal": {
+        "discard_midpoint": {
+          "0": 6312,
+          "1": 8844,
+          "discard": 204
+        },
+        "midpoint_as_high": {
+          "0": 6312,
+          "1": 9048
+        },
+        "midpoint_as_low": {
+          "0": 6516,
+          "1": 8844
+        }
+      },
+      "dominance": {
+        "discard_midpoint": {
+          "0": 5820,
+          "1": 9360,
+          "discard": 180
+        },
+        "midpoint_as_high": {
+          "0": 5820,
+          "1": 9540
+        },
+        "midpoint_as_low": {
+          "0": 6000,
+          "1": 9360
+        }
+      },
+      "liking": {
+        "discard_midpoint": {
+          "0": 5076,
+          "1": 10212,
+          "discard": 72
+        },
+        "midpoint_as_high": {
+          "0": 5076,
+          "1": 10284
+        },
+        "midpoint_as_low": {
+          "0": 5148,
+          "1": 10212
+        }
+      },
+      "valence": {
+        "discard_midpoint": {
+          "0": 6672,
+          "1": 8496,
+          "discard": 192
+        },
+        "midpoint_as_high": {
+          "0": 6672,
+          "1": 8688
+        },
+        "midpoint_as_low": {
+          "0": 6864,
+          "1": 8496
+        }
+      }
+    }
+  },
+  "modality_summary": {
+    "channel_count": 40,
+    "eeg_channels": [
+      {
+        "baseline_mean": -2.584015177757119e-19,
+        "baseline_std": 44.98183803049971,
+        "channel_index_0based": 0,
+        "channel_number_1based": 1,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 952.1217661673381,
+        "mean": 0.012004659797567686,
+        "min": -1021.7115297466528,
+        "modality": "EEG",
+        "name": "Fp1",
+        "nan_count": 0,
+        "std": 29.804618634610694,
+        "stimulus_mean": 0.01260489278744607,
+        "stimulus_std": 28.836829946378195
+      },
+      {
+        "baseline_mean": 3.8863226872742905e-17,
+        "baseline_std": 72.89387421354589,
+        "channel_index_0based": 1,
+        "channel_number_1based": 2,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 1571.4377213401078,
+        "mean": -0.008925266727610319,
+        "min": -2052.3391357672313,
+        "modality": "EEG",
+        "name": "AF3",
+        "nan_count": 0,
+        "std": 42.34264877265133,
+        "stimulus_mean": -0.009371530063990845,
+        "stimulus_std": 40.210310260717144
+      },
+      {
+        "baseline_mean": 2.437286483747414e-17,
+        "baseline_std": 70.51820455903741,
+        "channel_index_0based": 2,
+        "channel_number_1based": 3,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 1593.7646432244185,
+        "mean": -0.025302600087591203,
+        "min": -2043.8069939020675,
+        "modality": "EEG",
+        "name": "F3",
+        "nan_count": 0,
+        "std": 39.39122864881019,
+        "stimulus_mean": -0.026567730091970755,
+        "stimulus_std": 37.15658012873146
+      },
+      {
+        "baseline_mean": 5.476305173224283e-17,
+        "baseline_std": 58.91569711473015,
+        "channel_index_0based": 3,
+        "channel_number_1based": 4,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 2843.9056801961733,
+        "mean": 0.00993745822643284,
+        "min": -2656.4252330049085,
+        "modality": "EEG",
+        "name": "F7",
+        "nan_count": 0,
+        "std": 51.64258801315367,
+        "stimulus_mean": 0.010434331137754483,
+        "stimulus_std": 51.25184648401334
+      },
+      {
+        "baseline_mean": -4.472424311683746e-17,
+        "baseline_std": 55.45087342041394,
+        "channel_index_0based": 4,
+        "channel_number_1based": 5,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 1136.6254687329322,
+        "mean": -0.013128456895947127,
+        "min": -1489.9627078202695,
+        "modality": "EEG",
+        "name": "FC5",
+        "nan_count": 0,
+        "std": 36.273560090297224,
+        "stimulus_mean": -0.013784879740744485,
+        "stimulus_std": 35.04025888178589
+      },
+      {
+        "baseline_mean": 1.1132949307805322e-17,
+        "baseline_std": 39.12198477843139,
+        "channel_index_0based": 5,
+        "channel_number_1based": 6,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 1110.7619045321567,
+        "mean": -0.011819353993145841,
+        "min": -949.5700097445148,
+        "modality": "EEG",
+        "name": "FC1",
+        "nan_count": 0,
+        "std": 26.391977701220334,
+        "stimulus_mean": -0.012410321692803128,
+        "stimulus_std": 25.58977958768904
+      },
+      {
+        "baseline_mean": 3.635149183981816e-17,
+        "baseline_std": 44.478554269538435,
+        "channel_index_0based": 6,
+        "channel_number_1based": 7,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 1362.0728467652502,
+        "mean": -0.03592115699678605,
+        "min": -1198.349776182128,
+        "modality": "EEG",
+        "name": "C3",
+        "nan_count": 0,
+        "std": 29.350052152164768,
+        "stimulus_mean": -0.037717214846625345,
+        "stimulus_std": 28.382735635660943
+      },
+      {
+        "baseline_mean": 4.925891870325808e-17,
+        "baseline_std": 35.76555142137204,
+        "channel_index_0based": 7,
+        "channel_number_1based": 8,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 857.2720367832355,
+        "mean": 0.014223012118770416,
+        "min": -776.0792293949434,
+        "modality": "EEG",
+        "name": "T7",
+        "nan_count": 0,
+        "std": 25.368577027786706,
+        "stimulus_mean": 0.01493416272470893,
+        "stimulus_std": 24.734271596133684
+      },
+      {
+        "baseline_mean": 1.5834772729150793e-17,
+        "baseline_std": 53.25296975086824,
+        "channel_index_0based": 8,
+        "channel_number_1based": 9,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 1988.0747945214398,
+        "mean": 0.028281356513760632,
+        "min": -2311.915662877814,
+        "modality": "EEG",
+        "name": "CP5",
+        "nan_count": 0,
+        "std": 34.46607277837632,
+        "stimulus_mean": 0.029695424339448665,
+        "stimulus_std": 33.24923608215476
+      },
+      {
+        "baseline_mean": 6.246811517137315e-18,
+        "baseline_std": 31.647020297041006,
+        "channel_index_0based": 9,
+        "channel_number_1based": 10,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 828.2482899985747,
+        "mean": -0.00632947074117167,
+        "min": -714.8762417237074,
+        "modality": "EEG",
+        "name": "CP1",
+        "nan_count": 0,
+        "std": 22.112920544766524,
+        "stimulus_mean": -0.006645944278230254,
+        "stimulus_std": 21.525650303365598
+      },
+      {
+        "baseline_mean": -3.688094390071524e-18,
+        "baseline_std": 29.10395077658926,
+        "channel_index_0based": 10,
+        "channel_number_1based": 11,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 944.6516696310968,
+        "mean": -0.004026546312487909,
+        "min": -798.9240080833216,
+        "modality": "EEG",
+        "name": "P3",
+        "nan_count": 0,
+        "std": 19.34921831337989,
+        "stimulus_mean": -0.0042278736281123035,
+        "stimulus_std": 18.728584127324854
+      },
+      {
+        "baseline_mean": 1.3005005058963626e-17,
+        "baseline_std": 37.11856900708553,
+        "channel_index_0based": 11,
+        "channel_number_1based": 12,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 886.2484860569714,
+        "mean": 0.004511103074640779,
+        "min": -935.2453087439462,
+        "modality": "EEG",
+        "name": "P7",
+        "nan_count": 0,
+        "std": 26.68203462860733,
+        "stimulus_mean": 0.0047366582283728175,
+        "stimulus_std": 26.05068350721809
+      },
+      {
+        "baseline_mean": 1.6678643420068676e-18,
+        "baseline_std": 52.418687896624576,
+        "channel_index_0based": 12,
+        "channel_number_1based": 13,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 1200.4724562594054,
+        "mean": 0.0027120985450873394,
+        "min": -1540.1094342640542,
+        "modality": "EEG",
+        "name": "PO3",
+        "nan_count": 0,
+        "std": 28.50013717271714,
+        "stimulus_mean": 0.0028477034723417075,
+        "stimulus_std": 26.748547014380588
+      },
+      {
+        "baseline_mean": 1.7021974108022419e-18,
+        "baseline_std": 74.79828897802027,
+        "channel_index_0based": 13,
+        "channel_number_1based": 14,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 2313.109132433821,
+        "mean": -0.0011979278488288177,
+        "min": -1677.7397236089487,
+        "modality": "EEG",
+        "name": "O1",
+        "nan_count": 0,
+        "std": 43.24350821024574,
+        "stimulus_mean": -0.0012578242412702632,
+        "stimulus_std": 41.033667282717495
+      },
+      {
+        "baseline_mean": 4.955346029344998e-17,
+        "baseline_std": 57.27336517567195,
+        "channel_index_0based": 14,
+        "channel_number_1based": 15,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 1309.4316545986276,
+        "mean": -0.006765800312499501,
+        "min": -1468.2027921464867,
+        "modality": "EEG",
+        "name": "Oz",
+        "nan_count": 0,
+        "std": 36.19516669432875,
+        "stimulus_mean": -0.007104090328124482,
+        "stimulus_std": 34.80779620000699
+      },
+      {
+        "baseline_mean": -1.6685871434551914e-17,
+        "baseline_std": 26.89480049083263,
+        "channel_index_0based": 15,
+        "channel_number_1based": 16,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 1163.8802520384775,
+        "mean": 0.01200463567041334,
+        "min": -972.9231244362395,
+        "modality": "EEG",
+        "name": "Pz",
+        "nan_count": 0,
+        "std": 20.68954969529127,
+        "stimulus_mean": 0.012604867453934005,
+        "stimulus_std": 20.329629059225272
+      },
+      {
+        "baseline_mean": 7.039001904500057e-17,
+        "baseline_std": 77.8316967024423,
+        "channel_index_0based": 16,
+        "channel_number_1based": 17,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 1958.7029431760147,
+        "mean": 0.030227581480664394,
+        "min": -2311.061849643746,
+        "modality": "EEG",
+        "name": "Fp2",
+        "nan_count": 0,
+        "std": 47.203943121928056,
+        "stimulus_mean": 0.031738960554697604,
+        "stimulus_std": 45.13019122519293
+      },
+      {
+        "baseline_mean": 7.170190367370803e-18,
+        "baseline_std": 61.21851453050109,
+        "channel_index_0based": 17,
+        "channel_number_1based": 18,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 1551.65761069178,
+        "mean": 0.017963170694773968,
+        "min": -1358.9205499894388,
+        "modality": "EEG",
+        "name": "AF4",
+        "nan_count": 0,
+        "std": 39.24609755030803,
+        "stimulus_mean": 0.01886132922951267,
+        "stimulus_std": 37.81380222310614
+      },
+      {
+        "baseline_mean": -1.3465790982269965e-17,
+        "baseline_std": 59.99276344134569,
+        "channel_index_0based": 18,
+        "channel_number_1based": 19,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 1292.9988482051403,
+        "mean": -0.01635761681024035,
+        "min": -1661.1699174937153,
+        "modality": "EEG",
+        "name": "Fz",
+        "nan_count": 0,
+        "std": 35.04578464388441,
+        "stimulus_mean": -0.017175497650752367,
+        "stimulus_std": 33.311571188654945
+      },
+      {
+        "baseline_mean": 2.402411313865797e-18,
+        "baseline_std": 57.40969567241225,
+        "channel_index_0based": 19,
+        "channel_number_1based": 20,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 1204.8388335888997,
+        "mean": 0.024264491509741585,
+        "min": -1269.7743051511918,
+        "modality": "EEG",
+        "name": "F4",
+        "nan_count": 0,
+        "std": 39.51210265631651,
+        "stimulus_mean": 0.025477716085228672,
+        "stimulus_std": 38.398865613053175
+      },
+      {
+        "baseline_mean": -2.4490320072826735e-17,
+        "baseline_std": 47.10868517675131,
+        "channel_index_0based": 20,
+        "channel_number_1based": 21,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 1392.8027055588925,
+        "mean": -0.0043171378022040735,
+        "min": -1324.8027976969654,
+        "modality": "EEG",
+        "name": "F8",
+        "nan_count": 0,
+        "std": 31.264614322436476,
+        "stimulus_mean": -0.004532994692314274,
+        "stimulus_std": 30.255387986846955
+      },
+      {
+        "baseline_mean": 1.144194692696369e-17,
+        "baseline_std": 45.1075690901561,
+        "channel_index_0based": 21,
+        "channel_number_1based": 22,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 1204.8337915917425,
+        "mean": -0.020564144348796207,
+        "min": -1170.5220944299294,
+        "modality": "EEG",
+        "name": "FC6",
+        "nan_count": 0,
+        "std": 32.560715130926404,
+        "stimulus_mean": -0.021592351566236026,
+        "stimulus_std": 31.803702876656274
+      },
+      {
+        "baseline_mean": 5.1289990773047596e-17,
+        "baseline_std": 54.114915158453286,
+        "channel_index_0based": 22,
+        "channel_number_1based": 23,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 1418.0023805602293,
+        "mean": 0.012924260674098567,
+        "min": -2000.3212873158654,
+        "modality": "EEG",
+        "name": "FC2",
+        "nan_count": 0,
+        "std": 34.48010277279635,
+        "stimulus_mean": 0.013570473707803494,
+        "stimulus_std": 33.19488139282895
+      },
+      {
+        "baseline_mean": 2.7430314963883262e-17,
+        "baseline_std": 41.27138018937208,
+        "channel_index_0based": 23,
+        "channel_number_1based": 24,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 1639.5542021385832,
+        "mean": -0.010621809108447785,
+        "min": -1527.2524017126339,
+        "modality": "EEG",
+        "name": "Cz",
+        "nan_count": 0,
+        "std": 31.015826003436537,
+        "stimulus_mean": -0.011152899563870174,
+        "stimulus_std": 30.412401890499204
+      },
+      {
+        "baseline_mean": -1.1826838698196044e-17,
+        "baseline_std": 37.00169918269294,
+        "channel_index_0based": 24,
+        "channel_number_1based": 25,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 2026.6257245030633,
+        "mean": -0.019945768439732916,
+        "min": -1884.2283507325305,
+        "modality": "EEG",
+        "name": "C4",
+        "nan_count": 0,
+        "std": 30.088733626515705,
+        "stimulus_mean": -0.02094305686171957,
+        "stimulus_std": 29.700878401205497
+      },
+      {
+        "baseline_mean": -1.9819215713035022e-17,
+        "baseline_std": 63.49878024389816,
+        "channel_index_0based": 25,
+        "channel_number_1based": 26,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 1781.5512349522496,
+        "mean": 0.027424162279529762,
+        "min": -1327.8695540040417,
+        "modality": "EEG",
+        "name": "T8",
+        "nan_count": 0,
+        "std": 37.94415268175629,
+        "stimulus_mean": 0.028795370393506256,
+        "stimulus_std": 36.195881875783414
+      },
+      {
+        "baseline_mean": 2.3422380932928514e-17,
+        "baseline_std": 41.920874936363276,
+        "channel_index_0based": 26,
+        "channel_number_1based": 27,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 1810.1819227937372,
+        "mean": -0.01295158290948317,
+        "min": -1680.8809965694234,
+        "modality": "EEG",
+        "name": "CP6",
+        "nan_count": 0,
+        "std": 32.02328312920328,
+        "stimulus_mean": -0.013599162054957332,
+        "stimulus_std": 31.446735902375096
+      },
+      {
+        "baseline_mean": 3.3223568572197475e-17,
+        "baseline_std": 37.15171909642672,
+        "channel_index_0based": 27,
+        "channel_number_1based": 28,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 937.8030108761792,
+        "mean": -0.011235983483448522,
+        "min": -786.6564936566385,
+        "modality": "EEG",
+        "name": "CP2",
+        "nan_count": 0,
+        "std": 24.086368727912763,
+        "stimulus_mean": -0.011797782657620942,
+        "stimulus_std": 23.24109072747767
+      },
+      {
+        "baseline_mean": -1.0076755691442359e-17,
+        "baseline_std": 50.7330318500331,
+        "channel_index_0based": 28,
+        "channel_number_1based": 29,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 1060.5532115367441,
+        "mean": -0.006145105649871771,
+        "min": -1367.5932210032151,
+        "modality": "EEG",
+        "name": "P4",
+        "nan_count": 0,
+        "std": 30.777721499168205,
+        "stimulus_mean": -0.006452360932365359,
+        "stimulus_std": 29.426850319003446
+      },
+      {
+        "baseline_mean": -1.0012607062903633e-17,
+        "baseline_std": 27.1432462020913,
+        "channel_index_0based": 29,
+        "channel_number_1based": 30,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 888.7964525273173,
+        "mean": 0.000555560137111969,
+        "min": -949.4943181246583,
+        "modality": "EEG",
+        "name": "P8",
+        "nan_count": 0,
+        "std": 20.780718029798777,
+        "stimulus_mean": 0.000583338143967567,
+        "stimulus_std": 20.410594386007798
+      },
+      {
+        "baseline_mean": -6.4564239371511786e-18,
+        "baseline_std": 59.07116983615758,
+        "channel_index_0based": 30,
+        "channel_number_1based": 31,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 1343.7694957745937,
+        "mean": 0.008299280774353867,
+        "min": -1056.5027752614824,
+        "modality": "EEG",
+        "name": "PO4",
+        "nan_count": 0,
+        "std": 36.959796033642355,
+        "stimulus_mean": 0.00871424481307156,
+        "stimulus_std": 35.49447407814576
+      },
+      {
+        "baseline_mean": 2.573173156032264e-18,
+        "baseline_std": 40.76012826218577,
+        "channel_index_0based": 31,
+        "channel_number_1based": 32,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 1140.3571832171021,
+        "mean": 0.010222896971346058,
+        "min": -1156.8914830204626,
+        "modality": "EEG",
+        "name": "O2",
+        "nan_count": 0,
+        "std": 25.435707953596044,
+        "stimulus_mean": 0.010734041819913357,
+        "stimulus_std": 24.41832493787234
+      }
+    ],
+    "emg_channels": [
+      {
+        "baseline_mean": 6.840217050182081e-12,
+        "baseline_std": 27.289509354612207,
+        "channel_index_0based": 34,
+        "channel_number_1based": 35,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 15145.62289361913,
+        "mean": -14.647800960978742,
+        "min": -3171.9418115788358,
+        "modality": "EMG",
+        "name": "zEMG",
+        "nan_count": 0,
+        "std": 247.17210687866293,
+        "stimulus_mean": -15.380191009028012,
+        "stimulus_std": 253.18027722337726
+      },
+      {
+        "baseline_mean": 1.2907920797037657e-11,
+        "baseline_std": 106.50348872893075,
+        "channel_index_0based": 35,
+        "channel_number_1based": 36,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 19362.188344658374,
+        "mean": 1.9156514208839939,
+        "min": -38476.736033612986,
+        "modality": "EMG",
+        "name": "tEMG",
+        "nan_count": 0,
+        "std": 663.6581978810932,
+        "stimulus_mean": 2.0114339919275532,
+        "stimulus_std": 679.6300254400392
+      }
+    ],
+    "interpretation": "DEAP preprocessed Python contains 32 EEG channels plus 8 peripheral channels. The EMG channels available here are zEMG and tEMG, represented as preprocessed bipolar peripheral channels in the 40-channel matrix, not raw BioSemi EXG pairs.",
+    "modality_counts": {
+      "EEG": 32,
+      "EMG": 2,
+      "EOG": 2,
+      "GSR": 1,
+      "PLET": 1,
+      "RESP": 1,
+      "TEMP": 1
+    },
+    "peripheral_channels": [
+      {
+        "baseline_mean": 5.642810755694209e-12,
+        "baseline_std": 114.65279017399091,
+        "channel_index_0based": 32,
+        "channel_number_1based": 33,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 2833.473605602021,
+        "mean": 14.372375168406519,
+        "min": -5490.62714311885,
+        "modality": "EOG",
+        "name": "hEOG",
+        "nan_count": 0,
+        "std": 219.53794439673518,
+        "stimulus_mean": 15.090993926826556,
+        "stimulus_std": 223.46956547903366
+      },
+      {
+        "baseline_mean": 1.500251312069878e-12,
+        "baseline_std": 215.30775111102693,
+        "channel_index_0based": 33,
+        "channel_number_1based": 34,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 17657.60254573486,
+        "mean": -19.172328379390418,
+        "min": -6305.03961941001,
+        "modality": "EOG",
+        "name": "vEOG",
+        "nan_count": 0,
+        "std": 427.2933225896357,
+        "stimulus_mean": -20.130944798360026,
+        "stimulus_std": 435.1682358209725
+      },
+      {
+        "baseline_mean": 6.840217050182081e-12,
+        "baseline_std": 27.289509354612207,
+        "channel_index_0based": 34,
+        "channel_number_1based": 35,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 15145.62289361913,
+        "mean": -14.647800960978742,
+        "min": -3171.9418115788358,
+        "modality": "EMG",
+        "name": "zEMG",
+        "nan_count": 0,
+        "std": 247.17210687866293,
+        "stimulus_mean": -15.380191009028012,
+        "stimulus_std": 253.18027722337726
+      },
+      {
+        "baseline_mean": 1.2907920797037657e-11,
+        "baseline_std": 106.50348872893075,
+        "channel_index_0based": 35,
+        "channel_number_1based": 36,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 19362.188344658374,
+        "mean": 1.9156514208839939,
+        "min": -38476.736033612986,
+        "modality": "EMG",
+        "name": "tEMG",
+        "nan_count": 0,
+        "std": 663.6581978810932,
+        "stimulus_mean": 2.0114339919275532,
+        "stimulus_std": 679.6300254400392
+      },
+      {
+        "baseline_mean": 1.1668438437695272e-11,
+        "baseline_std": 2132.7700937157024,
+        "channel_index_0based": 36,
+        "channel_number_1based": 37,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 103263.93064754683,
+        "mean": 2918.0045601573397,
+        "min": -206259.3943791547,
+        "modality": "GSR",
+        "name": "GSR",
+        "nan_count": 0,
+        "std": 13217.641610607694,
+        "stimulus_mean": 3063.9047881652045,
+        "stimulus_std": 13519.130608621668
+      },
+      {
+        "baseline_mean": -8.650440549059132e-12,
+        "baseline_std": 1769.3300979516523,
+        "channel_index_0based": 37,
+        "channel_number_1based": 38,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 69335.14288225597,
+        "mean": -975.7930133704336,
+        "min": -27281.91801438303,
+        "modality": "RESP",
+        "name": "Respiration_belt",
+        "nan_count": 0,
+        "std": 3307.710208082571,
+        "stimulus_mean": -1024.5826640389548,
+        "stimulus_std": 3358.7912530627686
+      },
+      {
+        "baseline_mean": -3.941729350328179e-12,
+        "baseline_std": 14814.082583683396,
+        "channel_index_0based": 38,
+        "channel_number_1based": 39,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 1059702.9986999228,
+        "mean": 4496.9524162516955,
+        "min": -708660.4896780138,
+        "modality": "PLET",
+        "name": "Plethysmograph",
+        "nan_count": 0,
+        "std": 46322.488232425,
+        "stimulus_mean": 4721.80003706428,
+        "stimulus_std": 47339.486944845674
+      },
+      {
+        "baseline_mean": -2.586533175141792e-11,
+        "baseline_std": 63.56134436054178,
+        "channel_index_0based": 39,
+        "channel_number_1based": 40,
+        "finite_n": 10321920,
+        "inf_count": 0,
+        "max": 19385.584785802628,
+        "mean": -6.348523551235769,
+        "min": -38172.52761133837,
+        "modality": "TEMP",
+        "name": "Temperature",
+        "nan_count": 0,
+        "std": 595.7102615217436,
+        "stimulus_mean": -6.665949728796266,
+        "stimulus_std": 610.254154672159
+      }
+    ]
+  },
+  "runtime": {
+    "elapsed_sec": 11.578751438762993
+  },
+  "status": "PASSED",
+  "subjects": [
+    {
+      "data_dtype": "float64",
+      "data_inf_count": 0,
+      "data_nan_count": 0,
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "file": "s01.dat",
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "label_summary": {
+        "arousal": {
+          "eq_5_count": 0,
+          "max": 8.15,
+          "mean": 5.65975,
+          "min": 2.08
+        },
+        "dominance": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 5.902500000000001,
+          "min": 2.04
+        },
+        "liking": {
+          "eq_5_count": 0,
+          "max": 8.47,
+          "mean": 6.84675,
+          "min": 3.87
+        },
+        "valence": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 5.117749999999999,
+          "min": 1.36
+        }
+      },
+      "labels_dtype": "float64",
+      "labels_inf_count": 0,
+      "labels_nan_count": 0,
+      "labels_shape": [
+        40,
+        4
+      ],
+      "size_mb": 98.44,
+      "subject_id": 1
+    },
+    {
+      "data_dtype": "float64",
+      "data_inf_count": 0,
+      "data_nan_count": 0,
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "file": "s02.dat",
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "label_summary": {
+        "arousal": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 5.43825,
+          "min": 1.0
+        },
+        "dominance": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 5.84075,
+          "min": 1.0
+        },
+        "liking": {
+          "eq_5_count": 1,
+          "max": 9.0,
+          "mean": 5.68,
+          "min": 1.0
+        },
+        "valence": {
+          "eq_5_count": 3,
+          "max": 9.0,
+          "mean": 5.779,
+          "min": 1.0
+        }
+      },
+      "labels_dtype": "float64",
+      "labels_inf_count": 0,
+      "labels_nan_count": 0,
+      "labels_shape": [
+        40,
+        4
+      ],
+      "size_mb": 98.44,
+      "subject_id": 2
+    },
+    {
+      "data_dtype": "float64",
+      "data_inf_count": 0,
+      "data_nan_count": 0,
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "file": "s03.dat",
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "label_summary": {
+        "arousal": {
+          "eq_5_count": 0,
+          "max": 8.12,
+          "mean": 3.73825,
+          "min": 1.0
+        },
+        "dominance": {
+          "eq_5_count": 1,
+          "max": 5.99,
+          "mean": 4.558,
+          "min": 1.91
+        },
+        "liking": {
+          "eq_5_count": 1,
+          "max": 7.97,
+          "mean": 6.0555,
+          "min": 3.15
+        },
+        "valence": {
+          "eq_5_count": 0,
+          "max": 8.14,
+          "mean": 5.608,
+          "min": 3.18
+        }
+      },
+      "labels_dtype": "float64",
+      "labels_inf_count": 0,
+      "labels_nan_count": 0,
+      "labels_shape": [
+        40,
+        4
+      ],
+      "size_mb": 98.44,
+      "subject_id": 3
+    },
+    {
+      "data_dtype": "float64",
+      "data_inf_count": 0,
+      "data_nan_count": 0,
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "file": "s04.dat",
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "label_summary": {
+        "arousal": {
+          "eq_5_count": 0,
+          "max": 8.1,
+          "mean": 4.2615,
+          "min": 1.0
+        },
+        "dominance": {
+          "eq_5_count": 0,
+          "max": 8.22,
+          "mean": 3.7155,
+          "min": 1.0
+        },
+        "liking": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 4.806,
+          "min": 1.0
+        },
+        "valence": {
+          "eq_5_count": 0,
+          "max": 8.95,
+          "mean": 4.1235,
+          "min": 1.0
+        }
+      },
+      "labels_dtype": "float64",
+      "labels_inf_count": 0,
+      "labels_nan_count": 0,
+      "labels_shape": [
+        40,
+        4
+      ],
+      "size_mb": 98.44,
+      "subject_id": 4
+    },
+    {
+      "data_dtype": "float64",
+      "data_inf_count": 0,
+      "data_nan_count": 0,
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "file": "s05.dat",
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "label_summary": {
+        "arousal": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 5.315250000000001,
+          "min": 1.99
+        },
+        "dominance": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 4.719250000000001,
+          "min": 1.0
+        },
+        "liking": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 5.6137500000000005,
+          "min": 1.0
+        },
+        "valence": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 5.5795,
+          "min": 1.0
+        }
+      },
+      "labels_dtype": "float64",
+      "labels_inf_count": 0,
+      "labels_nan_count": 0,
+      "labels_shape": [
+        40,
+        4
+      ],
+      "size_mb": 98.44,
+      "subject_id": 5
+    },
+    {
+      "data_dtype": "float64",
+      "data_inf_count": 0,
+      "data_nan_count": 0,
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "file": "s06.dat",
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "label_summary": {
+        "arousal": {
+          "eq_5_count": 0,
+          "max": 8.27,
+          "mean": 4.79975,
+          "min": 2.5
+        },
+        "dominance": {
+          "eq_5_count": 1,
+          "max": 8.49,
+          "mean": 5.6594999999999995,
+          "min": 2.46
+        },
+        "liking": {
+          "eq_5_count": 0,
+          "max": 8.28,
+          "mean": 5.7905,
+          "min": 2.18
+        },
+        "valence": {
+          "eq_5_count": 0,
+          "max": 8.26,
+          "mean": 6.156000000000001,
+          "min": 3.31
+        }
+      },
+      "labels_dtype": "float64",
+      "labels_inf_count": 0,
+      "labels_nan_count": 0,
+      "labels_shape": [
+        40,
+        4
+      ],
+      "size_mb": 98.44,
+      "subject_id": 6
+    },
+    {
+      "data_dtype": "float64",
+      "data_inf_count": 0,
+      "data_nan_count": 0,
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "file": "s07.dat",
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "label_summary": {
+        "arousal": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 5.33525,
+          "min": 2.0
+        },
+        "dominance": {
+          "eq_5_count": 1,
+          "max": 8.09,
+          "mean": 4.62,
+          "min": 1.0
+        },
+        "liking": {
+          "eq_5_count": 0,
+          "max": 8.1,
+          "mean": 6.77925,
+          "min": 2.0
+        },
+        "valence": {
+          "eq_5_count": 0,
+          "max": 8.1,
+          "mean": 5.83775,
+          "min": 1.97
+        }
+      },
+      "labels_dtype": "float64",
+      "labels_inf_count": 0,
+      "labels_nan_count": 0,
+      "labels_shape": [
+        40,
+        4
+      ],
+      "size_mb": 98.44,
+      "subject_id": 7
+    },
+    {
+      "data_dtype": "float64",
+      "data_inf_count": 0,
+      "data_nan_count": 0,
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "file": "s08.dat",
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "label_summary": {
+        "arousal": {
+          "eq_5_count": 1,
+          "max": 8.23,
+          "mean": 5.52325,
+          "min": 2.99
+        },
+        "dominance": {
+          "eq_5_count": 2,
+          "max": 8.23,
+          "mean": 5.005000000000001,
+          "min": 1.19
+        },
+        "liking": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 6.76875,
+          "min": 2.88
+        },
+        "valence": {
+          "eq_5_count": 0,
+          "max": 8.82,
+          "mean": 5.39975,
+          "min": 1.21
+        }
+      },
+      "labels_dtype": "float64",
+      "labels_inf_count": 0,
+      "labels_nan_count": 0,
+      "labels_shape": [
+        40,
+        4
+      ],
+      "size_mb": 98.44,
+      "subject_id": 8
+    },
+    {
+      "data_dtype": "float64",
+      "data_inf_count": 0,
+      "data_nan_count": 0,
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "file": "s09.dat",
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "label_summary": {
+        "arousal": {
+          "eq_5_count": 1,
+          "max": 7.14,
+          "mean": 5.41925,
+          "min": 3.96
+        },
+        "dominance": {
+          "eq_5_count": 2,
+          "max": 8.17,
+          "mean": 4.592250000000001,
+          "min": 1.99
+        },
+        "liking": {
+          "eq_5_count": 0,
+          "max": 8.08,
+          "mean": 5.69375,
+          "min": 3.96
+        },
+        "valence": {
+          "eq_5_count": 1,
+          "max": 8.15,
+          "mean": 4.943250000000001,
+          "min": 2.92
+        }
+      },
+      "labels_dtype": "float64",
+      "labels_inf_count": 0,
+      "labels_nan_count": 0,
+      "labels_shape": [
+        40,
+        4
+      ],
+      "size_mb": 98.44,
+      "subject_id": 9
+    },
+    {
+      "data_dtype": "float64",
+      "data_inf_count": 0,
+      "data_nan_count": 0,
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "file": "s10.dat",
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "label_summary": {
+        "arousal": {
+          "eq_5_count": 0,
+          "max": 7.58,
+          "mean": 4.8955,
+          "min": 1.68
+        },
+        "dominance": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 5.21325,
+          "min": 2.85
+        },
+        "liking": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 5.751,
+          "min": 1.73
+        },
+        "valence": {
+          "eq_5_count": 0,
+          "max": 8.99,
+          "mean": 5.16025,
+          "min": 1.38
+        }
+      },
+      "labels_dtype": "float64",
+      "labels_inf_count": 0,
+      "labels_nan_count": 0,
+      "labels_shape": [
+        40,
+        4
+      ],
+      "size_mb": 98.44,
+      "subject_id": 10
+    },
+    {
+      "data_dtype": "float64",
+      "data_inf_count": 0,
+      "data_nan_count": 0,
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "file": "s11.dat",
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "label_summary": {
+        "arousal": {
+          "eq_5_count": 0,
+          "max": 8.7,
+          "mean": 4.061249999999999,
+          "min": 1.01
+        },
+        "dominance": {
+          "eq_5_count": 0,
+          "max": 8.41,
+          "mean": 5.46325,
+          "min": 1.14
+        },
+        "liking": {
+          "eq_5_count": 0,
+          "max": 8.32,
+          "mean": 4.2445,
+          "min": 1.0
+        },
+        "valence": {
+          "eq_5_count": 0,
+          "max": 8.42,
+          "mean": 5.11725,
+          "min": 1.0
+        }
+      },
+      "labels_dtype": "float64",
+      "labels_inf_count": 0,
+      "labels_nan_count": 0,
+      "labels_shape": [
+        40,
+        4
+      ],
+      "size_mb": 98.44,
+      "subject_id": 11
+    },
+    {
+      "data_dtype": "float64",
+      "data_inf_count": 0,
+      "data_nan_count": 0,
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "file": "s12.dat",
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "label_summary": {
+        "arousal": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 6.3389999999999995,
+          "min": 2.87
+        },
+        "dominance": {
+          "eq_5_count": 0,
+          "max": 8.27,
+          "mean": 4.728,
+          "min": 1.85
+        },
+        "liking": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 5.035500000000001,
+          "min": 1.0
+        },
+        "valence": {
+          "eq_5_count": 0,
+          "max": 8.15,
+          "mean": 4.8765,
+          "min": 1.0
+        }
+      },
+      "labels_dtype": "float64",
+      "labels_inf_count": 0,
+      "labels_nan_count": 0,
+      "labels_shape": [
+        40,
+        4
+      ],
+      "size_mb": 98.44,
+      "subject_id": 12
+    },
+    {
+      "data_dtype": "float64",
+      "data_inf_count": 0,
+      "data_nan_count": 0,
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "file": "s13.dat",
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "label_summary": {
+        "arousal": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 6.717499999999999,
+          "min": 1.0
+        },
+        "dominance": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 4.699,
+          "min": 1.0
+        },
+        "liking": {
+          "eq_5_count": 1,
+          "max": 9.0,
+          "mean": 5.64225,
+          "min": 1.0
+        },
+        "valence": {
+          "eq_5_count": 1,
+          "max": 9.0,
+          "mean": 4.764,
+          "min": 1.0
+        }
+      },
+      "labels_dtype": "float64",
+      "labels_inf_count": 0,
+      "labels_nan_count": 0,
+      "labels_shape": [
+        40,
+        4
+      ],
+      "size_mb": 98.44,
+      "subject_id": 13
+    },
+    {
+      "data_dtype": "float64",
+      "data_inf_count": 0,
+      "data_nan_count": 0,
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "file": "s14.dat",
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "label_summary": {
+        "arousal": {
+          "eq_5_count": 0,
+          "max": 8.03,
+          "mean": 5.436,
+          "min": 2.32
+        },
+        "dominance": {
+          "eq_5_count": 0,
+          "max": 8.42,
+          "mean": 4.95575,
+          "min": 1.94
+        },
+        "liking": {
+          "eq_5_count": 0,
+          "max": 8.92,
+          "mean": 5.7295,
+          "min": 1.09
+        },
+        "valence": {
+          "eq_5_count": 0,
+          "max": 8.22,
+          "mean": 4.9597500000000005,
+          "min": 1.03
+        }
+      },
+      "labels_dtype": "float64",
+      "labels_inf_count": 0,
+      "labels_nan_count": 0,
+      "labels_shape": [
+        40,
+        4
+      ],
+      "size_mb": 98.44,
+      "subject_id": 14
+    },
+    {
+      "data_dtype": "float64",
+      "data_inf_count": 0,
+      "data_nan_count": 0,
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "file": "s15.dat",
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "label_summary": {
+        "arousal": {
+          "eq_5_count": 2,
+          "max": 7.15,
+          "mean": 4.758750000000001,
+          "min": 2.04
+        },
+        "dominance": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 5.0595,
+          "min": 1.03
+        },
+        "liking": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 5.77425,
+          "min": 1.0
+        },
+        "valence": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 5.52725,
+          "min": 1.92
+        }
+      },
+      "labels_dtype": "float64",
+      "labels_inf_count": 0,
+      "labels_nan_count": 0,
+      "labels_shape": [
+        40,
+        4
+      ],
+      "size_mb": 98.44,
+      "subject_id": 15
+    },
+    {
+      "data_dtype": "float64",
+      "data_inf_count": 0,
+      "data_nan_count": 0,
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "file": "s16.dat",
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "label_summary": {
+        "arousal": {
+          "eq_5_count": 0,
+          "max": 8.47,
+          "mean": 4.72325,
+          "min": 1.0
+        },
+        "dominance": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 4.575,
+          "min": 1.0
+        },
+        "liking": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 4.608,
+          "min": 1.0
+        },
+        "valence": {
+          "eq_5_count": 0,
+          "max": 7.27,
+          "mean": 4.24125,
+          "min": 1.0
+        }
+      },
+      "labels_dtype": "float64",
+      "labels_inf_count": 0,
+      "labels_nan_count": 0,
+      "labels_shape": [
+        40,
+        4
+      ],
+      "size_mb": 98.44,
+      "subject_id": 16
+    },
+    {
+      "data_dtype": "float64",
+      "data_inf_count": 0,
+      "data_nan_count": 0,
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "file": "s17.dat",
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "label_summary": {
+        "arousal": {
+          "eq_5_count": 1,
+          "max": 8.15,
+          "mean": 5.2364999999999995,
+          "min": 2.5
+        },
+        "dominance": {
+          "eq_5_count": 1,
+          "max": 6.12,
+          "mean": 5.34025,
+          "min": 4.23
+        },
+        "liking": {
+          "eq_5_count": 0,
+          "max": 8.13,
+          "mean": 5.1762500000000005,
+          "min": 1.0
+        },
+        "valence": {
+          "eq_5_count": 0,
+          "max": 7.27,
+          "mean": 5.26325,
+          "min": 3.04
+        }
+      },
+      "labels_dtype": "float64",
+      "labels_inf_count": 0,
+      "labels_nan_count": 0,
+      "labels_shape": [
+        40,
+        4
+      ],
+      "size_mb": 98.44,
+      "subject_id": 17
+    },
+    {
+      "data_dtype": "float64",
+      "data_inf_count": 0,
+      "data_nan_count": 0,
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "file": "s18.dat",
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "label_summary": {
+        "arousal": {
+          "eq_5_count": 0,
+          "max": 7.97,
+          "mean": 5.47675,
+          "min": 3.08
+        },
+        "dominance": {
+          "eq_5_count": 0,
+          "max": 7.54,
+          "mean": 5.8175,
+          "min": 2.81
+        },
+        "liking": {
+          "eq_5_count": 0,
+          "max": 8.51,
+          "mean": 5.39525,
+          "min": 3.01
+        },
+        "valence": {
+          "eq_5_count": 2,
+          "max": 7.74,
+          "mean": 5.49275,
+          "min": 2.96
+        }
+      },
+      "labels_dtype": "float64",
+      "labels_inf_count": 0,
+      "labels_nan_count": 0,
+      "labels_shape": [
+        40,
+        4
+      ],
+      "size_mb": 98.44,
+      "subject_id": 18
+    },
+    {
+      "data_dtype": "float64",
+      "data_inf_count": 0,
+      "data_nan_count": 0,
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "file": "s19.dat",
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "label_summary": {
+        "arousal": {
+          "eq_5_count": 0,
+          "max": 8.62,
+          "mean": 5.40225,
+          "min": 1.95
+        },
+        "dominance": {
+          "eq_5_count": 1,
+          "max": 7.96,
+          "mean": 4.90475,
+          "min": 2.05
+        },
+        "liking": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 5.42125,
+          "min": 1.0
+        },
+        "valence": {
+          "eq_5_count": 0,
+          "max": 7.79,
+          "mean": 5.22925,
+          "min": 1.62
+        }
+      },
+      "labels_dtype": "float64",
+      "labels_inf_count": 0,
+      "labels_nan_count": 0,
+      "labels_shape": [
+        40,
+        4
+      ],
+      "size_mb": 98.44,
+      "subject_id": 19
+    },
+    {
+      "data_dtype": "float64",
+      "data_inf_count": 0,
+      "data_nan_count": 0,
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "file": "s20.dat",
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "label_summary": {
+        "arousal": {
+          "eq_5_count": 0,
+          "max": 8.06,
+          "mean": 5.57825,
+          "min": 2.83
+        },
+        "dominance": {
+          "eq_5_count": 0,
+          "max": 7.86,
+          "mean": 4.534999999999999,
+          "min": 2.04
+        },
+        "liking": {
+          "eq_5_count": 0,
+          "max": 8.32,
+          "mean": 5.73975,
+          "min": 2.28
+        },
+        "valence": {
+          "eq_5_count": 0,
+          "max": 8.82,
+          "mean": 5.511749999999999,
+          "min": 2.44
+        }
+      },
+      "labels_dtype": "float64",
+      "labels_inf_count": 0,
+      "labels_nan_count": 0,
+      "labels_shape": [
+        40,
+        4
+      ],
+      "size_mb": 98.44,
+      "subject_id": 20
+    },
+    {
+      "data_dtype": "float64",
+      "data_inf_count": 0,
+      "data_nan_count": 0,
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "file": "s21.dat",
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "label_summary": {
+        "arousal": {
+          "eq_5_count": 0,
+          "max": 8.23,
+          "mean": 5.9165,
+          "min": 2.91
+        },
+        "dominance": {
+          "eq_5_count": 1,
+          "max": 9.0,
+          "mean": 5.7195,
+          "min": 1.97
+        },
+        "liking": {
+          "eq_5_count": 0,
+          "max": 8.03,
+          "mean": 5.089,
+          "min": 1.0
+        },
+        "valence": {
+          "eq_5_count": 0,
+          "max": 8.81,
+          "mean": 5.4159999999999995,
+          "min": 2.09
+        }
+      },
+      "labels_dtype": "float64",
+      "labels_inf_count": 0,
+      "labels_nan_count": 0,
+      "labels_shape": [
+        40,
+        4
+      ],
+      "size_mb": 98.44,
+      "subject_id": 21
+    },
+    {
+      "data_dtype": "float64",
+      "data_inf_count": 0,
+      "data_nan_count": 0,
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "file": "s22.dat",
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "label_summary": {
+        "arousal": {
+          "eq_5_count": 1,
+          "max": 8.05,
+          "mean": 5.22375,
+          "min": 1.0
+        },
+        "dominance": {
+          "eq_5_count": 1,
+          "max": 9.0,
+          "mean": 5.104,
+          "min": 1.97
+        },
+        "liking": {
+          "eq_5_count": 2,
+          "max": 9.0,
+          "mean": 5.062250000000001,
+          "min": 1.0
+        },
+        "valence": {
+          "eq_5_count": 2,
+          "max": 9.0,
+          "mean": 4.693,
+          "min": 1.0
+        }
+      },
+      "labels_dtype": "float64",
+      "labels_inf_count": 0,
+      "labels_nan_count": 0,
+      "labels_shape": [
+        40,
+        4
+      ],
+      "size_mb": 98.44,
+      "subject_id": 22
+    },
+    {
+      "data_dtype": "float64",
+      "data_inf_count": 0,
+      "data_nan_count": 0,
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "file": "s23.dat",
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "label_summary": {
+        "arousal": {
+          "eq_5_count": 3,
+          "max": 9.0,
+          "mean": 3.2974999999999994,
+          "min": 1.0
+        },
+        "dominance": {
+          "eq_5_count": 1,
+          "max": 9.0,
+          "mean": 6.319750000000001,
+          "min": 3.05
+        },
+        "liking": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 5.07675,
+          "min": 1.0
+        },
+        "valence": {
+          "eq_5_count": 1,
+          "max": 9.0,
+          "mean": 5.922,
+          "min": 1.91
+        }
+      },
+      "labels_dtype": "float64",
+      "labels_inf_count": 0,
+      "labels_nan_count": 0,
+      "labels_shape": [
+        40,
+        4
+      ],
+      "size_mb": 98.44,
+      "subject_id": 23
+    },
+    {
+      "data_dtype": "float64",
+      "data_inf_count": 0,
+      "data_nan_count": 0,
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "file": "s24.dat",
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "label_summary": {
+        "arousal": {
+          "eq_5_count": 0,
+          "max": 8.06,
+          "mean": 5.901249999999999,
+          "min": 2.0
+        },
+        "dominance": {
+          "eq_5_count": 0,
+          "max": 8.96,
+          "mean": 5.351000000000001,
+          "min": 1.94
+        },
+        "liking": {
+          "eq_5_count": 1,
+          "max": 8.05,
+          "mean": 5.221500000000001,
+          "min": 1.97
+        },
+        "valence": {
+          "eq_5_count": 1,
+          "max": 8.96,
+          "mean": 4.8735,
+          "min": 1.0
+        }
+      },
+      "labels_dtype": "float64",
+      "labels_inf_count": 0,
+      "labels_nan_count": 0,
+      "labels_shape": [
+        40,
+        4
+      ],
+      "size_mb": 98.44,
+      "subject_id": 24
+    },
+    {
+      "data_dtype": "float64",
+      "data_inf_count": 0,
+      "data_nan_count": 0,
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "file": "s25.dat",
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "label_summary": {
+        "arousal": {
+          "eq_5_count": 1,
+          "max": 9.0,
+          "mean": 5.64575,
+          "min": 1.03
+        },
+        "dominance": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 6.888,
+          "min": 3.06
+        },
+        "liking": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 5.4087499999999995,
+          "min": 1.0
+        },
+        "valence": {
+          "eq_5_count": 2,
+          "max": 9.0,
+          "mean": 4.69675,
+          "min": 1.0
+        }
+      },
+      "labels_dtype": "float64",
+      "labels_inf_count": 0,
+      "labels_nan_count": 0,
+      "labels_shape": [
+        40,
+        4
+      ],
+      "size_mb": 98.44,
+      "subject_id": 25
+    },
+    {
+      "data_dtype": "float64",
+      "data_inf_count": 0,
+      "data_nan_count": 0,
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "file": "s26.dat",
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "label_summary": {
+        "arousal": {
+          "eq_5_count": 0,
+          "max": 8.17,
+          "mean": 4.428999999999999,
+          "min": 1.0
+        },
+        "dominance": {
+          "eq_5_count": 0,
+          "max": 7.13,
+          "mean": 5.11275,
+          "min": 2.18
+        },
+        "liking": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 6.427,
+          "min": 1.0
+        },
+        "valence": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 5.557,
+          "min": 1.0
+        }
+      },
+      "labels_dtype": "float64",
+      "labels_inf_count": 0,
+      "labels_nan_count": 0,
+      "labels_shape": [
+        40,
+        4
+      ],
+      "size_mb": 98.44,
+      "subject_id": 26
+    },
+    {
+      "data_dtype": "float64",
+      "data_inf_count": 0,
+      "data_nan_count": 0,
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "file": "s27.dat",
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "label_summary": {
+        "arousal": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 4.989,
+          "min": 1.0
+        },
+        "dominance": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 8.67625,
+          "min": 5.03
+        },
+        "liking": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 6.3862499999999995,
+          "min": 1.0
+        },
+        "valence": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 6.0855,
+          "min": 1.0
+        }
+      },
+      "labels_dtype": "float64",
+      "labels_inf_count": 0,
+      "labels_nan_count": 0,
+      "labels_shape": [
+        40,
+        4
+      ],
+      "size_mb": 98.44,
+      "subject_id": 27
+    },
+    {
+      "data_dtype": "float64",
+      "data_inf_count": 0,
+      "data_nan_count": 0,
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "file": "s28.dat",
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "label_summary": {
+        "arousal": {
+          "eq_5_count": 2,
+          "max": 9.0,
+          "mean": 4.699,
+          "min": 1.0
+        },
+        "dominance": {
+          "eq_5_count": 1,
+          "max": 9.0,
+          "mean": 5.741,
+          "min": 1.91
+        },
+        "liking": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 5.7524999999999995,
+          "min": 1.0
+        },
+        "valence": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 5.2780000000000005,
+          "min": 1.01
+        }
+      },
+      "labels_dtype": "float64",
+      "labels_inf_count": 0,
+      "labels_nan_count": 0,
+      "labels_shape": [
+        40,
+        4
+      ],
+      "size_mb": 98.44,
+      "subject_id": 28
+    },
+    {
+      "data_dtype": "float64",
+      "data_inf_count": 0,
+      "data_nan_count": 0,
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "file": "s29.dat",
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "label_summary": {
+        "arousal": {
+          "eq_5_count": 2,
+          "max": 9.0,
+          "mean": 5.328,
+          "min": 1.0
+        },
+        "dominance": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 5.45225,
+          "min": 1.0
+        },
+        "liking": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 4.8745,
+          "min": 1.0
+        },
+        "valence": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 5.099500000000001,
+          "min": 1.0
+        }
+      },
+      "labels_dtype": "float64",
+      "labels_inf_count": 0,
+      "labels_nan_count": 0,
+      "labels_shape": [
+        40,
+        4
+      ],
+      "size_mb": 98.44,
+      "subject_id": 29
+    },
+    {
+      "data_dtype": "float64",
+      "data_inf_count": 0,
+      "data_nan_count": 0,
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "file": "s30.dat",
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "label_summary": {
+        "arousal": {
+          "eq_5_count": 1,
+          "max": 7.14,
+          "mean": 4.92,
+          "min": 1.0
+        },
+        "dominance": {
+          "eq_5_count": 2,
+          "max": 9.0,
+          "mean": 5.2532499999999995,
+          "min": 2.71
+        },
+        "liking": {
+          "eq_5_count": 0,
+          "max": 8.12,
+          "mean": 4.5825000000000005,
+          "min": 1.0
+        },
+        "valence": {
+          "eq_5_count": 0,
+          "max": 8.27,
+          "mean": 5.33725,
+          "min": 2.97
+        }
+      },
+      "labels_dtype": "float64",
+      "labels_inf_count": 0,
+      "labels_nan_count": 0,
+      "labels_shape": [
+        40,
+        4
+      ],
+      "size_mb": 98.44,
+      "subject_id": 30
+    },
+    {
+      "data_dtype": "float64",
+      "data_inf_count": 0,
+      "data_nan_count": 0,
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "file": "s31.dat",
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "label_summary": {
+        "arousal": {
+          "eq_5_count": 1,
+          "max": 9.0,
+          "mean": 5.00525,
+          "min": 1.0
+        },
+        "dominance": {
+          "eq_5_count": 0,
+          "max": 8.23,
+          "mean": 4.933750000000001,
+          "min": 1.0
+        },
+        "liking": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 5.587999999999999,
+          "min": 1.0
+        },
+        "valence": {
+          "eq_5_count": 3,
+          "max": 9.0,
+          "mean": 5.179249999999999,
+          "min": 1.0
+        }
+      },
+      "labels_dtype": "float64",
+      "labels_inf_count": 0,
+      "labels_nan_count": 0,
+      "labels_shape": [
+        40,
+        4
+      ],
+      "size_mb": 98.44,
+      "subject_id": 31
+    },
+    {
+      "data_dtype": "float64",
+      "data_inf_count": 0,
+      "data_nan_count": 0,
+      "data_shape": [
+        40,
+        40,
+        8064
+      ],
+      "file": "s32.dat",
+      "keys": [
+        "data",
+        "labels"
+      ],
+      "label_summary": {
+        "arousal": {
+          "eq_5_count": 1,
+          "max": 7.31,
+          "mean": 5.54425,
+          "min": 1.0
+        },
+        "dominance": {
+          "eq_5_count": 0,
+          "max": 9.0,
+          "mean": 7.792500000000001,
+          "min": 4.73
+        },
+        "liking": {
+          "eq_5_count": 0,
+          "max": 8.18,
+          "mean": 4.5595,
+          "min": 1.0
+        },
+        "valence": {
+          "eq_5_count": 0,
+          "max": 8.24,
+          "mean": 5.3125,
+          "min": 1.0
+        }
+      },
+      "labels_dtype": "float64",
+      "labels_inf_count": 0,
+      "labels_nan_count": 0,
+      "labels_shape": [
+        40,
+        4
+      ],
+      "size_mb": 98.44,
+      "subject_id": 32
+    }
+  ],
+  "warnings": []
+}
