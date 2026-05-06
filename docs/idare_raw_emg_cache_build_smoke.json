@@ -1,0 +1,128 @@
+{
+  "status": "PASSED",
+  "generated_at_utc": "2026-05-06T11:51:46.276561+00:00",
+  "config": {
+    "source": "I-DARE raw_downloads/EMG HDF5 .mat",
+    "trial_index": ".cache/idare_trial_index.csv",
+    "source_fs": 2000.0,
+    "window_sec": 5.0,
+    "window_samples": 10000,
+    "emg_channels": [
+      {
+        "name": "emg_ch1",
+        "index_0based": 0,
+        "channel_1based": 1
+      },
+      {
+        "name": "emg_ch2",
+        "index_0based": 1,
+        "channel_1based": 2
+      }
+    ],
+    "shape_policy": "[n_trials, 2, 10000]",
+    "baseline_source": "preceding BSL event inferred from event_index_0based - 1",
+    "baseline_correction": "subtract preceding BSL per-channel mean",
+    "normalization": "per-window global z-score after baseline correction",
+    "limit_subjects": 2,
+    "limit_rows": null
+  },
+  "outputs": {
+    "raw_emg_cache_npy": ".cache/idare_raw_emg_windows_2x10000_float32_smoke.npy",
+    "cache_index_csv": ".cache/idare_raw_emg_cache_index_smoke.csv",
+    "build_report_md": "docs/idare_raw_emg_cache_build_smoke.md",
+    "build_report_json": "docs/idare_raw_emg_cache_build_smoke.json"
+  },
+  "counts": {
+    "selected_rows": 64,
+    "extracted_rows": 64,
+    "cache_index_rows": 64,
+    "subject_files": 2,
+    "emg_channels": 2,
+    "window_samples": 10000
+  },
+  "cache": {
+    "shape": [
+      64,
+      2,
+      10000
+    ],
+    "dtype": "float32",
+    "file_size": 5120128,
+    "file_size_human": "4.88 MB",
+    "nan_count": 0,
+    "inf_count": 0
+  },
+  "diagnostics": {
+    "baseline_mean_global": {
+      "mean": -0.0028355347967590205,
+      "median": -0.003944513271562755,
+      "min": -0.06036864221096039,
+      "max": 0.03591039776802063
+    },
+    "baseline_mean_abs_mean": {
+      "mean": 0.021525528954953188,
+      "median": 0.014609465841203928,
+      "min": 0.0021073909010738134,
+      "max": 0.09669329226016998
+    },
+    "corrected_mean_before_zscore": {
+      "mean": 0.0013057369596936041,
+      "median": 0.00027327003772370517,
+      "min": -0.0659666508436203,
+      "max": 0.0975881963968277
+    },
+    "corrected_std_before_zscore": {
+      "mean": 13.903600588440895,
+      "median": 12.614687442779541,
+      "min": 8.365988731384277,
+      "max": 28.433080673217773
+    },
+    "window_mean_after_preprocess": {
+      "mean": 6.407499255570853e-10,
+      "median": 4.2915346276650723e-10,
+      "min": -1.435279806116796e-08,
+      "max": 1.5640258865801115e-08
+    },
+    "window_std_after_preprocess": {
+      "mean": 0.9999999916180968,
+      "median": 1.0,
+      "min": 0.9999998807907104,
+      "max": 1.0
+    }
+  },
+  "label_counts": {
+    "valence": {
+      "discard_midpoint": {
+        "0": 31,
+        "1": 25,
+        "discard": 8
+      },
+      "midpoint_as_low": {
+        "0": 39,
+        "1": 25
+      },
+      "midpoint_as_high": {
+        "0": 31,
+        "1": 33
+      }
+    },
+    "arousal": {
+      "discard_midpoint": {
+        "0": 24,
+        "1": 34,
+        "discard": 6
+      },
+      "midpoint_as_low": {
+        "0": 30,
+        "1": 34
+      },
+      "midpoint_as_high": {
+        "0": 24,
+        "1": 40
+      }
+    }
+  },
+  "issues": [],
+  "warnings": [],
+  "elapsed_sec": 0.18856106558814645
+}
