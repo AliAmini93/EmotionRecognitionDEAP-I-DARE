@@ -11,7 +11,7 @@ Keep the old MAHNOB EEG encoder line as an R0 / historical baseline, not as the 
 ## Files Added
 
 - `src/emotion_deap_idare/models/legacy_mahnob_eeg_encoder.py`
-- `scripts/21_smoke_idare_eeg_legacy_r0.py`
+- `scripts/24_smoke_idare_eeg_legacy_r0.py`
 - `docs/legacy_mahnob_eeg_r0_plan.md`
 
 ## Model Meaning
@@ -26,7 +26,7 @@ This is a smoke-test step only.
 Default smoke:
 
 ```bash
-python scripts/21_smoke_idare_eeg_legacy_r0.py \
+python scripts/24_smoke_idare_eeg_legacy_r0.py \
   --cache-npy .cache/idare_eeg_windows_32x640_float32.npy \
   --cache-index .cache/idare_eeg_cache_index.csv \
   --tasks valence \
