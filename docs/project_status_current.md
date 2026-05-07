@@ -47,6 +47,7 @@ Final claims should not lock to `midpoint_as_high` until these policies are comp
 | I-DARE EEG STIM-BSL-only standardized baseline | baseline-corrected STIM-BSL-only EEG comparator smoke-tested for valence/arousal with sidecar-compatible folds | yes | `docs/idare_eeg_stim_bsl_only_standardized_status.md` | Compare directly against EEG BSL-stats sidecar before changing the mainline. | EEG+EMG fusion; full paired BSL/STIM neural model. |
 | I-DARE EEG BSL-stats ablation | response cache plus compact BSL stats sidecar smoke-tested for valence/arousal | yes | `docs/idare_eeg_bsl_stats_ablation_status.md` | Compare directly against STIM-BSL-only EEG before changing the mainline. | EEG+EMG fusion; full paired BSL/STIM neural model. |
 | I-DARE EMG BSL-stats ablation | feature cache plus compact BSL stats sidecar smoke-tested for valence/arousal | yes | `docs/idare_emg_bsl_stats_ablation_status.md` | Compare directly against STIM-BSL-only EMG feature baseline before changing the mainline. | EEG+EMG fusion; full paired BSL/STIM neural model. |
+| I-DARE single-modality BSL-stats vs baseline comparison | direct EEG/EMG BSL-stats sidecar vs baseline comparison documented | yes | `docs/idare_single_modality_bsl_stats_vs_baseline_comparison.md` | Human review before any broader standardized evaluation or fusion decision. | EEG+EMG fusion; full paired BSL/STIM neural model; final LOSO claim. |
 | EEG+EMG fusion | not started intentionally | no | `docs/idare_eeg_bsl_stats_ablation_status.md`<br>`docs/idare_emg_bsl_stats_ablation_status.md` | Start only after current baseline/ablation status is indexed and compared cleanly. | All fusion experiments. |
 | Full model(BSL, STIM, STIM-BSL) | not started intentionally | no | `docs/idare_baseline_modeling_literature_plan.md` | Only after low-capacity BSL-stats ablation beats STIM-BSL-only baselines consistently. | Two-branch or three-branch full paired neural model. |
 | Label-policy ablation | planned / not final | no | `README.md`<br>`training smoke JSON reports` | Run controlled comparison of discard_midpoint, midpoint_as_low, and midpoint_as_high using fixed splits/seeds. | Locking midpoint_as_high as the final paper policy. |
@@ -89,6 +90,7 @@ Note: DEAP EMG feature rows are sourced from the frozen `docs/deap_emg_feature_o
 - Treat compact BSL-stats sidecars as controlled I-DARE-aware ablations for both EEG and EMG.
 - Do not start EEG+EMG fusion until the current EEG/EMG single-modality baselines and BSL-stats ablations are directly compared.
 - Do not claim final performance from the smoke reports.
+- Direct I-DARE single-modality comparison is documented in `docs/idare_single_modality_bsl_stats_vs_baseline_comparison.md`; do not start fusion automatically from smoke-level comparison evidence.
  - The standardized I-DARE EEG `STIM-BSL`-only baseline comparator gap is closed by `docs/idare_eeg_stim_bsl_only_standardized_status.md`; comparison against EEG/EMG BSL-stats sidecars is now the next documentation step.
 
 ## Documentation Gap Closed by This File

@@ -1,0 +1,200 @@
+{
+  "comparisons": [
+    {
+      "baseline": {
+        "final_accuracy": 0.5511363636363636,
+        "final_balanced_accuracy": 0.5204516176369753,
+        "final_macro_f1": 0.5112066473567259,
+        "one_class_final_runs": 0,
+        "policy": "midpoint_as_high",
+        "recipe": "ce_class_weighted",
+        "runs": 2,
+        "source": "docs/idare_eeg_stim_bsl_only_valence_standardized_smoke.json",
+        "task": "valence",
+        "threshold_balanced_accuracy": 0.5224779100161392,
+        "threshold_macro_f1": 0.5196858035908258,
+        "threshold_one_class_final_runs": 0
+      },
+      "delta_sidecar_minus_baseline": {
+        "final_balanced_accuracy": -0.0013609155236671278,
+        "final_macro_f1": -0.031118545311158763,
+        "threshold_macro_f1": -0.0009686594306654861
+      },
+      "interpretation": "baseline_better_smoke_level",
+      "modality": "EEG",
+      "sidecar": {
+        "final_accuracy": 0.5525568181818181,
+        "final_balanced_accuracy": 0.5190907021133082,
+        "final_macro_f1": 0.4800881020455672,
+        "one_class_final_runs": 0,
+        "policy": "midpoint_as_high",
+        "recipe": "ce_class_weighted",
+        "runs": 2,
+        "source": "docs/idare_eeg_bsl_stats_valence_ablation_smoke.json",
+        "task": "valence",
+        "threshold_balanced_accuracy": 0.5243612046946853,
+        "threshold_macro_f1": 0.5187171441601603,
+        "threshold_one_class_final_runs": 0
+      },
+      "task": "valence"
+    },
+    {
+      "baseline": {
+        "final_accuracy": 0.5454545454545454,
+        "final_balanced_accuracy": 0.5322676909458697,
+        "final_macro_f1": 0.5306639193732854,
+        "one_class_final_runs": 0,
+        "policy": "midpoint_as_high",
+        "recipe": "ce_class_weighted",
+        "runs": 2,
+        "source": "docs/idare_eeg_stim_bsl_only_arousal_standardized_smoke.json",
+        "task": "arousal",
+        "threshold_balanced_accuracy": 0.543727130931647,
+        "threshold_macro_f1": 0.5379708670431853,
+        "threshold_one_class_final_runs": 0
+      },
+      "delta_sidecar_minus_baseline": {
+        "final_balanced_accuracy": 0.0021794296297260596,
+        "final_macro_f1": -0.036368463216629676,
+        "threshold_macro_f1": 0.018552088733010175
+      },
+      "interpretation": "baseline_better_smoke_level",
+      "modality": "EEG",
+      "sidecar": {
+        "final_accuracy": 0.5369318181818181,
+        "final_balanced_accuracy": 0.5344471205755957,
+        "final_macro_f1": 0.4942954561566557,
+        "one_class_final_runs": 0,
+        "policy": "midpoint_as_high",
+        "recipe": "ce_class_weighted",
+        "runs": 2,
+        "source": "docs/idare_eeg_bsl_stats_arousal_ablation_smoke.json",
+        "task": "arousal",
+        "threshold_balanced_accuracy": 0.5575420083794712,
+        "threshold_macro_f1": 0.5565229557761955,
+        "threshold_one_class_final_runs": 0
+      },
+      "task": "arousal"
+    },
+    {
+      "baseline": {
+        "final_accuracy": 0.5156,
+        "final_balanced_accuracy": 0.5083,
+        "final_macro_f1": 0.5004,
+        "majority_accuracy": 0.6065,
+        "one_class_final_runs": 0,
+        "policy": "midpoint_as_high",
+        "recipe": "ce_class_weighted",
+        "runs": 2,
+        "source": "docs/idare_emg_feature_valence_training_smoke.md",
+        "task": "valence",
+        "threshold_balanced_accuracy": 0.5083,
+        "threshold_macro_f1": 0.5004,
+        "threshold_one_class_final_runs": 0
+      },
+      "delta_sidecar_minus_baseline": {
+        "final_balanced_accuracy": 0.005326778273427202,
+        "final_macro_f1": 0.0069102659333153404,
+        "threshold_macro_f1": 0.0069102659333153404
+      },
+      "interpretation": "roughly_neutral_or_mixed",
+      "modality": "EMG",
+      "sidecar": {
+        "final_accuracy": 0.5085227272727273,
+        "final_balanced_accuracy": 0.5136267782734272,
+        "final_macro_f1": 0.5073102659333153,
+        "one_class_final_runs": 0,
+        "policy": "midpoint_as_high",
+        "recipe": "ce_class_weighted",
+        "runs": 2,
+        "source": "docs/idare_emg_bsl_stats_valence_ablation_smoke.json",
+        "task": "valence",
+        "threshold_balanced_accuracy": 0.5136267782734272,
+        "threshold_macro_f1": 0.5073102659333153,
+        "threshold_one_class_final_runs": 0
+      },
+      "task": "valence"
+    },
+    {
+      "baseline": {
+        "final_accuracy": 0.5327,
+        "final_balanced_accuracy": 0.5319,
+        "final_macro_f1": 0.5223,
+        "majority_accuracy": 0.5838,
+        "one_class_final_runs": 0,
+        "policy": "midpoint_as_high",
+        "recipe": "ce_class_weighted",
+        "runs": 2,
+        "source": "docs/idare_emg_feature_arousal_training_smoke.md",
+        "task": "arousal",
+        "threshold_balanced_accuracy": 0.5319,
+        "threshold_macro_f1": 0.5223,
+        "threshold_one_class_final_runs": 0
+      },
+      "delta_sidecar_minus_baseline": {
+        "final_balanced_accuracy": 0.002497110398247404,
+        "final_macro_f1": 0.009614771471463834,
+        "threshold_macro_f1": 0.009614771471463834
+      },
+      "interpretation": "roughly_neutral_or_mixed",
+      "modality": "EMG",
+      "sidecar": {
+        "final_accuracy": 0.5383522727272727,
+        "final_balanced_accuracy": 0.5343971103982474,
+        "final_macro_f1": 0.5319147714714638,
+        "one_class_final_runs": 0,
+        "policy": "midpoint_as_high",
+        "recipe": "ce_class_weighted",
+        "runs": 2,
+        "source": "docs/idare_emg_bsl_stats_arousal_ablation_smoke.json",
+        "task": "arousal",
+        "threshold_balanced_accuracy": 0.5343971103982474,
+        "threshold_macro_f1": 0.5319147714714638,
+        "threshold_one_class_final_runs": 0
+      },
+      "task": "arousal"
+    }
+  ],
+  "created_or_updated_utc": "2026-05-07T13:40:38.822671+00:00",
+  "decision": {
+    "eeg": "Keep EEG STIM-BSL-only as practical mainline for now; EEG BSL-stats sidecar does not consistently beat the standardized baseline on final macro-F1.",
+    "emg": "EMG BSL-stats sidecar is smoke-level promising/marginal where it improves over feature-only baseline, but this does not automatically replace the EMG feature mainline.",
+    "mainline_changed": false,
+    "next_allowed_step": "Human review of this comparison before deciding whether any broader standardized single-modality evaluation is needed; do not start fusion automatically."
+  },
+  "evidence_level": "smoke/stabilization comparison, not final LOSO performance",
+  "intentionally_not_started": [
+    "EEG+EMG fusion",
+    "full model(BSL, STIM, STIM-BSL)",
+    "final LOSO / final performance claim",
+    "locking midpoint_as_high as final label policy",
+    "raw EMG mainline",
+    "architecture ablations",
+    "data augmentation",
+    "SupCon / VREx / domain generalization"
+  ],
+  "protocol_gates": {
+    "bsl_stats_sidecars_present": true,
+    "eeg_baseline_comparator_present": true,
+    "eeg_baseline_uses_sidecar_matched_folds": true,
+    "emg_feature_baseline_present": true,
+    "evidence_boundary": "smoke/stabilization only, not final LOSO",
+    "label_policy": "midpoint_as_high for all compared smokes; not final/locked"
+  },
+  "purpose": "Directly compare I-DARE single-modality BSL-stats sidecar smokes against their corresponding STIM-BSL-only baselines for EEG and EMG.",
+  "sources": {
+    "eeg_baseline_arousal": "docs/idare_eeg_stim_bsl_only_arousal_standardized_smoke.json",
+    "eeg_baseline_status": "docs/idare_eeg_stim_bsl_only_standardized_status.md",
+    "eeg_baseline_valence": "docs/idare_eeg_stim_bsl_only_valence_standardized_smoke.json",
+    "eeg_bsl_stats_arousal": "docs/idare_eeg_bsl_stats_arousal_ablation_smoke.json",
+    "eeg_bsl_stats_status": "docs/idare_eeg_bsl_stats_ablation_status.md",
+    "eeg_bsl_stats_valence": "docs/idare_eeg_bsl_stats_valence_ablation_smoke.json",
+    "emg_baseline_arousal": "docs/idare_emg_feature_arousal_training_smoke.md",
+    "emg_baseline_status": "docs/idare_emg_feature_only_status.md",
+    "emg_baseline_valence": "docs/idare_emg_feature_valence_training_smoke.md",
+    "emg_bsl_stats_arousal": "docs/idare_emg_bsl_stats_arousal_ablation_smoke.json",
+    "emg_bsl_stats_status": "docs/idare_emg_bsl_stats_ablation_status.md",
+    "emg_bsl_stats_valence": "docs/idare_emg_bsl_stats_valence_ablation_smoke.json"
+  },
+  "status": "frozen_comparison_documentation"
+}
