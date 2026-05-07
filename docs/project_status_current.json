@@ -256,6 +256,39 @@
       ],
       "status": "short_term_objective_created"
     },
+    "idare_diagnostic_sanity_tests_report": {
+      "diagnostic_summary": {
+        "best_classical_macro_f1": 0.5433962264150943,
+        "diagnosis": "mixed_issue_unresolved",
+        "max_within_subject_minus_subject_heldout_macro_f1": 0.08336904098399384,
+        "mean_classical_macro_f1": 0.4787336634821898,
+        "mean_within_subject_minus_subject_heldout_macro_f1": 0.020607430366707535,
+        "micro_overfit_all_passed": true,
+        "recommendation_reason": [
+          "Core sanity checks passed, but results remain weak/mixed.",
+          "Next diagnostic work should focus on calibration and subject-generalization without fusion or architecture escalation."
+        ],
+        "recommended_next_objective": "calibration_and_subject_generalization_objective",
+        "shuffled_label_control_all_passed": true,
+        "within_subject_generalization_hits": 0
+      },
+      "evidence": "docs/idare_diagnostic_sanity_tests_report.md",
+      "evidence_json": "docs/idare_diagnostic_sanity_tests_report.json",
+      "evidence_level": "diagnostic-only sanity tests; no final performance claim",
+      "next_allowed_step": "Human review / closeout of diagnostic sanity report.",
+      "not_authorized": [
+        "EEG+EMG fusion",
+        "final LOSO / final paper claim",
+        "final global label-policy lock",
+        "architecture ablation for improvement",
+        "data augmentation",
+        "SupCon / VREx / domain generalization",
+        "broad hyperparameter search",
+        "mainline change"
+      ],
+      "status": "complete_pending_review",
+      "summary_csv": "docs/idare_diagnostic_sanity_tests_summary.csv"
+    },
     "idare_eeg_stim_bsl_only_standardized_baseline": {
       "evidence": "docs/idare_eeg_stim_bsl_only_standardized_status.md",
       "meaning": "Fair EEG STIM-BSL-only comparator is now present for BSL-stats comparison.",
