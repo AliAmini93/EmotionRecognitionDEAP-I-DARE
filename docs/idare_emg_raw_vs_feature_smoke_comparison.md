@@ -65,4 +65,4 @@ This is a smoke/stabilization comparison, not a final LOSO result.
 
 - Mainline I-DARE EMG representation: `feature-level EMG`.
 - Keep raw EMG-only as an ablation, not the main EMG path.
-- Next practical step: start EEG+EMG fusion smoke using the feature-level EMG cache first.
+- Next practical step: keep feature-level EMG as the current EMG mainline, but do not start EEG+EMG fusion until EEG/EMG single-modality baselines and BSL-stats ablations are directly compared and documented.
