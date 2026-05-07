@@ -202,6 +202,30 @@
       "status": "primary_matrix_complete_pending_human_review",
       "summary": "All 96 authorized primary runs completed and validated. Interpret before changing any mainline."
     },
+    "idare_broader_standardized_single_modality_evaluation_review_status": {
+      "bsl_stats": "controlled ablation only",
+      "eeg_mainline": "baseline-corrected STIM-BSL-only",
+      "emg_mainline": "feature-only EMG",
+      "evidence": "docs/idare_broader_standardized_single_modality_evaluation_review_status.md",
+      "final_loso_claim": false,
+      "fusion_started": false,
+      "mainline_changed": false,
+      "midpoint_as_high_locked": false,
+      "next_allowed_step": "Stop here, hand off, or create a separate explicit objective for a future controlled follow-up.",
+      "not_authorized": [
+        "EEG+EMG fusion",
+        "full model(BSL, STIM, STIM-BSL)",
+        "final LOSO / final paper claim",
+        "locking midpoint_as_high",
+        "raw EMG mainline",
+        "architecture ablations",
+        "data augmentation",
+        "SupCon / VREx / domain generalization",
+        "optional robustness seed 13 without explicit objective"
+      ],
+      "reviewed_report": "docs/idare_broader_standardized_single_modality_evaluation_report.md",
+      "status": "frozen_human_review_closeout"
+    },
     "idare_eeg_stim_bsl_only_standardized_baseline": {
       "evidence": "docs/idare_eeg_stim_bsl_only_standardized_status.md",
       "meaning": "Fair EEG STIM-BSL-only comparator is now present for BSL-stats comparison.",
@@ -281,6 +305,7 @@
   "last_updated_for_broader_standardized_single_modality_objective_utc": "2026-05-07T14:12:11.221270+00:00",
   "last_updated_for_broader_standardized_single_modality_plan_utc": "2026-05-07T14:02:07.484172+00:00",
   "last_updated_for_broader_standardized_single_modality_primary_report_utc": "2026-05-07T14:36:34.369682+00:00",
+  "last_updated_for_broader_standardized_single_modality_review_utc": "2026-05-07T14:40:39.877396+00:00",
   "last_updated_for_eeg_stim_bsl_only_standardized_closeout_utc": "2026-05-07T13:35:24.143574+00:00",
   "last_updated_for_single_modality_bsl_stats_vs_baseline_comparison_utc": "2026-05-07T13:40:38.822671+00:00",
   "last_updated_for_single_modality_bsl_stats_vs_baseline_review_utc": "2026-05-07T13:45:13.512223+00:00",
@@ -6661,6 +6686,7 @@
     "idare_broader_standardized_single_modality_evaluation_objective": "docs/idare_broader_standardized_single_modality_evaluation_objective.md",
     "idare_broader_standardized_single_modality_evaluation_plan": "docs/idare_broader_standardized_single_modality_evaluation_plan.md",
     "idare_broader_standardized_single_modality_evaluation_report": "docs/idare_broader_standardized_single_modality_evaluation_report.md",
+    "idare_broader_standardized_single_modality_evaluation_review_status": "docs/idare_broader_standardized_single_modality_evaluation_review_status.md",
     "idare_eeg_bsl_stats_status": "docs/idare_eeg_bsl_stats_ablation_status.md",
     "idare_eeg_stim_bsl_only_standardized_status": "docs/idare_eeg_stim_bsl_only_standardized_status.md",
     "idare_emg_bsl_stats_status": "docs/idare_emg_bsl_stats_ablation_status.md",

@@ -1,0 +1,199 @@
+{
+  "created_or_updated_utc": "2026-05-07T14:40:39.877396+00:00",
+  "evidence_level": "broader standardized single-modality primary matrix; not final LOSO",
+  "human_review_decision": {
+    "accepted": true,
+    "bsl_stats_decision": "Keep BSL-stats sidecars as controlled ablations; do not promote them to mainline from this evidence alone.",
+    "eeg_decision": "Keep baseline-corrected STIM-BSL-only as the practical I-DARE EEG mainline for now.",
+    "emg_decision": "Keep feature-only EMG as the practical I-DARE EMG mainline for now.",
+    "final_claim_decision": "Do not claim final LOSO or final paper performance from this report.",
+    "full_paired_model_decision": "Do not start full model(BSL, STIM, STIM-BSL).",
+    "fusion_decision": "Do not start EEG+EMG fusion from this report.",
+    "label_policy_decision": "Do not lock midpoint_as_high as final label policy.",
+    "mainline_changed": false,
+    "primary_matrix_complete": true
+  },
+  "next_allowed_step": "Stop here, hand off, or create a separate explicit objective for a future controlled follow-up.",
+  "not_authorized": [
+    "EEG+EMG fusion",
+    "full model(BSL, STIM, STIM-BSL)",
+    "final LOSO / final paper claim",
+    "locking midpoint_as_high",
+    "raw EMG mainline",
+    "architecture ablations",
+    "data augmentation",
+    "SupCon / VREx / domain generalization",
+    "optional robustness seed 13 without explicit objective"
+  ],
+  "primary_matrix": {
+    "conditions": 4,
+    "folds": 6,
+    "recipes": 2,
+    "seeds": [
+      11
+    ],
+    "tasks": 2,
+    "total_runs": 96
+  },
+  "rationale": {
+    "eeg_arousal": {
+      "baseline_condition": "EEG-B0",
+      "baseline_final_balanced_accuracy_mean": 0.5150718836051803,
+      "baseline_final_macro_f1_mean": 0.510275444519441,
+      "baseline_one_class_final_runs": 0,
+      "baseline_recipe": "ce_class_weighted",
+      "delta_final_balanced_accuracy": 0.02762751494703708,
+      "delta_final_macro_f1": 0.01992420090410607,
+      "interpretation": "roughly_neutral_or_mixed",
+      "modality": "EEG",
+      "sidecar_condition": "EEG-B1",
+      "sidecar_final_balanced_accuracy_mean": 0.5426993985522174,
+      "sidecar_final_macro_f1_mean": 0.530199645423547,
+      "sidecar_one_class_final_runs": 0,
+      "sidecar_recipe": "balanced_sampler_ce",
+      "task": "arousal"
+    },
+    "eeg_valence": {
+      "baseline_condition": "EEG-B0",
+      "baseline_final_balanced_accuracy_mean": 0.5195860387372876,
+      "baseline_final_macro_f1_mean": 0.5072982131005179,
+      "baseline_one_class_final_runs": 0,
+      "baseline_recipe": "ce_class_weighted",
+      "delta_final_balanced_accuracy": -0.011742341062483619,
+      "delta_final_macro_f1": -0.023847422876387914,
+      "interpretation": "baseline_better_broader_eval",
+      "modality": "EEG",
+      "sidecar_condition": "EEG-B1",
+      "sidecar_final_balanced_accuracy_mean": 0.507843697674804,
+      "sidecar_final_macro_f1_mean": 0.48345079022413,
+      "sidecar_one_class_final_runs": 0,
+      "sidecar_recipe": "ce_class_weighted",
+      "task": "valence"
+    },
+    "emg_arousal": {
+      "baseline_condition": "EMG-B0",
+      "baseline_final_balanced_accuracy_mean": 0.5192254508486686,
+      "baseline_final_macro_f1_mean": 0.5158549524054082,
+      "baseline_one_class_final_runs": 0,
+      "baseline_recipe": "ce_class_weighted",
+      "delta_final_balanced_accuracy": -0.00490044664327649,
+      "delta_final_macro_f1": -0.005571788503742958,
+      "interpretation": "roughly_neutral_or_mixed",
+      "modality": "EMG",
+      "sidecar_condition": "EMG-B1",
+      "sidecar_final_balanced_accuracy_mean": 0.5143250042053921,
+      "sidecar_final_macro_f1_mean": 0.5102831639016653,
+      "sidecar_one_class_final_runs": 0,
+      "sidecar_recipe": "balanced_sampler_ce",
+      "task": "arousal"
+    },
+    "emg_valence": {
+      "baseline_condition": "EMG-B0",
+      "baseline_final_balanced_accuracy_mean": 0.5201507593591346,
+      "baseline_final_macro_f1_mean": 0.5139693887689678,
+      "baseline_one_class_final_runs": 0,
+      "baseline_recipe": "ce_class_weighted",
+      "delta_final_balanced_accuracy": -0.0038286362787687267,
+      "delta_final_macro_f1": -0.002380537494534374,
+      "interpretation": "roughly_neutral_or_mixed",
+      "modality": "EMG",
+      "sidecar_condition": "EMG-B1",
+      "sidecar_final_balanced_accuracy_mean": 0.5163221230803658,
+      "sidecar_final_macro_f1_mean": 0.5115888512744334,
+      "sidecar_one_class_final_runs": 0,
+      "sidecar_recipe": "ce_class_weighted",
+      "task": "valence"
+    },
+    "summary": [
+      "EEG valence favors the STIM-BSL-only baseline.",
+      "EEG arousal slightly favors BSL-stats on macro F1, but the report labels it roughly neutral or mixed.",
+      "EMG valence and arousal are roughly neutral or mixed.",
+      "Therefore there is no strong broader-evaluation basis to promote BSL-stats sidecars or start fusion."
+    ]
+  },
+  "reviewed_json": "docs/idare_broader_standardized_single_modality_evaluation_report.json",
+  "reviewed_report": "docs/idare_broader_standardized_single_modality_evaluation_report.md",
+  "status": "frozen_human_review_closeout",
+  "validation_summary": {
+    "EEG-B0": {
+      "first_fold_val_subjects": [
+        6,
+        7,
+        8,
+        13,
+        28,
+        38,
+        43,
+        54,
+        58,
+        59,
+        65
+      ],
+      "json": "docs/idare_broader_eval_eeg_stim_bsl_only_primary.json",
+      "md": "docs/idare_broader_eval_eeg_stim_bsl_only_primary.md",
+      "n_runs": 24,
+      "prediction_rows": 8064,
+      "predictions_csv": "docs/idare_broader_eval_eeg_stim_bsl_only_primary_predictions.csv"
+    },
+    "EEG-B1": {
+      "first_fold_val_subjects": [
+        6,
+        7,
+        8,
+        13,
+        28,
+        38,
+        43,
+        54,
+        58,
+        59,
+        65
+      ],
+      "json": "docs/idare_broader_eval_eeg_bsl_stats_primary.json",
+      "md": "docs/idare_broader_eval_eeg_bsl_stats_primary.md",
+      "n_runs": 24,
+      "prediction_rows": 8064,
+      "predictions_csv": "docs/idare_broader_eval_eeg_bsl_stats_primary_predictions.csv"
+    },
+    "EMG-B0": {
+      "first_fold_val_subjects": [
+        6,
+        7,
+        8,
+        13,
+        28,
+        38,
+        43,
+        54,
+        58,
+        59,
+        65
+      ],
+      "json": "docs/idare_broader_eval_emg_feature_only_primary.json",
+      "md": "docs/idare_broader_eval_emg_feature_only_primary.md",
+      "n_runs": 24,
+      "prediction_rows": 8064,
+      "predictions_csv": "docs/idare_broader_eval_emg_feature_only_primary_predictions.csv"
+    },
+    "EMG-B1": {
+      "first_fold_val_subjects": [
+        6,
+        7,
+        8,
+        13,
+        28,
+        38,
+        43,
+        54,
+        58,
+        59,
+        65
+      ],
+      "json": "docs/idare_broader_eval_emg_bsl_stats_primary.json",
+      "md": "docs/idare_broader_eval_emg_bsl_stats_primary.md",
+      "n_runs": 24,
+      "prediction_rows": 8064,
+      "predictions_csv": "docs/idare_broader_eval_emg_bsl_stats_primary_predictions.csv"
+    }
+  }
+}
