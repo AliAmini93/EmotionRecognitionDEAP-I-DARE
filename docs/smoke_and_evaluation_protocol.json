@@ -1,0 +1,148 @@
+{
+  "status": "current",
+  "created_or_updated_utc": "2026-05-07T11:24:07+00:00",
+  "purpose": "Define how audit, smoke, broader/full evaluation, failure diagnosis, freeze decisions, and literature/method review are used to move from short-term objectives toward long-term goals.",
+  "core_principle": "Smoke pass is permission to proceed to broader/full evaluation or comparison; it is not a final scientific claim.",
+  "workflow": [
+    "Define objective and scope",
+    "Run audit / feasibility check",
+    "Run smoke test",
+    "Make smoke decision",
+    "Run broader/full evaluation when allowed",
+    "Interpret result",
+    "Freeze/document/update roadmap",
+    "Move to next allowed objective"
+  ],
+  "evidence_levels": [
+    {
+      "level": "audit",
+      "meaning": "Checks data, labels, index, shapes, paths, subject grouping, cache availability, and leakage risks.",
+      "allowed_claim": "The data/protocol path is usable or not usable yet."
+    },
+    {
+      "level": "smoke",
+      "meaning": "Small stabilization run with limited folds/seeds/runs to test execution, diagnostics, and plausibility.",
+      "allowed_claim": "The pipeline is healthy enough for comparison or broader evaluation, or it needs fixing."
+    },
+    {
+      "level": "comparison_smoke",
+      "meaning": "Small controlled comparison between two already-defined choices.",
+      "allowed_claim": "A path is promising/weak at smoke level only."
+    },
+    {
+      "level": "broader_full_evaluation",
+      "meaning": "Larger controlled run with fixed protocol, more folds/seeds/recipes, or full LOSO if declared.",
+      "allowed_claim": "A stronger empirical claim, still bounded by the declared protocol."
+    },
+    {
+      "level": "final_LOSO",
+      "meaning": "Full leave-one-subject-out or final protocol-level evaluation explicitly declared and documented.",
+      "allowed_claim": "Final paper-level claim for that protocol."
+    }
+  ],
+  "smoke_pass_criteria": [
+    "Run completes without crash.",
+    "Expected reports and outputs are produced.",
+    "Input shapes, dtypes, labels, and subject splits are sane.",
+    "No NaN/Inf or they are explicitly documented and handled.",
+    "No subject leakage is detected.",
+    "Majority baseline is recorded.",
+    "Macro F1 and balanced accuracy are recorded.",
+    "Threshold sweep diagnostics are recorded when relevant.",
+    "One-class collapse is recorded.",
+    "Artifacts are suitable for commit according to the operating protocol."
+  ],
+  "not_smoke_pass_criteria": [
+    "High metric alone is not sufficient.",
+    "Threshold-tuned gain alone is not sufficient.",
+    "One lucky fold is not sufficient.",
+    "A committed report is not a final result."
+  ],
+  "failure_taxonomy": [
+    {
+      "type": "engineering_fail",
+      "examples": [
+        "missing file",
+        "path error",
+        "JSON serialization error",
+        "CSV line endings",
+        "script crash"
+      ],
+      "action": "Fix implementation/artifacts and rerun the same smoke."
+    },
+    {
+      "type": "data_protocol_fail",
+      "examples": [
+        "label mismatch",
+        "cache/index mismatch",
+        "subject leakage",
+        "wrong baseline pairing",
+        "NaN/Inf not handled"
+      ],
+      "action": "Stop training, audit data/protocol, document issue, rerun only after correction."
+    },
+    {
+      "type": "scientific_weak_result",
+      "examples": [
+        "metrics near majority baseline",
+        "no improvement over baseline",
+        "unstable thresholds"
+      ],
+      "action": "Document as finding; run only limited ablation if it can change a decision."
+    },
+    {
+      "type": "inconclusive_result",
+      "examples": [
+        "mixed fold behavior",
+        "small gains but calibration sensitivity",
+        "task-specific conflict"
+      ],
+      "action": "Create comparison/status doc and request human decision or one targeted ablation."
+    },
+    {
+      "type": "repeated_scientific_failure",
+      "examples": [
+        "multiple healthy runs fail to improve",
+        "several ablations all weak",
+        "architecture assumption appears wrong"
+      ],
+      "action": "Stop patching blindly; create literature/method review task."
+    }
+  ],
+  "under_over_analysis_control": {
+    "avoid_under_analysis": [
+      "Do not move to the next phase without status/freeze docs.",
+      "Do not ignore collapse, threshold instability, or majority baseline.",
+      "Do not skip direct comparison when changing mainline."
+    ],
+    "avoid_over_analysis": [
+      "Do not run large literature review for a simple engineering fail.",
+      "Do not add new model families before baseline comparison is documented.",
+      "Do not run an ablation if its result cannot change a decision."
+    ]
+  },
+  "literature_review_triggers": [
+    "A full/broader test fails scientifically while the pipeline is healthy.",
+    "Several controlled ablations fail or remain inconclusive.",
+    "A major method/architecture decision is needed.",
+    "Dataset-specific modeling assumptions need external justification.",
+    "The next step is no longer obvious from current project docs."
+  ],
+  "stop_criteria": [
+    "An ablation shows no useful signal in smoke and has no clear decision impact.",
+    "A path repeatedly underperforms a simpler baseline under fair comparisons.",
+    "A method requires capacity/data not available in the current project.",
+    "The central roadmap says the phase is intentionally not started."
+  ],
+  "documentation_requirements": [
+    "Every completed phase needs reports, status/freeze docs if closed, and project_status_current updates.",
+    "Every important interpretation from terminal output, CSV/JSON, plot, or image must become durable docs.",
+    "Every next phase must have a next allowed step and intentionally-not-started statement."
+  ],
+  "current_application": [
+    "Current work remains smoke/stabilization unless a status doc says otherwise.",
+    "Fusion remains not-started until single-modality comparisons are documented.",
+    "Full paired BSL/STIM model remains not-started until low-capacity BSL-stats evidence is interpreted.",
+    "Label policy remains open until controlled ablation is done."
+  ]
+}

@@ -8,7 +8,9 @@ Every new chat/session should read this file together with:
 
 1. `docs/project_status_current.md`
 2. `docs/project_status_current.json`
-3. The relevant per-phase status/freeze documents
+3. `docs/research_scope_and_objectives.md`
+4. `docs/smoke_and_evaluation_protocol.md`
+5. The relevant per-phase status/freeze documents
 
 The goal is to prevent documentation drift, inconsistent commits, accidental cache commits, and premature claims.
 
@@ -60,7 +62,7 @@ Commit durable project artifacts:
 | Smoke reports | Yes | `docs/*_smoke.md`, `docs/*_smoke.json`, `docs/*_predictions.csv` |
 | Status/freeze docs | Yes | `docs/*_status.md`, `docs/*_status.json` |
 | Central roadmap | Yes | `docs/project_status_current.md`, `docs/project_status_current.json` |
-| Protocol docs | Yes | `docs/project_operating_protocol.md` |
+| Protocol docs | Yes | `docs/project_operating_protocol.md`, `docs/research_scope_and_objectives.md`, `docs/smoke_and_evaluation_protocol.md` |
 | README/proposal notes | Yes, when method assumptions change | `README.md` |
 
 ## What Not to Commit

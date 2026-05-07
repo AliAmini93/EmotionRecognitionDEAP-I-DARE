@@ -1,0 +1,319 @@
+{
+  "status": "current",
+  "created_or_updated_utc": "2026-05-07T11:24:07+00:00",
+  "purpose": "Define the project research scope, objective hierarchy, ablation registry, current boundaries, and decision logic.",
+  "source_of_truth_role": "Research objective and scope registry; not a raw experiment ledger.",
+  "source_documents": {
+    "README.md": {
+      "path": "README.md",
+      "exists": true
+    },
+    "project_status_current.md": {
+      "path": "docs/project_status_current.md",
+      "exists": true
+    },
+    "project_status_current.json": {
+      "path": "docs/project_status_current.json",
+      "exists": true
+    },
+    "project_operating_protocol.md": {
+      "path": "docs/project_operating_protocol.md",
+      "exists": true
+    },
+    "deap_emg_feature_only_status.md": {
+      "path": "docs/deap_emg_feature_only_status.md",
+      "exists": true
+    },
+    "idare_emg_feature_only_status.md": {
+      "path": "docs/idare_emg_feature_only_status.md",
+      "exists": true
+    },
+    "idare_raw_emg_only_status.md": {
+      "path": "docs/idare_raw_emg_only_status.md",
+      "exists": true
+    },
+    "idare_eeg_bsl_stats_ablation_status.md": {
+      "path": "docs/idare_eeg_bsl_stats_ablation_status.md",
+      "exists": true
+    },
+    "idare_emg_bsl_stats_ablation_status.md": {
+      "path": "docs/idare_emg_bsl_stats_ablation_status.md",
+      "exists": true
+    },
+    "idare_baseline_modeling_literature_plan.md": {
+      "path": "docs/idare_baseline_modeling_literature_plan.md",
+      "exists": true
+    }
+  },
+  "scope": {
+    "in_scope": [
+      "Cross-subject emotion recognition within each dataset.",
+      "DEAP and I-DARE as the main datasets.",
+      "Binary valence and binary arousal classification.",
+      "EEG-only, EMG-only, and EEG+EMG fusion after readiness.",
+      "Dataset-aware modeling when the dataset structure justifies it.",
+      "I-DARE trial-aware BSL/STIM modeling through STIM-BSL and compact BSL-stats ablations.",
+      "DEAP temporal modeling of 12 x 5s windows inside each 60s trial.",
+      "Controlled ablations of representation, label policy, architecture, augmentation, and regularization."
+    ],
+    "out_of_scope_current": [
+      "Cross-dataset transfer between DEAP and I-DARE.",
+      "Final paper-level performance claims from smoke runs.",
+      "EEG+EMG fusion before single-modality readiness and comparison.",
+      "Full paired model(BSL, STIM, STIM-BSL) before low-capacity BSL-stats evidence is interpreted.",
+      "Locking midpoint_as_high as the final label policy before label-policy ablation.",
+      "Promoting raw EMG to mainline without evidence against feature-level EMG."
+    ]
+  },
+  "long_term_objectives": [
+    {
+      "id": "L1",
+      "title": "Quantify EMG value added to EEG",
+      "definition": "Test whether EMG improves cross-subject emotion recognition when combined with EEG.",
+      "success_evidence": "Controlled EEG-only, EMG-only, and EEG+EMG evaluations under fixed protocol."
+    },
+    {
+      "id": "L2",
+      "title": "Build reproducible EEG/EMG pipelines for DEAP and I-DARE",
+      "definition": "Create cache-backed, documented, reproducible pipelines for EEG-only, EMG-only, and multimodal experiments.",
+      "success_evidence": "Reusable scripts, reports, frozen status docs, and central roadmap updates."
+    },
+    {
+      "id": "L3",
+      "title": "Use dataset structure responsibly",
+      "definition": "Do not force DEAP and I-DARE into identical modeling assumptions when their trial structures differ.",
+      "success_evidence": "DEAP sequence modeling and I-DARE BSL/STIM-aware ablations are evaluated separately."
+    },
+    {
+      "id": "L4",
+      "title": "Reach defensible final evaluation",
+      "definition": "Move from smoke/stabilization to broader/full evaluation and eventually final LOSO only after stability.",
+      "success_evidence": "Explicit transition from smoke to full/broader testing and documented decisions."
+    }
+  ],
+  "medium_term_objectives": [
+    {
+      "id": "M1",
+      "title": "Stabilize EEG-only baselines",
+      "status": "active/planned",
+      "supports": [
+        "L1",
+        "L2",
+        "L4"
+      ]
+    },
+    {
+      "id": "M2",
+      "title": "Stabilize EMG-only baselines",
+      "status": "active/frozen in parts",
+      "supports": [
+        "L1",
+        "L2",
+        "L4"
+      ]
+    },
+    {
+      "id": "M3",
+      "title": "Determine current I-DARE EEG and EMG mainline representations",
+      "status": "active/frozen in parts",
+      "supports": [
+        "L2",
+        "L3"
+      ]
+    },
+    {
+      "id": "M4",
+      "title": "Compare EMG raw waveform and feature-level representations",
+      "status": "frozen smoke evidence",
+      "supports": [
+        "L1",
+        "L2"
+      ]
+    },
+    {
+      "id": "M5",
+      "title": "Evaluate I-DARE BSL-aware modeling",
+      "status": "BSL-stats smoke frozen; direct comparison still needed",
+      "supports": [
+        "L2",
+        "L3"
+      ]
+    },
+    {
+      "id": "M6",
+      "title": "Evaluate DEAP temporal sequence modeling",
+      "status": "planned/not started in current frozen roadmap",
+      "supports": [
+        "L1",
+        "L3",
+        "L4"
+      ]
+    },
+    {
+      "id": "M7",
+      "title": "Evaluate EEG+EMG fusion",
+      "status": "not started intentionally",
+      "supports": [
+        "L1",
+        "L2",
+        "L4"
+      ]
+    },
+    {
+      "id": "M8",
+      "title": "Run controlled label-policy ablation",
+      "status": "planned/not final",
+      "supports": [
+        "L2",
+        "L4"
+      ]
+    },
+    {
+      "id": "M9",
+      "title": "Run EEGSegmentEncoder/Classifier architecture ablations",
+      "status": "planned after baseline stabilization",
+      "supports": [
+        "L2",
+        "L4"
+      ]
+    },
+    {
+      "id": "M10",
+      "title": "Evaluate data augmentation",
+      "status": "planned controlled ablation",
+      "supports": [
+        "L2",
+        "L4"
+      ]
+    },
+    {
+      "id": "M11",
+      "title": "Evaluate SupCon / VREx / domain generalization",
+      "status": "planned after baseline stabilization",
+      "supports": [
+        "L1",
+        "L2",
+        "L4"
+      ]
+    }
+  ],
+  "ablation_registry": [
+    {
+      "family": "Label policy",
+      "status": "planned/not final",
+      "items": [
+        "discard_midpoint",
+        "midpoint_as_low",
+        "midpoint_as_high"
+      ],
+      "activation_rule": "Run only under fixed splits, seeds, recipes, and metrics."
+    },
+    {
+      "family": "Windowing",
+      "status": "planned",
+      "items": [
+        "4s",
+        "5s",
+        "6s",
+        "optional 50% overlap"
+      ],
+      "activation_rule": "Run after baseline windowing path is stable."
+    },
+    {
+      "family": "DEAP temporal sequence modeling",
+      "status": "planned",
+      "items": [
+        "independent 5s windows",
+        "12-window trial sequence",
+        "EEG-only without sequence",
+        "EEG-only with sequence",
+        "EEG+EMG without sequence",
+        "EEG+EMG with sequence"
+      ],
+      "activation_rule": "Run after DEAP single-modality baselines are established."
+    },
+    {
+      "family": "EEGSegmentEncoder/Classifier architecture",
+      "status": "planned after baseline stabilization",
+      "items": [
+        "OldEncoder vs EEGSegmentClassifier",
+        "temporal stem variants",
+        "stem fusion concat/sum/attn/lightweight MoE",
+        "channel position none/learnable/coord",
+        "channel mixer none/MHA/graph_bias",
+        "raw-only vs raw+spectral",
+        "GN vs BN",
+        "modelsize lite vs base"
+      ],
+      "activation_rule": "Run as controlled ablations only after a stable EEG baseline exists."
+    },
+    {
+      "family": "EMG representation",
+      "status": "active/frozen in parts",
+      "items": [
+        "feature-level EMG",
+        "raw waveform EMG",
+        "EMG BSL-stats sidecar"
+      ],
+      "activation_rule": "Feature-level EMG remains mainline unless controlled evidence changes it."
+    },
+    {
+      "family": "I-DARE BSL-aware modeling",
+      "status": "active/frozen in parts",
+      "items": [
+        "STIM-only",
+        "STIM-BSL",
+        "STIM-BSL + BSL stats",
+        "later model(BSL, STIM, STIM-BSL)"
+      ],
+      "activation_rule": "Full paired model is allowed only after BSL-stats evidence is compared against STIM-BSL-only baselines."
+    },
+    {
+      "family": "Data augmentation",
+      "status": "planned controlled ablation",
+      "items": [
+        "noise/jitter/scaling/window-level augmentations if justified",
+        "dataset-appropriate augmentation only"
+      ],
+      "activation_rule": "Run only after a stable baseline and with augmentation leakage checks."
+    },
+    {
+      "family": "SupCon / Domain Generalization",
+      "status": "planned after baseline stabilization",
+      "items": [
+        "CE only",
+        "CE + affective SupCon",
+        "CE + VREx",
+        "CE + SupCon + VREx"
+      ],
+      "activation_rule": "Run only after baseline/fusion readiness; positive pairs must respect affective response, not stimulus identity alone."
+    }
+  ],
+  "short_term_objective_template": {
+    "required_fields": [
+      "id",
+      "linked_medium_objective",
+      "question",
+      "input_artifacts",
+      "expected_outputs",
+      "smoke_pass_criteria",
+      "full_or_broader_pass_criteria",
+      "failure_taxonomy",
+      "next_allowed_step",
+      "intentionally_not_started",
+      "docs_to_update_on_close"
+    ]
+  },
+  "current_priority_filter": [
+    "Do not start an ablation unless it is linked to a medium-term objective.",
+    "Do not run an ablation if the result cannot change a decision.",
+    "Do not start fusion before single-modality readiness is documented.",
+    "Prefer direct comparison docs before adding new model families.",
+    "Treat planned ablations as registry items, not permission to run them immediately."
+  ],
+  "current_next_allowed_focus": [
+    "Directly compare BSL-stats ablations against corresponding STIM-BSL-only baselines for EEG and EMG.",
+    "Keep fusion not-started until this comparison is documented.",
+    "Keep label policy open for future controlled ablation."
+  ]
+}

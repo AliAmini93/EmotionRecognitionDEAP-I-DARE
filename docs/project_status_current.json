@@ -3921,5 +3921,25 @@
   "operating_protocol": "docs/project_operating_protocol.md",
   "protocol_notes": {
     "new_chat_sync": "Read docs/project_operating_protocol.md before running patches, commits, experiments, or phase closeouts."
-  }
+  },
+  "research_scope_and_objectives": "docs/research_scope_and_objectives.md",
+  "smoke_and_evaluation_protocol": "docs/smoke_and_evaluation_protocol.md",
+  "operating_protocol_notes": {
+    "new_chat_sync": "Read docs/project_operating_protocol.md, docs/research_scope_and_objectives.md, and docs/smoke_and_evaluation_protocol.md before running patches, commits, experiments, or phase closeouts.",
+    "objective_rule": "Every short-term objective must link to a medium-term objective and long-term project goal.",
+    "smoke_rule": "Smoke pass allows broader/full evaluation or controlled comparison; it is not a final claim."
+  },
+  "phase_roadmap": [
+    {
+      "area": "Research scope / smoke-evaluation protocol",
+      "current_state": "current governance docs added",
+      "frozen": "yes",
+      "evidence": [
+        "docs/research_scope_and_objectives.md",
+        "docs/smoke_and_evaluation_protocol.md"
+      ],
+      "next_allowed_step": "Use these before launching new objectives or ablations.",
+      "intentionally_not_started": "Treating planned ablations as permission to run all of them immediately."
+    }
+  ]
 }

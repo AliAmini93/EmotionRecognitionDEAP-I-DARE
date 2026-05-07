@@ -12,6 +12,8 @@ It summarizes the latest frozen documentation and explicitly separates smoke evi
 - Current evidence level: smoke/stabilization, not final performance.
 - Current discipline: cache-backed runs, subject-held-out validation first, status docs frozen before moving to the next phase.
 - Operating conventions: `docs/project_operating_protocol.md`
+- Research scope/objectives: `docs/research_scope_and_objectives.md`
+- Smoke/evaluation protocol: `docs/smoke_and_evaluation_protocol.md`
 
 ## Proposal Alignment
 
@@ -38,6 +40,7 @@ Final claims should not lock to `midpoint_as_high` until these policies are comp
 
 | Area | Current state | Frozen? | Evidence | Next allowed step | Intentionally not started |
 |---|---|---|---|---|---|
+| Research scope / smoke-evaluation protocol | current governance docs added | yes | `docs/research_scope_and_objectives.md`<br>`docs/smoke_and_evaluation_protocol.md` | Use these before launching new objectives or ablations. | Treating planned ablations as permission to run all of them immediately. |
 | DEAP modality audit / EMG feature path | completed enough for EMG feature-only smoke | yes | `docs/deap_emg_feature_only_status.md` | Broader DEAP EMG evaluation or align DEAP EEG path before fusion. | Final LOSO claim; raw EMG waveform mainline. |
 | I-DARE EMG feature-only | cache-backed and smoke-tested for valence/arousal | yes | `docs/idare_emg_feature_only_status.md` | Use as main EMG representation unless a controlled ablation beats it. | Fusion claim; final LOSO claim. |
 | I-DARE raw EMG-only | raw waveform cache and raw EMG-only smokes completed | yes | `docs/idare_raw_emg_only_status.md`<br>`docs/idare_emg_raw_vs_feature_smoke_comparison.md` | Keep as ablation; feature-level EMG remains mainline. | Raw EMG as mainline. |
