@@ -1,0 +1,221 @@
+# I-DARE Broader Standardized Single-Modality Evaluation Objective
+
+## Status
+
+Short-term execution objective.
+
+This document authorizes execution of the **primary run matrix only** from:
+
+- `docs/idare_broader_standardized_single_modality_evaluation_execution_spec.md`
+
+It does not authorize optional robustness runs, fusion, full paired BSL/STIM modeling, final LOSO claims, or label-policy finalization.
+
+## Why this objective exists
+
+The project has already completed:
+
+- standardized EEG `STIM-BSL`-only baseline smoke
+- EEG/EMG BSL-stats vs baseline comparison
+- human review of that comparison
+- broader single-modality evaluation plan
+- broader single-modality execution spec
+
+The current smoke-level conclusion is:
+
+- EEG mainline remains baseline-corrected `STIM-BSL`-only.
+- EMG mainline remains feature-level EMG.
+- BSL-stats sidecars remain controlled ablations.
+- Fusion is not started.
+
+This objective allows the next controlled step: run a broader standardized single-modality evaluation to test whether those smoke-level conclusions are stable.
+
+## Scientific question
+
+Do the current I-DARE single-modality conclusions remain stable under the broader standardized primary run matrix?
+
+Specifically:
+
+1. Does EEG `STIM-BSL`-only remain stronger than EEG `STIM-BSL + BSL-stats`?
+2. Does EMG feature-level remain the practical EMG mainline?
+3. Are the small EMG BSL-stats gains stable or smoke-level noise?
+
+## Authorized scope
+
+Authorized:
+
+- I-DARE EEG `STIM-BSL`-only.
+- I-DARE EEG `STIM-BSL + BSL-stats`.
+- I-DARE EMG feature-only.
+- I-DARE EMG feature + BSL-stats.
+- `valence` and `arousal`.
+- `midpoint_as_high` as the controlled comparison label policy.
+- Primary matrix only: 96 runs.
+
+Not authorized:
+
+- optional robustness seed `13`
+- EEG+EMG fusion
+- full `model(BSL, STIM, STIM-BSL)`
+- final LOSO / final paper claim
+- locking `midpoint_as_high`
+- raw EMG mainline
+- architecture ablations
+- data augmentation
+- SupCon / VREx / domain generalization
+
+## Primary run matrix
+
+Use:
+
+- conditions: 4
+- tasks: 2
+- recipes: 2
+- folds: 6
+- seeds: 1
+
+Total:
+
+```text
+4 * 2 * 2 * 6 * 1 = 96 runs
+```
+
+Conditions:
+
+| ID | Condition |
+|---|---|
+| EEG-B0 | baseline-corrected `STIM-BSL` EEG response cache only |
+| EEG-B1 | baseline-corrected `STIM-BSL` EEG response cache + EEG BSL-stats sidecar |
+| EMG-B0 | feature-level EMG cache only |
+| EMG-B1 | feature-level EMG cache + EMG BSL-stats sidecar |
+
+Tasks:
+
+- `valence`
+- `arousal`
+
+Recipes:
+
+- `ce_class_weighted`
+- `balanced_sampler_ce`
+
+Seed:
+
+- `11`
+
+Folds:
+
+- all 6 subject-held-out folds
+
+## Hyperparameters
+
+### EEG
+
+- epochs: `12`
+- learning rate: `1e-3`
+- batch size: `64`
+- weight decay: `1e-3`
+- grad clip: `1.0`
+
+### EMG
+
+- epochs: `20`
+- learning rate: `1e-3`
+- batch size: `128`
+- hidden dim: `64`
+- zclip: `8.0`
+
+## Required outputs
+
+At minimum, execution should produce:
+
+- per-condition markdown reports
+- per-condition JSON reports
+- prediction CSV files
+- combined comparison report:
+  - `docs/idare_broader_standardized_single_modality_evaluation_report.md`
+  - `docs/idare_broader_standardized_single_modality_evaluation_report.json`
+- central roadmap update
+- clear pass/fail/freeze decision
+
+## Metrics
+
+Report:
+
+- final macro F1
+- final balanced accuracy
+- final accuracy
+- majority baseline
+- one-class final runs
+- threshold-best macro F1
+- threshold-best balanced accuracy
+- threshold one-class runs
+- per-fold results
+- per-recipe results
+
+## Execution gates
+
+Before running:
+
+- repo must be clean
+- required caches must exist locally
+- scripts must be checked for whether they can generate the required output schema
+- fold/task/seed/recipe alignment must be confirmed
+- no sidecar leakage should be possible
+
+During running:
+
+- log terminal output
+- stop on data/protocol failure
+- do not silently change hyperparameters
+- do not add optional robustness seed
+- do not start fusion
+
+After running:
+
+- inspect all reports
+- verify JSON validity
+- verify prediction CSV existence
+- summarize pass/fail
+- update central roadmap
+- commit outputs only after review
+
+## Pass criteria
+
+The objective can be closed if:
+
+- all 96 primary runs finish
+- all required reports are created
+- all JSON reports validate
+- prediction CSVs exist
+- no cache/index mismatch occurs
+- no sidecar leakage occurs
+- no hidden one-class collapse exists
+- fold/seed/task/recipe alignment is documented
+- results are interpreted as smoke-to-broader-evaluation evidence, not final LOSO
+
+## Failure handling
+
+| Failure | Meaning | Action |
+|---|---|---|
+| engineering fail | script crash, missing output, bad JSON | fix script/output and rerun same objective |
+| data/protocol fail | fold mismatch, cache mismatch, sidecar leakage | stop and audit |
+| scientific weak result | model weak but protocol valid | document result |
+| inconclusive | outputs incomplete or unstable | do not promote any mainline |
+| repeated scientific failure | repeated collapse or unstable behavior | stop blind tuning and review method |
+
+## Closeout decision
+
+At closeout, decide one of:
+
+1. keep current mainlines unchanged
+2. promote no sidecar but document broader evidence
+3. identify a controlled follow-up objective
+4. stop and hand off
+
+Do not jump directly to fusion.
+
+## Next step after this objective
+
+Prepare execution commands or limited script patches needed to run the 96-run primary matrix.
+
+Do not execute until commands/scripts are reviewed.

@@ -1,0 +1,71 @@
+{
+  "status": "short_term_execution_objective",
+  "authorized_execution": true,
+  "authorized_scope": "primary run matrix only",
+  "source_spec": "docs/idare_broader_standardized_single_modality_evaluation_execution_spec.md",
+  "objective": "Execute the broader standardized I-DARE single-modality primary run matrix.",
+  "scientific_questions": [
+    "Does EEG STIM-BSL-only remain stronger than EEG STIM-BSL plus BSL-stats?",
+    "Does EMG feature-level remain the practical EMG mainline?",
+    "Are small EMG BSL-stats gains stable or smoke-level noise?"
+  ],
+  "conditions": {
+    "EEG-B0": "baseline-corrected STIM-BSL EEG response cache only",
+    "EEG-B1": "baseline-corrected STIM-BSL EEG response cache plus EEG BSL-stats sidecar",
+    "EMG-B0": "feature-level EMG cache only",
+    "EMG-B1": "feature-level EMG cache plus EMG BSL-stats sidecar"
+  },
+  "tasks": [
+    "valence",
+    "arousal"
+  ],
+  "recipes": [
+    "ce_class_weighted",
+    "balanced_sampler_ce"
+  ],
+  "folds": 6,
+  "seeds": [
+    11
+  ],
+  "total_primary_runs": 96,
+  "label_policy": {
+    "controlled_policy": "midpoint_as_high",
+    "final_locked": false
+  },
+  "hyperparameters": {
+    "eeg": {
+      "epochs": 12,
+      "lr": 0.001,
+      "batch_size": 64,
+      "weight_decay": 0.001,
+      "grad_clip": 1.0
+    },
+    "emg": {
+      "epochs": 20,
+      "lr": 0.001,
+      "batch_size": 128,
+      "hidden_dim": 64,
+      "zclip": 8.0
+    }
+  },
+  "required_outputs": [
+    "per-condition markdown reports",
+    "per-condition JSON reports",
+    "prediction CSV files",
+    "combined comparison report",
+    "central roadmap update",
+    "clear pass/fail/freeze decision"
+  ],
+  "not_authorized": [
+    "optional robustness seed 13",
+    "EEG+EMG fusion",
+    "full model(BSL, STIM, STIM-BSL)",
+    "final LOSO / final paper claim",
+    "locking midpoint_as_high",
+    "raw EMG mainline",
+    "architecture ablations",
+    "data augmentation",
+    "SupCon / VREx / domain generalization"
+  ],
+  "next_step": "Prepare execution commands or limited script patches needed to run the 96-run primary matrix; do not execute until reviewed."
+}
