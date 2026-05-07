@@ -117,6 +117,159 @@ git restore --staged "$LOG_FILE" 2>/dev/null || true
 rm -f "$LOG_FILE"
 ```
 
+## Assistant/User Handoff Protocol
+
+This project often advances through an external-run loop:
+
+1. The assistant prepares a patch, command block, analysis script, or experiment plan.
+2. The user runs it locally in the repository or with local/private data.
+3. The user returns the requested outputs to the assistant.
+4. The assistant analyzes those outputs and decides the next safe step.
+5. Durable conclusions are written into repository docs.
+
+This loop must be explicit. Every command block or patch should say what the assistant expects back.
+
+### Required Return Payload
+
+At the end of any instruction block, the assistant should specify one of these return types:
+
+| Return type | When it is enough | What the user should send back |
+|---|---|---|
+| Terminal-only | Compile checks, git status, small sanity summaries, short smoke logs | Full terminal output from the command block |
+| Files-only | The key result is a generated file, plot, table, image, CSV, JSON, or report | The requested files uploaded or pasted, plus a short note that the command finished |
+| Terminal + files | The terminal output confirms execution, but files contain the evidence | Full terminal output and the requested files |
+| GitHub-only | The change was committed/pushed and can be checked from GitHub | Commit hash, `git status --short`, and `git log --oneline -9` |
+| Human decision | The next step needs project judgment rather than code execution | The user's decision, constraints, or preference |
+
+The assistant should not assume terminal output is always sufficient. If a generated artifact is needed for interpretation, the assistant must ask for it explicitly.
+
+### Output Location Rules
+
+Generated outputs should be placed in predictable locations:
+
+| Output kind | Preferred location | Commit? |
+|---|---|---|
+| Smoke/build Markdown report | `docs/` | Yes |
+| Smoke/build JSON report | `docs/` | Yes |
+| Prediction CSV diagnostics | `docs/` | Yes, after line-ending sanity |
+| Status/freeze docs | `docs/` | Yes |
+| Central roadmap updates | `docs/project_status_current.md/json` | Yes |
+| Protocol docs | `docs/` | Yes |
+| Patch logs | `docs/*.log` | No |
+| One-off patch scripts | `$HOME/Downloads/` | No |
+| Reusable project scripts | `scripts/` | Yes |
+| Cache arrays / sidecars | `.cache/` | No by default |
+| Temporary plots/images for assistant review | `docs/_scratch/` or `$HOME/Downloads/` | No by default |
+| Final report figures/tables | `docs/` or a dedicated tracked report folder | Yes, if part of durable documentation |
+
+If a temporary file is useful only for assistant review, do not commit it. If the analysis result is scientifically meaningful, summarize it in a tracked Markdown/JSON report.
+
+### File Return Rules
+
+When asking the user to send files back, the assistant should name the exact paths.
+
+Examples:
+
+```text
+Please return:
+1. Full terminal output
+2. docs/some_smoke_report.md
+3. docs/some_smoke_report.json
+4. docs/some_predictions.csv
+```
+
+For images/plots:
+
+```text
+Please return:
+1. Full terminal output
+2. docs/some_plot.png
+3. The Markdown/JSON report that explains how the plot was generated
+```
+
+For large CSV/JSON files:
+
+- Prefer a concise Markdown/JSON summary committed under `docs/`.
+- Ask for the full file only if row-level or artifact-level inspection is necessary.
+- If a large file is required, request only the specific file and explain why it is needed.
+
+### Analysis Documentation Rule
+
+Any important analysis based on returned terminal output, CSVs, JSON files, plots, or images must become durable documentation.
+
+Do not leave important interpretations only in chat.
+
+Use one of these forms:
+
+| Situation | Durable documentation |
+|---|---|
+| Build/cache result | `docs/*_build_report.md/json` |
+| Training smoke result | `docs/*_smoke.md/json` |
+| Cross-run comparison | `docs/*_comparison.md/json` |
+| Phase decision | `docs/*_status.md/json` |
+| Roadmap-level change | `docs/project_status_current.md/json` |
+| Operating convention change | `docs/project_operating_protocol.md` |
+
+### Assistant Response Template for External Runs
+
+When the assistant gives a command block that the user will run locally, it should end with a clear handoff request:
+
+```text
+After this finishes, please send back:
+1. The full terminal output
+2. The generated files:
+   - docs/example_report.md
+   - docs/example_report.json
+3. The final `git status --short` and `git log --oneline -9`
+
+Do not commit:
+- docs/example_patch.log
+- one-off patch scripts
+- cache arrays under `.cache/`
+```
+
+### User Return Template
+
+When the user reports results back, the preferred structure is:
+
+```text
+Here is the terminal output:
+<terminal output>
+
+Generated files available:
+- docs/example_report.md
+- docs/example_report.json
+- docs/example_predictions.csv
+
+Commit/push status:
+<git status/log output>
+
+Notes:
+<any concern, crash, closed terminal, missing file, or unexpected behavior>
+```
+
+If the terminal window closes or output is incomplete, the next assistant response should start with recovery commands rather than assuming success.
+
+### Decision Rules After Returned Outputs
+
+After receiving returned outputs, the assistant should:
+
+1. Check whether the run completed.
+2. Check whether expected files exist.
+3. Check whether reports say `PASSED` or contain issues/warnings.
+4. Check whether metrics and diagnostics are interpretable.
+5. Check whether line endings or generated files need cleanup.
+6. Decide whether to:
+   - rerun,
+   - inspect a file,
+   - commit,
+   - create a status/freeze doc,
+   - update the central roadmap,
+   - or stop and ask for a human decision.
+
+The assistant should not move to the next scientific phase until the previous phase is documented and closed according to this protocol.
+
+
 ## Experiment / Build Lifecycle
 
 A build or experiment phase is not considered closed until all required docs are updated.
