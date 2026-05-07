@@ -1,0 +1,45 @@
+pair_name,pair_type,left,right,task,policy,recipe,n_aligned,y_true_mismatch,left_error_rate,right_error_rate,both_error_rate,either_error_rate,error_jaccard
+label_policy_mainline:EEG_vs_EMG,modality_overlap,EEG STIM-BSL-only,EMG feature-only,arousal,discard_midpoint,balanced_sampler_ce,1,1,0.0,1.0,0.0,1.0,0.0
+label_policy_mainline:EEG_vs_EMG,modality_overlap,EEG STIM-BSL-only,EMG feature-only,arousal,discard_midpoint,ce_class_weighted,1,1,1.0,0.0,0.0,1.0,0.0
+label_policy_mainline:EEG_vs_EMG,modality_overlap,EEG STIM-BSL-only,EMG feature-only,arousal,midpoint_as_high,balanced_sampler_ce,2,2,1.0,0.5,0.5,1.0,0.5
+label_policy_mainline:EEG_vs_EMG,modality_overlap,EEG STIM-BSL-only,EMG feature-only,arousal,midpoint_as_high,ce_class_weighted,2,2,0.5,0.5,0.5,0.5,1.0
+label_policy_mainline:EEG_vs_EMG,modality_overlap,EEG STIM-BSL-only,EMG feature-only,arousal,midpoint_as_low,balanced_sampler_ce,2,1,0.5,1.0,0.5,1.0,0.5
+label_policy_mainline:EEG_vs_EMG,modality_overlap,EEG STIM-BSL-only,EMG feature-only,arousal,midpoint_as_low,ce_class_weighted,2,1,1.0,0.5,0.5,1.0,0.5
+label_policy_mainline:EEG_vs_EMG,modality_overlap,EEG STIM-BSL-only,EMG feature-only,valence,discard_midpoint,balanced_sampler_ce,1,1,0.0,0.0,0.0,0.0,0.0
+label_policy_mainline:EEG_vs_EMG,modality_overlap,EEG STIM-BSL-only,EMG feature-only,valence,discard_midpoint,ce_class_weighted,1,1,1.0,0.0,0.0,1.0,0.0
+label_policy_mainline:EEG_vs_EMG,modality_overlap,EEG STIM-BSL-only,EMG feature-only,valence,midpoint_as_high,balanced_sampler_ce,2,1,0.5,0.5,0.0,1.0,0.0
+label_policy_mainline:EEG_vs_EMG,modality_overlap,EEG STIM-BSL-only,EMG feature-only,valence,midpoint_as_high,ce_class_weighted,2,1,0.0,0.5,0.0,0.5,0.0
+label_policy_mainline:EEG_vs_EMG,modality_overlap,EEG STIM-BSL-only,EMG feature-only,valence,midpoint_as_low,balanced_sampler_ce,2,2,0.0,0.0,0.0,0.0,0.0
+label_policy_mainline:EEG_vs_EMG,modality_overlap,EEG STIM-BSL-only,EMG feature-only,valence,midpoint_as_low,ce_class_weighted,2,2,0.0,0.0,0.0,0.0,0.0
+broader_mainline:EEG_vs_EMG,modality_overlap,EEG STIM-BSL-only,EMG feature-only,arousal,midpoint_as_high,balanced_sampler_ce,2,2,0.0,0.5,0.0,0.5,0.0
+broader_mainline:EEG_vs_EMG,modality_overlap,EEG STIM-BSL-only,EMG feature-only,arousal,midpoint_as_high,ce_class_weighted,2,2,0.5,0.5,0.5,0.5,1.0
+broader_mainline:EEG_vs_EMG,modality_overlap,EEG STIM-BSL-only,EMG feature-only,valence,midpoint_as_high,balanced_sampler_ce,2,1,0.0,0.5,0.0,0.5,0.0
+broader_mainline:EEG_vs_EMG,modality_overlap,EEG STIM-BSL-only,EMG feature-only,valence,midpoint_as_high,ce_class_weighted,2,1,0.0,0.5,0.0,0.5,0.0
+broader_EEG:baseline_vs_BSL-stats,representation_overlap,EEG STIM-BSL-only,EEG STIM-BSL-plus-BSL-stats,arousal,midpoint_as_high,balanced_sampler_ce,17136,6690,0.4945728291316527,0.4900210084033613,0.252859477124183,0.731734360410831,0.3455618470372438
+broader_EEG:baseline_vs_BSL-stats,representation_overlap,EEG STIM-BSL-only,EEG STIM-BSL-plus-BSL-stats,arousal,midpoint_as_high,ce_class_weighted,17136,6690,0.4481792717086835,0.4768323996265173,0.21889589169000934,0.7061157796451915,0.31
+broader_EEG:baseline_vs_BSL-stats,representation_overlap,EEG STIM-BSL-only,EEG STIM-BSL-plus-BSL-stats,valence,midpoint_as_high,balanced_sampler_ce,17136,7478,0.4585084033613445,0.47280578898225956,0.22455648926237162,0.7067577030812325,0.317727685575097
+broader_EEG:baseline_vs_BSL-stats,representation_overlap,EEG STIM-BSL-only,EEG STIM-BSL-plus-BSL-stats,valence,midpoint_as_high,ce_class_weighted,17136,7478,0.45115546218487396,0.4835434173669468,0.2215219421101774,0.7131769374416433,0.3106128794697652
+broader_EMG:baseline_vs_BSL-stats,representation_overlap,EMG feature-only,EMG feature-plus-BSL-stats,arousal,midpoint_as_high,balanced_sampler_ce,2,2,0.5,1.0,0.5,1.0,0.5
+broader_EMG:baseline_vs_BSL-stats,representation_overlap,EMG feature-only,EMG feature-plus-BSL-stats,arousal,midpoint_as_high,ce_class_weighted,2,2,0.5,0.0,0.0,0.5,0.0
+broader_EMG:baseline_vs_BSL-stats,representation_overlap,EMG feature-only,EMG feature-plus-BSL-stats,valence,midpoint_as_high,balanced_sampler_ce,2,1,0.5,0.5,0.0,1.0,0.0
+broader_EMG:baseline_vs_BSL-stats,representation_overlap,EMG feature-only,EMG feature-plus-BSL-stats,valence,midpoint_as_high,ce_class_weighted,2,1,0.5,0.5,0.0,1.0,0.0
+label_eeg_mainline:valence_vs_arousal,task_overlap,valence,arousal,valence_vs_arousal,discard_midpoint,balanced_sampler_ce,12338,0,0.48824769006321933,0.45282865942616307,0.2185929648241206,0.7224833846652617,0.3025577742876374
+label_eeg_mainline:valence_vs_arousal,task_overlap,valence,arousal,valence_vs_arousal,discard_midpoint,ce_class_weighted,12338,0,0.5035662181877127,0.4733344140055114,0.23812611444318366,0.7387745177500405,0.322325836533187
+label_eeg_mainline:valence_vs_arousal,task_overlap,valence,arousal,valence_vs_arousal,midpoint_as_high,balanced_sampler_ce,17136,0,0.4750816993464052,0.4901377217553688,0.23669467787114845,0.7285247432306255,0.324895866709388
+label_eeg_mainline:valence_vs_arousal,task_overlap,valence,arousal,valence_vs_arousal,midpoint_as_high,ce_class_weighted,17136,0,0.4707049486461251,0.4627684407096172,0.21889589169000934,0.714577497665733,0.30632911392405066
+label_eeg_mainline:valence_vs_arousal,task_overlap,valence,arousal,valence_vs_arousal,midpoint_as_low,balanced_sampler_ce,17136,0,0.5068860877684407,0.43539915966386555,0.218312324929972,0.7239729225023342,0.3015476382395615
+label_eeg_mainline:valence_vs_arousal,task_overlap,valence,arousal,valence_vs_arousal,midpoint_as_low,ce_class_weighted,17136,0,0.5122549019607843,0.45786647992530344,0.2330765639589169,0.7370448179271709,0.31623119556611246
+label_emg_mainline:valence_vs_arousal,task_overlap,valence,arousal,valence_vs_arousal,discard_midpoint,balanced_sampler_ce,1506,0,0.5033200531208499,0.4767596281540505,0.250996015936255,0.7290836653386454,0.3442622950819672
+label_emg_mainline:valence_vs_arousal,task_overlap,valence,arousal,valence_vs_arousal,discard_midpoint,ce_class_weighted,1506,0,0.4940239043824701,0.4648074369189907,0.2403718459495352,0.7184594953519257,0.3345656192236599
+label_emg_mainline:valence_vs_arousal,task_overlap,valence,arousal,valence_vs_arousal,midpoint_as_high,balanced_sampler_ce,2016,0,0.49007936507936506,0.48412698412698413,0.2584325396825397,0.7157738095238095,0.36105336105336105
+label_emg_mainline:valence_vs_arousal,task_overlap,valence,arousal,valence_vs_arousal,midpoint_as_high,ce_class_weighted,2016,0,0.4781746031746032,0.4791666666666667,0.24851190476190477,0.7088293650793651,0.35059482155353394
+label_emg_mainline:valence_vs_arousal,task_overlap,valence,arousal,valence_vs_arousal,midpoint_as_low,balanced_sampler_ce,2016,0,0.5109126984126984,0.4742063492063492,0.24603174603174602,0.7390873015873016,0.33288590604026846
+label_emg_mainline:valence_vs_arousal,task_overlap,valence,arousal,valence_vs_arousal,midpoint_as_low,ce_class_weighted,2016,0,0.4930555555555556,0.4642857142857143,0.22916666666666666,0.7281746031746031,0.31471389645776565
+broader_eeg_stim_bsl_only:valence_vs_arousal,task_overlap,valence,arousal,valence_vs_arousal,midpoint_as_high,balanced_sampler_ce,17136,0,0.4585084033613445,0.4945728291316527,0.22560690943043885,0.7274743230625583,0.3101235360179689
+broader_eeg_stim_bsl_only:valence_vs_arousal,task_overlap,valence,arousal,valence_vs_arousal,midpoint_as_high,ce_class_weighted,17136,0,0.45115546218487396,0.4481792717086835,0.2032563025210084,0.696078431372549,0.2920020120724346
+broader_eeg_bsl_stats:valence_vs_arousal,task_overlap,valence,arousal,valence_vs_arousal,midpoint_as_high,balanced_sampler_ce,17136,0,0.47280578898225956,0.4900210084033613,0.23447712418300654,0.7283496732026143,0.32192933258553
+broader_eeg_bsl_stats:valence_vs_arousal,task_overlap,valence,arousal,valence_vs_arousal,midpoint_as_high,ce_class_weighted,17136,0,0.4835434173669468,0.4768323996265173,0.23336834733893558,0.7270074696545284,0.3209985551452882
+broader_emg_feature_only:valence_vs_arousal,task_overlap,valence,arousal,valence_vs_arousal,midpoint_as_high,balanced_sampler_ce,2016,0,0.49007936507936506,0.48412698412698413,0.2584325396825397,0.7157738095238095,0.36105336105336105
+broader_emg_feature_only:valence_vs_arousal,task_overlap,valence,arousal,valence_vs_arousal,midpoint_as_high,ce_class_weighted,2016,0,0.4781746031746032,0.4791666666666667,0.24851190476190477,0.7088293650793651,0.35059482155353394
+broader_emg_bsl_stats:valence_vs_arousal,task_overlap,valence,arousal,valence_vs_arousal,midpoint_as_high,balanced_sampler_ce,17136,0,0.49188842203548083,0.477999533146592,0.2378034547152194,0.7320845004668534,0.3248306098047031
+broader_emg_bsl_stats:valence_vs_arousal,task_overlap,valence,arousal,valence_vs_arousal,midpoint_as_high,ce_class_weighted,17136,0,0.48891223155929037,0.4738562091503268,0.23015873015873015,0.732609710550887,0.3141628166321491
