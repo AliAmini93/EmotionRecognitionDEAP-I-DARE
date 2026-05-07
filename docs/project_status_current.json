@@ -1012,6 +1012,27 @@
       ],
       "status": "frozen_human_review_closeout"
     },
+    "idare_subject_relative_minimal_training_report": {
+      "claim_level": "minimal controlled diagnostic training first pass; no final LOSO claim; no mainline change",
+      "completed_runs": 24,
+      "diagnosis": "subject_relative_first_pass_not_sufficient_alone",
+      "evidence": "docs/idare_subject_relative_minimal_training_report.md",
+      "evidence_json": "docs/idare_subject_relative_minimal_training_report.json",
+      "not_authorized": [
+        "EEG+EMG fusion",
+        "final LOSO / final paper claim",
+        "final global label-policy lock",
+        "architecture ablation for improvement",
+        "data augmentation",
+        "SupCon / VREx / domain generalization",
+        "broad hyperparameter search",
+        "mainline change",
+        "BSL-stats sidecars in first pass"
+      ],
+      "recommended_next_objective": "subject_relative_representation_preprocessing_objective",
+      "status": "complete_pending_review",
+      "subject_relative_formulation": "subject_top_bottom_quantile_q33"
+    },
     "idare_subject_relative_task_formulation_objective": {
       "authorized_work": [
         "subject_relative_label_design",
