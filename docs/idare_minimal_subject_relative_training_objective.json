@@ -1,0 +1,86 @@
+{
+  "status": "short_term_objective_created",
+  "created_or_updated_utc": "2026-05-07T16:19:26.863583+00:00",
+  "objective": "I-DARE minimal subject-relative training objective",
+  "evidence_level": "minimal controlled diagnostic training objective; no final LOSO claim; no mainline change",
+  "source_checkpoint": {
+    "subject_relative_formulation_review": "docs/idare_subject_relative_task_formulation_review_status.md",
+    "subject_relative_formulation_report": "docs/idare_subject_relative_task_formulation_report.md",
+    "candidate_matrix": "docs/idare_subject_relative_candidate_matrix.csv",
+    "label_balance_summary": "docs/idare_subject_relative_label_balance_summary.csv"
+  },
+  "selected_task_formulation": "subject_top_bottom_quantile_q33",
+  "why_this_objective": [
+    "Global binary labels appear unstable under subject-heldout evaluation.",
+    "Subject-relative top/bottom quantile labels are the selected controlled first fix candidate.",
+    "A minimal training run is needed to test whether the task redesign improves subject-heldout macro-F1/balanced accuracy before considering architecture, fusion, augmentation, or DG."
+  ],
+  "authorized_scope": {
+    "new_training_authorized": true,
+    "training_type": "minimal controlled diagnostic training only",
+    "modalities": [
+      "EEG_STIM_BSL_ONLY",
+      "EMG_FEATURE_ONLY"
+    ],
+    "tasks": [
+      "valence",
+      "arousal"
+    ],
+    "folds": 6,
+    "seed": 11,
+    "label_formulation": "subject_top_bottom_quantile_q33",
+    "recipes_first_pass": [
+      "ce_class_weighted"
+    ],
+    "max_runs_first_pass": 24,
+    "optional_second_pass_recipe": "balanced_sampler_ce",
+    "optional_second_pass_condition": "Only run after first-pass validation, if outputs are valid and the first pass is not obviously broken.",
+    "optional_additional_runs": 24,
+    "claim_level": "diagnostic only"
+  },
+  "implementation_requirements": [
+    "Create or patch scripts so subject-relative labels are generated deterministically from existing per-trial valence/arousal ratings.",
+    "The selected formulation is subject_top_bottom_quantile_q33: per subject and task, bottom third is class 0, top third is class 1, middle third is discarded.",
+    "Fold splitting must remain sidecar-compatible: numpy default_rng(seed=11), 6 folds.",
+    "No heldout-subject predictions may be used to define labels.",
+    "Generated outputs must record retained sample counts per task/fold/modality.",
+    "Run EEG and EMG mainlines only; do not include BSL-stats sidecars in this first pass."
+  ],
+  "expected_outputs_first_pass": [
+    "docs/idare_subject_relative_minimal_eeg_primary.md",
+    "docs/idare_subject_relative_minimal_eeg_primary.json",
+    "docs/idare_subject_relative_minimal_eeg_primary_predictions.csv",
+    "docs/idare_subject_relative_minimal_emg_primary.md",
+    "docs/idare_subject_relative_minimal_emg_primary.json",
+    "docs/idare_subject_relative_minimal_emg_primary_predictions.csv",
+    "docs/idare_subject_relative_minimal_training_report.md",
+    "docs/idare_subject_relative_minimal_training_report.json"
+  ],
+  "pass_criteria": [
+    "First pass completes 24 planned diagnostic runs: 2 modalities x 2 tasks x 6 folds x 1 recipe x seed 11.",
+    "All first-pass JSON outputs validate.",
+    "All first-pass prediction CSV outputs are non-empty.",
+    "Every run records subject-relative formulation and retained validation sample count.",
+    "No fusion, architecture/DG/augmentation, broad hyperparameter search, final LOSO claim, or mainline change is made.",
+    "A combined report compares subject-relative results against the previous global-label mainline baseline at diagnostic level.",
+    "The combined report recommends exactly one next objective after human review."
+  ],
+  "candidate_next_objectives_after_review": [
+    "minimal_subject_relative_balanced_sampler_pass_objective",
+    "subject_relative_representation_preprocessing_objective",
+    "subject_relative_bsl_stats_sidecar_objective",
+    "stop_or_handoff_objective"
+  ],
+  "not_authorized": [
+    "EEG+EMG fusion",
+    "final LOSO / final paper claim",
+    "final global label-policy lock",
+    "architecture ablation for improvement",
+    "data augmentation",
+    "SupCon / VREx / domain generalization",
+    "broad hyperparameter search",
+    "mainline change",
+    "BSL-stats sidecars in first pass"
+  ],
+  "next_allowed_step": "Prepare reviewed implementation/run command for the 24-run first-pass minimal subject-relative training matrix."
+}

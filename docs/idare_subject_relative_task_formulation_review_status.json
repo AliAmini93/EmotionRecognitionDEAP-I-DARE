@@ -1,0 +1,51 @@
+{
+  "status": "frozen_human_review_closeout",
+  "created_or_updated_utc": "2026-05-07T16:19:26.863583+00:00",
+  "reviewed_report": "docs/idare_subject_relative_task_formulation_report.md",
+  "reviewed_json": "docs/idare_subject_relative_task_formulation_report.json",
+  "review_decision": {
+    "accepted": true,
+    "selected_formulation": "subject_top_bottom_quantile_q33",
+    "selected_next_objective": "minimal_subject_relative_training_objective",
+    "new_training_authorized_by_review": false,
+    "training_authorized_only_by_separate_objective": true,
+    "fusion_authorized": false,
+    "architecture_or_dg_authorized": false,
+    "final_loso_claim_authorized": false,
+    "mainline_change_authorized": false
+  },
+  "accepted_findings": {
+    "selected_formulation": "subject_top_bottom_quantile_q33",
+    "rationale": [
+      "Subject-relative top/bottom quantile formulation directly targets the diagnosed label/task subject-dependence blocker.",
+      "It uses only within-subject extremes and discards ambiguous middle trials.",
+      "It is lower coverage than z-score/median candidates, but gives cleaner labels for a first controlled training test."
+    ],
+    "future_matrix_draft": {
+      "modalities": [
+        "EEG STIM-BSL-only",
+        "EMG feature-only"
+      ],
+      "tasks": [
+        "valence",
+        "arousal"
+      ],
+      "folds": 6,
+      "seed": 11,
+      "first_pass_recipe": "ce_class_weighted",
+      "first_pass_runs": 24,
+      "optional_recipe": "balanced_sampler_ce",
+      "optional_additional_runs": 24
+    }
+  },
+  "not_authorized": [
+    "EEG+EMG fusion",
+    "final LOSO / final paper claim",
+    "final global label-policy lock",
+    "architecture ablation for improvement",
+    "data augmentation",
+    "SupCon / VREx / domain generalization",
+    "broad hyperparameter search",
+    "mainline change"
+  ]
+}

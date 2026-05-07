@@ -739,6 +739,47 @@
         }
       }
     },
+    "idare_minimal_subject_relative_training_objective": {
+      "evidence": "docs/idare_minimal_subject_relative_training_objective.md",
+      "evidence_json": "docs/idare_minimal_subject_relative_training_objective.json",
+      "expected_outputs_first_pass": [
+        "docs/idare_subject_relative_minimal_eeg_primary.md",
+        "docs/idare_subject_relative_minimal_eeg_primary.json",
+        "docs/idare_subject_relative_minimal_eeg_primary_predictions.csv",
+        "docs/idare_subject_relative_minimal_emg_primary.md",
+        "docs/idare_subject_relative_minimal_emg_primary.json",
+        "docs/idare_subject_relative_minimal_emg_primary_predictions.csv",
+        "docs/idare_subject_relative_minimal_training_report.md",
+        "docs/idare_subject_relative_minimal_training_report.json"
+      ],
+      "first_pass_runs": 24,
+      "modalities": [
+        "EEG_STIM_BSL_ONLY",
+        "EMG_FEATURE_ONLY"
+      ],
+      "new_training_authorized": true,
+      "next_allowed_step": "Prepare reviewed implementation/run command for the 24-run first-pass minimal subject-relative training matrix.",
+      "not_authorized": [
+        "EEG+EMG fusion",
+        "final LOSO / final paper claim",
+        "final global label-policy lock",
+        "architecture ablation for improvement",
+        "data augmentation",
+        "SupCon / VREx / domain generalization",
+        "broad hyperparameter search",
+        "mainline change",
+        "BSL-stats sidecars in first pass"
+      ],
+      "recipes_first_pass": [
+        "ce_class_weighted"
+      ],
+      "selected_task_formulation": "subject_top_bottom_quantile_q33",
+      "status": "short_term_objective_created",
+      "tasks": [
+        "valence",
+        "arousal"
+      ]
+    },
     "idare_representation_label_task_redesign_objective": {
       "authorized_work": [
         "label_noise_and_policy_diagnosis",
@@ -1028,6 +1069,25 @@
       "recommended_next_objective": "minimal_subject_relative_training_objective",
       "selected_formulation": "subject_top_bottom_quantile_q33",
       "status": "complete_pending_review"
+    },
+    "idare_subject_relative_task_formulation_review_status": {
+      "evidence": "docs/idare_subject_relative_task_formulation_review_status.md",
+      "evidence_json": "docs/idare_subject_relative_task_formulation_review_status.json",
+      "not_authorized": [
+        "EEG+EMG fusion",
+        "final LOSO / final paper claim",
+        "final global label-policy lock",
+        "architecture ablation for improvement",
+        "data augmentation",
+        "SupCon / VREx / domain generalization",
+        "broad hyperparameter search",
+        "mainline change"
+      ],
+      "reviewed_report": "docs/idare_subject_relative_task_formulation_report.md",
+      "selected_formulation": "subject_top_bottom_quantile_q33",
+      "selected_next_objective": "minimal_subject_relative_training_objective",
+      "status": "frozen_human_review_closeout",
+      "training_authorized_by_review": false
     }
   },
   "failure_analysis_objective": {
