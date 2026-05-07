@@ -259,6 +259,36 @@
       ],
       "status": "short_term_objective_created"
     },
+    "idare_calibration_protocol_objective": {
+      "authorized_work": [
+        "define_validation_only_threshold_protocol",
+        "simulate_non_oracle_calibration_from_existing_folds",
+        "compare_global_vs_fold_transfer_thresholds",
+        "calibration_protocol_pass_fail_report"
+      ],
+      "evidence": "docs/idare_calibration_protocol_objective.md",
+      "evidence_json": "docs/idare_calibration_protocol_objective.json",
+      "expected_outputs": [
+        "docs/idare_calibration_protocol_report.md",
+        "docs/idare_calibration_protocol_report.json",
+        "docs/idare_calibration_protocol_summary.csv"
+      ],
+      "new_model_training_authorized": false,
+      "next_allowed_step": "Prepare a reviewed read-only calibration protocol analysis command/script.",
+      "not_authorized": [
+        "EEG+EMG fusion",
+        "final LOSO / final paper claim",
+        "final global label-policy lock",
+        "new model training",
+        "architecture ablation for improvement",
+        "data augmentation",
+        "SupCon / VREx / domain generalization",
+        "broad hyperparameter search",
+        "mainline change"
+      ],
+      "status": "short_term_objective_created",
+      "validation_only": true
+    },
     "idare_calibration_subject_generalization_report": {
       "cross_modality_error_overlap_csv": "docs/idare_cross_modality_error_overlap.csv",
       "diagnostic_summary": {
@@ -309,6 +339,25 @@
       "status": "complete_pending_review",
       "subject_difficulty_csv": "docs/idare_subject_difficulty_ranking.csv",
       "threshold_summary_csv": "docs/idare_calibration_subject_threshold_summary.csv"
+    },
+    "idare_calibration_subject_generalization_review_status": {
+      "evidence": "docs/idare_calibration_subject_generalization_review_status.md",
+      "evidence_json": "docs/idare_calibration_subject_generalization_review_status.json",
+      "new_performance_training_authorized": false,
+      "not_authorized": [
+        "EEG+EMG fusion",
+        "final LOSO / final paper claim",
+        "final global label-policy lock",
+        "new performance training",
+        "architecture ablation for improvement",
+        "data augmentation",
+        "SupCon / VREx / domain generalization",
+        "broad hyperparameter search",
+        "mainline change"
+      ],
+      "reviewed_report": "docs/idare_calibration_subject_generalization_report.md",
+      "selected_next_objective": "calibration_protocol_objective",
+      "status": "frozen_human_review_closeout"
     },
     "idare_diagnostic_sanity_tests_objective": {
       "authorized_tests": [

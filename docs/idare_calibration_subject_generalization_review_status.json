@@ -1,0 +1,66 @@
+{
+  "status": "frozen_human_review_closeout",
+  "created_or_updated_utc": "2026-05-07T15:54:17.420505+00:00",
+  "reviewed_report": "docs/idare_calibration_subject_generalization_report.md",
+  "reviewed_json": "docs/idare_calibration_subject_generalization_report.json",
+  "review_decision": {
+    "accepted": true,
+    "diagnosis": "calibration_instability_supported",
+    "selected_next_objective": "calibration_protocol_objective",
+    "new_performance_training_authorized": false,
+    "fusion_authorized": false,
+    "architecture_or_dg_authorized": false,
+    "final_loso_claim_authorized": false,
+    "mainline_change_authorized": false
+  },
+  "accepted_findings": {
+    "summary": [
+      "Calibration instability is supported by the read-only diagnostic.",
+      "Threshold sweeps show repeated macro-F1 gains.",
+      "Best thresholds vary substantially across folds and conditions.",
+      "Hard-subject and cross-modality effects exist, but the selected immediate next step is a calibration protocol.",
+      "The next objective must define a validation-only calibration protocol without new performance-training claims."
+    ],
+    "diagnostic_summary": {
+      "loaded_prediction_files": [
+        "docs/idare_broader_eval_eeg_stim_bsl_only_primary_predictions.csv",
+        "docs/idare_broader_eval_eeg_bsl_stats_primary_predictions.csv",
+        "docs/idare_broader_eval_emg_feature_only_primary_predictions.csv",
+        "docs/idare_broader_eval_emg_bsl_stats_primary_predictions.csv",
+        "docs/idare_label_policy_ablation_eeg_primary_predictions.csv",
+        "docs/idare_label_policy_ablation_emg_primary_predictions.csv"
+      ],
+      "load_errors": [],
+      "n_prediction_rows": 78376,
+      "n_threshold_rows": 280,
+      "n_subject_rows": 756,
+      "n_overlap_rows": 378,
+      "overall_macro_f1_gain_mean": 0.009292180727812642,
+      "overall_macro_f1_gain_max": 0.025195306895098746,
+      "fold_macro_f1_gain_mean": 0.027949275536557194,
+      "threshold_std_mean": 0.10448460269660291,
+      "threshold_instability_count": 14,
+      "large_threshold_gain_count": 15,
+      "hard_subject_count": 163,
+      "cross_modality_both_hard_count": 20,
+      "cross_modality_mean_common_failure_score": 0.23281752725792065,
+      "diagnosis": "calibration_instability_supported",
+      "recommended_next_objective": "calibration_protocol_objective",
+      "recommendation_reason": [
+        "Threshold sweeps show repeated macro-F1 gains.",
+        "Best thresholds vary substantially across folds/conditions, so calibration needs a protocol before model changes."
+      ]
+    }
+  },
+  "not_authorized": [
+    "EEG+EMG fusion",
+    "final LOSO / final paper claim",
+    "final global label-policy lock",
+    "new performance training",
+    "architecture ablation for improvement",
+    "data augmentation",
+    "SupCon / VREx / domain generalization",
+    "broad hyperparameter search",
+    "mainline change"
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "status": "short_term_objective_created",
+  "created_or_updated_utc": "2026-05-07T15:54:17.420505+00:00",
+  "objective": "I-DARE validation-only calibration protocol objective",
+  "evidence_level": "post-diagnostic objective after reviewed calibration/subject-generalization report; no final performance claim",
+  "source_checkpoint": {
+    "calibration_subject_review": "docs/idare_calibration_subject_generalization_review_status.md",
+    "calibration_subject_report": "docs/idare_calibration_subject_generalization_report.md",
+    "calibration_subject_json": "docs/idare_calibration_subject_generalization_report.json",
+    "threshold_summary_csv": "docs/idare_calibration_subject_threshold_summary.csv",
+    "subject_difficulty_csv": "docs/idare_subject_difficulty_ranking.csv",
+    "cross_modality_error_overlap_csv": "docs/idare_cross_modality_error_overlap.csv"
+  },
+  "why_this_objective": [
+    "Calibration instability is supported by the read-only diagnostic.",
+    "Threshold sweeps show repeated macro-F1 gains.",
+    "Best thresholds vary substantially across folds and conditions.",
+    "A calibration protocol must be defined before any model-change objective."
+  ],
+  "scientific_questions": [
+    "Can a validation-only calibration rule improve macro-F1/balanced accuracy without using test labels?",
+    "Is a global threshold per modality/task enough, or are fold/task/policy-specific thresholds required?",
+    "Do calibrated predictions reduce one-class/collapse risk without inflating performance through leakage?",
+    "Can calibration be defined in a reproducible way suitable for future LOSO-style evaluation?"
+  ],
+  "authorized_scope": {
+    "diagnostic_or_protocol_only": true,
+    "new_model_training": false,
+    "allowed_inputs": [
+      "existing prediction CSVs",
+      "existing threshold summary CSV",
+      "existing report JSON files"
+    ],
+    "allowed_work": [
+      {
+        "id": "define_validation_only_threshold_protocol",
+        "purpose": "Define how thresholds are learned only from train/validation folds and applied to held-out fold predictions.",
+        "must_prevent": [
+          "choosing threshold directly on the held-out/test fold",
+          "using test labels for calibration",
+          "reporting oracle-threshold results as performance"
+        ]
+      },
+      {
+        "id": "simulate_non_oracle_calibration_from_existing_folds",
+        "purpose": "Use existing fold predictions to approximate leave-one-fold-out threshold selection.",
+        "outputs": [
+          "per-modality/task/policy/recipe calibrated metrics",
+          "oracle-vs-non-oracle calibration gap",
+          "collapse/one-class risk"
+        ]
+      },
+      {
+        "id": "compare_global_vs_fold_transfer_thresholds",
+        "purpose": "Check if one global threshold transfers better than fold-specific thresholds.",
+        "outputs": [
+          "global threshold stability",
+          "fold-transfer threshold stability",
+          "recommended protocol granularity"
+        ]
+      },
+      {
+        "id": "calibration_protocol_pass_fail_report",
+        "purpose": "Decide whether calibration is worth becoming part of the next controlled evaluation.",
+        "outputs": [
+          "pass/fail decision",
+          "recommended next objective",
+          "explicit non-authorization list"
+        ]
+      }
+    ]
+  },
+  "expected_outputs": [
+    "docs/idare_calibration_protocol_report.md",
+    "docs/idare_calibration_protocol_report.json",
+    "docs/idare_calibration_protocol_summary.csv"
+  ],
+  "pass_criteria": [
+    "No new model training is run.",
+    "No held-out/test labels are used to choose thresholds for the same held-out/test predictions.",
+    "Oracle threshold gains are clearly separated from validation-only simulated gains.",
+    "The report states whether calibration is strong enough to justify a controlled calibration evaluation.",
+    "The report recommends exactly one next objective after review.",
+    "The report does not authorize fusion, architecture, augmentation, DG, or final claims."
+  ],
+  "stop_conditions": [
+    "If validation-only calibration gains are materially smaller than oracle gains, recommend against calibration as a fix.",
+    "If validation-only calibration gives stable gains without collapse, recommend a controlled calibration evaluation objective.",
+    "If calibration gains are unstable or subject-specific, recommend subject-stratified/generalization objective.",
+    "If neither calibration nor subject grouping helps, recommend representation/label-task redesign objective."
+  ],
+  "not_authorized": [
+    "EEG+EMG fusion",
+    "final LOSO / final paper claim",
+    "final global label-policy lock",
+    "new model training",
+    "architecture ablation for improvement",
+    "data augmentation",
+    "SupCon / VREx / domain generalization",
+    "broad hyperparameter search",
+    "mainline change"
+  ],
+  "next_allowed_step": "Prepare a reviewed read-only calibration protocol analysis command/script."
+}
