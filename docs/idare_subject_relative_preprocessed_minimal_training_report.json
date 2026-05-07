@@ -1,0 +1,171 @@
+{
+  "status": "complete_pending_review",
+  "created_or_updated_utc": "2026-05-07T16:40:30.000483+00:00",
+  "objective": "docs/idare_minimal_subject_relative_preprocessed_training_objective.md",
+  "objective_json": "docs/idare_minimal_subject_relative_preprocessed_training_objective.json",
+  "review": "docs/idare_subject_relative_representation_preprocessing_review_status.md",
+  "evidence_level": "24-run minimal diagnostic training; not final LOSO performance",
+  "formulation": "subject_top_bottom_quantile_q33",
+  "planned_runs": 24,
+  "completed_runs": 24,
+  "diagnosis": "preprocessed_subject_relative_first_pass_not_sufficient",
+  "recommended_next_objective": "subject_relative_feature_engineering_objective",
+  "mean_macro_f1_all_modalities": 0.5028095422206009,
+  "mean_delta_macro_f1_vs_previous_subject_relative_all_modalities": null,
+  "one_class_prediction_counts_by_modality_task": {
+    "EEG_valence": 0,
+    "EEG_arousal": 0,
+    "EMG_valence": 0,
+    "EMG_arousal": 0
+  },
+  "current_aggregate": {
+    "EEG": {
+      "valence": {
+        "n_runs": 6,
+        "macro_f1_mean": 0.49612021417947405,
+        "bal_acc_mean": 0.4976679914047533
+      },
+      "arousal": {
+        "n_runs": 6,
+        "macro_f1_mean": 0.47916530176906796,
+        "bal_acc_mean": 0.4812482373734485
+      },
+      "ALL": {
+        "n_runs": 12,
+        "macro_f1_mean": 0.48764275797427103,
+        "bal_acc_mean": 0.4894581143891009
+      }
+    },
+    "EMG": {
+      "valence": {
+        "n_runs": 6,
+        "macro_f1_mean": 0.527330919990526,
+        "bal_acc_mean": 0.5287222478674579
+      },
+      "arousal": {
+        "n_runs": 6,
+        "macro_f1_mean": 0.5086217329433359,
+        "bal_acc_mean": 0.5120103949086852
+      },
+      "ALL": {
+        "n_runs": 12,
+        "macro_f1_mean": 0.5179763264669309,
+        "bal_acc_mean": 0.5203663213880716
+      }
+    }
+  },
+  "previous_subject_relative_aggregate": {
+    "EEG": {},
+    "EMG": {}
+  },
+  "global_label_reference_aggregate": {
+    "EEG": {},
+    "EMG": {}
+  },
+  "comparison_rows": [
+    {
+      "modality": "EEG",
+      "task": "valence",
+      "current_macro_f1": 0.49612021417947405,
+      "previous_subject_relative_macro_f1": null,
+      "delta_vs_previous_subject_relative": null,
+      "global_label_macro_f1_reference": null,
+      "delta_vs_global_label_reference": null,
+      "current_balanced_accuracy": 0.4976679914047533,
+      "previous_subject_relative_bal_acc": null,
+      "delta_bal_acc_vs_previous_subject_relative": null,
+      "global_label_bal_acc_reference": null,
+      "delta_bal_acc_vs_global_label_reference": null
+    },
+    {
+      "modality": "EEG",
+      "task": "arousal",
+      "current_macro_f1": 0.47916530176906796,
+      "previous_subject_relative_macro_f1": null,
+      "delta_vs_previous_subject_relative": null,
+      "global_label_macro_f1_reference": null,
+      "delta_vs_global_label_reference": null,
+      "current_balanced_accuracy": 0.4812482373734485,
+      "previous_subject_relative_bal_acc": null,
+      "delta_bal_acc_vs_previous_subject_relative": null,
+      "global_label_bal_acc_reference": null,
+      "delta_bal_acc_vs_global_label_reference": null
+    },
+    {
+      "modality": "EEG",
+      "task": "ALL",
+      "current_macro_f1": 0.48764275797427103,
+      "previous_subject_relative_macro_f1": null,
+      "delta_vs_previous_subject_relative": null,
+      "global_label_macro_f1_reference": null,
+      "delta_vs_global_label_reference": null,
+      "current_balanced_accuracy": 0.4894581143891009,
+      "previous_subject_relative_bal_acc": null,
+      "delta_bal_acc_vs_previous_subject_relative": null,
+      "global_label_bal_acc_reference": null,
+      "delta_bal_acc_vs_global_label_reference": null
+    },
+    {
+      "modality": "EMG",
+      "task": "valence",
+      "current_macro_f1": 0.527330919990526,
+      "previous_subject_relative_macro_f1": null,
+      "delta_vs_previous_subject_relative": null,
+      "global_label_macro_f1_reference": null,
+      "delta_vs_global_label_reference": null,
+      "current_balanced_accuracy": 0.5287222478674579,
+      "previous_subject_relative_bal_acc": null,
+      "delta_bal_acc_vs_previous_subject_relative": null,
+      "global_label_bal_acc_reference": null,
+      "delta_bal_acc_vs_global_label_reference": null
+    },
+    {
+      "modality": "EMG",
+      "task": "arousal",
+      "current_macro_f1": 0.5086217329433359,
+      "previous_subject_relative_macro_f1": null,
+      "delta_vs_previous_subject_relative": null,
+      "global_label_macro_f1_reference": null,
+      "delta_vs_global_label_reference": null,
+      "current_balanced_accuracy": 0.5120103949086852,
+      "previous_subject_relative_bal_acc": null,
+      "delta_bal_acc_vs_previous_subject_relative": null,
+      "global_label_bal_acc_reference": null,
+      "delta_bal_acc_vs_global_label_reference": null
+    },
+    {
+      "modality": "EMG",
+      "task": "ALL",
+      "current_macro_f1": 0.5179763264669309,
+      "previous_subject_relative_macro_f1": null,
+      "delta_vs_previous_subject_relative": null,
+      "global_label_macro_f1_reference": null,
+      "delta_vs_global_label_reference": null,
+      "current_balanced_accuracy": 0.5203663213880716,
+      "previous_subject_relative_bal_acc": null,
+      "delta_bal_acc_vs_previous_subject_relative": null,
+      "global_label_bal_acc_reference": null,
+      "delta_bal_acc_vs_global_label_reference": null
+    }
+  ],
+  "outputs": {
+    "eeg_json": "docs/idare_subject_relative_preprocessed_minimal_eeg_primary.json",
+    "eeg_md": "docs/idare_subject_relative_preprocessed_minimal_eeg_primary.md",
+    "eeg_predictions_csv": "docs/idare_subject_relative_preprocessed_minimal_eeg_primary_predictions.csv",
+    "emg_json": "docs/idare_subject_relative_preprocessed_minimal_emg_primary.json",
+    "emg_md": "docs/idare_subject_relative_preprocessed_minimal_emg_primary.md",
+    "emg_predictions_csv": "docs/idare_subject_relative_preprocessed_minimal_emg_primary_predictions.csv"
+  },
+  "not_authorized": [
+    "EEG+EMG fusion",
+    "final LOSO / final paper claim",
+    "mainline change",
+    "architecture ablation for improvement",
+    "data augmentation",
+    "SupCon / VREx / domain generalization",
+    "broad hyperparameter search",
+    "balanced-sampler second pass",
+    "BSL-stats sidecars"
+  ],
+  "next_allowed_step": "Human review / closeout before optional second pass, feature engineering, or stopping."
+}

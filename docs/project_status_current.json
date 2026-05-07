@@ -787,6 +787,26 @@
       ],
       "status": "short_term_objective_created"
     },
+    "idare_minimal_subject_relative_preprocessed_training_report": {
+      "completed_runs": 24,
+      "diagnosis": "preprocessed_subject_relative_first_pass_not_sufficient",
+      "evidence": "docs/idare_subject_relative_preprocessed_minimal_training_report.md",
+      "evidence_json": "docs/idare_subject_relative_preprocessed_minimal_training_report.json",
+      "not_authorized": [
+        "EEG+EMG fusion",
+        "final LOSO / final paper claim",
+        "mainline change",
+        "architecture ablation for improvement",
+        "data augmentation",
+        "SupCon / VREx / domain generalization",
+        "broad hyperparameter search",
+        "balanced-sampler second pass",
+        "BSL-stats sidecars"
+      ],
+      "planned_runs": 24,
+      "recommended_next_objective": "subject_relative_feature_engineering_objective",
+      "status": "complete_pending_review"
+    },
     "idare_minimal_subject_relative_training_objective": {
       "evidence": "docs/idare_minimal_subject_relative_training_objective.md",
       "evidence_json": "docs/idare_minimal_subject_relative_training_objective.json",
