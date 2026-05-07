@@ -294,6 +294,34 @@
       },
       "status": "short_term_objective_created"
     },
+    "idare_failure_analysis_report": {
+      "evidence": "docs/idare_failure_analysis_report.md",
+      "evidence_json": "docs/idare_failure_analysis_report.json",
+      "evidence_level": "post-hoc analysis of existing smoke/stabilization outputs; no new training",
+      "fold_summary_csv": "docs/idare_failure_analysis_fold_summary.csv",
+      "next_allowed_step": "Human review / closeout of failure-analysis report.",
+      "not_authorized": [
+        "new training from this report",
+        "EEG+EMG fusion",
+        "final LOSO / final paper claim",
+        "locking final global label policy",
+        "architecture ablation",
+        "augmentation",
+        "SupCon / VREx / domain generalization"
+      ],
+      "recommendation": {
+        "rationale": [
+          "Most aggregate rows remain close to chance/majority baselines.",
+          "Best label policies are mixed by modality/task, so no global label policy should be locked.",
+          "Before architecture, augmentation, DG, or fusion, inspect fold difficulty and calibration/threshold behavior on existing predictions.",
+          "Some rows are not hard failures, but gains are still smoke-level and need robustness evidence.",
+          "Policy instability is present across modality/task winners.",
+          "Some weak-fold overlap exists across modalities, suggesting split/subject difficulty should be inspected."
+        ],
+        "recommended_next_objective": "calibration_and_fold_difficulty_analysis"
+      },
+      "status": "complete_pending_review"
+    },
     "idare_label_policy_ablation_objective": {
       "authorized_execution": true,
       "authorized_scope": "144-run I-DARE EEG/EMG mainline label-policy primary matrix only",
@@ -451,6 +479,12 @@
     "new_training_authorized": false,
     "next_allowed_step": "Prepare a read-only analysis command/script that consumes existing committed outputs and writes docs/idare_failure_analysis_report.md/json, then review/close out before choosing the next improvement objective.",
     "status": "created"
+  },
+  "failure_analysis_report": {
+    "evidence": "docs/idare_failure_analysis_report.md",
+    "evidence_json": "docs/idare_failure_analysis_report.json",
+    "next_allowed_step": "Human review / closeout before any follow-up objective.",
+    "status": "complete_pending_review"
   },
   "important_note": "This is a smoke/stabilization status index, not a final LOSO performance claim.",
   "key_frozen_results_snapshot": {

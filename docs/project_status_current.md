@@ -58,6 +58,7 @@ No final global label policy is locked. `midpoint_as_high` remains only the prac
 | I-DARE broader standardized single-modality evaluation primary report | 96-run primary matrix completed; combined report generated; pending human review | yes | `docs/idare_broader_standardized_single_modality_evaluation_report.md` | Human review / closeout decision before any mainline change or future objective. | EEG+EMG fusion; full paired BSL/STIM neural model; final LOSO claim. |
 | I-DARE broader standardized single-modality evaluation review | human review accepted 96-run primary matrix; mainlines unchanged | yes | `docs/idare_broader_standardized_single_modality_evaluation_review_status.md` | Stop here, hand off, or create explicit future follow-up objective. | EEG+EMG fusion; full paired BSL/STIM neural model; final LOSO claim. |
 | I-DARE controlled failure analysis objective | short-term post-hoc analysis objective created; no new training authorized | yes | `docs/idare_failure_analysis_objective.md` | Prepare read-only analysis script/command for existing JSON/CSV outputs. | EEG+EMG fusion; final LOSO claim; architecture/augmentation/DG work; final label-policy lock. |
+| I-DARE controlled failure analysis report | post-hoc failure analysis complete from existing outputs; pending human review | yes | `docs/idare_failure_analysis_report.md` | Human review / closeout before choosing calibration, fold-difficulty, robustness, or model-change objective. | EEG+EMG fusion; final LOSO claim; architecture/augmentation/DG work. |
 | EEG+EMG fusion | not started intentionally | no | `docs/idare_eeg_bsl_stats_ablation_status.md`<br>`docs/idare_emg_bsl_stats_ablation_status.md` | Start only after current baseline/ablation status is indexed and compared cleanly. | All fusion experiments. |
 | Full model(BSL, STIM, STIM-BSL) | not started intentionally | no | `docs/idare_baseline_modeling_literature_plan.md` | Only after low-capacity BSL-stats ablation beats STIM-BSL-only baselines consistently. | Two-branch or three-branch full paired neural model. |
 | I-DARE controlled label-policy ablation objective | short-term objective created and executed for 144-run label-policy matrix | yes | `docs/idare_label_policy_ablation_objective.md` | Review status is frozen in `docs/idare_label_policy_ablation_review_status.md`. | EEG+EMG fusion; final LOSO claim; locking final label policy before review. |
@@ -113,6 +114,8 @@ Note: DEAP EMG feature rows are sourced from the frozen `docs/deap_emg_feature_o
  - The standardized I-DARE EEG `STIM-BSL`-only baseline comparator gap is closed by `docs/idare_eeg_stim_bsl_only_standardized_status.md`; comparison against EEG/EMG BSL-stats sidecars is now the next documentation step.
 
 - A controlled I-DARE failure-analysis objective is defined in `docs/idare_failure_analysis_objective.md`; next work is read-only analysis of existing outputs, not new training or fusion.
+
+- Controlled I-DARE failure analysis is complete in `docs/idare_failure_analysis_report.md`; next work is human review/closeout, not new training or fusion.
 
 ## Documentation Gap Closed by This File
 
