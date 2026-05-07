@@ -1007,6 +1007,27 @@
         "mainline change"
       ],
       "status": "short_term_objective_created"
+    },
+    "idare_subject_relative_task_formulation_report": {
+      "candidate_matrix_csv": "docs/idare_subject_relative_candidate_matrix.csv",
+      "evidence": "docs/idare_subject_relative_task_formulation_report.md",
+      "evidence_json": "docs/idare_subject_relative_task_formulation_report.json",
+      "label_balance_summary_csv": "docs/idare_subject_relative_label_balance_summary.csv",
+      "new_model_training_run": false,
+      "not_authorized": [
+        "EEG+EMG fusion",
+        "final LOSO / final paper claim",
+        "final global label-policy lock",
+        "new model training",
+        "architecture ablation for improvement",
+        "data augmentation",
+        "SupCon / VREx / domain generalization",
+        "broad hyperparameter search",
+        "mainline change"
+      ],
+      "recommended_next_objective": "minimal_subject_relative_training_objective",
+      "selected_formulation": "subject_top_bottom_quantile_q33",
+      "status": "complete_pending_review"
     }
   },
   "failure_analysis_objective": {
