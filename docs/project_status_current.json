@@ -289,6 +289,55 @@
       "status": "short_term_objective_created",
       "validation_only": true
     },
+    "idare_calibration_protocol_report": {
+      "diagnosis": "calibration_not_sufficient_as_primary_fix",
+      "evidence": "docs/idare_calibration_protocol_report.md",
+      "evidence_json": "docs/idare_calibration_protocol_report.json",
+      "new_model_training_run": false,
+      "not_authorized": [
+        "EEG+EMG fusion",
+        "final LOSO / final paper claim",
+        "final global label-policy lock",
+        "new model training",
+        "architecture ablation for improvement",
+        "data augmentation",
+        "SupCon / VREx / domain generalization",
+        "broad hyperparameter search",
+        "mainline change"
+      ],
+      "protocol": {
+        "leakage_guard": "The target fold labels are not used to select the threshold applied to that target fold.",
+        "name": "leave_one_fold_out_threshold_transfer",
+        "oracle_separation": "Oracle fold thresholds are computed only as diagnostic upper bounds and are not counted as valid calibrated performance.",
+        "threshold_application": "Apply that threshold to the target fold predictions.",
+        "threshold_selection": "For each protocol group and target fold, choose the threshold that maximizes macro-F1 on all other folds only."
+      },
+      "protocol_summary": {
+        "calibrated_one_class_count": 0,
+        "diagnosis": "calibration_not_sufficient_as_primary_fix",
+        "material_gain_count_ge_0p01": 2,
+        "max_calibrated_macro_f1_gain": 0.014311584034455427,
+        "mean_calibrated_macro_f1_gain": 0.004983255100779761,
+        "mean_oracle_gap": 0.009527564095980897,
+        "mean_selected_threshold_std": 0.006547840583922865,
+        "median_calibrated_macro_f1_gain": 0.004725063701372267,
+        "n_prediction_rows": 78376,
+        "n_protocol_groups": 12,
+        "negative_gain_count": 1,
+        "pass_like_count": 4,
+        "positive_gain_count": 11,
+        "recommendation_reason": [
+          "Validation-only calibration gains are too small or inconsistent.",
+          "Calibration alone should not be treated as the main fix.",
+          "A representation/label-task redesign objective is more appropriate after review."
+        ],
+        "recommended_next_objective": "representation_label_task_redesign_objective",
+        "threshold_unstable_count": 0
+      },
+      "recommended_next_objective": "representation_label_task_redesign_objective",
+      "status": "complete_pending_review",
+      "summary_csv": "docs/idare_calibration_protocol_summary.csv"
+    },
     "idare_calibration_subject_generalization_report": {
       "cross_modality_error_overlap_csv": "docs/idare_cross_modality_error_overlap.csv",
       "diagnostic_summary": {

@@ -70,6 +70,7 @@ No final global label policy is locked. `midpoint_as_high` remains only the prac
 | I-DARE calibration and subject-generalization report | read-only diagnostic report complete; pending human review | yes | `docs/idare_calibration_subject_generalization_report.md` | Human review / closeout before the next diagnostic or fix objective. | EEG+EMG fusion; final LOSO claim; architecture/augmentation/DG work; broad hyperparameter search. |
 | I-DARE calibration and subject-generalization review | human review accepted calibration-subject diagnostic; calibration protocol selected next | yes | `docs/idare_calibration_subject_generalization_review_status.md` | Create/run calibration protocol objective. | EEG+EMG fusion; final LOSO claim; architecture/augmentation/DG work; mainline change. |
 | I-DARE calibration protocol objective | short-term validation-only calibration protocol objective created; no new model training authorized | yes | `docs/idare_calibration_protocol_objective.md` | Prepare reviewed read-only calibration protocol analysis command/script. | EEG+EMG fusion; final LOSO claim; architecture/augmentation/DG work; broad hyperparameter search. |
+| I-DARE calibration protocol report | validation-only calibration protocol analysis complete; pending human review | yes | `docs/idare_calibration_protocol_report.md` | Human review / closeout before the next diagnostic or fix objective. | EEG+EMG fusion; final LOSO claim; architecture/augmentation/DG work; broad hyperparameter search. |
 | EEG+EMG fusion | not started intentionally | no | `docs/idare_eeg_bsl_stats_ablation_status.md`<br>`docs/idare_emg_bsl_stats_ablation_status.md` | Start only after current baseline/ablation status is indexed and compared cleanly. | All fusion experiments. |
 | Full model(BSL, STIM, STIM-BSL) | not started intentionally | no | `docs/idare_baseline_modeling_literature_plan.md` | Only after low-capacity BSL-stats ablation beats STIM-BSL-only baselines consistently. | Two-branch or three-branch full paired neural model. |
 | I-DARE controlled label-policy ablation objective | short-term objective created and executed for 144-run label-policy matrix | yes | `docs/idare_label_policy_ablation_objective.md` | Review status is frozen in `docs/idare_label_policy_ablation_review_status.md`. | EEG+EMG fusion; final LOSO claim; locking final label policy before review. |
@@ -149,6 +150,8 @@ Note: DEAP EMG feature rows are sourced from the frozen `docs/deap_emg_feature_o
 - Human review of the calibration and subject-generalization report is frozen in `docs/idare_calibration_subject_generalization_review_status.md`; calibration protocol is selected as the next controlled step.
 
 - A validation-only calibration protocol objective is defined in `docs/idare_calibration_protocol_objective.md`; next work is a read-only calibration protocol analysis command/script.
+
+- Validation-only calibration protocol analysis is complete in `docs/idare_calibration_protocol_report.md`; diagnosis is `calibration_not_sufficient_as_primary_fix`, recommended next objective is `representation_label_task_redesign_objective`, and human review is required before any next step.
 
 ## Documentation Gap Closed by This File
 
