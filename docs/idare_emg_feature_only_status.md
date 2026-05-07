@@ -4,7 +4,7 @@
 
 Frozen after successful I-DARE EMG feature-cache build and feature-only training smokes.
 
-This document records the current interpretation before moving to raw EMG-only ablation or EEG+EMG fusion.
+This document records the feature-only EMG status from the point before later raw EMG-only, raw-vs-feature, and BSL-stats ablations were completed. Current next steps are governed by `docs/project_status_current.md`.
 
 ## Inputs
 
@@ -111,16 +111,16 @@ Do not claim feature-level EMG is strong yet. The safe claim is:
 
 > I-DARE EMG feature-only is now integrated, cache-backed, and trainable without collapse in short subject-held-out smokes; arousal shows slightly better smoke behavior than valence.
 
-## Next Step
+## Next Step / Current Roadmap Note
 
-The next ablation should test raw EMG-only against this feature-level EMG-only path.
+At the time this file was frozen, the next step was to run the raw EMG-only ablation. That raw EMG-only ablation and the raw-vs-feature comparison have since been completed.
 
-Recommended next implementation order:
+Current roadmap:
 
-1. Build an I-DARE raw EMG cache smoke.
-2. Run raw EMG-only training smoke for valence and arousal.
-3. Compare raw EMG-only vs feature EMG-only.
-4. Only after that, move to EEG+EMG fusion smoke.
+1. Keep feature-level EMG as the current I-DARE EMG mainline unless a controlled ablation beats it.
+2. Keep raw EMG-only as an ablation.
+3. Do not move directly to EEG+EMG fusion from this status document.
+4. Before fusion, directly compare the EEG/EMG single-modality baselines and BSL-stats ablations, then update the central roadmap if the next allowed step changes.
 
 ## Guardrails
 
