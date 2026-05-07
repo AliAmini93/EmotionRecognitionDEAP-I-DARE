@@ -6,7 +6,7 @@ Frozen after successful smoke runs for both valence and arousal.
 
 This document closes the current EEG-only BSL-stats phase. It does not start EEG+EMG fusion and does not introduce a full paired BSL/STIM neural model.
 
-Important scope note: this status is for EEG only. EMG BSL-stats paired ablation has not been implemented.
+Important scope note: this status document covers the EEG-only BSL-stats phase. The EMG BSL-stats counterpart was completed and frozen later as a separate EMG-only phase in `docs/idare_emg_bsl_stats_ablation_status.md`.
 
 ## What Was Tested
 
@@ -58,4 +58,4 @@ Important scope note: this status is for EEG only. EMG BSL-stats paired ablation
 - Do not start fusion in this chat.
 - Do not implement full `model(BSL, STIM, STIM-BSL)` yet.
 - Before any future architecture decision, compare this sidecar ablation against the existing `STIM-BSL`-only EEG baseline.
-- EMG BSL-stats paired ablation remains not done and should be treated as separate future work.
+- The EMG BSL-stats counterpart has since been completed and frozen separately; both EEG and EMG BSL-stats ablations should be compared against their own `STIM-BSL`-only baselines before fusion.
