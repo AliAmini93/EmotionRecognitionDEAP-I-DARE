@@ -259,6 +259,57 @@
       ],
       "status": "short_term_objective_created"
     },
+    "idare_calibration_subject_generalization_report": {
+      "cross_modality_error_overlap_csv": "docs/idare_cross_modality_error_overlap.csv",
+      "diagnostic_summary": {
+        "cross_modality_both_hard_count": 20,
+        "cross_modality_mean_common_failure_score": 0.23281752725792065,
+        "diagnosis": "calibration_instability_supported",
+        "fold_macro_f1_gain_mean": 0.027949275536557194,
+        "hard_subject_count": 163,
+        "large_threshold_gain_count": 15,
+        "load_errors": [],
+        "loaded_prediction_files": [
+          "docs/idare_broader_eval_eeg_stim_bsl_only_primary_predictions.csv",
+          "docs/idare_broader_eval_eeg_bsl_stats_primary_predictions.csv",
+          "docs/idare_broader_eval_emg_feature_only_primary_predictions.csv",
+          "docs/idare_broader_eval_emg_bsl_stats_primary_predictions.csv",
+          "docs/idare_label_policy_ablation_eeg_primary_predictions.csv",
+          "docs/idare_label_policy_ablation_emg_primary_predictions.csv"
+        ],
+        "n_overlap_rows": 378,
+        "n_prediction_rows": 78376,
+        "n_subject_rows": 756,
+        "n_threshold_rows": 280,
+        "overall_macro_f1_gain_max": 0.025195306895098746,
+        "overall_macro_f1_gain_mean": 0.009292180727812642,
+        "recommendation_reason": [
+          "Threshold sweeps show repeated macro-F1 gains.",
+          "Best thresholds vary substantially across folds/conditions, so calibration needs a protocol before model changes."
+        ],
+        "recommended_next_objective": "calibration_protocol_objective",
+        "threshold_instability_count": 14,
+        "threshold_std_mean": 0.10448460269660291
+      },
+      "evidence": "docs/idare_calibration_subject_generalization_report.md",
+      "evidence_json": "docs/idare_calibration_subject_generalization_report.json",
+      "evidence_level": "read-only diagnostic from existing prediction outputs; no final performance claim",
+      "next_allowed_step": "Human review / closeout of calibration and subject-generalization report.",
+      "not_authorized": [
+        "EEG+EMG fusion",
+        "final LOSO / final paper claim",
+        "final global label-policy lock",
+        "new performance training",
+        "architecture ablation for improvement",
+        "data augmentation",
+        "SupCon / VREx / domain generalization",
+        "broad hyperparameter search",
+        "mainline change"
+      ],
+      "status": "complete_pending_review",
+      "subject_difficulty_csv": "docs/idare_subject_difficulty_ranking.csv",
+      "threshold_summary_csv": "docs/idare_calibration_subject_threshold_summary.csv"
+    },
     "idare_diagnostic_sanity_tests_objective": {
       "authorized_tests": [
         "micro_overfit_subset",
