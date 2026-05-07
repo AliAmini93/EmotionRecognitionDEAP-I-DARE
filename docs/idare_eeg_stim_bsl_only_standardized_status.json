@@ -1,0 +1,1099 @@
+{
+  "best_final_macro_f1_snapshot": {
+    "arousal": {
+      "best_balanced_accuracy": {
+        "max": 0.595688388045076,
+        "mean": 0.57674768978874,
+        "min": 0.5578069915324042,
+        "std": 0.018940698256335875
+      },
+      "best_macro_f1": {
+        "max": 0.5764690579168157,
+        "mean": 0.5579529426396699,
+        "min": 0.539436827362524,
+        "std": 0.01851611527714586
+      },
+      "final_accuracy": {
+        "max": 0.5482954545454546,
+        "mean": 0.5454545454545454,
+        "min": 0.5426136363636364,
+        "std": 0.002840909090909116
+      },
+      "final_balanced_accuracy": {
+        "max": 0.536934532634839,
+        "mean": 0.5322676909458697,
+        "min": 0.5276008492569002,
+        "std": 0.004666841688969414
+      },
+      "final_macro_f1": {
+        "max": 0.5369915369915369,
+        "mean": 0.5306639193732854,
+        "min": 0.5243363017550339,
+        "std": 0.006327617618251513
+      },
+      "majority_accuracy": {
+        "max": 0.5710227272727273,
+        "mean": 0.5625,
+        "min": 0.5539772727272727,
+        "std": 0.008522727272727293
+      },
+      "one_class_final_runs": 0,
+      "policy": "midpoint_as_high",
+      "recipe": "ce_class_weighted",
+      "runs": 2,
+      "task": "arousal",
+      "threshold_best_accuracy": {
+        "max": 0.5397727272727273,
+        "mean": 0.5383522727272727,
+        "min": 0.5369318181818182,
+        "std": 0.0014204545454545303
+      },
+      "threshold_best_balanced_accuracy": {
+        "max": 0.5451220717604033,
+        "mean": 0.543727130931647,
+        "min": 0.5423321901028908,
+        "std": 0.0013949408287562415
+      },
+      "threshold_best_macro_f1": {
+        "max": 0.5390435541759627,
+        "mean": 0.5379708670431853,
+        "min": 0.536898179910408,
+        "std": 0.0010726871327773613
+      },
+      "threshold_best_value": {
+        "max": 0.3,
+        "mean": 0.22499999999999998,
+        "min": 0.15,
+        "std": 0.075
+      },
+      "threshold_gain_balanced_accuracy": {
+        "max": 0.014731340845990593,
+        "mean": 0.01145943998577742,
+        "min": 0.008187539125564247,
+        "std": 0.0032719008602131727
+      },
+      "threshold_gain_macro_f1": {
+        "max": 0.012561878155374129,
+        "mean": 0.007306947669899977,
+        "min": 0.002052017184425825,
+        "std": 0.005254930485474152
+      },
+      "threshold_one_class_final_runs": 0
+    },
+    "valence": {
+      "best_balanced_accuracy": {
+        "max": 0.5402457909129847,
+        "mean": 0.5307548509413891,
+        "min": 0.5212639109697933,
+        "std": 0.009490939971595724
+      },
+      "best_macro_f1": {
+        "max": 0.5403180480708831,
+        "mean": 0.5288822852030265,
+        "min": 0.5174465223351699,
+        "std": 0.011435762867856636
+      },
+      "final_accuracy": {
+        "max": 0.5596590909090909,
+        "mean": 0.5511363636363636,
+        "min": 0.5426136363636364,
+        "std": 0.008522727272727293
+      },
+      "final_balanced_accuracy": {
+        "max": 0.5254686830746927,
+        "mean": 0.5204516176369753,
+        "min": 0.515434552199258,
+        "std": 0.00501706543771735
+      },
+      "final_macro_f1": {
+        "max": 0.5113766672702034,
+        "mean": 0.5112066473567259,
+        "min": 0.5110366274432485,
+        "std": 0.00017001991347742607
+      },
+      "majority_accuracy": {
+        "max": 0.5795454545454546,
+        "mean": 0.5752840909090909,
+        "min": 0.5710227272727273,
+        "std": 0.0042613636363636465
+      },
+      "one_class_final_runs": 0,
+      "policy": "midpoint_as_high",
+      "recipe": "ce_class_weighted",
+      "runs": 2,
+      "task": "valence",
+      "threshold_best_accuracy": {
+        "max": 0.5482954545454546,
+        "mean": 0.5454545454545454,
+        "min": 0.5426136363636364,
+        "std": 0.002840909090909116
+      },
+      "threshold_best_balanced_accuracy": {
+        "max": 0.5295212678330203,
+        "mean": 0.5224779100161392,
+        "min": 0.515434552199258,
+        "std": 0.007043357816881146
+      },
+      "threshold_best_macro_f1": {
+        "max": 0.5279949399114484,
+        "mean": 0.5196858035908258,
+        "min": 0.5113766672702034,
+        "std": 0.008309136320622523
+      },
+      "threshold_best_value": {
+        "max": 0.65,
+        "mean": 0.575,
+        "min": 0.5,
+        "std": 0.07500000000000001
+      },
+      "threshold_gain_balanced_accuracy": {
+        "max": 0.004052584758327593,
+        "mean": 0.0020262923791637966,
+        "min": 0.0,
+        "std": 0.0020262923791637966
+      },
+      "threshold_gain_macro_f1": {
+        "max": 0.0169583124681999,
+        "mean": 0.00847915623409995,
+        "min": 0.0,
+        "std": 0.00847915623409995
+      },
+      "threshold_one_class_final_runs": 0
+    }
+  },
+  "commit": "0e9594ddd055c70359564c3658171b8e42f100ef",
+  "created_or_updated_utc": "2026-05-07T13:35:24.143574+00:00",
+  "decision": {
+    "freeze": true,
+    "mainline_changed": false,
+    "meaning": "This closes the missing EEG STIM-BSL-only baseline comparator gap; it does not decide whether BSL-stats should replace the mainline.",
+    "next_allowed_step": "Create direct single-modality comparison documentation for STIM-BSL-only baselines versus BSL-stats sidecars for EEG and EMG."
+  },
+  "evidence_level": "smoke/stabilization, not final LOSO performance",
+  "input_artifacts": {
+    "bsl_stats_sidecar_used": false,
+    "cache_index": ".cache/idare_eeg_cache_index_baseline_corrected.csv",
+    "cache_npy": ".cache/idare_eeg_windows_32x640_float32_baseline_corrected.npy",
+    "raw_hdf5_loaded_in_training_loop": false
+  },
+  "intentionally_not_started": [
+    "EEG+EMG fusion",
+    "full model(BSL, STIM, STIM-BSL)",
+    "final LOSO claim",
+    "label-policy finalization / locking midpoint_as_high",
+    "architecture ablations",
+    "data augmentation",
+    "SupCon / VREx / domain generalization"
+  ],
+  "phase": "I-DARE EEG STIM-BSL-only standardized baseline smoke",
+  "protocol_alignment": {
+    "batch_size": 64,
+    "epochs": 12,
+    "fold_split": "sidecar-compatible numpy default_rng(11) subject folds",
+    "folds": 6,
+    "label_policy": "midpoint_as_high",
+    "label_policy_final": false,
+    "lr": 0.001,
+    "max_runs_per_task": 4,
+    "recipes": [
+      "ce_class_weighted",
+      "balanced_sampler_ce"
+    ],
+    "seed": 11,
+    "target_comparator": "docs/idare_eeg_bsl_stats_ablation_status.md",
+    "tasks": [
+      "valence",
+      "arousal"
+    ]
+  },
+  "purpose": "Provide a fair STIM-BSL-only EEG baseline comparator for the already frozen EEG STIM-BSL + BSL-stats sidecar ablation.",
+  "run_summaries": {
+    "arousal": {
+      "best_final_balanced_accuracy": {
+        "best_balanced_accuracy": {
+          "max": 0.595688388045076,
+          "mean": 0.57674768978874,
+          "min": 0.5578069915324042,
+          "std": 0.018940698256335875
+        },
+        "best_macro_f1": {
+          "max": 0.5764690579168157,
+          "mean": 0.5579529426396699,
+          "min": 0.539436827362524,
+          "std": 0.01851611527714586
+        },
+        "final_accuracy": {
+          "max": 0.5482954545454546,
+          "mean": 0.5454545454545454,
+          "min": 0.5426136363636364,
+          "std": 0.002840909090909116
+        },
+        "final_balanced_accuracy": {
+          "max": 0.536934532634839,
+          "mean": 0.5322676909458697,
+          "min": 0.5276008492569002,
+          "std": 0.004666841688969414
+        },
+        "final_macro_f1": {
+          "max": 0.5369915369915369,
+          "mean": 0.5306639193732854,
+          "min": 0.5243363017550339,
+          "std": 0.006327617618251513
+        },
+        "majority_accuracy": {
+          "max": 0.5710227272727273,
+          "mean": 0.5625,
+          "min": 0.5539772727272727,
+          "std": 0.008522727272727293
+        },
+        "one_class_final_runs": 0,
+        "policy": "midpoint_as_high",
+        "recipe": "ce_class_weighted",
+        "runs": 2,
+        "task": "arousal",
+        "threshold_best_accuracy": {
+          "max": 0.5397727272727273,
+          "mean": 0.5383522727272727,
+          "min": 0.5369318181818182,
+          "std": 0.0014204545454545303
+        },
+        "threshold_best_balanced_accuracy": {
+          "max": 0.5451220717604033,
+          "mean": 0.543727130931647,
+          "min": 0.5423321901028908,
+          "std": 0.0013949408287562415
+        },
+        "threshold_best_macro_f1": {
+          "max": 0.5390435541759627,
+          "mean": 0.5379708670431853,
+          "min": 0.536898179910408,
+          "std": 0.0010726871327773613
+        },
+        "threshold_best_value": {
+          "max": 0.3,
+          "mean": 0.22499999999999998,
+          "min": 0.15,
+          "std": 0.075
+        },
+        "threshold_gain_balanced_accuracy": {
+          "max": 0.014731340845990593,
+          "mean": 0.01145943998577742,
+          "min": 0.008187539125564247,
+          "std": 0.0032719008602131727
+        },
+        "threshold_gain_macro_f1": {
+          "max": 0.012561878155374129,
+          "mean": 0.007306947669899977,
+          "min": 0.002052017184425825,
+          "std": 0.005254930485474152
+        },
+        "threshold_one_class_final_runs": 0
+      },
+      "best_final_macro_f1": {
+        "best_balanced_accuracy": {
+          "max": 0.595688388045076,
+          "mean": 0.57674768978874,
+          "min": 0.5578069915324042,
+          "std": 0.018940698256335875
+        },
+        "best_macro_f1": {
+          "max": 0.5764690579168157,
+          "mean": 0.5579529426396699,
+          "min": 0.539436827362524,
+          "std": 0.01851611527714586
+        },
+        "final_accuracy": {
+          "max": 0.5482954545454546,
+          "mean": 0.5454545454545454,
+          "min": 0.5426136363636364,
+          "std": 0.002840909090909116
+        },
+        "final_balanced_accuracy": {
+          "max": 0.536934532634839,
+          "mean": 0.5322676909458697,
+          "min": 0.5276008492569002,
+          "std": 0.004666841688969414
+        },
+        "final_macro_f1": {
+          "max": 0.5369915369915369,
+          "mean": 0.5306639193732854,
+          "min": 0.5243363017550339,
+          "std": 0.006327617618251513
+        },
+        "majority_accuracy": {
+          "max": 0.5710227272727273,
+          "mean": 0.5625,
+          "min": 0.5539772727272727,
+          "std": 0.008522727272727293
+        },
+        "one_class_final_runs": 0,
+        "policy": "midpoint_as_high",
+        "recipe": "ce_class_weighted",
+        "runs": 2,
+        "task": "arousal",
+        "threshold_best_accuracy": {
+          "max": 0.5397727272727273,
+          "mean": 0.5383522727272727,
+          "min": 0.5369318181818182,
+          "std": 0.0014204545454545303
+        },
+        "threshold_best_balanced_accuracy": {
+          "max": 0.5451220717604033,
+          "mean": 0.543727130931647,
+          "min": 0.5423321901028908,
+          "std": 0.0013949408287562415
+        },
+        "threshold_best_macro_f1": {
+          "max": 0.5390435541759627,
+          "mean": 0.5379708670431853,
+          "min": 0.536898179910408,
+          "std": 0.0010726871327773613
+        },
+        "threshold_best_value": {
+          "max": 0.3,
+          "mean": 0.22499999999999998,
+          "min": 0.15,
+          "std": 0.075
+        },
+        "threshold_gain_balanced_accuracy": {
+          "max": 0.014731340845990593,
+          "mean": 0.01145943998577742,
+          "min": 0.008187539125564247,
+          "std": 0.0032719008602131727
+        },
+        "threshold_gain_macro_f1": {
+          "max": 0.012561878155374129,
+          "mean": 0.007306947669899977,
+          "min": 0.002052017184425825,
+          "std": 0.005254930485474152
+        },
+        "threshold_one_class_final_runs": 0
+      },
+      "best_threshold_macro_f1": {
+        "best_balanced_accuracy": {
+          "max": 0.595688388045076,
+          "mean": 0.57674768978874,
+          "min": 0.5578069915324042,
+          "std": 0.018940698256335875
+        },
+        "best_macro_f1": {
+          "max": 0.5764690579168157,
+          "mean": 0.5579529426396699,
+          "min": 0.539436827362524,
+          "std": 0.01851611527714586
+        },
+        "final_accuracy": {
+          "max": 0.5482954545454546,
+          "mean": 0.5454545454545454,
+          "min": 0.5426136363636364,
+          "std": 0.002840909090909116
+        },
+        "final_balanced_accuracy": {
+          "max": 0.536934532634839,
+          "mean": 0.5322676909458697,
+          "min": 0.5276008492569002,
+          "std": 0.004666841688969414
+        },
+        "final_macro_f1": {
+          "max": 0.5369915369915369,
+          "mean": 0.5306639193732854,
+          "min": 0.5243363017550339,
+          "std": 0.006327617618251513
+        },
+        "majority_accuracy": {
+          "max": 0.5710227272727273,
+          "mean": 0.5625,
+          "min": 0.5539772727272727,
+          "std": 0.008522727272727293
+        },
+        "one_class_final_runs": 0,
+        "policy": "midpoint_as_high",
+        "recipe": "ce_class_weighted",
+        "runs": 2,
+        "task": "arousal",
+        "threshold_best_accuracy": {
+          "max": 0.5397727272727273,
+          "mean": 0.5383522727272727,
+          "min": 0.5369318181818182,
+          "std": 0.0014204545454545303
+        },
+        "threshold_best_balanced_accuracy": {
+          "max": 0.5451220717604033,
+          "mean": 0.543727130931647,
+          "min": 0.5423321901028908,
+          "std": 0.0013949408287562415
+        },
+        "threshold_best_macro_f1": {
+          "max": 0.5390435541759627,
+          "mean": 0.5379708670431853,
+          "min": 0.536898179910408,
+          "std": 0.0010726871327773613
+        },
+        "threshold_best_value": {
+          "max": 0.3,
+          "mean": 0.22499999999999998,
+          "min": 0.15,
+          "std": 0.075
+        },
+        "threshold_gain_balanced_accuracy": {
+          "max": 0.014731340845990593,
+          "mean": 0.01145943998577742,
+          "min": 0.008187539125564247,
+          "std": 0.0032719008602131727
+        },
+        "threshold_gain_macro_f1": {
+          "max": 0.012561878155374129,
+          "mean": 0.007306947669899977,
+          "min": 0.002052017184425825,
+          "std": 0.005254930485474152
+        },
+        "threshold_one_class_final_runs": 0
+      },
+      "config": {
+        "batch_size": 64,
+        "cache_index": ".cache/idare_eeg_cache_index_baseline_corrected.csv",
+        "cache_npy": ".cache/idare_eeg_windows_32x640_float32_baseline_corrected.npy",
+        "cache_shape": [
+          2016,
+          32,
+          640
+        ],
+        "device": "cuda",
+        "epochs": 12,
+        "folds": 6,
+        "grad_clip": 1.0,
+        "label_policy": "midpoint_as_high",
+        "lr": 0.001,
+        "max_runs": 4,
+        "num_workers": 0,
+        "out_predictions_csv": "docs/idare_eeg_stim_bsl_only_arousal_standardized_smoke_predictions.csv",
+        "recipes": [
+          "ce_class_weighted",
+          "balanced_sampler_ce"
+        ],
+        "seeds": [
+          11
+        ],
+        "tasks": [
+          "arousal"
+        ],
+        "weight_decay": 0.001
+      },
+      "exists": true,
+      "generated_at_utc": "2026-05-07T13:21:42.946135+00:00",
+      "path": "docs/idare_eeg_stim_bsl_only_arousal_standardized_smoke.json",
+      "rows": [
+        {
+          "best_balanced_accuracy": {
+            "max": 0.5475437382623307,
+            "mean": 0.541214299312449,
+            "min": 0.5348848603625673,
+            "std": 0.006329438949881694
+          },
+          "best_macro_f1": {
+            "max": 0.5341911913943576,
+            "mean": 0.5324004811378382,
+            "min": 0.530609770881319,
+            "std": 0.001790710256519279
+          },
+          "final_accuracy": {
+            "max": 0.53125,
+            "mean": 0.49715909090909094,
+            "min": 0.4630681818181818,
+            "std": 0.03409090909090909
+          },
+          "final_balanced_accuracy": {
+            "max": 0.5266536011758942,
+            "mean": 0.5035412910495464,
+            "min": 0.4804289809231985,
+            "std": 0.023112310126347846
+          },
+          "final_macro_f1": {
+            "max": 0.5265693394957572,
+            "mean": 0.494034287289949,
+            "min": 0.46149923508414076,
+            "std": 0.03253505220580824
+          },
+          "majority_accuracy": {
+            "max": 0.5710227272727273,
+            "mean": 0.5625,
+            "min": 0.5539772727272727,
+            "std": 0.008522727272727293
+          },
+          "one_class_final_runs": 0,
+          "policy": "midpoint_as_high",
+          "recipe": "balanced_sampler_ce",
+          "runs": 2,
+          "task": "arousal",
+          "threshold_best_accuracy": {
+            "max": 0.5397727272727273,
+            "mean": 0.5241477272727273,
+            "min": 0.5085227272727273,
+            "std": 0.015625
+          },
+          "threshold_best_balanced_accuracy": {
+            "max": 0.5306222439980401,
+            "mean": 0.5077166440576013,
+            "min": 0.4848110441171626,
+            "std": 0.02290559994043878
+          },
+          "threshold_best_macro_f1": {
+            "max": 0.5302955421567659,
+            "mean": 0.5049418145770797,
+            "min": 0.4795880869973935,
+            "std": 0.02535372757968618
+          },
+          "threshold_best_value": {
+            "max": 0.8,
+            "mean": 0.7,
+            "min": 0.6,
+            "std": 0.10000000000000003
+          },
+          "threshold_gain_balanced_accuracy": {
+            "max": 0.004382063193964059,
+            "mean": 0.004175353008054994,
+            "min": 0.003968642822145929,
+            "std": 0.00020671018590906476
+          },
+          "threshold_gain_macro_f1": {
+            "max": 0.018088851913252768,
+            "mean": 0.010907527287130708,
+            "min": 0.0037262026610086485,
+            "std": 0.00718132462612206
+          },
+          "threshold_one_class_final_runs": 0
+        },
+        {
+          "best_balanced_accuracy": {
+            "max": 0.595688388045076,
+            "mean": 0.57674768978874,
+            "min": 0.5578069915324042,
+            "std": 0.018940698256335875
+          },
+          "best_macro_f1": {
+            "max": 0.5764690579168157,
+            "mean": 0.5579529426396699,
+            "min": 0.539436827362524,
+            "std": 0.01851611527714586
+          },
+          "final_accuracy": {
+            "max": 0.5482954545454546,
+            "mean": 0.5454545454545454,
+            "min": 0.5426136363636364,
+            "std": 0.002840909090909116
+          },
+          "final_balanced_accuracy": {
+            "max": 0.536934532634839,
+            "mean": 0.5322676909458697,
+            "min": 0.5276008492569002,
+            "std": 0.004666841688969414
+          },
+          "final_macro_f1": {
+            "max": 0.5369915369915369,
+            "mean": 0.5306639193732854,
+            "min": 0.5243363017550339,
+            "std": 0.006327617618251513
+          },
+          "majority_accuracy": {
+            "max": 0.5710227272727273,
+            "mean": 0.5625,
+            "min": 0.5539772727272727,
+            "std": 0.008522727272727293
+          },
+          "one_class_final_runs": 0,
+          "policy": "midpoint_as_high",
+          "recipe": "ce_class_weighted",
+          "runs": 2,
+          "task": "arousal",
+          "threshold_best_accuracy": {
+            "max": 0.5397727272727273,
+            "mean": 0.5383522727272727,
+            "min": 0.5369318181818182,
+            "std": 0.0014204545454545303
+          },
+          "threshold_best_balanced_accuracy": {
+            "max": 0.5451220717604033,
+            "mean": 0.543727130931647,
+            "min": 0.5423321901028908,
+            "std": 0.0013949408287562415
+          },
+          "threshold_best_macro_f1": {
+            "max": 0.5390435541759627,
+            "mean": 0.5379708670431853,
+            "min": 0.536898179910408,
+            "std": 0.0010726871327773613
+          },
+          "threshold_best_value": {
+            "max": 0.3,
+            "mean": 0.22499999999999998,
+            "min": 0.15,
+            "std": 0.075
+          },
+          "threshold_gain_balanced_accuracy": {
+            "max": 0.014731340845990593,
+            "mean": 0.01145943998577742,
+            "min": 0.008187539125564247,
+            "std": 0.0032719008602131727
+          },
+          "threshold_gain_macro_f1": {
+            "max": 0.012561878155374129,
+            "mean": 0.007306947669899977,
+            "min": 0.002052017184425825,
+            "std": 0.005254930485474152
+          },
+          "threshold_one_class_final_runs": 0
+        }
+      ],
+      "runs": 4,
+      "status": "smoke_or_stabilization_complete"
+    },
+    "valence": {
+      "best_final_balanced_accuracy": {
+        "best_balanced_accuracy": {
+          "max": 0.5402457909129847,
+          "mean": 0.5307548509413891,
+          "min": 0.5212639109697933,
+          "std": 0.009490939971595724
+        },
+        "best_macro_f1": {
+          "max": 0.5403180480708831,
+          "mean": 0.5288822852030265,
+          "min": 0.5174465223351699,
+          "std": 0.011435762867856636
+        },
+        "final_accuracy": {
+          "max": 0.5596590909090909,
+          "mean": 0.5511363636363636,
+          "min": 0.5426136363636364,
+          "std": 0.008522727272727293
+        },
+        "final_balanced_accuracy": {
+          "max": 0.5254686830746927,
+          "mean": 0.5204516176369753,
+          "min": 0.515434552199258,
+          "std": 0.00501706543771735
+        },
+        "final_macro_f1": {
+          "max": 0.5113766672702034,
+          "mean": 0.5112066473567259,
+          "min": 0.5110366274432485,
+          "std": 0.00017001991347742607
+        },
+        "majority_accuracy": {
+          "max": 0.5795454545454546,
+          "mean": 0.5752840909090909,
+          "min": 0.5710227272727273,
+          "std": 0.0042613636363636465
+        },
+        "one_class_final_runs": 0,
+        "policy": "midpoint_as_high",
+        "recipe": "ce_class_weighted",
+        "runs": 2,
+        "task": "valence",
+        "threshold_best_accuracy": {
+          "max": 0.5482954545454546,
+          "mean": 0.5454545454545454,
+          "min": 0.5426136363636364,
+          "std": 0.002840909090909116
+        },
+        "threshold_best_balanced_accuracy": {
+          "max": 0.5295212678330203,
+          "mean": 0.5224779100161392,
+          "min": 0.515434552199258,
+          "std": 0.007043357816881146
+        },
+        "threshold_best_macro_f1": {
+          "max": 0.5279949399114484,
+          "mean": 0.5196858035908258,
+          "min": 0.5113766672702034,
+          "std": 0.008309136320622523
+        },
+        "threshold_best_value": {
+          "max": 0.65,
+          "mean": 0.575,
+          "min": 0.5,
+          "std": 0.07500000000000001
+        },
+        "threshold_gain_balanced_accuracy": {
+          "max": 0.004052584758327593,
+          "mean": 0.0020262923791637966,
+          "min": 0.0,
+          "std": 0.0020262923791637966
+        },
+        "threshold_gain_macro_f1": {
+          "max": 0.0169583124681999,
+          "mean": 0.00847915623409995,
+          "min": 0.0,
+          "std": 0.00847915623409995
+        },
+        "threshold_one_class_final_runs": 0
+      },
+      "best_final_macro_f1": {
+        "best_balanced_accuracy": {
+          "max": 0.5402457909129847,
+          "mean": 0.5307548509413891,
+          "min": 0.5212639109697933,
+          "std": 0.009490939971595724
+        },
+        "best_macro_f1": {
+          "max": 0.5403180480708831,
+          "mean": 0.5288822852030265,
+          "min": 0.5174465223351699,
+          "std": 0.011435762867856636
+        },
+        "final_accuracy": {
+          "max": 0.5596590909090909,
+          "mean": 0.5511363636363636,
+          "min": 0.5426136363636364,
+          "std": 0.008522727272727293
+        },
+        "final_balanced_accuracy": {
+          "max": 0.5254686830746927,
+          "mean": 0.5204516176369753,
+          "min": 0.515434552199258,
+          "std": 0.00501706543771735
+        },
+        "final_macro_f1": {
+          "max": 0.5113766672702034,
+          "mean": 0.5112066473567259,
+          "min": 0.5110366274432485,
+          "std": 0.00017001991347742607
+        },
+        "majority_accuracy": {
+          "max": 0.5795454545454546,
+          "mean": 0.5752840909090909,
+          "min": 0.5710227272727273,
+          "std": 0.0042613636363636465
+        },
+        "one_class_final_runs": 0,
+        "policy": "midpoint_as_high",
+        "recipe": "ce_class_weighted",
+        "runs": 2,
+        "task": "valence",
+        "threshold_best_accuracy": {
+          "max": 0.5482954545454546,
+          "mean": 0.5454545454545454,
+          "min": 0.5426136363636364,
+          "std": 0.002840909090909116
+        },
+        "threshold_best_balanced_accuracy": {
+          "max": 0.5295212678330203,
+          "mean": 0.5224779100161392,
+          "min": 0.515434552199258,
+          "std": 0.007043357816881146
+        },
+        "threshold_best_macro_f1": {
+          "max": 0.5279949399114484,
+          "mean": 0.5196858035908258,
+          "min": 0.5113766672702034,
+          "std": 0.008309136320622523
+        },
+        "threshold_best_value": {
+          "max": 0.65,
+          "mean": 0.575,
+          "min": 0.5,
+          "std": 0.07500000000000001
+        },
+        "threshold_gain_balanced_accuracy": {
+          "max": 0.004052584758327593,
+          "mean": 0.0020262923791637966,
+          "min": 0.0,
+          "std": 0.0020262923791637966
+        },
+        "threshold_gain_macro_f1": {
+          "max": 0.0169583124681999,
+          "mean": 0.00847915623409995,
+          "min": 0.0,
+          "std": 0.00847915623409995
+        },
+        "threshold_one_class_final_runs": 0
+      },
+      "best_threshold_macro_f1": {
+        "best_balanced_accuracy": {
+          "max": 0.5402457909129847,
+          "mean": 0.5307548509413891,
+          "min": 0.5212639109697933,
+          "std": 0.009490939971595724
+        },
+        "best_macro_f1": {
+          "max": 0.5403180480708831,
+          "mean": 0.5288822852030265,
+          "min": 0.5174465223351699,
+          "std": 0.011435762867856636
+        },
+        "final_accuracy": {
+          "max": 0.5596590909090909,
+          "mean": 0.5511363636363636,
+          "min": 0.5426136363636364,
+          "std": 0.008522727272727293
+        },
+        "final_balanced_accuracy": {
+          "max": 0.5254686830746927,
+          "mean": 0.5204516176369753,
+          "min": 0.515434552199258,
+          "std": 0.00501706543771735
+        },
+        "final_macro_f1": {
+          "max": 0.5113766672702034,
+          "mean": 0.5112066473567259,
+          "min": 0.5110366274432485,
+          "std": 0.00017001991347742607
+        },
+        "majority_accuracy": {
+          "max": 0.5795454545454546,
+          "mean": 0.5752840909090909,
+          "min": 0.5710227272727273,
+          "std": 0.0042613636363636465
+        },
+        "one_class_final_runs": 0,
+        "policy": "midpoint_as_high",
+        "recipe": "ce_class_weighted",
+        "runs": 2,
+        "task": "valence",
+        "threshold_best_accuracy": {
+          "max": 0.5482954545454546,
+          "mean": 0.5454545454545454,
+          "min": 0.5426136363636364,
+          "std": 0.002840909090909116
+        },
+        "threshold_best_balanced_accuracy": {
+          "max": 0.5295212678330203,
+          "mean": 0.5224779100161392,
+          "min": 0.515434552199258,
+          "std": 0.007043357816881146
+        },
+        "threshold_best_macro_f1": {
+          "max": 0.5279949399114484,
+          "mean": 0.5196858035908258,
+          "min": 0.5113766672702034,
+          "std": 0.008309136320622523
+        },
+        "threshold_best_value": {
+          "max": 0.65,
+          "mean": 0.575,
+          "min": 0.5,
+          "std": 0.07500000000000001
+        },
+        "threshold_gain_balanced_accuracy": {
+          "max": 0.004052584758327593,
+          "mean": 0.0020262923791637966,
+          "min": 0.0,
+          "std": 0.0020262923791637966
+        },
+        "threshold_gain_macro_f1": {
+          "max": 0.0169583124681999,
+          "mean": 0.00847915623409995,
+          "min": 0.0,
+          "std": 0.00847915623409995
+        },
+        "threshold_one_class_final_runs": 0
+      },
+      "config": {
+        "batch_size": 64,
+        "cache_index": ".cache/idare_eeg_cache_index_baseline_corrected.csv",
+        "cache_npy": ".cache/idare_eeg_windows_32x640_float32_baseline_corrected.npy",
+        "cache_shape": [
+          2016,
+          32,
+          640
+        ],
+        "device": "cuda",
+        "epochs": 12,
+        "folds": 6,
+        "grad_clip": 1.0,
+        "label_policy": "midpoint_as_high",
+        "lr": 0.001,
+        "max_runs": 4,
+        "num_workers": 0,
+        "out_predictions_csv": "docs/idare_eeg_stim_bsl_only_valence_standardized_smoke_predictions.csv",
+        "recipes": [
+          "ce_class_weighted",
+          "balanced_sampler_ce"
+        ],
+        "seeds": [
+          11
+        ],
+        "tasks": [
+          "valence"
+        ],
+        "weight_decay": 0.001
+      },
+      "exists": true,
+      "generated_at_utc": "2026-05-07T13:21:18.553855+00:00",
+      "path": "docs/idare_eeg_stim_bsl_only_valence_standardized_smoke.json",
+      "rows": [
+        {
+          "best_balanced_accuracy": {
+            "max": 0.5434911535040032,
+            "mean": 0.5311189206841691,
+            "min": 0.5187466878643349,
+            "std": 0.012372232819834184
+          },
+          "best_macro_f1": {
+            "max": 0.5402947785105331,
+            "mean": 0.5265399003647588,
+            "min": 0.5127850222189845,
+            "std": 0.013754878145774307
+          },
+          "final_accuracy": {
+            "max": 0.5284090909090909,
+            "mean": 0.5113636363636364,
+            "min": 0.4943181818181818,
+            "std": 0.017045454545454558
+          },
+          "final_balanced_accuracy": {
+            "max": 0.5226186946064381,
+            "mean": 0.5128991724224559,
+            "min": 0.5031796502384738,
+            "std": 0.009719522183982143
+          },
+          "final_macro_f1": {
+            "max": 0.4999315349856224,
+            "mean": 0.4931115106385544,
+            "min": 0.4862914862914864,
+            "std": 0.006820024347067993
+          },
+          "majority_accuracy": {
+            "max": 0.5795454545454546,
+            "mean": 0.5752840909090909,
+            "min": 0.5710227272727273,
+            "std": 0.0042613636363636465
+          },
+          "one_class_final_runs": 0,
+          "policy": "midpoint_as_high",
+          "recipe": "balanced_sampler_ce",
+          "runs": 2,
+          "task": "valence",
+          "threshold_best_accuracy": {
+            "max": 0.5284090909090909,
+            "mean": 0.5184659090909092,
+            "min": 0.5085227272727273,
+            "std": 0.009943181818181823
+          },
+          "threshold_best_balanced_accuracy": {
+            "max": 0.5128167111462555,
+            "mean": 0.5079981806923646,
+            "min": 0.5031796502384738,
+            "std": 0.004818530453890857
+          },
+          "threshold_best_macro_f1": {
+            "max": 0.5076286192482151,
+            "mean": 0.5037800771169187,
+            "min": 0.4999315349856224,
+            "std": 0.003848542131296373
+          },
+          "threshold_best_value": {
+            "max": 0.5,
+            "mean": 0.35,
+            "min": 0.2,
+            "std": 0.15
+          },
+          "threshold_gain_balanced_accuracy": {
+            "max": 0.0,
+            "mean": -0.004900991730091286,
+            "min": -0.009801983460182573,
+            "std": 0.004900991730091286
+          },
+          "threshold_gain_macro_f1": {
+            "max": 0.021337132956728733,
+            "mean": 0.010668566478364366,
+            "min": 0.0,
+            "std": 0.010668566478364366
+          },
+          "threshold_one_class_final_runs": 0
+        },
+        {
+          "best_balanced_accuracy": {
+            "max": 0.5402457909129847,
+            "mean": 0.5307548509413891,
+            "min": 0.5212639109697933,
+            "std": 0.009490939971595724
+          },
+          "best_macro_f1": {
+            "max": 0.5403180480708831,
+            "mean": 0.5288822852030265,
+            "min": 0.5174465223351699,
+            "std": 0.011435762867856636
+          },
+          "final_accuracy": {
+            "max": 0.5596590909090909,
+            "mean": 0.5511363636363636,
+            "min": 0.5426136363636364,
+            "std": 0.008522727272727293
+          },
+          "final_balanced_accuracy": {
+            "max": 0.5254686830746927,
+            "mean": 0.5204516176369753,
+            "min": 0.515434552199258,
+            "std": 0.00501706543771735
+          },
+          "final_macro_f1": {
+            "max": 0.5113766672702034,
+            "mean": 0.5112066473567259,
+            "min": 0.5110366274432485,
+            "std": 0.00017001991347742607
+          },
+          "majority_accuracy": {
+            "max": 0.5795454545454546,
+            "mean": 0.5752840909090909,
+            "min": 0.5710227272727273,
+            "std": 0.0042613636363636465
+          },
+          "one_class_final_runs": 0,
+          "policy": "midpoint_as_high",
+          "recipe": "ce_class_weighted",
+          "runs": 2,
+          "task": "valence",
+          "threshold_best_accuracy": {
+            "max": 0.5482954545454546,
+            "mean": 0.5454545454545454,
+            "min": 0.5426136363636364,
+            "std": 0.002840909090909116
+          },
+          "threshold_best_balanced_accuracy": {
+            "max": 0.5295212678330203,
+            "mean": 0.5224779100161392,
+            "min": 0.515434552199258,
+            "std": 0.007043357816881146
+          },
+          "threshold_best_macro_f1": {
+            "max": 0.5279949399114484,
+            "mean": 0.5196858035908258,
+            "min": 0.5113766672702034,
+            "std": 0.008309136320622523
+          },
+          "threshold_best_value": {
+            "max": 0.65,
+            "mean": 0.575,
+            "min": 0.5,
+            "std": 0.07500000000000001
+          },
+          "threshold_gain_balanced_accuracy": {
+            "max": 0.004052584758327593,
+            "mean": 0.0020262923791637966,
+            "min": 0.0,
+            "std": 0.0020262923791637966
+          },
+          "threshold_gain_macro_f1": {
+            "max": 0.0169583124681999,
+            "mean": 0.00847915623409995,
+            "min": 0.0,
+            "std": 0.00847915623409995
+          },
+          "threshold_one_class_final_runs": 0
+        }
+      ],
+      "runs": 4,
+      "status": "smoke_or_stabilization_complete"
+    }
+  },
+  "source_reports": {
+    "arousal_json": "docs/idare_eeg_stim_bsl_only_arousal_standardized_smoke.json",
+    "arousal_md": "docs/idare_eeg_stim_bsl_only_arousal_standardized_smoke.md",
+    "arousal_predictions_csv": "docs/idare_eeg_stim_bsl_only_arousal_standardized_smoke_predictions.csv",
+    "valence_json": "docs/idare_eeg_stim_bsl_only_valence_standardized_smoke.json",
+    "valence_md": "docs/idare_eeg_stim_bsl_only_valence_standardized_smoke.md",
+    "valence_predictions_csv": "docs/idare_eeg_stim_bsl_only_valence_standardized_smoke_predictions.csv"
+  },
+  "status": "frozen"
+}
