@@ -1,0 +1,163 @@
+{
+  "comparisons": [
+    {
+      "best_balanced_accuracy_mean": 0.5218687143901377,
+      "best_macro_f1_mean": 0.5066275841671076,
+      "best_policy": "discard_midpoint",
+      "best_recipe": "balanced_sampler_ce",
+      "modality": "EEG",
+      "policies": [
+        {
+          "final_balanced_accuracy_mean": 0.5218687143901377,
+          "final_macro_f1_mean": 0.5066275841671076,
+          "one_class_final_runs": 0,
+          "policy": "discard_midpoint",
+          "recipe": "balanced_sampler_ce"
+        },
+        {
+          "final_balanced_accuracy_mean": 0.49084498785061087,
+          "final_macro_f1_mean": 0.4776832833265901,
+          "one_class_final_runs": 0,
+          "policy": "midpoint_as_low",
+          "recipe": "balanced_sampler_ce"
+        },
+        {
+          "final_balanced_accuracy_mean": 0.5068949769746365,
+          "final_macro_f1_mean": 0.501359803127681,
+          "one_class_final_runs": 0,
+          "policy": "midpoint_as_high",
+          "recipe": "ce_class_weighted"
+        }
+      ],
+      "task": "valence"
+    },
+    {
+      "best_balanced_accuracy_mean": 0.5416327025978417,
+      "best_macro_f1_mean": 0.5313091391804471,
+      "best_policy": "midpoint_as_high",
+      "best_recipe": "ce_class_weighted",
+      "modality": "EEG",
+      "policies": [
+        {
+          "final_balanced_accuracy_mean": 0.5205859718169092,
+          "final_macro_f1_mean": 0.5088828387271528,
+          "one_class_final_runs": 0,
+          "policy": "discard_midpoint",
+          "recipe": "balanced_sampler_ce"
+        },
+        {
+          "final_balanced_accuracy_mean": 0.5247746394830587,
+          "final_macro_f1_mean": 0.5160026760164667,
+          "one_class_final_runs": 0,
+          "policy": "midpoint_as_low",
+          "recipe": "balanced_sampler_ce"
+        },
+        {
+          "final_balanced_accuracy_mean": 0.5416327025978417,
+          "final_macro_f1_mean": 0.5313091391804471,
+          "one_class_final_runs": 0,
+          "policy": "midpoint_as_high",
+          "recipe": "ce_class_weighted"
+        }
+      ],
+      "task": "arousal"
+    },
+    {
+      "best_balanced_accuracy_mean": 0.5201507593591346,
+      "best_macro_f1_mean": 0.5139693887689678,
+      "best_policy": "midpoint_as_high",
+      "best_recipe": "ce_class_weighted",
+      "modality": "EMG",
+      "policies": [
+        {
+          "final_balanced_accuracy_mean": 0.5054602513225528,
+          "final_macro_f1_mean": 0.5043152088196741,
+          "one_class_final_runs": 0,
+          "policy": "discard_midpoint",
+          "recipe": "ce_class_weighted"
+        },
+        {
+          "final_balanced_accuracy_mean": 0.5072420046132025,
+          "final_macro_f1_mean": 0.5017855487460761,
+          "one_class_final_runs": 0,
+          "policy": "midpoint_as_low",
+          "recipe": "ce_class_weighted"
+        },
+        {
+          "final_balanced_accuracy_mean": 0.5201507593591346,
+          "final_macro_f1_mean": 0.5139693887689678,
+          "one_class_final_runs": 0,
+          "policy": "midpoint_as_high",
+          "recipe": "ce_class_weighted"
+        }
+      ],
+      "task": "valence"
+    },
+    {
+      "best_balanced_accuracy_mean": 0.5364967332261366,
+      "best_macro_f1_mean": 0.5253123121687935,
+      "best_policy": "discard_midpoint",
+      "best_recipe": "ce_class_weighted",
+      "modality": "EMG",
+      "policies": [
+        {
+          "final_balanced_accuracy_mean": 0.5364967332261366,
+          "final_macro_f1_mean": 0.5253123121687935,
+          "one_class_final_runs": 0,
+          "policy": "discard_midpoint",
+          "recipe": "ce_class_weighted"
+        },
+        {
+          "final_balanced_accuracy_mean": 0.5330804554896084,
+          "final_macro_f1_mean": 0.5123804392617,
+          "one_class_final_runs": 0,
+          "policy": "midpoint_as_low",
+          "recipe": "balanced_sampler_ce"
+        },
+        {
+          "final_balanced_accuracy_mean": 0.5192254508486686,
+          "final_macro_f1_mean": 0.5158549524054082,
+          "one_class_final_runs": 0,
+          "policy": "midpoint_as_high",
+          "recipe": "ce_class_weighted"
+        }
+      ],
+      "task": "arousal"
+    }
+  ],
+  "created_or_updated_utc": "2026-05-07T14:59:58.879939+00:00",
+  "decision": {
+    "evidence_level": "controlled label-policy primary matrix, not final LOSO",
+    "final_label_policy_locked": false,
+    "next_allowed_step": "Human review / closeout decision for label-policy ablation.",
+    "not_authorized_from_this_report": [
+      "EEG+EMG fusion",
+      "full model(BSL, STIM, STIM-BSL)",
+      "final LOSO / final paper claim",
+      "locking a final label policy without review",
+      "raw EMG mainline",
+      "architecture ablations",
+      "data augmentation",
+      "SupCon / VREx / domain generalization"
+    ],
+    "status": "primary_matrix_complete_pending_human_review"
+  },
+  "evidence_level": "controlled ablation primary matrix, not final LOSO",
+  "matrix": {
+    "folds": 6,
+    "modalities": 2,
+    "policies": 3,
+    "recipes": 2,
+    "seeds": [
+      11
+    ],
+    "tasks": 2,
+    "total_runs": 144
+  },
+  "modality_reports": {
+    "eeg": "docs/idare_label_policy_ablation_eeg_primary.json",
+    "emg": "docs/idare_label_policy_ablation_emg_primary.json"
+  },
+  "objective": "I-DARE controlled label-policy ablation",
+  "status": "primary_matrix_complete"
+}
