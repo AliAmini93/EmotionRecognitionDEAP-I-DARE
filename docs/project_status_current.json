@@ -226,6 +226,36 @@
       "reviewed_report": "docs/idare_broader_standardized_single_modality_evaluation_report.md",
       "status": "frozen_human_review_closeout"
     },
+    "idare_diagnostic_sanity_tests_objective": {
+      "authorized_tests": [
+        "micro_overfit_subset",
+        "shuffled_label_negative_control",
+        "within_subject_vs_subject_heldout_contrast",
+        "simple_classical_baseline"
+      ],
+      "diagnostic_only": true,
+      "evidence": "docs/idare_diagnostic_sanity_tests_objective.md",
+      "evidence_json": "docs/idare_diagnostic_sanity_tests_objective.json",
+      "expected_outputs": [
+        "docs/idare_diagnostic_sanity_tests_report.md",
+        "docs/idare_diagnostic_sanity_tests_report.json",
+        "docs/idare_diagnostic_sanity_tests_summary.csv",
+        "optional docs/idare_diagnostic_sanity_tests_predictions.csv only if needed and not too large"
+      ],
+      "new_performance_training_authorized": false,
+      "next_allowed_step": "Prepare a reviewed command/script that runs the diagnostic sanity tests and writes the diagnostic report.",
+      "not_authorized": [
+        "EEG+EMG fusion",
+        "final LOSO / final paper claim",
+        "final global label-policy lock",
+        "architecture ablation for improvement",
+        "data augmentation",
+        "SupCon / VREx / domain generalization",
+        "broad hyperparameter search",
+        "mainline change"
+      ],
+      "status": "short_term_objective_created"
+    },
     "idare_eeg_stim_bsl_only_standardized_baseline": {
       "evidence": "docs/idare_eeg_stim_bsl_only_standardized_status.md",
       "meaning": "Fair EEG STIM-BSL-only comparator is now present for BSL-stats comparison.",
@@ -555,6 +585,24 @@
       ],
       "status": "complete_pending_review",
       "subject_summary_csv": "docs/idare_root_cause_subject_summary.csv"
+    },
+    "idare_root_cause_diagnostic_review_status": {
+      "evidence": "docs/idare_root_cause_diagnostic_review_status.md",
+      "evidence_json": "docs/idare_root_cause_diagnostic_review_status.json",
+      "new_performance_training_authorized": false,
+      "not_authorized": [
+        "new performance training",
+        "EEG+EMG fusion",
+        "final LOSO / final paper claim",
+        "final global label-policy lock",
+        "architecture ablation",
+        "data augmentation",
+        "SupCon / VREx / domain generalization",
+        "mainline change"
+      ],
+      "reviewed_report": "docs/idare_root_cause_diagnostic_report.md",
+      "selected_next_objective": "diagnostic_sanity_tests_objective",
+      "status": "frozen_human_review_closeout"
     },
     "idare_single_modality_bsl_stats_vs_baseline_comparison": {
       "evidence": "docs/idare_single_modality_bsl_stats_vs_baseline_comparison.md",

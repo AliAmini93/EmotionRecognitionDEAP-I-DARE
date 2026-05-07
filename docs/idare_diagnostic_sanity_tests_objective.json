@@ -1,0 +1,122 @@
+{
+  "status": "short_term_objective_created",
+  "created_or_updated_utc": "2026-05-07T15:40:33.655132+00:00",
+  "objective": "I-DARE diagnostic sanity tests objective",
+  "evidence_level": "diagnostic-only objective after human-reviewed root-cause report; no performance claim",
+  "source_checkpoint": {
+    "root_cause_review": "docs/idare_root_cause_diagnostic_review_status.md",
+    "root_cause_report": "docs/idare_root_cause_diagnostic_report.md",
+    "root_cause_json": "docs/idare_root_cause_diagnostic_report.json"
+  },
+  "scientific_question": "Can the current I-DARE data/model pipeline learn any usable signal under controlled sanity conditions, or are the near-chance results caused by cross-subject generalization difficulty, representation weakness, label/task noise, calibration, or a pipeline/model learning failure?",
+  "authorized_scope": {
+    "diagnostic_only": true,
+    "new_performance_training": false,
+    "final_claim": false,
+    "tests": [
+      {
+        "id": "micro_overfit_subset",
+        "purpose": "Check whether each mainline model can memorize a small clean subset.",
+        "interpretation": {
+          "passes": "Training/data feeding/model/loss can learn at least local signal.",
+          "fails": "Strong evidence for pipeline/model/loss/data-feeding issue."
+        },
+        "allowed_modalities": [
+          "EEG STIM-BSL-only",
+          "EMG feature-only"
+        ],
+        "allowed_tasks": [
+          "valence",
+          "arousal"
+        ],
+        "allowed_policy": "midpoint_as_high continuity/default only",
+        "allowed_scope": "small subset, diagnostic-only, no validation claim"
+      },
+      {
+        "id": "shuffled_label_negative_control",
+        "purpose": "Check for leakage or suspicious behavior under randomized labels.",
+        "interpretation": {
+          "passes": "Performance stays near chance/majority under shuffled labels.",
+          "fails": "Potential leakage, split bug, or metric/reporting bug."
+        },
+        "allowed_modalities": [
+          "EEG STIM-BSL-only",
+          "EMG feature-only"
+        ],
+        "allowed_tasks": [
+          "valence",
+          "arousal"
+        ],
+        "allowed_policy": "midpoint_as_high continuity/default only",
+        "allowed_scope": "diagnostic-only negative control"
+      },
+      {
+        "id": "within_subject_vs_subject_heldout_contrast",
+        "purpose": "Separate learnability from cross-subject generalization difficulty.",
+        "interpretation": {
+          "within_subject_good_subject_heldout_bad": "Primary issue is subject/domain generalization.",
+          "both_bad": "Representation, label/task, or pipeline learning issue remains likely."
+        },
+        "allowed_modalities": [
+          "EEG STIM-BSL-only",
+          "EMG feature-only"
+        ],
+        "allowed_tasks": [
+          "valence",
+          "arousal"
+        ],
+        "allowed_policy": "midpoint_as_high continuity/default only",
+        "allowed_scope": "diagnostic contrast, no final performance claim"
+      },
+      {
+        "id": "simple_classical_baseline",
+        "purpose": "Check whether simple models on existing features can beat the neural setup or reveal linearly available signal.",
+        "interpretation": {
+          "classical_better": "Neural setup/training may be weak.",
+          "classical_also_chance": "Representation/label/generalization issue is more likely."
+        },
+        "allowed_modalities": [
+          "EMG feature-only",
+          "EEG simple summary features derived from existing cache if script already supports or patch is limited"
+        ],
+        "allowed_tasks": [
+          "valence",
+          "arousal"
+        ],
+        "allowed_policy": "midpoint_as_high continuity/default only",
+        "allowed_scope": "diagnostic baseline only"
+      }
+    ]
+  },
+  "expected_outputs": [
+    "docs/idare_diagnostic_sanity_tests_report.md",
+    "docs/idare_diagnostic_sanity_tests_report.json",
+    "docs/idare_diagnostic_sanity_tests_summary.csv",
+    "optional docs/idare_diagnostic_sanity_tests_predictions.csv only if needed and not too large"
+  ],
+  "pass_criteria": [
+    "The command/script runs only diagnostic sanity tests, not performance-training experiments.",
+    "Outputs include pass/fail interpretation for micro-overfit, shuffled-label control, within-subject contrast, and classical baseline.",
+    "The report explicitly states whether model/pipeline learning issue is supported, weakened, or still unresolved.",
+    "The report distinguishes subject/domain generalization difficulty from total learnability failure.",
+    "The report recommends exactly one next objective after review.",
+    "No fusion, architecture, augmentation, DG, or final claim is started."
+  ],
+  "stop_conditions": [
+    "If micro-overfit fails, stop and recommend pipeline/data-feeding/loss audit.",
+    "If shuffled-label control performs suspiciously above chance, stop and recommend leakage/split audit.",
+    "If within-subject is strong but subject-heldout weak, recommend subject-generalization objective.",
+    "If all diagnostics remain near chance, recommend representation/label-task redesign objective."
+  ],
+  "not_authorized": [
+    "EEG+EMG fusion",
+    "final LOSO / final paper claim",
+    "final global label-policy lock",
+    "architecture ablation for improvement",
+    "data augmentation",
+    "SupCon / VREx / domain generalization",
+    "broad hyperparameter search",
+    "mainline change"
+  ],
+  "next_allowed_step": "Prepare a reviewed command/script that runs the diagnostic sanity tests and writes the diagnostic report."
+}

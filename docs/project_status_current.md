@@ -62,6 +62,8 @@ No final global label policy is locked. `midpoint_as_high` remains only the prac
 | I-DARE failure analysis review | human review accepted failure-analysis report; root-cause diagnosis selected as next step | yes | `docs/idare_failure_analysis_review_status.md` | Create root-cause diagnostic objective and read-only report. | EEG+EMG fusion; final LOSO claim; architecture/augmentation/DG work. |
 | I-DARE root-cause diagnostic objective | short-term objective created to localize likely causes of near-chance/mixed results; no new performance training authorized | yes | `docs/idare_root_cause_diagnostic_objective.md` | Prepare read-only root-cause diagnostic report from existing predictions. | EEG+EMG fusion; final LOSO claim; architecture/augmentation/DG work; diagnostic sanity tests before report review. |
 | I-DARE root-cause diagnostic report | read-only diagnostic report complete from existing predictions; pending human review | yes | `docs/idare_root_cause_diagnostic_report.md` | Human review / closeout before diagnostic sanity tests or any fix objective. | EEG+EMG fusion; final LOSO claim; architecture/augmentation/DG work; new performance training. |
+| I-DARE root-cause diagnostic review | human review accepted read-only root-cause report; diagnostic sanity tests selected next | yes | `docs/idare_root_cause_diagnostic_review_status.md` | Create/run diagnostic sanity tests objective. | EEG+EMG fusion; final LOSO claim; architecture/augmentation/DG work; mainline change. |
+| I-DARE diagnostic sanity tests objective | short-term diagnostic-only objective created; no performance training claim authorized | yes | `docs/idare_diagnostic_sanity_tests_objective.md` | Prepare reviewed diagnostic sanity command/script. | EEG+EMG fusion; final LOSO claim; architecture/augmentation/DG work; broad hyperparameter search. |
 | EEG+EMG fusion | not started intentionally | no | `docs/idare_eeg_bsl_stats_ablation_status.md`<br>`docs/idare_emg_bsl_stats_ablation_status.md` | Start only after current baseline/ablation status is indexed and compared cleanly. | All fusion experiments. |
 | Full model(BSL, STIM, STIM-BSL) | not started intentionally | no | `docs/idare_baseline_modeling_literature_plan.md` | Only after low-capacity BSL-stats ablation beats STIM-BSL-only baselines consistently. | Two-branch or three-branch full paired neural model. |
 | I-DARE controlled label-policy ablation objective | short-term objective created and executed for 144-run label-policy matrix | yes | `docs/idare_label_policy_ablation_objective.md` | Review status is frozen in `docs/idare_label_policy_ablation_review_status.md`. | EEG+EMG fusion; final LOSO claim; locking final label policy before review. |
@@ -125,6 +127,10 @@ Note: DEAP EMG feature rows are sourced from the frozen `docs/deap_emg_feature_o
 - A controlled I-DARE root-cause diagnostic objective is defined in `docs/idare_root_cause_diagnostic_objective.md`; next work is a read-only diagnostic report from existing predictions, not new training or fusion.
 
 - Controlled I-DARE root-cause diagnostic report is complete in `docs/idare_root_cause_diagnostic_report.md`; next work is human review/closeout, not new training or fusion.
+
+- Human review of the I-DARE root-cause diagnostic report is frozen in `docs/idare_root_cause_diagnostic_review_status.md`; diagnostic sanity tests are selected as the next controlled step.
+
+- A diagnostic-only I-DARE sanity-tests objective is defined in `docs/idare_diagnostic_sanity_tests_objective.md`; next work is a reviewed command/script, not performance training or fusion.
 
 ## Documentation Gap Closed by This File
 
