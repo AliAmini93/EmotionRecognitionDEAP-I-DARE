@@ -1,0 +1,107 @@
+{
+  "status": "short_term_objective_created",
+  "created_or_updated_utc": "2026-05-07T15:59:58.191477+00:00",
+  "objective": "I-DARE representation and label-task redesign objective",
+  "evidence_level": "post-calibration diagnostic objective; no final performance claim",
+  "source_checkpoint": {
+    "calibration_protocol_review": "docs/idare_calibration_protocol_review_status.md",
+    "calibration_protocol_report": "docs/idare_calibration_protocol_report.md",
+    "calibration_protocol_json": "docs/idare_calibration_protocol_report.json",
+    "calibration_protocol_summary": "docs/idare_calibration_protocol_summary.csv",
+    "root_cause_report": "docs/idare_root_cause_diagnostic_report.md",
+    "diagnostic_sanity_report": "docs/idare_diagnostic_sanity_tests_report.md",
+    "failure_analysis_report": "docs/idare_failure_analysis_report.md"
+  },
+  "why_this_objective": [
+    "Calibration is not sufficient as the primary fix.",
+    "Repeated near-chance/mixed results remain after BSL-stats, label-policy, failure, sanity, and calibration diagnostics.",
+    "Before changing architecture or starting fusion, the project needs a diagnostic redesign of representation, label construction, and task framing."
+  ],
+  "scientific_questions": [
+    "Are the current binary labels too noisy, unstable, or subject-dependent for the current subject-heldout setup?",
+    "Is the current STIM-BSL representation preserving emotion-related signal or mostly subject/session nuisance structure?",
+    "Are arousal/valence being treated as single global binary tasks when subject-relative or trial-relative formulations would be more appropriate?",
+    "Which future fix should be tested first: label redesign, representation redesign, or subject-normalized task formulation?"
+  ],
+  "authorized_scope": {
+    "diagnostic_or_design_only": true,
+    "new_model_training": false,
+    "allowed_inputs": [
+      "existing cache index CSVs",
+      "existing prediction CSVs",
+      "existing JSON/MD diagnostic reports",
+      "existing label columns and rating distributions"
+    ],
+    "authorized_work": [
+      {
+        "id": "label_noise_and_policy_diagnosis",
+        "purpose": "Audit original rating distributions, midpoint density, class balance by subject/fold/task, and label-policy disagreement.",
+        "outputs": [
+          "per-subject/task label balance",
+          "midpoint/near-midpoint burden",
+          "policy disagreement map",
+          "candidate label policies for future controlled test"
+        ]
+      },
+      {
+        "id": "subject_dependency_diagnosis",
+        "purpose": "Quantify whether errors and labels are dominated by subject identity, fold composition, or subject-specific baselines.",
+        "outputs": [
+          "hard-subject clusters",
+          "subject-label skew table",
+          "subject-vs-task confounding indicators"
+        ]
+      },
+      {
+        "id": "representation_signal_diagnosis",
+        "purpose": "Test whether current EEG/EMG representations separate labels beyond subject/session nuisance using read-only feature summaries.",
+        "outputs": [
+          "representation separability checks",
+          "subject separability vs label separability",
+          "feature/representation redesign recommendations"
+        ]
+      },
+      {
+        "id": "task_redesign_options",
+        "purpose": "Define a small set of future controlled objectives without running them yet.",
+        "outputs": [
+          "recommended task formulation",
+          "candidate future objective list",
+          "one selected next objective after review"
+        ]
+      }
+    ]
+  },
+  "expected_outputs": [
+    "docs/idare_representation_label_task_redesign_report.md",
+    "docs/idare_representation_label_task_redesign_report.json",
+    "docs/idare_label_noise_subject_balance_summary.csv",
+    "docs/idare_representation_signal_diagnostic_summary.csv"
+  ],
+  "pass_criteria": [
+    "No new model training is run.",
+    "No fusion, architecture improvement, augmentation, DG, or final LOSO claim is authorized.",
+    "The report identifies whether the leading blocker is label/task design, representation design, subject generalization, or unresolved/mixed.",
+    "The report recommends exactly one next objective after human review.",
+    "The report states which tempting next steps are still not authorized."
+  ],
+  "candidate_next_objectives_after_review": [
+    "subject_normalized_labeling_objective",
+    "subject_relative_task_formulation_objective",
+    "representation_preprocessing_redesign_objective",
+    "minimal_controlled_training_objective",
+    "data_quality_or_label_noise_audit_objective"
+  ],
+  "not_authorized": [
+    "EEG+EMG fusion",
+    "final LOSO / final paper claim",
+    "final global label-policy lock",
+    "new model training",
+    "architecture ablation for improvement",
+    "data augmentation",
+    "SupCon / VREx / domain generalization",
+    "broad hyperparameter search",
+    "mainline change"
+  ],
+  "next_allowed_step": "Prepare a reviewed read-only representation/label-task diagnostic report command/script."
+}

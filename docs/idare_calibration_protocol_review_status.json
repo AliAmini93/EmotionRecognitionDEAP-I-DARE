@@ -1,0 +1,57 @@
+{
+  "status": "frozen_human_review_closeout",
+  "created_or_updated_utc": "2026-05-07T15:59:58.191477+00:00",
+  "reviewed_report": "docs/idare_calibration_protocol_report.md",
+  "reviewed_json": "docs/idare_calibration_protocol_report.json",
+  "review_decision": {
+    "accepted": true,
+    "diagnosis": "calibration_not_sufficient_as_primary_fix",
+    "selected_next_objective": "representation_label_task_redesign_objective",
+    "calibration_as_primary_fix_rejected": true,
+    "new_performance_training_authorized": false,
+    "fusion_authorized": false,
+    "architecture_or_dg_authorized": false,
+    "final_loso_claim_authorized": false,
+    "mainline_change_authorized": false
+  },
+  "accepted_findings": {
+    "summary": [
+      "Validation-only calibration gains are too small or inconsistent.",
+      "Calibration alone should not be treated as the main fix.",
+      "The next objective should inspect representation, labels, and task formulation before any model-change or fusion objective."
+    ],
+    "protocol_summary": {
+      "n_prediction_rows": 78376,
+      "n_protocol_groups": 12,
+      "positive_gain_count": 11,
+      "material_gain_count_ge_0p01": 2,
+      "negative_gain_count": 1,
+      "pass_like_count": 4,
+      "threshold_unstable_count": 0,
+      "calibrated_one_class_count": 0,
+      "mean_calibrated_macro_f1_gain": 0.004983255100779761,
+      "median_calibrated_macro_f1_gain": 0.004725063701372267,
+      "max_calibrated_macro_f1_gain": 0.014311584034455427,
+      "mean_oracle_gap": 0.009527564095980897,
+      "mean_selected_threshold_std": 0.006547840583922865,
+      "diagnosis": "calibration_not_sufficient_as_primary_fix",
+      "recommended_next_objective": "representation_label_task_redesign_objective",
+      "recommendation_reason": [
+        "Validation-only calibration gains are too small or inconsistent.",
+        "Calibration alone should not be treated as the main fix.",
+        "A representation/label-task redesign objective is more appropriate after review."
+      ]
+    }
+  },
+  "not_authorized": [
+    "EEG+EMG fusion",
+    "final LOSO / final paper claim",
+    "final global label-policy lock",
+    "new model training",
+    "architecture ablation for improvement",
+    "data augmentation",
+    "SupCon / VREx / domain generalization",
+    "broad hyperparameter search",
+    "mainline change"
+  ]
+}

@@ -338,6 +338,26 @@
       "status": "complete_pending_review",
       "summary_csv": "docs/idare_calibration_protocol_summary.csv"
     },
+    "idare_calibration_protocol_review_status": {
+      "diagnosis": "calibration_not_sufficient_as_primary_fix",
+      "evidence": "docs/idare_calibration_protocol_review_status.md",
+      "evidence_json": "docs/idare_calibration_protocol_review_status.json",
+      "new_performance_training_authorized": false,
+      "not_authorized": [
+        "EEG+EMG fusion",
+        "final LOSO / final paper claim",
+        "final global label-policy lock",
+        "new model training",
+        "architecture ablation for improvement",
+        "data augmentation",
+        "SupCon / VREx / domain generalization",
+        "broad hyperparameter search",
+        "mainline change"
+      ],
+      "reviewed_report": "docs/idare_calibration_protocol_report.md",
+      "selected_next_objective": "representation_label_task_redesign_objective",
+      "status": "frozen_human_review_closeout"
+    },
     "idare_calibration_subject_generalization_report": {
       "cross_modality_error_overlap_csv": "docs/idare_cross_modality_error_overlap.csv",
       "diagnostic_summary": {
@@ -718,6 +738,43 @@
           "task": "valence"
         }
       }
+    },
+    "idare_representation_label_task_redesign_objective": {
+      "authorized_work": [
+        "label_noise_and_policy_diagnosis",
+        "subject_dependency_diagnosis",
+        "representation_signal_diagnosis",
+        "task_redesign_options"
+      ],
+      "candidate_next_objectives_after_review": [
+        "subject_normalized_labeling_objective",
+        "subject_relative_task_formulation_objective",
+        "representation_preprocessing_redesign_objective",
+        "minimal_controlled_training_objective",
+        "data_quality_or_label_noise_audit_objective"
+      ],
+      "evidence": "docs/idare_representation_label_task_redesign_objective.md",
+      "evidence_json": "docs/idare_representation_label_task_redesign_objective.json",
+      "expected_outputs": [
+        "docs/idare_representation_label_task_redesign_report.md",
+        "docs/idare_representation_label_task_redesign_report.json",
+        "docs/idare_label_noise_subject_balance_summary.csv",
+        "docs/idare_representation_signal_diagnostic_summary.csv"
+      ],
+      "new_model_training_authorized": false,
+      "next_allowed_step": "Prepare a reviewed read-only representation/label-task diagnostic report command/script.",
+      "not_authorized": [
+        "EEG+EMG fusion",
+        "final LOSO / final paper claim",
+        "final global label-policy lock",
+        "new model training",
+        "architecture ablation for improvement",
+        "data augmentation",
+        "SupCon / VREx / domain generalization",
+        "broad hyperparameter search",
+        "mainline change"
+      ],
+      "status": "short_term_objective_created"
     },
     "idare_root_cause_diagnostic_objective": {
       "evidence": "docs/idare_root_cause_diagnostic_objective.md",
