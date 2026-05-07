@@ -3917,5 +3917,9 @@
   ],
   "notes": {
     "deap_emg_snapshot_source": "DEAP EMG valence/arousal snapshot values are sourced from docs/deap_emg_feature_only_status.md because the central status should reflect the frozen status doc, not require task-specific JSON files."
+  },
+  "operating_protocol": "docs/project_operating_protocol.md",
+  "protocol_notes": {
+    "new_chat_sync": "Read docs/project_operating_protocol.md before running patches, commits, experiments, or phase closeouts."
   }
 }

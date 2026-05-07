@@ -11,6 +11,7 @@ It summarizes the latest frozen documentation and explicitly separates smoke evi
 - Project: cross-subject EEG/EMG emotion recognition on DEAP and I-DARE.
 - Current evidence level: smoke/stabilization, not final performance.
 - Current discipline: cache-backed runs, subject-held-out validation first, status docs frozen before moving to the next phase.
+- Operating conventions: `docs/project_operating_protocol.md`
 
 ## Proposal Alignment
 
