@@ -1,0 +1,1294 @@
+{
+  "aggregates": [
+    {
+      "condition": "baseline",
+      "condition_id": "EEG-B0",
+      "final_accuracy": {
+        "max": 0.5454545454545454,
+        "mean": 0.5168560606060606,
+        "min": 0.4659090909090909,
+        "std": 0.027876478257837515
+      },
+      "final_balanced_accuracy": {
+        "max": 0.5627173373075012,
+        "mean": 0.5163528364461297,
+        "min": 0.4829165431122533,
+        "std": 0.024195592730593525
+      },
+      "final_macro_f1": {
+        "max": 0.5398655984975202,
+        "mean": 0.5029452357086452,
+        "min": 0.4645088201974429,
+        "std": 0.022396069808480194
+      },
+      "label": "EEG STIM-BSL-only",
+      "majority_accuracy": {
+        "max": 0.61875,
+        "mean": 0.5550662878787879,
+        "min": 0.5085227272727273,
+        "std": 0.03442873049503526
+      },
+      "modality": "EEG",
+      "n_folds": 6,
+      "one_class_final_runs": 0,
+      "recipe": "balanced_sampler_ce",
+      "task": "arousal",
+      "threshold_best_balanced_accuracy": {
+        "max": 0.5807666832256996,
+        "mean": 0.5301739930215014,
+        "min": 0.5065876578293022,
+        "std": 0.02561172658813352
+      },
+      "threshold_best_macro_f1": {
+        "max": 0.5743957439574395,
+        "mean": 0.5256291752244913,
+        "min": 0.4971550325657974,
+        "std": 0.02590826544369254
+      }
+    },
+    {
+      "condition": "baseline",
+      "condition_id": "EEG-B0",
+      "final_accuracy": {
+        "max": 0.625,
+        "mean": 0.5318655303030303,
+        "min": 0.4875,
+        "std": 0.04482531349646363
+      },
+      "final_balanced_accuracy": {
+        "max": 0.5742672627918529,
+        "mean": 0.5150718836051803,
+        "min": 0.47725490196078435,
+        "std": 0.030189301453829236
+      },
+      "final_macro_f1": {
+        "max": 0.5726495726495726,
+        "mean": 0.510275444519441,
+        "min": 0.46751085677178456,
+        "std": 0.032600846712293116
+      },
+      "label": "EEG STIM-BSL-only",
+      "majority_accuracy": {
+        "max": 0.61875,
+        "mean": 0.5550662878787879,
+        "min": 0.5085227272727273,
+        "std": 0.03442873049503526
+      },
+      "modality": "EEG",
+      "n_folds": 6,
+      "one_class_final_runs": 0,
+      "recipe": "ce_class_weighted",
+      "task": "arousal",
+      "threshold_best_balanced_accuracy": {
+        "max": 0.6163686040735221,
+        "mean": 0.5387433444853453,
+        "min": 0.5115686274509803,
+        "std": 0.035339248592065275
+      },
+      "threshold_best_macro_f1": {
+        "max": 0.599838517511988,
+        "mean": 0.5310449372691642,
+        "min": 0.5054474479022067,
+        "std": 0.03191055786217503
+      }
+    },
+    {
+      "condition": "baseline",
+      "condition_id": "EEG-B0",
+      "final_accuracy": {
+        "max": 0.596875,
+        "mean": 0.5260416666666666,
+        "min": 0.4971590909090909,
+        "std": 0.03482583255870269
+      },
+      "final_balanced_accuracy": {
+        "max": 0.5317288923958636,
+        "mean": 0.4938540409303416,
+        "min": 0.47935222672064776,
+        "std": 0.017993890990557912
+      },
+      "final_macro_f1": {
+        "max": 0.5215078067948673,
+        "mean": 0.489145653331024,
+        "min": 0.4791666666666667,
+        "std": 0.015231384247814667
+      },
+      "label": "EEG STIM-BSL-only",
+      "majority_accuracy": {
+        "max": 0.621875,
+        "mean": 0.5979166666666667,
+        "min": 0.5710227272727273,
+        "std": 0.0192719384874081
+      },
+      "modality": "EEG",
+      "n_folds": 6,
+      "one_class_final_runs": 0,
+      "recipe": "balanced_sampler_ce",
+      "task": "valence",
+      "threshold_best_balanced_accuracy": {
+        "max": 0.5329124963661281,
+        "mean": 0.5188167846434253,
+        "min": 0.5004942176534546,
+        "std": 0.012006165444286577
+      },
+      "threshold_best_macro_f1": {
+        "max": 0.53125,
+        "mean": 0.5112276688594941,
+        "min": 0.4989648033126294,
+        "std": 0.011558644468768467
+      }
+    },
+    {
+      "condition": "baseline",
+      "condition_id": "EEG-B0",
+      "final_accuracy": {
+        "max": 0.590625,
+        "mean": 0.5513257575757575,
+        "min": 0.5056818181818182,
+        "std": 0.031877171823236065
+      },
+      "final_balanced_accuracy": {
+        "max": 0.5336392707338344,
+        "mean": 0.5195860387372876,
+        "min": 0.4924540351584821,
+        "std": 0.014956361132697837
+      },
+      "final_macro_f1": {
+        "max": 0.5309293462327763,
+        "mean": 0.5072982131005179,
+        "min": 0.4838502330065885,
+        "std": 0.01627905396951723
+      },
+      "label": "EEG STIM-BSL-only",
+      "majority_accuracy": {
+        "max": 0.621875,
+        "mean": 0.5979166666666667,
+        "min": 0.5710227272727273,
+        "std": 0.0192719384874081
+      },
+      "modality": "EEG",
+      "n_folds": 6,
+      "one_class_final_runs": 0,
+      "recipe": "ce_class_weighted",
+      "task": "valence",
+      "threshold_best_balanced_accuracy": {
+        "max": 0.5576435898500769,
+        "mean": 0.5279319209207584,
+        "min": 0.49473967261604657,
+        "std": 0.019361203443026383
+      },
+      "threshold_best_macro_f1": {
+        "max": 0.5579116465863454,
+        "mean": 0.5268395310705255,
+        "min": 0.4937679769894535,
+        "std": 0.01973666717674998
+      }
+    },
+    {
+      "condition": "bsl_stats",
+      "condition_id": "EEG-B1",
+      "final_accuracy": {
+        "max": 0.5568181818181818,
+        "mean": 0.5329545454545455,
+        "min": 0.5113636363636364,
+        "std": 0.01574506213862971
+      },
+      "final_balanced_accuracy": {
+        "max": 0.5708726610365955,
+        "mean": 0.5426993985522174,
+        "min": 0.5161522129674996,
+        "std": 0.017760491667176106
+      },
+      "final_macro_f1": {
+        "max": 0.5467643467643467,
+        "mean": 0.530199645423547,
+        "min": 0.5113005295105257,
+        "std": 0.012767215209144856
+      },
+      "label": "EEG STIM-BSL + BSL-stats",
+      "majority_accuracy": {
+        "max": 0.61875,
+        "mean": 0.5550662878787879,
+        "min": 0.5085227272727273,
+        "std": 0.03442873049503526
+      },
+      "modality": "EEG",
+      "n_folds": 6,
+      "one_class_final_runs": 0,
+      "recipe": "balanced_sampler_ce",
+      "task": "arousal",
+      "threshold_best_balanced_accuracy": {
+        "max": 0.5706242755423083,
+        "mean": 0.5450621375652085,
+        "min": 0.5287469935092748,
+        "std": 0.015005876779788367
+      },
+      "threshold_best_macro_f1": {
+        "max": 0.5540400296515937,
+        "mean": 0.5397210811296917,
+        "min": 0.5212053571428572,
+        "std": 0.013659772056524785
+      }
+    },
+    {
+      "condition": "bsl_stats",
+      "condition_id": "EEG-B1",
+      "final_accuracy": {
+        "max": 0.5511363636363636,
+        "mean": 0.5258522727272728,
+        "min": 0.5056818181818182,
+        "std": 0.014444935580051763
+      },
+      "final_balanced_accuracy": {
+        "max": 0.5557625434674615,
+        "mean": 0.5273008117827648,
+        "min": 0.5133206316401331,
+        "std": 0.014491846238356204
+      },
+      "final_macro_f1": {
+        "max": 0.528009768009768,
+        "mean": 0.5058693216531215,
+        "min": 0.48282500759955416,
+        "std": 0.016649541738677432
+      },
+      "label": "EEG STIM-BSL + BSL-stats",
+      "majority_accuracy": {
+        "max": 0.61875,
+        "mean": 0.5550662878787879,
+        "min": 0.5085227272727273,
+        "std": 0.03442873049503526
+      },
+      "modality": "EEG",
+      "n_folds": 6,
+      "one_class_final_runs": 0,
+      "recipe": "ce_class_weighted",
+      "task": "arousal",
+      "threshold_best_balanced_accuracy": {
+        "max": 0.5823397913561847,
+        "mean": 0.5519242191511792,
+        "min": 0.5146769141344012,
+        "std": 0.024802614067319196
+      },
+      "threshold_best_macro_f1": {
+        "max": 0.5752113463285125,
+        "mean": 0.5438253762440334,
+        "min": 0.5062706270627062,
+        "std": 0.02645516463888999
+      }
+    },
+    {
+      "condition": "bsl_stats",
+      "condition_id": "EEG-B1",
+      "final_accuracy": {
+        "max": 0.5710227272727273,
+        "mean": 0.515435606060606,
+        "min": 0.4744318181818182,
+        "std": 0.03306972209957145
+      },
+      "final_balanced_accuracy": {
+        "max": 0.544810831014577,
+        "mean": 0.5104224862834967,
+        "min": 0.4651440287721421,
+        "std": 0.02724034316410909
+      },
+      "final_macro_f1": {
+        "max": 0.534400332571191,
+        "mean": 0.4832083841162559,
+        "min": 0.421399257590107,
+        "std": 0.0361953514064915
+      },
+      "label": "EEG STIM-BSL + BSL-stats",
+      "majority_accuracy": {
+        "max": 0.621875,
+        "mean": 0.5979166666666667,
+        "min": 0.5710227272727273,
+        "std": 0.0192719384874081
+      },
+      "modality": "EEG",
+      "n_folds": 6,
+      "one_class_final_runs": 0,
+      "recipe": "balanced_sampler_ce",
+      "task": "valence",
+      "threshold_best_balanced_accuracy": {
+        "max": 0.5395572905851571,
+        "mean": 0.5212764555868412,
+        "min": 0.4866391045679137,
+        "std": 0.016599703590530517
+      },
+      "threshold_best_macro_f1": {
+        "max": 0.5377604166666666,
+        "mean": 0.515527528399239,
+        "min": 0.47940128296507484,
+        "std": 0.018208921623013002
+      }
+    },
+    {
+      "condition": "bsl_stats",
+      "condition_id": "EEG-B1",
+      "final_accuracy": {
+        "max": 0.646875,
+        "mean": 0.520501893939394,
+        "min": 0.434375,
+        "std": 0.06969891571826223
+      },
+      "final_balanced_accuracy": {
+        "max": 0.5881265833298726,
+        "mean": 0.507843697674804,
+        "min": 0.47307692307692306,
+        "std": 0.037634434107768636
+      },
+      "final_macro_f1": {
+        "max": 0.5856584661571427,
+        "mean": 0.48345079022413,
+        "min": 0.42397390379011646,
+        "std": 0.052501751142755106
+      },
+      "label": "EEG STIM-BSL + BSL-stats",
+      "majority_accuracy": {
+        "max": 0.621875,
+        "mean": 0.5979166666666667,
+        "min": 0.5710227272727273,
+        "std": 0.0192719384874081
+      },
+      "modality": "EEG",
+      "n_folds": 6,
+      "one_class_final_runs": 0,
+      "recipe": "ce_class_weighted",
+      "task": "valence",
+      "threshold_best_balanced_accuracy": {
+        "max": 0.5881265833298726,
+        "mean": 0.5253014020323614,
+        "min": 0.4958488790292763,
+        "std": 0.030779844437718813
+      },
+      "threshold_best_macro_f1": {
+        "max": 0.5856584661571427,
+        "mean": 0.5218465187188364,
+        "min": 0.4901041666666667,
+        "std": 0.03171499195548055
+      }
+    },
+    {
+      "condition": "baseline",
+      "condition_id": "EMG-B0",
+      "final_accuracy": {
+        "max": 0.5397727272727273,
+        "mean": 0.5160511363636364,
+        "min": 0.48863636363636365,
+        "std": 0.018459169807517963
+      },
+      "final_balanced_accuracy": {
+        "max": 0.54099525301127,
+        "mean": 0.5196070769733631,
+        "min": 0.4838477870325004,
+        "std": 0.01873354607204319
+      },
+      "final_macro_f1": {
+        "max": 0.5379679144385027,
+        "mean": 0.5131284788857401,
+        "min": 0.48382051031381373,
+        "std": 0.019160302217986327
+      },
+      "label": "EMG feature-only",
+      "majority_accuracy": {
+        "max": 0.61875,
+        "mean": 0.5550662878787879,
+        "min": 0.5085227272727273,
+        "std": 0.03442873049503526
+      },
+      "modality": "EMG",
+      "n_folds": 6,
+      "one_class_final_runs": 0,
+      "recipe": "balanced_sampler_ce",
+      "task": "arousal",
+      "threshold_best_balanced_accuracy": {
+        "max": 0.5535731936344765,
+        "mean": 0.5239494345786508,
+        "min": 0.4838477870325004,
+        "std": 0.022652278113896265
+      },
+      "threshold_best_macro_f1": {
+        "max": 0.550493233572451,
+        "mean": 0.5222269407102755,
+        "min": 0.48382051031381373,
+        "std": 0.021643369681600574
+      }
+    },
+    {
+      "condition": "baseline",
+      "condition_id": "EMG-B0",
+      "final_accuracy": {
+        "max": 0.5375,
+        "mean": 0.5211174242424242,
+        "min": 0.48579545454545453,
+        "std": 0.01754988053899417
+      },
+      "final_balanced_accuracy": {
+        "max": 0.5467529900168034,
+        "mean": 0.5192254508486686,
+        "min": 0.4843867385268659,
+        "std": 0.018263667466239683
+      },
+      "final_macro_f1": {
+        "max": 0.536898179910408,
+        "mean": 0.5158549524054082,
+        "min": 0.4835906788247214,
+        "std": 0.015984127108623614
+      },
+      "label": "EMG feature-only",
+      "majority_accuracy": {
+        "max": 0.61875,
+        "mean": 0.5550662878787879,
+        "min": 0.5085227272727273,
+        "std": 0.03442873049503526
+      },
+      "modality": "EMG",
+      "n_folds": 6,
+      "one_class_final_runs": 0,
+      "recipe": "ce_class_weighted",
+      "task": "arousal",
+      "threshold_best_balanced_accuracy": {
+        "max": 0.5544298375671313,
+        "mean": 0.5243257292414084,
+        "min": 0.4843867385268659,
+        "std": 0.02099750414905598
+      },
+      "threshold_best_macro_f1": {
+        "max": 0.5480676012052929,
+        "mean": 0.5191519811257482,
+        "min": 0.4835906788247214,
+        "std": 0.019033922960253077
+      }
+    },
+    {
+      "condition": "baseline",
+      "condition_id": "EMG-B0",
+      "final_accuracy": {
+        "max": 0.5625,
+        "mean": 0.5089962121212122,
+        "min": 0.4375,
+        "std": 0.04611781314004403
+      },
+      "final_balanced_accuracy": {
+        "max": 0.5474895136841231,
+        "mean": 0.517359071349143,
+        "min": 0.471450693552107,
+        "std": 0.023683502032336483
+      },
+      "final_macro_f1": {
+        "max": 0.5405049658968529,
+        "mean": 0.49244546597466965,
+        "min": 0.40923076923076923,
+        "std": 0.04509075143661448
+      },
+      "label": "EMG feature-only",
+      "majority_accuracy": {
+        "max": 0.621875,
+        "mean": 0.5979166666666667,
+        "min": 0.5710227272727273,
+        "std": 0.0192719384874081
+      },
+      "modality": "EMG",
+      "n_folds": 6,
+      "one_class_final_runs": 0,
+      "recipe": "balanced_sampler_ce",
+      "task": "valence",
+      "threshold_best_balanced_accuracy": {
+        "max": 0.5546949624153827,
+        "mean": 0.5225339220248233,
+        "min": 0.471450693552107,
+        "std": 0.027745347188091456
+      },
+      "threshold_best_macro_f1": {
+        "max": 0.5420043233212584,
+        "mean": 0.5187178262779778,
+        "min": 0.47110893352931577,
+        "std": 0.02449817020746496
+      }
+    },
+    {
+      "condition": "baseline",
+      "condition_id": "EMG-B0",
+      "final_accuracy": {
+        "max": 0.58125,
+        "mean": 0.5225852272727273,
+        "min": 0.4772727272727273,
+        "std": 0.03684055959843013
+      },
+      "final_balanced_accuracy": {
+        "max": 0.5710577681797416,
+        "mean": 0.5201507593591346,
+        "min": 0.47804026226483476,
+        "std": 0.034191609175718715
+      },
+      "final_macro_f1": {
+        "max": 0.5511921458625526,
+        "mean": 0.5139693887689678,
+        "min": 0.475222816399287,
+        "std": 0.030586947740277474
+      },
+      "label": "EMG feature-only",
+      "majority_accuracy": {
+        "max": 0.621875,
+        "mean": 0.5979166666666667,
+        "min": 0.5710227272727273,
+        "std": 0.0192719384874081
+      },
+      "modality": "EMG",
+      "n_folds": 6,
+      "one_class_final_runs": 0,
+      "recipe": "ce_class_weighted",
+      "task": "valence",
+      "threshold_best_balanced_accuracy": {
+        "max": 0.5710577681797416,
+        "mean": 0.5343056545833473,
+        "min": 0.4873315541497809,
+        "std": 0.02583891071346439
+      },
+      "threshold_best_macro_f1": {
+        "max": 0.5511921458625526,
+        "mean": 0.5204390375526259,
+        "min": 0.4764654418197726,
+        "std": 0.025244665732846526
+      }
+    },
+    {
+      "condition": "bsl_stats",
+      "condition_id": "EMG-B1",
+      "final_accuracy": {
+        "max": 0.5426136363636364,
+        "mean": 0.5153409090909091,
+        "min": 0.478125,
+        "std": 0.022661481477798274
+      },
+      "final_balanced_accuracy": {
+        "max": 0.5509044183058218,
+        "mean": 0.5143250042053921,
+        "min": 0.47823529411764704,
+        "std": 0.022744567995213783
+      },
+      "final_macro_f1": {
+        "max": 0.5424326833797585,
+        "mean": 0.5102831639016653,
+        "min": 0.4777118619220282,
+        "std": 0.021539980277835723
+      },
+      "label": "EMG feature + BSL-stats",
+      "majority_accuracy": {
+        "max": 0.61875,
+        "mean": 0.5550662878787879,
+        "min": 0.5085227272727273,
+        "std": 0.03442873049503526
+      },
+      "modality": "EMG",
+      "n_folds": 6,
+      "one_class_final_runs": 0,
+      "recipe": "balanced_sampler_ce",
+      "task": "arousal",
+      "threshold_best_balanced_accuracy": {
+        "max": 0.5509044183058218,
+        "mean": 0.5240543596091574,
+        "min": 0.49058823529411766,
+        "std": 0.021922570676216654
+      },
+      "threshold_best_macro_f1": {
+        "max": 0.5424326833797585,
+        "mean": 0.5147307289638465,
+        "min": 0.48301627690940674,
+        "std": 0.020363538257665098
+      }
+    },
+    {
+      "condition": "bsl_stats",
+      "condition_id": "EMG-B1",
+      "final_accuracy": {
+        "max": 0.5568181818181818,
+        "mean": 0.5051136363636364,
+        "min": 0.4625,
+        "std": 0.03257355524620254
+      },
+      "final_balanced_accuracy": {
+        "max": 0.5592237488056406,
+        "mean": 0.5014571351807863,
+        "min": 0.4574432853121378,
+        "std": 0.03490520484541558
+      },
+      "final_macro_f1": {
+        "max": 0.5550802139037433,
+        "mean": 0.4965573474819015,
+        "min": 0.4554554554554555,
+        "std": 0.03326080279589935
+      },
+      "label": "EMG feature + BSL-stats",
+      "majority_accuracy": {
+        "max": 0.61875,
+        "mean": 0.5550662878787879,
+        "min": 0.5085227272727273,
+        "std": 0.03442873049503526
+      },
+      "modality": "EMG",
+      "n_folds": 6,
+      "one_class_final_runs": 0,
+      "recipe": "ce_class_weighted",
+      "task": "arousal",
+      "threshold_best_balanced_accuracy": {
+        "max": 0.5592237488056406,
+        "mean": 0.5021917881985148,
+        "min": 0.4574432853121378,
+        "std": 0.03545162526378017
+      },
+      "threshold_best_macro_f1": {
+        "max": 0.5550802139037433,
+        "mean": 0.49996205728090276,
+        "min": 0.4554554554554555,
+        "std": 0.035287265588959324
+      }
+    },
+    {
+      "condition": "bsl_stats",
+      "condition_id": "EMG-B1",
+      "final_accuracy": {
+        "max": 0.559375,
+        "mean": 0.5177083333333333,
+        "min": 0.48295454545454547,
+        "std": 0.026971519026806886
+      },
+      "final_balanced_accuracy": {
+        "max": 0.5453091905810041,
+        "mean": 0.5200082837605947,
+        "min": 0.4860323886639676,
+        "std": 0.021660974482043443
+      },
+      "final_macro_f1": {
+        "max": 0.5427598577204876,
+        "mean": 0.5094048893204868,
+        "min": 0.48213535098781,
+        "std": 0.02475332197485217
+      },
+      "label": "EMG feature + BSL-stats",
+      "majority_accuracy": {
+        "max": 0.621875,
+        "mean": 0.5979166666666667,
+        "min": 0.5710227272727273,
+        "std": 0.0192719384874081
+      },
+      "modality": "EMG",
+      "n_folds": 6,
+      "one_class_final_runs": 0,
+      "recipe": "balanced_sampler_ce",
+      "task": "valence",
+      "threshold_best_balanced_accuracy": {
+        "max": 0.5453091905810041,
+        "mean": 0.528978426453266,
+        "min": 0.5036407367137821,
+        "std": 0.013913801038963598
+      },
+      "threshold_best_macro_f1": {
+        "max": 0.5427598577204876,
+        "mean": 0.5181166672052869,
+        "min": 0.48804137039431156,
+        "std": 0.019601255999688448
+      }
+    },
+    {
+      "condition": "bsl_stats",
+      "condition_id": "EMG-B1",
+      "final_accuracy": {
+        "max": 0.5454545454545454,
+        "mean": 0.5197916666666667,
+        "min": 0.4744318181818182,
+        "std": 0.028234628447565663
+      },
+      "final_balanced_accuracy": {
+        "max": 0.5451112877583466,
+        "mean": 0.5163221230803658,
+        "min": 0.48214226878850774,
+        "std": 0.02480441413713661
+      },
+      "final_macro_f1": {
+        "max": 0.540294778510533,
+        "mean": 0.5115888512744334,
+        "min": 0.4743257533560975,
+        "std": 0.0250026564214952
+      },
+      "label": "EMG feature + BSL-stats",
+      "majority_accuracy": {
+        "max": 0.621875,
+        "mean": 0.5979166666666667,
+        "min": 0.5710227272727273,
+        "std": 0.0192719384874081
+      },
+      "modality": "EMG",
+      "n_folds": 6,
+      "one_class_final_runs": 0,
+      "recipe": "ce_class_weighted",
+      "task": "valence",
+      "threshold_best_balanced_accuracy": {
+        "max": 0.5451112877583466,
+        "mean": 0.5163221230803658,
+        "min": 0.48214226878850774,
+        "std": 0.02480441413713661
+      },
+      "threshold_best_macro_f1": {
+        "max": 0.540294778510533,
+        "mean": 0.5115888512744334,
+        "min": 0.4743257533560975,
+        "std": 0.0250026564214952
+      }
+    }
+  ],
+  "best_by_condition_task": {
+    "EEG-B0:arousal": {
+      "condition": "baseline",
+      "condition_id": "EEG-B0",
+      "final_accuracy": {
+        "max": 0.625,
+        "mean": 0.5318655303030303,
+        "min": 0.4875,
+        "std": 0.04482531349646363
+      },
+      "final_balanced_accuracy": {
+        "max": 0.5742672627918529,
+        "mean": 0.5150718836051803,
+        "min": 0.47725490196078435,
+        "std": 0.030189301453829236
+      },
+      "final_macro_f1": {
+        "max": 0.5726495726495726,
+        "mean": 0.510275444519441,
+        "min": 0.46751085677178456,
+        "std": 0.032600846712293116
+      },
+      "label": "EEG STIM-BSL-only",
+      "majority_accuracy": {
+        "max": 0.61875,
+        "mean": 0.5550662878787879,
+        "min": 0.5085227272727273,
+        "std": 0.03442873049503526
+      },
+      "modality": "EEG",
+      "n_folds": 6,
+      "one_class_final_runs": 0,
+      "recipe": "ce_class_weighted",
+      "task": "arousal",
+      "threshold_best_balanced_accuracy": {
+        "max": 0.6163686040735221,
+        "mean": 0.5387433444853453,
+        "min": 0.5115686274509803,
+        "std": 0.035339248592065275
+      },
+      "threshold_best_macro_f1": {
+        "max": 0.599838517511988,
+        "mean": 0.5310449372691642,
+        "min": 0.5054474479022067,
+        "std": 0.03191055786217503
+      }
+    },
+    "EEG-B0:valence": {
+      "condition": "baseline",
+      "condition_id": "EEG-B0",
+      "final_accuracy": {
+        "max": 0.590625,
+        "mean": 0.5513257575757575,
+        "min": 0.5056818181818182,
+        "std": 0.031877171823236065
+      },
+      "final_balanced_accuracy": {
+        "max": 0.5336392707338344,
+        "mean": 0.5195860387372876,
+        "min": 0.4924540351584821,
+        "std": 0.014956361132697837
+      },
+      "final_macro_f1": {
+        "max": 0.5309293462327763,
+        "mean": 0.5072982131005179,
+        "min": 0.4838502330065885,
+        "std": 0.01627905396951723
+      },
+      "label": "EEG STIM-BSL-only",
+      "majority_accuracy": {
+        "max": 0.621875,
+        "mean": 0.5979166666666667,
+        "min": 0.5710227272727273,
+        "std": 0.0192719384874081
+      },
+      "modality": "EEG",
+      "n_folds": 6,
+      "one_class_final_runs": 0,
+      "recipe": "ce_class_weighted",
+      "task": "valence",
+      "threshold_best_balanced_accuracy": {
+        "max": 0.5576435898500769,
+        "mean": 0.5279319209207584,
+        "min": 0.49473967261604657,
+        "std": 0.019361203443026383
+      },
+      "threshold_best_macro_f1": {
+        "max": 0.5579116465863454,
+        "mean": 0.5268395310705255,
+        "min": 0.4937679769894535,
+        "std": 0.01973666717674998
+      }
+    },
+    "EEG-B1:arousal": {
+      "condition": "bsl_stats",
+      "condition_id": "EEG-B1",
+      "final_accuracy": {
+        "max": 0.5568181818181818,
+        "mean": 0.5329545454545455,
+        "min": 0.5113636363636364,
+        "std": 0.01574506213862971
+      },
+      "final_balanced_accuracy": {
+        "max": 0.5708726610365955,
+        "mean": 0.5426993985522174,
+        "min": 0.5161522129674996,
+        "std": 0.017760491667176106
+      },
+      "final_macro_f1": {
+        "max": 0.5467643467643467,
+        "mean": 0.530199645423547,
+        "min": 0.5113005295105257,
+        "std": 0.012767215209144856
+      },
+      "label": "EEG STIM-BSL + BSL-stats",
+      "majority_accuracy": {
+        "max": 0.61875,
+        "mean": 0.5550662878787879,
+        "min": 0.5085227272727273,
+        "std": 0.03442873049503526
+      },
+      "modality": "EEG",
+      "n_folds": 6,
+      "one_class_final_runs": 0,
+      "recipe": "balanced_sampler_ce",
+      "task": "arousal",
+      "threshold_best_balanced_accuracy": {
+        "max": 0.5706242755423083,
+        "mean": 0.5450621375652085,
+        "min": 0.5287469935092748,
+        "std": 0.015005876779788367
+      },
+      "threshold_best_macro_f1": {
+        "max": 0.5540400296515937,
+        "mean": 0.5397210811296917,
+        "min": 0.5212053571428572,
+        "std": 0.013659772056524785
+      }
+    },
+    "EEG-B1:valence": {
+      "condition": "bsl_stats",
+      "condition_id": "EEG-B1",
+      "final_accuracy": {
+        "max": 0.646875,
+        "mean": 0.520501893939394,
+        "min": 0.434375,
+        "std": 0.06969891571826223
+      },
+      "final_balanced_accuracy": {
+        "max": 0.5881265833298726,
+        "mean": 0.507843697674804,
+        "min": 0.47307692307692306,
+        "std": 0.037634434107768636
+      },
+      "final_macro_f1": {
+        "max": 0.5856584661571427,
+        "mean": 0.48345079022413,
+        "min": 0.42397390379011646,
+        "std": 0.052501751142755106
+      },
+      "label": "EEG STIM-BSL + BSL-stats",
+      "majority_accuracy": {
+        "max": 0.621875,
+        "mean": 0.5979166666666667,
+        "min": 0.5710227272727273,
+        "std": 0.0192719384874081
+      },
+      "modality": "EEG",
+      "n_folds": 6,
+      "one_class_final_runs": 0,
+      "recipe": "ce_class_weighted",
+      "task": "valence",
+      "threshold_best_balanced_accuracy": {
+        "max": 0.5881265833298726,
+        "mean": 0.5253014020323614,
+        "min": 0.4958488790292763,
+        "std": 0.030779844437718813
+      },
+      "threshold_best_macro_f1": {
+        "max": 0.5856584661571427,
+        "mean": 0.5218465187188364,
+        "min": 0.4901041666666667,
+        "std": 0.03171499195548055
+      }
+    },
+    "EMG-B0:arousal": {
+      "condition": "baseline",
+      "condition_id": "EMG-B0",
+      "final_accuracy": {
+        "max": 0.5375,
+        "mean": 0.5211174242424242,
+        "min": 0.48579545454545453,
+        "std": 0.01754988053899417
+      },
+      "final_balanced_accuracy": {
+        "max": 0.5467529900168034,
+        "mean": 0.5192254508486686,
+        "min": 0.4843867385268659,
+        "std": 0.018263667466239683
+      },
+      "final_macro_f1": {
+        "max": 0.536898179910408,
+        "mean": 0.5158549524054082,
+        "min": 0.4835906788247214,
+        "std": 0.015984127108623614
+      },
+      "label": "EMG feature-only",
+      "majority_accuracy": {
+        "max": 0.61875,
+        "mean": 0.5550662878787879,
+        "min": 0.5085227272727273,
+        "std": 0.03442873049503526
+      },
+      "modality": "EMG",
+      "n_folds": 6,
+      "one_class_final_runs": 0,
+      "recipe": "ce_class_weighted",
+      "task": "arousal",
+      "threshold_best_balanced_accuracy": {
+        "max": 0.5544298375671313,
+        "mean": 0.5243257292414084,
+        "min": 0.4843867385268659,
+        "std": 0.02099750414905598
+      },
+      "threshold_best_macro_f1": {
+        "max": 0.5480676012052929,
+        "mean": 0.5191519811257482,
+        "min": 0.4835906788247214,
+        "std": 0.019033922960253077
+      }
+    },
+    "EMG-B0:valence": {
+      "condition": "baseline",
+      "condition_id": "EMG-B0",
+      "final_accuracy": {
+        "max": 0.58125,
+        "mean": 0.5225852272727273,
+        "min": 0.4772727272727273,
+        "std": 0.03684055959843013
+      },
+      "final_balanced_accuracy": {
+        "max": 0.5710577681797416,
+        "mean": 0.5201507593591346,
+        "min": 0.47804026226483476,
+        "std": 0.034191609175718715
+      },
+      "final_macro_f1": {
+        "max": 0.5511921458625526,
+        "mean": 0.5139693887689678,
+        "min": 0.475222816399287,
+        "std": 0.030586947740277474
+      },
+      "label": "EMG feature-only",
+      "majority_accuracy": {
+        "max": 0.621875,
+        "mean": 0.5979166666666667,
+        "min": 0.5710227272727273,
+        "std": 0.0192719384874081
+      },
+      "modality": "EMG",
+      "n_folds": 6,
+      "one_class_final_runs": 0,
+      "recipe": "ce_class_weighted",
+      "task": "valence",
+      "threshold_best_balanced_accuracy": {
+        "max": 0.5710577681797416,
+        "mean": 0.5343056545833473,
+        "min": 0.4873315541497809,
+        "std": 0.02583891071346439
+      },
+      "threshold_best_macro_f1": {
+        "max": 0.5511921458625526,
+        "mean": 0.5204390375526259,
+        "min": 0.4764654418197726,
+        "std": 0.025244665732846526
+      }
+    },
+    "EMG-B1:arousal": {
+      "condition": "bsl_stats",
+      "condition_id": "EMG-B1",
+      "final_accuracy": {
+        "max": 0.5426136363636364,
+        "mean": 0.5153409090909091,
+        "min": 0.478125,
+        "std": 0.022661481477798274
+      },
+      "final_balanced_accuracy": {
+        "max": 0.5509044183058218,
+        "mean": 0.5143250042053921,
+        "min": 0.47823529411764704,
+        "std": 0.022744567995213783
+      },
+      "final_macro_f1": {
+        "max": 0.5424326833797585,
+        "mean": 0.5102831639016653,
+        "min": 0.4777118619220282,
+        "std": 0.021539980277835723
+      },
+      "label": "EMG feature + BSL-stats",
+      "majority_accuracy": {
+        "max": 0.61875,
+        "mean": 0.5550662878787879,
+        "min": 0.5085227272727273,
+        "std": 0.03442873049503526
+      },
+      "modality": "EMG",
+      "n_folds": 6,
+      "one_class_final_runs": 0,
+      "recipe": "balanced_sampler_ce",
+      "task": "arousal",
+      "threshold_best_balanced_accuracy": {
+        "max": 0.5509044183058218,
+        "mean": 0.5240543596091574,
+        "min": 0.49058823529411766,
+        "std": 0.021922570676216654
+      },
+      "threshold_best_macro_f1": {
+        "max": 0.5424326833797585,
+        "mean": 0.5147307289638465,
+        "min": 0.48301627690940674,
+        "std": 0.020363538257665098
+      }
+    },
+    "EMG-B1:valence": {
+      "condition": "bsl_stats",
+      "condition_id": "EMG-B1",
+      "final_accuracy": {
+        "max": 0.5454545454545454,
+        "mean": 0.5197916666666667,
+        "min": 0.4744318181818182,
+        "std": 0.028234628447565663
+      },
+      "final_balanced_accuracy": {
+        "max": 0.5451112877583466,
+        "mean": 0.5163221230803658,
+        "min": 0.48214226878850774,
+        "std": 0.02480441413713661
+      },
+      "final_macro_f1": {
+        "max": 0.540294778510533,
+        "mean": 0.5115888512744334,
+        "min": 0.4743257533560975,
+        "std": 0.0250026564214952
+      },
+      "label": "EMG feature + BSL-stats",
+      "majority_accuracy": {
+        "max": 0.621875,
+        "mean": 0.5979166666666667,
+        "min": 0.5710227272727273,
+        "std": 0.0192719384874081
+      },
+      "modality": "EMG",
+      "n_folds": 6,
+      "one_class_final_runs": 0,
+      "recipe": "ce_class_weighted",
+      "task": "valence",
+      "threshold_best_balanced_accuracy": {
+        "max": 0.5451112877583466,
+        "mean": 0.5163221230803658,
+        "min": 0.48214226878850774,
+        "std": 0.02480441413713661
+      },
+      "threshold_best_macro_f1": {
+        "max": 0.540294778510533,
+        "mean": 0.5115888512744334,
+        "min": 0.4743257533560975,
+        "std": 0.0250026564214952
+      }
+    }
+  },
+  "comparisons": [
+    {
+      "baseline_condition": "EEG-B0",
+      "baseline_final_balanced_accuracy_mean": 0.5195860387372876,
+      "baseline_final_macro_f1_mean": 0.5072982131005179,
+      "baseline_one_class_final_runs": 0,
+      "baseline_recipe": "ce_class_weighted",
+      "delta_final_balanced_accuracy": -0.011742341062483619,
+      "delta_final_macro_f1": -0.023847422876387914,
+      "interpretation": "baseline_better_broader_eval",
+      "modality": "EEG",
+      "sidecar_condition": "EEG-B1",
+      "sidecar_final_balanced_accuracy_mean": 0.507843697674804,
+      "sidecar_final_macro_f1_mean": 0.48345079022413,
+      "sidecar_one_class_final_runs": 0,
+      "sidecar_recipe": "ce_class_weighted",
+      "task": "valence"
+    },
+    {
+      "baseline_condition": "EEG-B0",
+      "baseline_final_balanced_accuracy_mean": 0.5150718836051803,
+      "baseline_final_macro_f1_mean": 0.510275444519441,
+      "baseline_one_class_final_runs": 0,
+      "baseline_recipe": "ce_class_weighted",
+      "delta_final_balanced_accuracy": 0.02762751494703708,
+      "delta_final_macro_f1": 0.01992420090410607,
+      "interpretation": "roughly_neutral_or_mixed",
+      "modality": "EEG",
+      "sidecar_condition": "EEG-B1",
+      "sidecar_final_balanced_accuracy_mean": 0.5426993985522174,
+      "sidecar_final_macro_f1_mean": 0.530199645423547,
+      "sidecar_one_class_final_runs": 0,
+      "sidecar_recipe": "balanced_sampler_ce",
+      "task": "arousal"
+    },
+    {
+      "baseline_condition": "EMG-B0",
+      "baseline_final_balanced_accuracy_mean": 0.5201507593591346,
+      "baseline_final_macro_f1_mean": 0.5139693887689678,
+      "baseline_one_class_final_runs": 0,
+      "baseline_recipe": "ce_class_weighted",
+      "delta_final_balanced_accuracy": -0.0038286362787687267,
+      "delta_final_macro_f1": -0.002380537494534374,
+      "interpretation": "roughly_neutral_or_mixed",
+      "modality": "EMG",
+      "sidecar_condition": "EMG-B1",
+      "sidecar_final_balanced_accuracy_mean": 0.5163221230803658,
+      "sidecar_final_macro_f1_mean": 0.5115888512744334,
+      "sidecar_one_class_final_runs": 0,
+      "sidecar_recipe": "ce_class_weighted",
+      "task": "valence"
+    },
+    {
+      "baseline_condition": "EMG-B0",
+      "baseline_final_balanced_accuracy_mean": 0.5192254508486686,
+      "baseline_final_macro_f1_mean": 0.5158549524054082,
+      "baseline_one_class_final_runs": 0,
+      "baseline_recipe": "ce_class_weighted",
+      "delta_final_balanced_accuracy": -0.00490044664327649,
+      "delta_final_macro_f1": -0.005571788503742958,
+      "interpretation": "roughly_neutral_or_mixed",
+      "modality": "EMG",
+      "sidecar_condition": "EMG-B1",
+      "sidecar_final_balanced_accuracy_mean": 0.5143250042053921,
+      "sidecar_final_macro_f1_mean": 0.5102831639016653,
+      "sidecar_one_class_final_runs": 0,
+      "sidecar_recipe": "balanced_sampler_ce",
+      "task": "arousal"
+    }
+  ],
+  "created_or_updated_utc": "2026-05-07T14:36:34.369682+00:00",
+  "decision": {
+    "evidence_level": "broader standardized single-modality primary matrix; not final LOSO",
+    "mainline_changed": false,
+    "next_allowed_step": "Human review / closeout decision for the broader standardized single-modality evaluation.",
+    "not_authorized_from_this_report": [
+      "EEG+EMG fusion",
+      "full model(BSL, STIM, STIM-BSL)",
+      "final LOSO / final paper claim",
+      "locking midpoint_as_high",
+      "raw EMG mainline",
+      "architecture ablations",
+      "data augmentation",
+      "SupCon / VREx / domain generalization",
+      "optional robustness seed 13 without explicit objective"
+    ],
+    "status": "primary_matrix_complete_pending_human_review",
+    "summary": "All 96 authorized primary runs completed and validated. Interpret before changing any mainline."
+  },
+  "evidence_level": "broader standardized primary matrix, not final LOSO",
+  "objective": "Broader standardized I-DARE single-modality primary matrix",
+  "primary_matrix": {
+    "conditions": 4,
+    "folds": 6,
+    "recipes": 2,
+    "seeds": [
+      11
+    ],
+    "tasks": 2,
+    "total_runs": 96
+  },
+  "status": "primary_matrix_complete",
+  "validation": {
+    "EEG-B0": {
+      "first_fold_val_subjects": [
+        6,
+        7,
+        8,
+        13,
+        28,
+        38,
+        43,
+        54,
+        58,
+        59,
+        65
+      ],
+      "json": "docs/idare_broader_eval_eeg_stim_bsl_only_primary.json",
+      "md": "docs/idare_broader_eval_eeg_stim_bsl_only_primary.md",
+      "n_runs": 24,
+      "prediction_rows": 8064,
+      "predictions_csv": "docs/idare_broader_eval_eeg_stim_bsl_only_primary_predictions.csv"
+    },
+    "EEG-B1": {
+      "first_fold_val_subjects": [
+        6,
+        7,
+        8,
+        13,
+        28,
+        38,
+        43,
+        54,
+        58,
+        59,
+        65
+      ],
+      "json": "docs/idare_broader_eval_eeg_bsl_stats_primary.json",
+      "md": "docs/idare_broader_eval_eeg_bsl_stats_primary.md",
+      "n_runs": 24,
+      "prediction_rows": 8064,
+      "predictions_csv": "docs/idare_broader_eval_eeg_bsl_stats_primary_predictions.csv"
+    },
+    "EMG-B0": {
+      "first_fold_val_subjects": [
+        6,
+        7,
+        8,
+        13,
+        28,
+        38,
+        43,
+        54,
+        58,
+        59,
+        65
+      ],
+      "json": "docs/idare_broader_eval_emg_feature_only_primary.json",
+      "md": "docs/idare_broader_eval_emg_feature_only_primary.md",
+      "n_runs": 24,
+      "prediction_rows": 8064,
+      "predictions_csv": "docs/idare_broader_eval_emg_feature_only_primary_predictions.csv"
+    },
+    "EMG-B1": {
+      "first_fold_val_subjects": [
+        6,
+        7,
+        8,
+        13,
+        28,
+        38,
+        43,
+        54,
+        58,
+        59,
+        65
+      ],
+      "json": "docs/idare_broader_eval_emg_bsl_stats_primary.json",
+      "md": "docs/idare_broader_eval_emg_bsl_stats_primary.md",
+      "n_runs": 24,
+      "prediction_rows": 8064,
+      "predictions_csv": "docs/idare_broader_eval_emg_bsl_stats_primary_predictions.csv"
+    }
+  }
+}
