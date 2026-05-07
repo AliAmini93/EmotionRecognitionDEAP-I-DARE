@@ -1,0 +1,120 @@
+{
+  "authorized_scope": {
+    "allowed_operations": [
+      "read committed reports and prediction CSV files",
+      "compute per-fold/per-task/per-modality diagnostics",
+      "compare final metrics against majority baselines",
+      "inspect threshold diagnostics when already present",
+      "summarize failure taxonomy",
+      "recommend one next objective"
+    ],
+    "label_policies": [
+      "discard_midpoint",
+      "midpoint_as_low",
+      "midpoint_as_high"
+    ],
+    "modalities": [
+      "I-DARE EEG mainline",
+      "I-DARE EMG mainline"
+    ],
+    "new_model_experiment": false,
+    "new_training": false,
+    "recipes": [
+      "ce_class_weighted",
+      "balanced_sampler_ce"
+    ],
+    "source": "existing committed JSON and prediction CSV reports only",
+    "tasks": [
+      "valence",
+      "arousal"
+    ]
+  },
+  "created_or_updated_utc": "2026-05-07T15:23:43.036595+00:00",
+  "evidence_level": "post-hoc analysis of existing smoke/stabilization outputs; no new training",
+  "expected_outputs": {
+    "closeout_status_after_review": "docs/idare_failure_analysis_review_status.md",
+    "json_report": "docs/idare_failure_analysis_report.json",
+    "markdown_report": "docs/idare_failure_analysis_report.md",
+    "optional_csv": "docs/idare_failure_analysis_fold_summary.csv"
+  },
+  "failure_taxonomy": {
+    "cross_modality_complementary_failure": "EEG and EMG are weak on different fold/task cases.",
+    "cross_modality_shared_failure": "EEG and EMG are weak on the same fold/task.",
+    "fold_specific_weakness": "A small set of folds dominates performance loss.",
+    "insufficient_evidence": "Existing outputs do not support a stable next action.",
+    "majority_not_beaten": "Run or aggregate fails to beat majority baseline on key balanced metrics.",
+    "policy_instability": "Best policy changes by modality/task or fold.",
+    "prediction_collapse_or_skew": "Prediction counts are one-class or highly skewed despite two-class labels.",
+    "recipe_instability": "Best recipe changes without a consistent modality/task pattern.",
+    "threshold_sensitive": "Threshold diagnostics improve macro-F1 materially but may indicate calibration instability."
+  },
+  "input_artifacts": {
+    "broader_single_modality_eval": [
+      "docs/idare_broader_standardized_single_modality_evaluation_report.md",
+      "docs/idare_broader_standardized_single_modality_evaluation_report.json",
+      "docs/idare_broader_eval_eeg_stim_bsl_only_primary.json",
+      "docs/idare_broader_eval_eeg_stim_bsl_only_primary_predictions.csv",
+      "docs/idare_broader_eval_emg_feature_only_primary.json",
+      "docs/idare_broader_eval_emg_feature_only_primary_predictions.csv",
+      "docs/idare_broader_standardized_single_modality_evaluation_review_status.md"
+    ],
+    "label_policy_ablation": [
+      "docs/idare_label_policy_ablation_report.md",
+      "docs/idare_label_policy_ablation_report.json",
+      "docs/idare_label_policy_ablation_eeg_primary.json",
+      "docs/idare_label_policy_ablation_eeg_primary_predictions.csv",
+      "docs/idare_label_policy_ablation_emg_primary.json",
+      "docs/idare_label_policy_ablation_emg_primary_predictions.csv",
+      "docs/idare_label_policy_ablation_review_status.md"
+    ],
+    "optional_context_only": [
+      "docs/idare_single_modality_bsl_stats_vs_baseline_comparison.md",
+      "docs/idare_single_modality_bsl_stats_vs_baseline_review_status.md",
+      "docs/idare_eeg_stim_bsl_only_standardized_status.md",
+      "docs/idare_emg_feature_only_status.md"
+    ]
+  },
+  "minimum_report_contents": [
+    "per-modality/task/policy/recipe aggregate table",
+    "per-fold weakness map",
+    "majority-baseline comparison",
+    "one-class/collapse summary",
+    "probability/threshold diagnostics summary where available",
+    "cross-modality fold-overlap summary",
+    "failure taxonomy labels and counts",
+    "recommended next objective with rationale",
+    "explicit not-authorized list"
+  ],
+  "next_step_after_this_objective": "Prepare a read-only analysis command/script that consumes existing committed outputs and writes docs/idare_failure_analysis_report.md/json, then review/close out before choosing the next improvement objective.",
+  "not_authorized": [
+    "new training runs",
+    "EEG+EMG fusion",
+    "full model(BSL, STIM, STIM-BSL)",
+    "final LOSO / final performance claim",
+    "locking a final label policy",
+    "raw EMG mainline",
+    "architecture ablation",
+    "data augmentation",
+    "SupCon / VREx / domain generalization",
+    "extra seeds unless a follow-up objective is created"
+  ],
+  "objective_name": "I-DARE controlled failure analysis objective",
+  "parent_medium_term_objective": "Improve I-DARE single-modality EEG/EMG results by identifying dominant failure modes before launching architecture, calibration, robustness, augmentation, domain-generalization, or fusion work.",
+  "pass_criteria": [
+    "All required source files are present and readable.",
+    "Report covers EEG and EMG, valence and arousal, and all three label policies.",
+    "Every conclusion is grounded in existing committed outputs.",
+    "No new training, model patch, fusion, final LOSO claim, or final label-policy lock is introduced.",
+    "The output identifies either a clear next improvement objective or states that evidence is inconclusive."
+  ],
+  "scientific_question": "Given the completed broader single-modality and label-policy matrices, which modality/task/fold/policy/recipe combinations fail, why do they fail, and what is the most justified next improvement objective?",
+  "status": "short_term_objective_created",
+  "technical_questions": [
+    "Which folds and subjects are consistently weak across EEG and EMG?",
+    "Which runs fail to beat majority baseline on macro-F1, balanced accuracy, or both?",
+    "Are failures driven by class imbalance, one-class prediction collapse, probability calibration/threshold issues, or fold-specific subject effects?",
+    "Do EEG and EMG fail on the same folds, suggesting dataset/split difficulty, or on different folds, suggesting possible complementary errors?",
+    "Does threshold tuning improve macro-F1 without creating unstable one-class predictions?",
+    "Which next objective is best supported: threshold/calibration, subject normalization, extra-seed robustness, lightweight architecture, or a carefully scoped fusion-readiness analysis?"
+  ]
+}

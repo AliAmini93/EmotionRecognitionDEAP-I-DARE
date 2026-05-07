@@ -238,6 +238,62 @@
       ],
       "status": "frozen"
     },
+    "idare_failure_analysis_objective": {
+      "evidence": "docs/idare_failure_analysis_objective.md",
+      "evidence_json": "docs/idare_failure_analysis_objective.json",
+      "evidence_level": "post-hoc analysis of existing smoke/stabilization outputs; no new training",
+      "expected_outputs": {
+        "closeout_status_after_review": "docs/idare_failure_analysis_review_status.md",
+        "json_report": "docs/idare_failure_analysis_report.json",
+        "markdown_report": "docs/idare_failure_analysis_report.md",
+        "optional_csv": "docs/idare_failure_analysis_fold_summary.csv"
+      },
+      "new_training_authorized": false,
+      "next_allowed_step": "Prepare a read-only analysis command/script that consumes existing committed outputs and writes docs/idare_failure_analysis_report.md/json, then review/close out before choosing the next improvement objective.",
+      "not_authorized": [
+        "new training runs",
+        "EEG+EMG fusion",
+        "full model(BSL, STIM, STIM-BSL)",
+        "final LOSO / final performance claim",
+        "locking a final label policy",
+        "raw EMG mainline",
+        "architecture ablation",
+        "data augmentation",
+        "SupCon / VREx / domain generalization",
+        "extra seeds unless a follow-up objective is created"
+      ],
+      "scope": {
+        "allowed_operations": [
+          "read committed reports and prediction CSV files",
+          "compute per-fold/per-task/per-modality diagnostics",
+          "compare final metrics against majority baselines",
+          "inspect threshold diagnostics when already present",
+          "summarize failure taxonomy",
+          "recommend one next objective"
+        ],
+        "label_policies": [
+          "discard_midpoint",
+          "midpoint_as_low",
+          "midpoint_as_high"
+        ],
+        "modalities": [
+          "I-DARE EEG mainline",
+          "I-DARE EMG mainline"
+        ],
+        "new_model_experiment": false,
+        "new_training": false,
+        "recipes": [
+          "ce_class_weighted",
+          "balanced_sampler_ce"
+        ],
+        "source": "existing committed JSON and prediction CSV reports only",
+        "tasks": [
+          "valence",
+          "arousal"
+        ]
+      },
+      "status": "short_term_objective_created"
+    },
     "idare_label_policy_ablation_objective": {
       "authorized_execution": true,
       "authorized_scope": "144-run I-DARE EEG/EMG mainline label-policy primary matrix only",
@@ -389,6 +445,12 @@
       ],
       "status": "frozen_human_review_closeout"
     }
+  },
+  "failure_analysis_objective": {
+    "evidence": "docs/idare_failure_analysis_objective.md",
+    "new_training_authorized": false,
+    "next_allowed_step": "Prepare a read-only analysis command/script that consumes existing committed outputs and writes docs/idare_failure_analysis_report.md/json, then review/close out before choosing the next improvement objective.",
+    "status": "created"
   },
   "important_note": "This is a smoke/stabilization status index, not a final LOSO performance claim.",
   "key_frozen_results_snapshot": {
