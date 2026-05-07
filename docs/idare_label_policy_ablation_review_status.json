@@ -1,0 +1,74 @@
+{
+  "created_or_updated_utc": "2026-05-07T15:20:14.030797+00:00",
+  "evidence_level": "human-reviewed controlled label-policy primary matrix; not final LOSO evidence",
+  "human_review_decision": {
+    "accepted": true,
+    "final_global_label_policy_locked": false,
+    "final_loso_claim": false,
+    "fusion_started": false,
+    "mainline_changed": false,
+    "practical_default_policy": "midpoint_as_high remains the continuity/default smoke policy only, not a final paper policy.",
+    "recommended_interpretation": "The 144-run matrix does not support locking one global label policy. Keep midpoint_as_high as the practical default for continuity, and keep discard_midpoint as a serious task-specific contender for EEG valence and EMG arousal.",
+    "result": "mixed_task_specific_winners",
+    "task_specific_winners": {
+      "eeg_arousal": {
+        "balanced_accuracy": 0.5416327025978417,
+        "best_policy": "midpoint_as_high",
+        "best_recipe": "ce_class_weighted",
+        "macro_f1": 0.5313091391804471,
+        "modality": "EEG",
+        "task": "arousal"
+      },
+      "eeg_valence": {
+        "balanced_accuracy": 0.5218687143901377,
+        "best_policy": "discard_midpoint",
+        "best_recipe": "balanced_sampler_ce",
+        "macro_f1": 0.5066275841671076,
+        "modality": "EEG",
+        "task": "valence"
+      },
+      "emg_arousal": {
+        "balanced_accuracy": 0.5364967332261366,
+        "best_policy": "discard_midpoint",
+        "best_recipe": "ce_class_weighted",
+        "macro_f1": 0.5253123121687935,
+        "modality": "EMG",
+        "task": "arousal"
+      },
+      "emg_valence": {
+        "balanced_accuracy": 0.5201507593591346,
+        "best_policy": "midpoint_as_high",
+        "best_recipe": "ce_class_weighted",
+        "macro_f1": 0.5139693887689678,
+        "modality": "EMG",
+        "task": "valence"
+      }
+    }
+  },
+  "matrix": {
+    "folds": 6,
+    "modalities": 2,
+    "policies": 3,
+    "recipes": 2,
+    "seeds": [
+      11
+    ],
+    "tasks": 2,
+    "total_runs": 144
+  },
+  "next_allowed_step": "Stop here, hand off, or create a separate explicit follow-up objective for label-policy robustness before any final label-policy lock.",
+  "not_authorized": [
+    "EEG+EMG fusion",
+    "full model(BSL, STIM, STIM-BSL)",
+    "final LOSO / final paper claim",
+    "locking a final global label policy",
+    "raw EMG mainline",
+    "architecture ablations",
+    "data augmentation",
+    "SupCon / VREx / domain generalization",
+    "optional extra seeds without explicit objective"
+  ],
+  "reviewed_json": "docs/idare_label_policy_ablation_report.json",
+  "reviewed_report": "docs/idare_label_policy_ablation_report.md",
+  "status": "frozen_human_review_closeout"
+}

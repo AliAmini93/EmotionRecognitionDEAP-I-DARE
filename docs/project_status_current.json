@@ -252,7 +252,7 @@
         "EEG STIM-BSL-only",
         "EMG feature-only"
       ],
-      "next_allowed_step": "Prepare execution commands or limited script patches; review before running.",
+      "next_allowed_step": "See docs/idare_label_policy_ablation_review_status.md.",
       "not_authorized": [
         "EEG+EMG fusion",
         "full model(BSL, STIM, STIM-BSL)",
@@ -271,12 +271,89 @@
       "seeds": [
         11
       ],
-      "status": "short_term_execution_objective",
+      "status": "executed_and_reviewed",
       "tasks": [
         "valence",
         "arousal"
       ],
       "total_primary_runs": 144
+    },
+    "idare_label_policy_ablation_primary_matrix": {
+      "evidence": "docs/idare_label_policy_ablation_report.md",
+      "evidence_json": "docs/idare_label_policy_ablation_report.json",
+      "evidence_level": "controlled ablation primary matrix, not final LOSO",
+      "final_global_label_policy_locked": false,
+      "next_allowed_step": "See docs/idare_label_policy_ablation_review_status.md.",
+      "not_authorized_from_this_report": [
+        "EEG+EMG fusion",
+        "full model(BSL, STIM, STIM-BSL)",
+        "final LOSO / final paper claim",
+        "locking a final global label policy",
+        "raw EMG mainline",
+        "architecture ablations",
+        "data augmentation",
+        "SupCon / VREx / domain generalization",
+        "optional extra seeds without explicit objective"
+      ],
+      "status": "primary_matrix_complete_reviewed",
+      "summary": "All 144 authorized label-policy runs completed and validated; winners are mixed by modality/task.",
+      "total_primary_runs": 144
+    },
+    "idare_label_policy_ablation_review_status": {
+      "evidence": "docs/idare_label_policy_ablation_review_status.md",
+      "final_global_label_policy_locked": false,
+      "final_loso_claim": false,
+      "fusion_started": false,
+      "mainline_changed": false,
+      "next_allowed_step": "Stop here, hand off, or create a separate explicit follow-up objective for label-policy robustness before any final label-policy lock.",
+      "not_authorized": [
+        "EEG+EMG fusion",
+        "full model(BSL, STIM, STIM-BSL)",
+        "final LOSO / final paper claim",
+        "locking a final global label policy",
+        "raw EMG mainline",
+        "architecture ablations",
+        "data augmentation",
+        "SupCon / VREx / domain generalization",
+        "optional extra seeds without explicit objective"
+      ],
+      "practical_default_policy": "midpoint_as_high for continuity/default smoke use only",
+      "reviewed_report": "docs/idare_label_policy_ablation_report.md",
+      "status": "frozen_human_review_closeout",
+      "task_specific_winners": {
+        "eeg_arousal": {
+          "balanced_accuracy": 0.5416327025978417,
+          "best_policy": "midpoint_as_high",
+          "best_recipe": "ce_class_weighted",
+          "macro_f1": 0.5313091391804471,
+          "modality": "EEG",
+          "task": "arousal"
+        },
+        "eeg_valence": {
+          "balanced_accuracy": 0.5218687143901377,
+          "best_policy": "discard_midpoint",
+          "best_recipe": "balanced_sampler_ce",
+          "macro_f1": 0.5066275841671076,
+          "modality": "EEG",
+          "task": "valence"
+        },
+        "emg_arousal": {
+          "balanced_accuracy": 0.5364967332261366,
+          "best_policy": "discard_midpoint",
+          "best_recipe": "ce_class_weighted",
+          "macro_f1": 0.5253123121687935,
+          "modality": "EMG",
+          "task": "arousal"
+        },
+        "emg_valence": {
+          "balanced_accuracy": 0.5201507593591346,
+          "best_policy": "midpoint_as_high",
+          "best_recipe": "ce_class_weighted",
+          "macro_f1": 0.5139693887689678,
+          "modality": "EMG",
+          "task": "valence"
+        }
+      }
     },
     "idare_single_modality_bsl_stats_vs_baseline_comparison": {
       "evidence": "docs/idare_single_modality_bsl_stats_vs_baseline_comparison.md",
@@ -340,6 +417,46 @@
       "midpoint_as_high"
     ],
     "proposal_original_policy": "discard_midpoint / score > 5, score == 5 discarded"
+  },
+  "label_policy_review": {
+    "best_policies": {
+      "eeg_arousal": {
+        "balanced_accuracy": 0.5416327025978417,
+        "best_policy": "midpoint_as_high",
+        "best_recipe": "ce_class_weighted",
+        "macro_f1": 0.5313091391804471,
+        "modality": "EEG",
+        "task": "arousal"
+      },
+      "eeg_valence": {
+        "balanced_accuracy": 0.5218687143901377,
+        "best_policy": "discard_midpoint",
+        "best_recipe": "balanced_sampler_ce",
+        "macro_f1": 0.5066275841671076,
+        "modality": "EEG",
+        "task": "valence"
+      },
+      "emg_arousal": {
+        "balanced_accuracy": 0.5364967332261366,
+        "best_policy": "discard_midpoint",
+        "best_recipe": "ce_class_weighted",
+        "macro_f1": 0.5253123121687935,
+        "modality": "EMG",
+        "task": "arousal"
+      },
+      "emg_valence": {
+        "balanced_accuracy": 0.5201507593591346,
+        "best_policy": "midpoint_as_high",
+        "best_recipe": "ce_class_weighted",
+        "macro_f1": 0.5139693887689678,
+        "modality": "EMG",
+        "task": "valence"
+      }
+    },
+    "evidence": "docs/idare_label_policy_ablation_review_status.md",
+    "final_global_label_policy_locked": false,
+    "practical_default_policy": "midpoint_as_high remains continuity/default smoke policy only",
+    "status": "mixed_task_specific_winners_no_global_lock"
   },
   "last_updated_for_broader_standardized_single_modality_execution_spec_utc": "2026-05-07T14:08:26.683106+00:00",
   "last_updated_for_broader_standardized_single_modality_objective_utc": "2026-05-07T14:12:11.221270+00:00",
