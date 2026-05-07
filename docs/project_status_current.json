@@ -1033,6 +1033,48 @@
       "status": "complete_pending_review",
       "subject_relative_formulation": "subject_top_bottom_quantile_q33"
     },
+    "idare_subject_relative_minimal_training_review": {
+      "decision": {
+        "accepted": true,
+        "balanced_sampler_second_pass_authorized": false,
+        "mainline_changed": false,
+        "next_objective": "subject_relative_representation_preprocessing_objective",
+        "subject_relative_first_pass_promoted": false,
+        "subject_relative_formulation_accepted_as_tested": true
+      },
+      "evidence": "docs/idare_subject_relative_minimal_training_review_status.md",
+      "evidence_json": "docs/idare_subject_relative_minimal_training_review_status.json",
+      "not_authorized": [
+        "EEG+EMG fusion",
+        "final LOSO / final paper claim",
+        "final global label-policy lock",
+        "architecture ablation for improvement",
+        "data augmentation",
+        "SupCon / VREx / domain generalization",
+        "broad hyperparameter search",
+        "mainline change",
+        "BSL-stats sidecars",
+        "balanced-sampler second pass before a separate objective"
+      ],
+      "status": "frozen_human_review_closeout"
+    },
+    "idare_subject_relative_representation_preprocessing_objective": {
+      "evidence": "docs/idare_subject_relative_representation_preprocessing_objective.md",
+      "evidence_json": "docs/idare_subject_relative_representation_preprocessing_objective.json",
+      "next_allowed_step": "Prepare reviewed read-only representation/preprocessing diagnostic command/script.",
+      "not_authorized": [
+        "EEG+EMG fusion",
+        "final LOSO / final paper claim",
+        "mainline change",
+        "architecture ablation for improvement",
+        "data augmentation",
+        "SupCon / VREx / domain generalization",
+        "broad hyperparameter search",
+        "balanced-sampler second pass",
+        "BSL-stats sidecars"
+      ],
+      "status": "short_term_objective_created"
+    },
     "idare_subject_relative_task_formulation_objective": {
       "authorized_work": [
         "subject_relative_label_design",

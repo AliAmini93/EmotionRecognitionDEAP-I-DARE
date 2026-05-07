@@ -1,0 +1,33 @@
+{
+  "status": "frozen_human_review_closeout",
+  "created_or_updated_utc": "2026-05-07T16:27:32.454763+00:00",
+  "reviewed_document": "docs/idare_subject_relative_minimal_training_report.md",
+  "reviewed_json": "docs/idare_subject_relative_minimal_training_report.json",
+  "evidence_level": "human-reviewed minimal diagnostic training; no final LOSO claim; no mainline change",
+  "human_review_decision": {
+    "accepted": true,
+    "mainline_changed": false,
+    "subject_relative_formulation_accepted_as_tested": true,
+    "subject_relative_first_pass_promoted": false,
+    "balanced_sampler_second_pass_authorized": false,
+    "next_objective": "subject_relative_representation_preprocessing_objective"
+  },
+  "rationale": {
+    "diagnosis": "subject_relative_first_pass_not_sufficient_alone",
+    "mean_delta_macro_f1": null,
+    "note": "The subject-relative q33 first pass did not improve enough over the prior global-label mainline; only one modality/task cell was positive and the recommended next objective is representation/preprocessing."
+  },
+  "not_authorized": [
+    "EEG+EMG fusion",
+    "final LOSO / final paper claim",
+    "final global label-policy lock",
+    "architecture ablation for improvement",
+    "data augmentation",
+    "SupCon / VREx / domain generalization",
+    "broad hyperparameter search",
+    "mainline change",
+    "BSL-stats sidecars",
+    "balanced-sampler second pass before a separate objective"
+  ],
+  "next_allowed_step": "Create a representation/preprocessing diagnostic objective and then prepare a reviewed command/script."
+}
