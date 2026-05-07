@@ -1,0 +1,121 @@
+{
+  "status": "short_term_objective_created",
+  "created_or_updated_utc": "2026-05-07T15:33:33.556448+00:00",
+  "objective": "I-DARE root-cause diagnostic objective",
+  "evidence_level": "diagnostic planning from existing smoke/stabilization outputs; no new performance claim",
+  "source_checkpoint": {
+    "failure_analysis_review": "docs/idare_failure_analysis_review_status.md",
+    "failure_analysis_report": "docs/idare_failure_analysis_report.md",
+    "failure_analysis_json": "docs/idare_failure_analysis_report.json",
+    "fold_summary": "docs/idare_failure_analysis_fold_summary.csv"
+  },
+  "scientific_question": "Why do current I-DARE EEG/EMG models remain near chance/majority or unstable across folds, and which root cause is most likely: label/task definition, subject/fold difficulty, calibration/threshold, representation weakness, or model/pipeline inability to learn?",
+  "diagnostic_hypotheses": [
+    {
+      "id": "H1_label_task_definition",
+      "question": "Are valence/arousal binary labels too noisy, boundary-sensitive, or subject-dependent for the current setup?",
+      "evidence_to_check": [
+        "label-policy sensitivity by subject/fold",
+        "class balance by subject/fold/task/policy",
+        "subject-level error changes across discard_midpoint / midpoint_as_low / midpoint_as_high"
+      ]
+    },
+    {
+      "id": "H2_subject_fold_generalization",
+      "question": "Are failures concentrated in specific subjects or folds, suggesting cross-subject generalization difficulty?",
+      "evidence_to_check": [
+        "per-subject macro F1 / balanced accuracy",
+        "fold hardness ranking",
+        "EEG-vs-EMG weak-fold overlap",
+        "valence-vs-arousal weak-subject overlap"
+      ]
+    },
+    {
+      "id": "H3_calibration_threshold",
+      "question": "Are classifiers learning weak rankings but failing at the default threshold or calibration?",
+      "evidence_to_check": [
+        "Brier score",
+        "ECE",
+        "probability quantiles",
+        "threshold-sweep gains",
+        "prediction skew and mean probability by fold"
+      ]
+    },
+    {
+      "id": "H4_representation_weakness",
+      "question": "Are current EEG/EMG representations too weak for subject-held-out generalization?",
+      "evidence_to_check": [
+        "comparison of EEG STIM-BSL-only vs EEG BSL-stats",
+        "comparison of EMG feature-only vs EMG BSL-stats",
+        "subject-level complementarity across EEG and EMG",
+        "classical baseline feasibility on existing features, if later authorized"
+      ]
+    },
+    {
+      "id": "H5_model_pipeline_learning_issue",
+      "question": "Is the neural training pipeline failing to learn even when signal should be learnable?",
+      "evidence_to_check": [
+        "micro-overfit sanity test, only after read-only diagnosis if still needed",
+        "shuffled-label negative control, only after read-only diagnosis if still needed",
+        "within-subject vs subject-held-out contrast, only after read-only diagnosis if still needed"
+      ]
+    }
+  ],
+  "authorized_scope": {
+    "phase_1_read_only": {
+      "authorized": true,
+      "inputs": [
+        "docs/idare_label_policy_ablation_eeg_primary_predictions.csv",
+        "docs/idare_label_policy_ablation_emg_primary_predictions.csv",
+        "docs/idare_broader_eval_eeg_stim_bsl_only_primary_predictions.csv",
+        "docs/idare_broader_eval_eeg_bsl_stats_primary_predictions.csv",
+        "docs/idare_broader_eval_emg_feature_only_primary_predictions.csv",
+        "docs/idare_broader_eval_emg_bsl_stats_primary_predictions.csv",
+        "corresponding JSON reports"
+      ],
+      "expected_outputs": [
+        "docs/idare_root_cause_diagnostic_report.md",
+        "docs/idare_root_cause_diagnostic_report.json",
+        "docs/idare_root_cause_subject_summary.csv",
+        "docs/idare_root_cause_calibration_summary.csv",
+        "docs/idare_root_cause_error_overlap_summary.csv"
+      ]
+    },
+    "phase_2_diagnostic_sanity_tests": {
+      "authorized": false,
+      "requires_followup_review": true,
+      "candidate_tests": [
+        "micro-overfit subset test",
+        "shuffled-label negative control",
+        "within-subject vs subject-held-out contrast",
+        "simple classical baseline on existing feature representations"
+      ]
+    }
+  },
+  "root_cause_ranking_output": [
+    "label/task definition issue",
+    "subject/fold generalization issue",
+    "calibration/threshold issue",
+    "representation weakness",
+    "model/pipeline learning issue"
+  ],
+  "pass_criteria": [
+    "Report reconstructs per-subject, per-fold, per-task, per-policy diagnostics from existing predictions.",
+    "Report computes calibration and threshold diagnostics where probabilities are available.",
+    "Report identifies repeated weak subjects/folds and cross-modality/task overlaps.",
+    "Report ranks likely root causes with evidence, confidence, and next diagnostic or fix recommendation.",
+    "No new performance training is run.",
+    "No fusion or architecture work is started."
+  ],
+  "not_authorized": [
+    "new training for performance improvement",
+    "EEG+EMG fusion",
+    "final LOSO / final paper claim",
+    "final global label-policy lock",
+    "architecture ablation",
+    "data augmentation",
+    "SupCon / VREx / domain generalization",
+    "diagnostic sanity tests before read-only root-cause report is reviewed"
+  ],
+  "next_allowed_step": "Prepare a read-only root-cause diagnostic script/command that consumes existing committed outputs and writes the root-cause diagnostic report."
+}

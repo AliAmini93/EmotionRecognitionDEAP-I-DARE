@@ -1,0 +1,29 @@
+{
+  "status": "frozen_human_review_closeout",
+  "created_or_updated_utc": "2026-05-07T15:33:33.556448+00:00",
+  "reviewed_report": "docs/idare_failure_analysis_report.md",
+  "reviewed_json": "docs/idare_failure_analysis_report.json",
+  "review_decision": {
+    "accepted": true,
+    "main_problem_statement": "Current I-DARE EEG/EMG results remain near chance/majority in many aggregates; additional blind training is not justified until root causes are localized.",
+    "new_training_authorized": false,
+    "fusion_authorized": false,
+    "architecture_or_dg_authorized": false,
+    "next_objective": "Create a controlled root-cause diagnostic objective."
+  },
+  "accepted_findings": [
+    "Many aggregate rows are weak-signal / near-chance or fold-specific unstable.",
+    "Best label policies are mixed by modality/task, so no final global label policy is locked.",
+    "BSL-stats and label-policy changes do not yet justify fusion, architecture escalation, augmentation, or DG.",
+    "Next useful work is diagnosis of calibration, fold/subject difficulty, representation strength, and possible model/pipeline issues."
+  ],
+  "not_authorized": [
+    "new performance training from this review",
+    "EEG+EMG fusion",
+    "final LOSO / final paper claim",
+    "locking final global label policy",
+    "architecture ablation",
+    "data augmentation",
+    "SupCon / VREx / domain generalization"
+  ]
+}

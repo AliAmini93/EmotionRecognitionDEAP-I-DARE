@@ -322,6 +322,23 @@
       },
       "status": "complete_pending_review"
     },
+    "idare_failure_analysis_review_status": {
+      "evidence": "docs/idare_failure_analysis_review_status.md",
+      "evidence_json": "docs/idare_failure_analysis_review_status.json",
+      "main_decision": "Pause blind training and proceed to root-cause diagnosis.",
+      "next_allowed_step": "Create root-cause diagnostic objective and then a read-only root-cause report.",
+      "not_authorized": [
+        "new performance training from this review",
+        "EEG+EMG fusion",
+        "final LOSO / final paper claim",
+        "locking final global label policy",
+        "architecture ablation",
+        "data augmentation",
+        "SupCon / VREx / domain generalization"
+      ],
+      "reviewed_report": "docs/idare_failure_analysis_report.md",
+      "status": "frozen_human_review_closeout"
+    },
     "idare_label_policy_ablation_objective": {
       "authorized_execution": true,
       "authorized_scope": "144-run I-DARE EEG/EMG mainline label-policy primary matrix only",
@@ -438,6 +455,32 @@
           "task": "valence"
         }
       }
+    },
+    "idare_root_cause_diagnostic_objective": {
+      "evidence": "docs/idare_root_cause_diagnostic_objective.md",
+      "evidence_json": "docs/idare_root_cause_diagnostic_objective.json",
+      "new_training_authorized": false,
+      "next_allowed_step": "Prepare a read-only root-cause diagnostic script/command that consumes existing committed outputs and writes the root-cause diagnostic report.",
+      "not_authorized": [
+        "new training for performance improvement",
+        "EEG+EMG fusion",
+        "final LOSO / final paper claim",
+        "final global label-policy lock",
+        "architecture ablation",
+        "data augmentation",
+        "SupCon / VREx / domain generalization",
+        "diagnostic sanity tests before read-only root-cause report is reviewed"
+      ],
+      "phase_1_read_only_authorized": true,
+      "phase_2_diagnostic_sanity_tests_authorized": false,
+      "root_cause_candidates": [
+        "label/task definition issue",
+        "subject/fold generalization issue",
+        "calibration/threshold issue",
+        "representation weakness",
+        "model/pipeline learning issue"
+      ],
+      "status": "short_term_objective_created"
     },
     "idare_single_modality_bsl_stats_vs_baseline_comparison": {
       "evidence": "docs/idare_single_modality_bsl_stats_vs_baseline_comparison.md",
