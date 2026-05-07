@@ -695,24 +695,24 @@ def subjects_for_task(cache_index: Path, task: str, policy: str) -> list[int]:
 
 
 def make_subject_folds(subjects: list[int], n_folds: int) -> list[Fold]:
-    subjects = sorted({int(s) for s in subjects})
-    if not subjects:
-        raise ValueError("No subjects available for folds")
-    n_folds = max(1, min(int(n_folds), len(subjects)))
+    """Build sidecar-compatible subject folds using numpy default_rng(seed=11).
 
-    shuffled = list(subjects)
-    rng = random.Random(20260505)
-    rng.shuffle(shuffled)
+    This mirrors scripts/34_run_idare_eeg_bsl_stats_ablation_smoke.py so
+    STIM-BSL-only EEG smoke reports can be compared fairly against the
+    STIM-BSL + BSL-stats sidecar smoke reports.
+    """
+    subjects_arr = np.asarray(sorted(set(int(s) for s in subjects)))
+    rng = np.random.default_rng(11)
+    permuted = rng.permutation(subjects_arr)
+    chunks = np.array_split(permuted, int(n_folds))
+    all_subjects = set(int(s) for s in subjects_arr.tolist())
 
-    chunks = np.array_split(np.asarray(shuffled, dtype=int), n_folds)
     folds: list[Fold] = []
     for i, chunk in enumerate(chunks, start=1):
         val_subjects = sorted(int(s) for s in chunk.tolist())
-        val_set = set(val_subjects)
-        train_subjects = sorted(int(s) for s in subjects if int(s) not in val_set)
+        train_subjects = sorted(all_subjects - set(val_subjects))
         folds.append(Fold(fold_id=i, val_subjects=val_subjects, train_subjects=train_subjects))
     return folds
-
 
 def build_run_specs(args: argparse.Namespace) -> list[RunSpec]:
     specs: list[RunSpec] = []
