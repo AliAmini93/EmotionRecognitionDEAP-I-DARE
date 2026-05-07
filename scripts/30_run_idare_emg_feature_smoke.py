@@ -249,15 +249,20 @@ def threshold_sweep(y_true: list[int], prob1: list[float]) -> dict[str, Any]:
 
 
 def make_subject_folds(subjects: list[int], n_folds: int, seed: int) -> list[Fold]:
+    """Build sidecar-compatible numpy.default_rng subject folds.
+
+    This keeps I-DARE EMG feature-only broader-eval folds aligned with
+    scripts/36_run_idare_emg_bsl_stats_ablation_smoke.py.
+    """
     subjects = sorted({int(s) for s in subjects})
     if n_folds < 2:
         raise ValueError("--folds must be >= 2")
     if n_folds > len(subjects):
         raise ValueError(f"--folds={n_folds} exceeds subject count={len(subjects)}")
-    rng = random.Random(seed)
-    shuffled = subjects[:]
+    rng = np.random.default_rng(int(seed))
+    shuffled = np.asarray(subjects, dtype=int)
     rng.shuffle(shuffled)
-    chunks = [list(chunk) for chunk in np.array_split(np.asarray(shuffled, dtype=int), n_folds)]
+    chunks = [list(chunk) for chunk in np.array_split(shuffled, n_folds)]
     all_subjects = set(subjects)
     folds: list[Fold] = []
     for i, chunk in enumerate(chunks, start=1):
@@ -265,7 +270,6 @@ def make_subject_folds(subjects: list[int], n_folds: int, seed: int) -> list[Fol
         train_subjects = sorted(all_subjects - set(val_subjects))
         folds.append(Fold(fold_id=i, val_subjects=val_subjects, train_subjects=train_subjects))
     return folds
-
 
 class DEAPEMGFeatureDataset(Dataset):
     def __init__(
