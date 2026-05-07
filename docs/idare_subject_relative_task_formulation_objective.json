@@ -1,0 +1,95 @@
+{
+  "status": "short_term_objective_created",
+  "created_or_updated_utc": "2026-05-07T16:08:06.929008+00:00",
+  "objective": "I-DARE subject-relative task formulation objective",
+  "evidence_level": "diagnostic/design objective after representation/label-task review; no final performance claim",
+  "source_checkpoint": {
+    "representation_label_task_review": "docs/idare_representation_label_task_redesign_review_status.md",
+    "representation_label_task_report": "docs/idare_representation_label_task_redesign_report.md",
+    "label_noise_subject_balance_summary": "docs/idare_label_noise_subject_balance_summary.csv",
+    "representation_signal_diagnostic_summary": "docs/idare_representation_signal_diagnostic_summary.csv"
+  },
+  "why_this_objective": [
+    "The leading blocker is label/task subject dependence.",
+    "Global binary labels are likely unstable under subject-heldout evaluation.",
+    "Subject-relative task formulation is the next controlled fix candidate before architecture, fusion, augmentation, or DG."
+  ],
+  "scientific_questions": [
+    "Can subject-relative labels reduce between-subject label skew while preserving within-subject affective ordering?",
+    "Which subject-relative formulation is least leaky and most compatible with subject-heldout evaluation?",
+    "Can a future small controlled training run use only train-subject statistics to define or calibrate task labels without touching heldout subjects?",
+    "What exact run matrix should be used next if this formulation passes design review?"
+  ],
+  "authorized_scope": {
+    "diagnostic_or_design_only": true,
+    "new_model_training": false,
+    "allowed_inputs": [
+      "existing cache index CSVs",
+      "existing original rating/score columns",
+      "existing diagnostic CSV/JSON/MD outputs",
+      "existing prediction CSVs for error context only"
+    ],
+    "authorized_work": [
+      {
+        "id": "subject_relative_label_design",
+        "purpose": "Define candidate subject-relative labels using only within-subject rating structure.",
+        "candidate_formulations": [
+          "subject_median_split",
+          "subject_zscore_sign",
+          "subject_top_bottom_quantile",
+          "within_subject_pairwise_or_ranking_task"
+        ]
+      },
+      {
+        "id": "leakage_audit",
+        "purpose": "Specify which statistics are computed per subject and which are allowed at train/test time.",
+        "must_answer": [
+          "Does the formulation require heldout-subject label distribution knowledge?",
+          "Can it be applied using only the heldout subject's own trial ratings without using predictions?",
+          "Is the formulation compatible with the project's scientific question?"
+        ]
+      },
+      {
+        "id": "class_balance_and_coverage_audit",
+        "purpose": "Compute expected sample retention, per-fold balance, and subject coverage for each candidate formulation."
+      },
+      {
+        "id": "future_controlled_run_matrix_design",
+        "purpose": "Prepare but do not execute the next minimal controlled training matrix if one formulation is selected."
+      }
+    ]
+  },
+  "expected_outputs": [
+    "docs/idare_subject_relative_task_formulation_report.md",
+    "docs/idare_subject_relative_task_formulation_report.json",
+    "docs/idare_subject_relative_label_balance_summary.csv",
+    "docs/idare_subject_relative_candidate_matrix.csv"
+  ],
+  "pass_criteria": [
+    "No new model training is run.",
+    "No fusion, architecture improvement, augmentation, DG, or final LOSO claim is authorized.",
+    "At least three subject-relative candidate formulations are audited.",
+    "The report states leakage risks and whether each formulation is scientifically valid.",
+    "The report recommends exactly one next objective after human review.",
+    "If a future training objective is recommended, it must be small, controlled, and explicitly separated from this planning objective."
+  ],
+  "candidate_next_objectives_after_review": [
+    "minimal_subject_relative_training_objective",
+    "subject_relative_label_quality_audit_objective",
+    "representation_preprocessing_redesign_objective",
+    "data_quality_or_label_noise_audit_objective",
+    "stop_or_handoff_objective"
+  ],
+  "not_authorized": [
+    "EEG+EMG fusion",
+    "final LOSO / final paper claim",
+    "final global label-policy lock",
+    "new model training",
+    "architecture ablation for improvement",
+    "data augmentation",
+    "SupCon / VREx / domain generalization",
+    "broad hyperparameter search",
+    "mainline change"
+  ],
+  "next_allowed_step": "Prepare a reviewed read-only subject-relative task formulation report command/script."
+}

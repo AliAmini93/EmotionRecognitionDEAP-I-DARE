@@ -74,6 +74,8 @@ No final global label policy is locked. `midpoint_as_high` remains only the prac
 | I-DARE calibration protocol review | human review accepted calibration protocol report; calibration rejected as primary fix | yes | `docs/idare_calibration_protocol_review_status.md` | Create/run representation and label-task redesign objective. | EEG+EMG fusion; final LOSO claim; architecture/augmentation/DG work; mainline change. |
 | I-DARE representation and label-task redesign objective | short-term diagnostic/design objective created; no new model training authorized | yes | `docs/idare_representation_label_task_redesign_objective.md` | Prepare reviewed read-only representation/label-task diagnostic command/script. | EEG+EMG fusion; final LOSO claim; architecture/augmentation/DG work; broad hyperparameter search. |
 | I-DARE representation and label-task redesign report | read-only representation/label-task diagnostic complete; pending human review | yes | `docs/idare_representation_label_task_redesign_report.md` | Human review / closeout before the selected next objective. | EEG+EMG fusion; final LOSO claim; architecture/augmentation/DG work; broad hyperparameter search. |
+| I-DARE representation and label-task redesign review | human review accepted blocker diagnosis; subject-relative task formulation selected next | yes | `docs/idare_representation_label_task_redesign_review_status.md` | Create/run subject-relative task formulation objective. | EEG+EMG fusion; final LOSO claim; architecture/augmentation/DG work; mainline change. |
+| I-DARE subject-relative task formulation objective | short-term diagnostic/design objective created; no new model training authorized | yes | `docs/idare_subject_relative_task_formulation_objective.md` | Prepare reviewed read-only subject-relative task formulation command/script. | EEG+EMG fusion; final LOSO claim; architecture/augmentation/DG work; broad hyperparameter search. |
 | EEG+EMG fusion | not started intentionally | no | `docs/idare_eeg_bsl_stats_ablation_status.md`<br>`docs/idare_emg_bsl_stats_ablation_status.md` | Start only after current baseline/ablation status is indexed and compared cleanly. | All fusion experiments. |
 | Full model(BSL, STIM, STIM-BSL) | not started intentionally | no | `docs/idare_baseline_modeling_literature_plan.md` | Only after low-capacity BSL-stats ablation beats STIM-BSL-only baselines consistently. | Two-branch or three-branch full paired neural model. |
 | I-DARE controlled label-policy ablation objective | short-term objective created and executed for 144-run label-policy matrix | yes | `docs/idare_label_policy_ablation_objective.md` | Review status is frozen in `docs/idare_label_policy_ablation_review_status.md`. | EEG+EMG fusion; final LOSO claim; locking final label policy before review. |
@@ -161,6 +163,10 @@ Note: DEAP EMG feature rows are sourced from the frozen `docs/deap_emg_feature_o
 - A representation and label-task redesign objective is defined in `docs/idare_representation_label_task_redesign_objective.md`; next work is a read-only diagnostic/design report command/script.
 
 - Representation/label-task diagnostic report is complete in `docs/idare_representation_label_task_redesign_report.md`; diagnosis is `subject_relative_label_task_problem_supported` and recommended next objective is `subject_relative_task_formulation_objective`.
+
+- Human review of the representation/label-task diagnostic is frozen in `docs/idare_representation_label_task_redesign_review_status.md`; subject-relative task formulation is selected next.
+
+- A subject-relative task formulation objective is defined in `docs/idare_subject_relative_task_formulation_objective.md`; next work is a read-only task-formulation report command/script.
 
 ## Documentation Gap Closed by This File
 

@@ -798,6 +798,27 @@
       "representation_summary_csv": "docs/idare_representation_signal_diagnostic_summary.csv",
       "status": "complete_pending_review"
     },
+    "idare_representation_label_task_redesign_review_status": {
+      "diagnosis": "subject_relative_label_task_problem_supported",
+      "evidence": "docs/idare_representation_label_task_redesign_review_status.md",
+      "evidence_json": "docs/idare_representation_label_task_redesign_review_status.json",
+      "leading_blocker": "label_task_subject_dependence",
+      "new_performance_training_authorized": false,
+      "not_authorized": [
+        "EEG+EMG fusion",
+        "final LOSO / final paper claim",
+        "final global label-policy lock",
+        "new model training",
+        "architecture ablation for improvement",
+        "data augmentation",
+        "SupCon / VREx / domain generalization",
+        "broad hyperparameter search",
+        "mainline change"
+      ],
+      "reviewed_report": "docs/idare_representation_label_task_redesign_report.md",
+      "selected_next_objective": "subject_relative_task_formulation_objective",
+      "status": "frozen_human_review_closeout"
+    },
     "idare_root_cause_diagnostic_objective": {
       "evidence": "docs/idare_root_cause_diagnostic_objective.md",
       "evidence_json": "docs/idare_root_cause_diagnostic_objective.json",
@@ -949,6 +970,43 @@
         "SupCon / VREx / domain generalization"
       ],
       "status": "frozen_human_review_closeout"
+    },
+    "idare_subject_relative_task_formulation_objective": {
+      "authorized_work": [
+        "subject_relative_label_design",
+        "leakage_audit",
+        "class_balance_and_coverage_audit",
+        "future_controlled_run_matrix_design"
+      ],
+      "candidate_next_objectives_after_review": [
+        "minimal_subject_relative_training_objective",
+        "subject_relative_label_quality_audit_objective",
+        "representation_preprocessing_redesign_objective",
+        "data_quality_or_label_noise_audit_objective",
+        "stop_or_handoff_objective"
+      ],
+      "evidence": "docs/idare_subject_relative_task_formulation_objective.md",
+      "evidence_json": "docs/idare_subject_relative_task_formulation_objective.json",
+      "expected_outputs": [
+        "docs/idare_subject_relative_task_formulation_report.md",
+        "docs/idare_subject_relative_task_formulation_report.json",
+        "docs/idare_subject_relative_label_balance_summary.csv",
+        "docs/idare_subject_relative_candidate_matrix.csv"
+      ],
+      "new_model_training_authorized": false,
+      "next_allowed_step": "Prepare a reviewed read-only subject-relative task formulation report command/script.",
+      "not_authorized": [
+        "EEG+EMG fusion",
+        "final LOSO / final paper claim",
+        "final global label-policy lock",
+        "new model training",
+        "architecture ablation for improvement",
+        "data augmentation",
+        "SupCon / VREx / domain generalization",
+        "broad hyperparameter search",
+        "mainline change"
+      ],
+      "status": "short_term_objective_created"
     }
   },
   "failure_analysis_objective": {

@@ -1,0 +1,52 @@
+{
+  "status": "frozen_human_review_closeout",
+  "created_or_updated_utc": "2026-05-07T16:08:06.929008+00:00",
+  "reviewed_report": "docs/idare_representation_label_task_redesign_report.md",
+  "reviewed_json": "docs/idare_representation_label_task_redesign_report.json",
+  "review_decision": {
+    "accepted": true,
+    "leading_blocker": "label_task_subject_dependence",
+    "diagnosis": "subject_relative_label_task_problem_supported",
+    "selected_next_objective": "subject_relative_task_formulation_objective",
+    "global_binary_task_as_primary_fix_rejected": true,
+    "new_performance_training_authorized": false,
+    "fusion_authorized": false,
+    "architecture_or_dg_authorized": false,
+    "final_loso_claim_authorized": false,
+    "mainline_change_authorized": false
+  },
+  "accepted_findings": {
+    "summary": [
+      "The leading blocker is label/task subject dependence.",
+      "Global binary labels are likely unstable under subject-heldout evaluation.",
+      "Subject-relative task formulation should be tested before architecture, fusion, augmentation, or domain generalization."
+    ],
+    "label_task_metrics": {
+      "mean_exact_midpoint_fraction": 0.14037698412698413,
+      "mean_near_midpoint_fraction": 0.14037698412698413,
+      "max_subject_prop_skew_midpoint_as_high": 0.48908730158730157,
+      "mean_subject_prop_skew_midpoint_as_high": 0.10220616024187452,
+      "high_skew_subject_rows_ge_0p20": 32,
+      "n_subject_balance_rows": 252
+    },
+    "representation_metrics": {
+      "mean_subject_eta": 0.35513133853723294,
+      "mean_label_eta": 0.0006421174252572193,
+      "median_subject_to_label_eta_ratio": 651.9176552888854,
+      "max_subject_to_label_eta_ratio": 1593.541137690095,
+      "subject_dominance_rows": 12,
+      "n_representation_rows": 12
+    }
+  },
+  "not_authorized": [
+    "EEG+EMG fusion",
+    "final LOSO / final paper claim",
+    "final global label-policy lock",
+    "new model training",
+    "architecture ablation for improvement",
+    "data augmentation",
+    "SupCon / VREx / domain generalization",
+    "broad hyperparameter search",
+    "mainline change"
+  ]
+}
