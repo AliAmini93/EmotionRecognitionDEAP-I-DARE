@@ -1,0 +1,118 @@
+{
+  "status": "short_term_objective_created",
+  "created_or_updated_utc": "2026-05-07T15:48:17.088362+00:00",
+  "objective": "I-DARE calibration and subject-generalization objective",
+  "evidence_level": "post-diagnostic objective after reviewed sanity tests; no final performance claim",
+  "source_checkpoint": {
+    "diagnostic_sanity_review": "docs/idare_diagnostic_sanity_tests_review_status.md",
+    "diagnostic_sanity_report": "docs/idare_diagnostic_sanity_tests_report.md",
+    "diagnostic_sanity_json": "docs/idare_diagnostic_sanity_tests_report.json",
+    "diagnostic_sanity_summary": "docs/idare_diagnostic_sanity_tests_summary.csv"
+  },
+  "why_this_objective": [
+    "Micro-overfit passed, weakening a total data-path/model/loss failure explanation.",
+    "Shuffled-label controls passed, weakening a major leakage/split/metric bug explanation.",
+    "Results are still weak/mixed, so calibration and subject/fold effects are the most useful next diagnostic target.",
+    "The goal is to identify whether better thresholds/calibration or subject/fold-specific instability explains a meaningful part of the failure."
+  ],
+  "scientific_questions": [
+    "Are the models producing useful ranking/probability information that is hidden by a fixed 0.5 threshold?",
+    "Do fold-specific thresholds or calibration improve macro-F1/balanced accuracy enough to justify a calibration protocol?",
+    "Are a small number of subjects/folds systematically driving failure across modalities and tasks?",
+    "Are errors consistent across EEG and EMG for the same subject/task, suggesting subject-level difficulty rather than modality-specific failure?",
+    "Can subject/fold grouping reveal trainable strata without starting fusion or architecture changes?"
+  ],
+  "authorized_scope": {
+    "diagnostic_only": true,
+    "new_performance_training": false,
+    "allowed_inputs": [
+      "existing primary prediction CSVs",
+      "existing label-policy ablation prediction CSVs",
+      "existing root-cause and diagnostic sanity summary files"
+    ],
+    "allowed_analyses": [
+      {
+        "id": "threshold_sweep_by_modality_task_policy",
+        "purpose": "Quantify whether fixed 0.5 threshold hides useful score/ranking information.",
+        "outputs": [
+          "best threshold per modality/task/policy/recipe",
+          "macro-F1 gain",
+          "balanced-accuracy gain",
+          "one-class threshold risk"
+        ]
+      },
+      {
+        "id": "fold_specific_calibration_diagnostic",
+        "purpose": "Measure threshold instability across folds.",
+        "outputs": [
+          "fold-wise best thresholds",
+          "threshold variance",
+          "fold-wise gain distribution",
+          "calibration instability flag"
+        ]
+      },
+      {
+        "id": "subject_difficulty_ranking",
+        "purpose": "Rank subjects by repeated failure across existing outputs.",
+        "outputs": [
+          "subject failure count",
+          "mean correctness",
+          "task/modality failure overlap",
+          "hard-subject shortlist"
+        ]
+      },
+      {
+        "id": "cross_modality_error_overlap",
+        "purpose": "Check whether EEG and EMG fail on the same subjects/tasks.",
+        "outputs": [
+          "overlap rates",
+          "subject-level common-failure score",
+          "modality-specific vs subject-level failure flag"
+        ]
+      },
+      {
+        "id": "recipe_policy_stability_map",
+        "purpose": "Identify whether any recipe/policy is consistently less fragile.",
+        "outputs": [
+          "ranking by macro-F1",
+          "ranking by balanced accuracy",
+          "ranking by threshold gain",
+          "stability flag"
+        ]
+      }
+    ]
+  },
+  "expected_outputs": [
+    "docs/idare_calibration_subject_generalization_report.md",
+    "docs/idare_calibration_subject_generalization_report.json",
+    "docs/idare_calibration_subject_threshold_summary.csv",
+    "docs/idare_subject_difficulty_ranking.csv",
+    "docs/idare_cross_modality_error_overlap.csv"
+  ],
+  "pass_criteria": [
+    "The report is generated from existing outputs only.",
+    "No new performance training is run.",
+    "The report separates threshold/calibration failure from subject/fold generalization difficulty.",
+    "The report identifies whether hard subjects/folds are stable across modalities/tasks.",
+    "The report recommends exactly one next objective after review.",
+    "The report does not authorize fusion, architecture, augmentation, DG, or final claims."
+  ],
+  "stop_conditions": [
+    "If threshold gains are large but unstable across folds, recommend calibration protocol objective, not architecture work.",
+    "If hard subjects dominate failure across modalities/tasks, recommend subject-generalization or subject-stratified diagnostic objective.",
+    "If neither calibration nor subject effects explain the weakness, recommend representation/label-task redesign objective.",
+    "If evidence suggests a data/split inconsistency, recommend data-integrity audit objective."
+  ],
+  "not_authorized": [
+    "EEG+EMG fusion",
+    "final LOSO / final paper claim",
+    "final global label-policy lock",
+    "new performance training",
+    "architecture ablation for improvement",
+    "data augmentation",
+    "SupCon / VREx / domain generalization",
+    "broad hyperparameter search",
+    "mainline change"
+  ],
+  "next_allowed_step": "Prepare a reviewed read-only analysis command/script for calibration and subject-generalization diagnostics."
+}

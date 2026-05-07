@@ -1,0 +1,52 @@
+{
+  "status": "frozen_human_review_closeout",
+  "created_or_updated_utc": "2026-05-07T15:48:17.088362+00:00",
+  "reviewed_report": "docs/idare_diagnostic_sanity_tests_report.md",
+  "reviewed_json": "docs/idare_diagnostic_sanity_tests_report.json",
+  "review_decision": {
+    "accepted": true,
+    "selected_next_objective": "calibration_and_subject_generalization_objective",
+    "micro_overfit_result_accepted": true,
+    "shuffled_label_result_accepted": true,
+    "diagnosis": "mixed_issue_unresolved",
+    "new_performance_training_authorized": false,
+    "calibration_and_subject_generalization_objective_authorized_next": true,
+    "fusion_authorized": false,
+    "architecture_or_dg_authorized": false,
+    "final_label_policy_authorized": false
+  },
+  "accepted_findings": {
+    "summary": [
+      "Micro-overfit passed for EEG and EMG, so total model/data-path learning failure is weakened.",
+      "Shuffled-label negative control passed, so major leakage/split/metric failure is not supported by this diagnostic.",
+      "Within-subject vs subject-heldout evidence is mixed, not a clean single-cause subject-generalization proof.",
+      "Simple classical baselines are mostly near chance, except weak EEG arousal signal.",
+      "The next objective should focus on calibration and subject/fold generalization diagnostics, not fusion or architecture escalation."
+    ],
+    "diagnostic_summary": {
+      "micro_overfit_all_passed": true,
+      "shuffled_label_control_all_passed": true,
+      "mean_within_subject_minus_subject_heldout_macro_f1": 0.020607430366707535,
+      "max_within_subject_minus_subject_heldout_macro_f1": 0.08336904098399384,
+      "within_subject_generalization_hits": 0,
+      "best_classical_macro_f1": 0.5433962264150943,
+      "mean_classical_macro_f1": 0.4787336634821898,
+      "diagnosis": "mixed_issue_unresolved",
+      "recommended_next_objective": "calibration_and_subject_generalization_objective",
+      "recommendation_reason": [
+        "Core sanity checks passed, but results remain weak/mixed.",
+        "Next diagnostic work should focus on calibration and subject-generalization without fusion or architecture escalation."
+      ]
+    }
+  },
+  "not_authorized": [
+    "EEG+EMG fusion",
+    "final LOSO / final paper claim",
+    "final global label-policy lock",
+    "architecture ablation for improvement",
+    "data augmentation",
+    "SupCon / VREx / domain generalization",
+    "broad hyperparameter search",
+    "mainline change"
+  ]
+}
