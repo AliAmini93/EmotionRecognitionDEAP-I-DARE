@@ -1075,6 +1075,34 @@
       ],
       "status": "short_term_objective_created"
     },
+    "idare_subject_relative_representation_preprocessing_report": {
+      "best_candidate": {
+        "candidate": "emg_signed_log1p_train_standard_scaled",
+        "description": "signed log1p EMG features plus train-only standard scaling",
+        "diagnostic_score": 0.5219554947235828,
+        "implementation_risk": "low",
+        "leakage_risk": "low",
+        "mean_shift_reduction_vs_raw": 0.21727928519248962,
+        "mean_val_sep_gain_vs_raw": -0.007143065954248111,
+        "modality": "EMG"
+      },
+      "diagnosis": "preprocessing_candidate_worth_testing",
+      "evidence": "docs/idare_subject_relative_representation_preprocessing_report.md",
+      "evidence_json": "docs/idare_subject_relative_representation_preprocessing_report.json",
+      "not_authorized": [
+        "EEG+EMG fusion",
+        "final LOSO / final paper claim",
+        "mainline change",
+        "architecture ablation for improvement",
+        "data augmentation",
+        "SupCon / VREx / domain generalization",
+        "broad hyperparameter search",
+        "balanced-sampler second pass",
+        "BSL-stats sidecars"
+      ],
+      "recommended_next_objective": "minimal_subject_relative_preprocessed_training_objective",
+      "status": "complete_pending_review"
+    },
     "idare_subject_relative_task_formulation_objective": {
       "authorized_work": [
         "subject_relative_label_design",
