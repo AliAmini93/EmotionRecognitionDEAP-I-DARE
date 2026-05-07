@@ -1,0 +1,86 @@
+{
+  "authorized_execution": false,
+  "conditions": {
+    "EEG-B0": "baseline-corrected STIM-BSL EEG response cache only",
+    "EEG-B1": "baseline-corrected STIM-BSL EEG response cache plus EEG BSL-stats sidecar",
+    "EMG-B0": "feature-level EMG cache only",
+    "EMG-B1": "feature-level EMG cache plus EMG BSL-stats sidecar"
+  },
+  "hyperparameters": {
+    "eeg": {
+      "batch_size": 64,
+      "epochs": 12,
+      "grad_clip": 1.0,
+      "lr": 0.001,
+      "weight_decay": 0.001
+    },
+    "emg": {
+      "batch_size": 128,
+      "epochs": 20,
+      "hidden_dim": 64,
+      "lr": 0.001,
+      "zclip": 8.0
+    }
+  },
+  "label_policy": {
+    "final_locked": false,
+    "use_for_controlled_eval": "midpoint_as_high"
+  },
+  "next_allowed_step": "Stop, refine this spec, or create a new explicit short-term objective to execute the primary run matrix.",
+  "optional_robustness_pass": {
+    "additional_runs": 96,
+    "additional_seed": 13,
+    "run_automatically": false
+  },
+  "pass_criteria": [
+    "all primary runs finish",
+    "all reports are created",
+    "no cache/index mismatch",
+    "no sidecar leakage",
+    "no hidden one-class collapse",
+    "fold/seed/task/recipe alignment documented",
+    "prediction CSVs available"
+  ],
+  "primary_run_matrix": {
+    "conditions": 4,
+    "folds": 6,
+    "recipes": [
+      "ce_class_weighted",
+      "balanced_sampler_ce"
+    ],
+    "seeds": [
+      11
+    ],
+    "tasks": 2,
+    "total_runs": 96
+  },
+  "purpose": "Refine the broader I-DARE standardized single-modality evaluation plan into a concrete run matrix.",
+  "required_outputs_if_executed": [
+    "markdown reports",
+    "JSON reports",
+    "prediction CSV files",
+    "combined comparison report",
+    "central roadmap update"
+  ],
+  "scope": {
+    "exclude": [
+      "EEG+EMG fusion",
+      "full model(BSL, STIM, STIM-BSL)",
+      "raw EMG mainline",
+      "architecture ablations",
+      "data augmentation",
+      "SupCon / VREx / domain generalization"
+    ],
+    "include": [
+      "EEG STIM-BSL-only",
+      "EEG STIM-BSL plus BSL-stats",
+      "EMG feature-only",
+      "EMG feature plus BSL-stats"
+    ]
+  },
+  "status": "planning_only",
+  "tasks": [
+    "valence",
+    "arousal"
+  ]
+}

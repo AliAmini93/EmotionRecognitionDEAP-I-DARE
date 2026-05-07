@@ -125,6 +125,30 @@
     }
   },
   "decisions": {
+    "idare_broader_standardized_single_modality_evaluation_execution_spec": {
+      "authorized_execution": false,
+      "evidence": "docs/idare_broader_standardized_single_modality_evaluation_execution_spec.md",
+      "next_allowed_step": "Review spec before creating an execution objective.",
+      "not_allowed_yet": [
+        "EEG+EMG fusion",
+        "full model(BSL, STIM, STIM-BSL)",
+        "final LOSO / final performance claim",
+        "locking midpoint_as_high",
+        "raw EMG mainline",
+        "architecture ablations",
+        "data augmentation",
+        "SupCon / VREx / domain generalization"
+      ],
+      "primary_run_matrix": {
+        "conditions": 4,
+        "folds": 6,
+        "recipes": 2,
+        "seeds": 1,
+        "tasks": 2,
+        "total_runs": 96
+      },
+      "status": "planning_only"
+    },
     "idare_broader_standardized_single_modality_evaluation_plan": {
       "authorized_execution": false,
       "evidence": "docs/idare_broader_standardized_single_modality_evaluation_plan.md",
@@ -216,6 +240,7 @@
     ],
     "proposal_original_policy": "discard_midpoint / score > 5, score == 5 discarded"
   },
+  "last_updated_for_broader_standardized_single_modality_execution_spec_utc": "2026-05-07T14:08:26.683106+00:00",
   "last_updated_for_broader_standardized_single_modality_plan_utc": "2026-05-07T14:02:07.484172+00:00",
   "last_updated_for_eeg_stim_bsl_only_standardized_closeout_utc": "2026-05-07T13:35:24.143574+00:00",
   "last_updated_for_single_modality_bsl_stats_vs_baseline_comparison_utc": "2026-05-07T13:40:38.822671+00:00",
@@ -5299,6 +5324,7 @@
   "sources": {
     "baseline_plan": "docs/idare_baseline_modeling_literature_plan.md",
     "deap_emg_feature_status": "docs/deap_emg_feature_only_status.md",
+    "idare_broader_standardized_single_modality_evaluation_execution_spec": "docs/idare_broader_standardized_single_modality_evaluation_execution_spec.md",
     "idare_broader_standardized_single_modality_evaluation_plan": "docs/idare_broader_standardized_single_modality_evaluation_plan.md",
     "idare_eeg_bsl_stats_status": "docs/idare_eeg_bsl_stats_ablation_status.md",
     "idare_eeg_stim_bsl_only_standardized_status": "docs/idare_eeg_stim_bsl_only_standardized_status.md",
