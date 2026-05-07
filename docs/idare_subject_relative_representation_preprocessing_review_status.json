@@ -1,0 +1,41 @@
+{
+  "status": "frozen_human_review_closeout",
+  "created_or_updated_utc": "2026-05-07T16:34:01.007092+00:00",
+  "reviewed_document": "docs/idare_subject_relative_representation_preprocessing_report.md",
+  "reviewed_json": "docs/idare_subject_relative_representation_preprocessing_report.json",
+  "evidence_level": "human-reviewed read-only representation/preprocessing diagnostic; no final performance claim",
+  "human_review_decision": {
+    "accepted": true,
+    "mainline_changed": false,
+    "best_candidate_accepted_for_minimal_test": true,
+    "next_objective": "minimal_subject_relative_preprocessed_training_objective",
+    "new_training_authorized_by_this_review": false
+  },
+  "rationale": {
+    "diagnosis": "preprocessing_candidate_worth_testing",
+    "recommended_next_objective": "minimal_subject_relative_preprocessed_training_objective",
+    "best_candidate": {
+      "modality": "EMG",
+      "candidate": "emg_signed_log1p_train_standard_scaled",
+      "description": "signed log1p EMG features plus train-only standard scaling",
+      "diagnostic_score": 0.5219554947235828,
+      "mean_shift_reduction_vs_raw": 0.21727928519248962,
+      "mean_val_sep_gain_vs_raw": -0.007143065954248111,
+      "leakage_risk": "low",
+      "implementation_risk": "low"
+    },
+    "note": "The diagnostic found a low-leakage preprocessing candidate worth testing, but training still requires a separate explicit objective."
+  },
+  "not_authorized": [
+    "EEG+EMG fusion",
+    "final LOSO / final paper claim",
+    "mainline change",
+    "architecture ablation for improvement",
+    "data augmentation",
+    "SupCon / VREx / domain generalization",
+    "broad hyperparameter search",
+    "balanced-sampler second pass",
+    "BSL-stats sidecars"
+  ],
+  "next_allowed_step": "Create a minimal subject-relative preprocessed training objective; then prepare a reviewed implementation/run command."
+}

@@ -739,6 +739,54 @@
         }
       }
     },
+    "idare_minimal_subject_relative_preprocessed_training_objective": {
+      "authorized_scope": {
+        "folds": 6,
+        "label_formulation": "per-subject bottom third vs top third; middle third discarded",
+        "modalities": [
+          "EEG",
+          "EMG"
+        ],
+        "preprocessing_candidates": {
+          "EEG": {
+            "candidate": "eeg_window_channel_zscore_train_standard_scaled",
+            "description": "per-trial channel zscore summary features plus train-only standard scaling",
+            "source_rank_in_diagnostic": 3
+          },
+          "EMG": {
+            "candidate": "emg_signed_log1p_train_standard_scaled",
+            "description": "signed log1p EMG features plus train-only standard scaling",
+            "source_rank_in_diagnostic": 1
+          }
+        },
+        "recipes": [
+          "ce_class_weighted"
+        ],
+        "seeds": [
+          11
+        ],
+        "tasks": [
+          "valence",
+          "arousal"
+        ],
+        "total_runs": 24
+      },
+      "evidence": "docs/idare_minimal_subject_relative_preprocessed_training_objective.md",
+      "evidence_json": "docs/idare_minimal_subject_relative_preprocessed_training_objective.json",
+      "next_allowed_step": "Prepare a reviewed implementation/run command for the 24-run minimal subject-relative preprocessed first pass.",
+      "not_authorized": [
+        "EEG+EMG fusion",
+        "final LOSO / final paper claim",
+        "mainline change",
+        "architecture ablation for improvement",
+        "data augmentation",
+        "SupCon / VREx / domain generalization",
+        "broad hyperparameter search",
+        "balanced-sampler second pass",
+        "BSL-stats sidecars"
+      ],
+      "status": "short_term_objective_created"
+    },
     "idare_minimal_subject_relative_training_objective": {
       "evidence": "docs/idare_minimal_subject_relative_training_objective.md",
       "evidence_json": "docs/idare_minimal_subject_relative_training_objective.json",
@@ -1102,6 +1150,29 @@
       ],
       "recommended_next_objective": "minimal_subject_relative_preprocessed_training_objective",
       "status": "complete_pending_review"
+    },
+    "idare_subject_relative_representation_preprocessing_review": {
+      "decision": {
+        "accepted": true,
+        "best_candidate_accepted_for_minimal_test": true,
+        "mainline_changed": false,
+        "new_training_authorized_by_this_review": false,
+        "next_objective": "minimal_subject_relative_preprocessed_training_objective"
+      },
+      "evidence": "docs/idare_subject_relative_representation_preprocessing_review_status.md",
+      "evidence_json": "docs/idare_subject_relative_representation_preprocessing_review_status.json",
+      "not_authorized": [
+        "EEG+EMG fusion",
+        "final LOSO / final paper claim",
+        "mainline change",
+        "architecture ablation for improvement",
+        "data augmentation",
+        "SupCon / VREx / domain generalization",
+        "broad hyperparameter search",
+        "balanced-sampler second pass",
+        "BSL-stats sidecars"
+      ],
+      "status": "frozen_human_review_closeout"
     },
     "idare_subject_relative_task_formulation_objective": {
       "authorized_work": [
