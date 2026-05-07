@@ -238,6 +238,46 @@
       ],
       "status": "frozen"
     },
+    "idare_label_policy_ablation_objective": {
+      "authorized_execution": true,
+      "authorized_scope": "144-run I-DARE EEG/EMG mainline label-policy primary matrix only",
+      "evidence": "docs/idare_label_policy_ablation_objective.md",
+      "folds": 6,
+      "label_policies": [
+        "discard_midpoint",
+        "midpoint_as_low",
+        "midpoint_as_high"
+      ],
+      "modalities": [
+        "EEG STIM-BSL-only",
+        "EMG feature-only"
+      ],
+      "next_allowed_step": "Prepare execution commands or limited script patches; review before running.",
+      "not_authorized": [
+        "EEG+EMG fusion",
+        "full model(BSL, STIM, STIM-BSL)",
+        "final LOSO / final paper claim",
+        "locking a final label policy before review",
+        "raw EMG mainline",
+        "architecture ablations",
+        "data augmentation",
+        "SupCon / VREx / domain generalization",
+        "optional extra seeds without explicit objective"
+      ],
+      "recipes": [
+        "ce_class_weighted",
+        "balanced_sampler_ce"
+      ],
+      "seeds": [
+        11
+      ],
+      "status": "short_term_execution_objective",
+      "tasks": [
+        "valence",
+        "arousal"
+      ],
+      "total_primary_runs": 144
+    },
     "idare_single_modality_bsl_stats_vs_baseline_comparison": {
       "evidence": "docs/idare_single_modality_bsl_stats_vs_baseline_comparison.md",
       "mainline_changed": false,
@@ -307,6 +347,7 @@
   "last_updated_for_broader_standardized_single_modality_primary_report_utc": "2026-05-07T14:36:34.369682+00:00",
   "last_updated_for_broader_standardized_single_modality_review_utc": "2026-05-07T14:40:39.877396+00:00",
   "last_updated_for_eeg_stim_bsl_only_standardized_closeout_utc": "2026-05-07T13:35:24.143574+00:00",
+  "last_updated_for_idare_label_policy_ablation_objective_utc": "2026-05-07T14:47:36.436448+00:00",
   "last_updated_for_single_modality_bsl_stats_vs_baseline_comparison_utc": "2026-05-07T13:40:38.822671+00:00",
   "last_updated_for_single_modality_bsl_stats_vs_baseline_review_utc": "2026-05-07T13:45:13.512223+00:00",
   "latest_eeg_stim_bsl_only_standardized_commit": "0e9594ddd055c70359564c3658171b8e42f100ef",
@@ -6692,6 +6733,7 @@
     "idare_emg_bsl_stats_status": "docs/idare_emg_bsl_stats_ablation_status.md",
     "idare_emg_feature_status": "docs/idare_emg_feature_only_status.md",
     "idare_emg_raw_vs_feature_comparison": "docs/idare_emg_raw_vs_feature_smoke_comparison.md",
+    "idare_label_policy_ablation_objective": "docs/idare_label_policy_ablation_objective.md",
     "idare_raw_emg_status": "docs/idare_raw_emg_only_status.md",
     "idare_single_modality_bsl_stats_vs_baseline_comparison": "docs/idare_single_modality_bsl_stats_vs_baseline_comparison.md",
     "idare_single_modality_bsl_stats_vs_baseline_review_status": "docs/idare_single_modality_bsl_stats_vs_baseline_review_status.md",

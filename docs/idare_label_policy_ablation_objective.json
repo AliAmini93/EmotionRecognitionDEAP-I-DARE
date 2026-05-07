@@ -1,0 +1,98 @@
+{
+  "authorized_execution": true,
+  "authorized_scope": "I-DARE controlled label-policy ablation primary matrix only",
+  "context": {
+    "current_mainlines": {
+      "eeg": "baseline-corrected STIM-BSL-only",
+      "emg": "feature-only EMG"
+    },
+    "reason": "Broader EEG/EMG single-modality and BSL-stats evaluations did not produce a clear improvement; label definition is the next controlled target before model complexity."
+  },
+  "evidence_level": "controlled ablation objective; not final LOSO",
+  "failure_handling": {
+    "data_or_protocol_fail": "Stop and audit; do not interpret results.",
+    "engineering_fail": "Fix script/output and rerun the same objective.",
+    "inconclusive": "Do not lock label policy.",
+    "repeated_scientific_failure": "Stop blind tuning and review dataset/label strategy.",
+    "scientific_weak_result": "Document weak result without changing mainline."
+  },
+  "folds": 6,
+  "hyperparameters": {
+    "eeg": {
+      "batch_size": 64,
+      "epochs": 12,
+      "grad_clip": 1.0,
+      "lr": 0.001,
+      "weight_decay": 0.001
+    },
+    "emg": {
+      "batch_size": 128,
+      "epochs": 20,
+      "grad_clip": 1.0,
+      "hidden_dim": 64,
+      "lr": 0.001,
+      "weight_decay": 0.001
+    }
+  },
+  "label_policies": [
+    "discard_midpoint",
+    "midpoint_as_low",
+    "midpoint_as_high"
+  ],
+  "modalities": {
+    "EEG-LP": "baseline-corrected STIM-BSL-only EEG response cache",
+    "EMG-LP": "feature-only EMG cache"
+  },
+  "next_step": "Prepare execution commands or limited script patches for the 144-run primary matrix; review before running.",
+  "not_authorized": [
+    "EEG+EMG fusion",
+    "full model(BSL, STIM, STIM-BSL)",
+    "final LOSO / final paper claim",
+    "locking a final label policy before review",
+    "raw EMG mainline",
+    "architecture ablations",
+    "data augmentation",
+    "SupCon / VREx / domain generalization",
+    "optional extra seeds without explicit objective"
+  ],
+  "objective": "Evaluate whether label-policy choice is limiting I-DARE EEG/EMG single-modality results.",
+  "pass_criteria": [
+    "all 144 primary runs finish",
+    "all JSON reports validate",
+    "prediction CSVs exist and are non-empty",
+    "fold/seed/task/recipe/policy alignment is documented",
+    "no one-class collapse is hidden in aggregates",
+    "results are interpreted as controlled ablation evidence, not final LOSO"
+  ],
+  "recipes": [
+    "ce_class_weighted",
+    "balanced_sampler_ce"
+  ],
+  "required_outputs": [
+    "EEG label-policy markdown report",
+    "EEG label-policy JSON report",
+    "EEG label-policy predictions CSV",
+    "EMG label-policy markdown report",
+    "EMG label-policy JSON report",
+    "EMG label-policy predictions CSV",
+    "combined label-policy comparison report markdown",
+    "combined label-policy comparison report JSON",
+    "central roadmap update",
+    "human-review closeout decision"
+  ],
+  "run_matrix_formula": "2 modalities * 2 tasks * 3 label policies * 2 recipes * 6 folds * 1 seed = 144 runs",
+  "scientific_questions": [
+    "Does discarding midpoint score-5 labels improve EEG and/or EMG cross-subject validation stability?",
+    "Does assigning midpoint labels to low or high materially change macro-F1 and balanced accuracy?",
+    "Is midpoint_as_high still acceptable as a controlled comparison policy, or should later evaluations use a different label policy?"
+  ],
+  "seeds": [
+    11
+  ],
+  "status": "short_term_execution_objective",
+  "tasks": [
+    "valence",
+    "arousal"
+  ],
+  "total_primary_runs": 144
+}
