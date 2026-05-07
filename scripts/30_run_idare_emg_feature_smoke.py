@@ -845,7 +845,7 @@ def main() -> int:
         raise ValueError(f"feature cache must be 2D, got shape={feature_cache.shape}")
 
     subjects = sorted(int(s) for s in feature_index["subject_id"].dropna().astype(int).unique().tolist())
-    folds = make_subject_folds(subjects, args.folds, seed=20240506)
+    folds = make_subject_folds(subjects, args.folds, seed=args.seeds[0])
     specs = build_run_specs(
         tasks=args.tasks,
         policy=args.label_policy,
