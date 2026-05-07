@@ -1,0 +1,52 @@
+{
+  "status": "planning_only",
+  "authorized_execution": false,
+  "objective": "Plan a broader standardized I-DARE single-modality evaluation before any fusion decision.",
+  "evidence_level": "plan only; no new experiment executed",
+  "scientific_questions": [
+    "Does EEG STIM-BSL-only remain stronger than EEG STIM-BSL plus BSL-stats under broader standardized evaluation?",
+    "Does EMG feature-level remain the practical EMG mainline?",
+    "Are small EMG BSL-stats gains stable or smoke-level noise?"
+  ],
+  "modalities": [
+    "I-DARE EEG",
+    "I-DARE EMG"
+  ],
+  "comparisons": {
+    "eeg": [
+      "baseline-corrected STIM-BSL-only EEG",
+      "baseline-corrected STIM-BSL EEG plus compact BSL-stats sidecar"
+    ],
+    "emg": [
+      "feature-level EMG",
+      "feature-level EMG plus compact BSL-stats sidecar"
+    ]
+  },
+  "label_policy": {
+    "current_controlled_policy": "midpoint_as_high",
+    "final_locked": false
+  },
+  "must_align": [
+    "tasks",
+    "subject-held-out folds",
+    "seeds",
+    "recipes",
+    "epochs",
+    "learning rate",
+    "batch size",
+    "metrics",
+    "threshold diagnostics",
+    "prediction CSV schema where possible"
+  ],
+  "intentionally_not_started": [
+    "EEG+EMG fusion",
+    "full model(BSL, STIM, STIM-BSL)",
+    "final LOSO / final performance claim",
+    "locking midpoint_as_high",
+    "raw EMG mainline",
+    "architecture ablations",
+    "data augmentation",
+    "SupCon / VREx / domain generalization"
+  ],
+  "next_allowed_step": "Review this plan, then either stop, refine it, or create an explicit short-term objective to execute it."
+}
