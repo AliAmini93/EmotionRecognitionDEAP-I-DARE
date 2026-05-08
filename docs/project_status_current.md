@@ -381,3 +381,15 @@ Updated: `2026-05-08T11:15:29+00:00`
 - Recommended next objective is `label_semantics_redesigned_task_smoke_tests_objective` only after human review/closeout.
 - No training is authorized by this spec.
 
+## I-DARE Label-Semantics Redesigned-Task Smoke Tests Objective
+
+Updated: `2026-05-08T11:18:25+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE label-semantics task redesign spec review | human review accepted; selected=`subject_relative_ordinal_affect_regression_v1` | `docs/idare_label_semantics_task_redesign_spec_review_status.md` | Create/use redesigned-task smoke-tests objective. | direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim; mainline change |
+| I-DARE label-semantics redesigned-task smoke-tests objective | smoke-test objective created; no training authorized | `docs/idare_label_semantics_redesigned_task_smoke_tests_objective.md` | Prepare reviewed redesigned-task smoke-test command/script. | direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim; mainline change |
+
+- A redesigned-task smoke-test objective is defined in `docs/idare_label_semantics_redesigned_task_smoke_tests_objective.md`.
+- Training remains blocked until smoke-test review.
+

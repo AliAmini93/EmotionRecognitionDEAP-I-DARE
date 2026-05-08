@@ -1,0 +1,7 @@
+smoke_test,required,purpose,pass_condition,blocked_if_fail
+target_construction_integrity,yes,"Verify per-subject rank-percentile targets are in [0,1], non-missing, and match raw ratings.",no out-of-range targets; expected rows for valence/arousal; ties handled deterministically,all training
+fold_leakage_guard,yes,Verify existing subject-heldout folds have no train/validation subject overlap.,zero subject overlap and zero row-id overlap,all training
+metric_computation_sanity,yes,"Validate Spearman, MAE, RMSE, and q33 audit metrics on deterministic toy predictions.",perfect predictions score best; reversed predictions score worst; mean baseline is finite,all training
+baseline_no_training_control,yes,Compute train-mean and random/permutation controls without fitting a predictive model.,controls are finite and near expected null behavior,training objective
+target_distribution_audit,yes,Audit target distribution by subject/fold/task/modality.,no degenerate fold/task with near-constant target unless explicitly flagged,training objective
+future_run_matrix_guard,yes,Verify the 48-row future run matrix remains minimal and no SupCon/DG/fusion rows are present.,only baseline and ridge regression rows; no direct full SupCon/DG training,training objective

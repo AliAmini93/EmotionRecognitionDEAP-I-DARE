@@ -1,0 +1,18 @@
+{
+  "status": "human_review_accepted",
+  "created_utc": "2026-05-08T11:18:25+00:00",
+  "reviewed_spec": "docs/idare_label_semantics_task_redesign_spec.md",
+  "accepted_selected_primary_formulation": "subject_relative_ordinal_affect_regression_v1",
+  "accepted_scientific_claim": "Predict within-subject affect-rating order/percentile for held-out subjects, not global high/low affect by an absolute threshold.",
+  "accepted_recommended_next_objective": "label_semantics_redesigned_task_smoke_tests_objective",
+  "next_selected_step": "create_redesigned_task_smoke_tests_objective",
+  "training_authorized": false,
+  "blocked": [
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "mainline change",
+    "redesigned-task training before smoke-test review"
+  ]
+}

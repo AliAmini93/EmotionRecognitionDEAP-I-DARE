@@ -1,0 +1,61 @@
+{
+  "status": "objective_created",
+  "created_utc": "2026-05-08T11:18:25+00:00",
+  "source_review": "docs/idare_label_semantics_task_redesign_spec_review_status.md",
+  "source_spec": "docs/idare_label_semantics_task_redesign_spec.md",
+  "selected_primary_formulation": "subject_relative_ordinal_affect_regression_v1",
+  "scientific_question": "Does the redesigned subject-relative ordinal/regression task pass construction, leakage, metric, distribution, and null-control smoke tests before any training is authorized?",
+  "authorized_work": [
+    "read the task redesign spec and guardrails",
+    "construct labels/targets for audit only",
+    "run leakage and target-construction smoke tests",
+    "run metric-computation sanity tests",
+    "run no-training baseline and shuffled/permutation controls",
+    "write smoke-test report and decision matrix",
+    "no model training beyond deterministic/no-training baselines",
+    "no direct full SupCon/DG training",
+    "no broad hyperparameter search"
+  ],
+  "required_inputs": [
+    "docs/idare_label_semantics_task_redesign_spec.md",
+    "docs/idare_label_semantics_task_redesign_spec.json",
+    "docs/idare_label_semantics_selected_task_definition.csv",
+    "docs/idare_label_semantics_task_redesign_guardrails.csv",
+    "docs/idare_label_semantics_task_redesign_metric_plan.csv",
+    "docs/idare_label_semantics_task_redesign_protocol_matrix.csv",
+    "docs/idare_label_semantics_task_redesign_future_run_matrix.csv",
+    "docs/idare_label_semantics_task_redesign_stop_criteria.csv",
+    ".cache/idare_eeg_cache_index_baseline_corrected.csv",
+    ".cache/idare_emg_feature_cache_index.csv"
+  ],
+  "expected_outputs": [
+    "docs/idare_label_semantics_redesigned_task_smoke_tests_report.md",
+    "docs/idare_label_semantics_redesigned_task_smoke_tests_report.json",
+    "docs/idare_label_semantics_redesigned_task_target_audit.csv",
+    "docs/idare_label_semantics_redesigned_task_fold_audit.csv",
+    "docs/idare_label_semantics_redesigned_task_metric_sanity.csv",
+    "docs/idare_label_semantics_redesigned_task_baseline_control_summary.csv",
+    "docs/idare_label_semantics_redesigned_task_smoke_decision_matrix.csv"
+  ],
+  "smoke_plan_csv": "docs/idare_label_semantics_redesigned_task_smoke_test_plan.csv",
+  "pass_criteria": [
+    "all required smoke tests pass",
+    "target construction is deterministic and complete",
+    "fold leakage is zero",
+    "metrics behave correctly on toy predictions",
+    "no-training controls are finite and documented",
+    "future run matrix remains minimal",
+    "direct full SupCon/DG training remains blocked",
+    "broad hyperparameter search remains blocked",
+    "final LOSO claim remains blocked"
+  ],
+  "next_allowed_step": "prepare_reviewed_label_semantics_redesigned_task_smoke_tests_command",
+  "blocked": [
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "mainline change",
+    "redesigned-task training before smoke-test review"
+  ]
+}
