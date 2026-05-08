@@ -596,3 +596,15 @@ Updated: `2026-05-08T15:19:19+00:00`
 - Recommended next objective: `label_semantics_redesigned_task_archive_closeout_objective` only after human review/closeout.
 - Current formulation under archive decision: `subject_relative_ordinal_affect_regression_v1`.
 
+## I-DARE Redesigned-Task Archive Closeout Objective
+
+Updated: `2026-05-08T15:23:41+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE archive-or-alternative report review | human review accepted; decision=`archive_current_subject_relative_ordinal_affect_regression_v1_branch` | `docs/idare_label_semantics_redesigned_task_archive_or_alternative_formulation_report_review_status.md` | Create/use archive-closeout objective. | new training; model search; SupCon/DG; broad search; fusion; final claim; alternative implementation |
+| I-DARE redesigned-task archive closeout objective | archive-closeout objective created; no training authorized | `docs/idare_label_semantics_redesigned_task_archive_closeout_objective.md` | Prepare reviewed archive-closeout command/script. | new training; model search; SupCon/DG; broad search; fusion; final claim; alternative implementation |
+
+- Current formulation selected for archive closeout: `subject_relative_ordinal_affect_regression_v1`.
+- Alternative formulation remains blocked until archive closeout review and a separate design/spec objective.
+

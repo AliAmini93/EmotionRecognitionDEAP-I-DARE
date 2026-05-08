@@ -8035,7 +8035,7 @@
     "next_step": "human_review_closeout_of_supcon_dg_failure_analysis",
     "updated_at_utc": "2026-05-08T09:59:59+00:00"
   },
-  "last_updated_utc": "2026-05-08T15:19:19+00:00",
+  "last_updated_utc": "2026-05-08T15:23:41+00:00",
   "idare_protocol_events": [
     {
       "timestamp_utc": "2026-05-08T10:06:00+00:00",
@@ -8747,9 +8747,45 @@
         "alternative formulation spec before archive closeout review",
         "alternative formulation training"
       ]
+    },
+    {
+      "timestamp_utc": "2026-05-08T15:23:41+00:00",
+      "type": "review_closeout",
+      "name": "I-DARE redesigned-task archive-or-alternative report review",
+      "status": "human review accepted; decision=archive_current_subject_relative_ordinal_affect_regression_v1_branch",
+      "evidence": "docs/idare_label_semantics_redesigned_task_archive_or_alternative_formulation_report_review_status.md",
+      "next_allowed_step": "Create/use archive-closeout objective.",
+      "blocked": [
+        "new training",
+        "model search",
+        "direct full SupCon/DG training",
+        "broad hyperparameter search",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "alternative formulation implementation before archive closeout review",
+        "alternative formulation training"
+      ]
+    },
+    {
+      "timestamp_utc": "2026-05-08T15:23:41+00:00",
+      "type": "objective",
+      "name": "I-DARE redesigned-task archive closeout objective",
+      "status": "archive-closeout objective created; no training authorized",
+      "evidence": "docs/idare_label_semantics_redesigned_task_archive_closeout_objective.md",
+      "next_allowed_step": "prepare_reviewed_label_semantics_redesigned_task_archive_closeout_command",
+      "blocked": [
+        "new training",
+        "model search",
+        "direct full SupCon/DG training",
+        "broad hyperparameter search",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "alternative formulation implementation before archive closeout review",
+        "alternative formulation training"
+      ]
     }
   ],
-  "current_idare_next_allowed_step": "human_review_closeout_before_archive_closeout_objective",
+  "current_idare_next_allowed_step": "prepare_reviewed_label_semantics_redesigned_task_archive_closeout_command",
   "current_idare_blocked_steps": [
     "new training",
     "model search",
@@ -8757,8 +8793,7 @@
     "broad hyperparameter search",
     "EEG+EMG fusion",
     "final LOSO claim",
-    "archive implementation before human review/closeout",
-    "alternative formulation spec before archive closeout review",
+    "alternative formulation implementation before archive closeout review",
     "alternative formulation training"
   ],
   "idare_historical_script_backfill_objective": {

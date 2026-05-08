@@ -1,0 +1,51 @@
+{
+  "status": "objective_created",
+  "created_utc": "2026-05-08T15:23:41+00:00",
+  "source_review": "docs/idare_label_semantics_redesigned_task_archive_or_alternative_formulation_report_review_status.md",
+  "source_report": "docs/idare_label_semantics_redesigned_task_archive_or_alternative_formulation_report.md",
+  "accepted_diagnosis": "current_redesigned_task_branch_should_be_archived",
+  "accepted_decision": "archive_current_subject_relative_ordinal_affect_regression_v1_branch",
+  "selected_current_formulation": "subject_relative_ordinal_affect_regression_v1",
+  "scientific_question": "How should the current redesigned task branch be formally archived as a negative result without losing reproducibility or blocking future properly specified alternatives?",
+  "authorized_work": [
+    "Create/read archive closeout scope",
+    "Create an archive-closeout report",
+    "Update project status to mark current redesigned branch archived as negative evidence",
+    "Preserve negative evidence and reproducibility references",
+    "Recommend, at most, a separate alternative-formulation design/spec objective after review"
+  ],
+  "not_authorized": [
+    "new training",
+    "model search",
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "alternative formulation implementation before archive closeout review",
+    "alternative formulation training"
+  ],
+  "required_inputs": [
+    "docs/idare_label_semantics_redesigned_task_archive_or_alternative_formulation_report.json",
+    "docs/idare_label_semantics_redesigned_task_archive_scope_decision.csv",
+    "docs/idare_label_semantics_archive_or_alternative_formulation_final_decision_matrix.csv",
+    "docs/idare_label_semantics_redesigned_task_archive_closeout_scope.csv",
+    "docs/idare_label_semantics_redesigned_task_archive_closeout_manifest_seed.csv",
+    "docs/idare_label_semantics_redesigned_task_archive_closeout_stop_criteria.csv"
+  ],
+  "expected_outputs": [
+    "docs/idare_label_semantics_redesigned_task_archive_closeout_report.md",
+    "docs/idare_label_semantics_redesigned_task_archive_closeout_report.json",
+    "docs/idare_label_semantics_redesigned_task_archive_manifest.csv",
+    "docs/idare_label_semantics_redesigned_task_archive_status.csv",
+    "docs/idare_label_semantics_redesigned_task_next_options_after_archive.csv"
+  ],
+  "pass_criteria": [
+    "No training is run",
+    "No evidence artifacts are deleted",
+    "Archive scope clearly marks the current branch as archived negative result",
+    "Project status records the archive closeout",
+    "Future alternative formulation remains separate and design/spec-only unless later reviewed"
+  ],
+  "next_allowed_step": "prepare_reviewed_label_semantics_redesigned_task_archive_closeout_command",
+  "training_authorized": false
+}

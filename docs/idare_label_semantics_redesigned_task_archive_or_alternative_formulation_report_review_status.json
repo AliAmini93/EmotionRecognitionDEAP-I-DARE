@@ -1,0 +1,25 @@
+{
+  "status": "human_review_accepted",
+  "created_utc": "2026-05-08T15:23:41+00:00",
+  "reviewed_report": "docs/idare_label_semantics_redesigned_task_archive_or_alternative_formulation_report.md",
+  "accepted_diagnosis": "current_redesigned_task_branch_should_be_archived",
+  "accepted_decision": "archive_current_subject_relative_ordinal_affect_regression_v1_branch",
+  "accepted_recommendation": "archive_closeout_first_then_optional_alternative_formulation_spec",
+  "accepted_recommended_next_objective": "label_semantics_redesigned_task_archive_closeout_objective",
+  "accepted_decision_reason": "The current redesigned task has no actionable rank, threshold, or absolute-error signal; therefore the branch should be archived before any alternative formulation is designed.",
+  "selected_current_formulation": "subject_relative_ordinal_affect_regression_v1",
+  "archive_implementation_authorized_by_this_review": false,
+  "training_authorized_by_this_review": false,
+  "next_selected_step": "create_archive_closeout_objective",
+  "next_allowed_step": "prepare_reviewed_label_semantics_redesigned_task_archive_closeout_command",
+  "blocked": [
+    "new training",
+    "model search",
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "alternative formulation implementation before archive closeout review",
+    "alternative formulation training"
+  ]
+}

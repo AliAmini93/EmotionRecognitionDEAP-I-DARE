@@ -1,0 +1,5 @@
+criterion_id,criterion,status_after_closeout,exception_policy
+STOP_ARCHIVE_001,No more training on subject_relative_ordinal_affect_regression_v1.,blocked,Only a new objective with new evidence may reopen it.
+STOP_ARCHIVE_002,No SupCon/DG or broad search to rescue the archived formulation.,blocked,Not allowed; bottleneck is task/label semantics.
+STOP_ARCHIVE_003,Alternative formulation must begin as design/spec only.,allowed_after_review,Requires separate objective and no training initially.
+STOP_ARCHIVE_004,All archived evidence remains retained and cited as negative evidence.,required,Do not delete or hide negative results.
