@@ -1,0 +1,5 @@
+modality,task,subject_col,rating_col,n_rows,n_nonmissing_ratings,n_targets,n_subjects,target_min,target_max,target_mean,target_std,degenerate_subjects,target_construction_passed
+EEG,valence,subject_id,valence_score,2016,2016,2016,63,0.0,1.0,0.5,0.2925792881583958,0,True
+EEG,arousal,subject_id,arousal_score,2016,2016,2016,63,0.0,1.0,0.5,0.2905886979416474,0,True
+EMG,valence,subject_id,valence_score,2016,2016,2016,63,0.0,1.0,0.5,0.2925792881583958,0,True
+EMG,arousal,subject_id,arousal_score,2016,2016,2016,63,0.0,1.0,0.5,0.2905886979416474,0,True

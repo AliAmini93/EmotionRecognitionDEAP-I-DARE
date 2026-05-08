@@ -1,0 +1,72 @@
+{
+  "status": "complete_pending_human_review",
+  "created_utc": "2026-05-08T11:24:30+00:00",
+  "source_objective": "docs/idare_label_semantics_redesigned_task_smoke_tests_objective.md",
+  "selected_primary_formulation": "subject_relative_ordinal_affect_regression_v1",
+  "diagnosis": "redesigned_task_smoke_tests_failed",
+  "recommended_next_objective": "label_semantics_redesigned_task_spec_fix_or_stop_objective",
+  "all_passed": false,
+  "smoke_results": [
+    {
+      "smoke_test": "target_construction_integrity",
+      "passed": true,
+      "evidence": "8064 targets; min=0.0000; max=1.0000",
+      "action_if_failed": "fix target construction or stop/archive"
+    },
+    {
+      "smoke_test": "fold_leakage_guard",
+      "passed": true,
+      "evidence": "max_subject_overlap=0; max_row_overlap=0",
+      "action_if_failed": "fix split protocol before any training"
+    },
+    {
+      "smoke_test": "metric_computation_sanity",
+      "passed": true,
+      "evidence": "perfect_spearman=1.0000; reversed_spearman=-1.0000",
+      "action_if_failed": "fix metric code"
+    },
+    {
+      "smoke_test": "baseline_no_training_control",
+      "passed": true,
+      "evidence": "48 no-training control rows; mean_null_spearman=0.0021",
+      "action_if_failed": "fix controls before training"
+    },
+    {
+      "smoke_test": "target_distribution_audit",
+      "passed": true,
+      "evidence": "min_val_target_std=0.2884",
+      "action_if_failed": "revise target or flag degenerate cells"
+    },
+    {
+      "smoke_test": "future_run_matrix_guard",
+      "passed": false,
+      "evidence": "future_run_rows=48; no SupCon/DG/fusion rows=False",
+      "action_if_failed": "fix future matrix before training objective"
+    }
+  ],
+  "key_counts": {
+    "target_audit_rows": 4,
+    "fold_audit_rows": 24,
+    "metric_sanity_rows": 5,
+    "baseline_control_rows": 48,
+    "future_run_rows": 48
+  },
+  "outputs": {
+    "report_md": "docs/idare_label_semantics_redesigned_task_smoke_tests_report.md",
+    "report_json": "docs/idare_label_semantics_redesigned_task_smoke_tests_report.json",
+    "target_audit_csv": "docs/idare_label_semantics_redesigned_task_target_audit.csv",
+    "fold_audit_csv": "docs/idare_label_semantics_redesigned_task_fold_audit.csv",
+    "metric_sanity_csv": "docs/idare_label_semantics_redesigned_task_metric_sanity.csv",
+    "baseline_control_summary_csv": "docs/idare_label_semantics_redesigned_task_baseline_control_summary.csv",
+    "decision_matrix_csv": "docs/idare_label_semantics_redesigned_task_smoke_decision_matrix.csv"
+  },
+  "next_allowed_step": "human_review_closeout_then_spec_fix_or_stop",
+  "blocked": [
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "mainline change",
+    "full redesigned-task training before review"
+  ]
+}
