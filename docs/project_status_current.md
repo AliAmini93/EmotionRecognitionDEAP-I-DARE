@@ -276,3 +276,14 @@ Updated: `2026-05-08T10:14:18+00:00`
 - The targeted pair/sampler ablation objective is defined in `docs/idare_targeted_supcon_dg_pair_sampler_ablation_objective.md`.
 - The run matrix is fixed in `docs/idare_targeted_supcon_dg_pair_sampler_ablation_run_matrix.csv`; this is not a broad hyperparameter search.
 
+## I-DARE Targeted SupCon/DG Pair-Sampler Ablation Report
+
+Updated: `2026-05-08T10:23:39+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE targeted SupCon/DG pair-sampler ablation report | complete pending human review; diagnosis=`targeted_pair_sampler_ablation_not_sufficient` | `docs/idare_targeted_supcon_dg_pair_sampler_ablation_report.md` | Human review / closeout before confirmation or failure-analysis objective. | direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim; mainline change |
+
+- Targeted pair/sampler ablation is complete in `docs/idare_targeted_supcon_dg_pair_sampler_ablation_report.md`.
+- Best aggregate candidate is `A5_cross_subject_supcon_vrex`; full training remains blocked pending review.
+
