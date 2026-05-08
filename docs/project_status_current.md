@@ -310,3 +310,16 @@ Updated: `2026-05-08T10:40:16+00:00`
 - Read-only pair-sampler failure analysis is complete in `docs/idare_supcon_dg_pair_sampler_failure_analysis_report.md`.
 - Recommended next objective is `representation_or_label_semantics_failure_analysis_objective` only after review/closeout.
 
+## I-DARE SupCon/DG Pair-Sampler Failure Review and Representation/Label-Semantics Objective
+
+Updated: `2026-05-08T10:44:24+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE SupCon/DG pair-sampler failure analysis review | human review accepted; diagnosis=`pair_sampler_valid_but_not_primary_failure_mode` | `docs/idare_supcon_dg_pair_sampler_failure_analysis_review_status.md` | Create/use representation or label-semantics failure-analysis objective. | direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim; mainline change |
+| I-DARE representation or label-semantics failure-analysis objective | read-only objective created; no training authorized | `docs/idare_representation_or_label_semantics_failure_analysis_objective.md` | Prepare reviewed read-only analysis command/script. | direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim; mainline change |
+
+- Human review of the pair-sampler failure analysis is frozen in `docs/idare_supcon_dg_pair_sampler_failure_analysis_review_status.md`.
+- A read-only representation or label-semantics failure-analysis objective is defined in `docs/idare_representation_or_label_semantics_failure_analysis_objective.md`.
+- The next allowed step is to prepare the analysis command/script; new training remains blocked.
+

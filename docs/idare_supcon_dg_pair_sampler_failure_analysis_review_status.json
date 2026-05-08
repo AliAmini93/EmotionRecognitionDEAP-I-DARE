@@ -1,0 +1,33 @@
+{
+  "artifact_type": "review_status",
+  "name": "I-DARE SupCon/DG pair-sampler failure-analysis review",
+  "created_utc": "2026-05-08T10:44:24+00:00",
+  "status": "human_review_accepted",
+  "reviewed_artifacts": [
+    "docs/idare_supcon_dg_pair_sampler_failure_analysis_report.md",
+    "docs/idare_supcon_dg_pair_sampler_failure_analysis_report.json",
+    "docs/idare_supcon_dg_pair_sampler_failure_candidate_deltas.csv",
+    "docs/idare_supcon_dg_pair_sampler_failure_decision_matrix.csv",
+    "docs/idare_supcon_dg_pair_sampler_failure_fold_subject_summary.csv",
+    "docs/idare_supcon_dg_pair_sampler_failure_loss_alignment.csv"
+  ],
+  "accepted_diagnosis": "pair_sampler_valid_but_not_primary_failure_mode",
+  "accepted_interpretation": {
+    "pair_sampler_valid_but_not_primary_failure_mode": true,
+    "best_candidate": "A5_cross_subject_supcon_vrex",
+    "best_candidate_mean_macro_f1": 0.5118600603082725,
+    "best_candidate_mean_balanced_accuracy": 0.5163997255823266,
+    "full_supcon_dg_training_authorized": false,
+    "broad_hyperparameter_search_authorized": false
+  },
+  "next_selected_step": "representation_or_label_semantics_failure_analysis_objective",
+  "next_allowed_step": "prepare_reviewed_representation_or_label_semantics_failure_analysis_command",
+  "blocked_steps": [
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "mainline change",
+    "new training before representation/label-semantics failure analysis review"
+  ]
+}
