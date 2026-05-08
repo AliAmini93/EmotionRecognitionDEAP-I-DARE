@@ -1,0 +1,53 @@
+{
+  "status": "objective_created",
+  "created_utc": "2026-05-08T12:31:54+00:00",
+  "source_pause_status": "docs/idare_reproducibility_layer_pause_status.md",
+  "source_active_scientific_objective": "docs/idare_label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis_objective.md",
+  "scientific_question": "How do we restore reproducibility before continuing the active I-DARE failure-or-confirmation analysis?",
+  "authorized_work": [
+    "define script archival policy",
+    "create scripts/idare/ directory structure if missing",
+    "commit the next active read-only analysis script under scripts/idare/analysis/",
+    "create a reproducibility manifest linking objective, script, command, outputs, and commit",
+    "optionally backfill earlier ~/Downloads scripts only if reconstructable from logs",
+    "update docs/project_status_current.* with script archival status"
+  ],
+  "not_authorized": [
+    "running failure-or-confirmation analysis before reproducibility layer is fixed",
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "mainline change unrelated to script archival",
+    "deep neural training for redesigned task",
+    "unregistered feature engineering"
+  ],
+  "required_outputs": [
+    "scripts/idare/README.md",
+    "scripts/idare/analysis/run_idare_label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis.py",
+    "docs/idare_script_archival_manifest.csv",
+    "docs/idare_script_archival_and_reproducibility_report.md",
+    "docs/idare_script_archival_and_reproducibility_report.json"
+  ],
+  "pass_criteria": [
+    "active next analysis script exists under scripts/idare/analysis/",
+    "script has executable shebang or documented command",
+    "script references its objective document",
+    "manifest links script to objective and expected outputs",
+    "no new training is executed",
+    "no broad search, SupCon/DG, fusion, or final claims are authorized",
+    "after this objective is complete, active failure-or-confirmation analysis may be run from committed script path"
+  ],
+  "next_allowed_step": "prepare_reviewed_script_archival_and_reproducibility_command",
+  "training_authorized": false,
+  "blocked": [
+    "running failure-or-confirmation analysis before reproducibility layer is fixed",
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "mainline change unrelated to script archival",
+    "deep neural training for redesigned task",
+    "unregistered feature engineering"
+  ]
+}

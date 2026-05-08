@@ -1,0 +1,25 @@
+{
+  "status": "paused_for_reproducibility_layer_fix",
+  "created_utc": "2026-05-08T12:31:54+00:00",
+  "head_commit_at_pause": "47379cf",
+  "branch": "main",
+  "first_pass_diagnosis": "minimal_redesigned_task_first_pass_mixed_signal",
+  "first_pass_recommended_next_objective": "label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis_objective",
+  "active_objective": "docs/idare_label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis_objective.md",
+  "active_objective_next_allowed_step": "prepare_reviewed_label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis_command",
+  "reproducibility_gap": "workflow commands were generated/executed from ~/Downloads, while corresponding reusable scripts have not been systematically archived under scripts/ in the repository",
+  "tracked_script_count": 40,
+  "decision": "Pause the active read-only failure-or-confirmation analysis until script archival/reproducibility policy is created and the next analysis command is committed under scripts/.",
+  "next_selected_step": "create_script_archival_and_reproducibility_objective",
+  "training_authorized": false,
+  "blocked": [
+    "running failure-or-confirmation analysis before reproducibility layer is fixed",
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "mainline change unrelated to script archival",
+    "deep neural training for redesigned task",
+    "unregistered feature engineering"
+  ]
+}

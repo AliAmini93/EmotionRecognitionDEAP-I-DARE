@@ -1,0 +1,7 @@
+policy_id,policy,rationale,required
+P1,Every future I-DARE command script must be committed under scripts/idare/ before or at the same commit as the output it generates.,Reports without committed scripts are not fully reproducible.,yes
+P2,Each script must reference its objective document and write deterministic outputs to docs/.,Traceability from objective to command to report must be explicit.,yes
+P3,Scripts must guard against dirty repos unless explicitly designed to salvage existing partial outputs.,Avoid accidental contamination of evidence.,yes
+P4,"Scripts must validate expected inputs, expected outputs, JSON parseability, and key status/diagnosis terms.",Prevent silent invalid outputs.,yes
+P5,"Scripts must not authorize blocked work such as SupCon/DG, fusion, broad search, or final LOSO claim unless a reviewed objective explicitly allows it.",Preserve the staged scientific protocol.,yes
+P6,"For historical ~/Downloads scripts, archive the current/next critical scripts first, then backfill earlier scripts only when reconstructable from logs.",Do not fabricate historical scripts; prefer honest forward reproducibility.,yes

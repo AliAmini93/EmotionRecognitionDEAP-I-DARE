@@ -484,3 +484,15 @@ Updated: `2026-05-08T12:23:16+00:00`
 - The first-pass result is mixed, not confirmatory.
 - Next work is read-only analysis before any confirmation, failure, redesign, or archive decision.
 
+## I-DARE Script Archival and Reproducibility Objective
+
+Updated: `2026-05-08T12:31:54+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE reproducibility-layer pause | active failure-or-confirmation analysis paused until scripts are archived | `docs/idare_reproducibility_layer_pause_status.md` | Create/use script archival and reproducibility objective. | running failure-or-confirmation analysis before reproducibility layer is fixed; direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim |
+| I-DARE script archival and reproducibility objective | objective created; no training authorized | `docs/idare_script_archival_and_reproducibility_objective.md` | Prepare reviewed script archival command. | running failure-or-confirmation analysis before reproducibility layer is fixed; direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim |
+
+- Pause point preserved at commit `47379cf` before running the active failure-or-confirmation analysis.
+- Next work is to commit the active analysis script under `scripts/idare/analysis/` and create a manifest.
+
