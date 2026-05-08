@@ -1,0 +1,27 @@
+{
+  "status": "complete_pending_human_review",
+  "created_utc": "2026-05-08T13:00:51+00:00",
+  "source_objective": "docs/idare_script_archival_and_reproducibility_objective.md",
+  "source_pause_status": "docs/idare_reproducibility_layer_pause_status.md",
+  "repo_head_before_commit": "e149a16",
+  "created_files": [
+    "scripts/idare/README.md",
+    "scripts/idare/analysis/run_idare_label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis.py",
+    "docs/idare_script_archival_manifest.csv"
+  ],
+  "active_analysis_script": "scripts/idare/analysis/run_idare_label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis.py",
+  "active_analysis_status": "created_not_yet_run",
+  "diagnosis": "reproducibility_layer_fixed_for_active_next_step",
+  "recommended_next_objective": "run_committed_failure_or_confirmation_analysis_after_review",
+  "historical_backfill_policy": "only_if_reconstructable_from_logs_and_labeled_reconstructed_from_log",
+  "training_authorized": false,
+  "blocked": [
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "mainline change unrelated to script archival",
+    "deep neural training for redesigned task",
+    "unregistered feature engineering"
+  ]
+}

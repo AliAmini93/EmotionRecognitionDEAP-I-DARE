@@ -8035,7 +8035,7 @@
     "next_step": "human_review_closeout_of_supcon_dg_failure_analysis",
     "updated_at_utc": "2026-05-08T09:59:59+00:00"
   },
-  "last_updated_utc": "2026-05-08T12:31:54+00:00",
+  "last_updated_utc": "2026-05-08T13:00:51+00:00",
   "idare_protocol_events": [
     {
       "timestamp_utc": "2026-05-08T10:06:00+00:00",
@@ -8570,11 +8570,27 @@
         "deep neural training for redesigned task",
         "unregistered feature engineering"
       ]
+    },
+    {
+      "timestamp_utc": "2026-05-08T13:00:51+00:00",
+      "type": "reproducibility_report",
+      "name": "I-DARE script archival and reproducibility report",
+      "status": "complete pending human review; active analysis script committed but not run",
+      "evidence": "docs/idare_script_archival_and_reproducibility_report.md",
+      "next_allowed_step": "Human review / closeout, then run committed failure-or-confirmation analysis script.",
+      "blocked": [
+        "direct full SupCon/DG training",
+        "broad hyperparameter search",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "mainline change unrelated to script archival",
+        "deep neural training for redesigned task",
+        "unregistered feature engineering"
+      ]
     }
   ],
-  "current_idare_next_allowed_step": "prepare_reviewed_script_archival_and_reproducibility_command",
+  "current_idare_next_allowed_step": "human_review_closeout_then_run_committed_failure_or_confirmation_analysis_script",
   "current_idare_blocked_steps": [
-    "running failure-or-confirmation analysis before reproducibility layer is fixed",
     "direct full SupCon/DG training",
     "broad hyperparameter search",
     "EEG+EMG fusion",

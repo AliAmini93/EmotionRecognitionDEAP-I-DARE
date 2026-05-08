@@ -1,0 +1,574 @@
+#!/usr/bin/env python3
+"""Read-only I-DARE minimal redesigned-task failure-or-confirmation analysis.
+
+Objective:
+  docs/idare_label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis_objective.md
+
+This script performs no training. It consumes committed first-pass outputs and writes
+read-only analysis artifacts to docs/.
+
+Expected outputs:
+  docs/idare_label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis_report.md
+  docs/idare_label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis_report.json
+  docs/idare_label_semantics_minimal_redesigned_task_cell_decision_matrix.csv
+  docs/idare_label_semantics_minimal_redesigned_task_fold_instability_audit.csv
+  docs/idare_label_semantics_minimal_redesigned_task_subject_error_audit.csv
+  docs/idare_label_semantics_minimal_redesigned_task_metric_conflict_audit.csv
+"""
+
+from __future__ import annotations
+
+import json
+import math
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Any
+
+import pandas as pd
+
+
+DOCS = Path("docs")
+
+OBJECTIVE_MD = DOCS / "idare_label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis_objective.md"
+OBJECTIVE_JSON = DOCS / "idare_label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis_objective.json"
+
+FIRST_PASS_REPORT_JSON = DOCS / "idare_label_semantics_minimal_redesigned_task_first_pass_report.json"
+RUNS_CSV = DOCS / "idare_label_semantics_minimal_redesigned_task_first_pass_runs.csv"
+PREDICTIONS_CSV = DOCS / "idare_label_semantics_minimal_redesigned_task_first_pass_predictions.csv"
+METRIC_SUMMARY_CSV = DOCS / "idare_label_semantics_minimal_redesigned_task_first_pass_metric_summary.csv"
+SUBJECT_ERROR_CSV = DOCS / "idare_label_semantics_minimal_redesigned_task_first_pass_subject_error_summary.csv"
+PROJECT_STATUS_JSON = DOCS / "project_status_current.json"
+PROJECT_STATUS_MD = DOCS / "project_status_current.md"
+
+OUT_REPORT_MD = DOCS / "idare_label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis_report.md"
+OUT_REPORT_JSON = DOCS / "idare_label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis_report.json"
+OUT_CELL_MATRIX = DOCS / "idare_label_semantics_minimal_redesigned_task_cell_decision_matrix.csv"
+OUT_FOLD_AUDIT = DOCS / "idare_label_semantics_minimal_redesigned_task_fold_instability_audit.csv"
+OUT_SUBJECT_AUDIT = DOCS / "idare_label_semantics_minimal_redesigned_task_subject_error_audit.csv"
+OUT_METRIC_CONFLICT = DOCS / "idare_label_semantics_minimal_redesigned_task_metric_conflict_audit.csv"
+
+
+def read_json(path: Path) -> dict[str, Any]:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def write_json(path: Path, obj: Any) -> None:
+    path.write_text(json.dumps(obj, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+
+def safe_float(value: Any, default: float = float("nan")) -> float:
+    try:
+        if value is None:
+            return default
+        return float(value)
+    except Exception:
+        return default
+
+
+def bool_to_text(value: bool) -> str:
+    return "yes" if bool(value) else "no"
+
+
+def markdown_table(df: pd.DataFrame, max_rows: int | None = None) -> str:
+    """Small dependency-free markdown table writer."""
+    if max_rows is not None:
+        df = df.head(max_rows)
+    if df.empty:
+        return "_No rows._"
+    shown = df.copy()
+    for col in shown.columns:
+        shown[col] = shown[col].map(lambda x: "" if pd.isna(x) else str(x))
+    cols = list(shown.columns)
+    header = "| " + " | ".join(cols) + " |"
+    sep = "| " + " | ".join(["---"] * len(cols)) + " |"
+    rows = ["| " + " | ".join(str(row[col]) for col in cols) + " |" for _, row in shown.iterrows()]
+    return "\n".join([header, sep] + rows)
+
+
+def require_inputs() -> None:
+    required = [
+        OBJECTIVE_MD,
+        OBJECTIVE_JSON,
+        FIRST_PASS_REPORT_JSON,
+        RUNS_CSV,
+        PREDICTIONS_CSV,
+        METRIC_SUMMARY_CSV,
+        SUBJECT_ERROR_CSV,
+        PROJECT_STATUS_JSON,
+        PROJECT_STATUS_MD,
+    ]
+    missing = [str(p) for p in required if not p.exists()]
+    if missing:
+        raise SystemExit("ERROR: missing required inputs: " + ", ".join(missing))
+
+
+def normalize_columns(df: pd.DataFrame) -> pd.DataFrame:
+    rename = {}
+    if "accuracy" in df.columns and "acc" not in df.columns:
+        rename["accuracy"] = "acc"
+    if "mean_top_bottom_q33_balanced_accuracy" in df.columns and "mean_q33_bal_acc" not in df.columns:
+        rename["mean_top_bottom_q33_balanced_accuracy"] = "mean_q33_bal_acc"
+    if "q33_bal_acc" in df.columns and "top_bottom_q33_balanced_accuracy" not in df.columns:
+        rename["q33_bal_acc"] = "top_bottom_q33_balanced_accuracy"
+    return df.rename(columns=rename)
+
+
+def build_cell_decision_matrix(runs: pd.DataFrame, first_report: dict[str, Any]) -> pd.DataFrame:
+    runs = normalize_columns(runs)
+    ridge = runs[runs["model"].astype(str).eq("ridge_regression_summary_features")].copy()
+    base = runs[runs["model"].astype(str).eq("mean_baseline_no_training")].copy()
+
+    rows: list[dict[str, Any]] = []
+    for (modality, task), g in ridge.groupby(["modality", "task"], dropna=False):
+        b = base[(base["modality"].astype(str) == str(modality)) & (base["task"].astype(str) == str(task))]
+        mean_s = g["spearman_rho"].mean()
+        std_s = g["spearman_rho"].std(ddof=0)
+        min_s = g["spearman_rho"].min()
+        max_s = g["spearman_rho"].max()
+        folds_pos = int((g["spearman_rho"] > 0).sum())
+        folds_over_010 = int((g["spearman_rho"] > 0.10).sum())
+        folds_under_000 = int((g["spearman_rho"] < 0).sum())
+        mean_mae = g["mae"].mean()
+        mean_rmse = g["rmse"].mean()
+        base_mae = b["mae"].mean() if not b.empty else float("nan")
+        base_rmse = b["rmse"].mean() if not b.empty else float("nan")
+        delta_mae = base_mae - mean_mae if math.isfinite(base_mae) else float("nan")
+        delta_rmse = base_rmse - mean_rmse if math.isfinite(base_rmse) else float("nan")
+        mean_q33 = g["q33_bal_acc"].mean() if "q33_bal_acc" in g.columns else float("nan")
+        mean_perm = g["permutation_control_spearman"].mean() if "permutation_control_spearman" in g.columns else float("nan")
+        confirmable = bool(mean_s > 0.10 and delta_mae > 0 and folds_pos >= 4)
+        weak_positive = bool(mean_s > 0 and folds_pos >= 4 and abs(mean_perm) < 0.05)
+        metric_conflict = bool(mean_s > 0 and delta_mae <= 0)
+        if confirmable:
+            decision = "confirmable_signal"
+            reason = "mean Spearman exceeds threshold, fold consistency is acceptable, and MAE improves over baseline"
+        elif weak_positive and metric_conflict:
+            decision = "weak_signal_metric_conflict"
+            reason = "Spearman is weakly positive, but MAE/RMSE do not improve over mean baseline"
+        elif weak_positive:
+            decision = "weak_signal_requires_caution"
+            reason = "Spearman is weakly positive but below confirmation threshold"
+        else:
+            decision = "not_confirmable"
+            reason = "Spearman is near zero/unstable and below confirmation threshold"
+
+        rows.append(
+            {
+                "modality": modality,
+                "task": task,
+                "n_folds": int(len(g)),
+                "mean_spearman_rho": mean_s,
+                "std_spearman_rho": std_s,
+                "min_spearman_rho": min_s,
+                "max_spearman_rho": max_s,
+                "folds_positive_spearman": folds_pos,
+                "folds_over_010_spearman": folds_over_010,
+                "folds_under_000_spearman": folds_under_000,
+                "mean_mae": mean_mae,
+                "mean_rmse": mean_rmse,
+                "mean_baseline_mae": base_mae,
+                "mean_baseline_rmse": base_rmse,
+                "delta_vs_mean_baseline_mae_positive_is_better": delta_mae,
+                "delta_vs_mean_baseline_rmse_positive_is_better": delta_rmse,
+                "mean_q33_bal_acc": mean_q33,
+                "mean_permutation_control_spearman": mean_perm,
+                "decision": decision,
+                "reason": reason,
+            }
+        )
+    out = pd.DataFrame(rows)
+    if not out.empty:
+        out = out.sort_values(
+            ["decision", "mean_spearman_rho", "delta_vs_mean_baseline_mae_positive_is_better"],
+            ascending=[True, False, False],
+        )
+    return out
+
+
+def build_fold_instability_audit(runs: pd.DataFrame) -> pd.DataFrame:
+    runs = normalize_columns(runs)
+    ridge = runs[runs["model"].astype(str).eq("ridge_regression_summary_features")].copy()
+    rows: list[dict[str, Any]] = []
+    for _, r in ridge.iterrows():
+        s = safe_float(r.get("spearman_rho"))
+        mae = safe_float(r.get("mae"))
+        rmse = safe_float(r.get("rmse"))
+        q33 = safe_float(r.get("q33_bal_acc"))
+        perm = safe_float(r.get("permutation_control_spearman"), 0.0)
+        flags = []
+        if s > 0.10:
+            flags.append("positive_above_confirmation_threshold")
+        elif s > 0:
+            flags.append("weak_positive")
+        else:
+            flags.append("non_positive")
+        if abs(perm) >= 0.05:
+            flags.append("permutation_control_nonzero")
+        if q33 < 0.48 or q33 > 0.55:
+            flags.append("q33_deviation_from_chance")
+        rows.append(
+            {
+                "objective_run_id": r.get("objective_run_id"),
+                "modality": r.get("modality"),
+                "task": r.get("task"),
+                "fold": r.get("fold"),
+                "spearman_rho": s,
+                "mae": mae,
+                "rmse": rmse,
+                "q33_bal_acc": q33,
+                "permutation_control_spearman": perm,
+                "flags": ";".join(flags),
+            }
+        )
+    out = pd.DataFrame(rows)
+    if not out.empty:
+        out = out.sort_values(["modality", "task", "spearman_rho"], ascending=[True, True, False])
+    return out
+
+
+def build_metric_conflict_audit(cell: pd.DataFrame) -> pd.DataFrame:
+    rows: list[dict[str, Any]] = []
+    for _, r in cell.iterrows():
+        mean_s = safe_float(r.get("mean_spearman_rho"))
+        delta_mae = safe_float(r.get("delta_vs_mean_baseline_mae_positive_is_better"))
+        delta_rmse = safe_float(r.get("delta_vs_mean_baseline_rmse_positive_is_better"))
+        q33 = safe_float(r.get("mean_q33_bal_acc"))
+        perm = safe_float(r.get("mean_permutation_control_spearman"))
+        conflict = []
+        if mean_s > 0 and delta_mae <= 0:
+            conflict.append("positive_spearman_but_mae_worse")
+        if mean_s > 0 and delta_rmse <= 0:
+            conflict.append("positive_spearman_but_rmse_worse")
+        if mean_s <= 0:
+            conflict.append("no_positive_rank_signal")
+        if abs(perm) >= 0.05:
+            conflict.append("permutation_control_not_near_zero")
+        if q33 < 0.49 or q33 > 0.53:
+            conflict.append("q33_not_strict_chance")
+        rows.append(
+            {
+                "modality": r.get("modality"),
+                "task": r.get("task"),
+                "mean_spearman_rho": mean_s,
+                "delta_mae_positive_is_better": delta_mae,
+                "delta_rmse_positive_is_better": delta_rmse,
+                "mean_q33_bal_acc": q33,
+                "mean_permutation_control_spearman": perm,
+                "metric_conflict_flags": ";".join(conflict) if conflict else "none",
+                "confirmability": r.get("decision"),
+            }
+        )
+    return pd.DataFrame(rows)
+
+
+def build_subject_error_audit(subjects: pd.DataFrame) -> pd.DataFrame:
+    df = subjects.copy()
+    if df.empty:
+        return pd.DataFrame()
+
+    # Make the audit robust to small naming changes.
+    numeric_cols = [c for c in df.columns if pd.api.types.is_numeric_dtype(df[c])]
+    group_cols = [c for c in ["model", "modality", "task", "subject", "subject_id"] if c in df.columns]
+    subject_col = "subject" if "subject" in df.columns else ("subject_id" if "subject_id" in df.columns else None)
+    if subject_col is None:
+        df["subject"] = range(len(df))
+        subject_col = "subject"
+
+    err_candidates = [
+        "mean_abs_error",
+        "mae",
+        "abs_error",
+        "rank_abs_error",
+        "subject_mae",
+        "mean_mae",
+    ]
+    err_col = next((c for c in err_candidates if c in df.columns), None)
+    if err_col is None:
+        # fallback to the last numeric column so the report still exposes hard rows
+        err_col = numeric_cols[-1] if numeric_cols else None
+
+    if err_col is None:
+        return df.head(50).copy()
+
+    agg_cols = [c for c in ["model", "modality", "task", subject_col] if c in df.columns]
+    out = (
+        df.groupby(agg_cols, dropna=False)[err_col]
+        .agg(["mean", "max", "count"])
+        .reset_index()
+        .rename(columns={"mean": "mean_error", "max": "max_error", "count": "n_rows"})
+    )
+    out["hard_subject_flag"] = out["mean_error"] >= out["mean_error"].quantile(0.90)
+    out = out.sort_values(["hard_subject_flag", "mean_error"], ascending=[False, False])
+    return out
+
+
+def decide_next(cell: pd.DataFrame, conflict: pd.DataFrame) -> tuple[str, str, str]:
+    if cell.empty:
+        return (
+            "minimal_redesigned_task_first_pass_uninterpretable",
+            "label_semantics_redesigned_task_stop_archive_objective",
+            "No cell-level evidence was available.",
+        )
+
+    confirmable = cell[cell["decision"].eq("confirmable_signal")]
+    weak = cell[cell["decision"].astype(str).str.contains("weak_signal", na=False)]
+    best = cell.sort_values("mean_spearman_rho", ascending=False).iloc[0]
+    best_s = safe_float(best.get("mean_spearman_rho"))
+    best_delta_mae = safe_float(best.get("delta_vs_mean_baseline_mae_positive_is_better"))
+    best_folds_pos = int(best.get("folds_positive_spearman", 0))
+
+    if not confirmable.empty:
+        return (
+            "minimal_redesigned_task_first_pass_confirmable",
+            "label_semantics_minimal_redesigned_task_confirmation_objective",
+            "At least one cell crossed the confirmation threshold and improved error metrics.",
+        )
+
+    if best_s > 0 and best_folds_pos >= 4 and best_delta_mae <= 0:
+        return (
+            "minimal_redesigned_task_weak_rank_signal_metric_conflict",
+            "label_semantics_redesigned_task_metric_debug_objective",
+            "The best cell has weak positive rank signal but worsens MAE/RMSE against mean baseline.",
+        )
+
+    if not weak.empty:
+        return (
+            "minimal_redesigned_task_weak_signal_not_confirmable",
+            "label_semantics_minimal_redesigned_task_targeted_confirmation_design_objective",
+            "There is weak positive signal but it is below threshold and requires a narrow confirmation design, not broad training.",
+        )
+
+    return (
+        "minimal_redesigned_task_first_pass_not_confirmed",
+        "label_semantics_redesigned_task_stop_archive_objective",
+        "No robust positive rank signal was found.",
+    )
+
+
+def update_project_status(diagnosis: str, next_obj: str, reason: str, now: str) -> None:
+    status = read_json(PROJECT_STATUS_JSON)
+    blocked = [
+        "direct full SupCon/DG training",
+        "broad hyperparameter search",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "mainline change",
+        "deep neural training for redesigned task",
+        "unregistered feature engineering",
+    ]
+    status["last_updated_utc"] = now
+    status["current_idare_next_allowed_step"] = f"human_review_closeout_then_create_{next_obj}"
+    status["current_idare_blocked_steps"] = blocked
+    events = status.get("idare_protocol_events")
+    if not isinstance(events, list):
+        events = []
+    status["idare_protocol_events"] = events
+    events.append(
+        {
+            "timestamp_utc": now,
+            "type": "analysis_report",
+            "name": "I-DARE minimal redesigned-task failure-or-confirmation analysis report",
+            "status": f"complete pending human review; diagnosis={diagnosis}",
+            "evidence": str(OUT_REPORT_MD),
+            "next_allowed_step": f"Human review / closeout before {next_obj}.",
+            "blocked": blocked,
+        }
+    )
+    write_json(PROJECT_STATUS_JSON, status)
+
+    md = PROJECT_STATUS_MD.read_text(encoding="utf-8")
+    append = f"""
+
+## I-DARE Minimal Redesigned-Task Failure-or-Confirmation Analysis Report
+
+Updated: `{now}`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE minimal redesigned-task failure-or-confirmation analysis report | complete pending human review; diagnosis=`{diagnosis}` | `docs/idare_label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis_report.md` | Human review / closeout before `{next_obj}`. | direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim; mainline change |
+
+- Decision reason: {reason}
+- Recommended next objective is `{next_obj}` only after human review/closeout.
+"""
+    if "I-DARE Minimal Redesigned-Task Failure-or-Confirmation Analysis Report" not in md:
+        PROJECT_STATUS_MD.write_text(md.rstrip() + append + "\n", encoding="utf-8")
+
+
+def main() -> None:
+    require_inputs()
+    now = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+
+    objective = read_json(OBJECTIVE_JSON)
+    first_report = read_json(FIRST_PASS_REPORT_JSON)
+    if objective.get("training_authorized") is not False:
+        raise SystemExit("ERROR: objective must be read-only with training_authorized=false")
+    if first_report.get("diagnosis") != "minimal_redesigned_task_first_pass_mixed_signal":
+        raise SystemExit("ERROR: first-pass diagnosis does not match expected mixed signal")
+
+    runs = pd.read_csv(RUNS_CSV)
+    # Confirm predictions are readable and row count is available; no need to hold full contents longer than needed.
+    n_predictions = sum(1 for _ in open(PREDICTIONS_CSV, "r", encoding="utf-8")) - 1
+    metric = pd.read_csv(METRIC_SUMMARY_CSV)
+    subject = pd.read_csv(SUBJECT_ERROR_CSV)
+
+    required_run_cols = {"model", "modality", "task", "fold", "spearman_rho", "mae", "rmse"}
+    missing = required_run_cols - set(runs.columns)
+    if missing:
+        raise SystemExit(f"ERROR: runs CSV missing required columns: {sorted(missing)}")
+
+    cell = build_cell_decision_matrix(runs, first_report)
+    fold = build_fold_instability_audit(runs)
+    conflict = build_metric_conflict_audit(cell)
+    subject_audit = build_subject_error_audit(subject)
+    diagnosis, next_obj, reason = decide_next(cell, conflict)
+
+    cell.to_csv(OUT_CELL_MATRIX, index=False)
+    fold.to_csv(OUT_FOLD_AUDIT, index=False)
+    conflict.to_csv(OUT_METRIC_CONFLICT, index=False)
+    subject_audit.to_csv(OUT_SUBJECT_AUDIT, index=False)
+
+    best = cell.sort_values("mean_spearman_rho", ascending=False).iloc[0].to_dict() if not cell.empty else {}
+    key = {
+        "n_runs": int(len(runs)),
+        "n_predictions": int(n_predictions),
+        "n_metric_summary_rows": int(len(metric)),
+        "n_subject_error_rows": int(len(subject)),
+        "best_cell": best,
+        "n_confirmable_cells": int((cell["decision"] == "confirmable_signal").sum()) if not cell.empty else 0,
+        "n_weak_signal_cells": int(cell["decision"].astype(str).str.contains("weak_signal", na=False).sum()) if not cell.empty else 0,
+        "n_metric_conflict_cells": int(conflict["metric_conflict_flags"].astype(str).str.contains("mae_worse|rmse_worse", regex=True).sum()) if not conflict.empty else 0,
+    }
+
+    report = {
+        "status": "complete_pending_human_review",
+        "created_utc": now,
+        "objective": str(OBJECTIVE_MD),
+        "source_first_pass_report": str(FIRST_PASS_REPORT_JSON),
+        "diagnosis": diagnosis,
+        "recommended_next_objective": next_obj,
+        "decision_reason": reason,
+        "key_indicators": key,
+        "outputs": {
+            "cell_decision_matrix": str(OUT_CELL_MATRIX),
+            "fold_instability_audit": str(OUT_FOLD_AUDIT),
+            "subject_error_audit": str(OUT_SUBJECT_AUDIT),
+            "metric_conflict_audit": str(OUT_METRIC_CONFLICT),
+        },
+        "training_authorized": False,
+    }
+    write_json(OUT_REPORT_JSON, report)
+
+    cell_show = cell.copy()
+    if not cell_show.empty:
+        for c in [
+            "mean_spearman_rho",
+            "std_spearman_rho",
+            "delta_vs_mean_baseline_mae_positive_is_better",
+            "mean_q33_bal_acc",
+            "mean_permutation_control_spearman",
+        ]:
+            if c in cell_show.columns:
+                cell_show[c] = cell_show[c].map(lambda x: f"{x:.4f}" if pd.notna(x) else "")
+        cell_show = cell_show[
+            [
+                "modality",
+                "task",
+                "mean_spearman_rho",
+                "folds_positive_spearman",
+                "folds_over_010_spearman",
+                "delta_vs_mean_baseline_mae_positive_is_better",
+                "mean_q33_bal_acc",
+                "decision",
+            ]
+        ]
+
+    conflict_show = conflict.copy()
+    if not conflict_show.empty:
+        for c in ["mean_spearman_rho", "delta_mae_positive_is_better", "delta_rmse_positive_is_better", "mean_q33_bal_acc"]:
+            if c in conflict_show.columns:
+                conflict_show[c] = conflict_show[c].map(lambda x: f"{x:.4f}" if pd.notna(x) else "")
+        conflict_show = conflict_show[
+            [
+                "modality",
+                "task",
+                "mean_spearman_rho",
+                "delta_mae_positive_is_better",
+                "delta_rmse_positive_is_better",
+                "mean_q33_bal_acc",
+                "metric_conflict_flags",
+            ]
+        ]
+
+    md = f"""# I-DARE Minimal Redesigned-Task Failure-or-Confirmation Analysis Report
+
+## Status
+
+Status: complete; pending human review.
+
+Created UTC: `{now}`
+
+## Executive Diagnosis
+
+Diagnosis: `{diagnosis}`
+
+Recommended next objective: `{next_obj}`
+
+Decision reason: {reason}
+
+## Cell Decision Matrix
+
+{markdown_table(cell_show)}
+
+## Metric Conflict Audit
+
+{markdown_table(conflict_show)}
+
+## Fold Instability Interpretation
+
+The first-pass result is interpreted from ridge regression cells only, against the no-training mean baseline and permutation control.
+
+The analysis checks whether positive Spearman is robust across folds, whether MAE/RMSE improve over baseline, and whether q33 balanced accuracy is consistent with the rank-order signal.
+
+## Subject Error Audit
+
+Subject-level errors were summarized in `docs/idare_label_semantics_minimal_redesigned_task_subject_error_audit.csv`.
+
+Rows in source subject-error file: `{len(subject)}`
+
+## Interpretation
+
+This report does not authorize training.
+
+Confirmation requires both a rank-order signal and no major conflict with error metrics. A weak positive Spearman with worse MAE/RMSE is treated as a metric conflict rather than confirmation.
+
+## Next Allowed Step
+
+Human review / closeout before `{next_obj}`.
+
+## Blocked
+
+- direct full SupCon/DG training
+- broad hyperparameter search
+- EEG+EMG fusion
+- final LOSO claim
+- mainline change
+- deep neural training for redesigned task
+- unregistered feature engineering
+"""
+    OUT_REPORT_MD.write_text(md, encoding="utf-8")
+    update_project_status(diagnosis, next_obj, reason, now)
+
+    print("OK_FAILURE_OR_CONFIRMATION_ANALYSIS_REPORT_WRITTEN")
+    print(OUT_REPORT_MD)
+    print(OUT_REPORT_JSON)
+    print(OUT_CELL_MATRIX)
+    print(OUT_FOLD_AUDIT)
+    print(OUT_SUBJECT_AUDIT)
+    print(OUT_METRIC_CONFLICT)
+    print("diagnosis=", diagnosis)
+    print("recommended_next_objective=", next_obj)
+    print("decision_reason=", reason)
+
+
+if __name__ == "__main__":
+    main()

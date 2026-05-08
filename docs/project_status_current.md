@@ -496,3 +496,14 @@ Updated: `2026-05-08T12:31:54+00:00`
 - Pause point preserved at commit `47379cf` before running the active failure-or-confirmation analysis.
 - Next work is to commit the active analysis script under `scripts/idare/analysis/` and create a manifest.
 
+## I-DARE Script Archival and Reproducibility Report
+
+Updated: `2026-05-08T13:00:51+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE script archival and reproducibility report | complete pending human review; active script committed but not run | `docs/idare_script_archival_and_reproducibility_report.md` | Human review / closeout, then run committed failure-or-confirmation analysis script. | direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim; deep neural training |
+
+- Active analysis script: `scripts/idare/analysis/run_idare_label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis.py`
+- Historical backfill remains allowed only when reconstructable from logs and labeled honestly.
+
