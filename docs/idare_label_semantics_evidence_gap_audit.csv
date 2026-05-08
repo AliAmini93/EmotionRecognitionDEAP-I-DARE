@@ -1,0 +1,6 @@
+evidence_gap,current_state,required_before_training,blocking
+task_semantic_validity,global binary labels show subject-semantics risk,pre-register a redesigned target and justify label semantics,yes
+metric_alignment,weak objective alignment; max_abs_corr=0.3001,define metric expected to improve and how it maps to scientific claim,yes
+representation_transfer,best observed transfer summary remains low; repr_best=0.5304,"specify whether the task is LOSO, personalization, or few-shot adaptation",yes
+subject_relative_interpretation,subject-relative retention estimate=0.8814; first-pass not sufficient,decide if subject-relative labels are the claim or only a diagnostic,yes
+anti_cherry_picking_guardrails,restricted/high-confidence task not yet pre-registered,lock inclusion criteria before any new training,yes

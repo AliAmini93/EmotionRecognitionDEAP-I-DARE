@@ -1,0 +1,6 @@
+decision,verdict,reason,next_step_allowed
+continue_current_global_binary_loso_training,reject,Model-side and pair/sampler interventions did not produce robust gains; label/task semantics remain unresolved.,none
+direct_full_supcon_dg_training,reject_block,Smoke tests passed but first-pass and targeted ablations were not sufficient.,none
+broad_hyperparameter_search,reject_block,Would obscure root cause and violate the current diagnosis workflow.,none
+task_semantics_redesign_spec,select,Directly addresses the accepted joint label-semantics and representation-transfer bottleneck.,create reviewed task redesign spec with no training
+stop_archive_if_redesign_not_accepted,conditional,"If no defensible task redesign is accepted, the current branch should be stopped rather than patched with more models.",create stop/archive closeout

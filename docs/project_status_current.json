@@ -8035,7 +8035,7 @@
     "next_step": "human_review_closeout_of_supcon_dg_failure_analysis",
     "updated_at_utc": "2026-05-08T09:59:59+00:00"
   },
-  "last_updated_utc": "2026-05-08T10:59:14+00:00",
+  "last_updated_utc": "2026-05-08T11:06:28+00:00",
   "idare_protocol_events": [
     {
       "timestamp_utc": "2026-05-08T10:06:00+00:00",
@@ -8239,15 +8239,31 @@
         "mainline change",
         "new model training before task-redesign/stop review"
       ]
+    },
+    {
+      "timestamp_utc": "2026-05-08T11:06:28+00:00",
+      "type": "report",
+      "name": "I-DARE label-semantics task-redesign-or-stop report",
+      "status": "complete pending human review; diagnosis=current_global_binary_loso_task_not_defensible_for_more_model_search",
+      "evidence": "docs/idare_label_semantics_task_redesign_or_stop_report.md",
+      "next_allowed_step": "human review / closeout before task redesign spec or stop/archive",
+      "blocked": [
+        "direct full SupCon/DG training",
+        "broad hyperparameter search",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "mainline change",
+        "new model training before task redesign spec review"
+      ]
     }
   ],
-  "current_idare_next_allowed_step": "prepare_reviewed_label_semantics_task_redesign_or_stop_report_command",
+  "current_idare_next_allowed_step": "human_review_closeout_then_task_redesign_spec_or_stop_archive",
   "current_idare_blocked_steps": [
     "direct full SupCon/DG training",
     "broad hyperparameter search",
     "EEG+EMG fusion",
     "final LOSO claim",
     "mainline change",
-    "new model training before task-redesign/stop review"
+    "new model training before task redesign spec review"
   ]
 }

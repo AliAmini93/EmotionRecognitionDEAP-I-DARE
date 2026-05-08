@@ -1,0 +1,39 @@
+{
+  "status": "complete_pending_human_review",
+  "created_utc": "2026-05-08T11:06:28+00:00",
+  "source_objective": "docs/idare_label_semantics_task_redesign_or_stop_objective.md",
+  "diagnosis": "current_global_binary_loso_task_not_defensible_for_more_model_search",
+  "decision": "pause_current_global_binary_loso_training_and_prepare_task_redesign_spec",
+  "recommended_next_objective": "label_semantics_task_redesign_spec_objective",
+  "stop_condition": "If a defensible redesign spec cannot be accepted, stop/archive the current binary LOSO branch.",
+  "key_indicators": {
+    "previous_diagnosis": "label_semantics_and_representation_transfer_joint_bottleneck",
+    "best_pair_sampler_candidate_mean_macro_f1": 0.5118600603082725,
+    "best_pair_sampler_candidate_folds_under_050": 7,
+    "mean_label_entropy": 0.9190643971472996,
+    "n_label_audit_rows": 252,
+    "n_low_entropy_rows": 0,
+    "high_subject_rating_shift": true,
+    "low_entropy_problem": true,
+    "objective_alignment_weak": true,
+    "max_abs_loss_embedding_corr_with_macro_f1": 0.3001215860428951,
+    "representation_best_macro_f1": 0.5303745146178792,
+    "subject_relative_mean_retention": 0.8813657407407407
+  },
+  "outputs": {
+    "report_md": "docs/idare_label_semantics_task_redesign_or_stop_report.md",
+    "report_json": "docs/idare_label_semantics_task_redesign_or_stop_report.json",
+    "decision_matrix_csv": "docs/idare_label_semantics_task_redesign_or_stop_decision_matrix.csv",
+    "task_candidate_matrix_csv": "docs/idare_label_semantics_task_candidate_matrix.csv",
+    "evidence_gap_audit_csv": "docs/idare_label_semantics_evidence_gap_audit.csv"
+  },
+  "blocked": [
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "mainline change",
+    "new model training before task redesign spec review"
+  ],
+  "next_allowed_step": "human_review_closeout_then_task_redesign_spec_or_stop_archive"
+}

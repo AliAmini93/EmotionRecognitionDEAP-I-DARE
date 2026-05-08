@@ -346,3 +346,14 @@ Updated: `2026-05-08T10:59:14+00:00`
 - Human review of the representation/label-semantics failure analysis is frozen in `docs/idare_representation_or_label_semantics_failure_analysis_review_status.md`.
 - A label-semantics task-redesign-or-stop objective is defined in `docs/idare_label_semantics_task_redesign_or_stop_objective.md`.
 
+## I-DARE Label-Semantics Task-Redesign-or-Stop Report
+
+Updated: `2026-05-08T11:06:28+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE label-semantics task-redesign-or-stop report | complete pending human review; diagnosis=`current_global_binary_loso_task_not_defensible_for_more_model_search` | `docs/idare_label_semantics_task_redesign_or_stop_report.md` | Human review / closeout before task redesign spec or stop/archive. | direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim; mainline change |
+
+- Recommended next objective is `label_semantics_task_redesign_spec_objective` only after human review/closeout.
+- Stop/archive is explicitly allowed if no defensible task redesign spec is accepted.
+
