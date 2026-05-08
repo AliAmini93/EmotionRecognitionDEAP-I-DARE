@@ -1,0 +1,188 @@
+{
+  "all_passed": true,
+  "by_test": {
+    "leakage_guard_smoke": {
+      "failed": 0,
+      "passed": 4
+    },
+    "one_fold_one_task_minimal_smoke": {
+      "failed": 0,
+      "passed": 4
+    },
+    "pair_sampler_integrity_smoke": {
+      "failed": 0,
+      "passed": 4
+    },
+    "shuffled_label_negative_control": {
+      "failed": 0,
+      "passed": 4
+    },
+    "supcon_micro_overfit_smoke": {
+      "failed": 0,
+      "passed": 4
+    }
+  },
+  "created_or_updated_utc": "2026-05-08T09:34:48.154438+00:00",
+  "design_review": "docs/idare_subject_variability_supcon_dg_design_spec_review_status.md",
+  "design_spec": "docs/idare_subject_variability_supcon_dg_design_spec.md",
+  "device": "cuda",
+  "diagnosis": "supcon_dg_smoke_tests_passed_ready_for_minimal_first_pass_objective",
+  "failed_tests": [],
+  "interpretation": {
+    "if_all_passed": "Implementation is smoke-test valid enough to consider a minimal first-pass training objective after human review.",
+    "if_failed": "Do not expand to training. Fix the failing sampler/protocol/loss/negative-control issue first.",
+    "training_authorized_by_this_report": false
+  },
+  "objective": "docs/idare_subject_variability_supcon_dg_smoke_tests_objective.md",
+  "outputs": {
+    "embedding_diagnostic_summary_csv": "docs/idare_subject_variability_supcon_dg_embedding_diagnostic_summary.csv",
+    "loss_trace_summary_csv": "docs/idare_subject_variability_supcon_dg_loss_trace_summary.csv",
+    "pair_sampler_audit_csv": "docs/idare_subject_variability_supcon_dg_pair_sampler_audit.csv"
+  },
+  "recommended_next_objective": "minimal_supcon_dg_first_pass_training_objective",
+  "seed": 11,
+  "smoke_test_count": 20,
+  "status": "smoke_tests_complete",
+  "test_records": [
+    {
+      "modality": "EEG",
+      "passed": true,
+      "summary": "avg_positive_pair_coverage=1.000; min_subjects_per_batch=35",
+      "task": "valence",
+      "test": "pair_sampler_integrity_smoke"
+    },
+    {
+      "modality": "EEG",
+      "passed": true,
+      "summary": "row_overlap=0; subject_overlap=0; n_train=1352; n_val=277",
+      "task": "valence",
+      "test": "leakage_guard_smoke"
+    },
+    {
+      "modality": "EEG",
+      "passed": true,
+      "summary": "avg_positive_pair_coverage=1.000; min_subjects_per_batch=33",
+      "task": "arousal",
+      "test": "pair_sampler_integrity_smoke"
+    },
+    {
+      "modality": "EEG",
+      "passed": true,
+      "summary": "row_overlap=0; subject_overlap=0; n_train=1350; n_val=293",
+      "task": "arousal",
+      "test": "leakage_guard_smoke"
+    },
+    {
+      "modality": "EMG",
+      "passed": true,
+      "summary": "avg_positive_pair_coverage=1.000; min_subjects_per_batch=35",
+      "task": "valence",
+      "test": "pair_sampler_integrity_smoke"
+    },
+    {
+      "modality": "EMG",
+      "passed": true,
+      "summary": "row_overlap=0; subject_overlap=0; n_train=1352; n_val=277",
+      "task": "valence",
+      "test": "leakage_guard_smoke"
+    },
+    {
+      "modality": "EMG",
+      "passed": true,
+      "summary": "avg_positive_pair_coverage=1.000; min_subjects_per_batch=33",
+      "task": "arousal",
+      "test": "pair_sampler_integrity_smoke"
+    },
+    {
+      "modality": "EMG",
+      "passed": true,
+      "summary": "row_overlap=0; subject_overlap=0; n_train=1350; n_val=293",
+      "task": "arousal",
+      "test": "leakage_guard_smoke"
+    },
+    {
+      "modality": "EEG",
+      "passed": true,
+      "summary": "macro_f1=1.000; bal_acc=1.000; total_loss_first=1.0976; total_loss_last=0.3437",
+      "task": "valence",
+      "test": "supcon_micro_overfit_smoke"
+    },
+    {
+      "modality": "EEG",
+      "passed": true,
+      "summary": "macro_f1=0.485; bal_acc=0.485; one_class=False",
+      "task": "valence",
+      "test": "shuffled_label_negative_control"
+    },
+    {
+      "modality": "EEG",
+      "passed": true,
+      "summary": "macro_f1=0.414; bal_acc=0.419; one_class=False; emb_var=0.011134",
+      "task": "valence",
+      "test": "one_fold_one_task_minimal_smoke"
+    },
+    {
+      "modality": "EEG",
+      "passed": true,
+      "summary": "macro_f1=1.000; bal_acc=1.000; total_loss_first=1.0907; total_loss_last=0.3437",
+      "task": "arousal",
+      "test": "supcon_micro_overfit_smoke"
+    },
+    {
+      "modality": "EEG",
+      "passed": true,
+      "summary": "macro_f1=0.461; bal_acc=0.461; one_class=False",
+      "task": "arousal",
+      "test": "shuffled_label_negative_control"
+    },
+    {
+      "modality": "EEG",
+      "passed": true,
+      "summary": "macro_f1=0.450; bal_acc=0.453; one_class=False; emb_var=0.012062",
+      "task": "arousal",
+      "test": "one_fold_one_task_minimal_smoke"
+    },
+    {
+      "modality": "EMG",
+      "passed": true,
+      "summary": "macro_f1=1.000; bal_acc=1.000; total_loss_first=1.1042; total_loss_last=0.3590",
+      "task": "valence",
+      "test": "supcon_micro_overfit_smoke"
+    },
+    {
+      "modality": "EMG",
+      "passed": true,
+      "summary": "macro_f1=0.477; bal_acc=0.477; one_class=False",
+      "task": "valence",
+      "test": "shuffled_label_negative_control"
+    },
+    {
+      "modality": "EMG",
+      "passed": true,
+      "summary": "macro_f1=0.531; bal_acc=0.531; one_class=False; emb_var=0.001126",
+      "task": "valence",
+      "test": "one_fold_one_task_minimal_smoke"
+    },
+    {
+      "modality": "EMG",
+      "passed": true,
+      "summary": "macro_f1=1.000; bal_acc=1.000; total_loss_first=1.0985; total_loss_last=0.3735",
+      "task": "arousal",
+      "test": "supcon_micro_overfit_smoke"
+    },
+    {
+      "modality": "EMG",
+      "passed": true,
+      "summary": "macro_f1=0.498; bal_acc=0.501; one_class=False",
+      "task": "arousal",
+      "test": "shuffled_label_negative_control"
+    },
+    {
+      "modality": "EMG",
+      "passed": true,
+      "summary": "macro_f1=0.541; bal_acc=0.552; one_class=False; emb_var=0.000862",
+      "task": "arousal",
+      "test": "one_fold_one_task_minimal_smoke"
+    }
+  ]
+}

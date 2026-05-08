@@ -1,0 +1,13 @@
+test,modality,task,embedding_variance_mean,embedding_norm_mean,embedding_centroid_distance,embedding_collapse_flag,one_class_pred,pred_counts
+supcon_micro_overfit_smoke,EEG,valence,0.04014180973172188,1.0,1.9599990844726562,False,False,"{""0"": 48, ""1"": 48}"
+shuffled_label_negative_control,EEG,valence,0.009375532157719135,1.0,0.03265286237001419,False,False,"{""0"": 147, ""1"": 130}"
+one_fold_one_task_minimal_smoke,EEG,valence,0.01113418210297823,1.0,0.1233588233590126,False,False,"{""0"": 170, ""1"": 107}"
+supcon_micro_overfit_smoke,EEG,arousal,0.039557088166475296,1.0,1.9457859992980957,False,False,"{""0"": 48, ""1"": 48}"
+shuffled_label_negative_control,EEG,arousal,0.008472065441310406,1.0,0.0785488709807396,False,False,"{""0"": 157, ""1"": 136}"
+one_fold_one_task_minimal_smoke,EEG,arousal,0.01206169743090868,1.0,0.10108117014169693,False,False,"{""0"": 137, ""1"": 156}"
+supcon_micro_overfit_smoke,EMG,valence,0.03753052279353142,1.0,1.8878589868545532,False,False,"{""0"": 48, ""1"": 48}"
+shuffled_label_negative_control,EMG,valence,0.0005788320559076965,1.0,0.006341503467410803,False,False,"{""0"": 151, ""1"": 126}"
+one_fold_one_task_minimal_smoke,EMG,valence,0.0011260445462539792,1.0,0.004916443955153227,False,False,"{""0"": 154, ""1"": 123}"
+supcon_micro_overfit_smoke,EMG,arousal,0.03772585466504097,1.0,1.8861188888549805,False,False,"{""0"": 48, ""1"": 48}"
+shuffled_label_negative_control,EMG,arousal,0.0010217545786872506,1.0,0.008613993413746357,False,False,"{""0"": 139, ""1"": 154}"
+one_fold_one_task_minimal_smoke,EMG,arousal,0.000862187473103404,1.0,0.015567713417112827,False,False,"{""0"": 118, ""1"": 175}"

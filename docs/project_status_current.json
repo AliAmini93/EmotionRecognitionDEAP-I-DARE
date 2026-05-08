@@ -1473,6 +1473,20 @@
       "smoke_tests_authorized": true,
       "status": "objective_created",
       "training_authorized": false
+    },
+    "idare_subject_variability_supcon_dg_smoke_tests_report": {
+      "all_passed": true,
+      "diagnosis": "supcon_dg_smoke_tests_passed_ready_for_minimal_first_pass_objective",
+      "evidence": "docs/idare_subject_variability_supcon_dg_smoke_tests_report.md",
+      "evidence_json": "docs/idare_subject_variability_supcon_dg_smoke_tests_report.json",
+      "outputs": {
+        "embedding_diagnostic_summary_csv": "docs/idare_subject_variability_supcon_dg_embedding_diagnostic_summary.csv",
+        "loss_trace_summary_csv": "docs/idare_subject_variability_supcon_dg_loss_trace_summary.csv",
+        "pair_sampler_audit_csv": "docs/idare_subject_variability_supcon_dg_pair_sampler_audit.csv"
+      },
+      "recommended_next_objective": "minimal_supcon_dg_first_pass_training_objective",
+      "status": "smoke_tests_complete",
+      "training_authorized": false
     }
   },
   "failure_analysis_objective": {

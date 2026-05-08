@@ -1,0 +1,5 @@
+test,modality,task,feature_kind,n_batches,batch_size,avg_positive_pair_coverage,min_positive_pair_coverage,min_subjects_per_batch,bad_batches,passed
+pair_sampler_integrity_smoke,EEG,valence,eeg_channel_mean_std_logvar,20,64,1.0,1.0,35,0,True
+pair_sampler_integrity_smoke,EEG,arousal,eeg_channel_mean_std_logvar,20,64,1.0,1.0,33,0,True
+pair_sampler_integrity_smoke,EMG,valence,emg_signed_log1p,20,64,1.0,1.0,35,0,True
+pair_sampler_integrity_smoke,EMG,arousal,emg_signed_log1p,20,64,1.0,1.0,33,0,True
