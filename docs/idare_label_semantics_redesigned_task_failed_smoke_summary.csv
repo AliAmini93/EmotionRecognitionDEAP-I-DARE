@@ -1,0 +1,2 @@
+smoke_test,passed,evidence,action_if_failed
+future_run_matrix_guard,False,future_run_rows=48; no SupCon/DG/fusion rows=False,fix future matrix before training objective

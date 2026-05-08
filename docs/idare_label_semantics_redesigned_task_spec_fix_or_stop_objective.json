@@ -1,0 +1,56 @@
+{
+  "status": "objective_created",
+  "created_utc": "2026-05-08T11:32:40+00:00",
+  "source_review": "docs/idare_label_semantics_redesigned_task_smoke_tests_review_status.md",
+  "source_smoke_report": "docs/idare_label_semantics_redesigned_task_smoke_tests_report.md",
+  "selected_primary_formulation": "subject_relative_ordinal_affect_regression_v1",
+  "scientific_question": "Why did the redesigned-task smoke tests fail, and should the issue be fixed with a narrow spec/implementation patch or should the redesigned branch be stopped/archived?",
+  "failed_smoke_tests": [
+    "future_run_matrix_guard"
+  ],
+  "authorized_work": [
+    "read the smoke-test decision matrix and all smoke audit CSVs",
+    "identify the exact failed smoke condition(s)",
+    "classify each failure as implementation bug, spec mismatch, data/label degeneracy, or stop/archive trigger",
+    "recommend either one narrow fix objective or a stop/archive closeout",
+    "no training",
+    "no minimal regression run",
+    "no direct full SupCon/DG training",
+    "no broad hyperparameter search"
+  ],
+  "required_inputs": [
+    "docs/idare_label_semantics_redesigned_task_smoke_tests_report.md",
+    "docs/idare_label_semantics_redesigned_task_smoke_tests_report.json",
+    "docs/idare_label_semantics_redesigned_task_smoke_decision_matrix.csv",
+    "docs/idare_label_semantics_redesigned_task_target_audit.csv",
+    "docs/idare_label_semantics_redesigned_task_fold_audit.csv",
+    "docs/idare_label_semantics_redesigned_task_metric_sanity.csv",
+    "docs/idare_label_semantics_redesigned_task_baseline_control_summary.csv",
+    "docs/idare_label_semantics_task_redesign_spec.md",
+    "docs/idare_label_semantics_task_redesign_stop_criteria.csv"
+  ],
+  "expected_outputs": [
+    "docs/idare_label_semantics_redesigned_task_spec_fix_or_stop_report.md",
+    "docs/idare_label_semantics_redesigned_task_spec_fix_or_stop_report.json",
+    "docs/idare_label_semantics_redesigned_task_failed_smoke_diagnosis.csv",
+    "docs/idare_label_semantics_redesigned_task_fix_or_stop_decision_matrix.csv"
+  ],
+  "pass_criteria": [
+    "every failed smoke test has an explicit cause classification",
+    "the recommendation is exactly one of: narrow_fix_objective, stop_archive_objective",
+    "if a fix is recommended, it must be narrow and must not authorize training",
+    "if stop/archive is recommended, no further redesigned-task training is authorized",
+    "direct full SupCon/DG training remains blocked",
+    "broad hyperparameter search remains blocked",
+    "final LOSO claim remains blocked"
+  ],
+  "next_allowed_step": "prepare_reviewed_label_semantics_redesigned_task_spec_fix_or_stop_command",
+  "blocked": [
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "mainline change",
+    "minimal regression training before smoke-fix/stop review"
+  ]
+}
