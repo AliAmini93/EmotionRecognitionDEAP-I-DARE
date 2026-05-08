@@ -264,3 +264,15 @@ Updated: `2026-05-08T10:06:00+00:00`
 - A targeted SupCon/DG pair/sampler ablation design objective is defined in `docs/idare_targeted_supcon_dg_pair_sampler_objective_ablation_design.md`.
 - The first-pass failure is interpreted as evidence that the pair/sampler/objective design needs targeted ablation before any full SupCon/DG training.
 
+## I-DARE Targeted SupCon/DG Pair-Sampler Ablation Objective
+
+Updated: `2026-05-08T10:14:18+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE targeted SupCon/DG pair-sampler design review | human review accepted design; minimal ablation selected | `docs/idare_targeted_supcon_dg_pair_sampler_ablation_design_review_status.md` | Prepare/run guardrailed targeted pair/sampler ablation. | direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim; mainline change |
+| I-DARE targeted SupCon/DG pair-sampler ablation objective | short-term diagnostic ablation objective created; planned rows=120 | `docs/idare_targeted_supcon_dg_pair_sampler_ablation_objective.md` | Prepare/run guardrailed targeted pair/sampler ablation command. | direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim; mainline change |
+
+- The targeted pair/sampler ablation objective is defined in `docs/idare_targeted_supcon_dg_pair_sampler_ablation_objective.md`.
+- The run matrix is fixed in `docs/idare_targeted_supcon_dg_pair_sampler_ablation_run_matrix.csv`; this is not a broad hyperparameter search.
+

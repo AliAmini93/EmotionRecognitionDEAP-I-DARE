@@ -1,0 +1,7 @@
+guardrail_id,required,pass_rule,failure_action
+G1_clean_repo,yes,Repository must be clean before running the training script.,Stop; commit/stash unrelated changes.
+G2_smokes_before_training,yes,"Pair coverage, leakage guard, batch balance, rating-distance audit, micro-overfit, and shuffled-label negative control must pass.",Stop; create smoke-fix objective.
+G3_no_broad_hp_search,yes,Only fixed first-pass hyperparameters from the run matrix are used.,Stop; create separate hyperparameter objective.
+G4_no_full_training_claim,yes,Outputs are diagnostic only and cannot support final LOSO or mainline claims.,Do not update claims; require review closeout.
+G5_candidate_interpretability,yes,Every candidate maps to one mechanistic question from the design matrix.,Remove ambiguous candidate from matrix.
+G6_success_requires_consistency,yes,"A candidate is promising only with consistent task/fold gains, not one isolated fold.",Treat as inconclusive; require confirmation or failure analysis.

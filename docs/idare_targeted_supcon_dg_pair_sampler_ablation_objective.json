@@ -1,0 +1,57 @@
+{
+  "status": "objective_created",
+  "created_utc": "2026-05-08T10:14:18+00:00",
+  "objective": "targeted_supcon_dg_pair_sampler_ablation_objective",
+  "review_input": "docs/idare_targeted_supcon_dg_pair_sampler_ablation_design_review_status.json",
+  "evidence_inputs": [
+    "docs/idare_supcon_dg_failure_analysis_report.json",
+    "docs/idare_minimal_supcon_dg_first_pass_report.json",
+    "docs/idare_targeted_supcon_dg_pair_sampler_objective_ablation_design.json",
+    "docs/idare_targeted_supcon_dg_pair_sampler_ablation_design_matrix.csv",
+    "docs/idare_targeted_supcon_dg_pair_sampler_hyperparameter_registry.csv",
+    "docs/idare_targeted_supcon_dg_pair_sampler_smoke_test_plan.csv",
+    "docs/idare_targeted_supcon_dg_pair_sampler_decision_tree.csv"
+  ],
+  "scientific_question": "Does a targeted pair/sampler definition, especially cross-subject positives or rating-distance-guarded pairs, improve subject-heldout performance compared with CE and VREx controls?",
+  "authorized_scope": [
+    "run required smoke tests before training",
+    "run only the fixed planned candidate matrix",
+    "use subject-heldout folds only",
+    "use fixed hyperparameters",
+    "write runs, predictions, pair audits, loss/embedding summaries, and combined report"
+  ],
+  "not_authorized": [
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "mainline change"
+  ],
+  "planned_run_matrix": "docs/idare_targeted_supcon_dg_pair_sampler_ablation_run_matrix.csv",
+  "planned_run_rows": 120,
+  "selected_candidates": [
+    "A0_CE_control",
+    "A2_cross_subject_positive_only",
+    "A4_rating_distance_guarded_supcon",
+    "A6_vrex_only_recheck",
+    "A5_cross_subject_supcon_vrex"
+  ],
+  "guardrails": "docs/idare_targeted_supcon_dg_pair_sampler_ablation_guardrails.csv",
+  "pass_criteria": [
+    "all required smoke tests pass before training",
+    "all planned diagnostic runs complete or failures are explicitly reported",
+    "run-level metrics and predictions are written",
+    "candidate-level summary compares against CE and prior first-pass best cell",
+    "decision tree is applied to decide next objective",
+    "full training remains blocked pending human review"
+  ],
+  "expected_outputs": [
+    "docs/idare_targeted_supcon_dg_pair_sampler_ablation_report.md",
+    "docs/idare_targeted_supcon_dg_pair_sampler_ablation_report.json",
+    "docs/idare_targeted_supcon_dg_pair_sampler_ablation_runs.csv",
+    "docs/idare_targeted_supcon_dg_pair_sampler_ablation_predictions.csv",
+    "docs/idare_targeted_supcon_dg_pair_sampler_ablation_pair_audit.csv",
+    "docs/idare_targeted_supcon_dg_pair_sampler_ablation_loss_embedding_summary.csv"
+  ],
+  "next_allowed_step": "prepare_and_run_guardrailed_targeted_pair_sampler_ablation_command"
+}

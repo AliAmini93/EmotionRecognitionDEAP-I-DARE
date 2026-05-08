@@ -1,0 +1,24 @@
+{
+  "status": "review_closed",
+  "created_utc": "2026-05-08T10:14:18+00:00",
+  "reviewed_objective": "docs/idare_targeted_supcon_dg_pair_sampler_objective_ablation_design.md",
+  "reviewed_objective_json": "docs/idare_targeted_supcon_dg_pair_sampler_objective_ablation_design.json",
+  "review_decision": "Human review accepted the targeted SupCon/DG pair-sampler design and selected a minimal, guardrailed ablation objective.",
+  "selected_next_objective": "targeted_supcon_dg_pair_sampler_ablation_objective",
+  "planned_run_matrix_rows": 120,
+  "selected_candidates": [
+    "A0_CE_control",
+    "A2_cross_subject_positive_only",
+    "A4_rating_distance_guarded_supcon",
+    "A6_vrex_only_recheck",
+    "A5_cross_subject_supcon_vrex"
+  ],
+  "blocked_until_review": [
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "mainline change"
+  ],
+  "next_allowed_step": "prepare_and_run_guardrailed_targeted_pair_sampler_ablation_command"
+}
