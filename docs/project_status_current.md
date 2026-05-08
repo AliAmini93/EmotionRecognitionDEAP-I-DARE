@@ -237,3 +237,11 @@ Note: DEAP EMG feature rows are sourced from the frozen `docs/deap_emg_feature_o
 ## Documentation Gap Closed by This File
 
 Before this file, the project had strong per-phase status docs but no central status index. This file is the central map that links the proposal, frozen status documents, smoke reports, and next allowed steps.
+
+## I-DARE SupCon/DG Failure Analysis Objective
+
+- Human review of the minimal SupCon/DG first-pass is frozen in `docs/idare_minimal_supcon_dg_first_pass_review_status.md`.
+- A read-only SupCon/DG failure-analysis objective is defined in `docs/idare_supcon_dg_failure_analysis_objective.md`.
+- Next work is to prepare a reviewed read-only failure-analysis command/script.
+- Blocked until review: direct full SupCon/DG training, broad hyperparameter search, EEG+EMG fusion, final LOSO claim, and mainline change.
+
