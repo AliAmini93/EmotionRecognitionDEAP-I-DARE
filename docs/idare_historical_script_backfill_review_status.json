@@ -1,0 +1,26 @@
+{
+  "status": "human_review_accepted",
+  "created_utc": "2026-05-08T14:02:21+00:00",
+  "reviewed_report": "docs/idare_historical_script_backfill_report.md",
+  "accepted_diagnosis": "historical_download_scripts_backfilled_byte_for_byte",
+  "accepted_evidence": {
+    "source_script_count": 71,
+    "copied_script_count": 71,
+    "sha256_validation": true,
+    "any_script_executed": false,
+    "historical_manifest_rows": 71
+  },
+  "decision": "historical_script_backfill_accepted_as_archival_reproducibility_layer",
+  "active_scientific_pause_resolved": true,
+  "next_allowed_step": "run_committed_failure_or_confirmation_analysis_script",
+  "next_allowed_script": "scripts/idare/analysis/run_idare_label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis.py",
+  "training_authorized_by_this_review": false,
+  "blocked": [
+    "executing historical archived scripts as pipeline commands without separate review",
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "mainline change unrelated to the reviewed next analysis"
+  ]
+}

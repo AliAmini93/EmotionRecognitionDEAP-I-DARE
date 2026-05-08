@@ -528,3 +528,14 @@ Updated: `2026-05-08T13:54:10+00:00`
 - Updated manifest: `docs/idare_script_archival_manifest.csv`.
 - Manifest delta: `docs/idare_historical_script_backfill_manifest_delta.csv`.
 
+## I-DARE Historical Script Backfill Review
+
+Updated: `2026-05-08T14:02:21+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE historical script backfill review | human review accepted; 71 historical shell scripts archived with SHA256 provenance; no historical script executed | `docs/idare_historical_script_backfill_review_status.md` | Run committed failure-or-confirmation analysis script: `scripts/idare/analysis/run_idare_label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis.py` | executing historical archived scripts as pipeline commands without separate review; direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim |
+
+- Reproducibility-layer pause is resolved.
+- Active scientific next step is now the committed failure-or-confirmation analysis script, not any `~/Downloads` command.
+
