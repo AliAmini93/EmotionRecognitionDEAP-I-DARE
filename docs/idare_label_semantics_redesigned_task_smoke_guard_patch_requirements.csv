@@ -1,0 +1,6 @@
+requirement_id,requirement,reason,pass_condition
+R1,"Guard must evaluate explicit model/method columns, not free-text notes.",Notes contain negated text such as 'no SupCon/DG or broad search'.,Rows with notes-only negated SupCon/DG do not fail.
+R2,Guard must use token-aware DG detection.,The substring 'dg' appears inside 'ridge_regression_summary_features'.,Ridge baseline rows do not fail the DG guard.
+R3,Actual forbidden future model rows remain blocked.,"SupCon, VREx, domain-generalization, fusion, or contrastive model rows must still fail before authorization.",Explicit forbidden model names in model/method columns fail the guard.
+R4,Patch must rerun the same smoke tests after guard correction.,A narrow patch is not sufficient unless the smoke report is regenerated.,all_passed=True or any new failure is explicitly reported.
+R5,Patch must not authorize training.,Training can only follow patched smoke-test review.,No training outputs are produced by the patch objective.

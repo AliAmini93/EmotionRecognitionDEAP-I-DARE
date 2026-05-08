@@ -426,3 +426,15 @@ Updated: `2026-05-08T11:42:58+00:00`
 - Recommended next objective is `label_semantics_redesigned_task_stop_archive_objective` only after human review/closeout.
 - Training remains blocked.
 
+## I-DARE Redesigned-Task Smoke-Guard Patch Objective
+
+Updated: `2026-05-08T12:01:45+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE redesigned-task spec-fix-or-stop manual review | prior stop/archive recommendation superseded for this smoke-guard failure; diagnosis=`future_run_matrix_guard_false_positive_from_notes_and_ridge_token` | `docs/idare_label_semantics_redesigned_task_spec_fix_or_stop_manual_review_status.md` | Create/use narrow smoke-guard patch objective. | direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim; mainline change |
+| I-DARE redesigned-task smoke-guard patch objective | narrow patch objective created; no training authorized | `docs/idare_label_semantics_redesigned_task_smoke_guard_patch_objective.md` | Prepare reviewed smoke-guard patch command/script. | direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim; mainline change |
+
+- Manual future-matrix audit found zero actual forbidden model rows.
+- Training remains blocked until patched smoke tests pass and are reviewed.
+

@@ -1,0 +1,7 @@
+check,finding,expected,passed,interpretation
+future_run_matrix_rows,48,48,True,The planned matrix has the expected 48 minimal rows.
+authorized_now_all_no,True,True,True,"The matrix is a future plan, not an immediate training authorization."
+unique_model_values,mean_baseline_no_training;ridge_regression_summary_features,mean_baseline_no_training;ridge_regression_summary_features,True,Model column contains only no-training mean baseline and ridge summary-feature baseline.
+actual_forbidden_model_rows,0,0,True,"No actual model/method row requests SupCon, DG, VREx, fusion, or contrastive learning."
+notes_mentions_supcon_dg,48,allowed only as negative guardrail prose,True,"SupCon/DG appears in notes only as 'no SupCon/DG or broad search', so it should not fail the guard."
+ridge_rows,24,24,True,Ridge rows are allowed baseline rows; the substring 'dg' inside 'ridge' must not be interpreted as DG.

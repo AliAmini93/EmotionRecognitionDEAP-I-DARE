@@ -1,0 +1,30 @@
+{
+  "status": "human_review_supersedes_prior_stop_archive_recommendation",
+  "created_utc": "2026-05-08T12:01:45+00:00",
+  "reviewed_report": "docs/idare_label_semantics_redesigned_task_spec_fix_or_stop_report.md",
+  "prior_report_conclusion": {
+    "diagnosis": "redesigned_task_smoke_failure_not_yet_fixable",
+    "recommendation": "stop_archive_objective",
+    "recommended_next_objective": "label_semantics_redesigned_task_stop_archive_objective"
+  },
+  "manual_audit_file": "docs/idare_label_semantics_redesigned_task_future_matrix_manual_audit.csv",
+  "selected_primary_formulation": "subject_relative_ordinal_affect_regression_v1",
+  "manual_audit_diagnosis": "future_run_matrix_guard_false_positive_from_notes_and_ridge_token",
+  "manual_review_decision": "do_not_stop_archive_yet_create_narrow_smoke_guard_patch_objective",
+  "rationale": [
+    "future matrix model column contains only mean_baseline_no_training and ridge_regression_summary_features",
+    "SupCon/DG appears only in notes as a negative guardrail phrase",
+    "ridge rows are valid baseline rows and must not be interpreted as DG",
+    "there are zero actual forbidden model rows"
+  ],
+  "training_authorized": false,
+  "next_selected_step": "label_semantics_redesigned_task_smoke_guard_patch_objective",
+  "blocked": [
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "mainline change",
+    "minimal regression training before patched smoke-test review"
+  ]
+}

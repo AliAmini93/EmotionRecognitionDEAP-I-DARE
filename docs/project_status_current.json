@@ -8035,7 +8035,7 @@
     "next_step": "human_review_closeout_of_supcon_dg_failure_analysis",
     "updated_at_utc": "2026-05-08T09:59:59+00:00"
   },
-  "last_updated_utc": "2026-05-08T11:42:58+00:00",
+  "last_updated_utc": "2026-05-08T12:01:45+00:00",
   "idare_protocol_events": [
     {
       "timestamp_utc": "2026-05-08T10:06:00+00:00",
@@ -8399,9 +8399,41 @@
         "mainline change",
         "minimal regression training before patched smoke-test review"
       ]
+    },
+    {
+      "timestamp_utc": "2026-05-08T12:01:45+00:00",
+      "type": "manual_review",
+      "name": "I-DARE redesigned-task spec-fix-or-stop manual review",
+      "status": "prior stop/archive superseded; diagnosis=future_run_matrix_guard_false_positive_from_notes_and_ridge_token",
+      "evidence": "docs/idare_label_semantics_redesigned_task_spec_fix_or_stop_manual_review_status.md",
+      "next_allowed_step": "create/use narrow smoke-guard patch objective",
+      "blocked": [
+        "direct full SupCon/DG training",
+        "broad hyperparameter search",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "mainline change",
+        "minimal regression training before patched smoke-test review"
+      ]
+    },
+    {
+      "timestamp_utc": "2026-05-08T12:01:45+00:00",
+      "type": "objective",
+      "name": "I-DARE redesigned-task smoke-guard patch objective",
+      "status": "objective created; narrow guard patch only; no training authorized",
+      "evidence": "docs/idare_label_semantics_redesigned_task_smoke_guard_patch_objective.md",
+      "next_allowed_step": "prepare reviewed smoke-guard patch command",
+      "blocked": [
+        "direct full SupCon/DG training",
+        "broad hyperparameter search",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "mainline change",
+        "minimal regression training before patched smoke-test review"
+      ]
     }
   ],
-  "current_idare_next_allowed_step": "human_review_closeout_then_stop_archive",
+  "current_idare_next_allowed_step": "prepare_reviewed_label_semantics_redesigned_task_smoke_guard_patch_command",
   "current_idare_blocked_steps": [
     "direct full SupCon/DG training",
     "broad hyperparameter search",

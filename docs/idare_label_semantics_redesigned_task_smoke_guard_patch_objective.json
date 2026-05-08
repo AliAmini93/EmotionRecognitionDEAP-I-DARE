@@ -1,0 +1,53 @@
+{
+  "status": "objective_created",
+  "created_utc": "2026-05-08T12:01:45+00:00",
+  "source_manual_review": "docs/idare_label_semantics_redesigned_task_spec_fix_or_stop_manual_review_status.md",
+  "source_future_matrix": "docs/idare_label_semantics_task_redesign_future_run_matrix.csv",
+  "source_prior_report": "docs/idare_label_semantics_redesigned_task_spec_fix_or_stop_report.md",
+  "selected_primary_formulation": "subject_relative_ordinal_affect_regression_v1",
+  "scientific_question": "Can the redesigned-task smoke future-run guard be patched narrowly so that it blocks actual SupCon/DG/fusion/broad-search rows without failing on negated notes or the substring 'dg' inside 'ridge'?",
+  "manual_audit_diagnosis": "future_run_matrix_guard_false_positive_from_notes_and_ridge_token",
+  "authorized_work": [
+    "patch only the future_run_matrix_guard logic in the smoke-test script/command",
+    "evaluate forbidden methods only from explicit model/method columns",
+    "use token-aware matching for DG/domain-generalization",
+    "treat notes as explanatory metadata unless an explicit authorization field says otherwise",
+    "rerun the same redesigned-task smoke tests",
+    "write a patched smoke-test report",
+    "do not run minimal regression training",
+    "do not run SupCon/DG training",
+    "do not run broad hyperparameter search"
+  ],
+  "required_inputs": [
+    "docs/idare_label_semantics_redesigned_task_smoke_tests_report.md",
+    "docs/idare_label_semantics_redesigned_task_smoke_tests_report.json",
+    "docs/idare_label_semantics_task_redesign_future_run_matrix.csv",
+    "docs/idare_label_semantics_redesigned_task_future_matrix_manual_audit.csv",
+    "docs/idare_label_semantics_redesigned_task_smoke_guard_patch_requirements.csv"
+  ],
+  "expected_outputs": [
+    "docs/idare_label_semantics_redesigned_task_smoke_guard_patch_report.md",
+    "docs/idare_label_semantics_redesigned_task_smoke_guard_patch_report.json",
+    "docs/idare_label_semantics_redesigned_task_smoke_guard_audit.csv",
+    "updated docs/idare_label_semantics_redesigned_task_smoke_tests_report.md",
+    "updated docs/idare_label_semantics_redesigned_task_smoke_tests_report.json"
+  ],
+  "pass_criteria": [
+    "future matrix guard passes for the current mean/ridge-only matrix",
+    "actual forbidden model rows would still fail the guard",
+    "all other smoke tests are rerun and reported",
+    "training remains blocked unless patched smoke report passes and is reviewed",
+    "direct full SupCon/DG training remains blocked",
+    "broad hyperparameter search remains blocked",
+    "final LOSO claim remains blocked"
+  ],
+  "next_allowed_step": "prepare_reviewed_label_semantics_redesigned_task_smoke_guard_patch_command",
+  "blocked": [
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "mainline change",
+    "minimal regression training before patched smoke-test review"
+  ]
+}
