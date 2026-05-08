@@ -1,0 +1,10 @@
+input_id,path,role,required
+I1,docs/idare_label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis_report.json,source diagnosis and key indicators,yes
+I2,docs/idare_label_semantics_minimal_redesigned_task_cell_decision_matrix.csv,cell-level weak-signal and metric-conflict decisions,yes
+I3,docs/idare_label_semantics_minimal_redesigned_task_fold_instability_audit.csv,fold instability and fold contribution evidence,yes
+I4,docs/idare_label_semantics_minimal_redesigned_task_metric_conflict_audit.csv,metric conflict evidence,yes
+I5,docs/idare_label_semantics_minimal_redesigned_task_subject_error_audit.csv,subject error concentration evidence,yes
+I6,docs/idare_label_semantics_minimal_redesigned_task_first_pass_runs.csv,raw first-pass run metrics; no rerun or retraining,yes
+I7,docs/idare_label_semantics_minimal_redesigned_task_first_pass_metric_summary.csv,first-pass metric summary,yes
+I8,docs/idare_label_semantics_minimal_redesigned_task_first_pass_subject_error_summary.csv,first-pass subject error table,yes
+I9,docs/idare_label_semantics_task_redesign_metric_plan.csv,locked intended metric interpretation,yes

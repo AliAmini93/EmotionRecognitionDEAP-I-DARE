@@ -1,0 +1,6 @@
+outcome,criteria,next_objective,allowed
+stable_rank_signal_metric_scale_problem,"Spearman and q33 agree across folds, but MAE/RMSE worsen mainly due to target scale or baseline-centering artifact",metric_plan_patch_or_confirmation_objective,only after human review
+fold_or_subject_artifact,Weak signal is concentrated in a small number of folds or subjects,fold_subject_artifact_analysis_or_stop_objective,only after human review
+no_metric_support,"Spearman, q33, MAE/RMSE, and subject audits do not support the redesigned task",redesigned_task_archive_or_alternative_formulation_objective,only after human review
+ambiguous_due_to_metric_definition,The conflict is caused by unclear metric definitions or inconsistent rank-percentile interpretation,metric_definition_patch_and_rerun_read_only_report_objective,only after human review
+confirmable_minimal_signal,Multiple independent metrics support a small but stable effect and no strong subject/fold artifact is found,minimal_redesigned_task_confirmation_objective,only after human review

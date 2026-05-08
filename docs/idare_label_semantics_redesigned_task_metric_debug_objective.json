@@ -1,0 +1,50 @@
+{
+  "status": "objective_created",
+  "created_utc": "2026-05-08T15:03:47+00:00",
+  "source_review": "docs/idare_label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis_review_status.md",
+  "source_report": "docs/idare_label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis_report.md",
+  "accepted_diagnosis": "minimal_redesigned_task_weak_rank_signal_metric_conflict",
+  "scientific_question": "Why does the minimal redesigned-task first pass show weak positive rank signal while MAE/RMSE worsen against the mean baseline?",
+  "authorized_work": [
+    "Read existing committed CSV/JSON outputs only",
+    "Debug metric conflict across Spearman, MAE, RMSE, q33 balanced accuracy, fold stability, and subject errors",
+    "Produce a decision matrix that selects confirmation, metric-plan patch, redesign/archive, or another read-only analysis"
+  ],
+  "not_authorized": [
+    "new training",
+    "task redesign",
+    "stop/archive decision",
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "mainline change unrelated to metric-debug analysis"
+  ],
+  "required_inputs": [
+    "docs/idare_label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis_report.json",
+    "docs/idare_label_semantics_minimal_redesigned_task_cell_decision_matrix.csv",
+    "docs/idare_label_semantics_minimal_redesigned_task_fold_instability_audit.csv",
+    "docs/idare_label_semantics_minimal_redesigned_task_subject_error_audit.csv",
+    "docs/idare_label_semantics_minimal_redesigned_task_metric_conflict_audit.csv",
+    "docs/idare_label_semantics_minimal_redesigned_task_first_pass_runs.csv",
+    "docs/idare_label_semantics_minimal_redesigned_task_first_pass_metric_summary.csv",
+    "docs/idare_label_semantics_minimal_redesigned_task_first_pass_subject_error_summary.csv",
+    "docs/idare_label_semantics_task_redesign_metric_plan.csv"
+  ],
+  "expected_outputs": [
+    "docs/idare_label_semantics_redesigned_task_metric_debug_report.md",
+    "docs/idare_label_semantics_redesigned_task_metric_debug_report.json",
+    "docs/idare_label_semantics_redesigned_task_metric_debug_fold_signal.csv",
+    "docs/idare_label_semantics_redesigned_task_metric_debug_metric_decomposition.csv",
+    "docs/idare_label_semantics_redesigned_task_metric_debug_subject_concentration.csv",
+    "docs/idare_label_semantics_redesigned_task_metric_debug_decision_matrix.csv"
+  ],
+  "pass_criteria": [
+    "No new training is run",
+    "All conclusions are derived from committed first-pass and failure/confirmation analysis outputs",
+    "Metric conflict is decomposed into rank stability, absolute-error behavior, q33 agreement, fold/subject concentration, and metric definition issues",
+    "Exactly one recommended next objective is produced"
+  ],
+  "next_allowed_step": "prepare_reviewed_label_semantics_redesigned_task_metric_debug_command",
+  "training_authorized": false
+}

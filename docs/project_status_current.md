@@ -550,3 +550,15 @@ Updated: `2026-05-08T14:58:31+00:00`
 - Decision reason: The best cell has weak positive rank signal but worsens MAE/RMSE against mean baseline.
 - Recommended next objective is `label_semantics_redesigned_task_metric_debug_objective` only after human review/closeout.
 
+## I-DARE Redesigned-Task Metric-Debug Objective
+
+Updated: `2026-05-08T15:03:47+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE minimal redesigned-task failure-or-confirmation analysis review | human review accepted; diagnosis=`minimal_redesigned_task_weak_rank_signal_metric_conflict` | `docs/idare_label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis_review_status.md` | Create/use metric-debug objective. | new training; task redesign; stop/archive decision; direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim |
+| I-DARE redesigned-task metric-debug objective | read-only objective created; no training authorized | `docs/idare_label_semantics_redesigned_task_metric_debug_objective.md` | Prepare reviewed metric-debug command/script. | new training; task redesign; stop/archive decision; direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim |
+
+- The next scientific task is to debug the metric conflict: weak Spearman/q33 signal versus worse MAE/RMSE.
+- No confirmation, redesign, or archive decision is allowed before the metric-debug report.
+

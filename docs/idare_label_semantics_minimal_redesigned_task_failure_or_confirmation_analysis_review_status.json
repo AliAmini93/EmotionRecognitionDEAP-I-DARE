@@ -1,0 +1,35 @@
+{
+  "status": "human_review_accepted",
+  "created_utc": "2026-05-08T15:03:47+00:00",
+  "reviewed_report": "docs/idare_label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis_report.md",
+  "accepted_diagnosis": "minimal_redesigned_task_weak_rank_signal_metric_conflict",
+  "accepted_recommended_next_objective": "label_semantics_redesigned_task_metric_debug_objective",
+  "decision": "metric_conflict_requires_read_only_debug_before_training_redesign_or_stop",
+  "accepted_key_indicators": {
+    "n_runs": 48,
+    "n_predictions": 16128,
+    "n_confirmable_cells": 0,
+    "n_weak_signal_cells": 2,
+    "n_metric_conflict_cells": 2,
+    "best_modality": "EMG",
+    "best_task": "valence",
+    "best_mean_spearman_rho": 0.019171068580299766,
+    "best_mean_mae": 0.27383986981751823,
+    "best_mean_baseline_mae": 0.2524529569892473,
+    "best_mean_rmse": 0.3726750009621769,
+    "best_mean_baseline_rmse": 0.29255926858015163,
+    "best_mean_q33_bal_acc": 0.5070515450953589
+  },
+  "training_authorized_by_this_review": false,
+  "next_allowed_step": "prepare_reviewed_label_semantics_redesigned_task_metric_debug_command",
+  "blocked": [
+    "new training",
+    "task redesign",
+    "stop/archive decision",
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "mainline change unrelated to metric-debug analysis"
+  ]
+}
