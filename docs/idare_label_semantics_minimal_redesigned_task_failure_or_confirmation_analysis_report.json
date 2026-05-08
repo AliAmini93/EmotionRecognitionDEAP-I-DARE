@@ -1,0 +1,47 @@
+{
+  "status": "complete_pending_human_review",
+  "created_utc": "2026-05-08T14:58:31+00:00",
+  "objective": "docs/idare_label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis_objective.md",
+  "source_first_pass_report": "docs/idare_label_semantics_minimal_redesigned_task_first_pass_report.json",
+  "diagnosis": "minimal_redesigned_task_weak_rank_signal_metric_conflict",
+  "recommended_next_objective": "label_semantics_redesigned_task_metric_debug_objective",
+  "decision_reason": "The best cell has weak positive rank signal but worsens MAE/RMSE against mean baseline.",
+  "key_indicators": {
+    "n_runs": 48,
+    "n_predictions": 16128,
+    "n_metric_summary_rows": 8,
+    "n_subject_error_rows": 504,
+    "best_cell": {
+      "modality": "EMG",
+      "task": "valence",
+      "n_folds": 6,
+      "mean_spearman_rho": 0.019171068580299766,
+      "std_spearman_rho": 0.03301458499729674,
+      "min_spearman_rho": -0.0221867884868809,
+      "max_spearman_rho": 0.0703934891849777,
+      "folds_positive_spearman": 4,
+      "folds_over_010_spearman": 0,
+      "folds_under_000_spearman": 2,
+      "mean_mae": 0.27383986981751823,
+      "mean_rmse": 0.3726750009621769,
+      "mean_baseline_mae": 0.2524529569892473,
+      "mean_baseline_rmse": 0.29255926858015163,
+      "delta_vs_mean_baseline_mae_positive_is_better": -0.021386912828270932,
+      "delta_vs_mean_baseline_rmse_positive_is_better": -0.0801157323820253,
+      "mean_q33_bal_acc": 0.5070515450953589,
+      "mean_permutation_control_spearman": 0.0033614784728453174,
+      "decision": "weak_signal_metric_conflict",
+      "reason": "Spearman is weakly positive, but MAE/RMSE do not improve over mean baseline"
+    },
+    "n_confirmable_cells": 0,
+    "n_weak_signal_cells": 2,
+    "n_metric_conflict_cells": 2
+  },
+  "outputs": {
+    "cell_decision_matrix": "docs/idare_label_semantics_minimal_redesigned_task_cell_decision_matrix.csv",
+    "fold_instability_audit": "docs/idare_label_semantics_minimal_redesigned_task_fold_instability_audit.csv",
+    "subject_error_audit": "docs/idare_label_semantics_minimal_redesigned_task_subject_error_audit.csv",
+    "metric_conflict_audit": "docs/idare_label_semantics_minimal_redesigned_task_metric_conflict_audit.csv"
+  },
+  "training_authorized": false
+}

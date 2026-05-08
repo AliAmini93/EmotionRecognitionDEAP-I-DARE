@@ -539,3 +539,14 @@ Updated: `2026-05-08T14:02:21+00:00`
 - Reproducibility-layer pause is resolved.
 - Active scientific next step is now the committed failure-or-confirmation analysis script, not any `~/Downloads` command.
 
+## I-DARE Minimal Redesigned-Task Failure-or-Confirmation Analysis Report
+
+Updated: `2026-05-08T14:58:31+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE minimal redesigned-task failure-or-confirmation analysis report | complete pending human review; diagnosis=`minimal_redesigned_task_weak_rank_signal_metric_conflict` | `docs/idare_label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis_report.md` | Human review / closeout before `label_semantics_redesigned_task_metric_debug_objective`. | direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim; mainline change |
+
+- Decision reason: The best cell has weak positive rank signal but worsens MAE/RMSE against mean baseline.
+- Recommended next objective is `label_semantics_redesigned_task_metric_debug_objective` only after human review/closeout.
+

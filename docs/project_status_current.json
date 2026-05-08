@@ -8035,7 +8035,7 @@
     "next_step": "human_review_closeout_of_supcon_dg_failure_analysis",
     "updated_at_utc": "2026-05-08T09:59:59+00:00"
   },
-  "last_updated_utc": "2026-05-08T14:02:21+00:00",
+  "last_updated_utc": "2026-05-08T14:58:31+00:00",
   "idare_protocol_events": [
     {
       "timestamp_utc": "2026-05-08T10:06:00+00:00",
@@ -8621,16 +8621,34 @@
         "final LOSO claim",
         "mainline change unrelated to the reviewed next analysis"
       ]
+    },
+    {
+      "timestamp_utc": "2026-05-08T14:58:31+00:00",
+      "type": "analysis_report",
+      "name": "I-DARE minimal redesigned-task failure-or-confirmation analysis report",
+      "status": "complete pending human review; diagnosis=minimal_redesigned_task_weak_rank_signal_metric_conflict",
+      "evidence": "docs/idare_label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis_report.md",
+      "next_allowed_step": "Human review / closeout before label_semantics_redesigned_task_metric_debug_objective.",
+      "blocked": [
+        "direct full SupCon/DG training",
+        "broad hyperparameter search",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "mainline change",
+        "deep neural training for redesigned task",
+        "unregistered feature engineering"
+      ]
     }
   ],
-  "current_idare_next_allowed_step": "run_committed_failure_or_confirmation_analysis_script",
+  "current_idare_next_allowed_step": "human_review_closeout_then_create_label_semantics_redesigned_task_metric_debug_objective",
   "current_idare_blocked_steps": [
-    "executing historical archived scripts as pipeline commands without separate review",
     "direct full SupCon/DG training",
     "broad hyperparameter search",
     "EEG+EMG fusion",
     "final LOSO claim",
-    "mainline change unrelated to the reviewed next analysis"
+    "mainline change",
+    "deep neural training for redesigned task",
+    "unregistered feature engineering"
   ],
   "idare_historical_script_backfill_objective": {
     "status": "objective_created_no_backfill_copy_yet",

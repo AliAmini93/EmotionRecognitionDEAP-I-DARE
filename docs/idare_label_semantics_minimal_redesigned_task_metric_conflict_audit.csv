@@ -1,0 +1,5 @@
+modality,task,mean_spearman_rho,delta_mae_positive_is_better,delta_rmse_positive_is_better,mean_q33_bal_acc,mean_permutation_control_spearman,metric_conflict_flags,confirmability
+EEG,valence,-0.010522113541458251,-0.020680536072404665,-0.03306754128155209,0.5016693297244023,-0.011130770077244034,no_positive_rank_signal,not_confirmable
+EMG,arousal,-0.0197887940153521,-0.0037260145154925928,-0.006542318312283579,0.47747942486010814,0.009338060991177568,no_positive_rank_signal;q33_not_strict_chance,not_confirmable
+EMG,valence,0.019171068580299766,-0.021386912828270932,-0.0801157323820253,0.5070515450953589,0.0033614784728453174,positive_spearman_but_mae_worse;positive_spearman_but_rmse_worse,weak_signal_metric_conflict
+EEG,arousal,0.006946207794990916,-0.015202638436321969,-0.028743806947596706,0.5048829233537683,0.008219972097111684,positive_spearman_but_mae_worse;positive_spearman_but_rmse_worse,weak_signal_metric_conflict

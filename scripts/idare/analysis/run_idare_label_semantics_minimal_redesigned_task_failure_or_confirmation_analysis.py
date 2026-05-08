@@ -103,13 +103,23 @@ def require_inputs() -> None:
 
 
 def normalize_columns(df: pd.DataFrame) -> pd.DataFrame:
-    rename = {}
-    if "accuracy" in df.columns and "acc" not in df.columns:
-        rename["accuracy"] = "acc"
-    if "mean_top_bottom_q33_balanced_accuracy" in df.columns and "mean_q33_bal_acc" not in df.columns:
-        rename["mean_top_bottom_q33_balanced_accuracy"] = "mean_q33_bal_acc"
-    if "q33_bal_acc" in df.columns and "top_bottom_q33_balanced_accuracy" not in df.columns:
-        rename["q33_bal_acc"] = "top_bottom_q33_balanced_accuracy"
+    # Normalize committed CSV schema variants used by redesigned-task outputs.
+    # The source CSV keeps rank-percentile names; downstream analysis uses
+    # generic mae/rmse/q33 names. Do not rewrite source CSVs.
+    rename: dict[str, str] = {}
+
+    alias_pairs = [
+        ("accuracy", "acc"),
+        ("mae_rank_percentile", "mae"),
+        ("rmse_rank_percentile", "rmse"),
+        ("top_bottom_q33_balanced_accuracy", "q33_bal_acc"),
+        ("mean_top_bottom_q33_balanced_accuracy", "mean_q33_bal_acc"),
+    ]
+
+    for source, target in alias_pairs:
+        if source in df.columns and target not in df.columns:
+            rename[source] = target
+
     return df.rename(columns=rename)
 
 
@@ -405,7 +415,7 @@ def main() -> None:
     if first_report.get("diagnosis") != "minimal_redesigned_task_first_pass_mixed_signal":
         raise SystemExit("ERROR: first-pass diagnosis does not match expected mixed signal")
 
-    runs = pd.read_csv(RUNS_CSV)
+    runs = normalize_columns(pd.read_csv(RUNS_CSV))
     # Confirm predictions are readable and row count is available; no need to hold full contents longer than needed.
     n_predictions = sum(1 for _ in open(PREDICTIONS_CSV, "r", encoding="utf-8")) - 1
     metric = pd.read_csv(METRIC_SUMMARY_CSV)
