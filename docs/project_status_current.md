@@ -562,3 +562,14 @@ Updated: `2026-05-08T15:03:47+00:00`
 - The next scientific task is to debug the metric conflict: weak Spearman/q33 signal versus worse MAE/RMSE.
 - No confirmation, redesign, or archive decision is allowed before the metric-debug report.
 
+## I-DARE Redesigned-Task Metric-Debug Report
+
+Updated: `2026-05-08T15:09:20+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE redesigned-task metric-debug report | complete pending human review; diagnosis=`redesigned_task_metric_debug_no_actionable_signal` | `docs/idare_label_semantics_redesigned_task_metric_debug_report.md` | Human review / closeout before archive, metric-patch, confirmation, or alternative-formulation objective. | new training; task redesign; stop/archive implementation; direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim |
+
+- Recommended next objective: `label_semantics_redesigned_task_archive_or_alternative_formulation_objective` only after human review/closeout.
+- Decision reason: The best rank signal is far below a practical threshold, q33 separation remains near chance, and no cell improves MAE/RMSE over the mean baseline.
+

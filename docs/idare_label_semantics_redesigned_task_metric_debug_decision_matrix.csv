@@ -1,0 +1,6 @@
+decision_option,pass,evidence,interpretation
+minimal_redesigned_task_confirmation,False,max_mean_spearman=0.0192; cells_q33_over_055=0; cells_mae_improved=0; cells_rmse_improved=0,Not supported unless rank and absolute-error metrics agree.
+metric_definition_patch,True,metric_conflict_cells=2; max_mean_spearman=0.0192; max_q33=0.5071,Possible but weak: the rank signal is too small to justify metric-plan patch alone.
+fold_or_subject_artifact_analysis,True,min_folds_positive=1; max_folds_under_zero=5,"Some instability exists, but the larger issue is weak/no actionable metric support."
+archive_or_alternative_formulation,True,max_mean_spearman=0.0192; cells_q33_over_055=0; cells_mae_improved=0; cells_rmse_improved=0,Supported: weak rank signal does not translate into actionable separation or absolute-error improvement.
+ambiguous_metric_definition_rerun_read_only,False,confirm_pass=False; no_support_pass=True,Use only if the debug cannot select confirmation or no-support.

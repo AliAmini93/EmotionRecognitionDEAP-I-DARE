@@ -1,0 +1,46 @@
+{
+  "status": "complete_pending_human_review",
+  "created_utc": "2026-05-08T15:09:20+00:00",
+  "source_objective": "docs/idare_label_semantics_redesigned_task_metric_debug_objective.json",
+  "source_report": "docs/idare_label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis_report.json",
+  "diagnosis": "redesigned_task_metric_debug_no_actionable_signal",
+  "recommendation": "archive_or_alternative_formulation_after_review",
+  "recommended_next_objective": "label_semantics_redesigned_task_archive_or_alternative_formulation_objective",
+  "decision_reason": "The best rank signal is far below a practical threshold, q33 separation remains near chance, and no cell improves MAE/RMSE over the mean baseline.",
+  "training_authorized": false,
+  "key_indicators": {
+    "n_cells": 4,
+    "max_mean_spearman_rho": 0.019171068580299766,
+    "max_mean_q33_bal_acc": 0.5070515450953589,
+    "n_cells_mean_spearman_over_010": 0,
+    "n_cells_q33_over_055": 0,
+    "n_cells_mae_improved_vs_baseline": 0,
+    "n_cells_rmse_improved_vs_baseline": 0,
+    "n_metric_conflict_cells": 2,
+    "n_no_support_cells": 2,
+    "best_cell_by_spearman": {
+      "modality": "EMG",
+      "task": "valence",
+      "n_folds": 6,
+      "mean_spearman_rho": 0.019171068580299766,
+      "mean_permutation_control_spearman": 0.0033614784728453174,
+      "delta_vs_permutation_spearman": 0.01580959010745445,
+      "mean_q33_bal_acc": 0.5070515450953589,
+      "mean_mae": 0.27383986981751823,
+      "mean_baseline_mae": 0.2524529569892473,
+      "delta_mae_positive_is_better": -0.021386912828270932,
+      "mean_rmse": 0.3726750009621769,
+      "mean_baseline_rmse": 0.29255926858015163,
+      "delta_rmse_positive_is_better": -0.0801157323820253,
+      "metric_conflict_type": "rank_signal_absolute_error_conflict",
+      "metric_debug_interpretation": "Spearman is weakly positive but does not overcome worse rank-percentile MAE/RMSE."
+    }
+  },
+  "outputs": {
+    "fold_signal": "docs/idare_label_semantics_redesigned_task_metric_debug_fold_signal.csv",
+    "metric_decomposition": "docs/idare_label_semantics_redesigned_task_metric_debug_metric_decomposition.csv",
+    "subject_concentration": "docs/idare_label_semantics_redesigned_task_metric_debug_subject_concentration.csv",
+    "decision_matrix": "docs/idare_label_semantics_redesigned_task_metric_debug_decision_matrix.csv"
+  },
+  "next_allowed_step": "human_review_closeout_before_archive_patch_confirmation_or_redesign"
+}
