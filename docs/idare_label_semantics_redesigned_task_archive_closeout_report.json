@@ -1,0 +1,22 @@
+{
+  "status": "complete_pending_human_review",
+  "created_utc": "2026-05-08T15:27:24+00:00",
+  "source_objective": "docs/idare_label_semantics_redesigned_task_archive_closeout_objective.json",
+  "source_review": "docs/idare_label_semantics_redesigned_task_archive_or_alternative_formulation_report_review_status.json",
+  "diagnosis": "redesigned_task_branch_archived_as_negative_result",
+  "decision": "archive_closeout_complete_for_subject_relative_ordinal_affect_regression_v1",
+  "recommendation": "optional_alternative_formulation_design_spec_after_review",
+  "recommended_next_objective": "label_semantics_alternative_formulation_design_spec_objective",
+  "decision_reason": "The current redesigned task branch is formally archived as a negative result; any continuation must start from a separate alternative-formulation design/spec objective, not more training.",
+  "archived_formulation": "subject_relative_ordinal_affect_regression_v1",
+  "training_authorized": false,
+  "current_branch_training_blocked": true,
+  "alternative_training_authorized": false,
+  "alternative_spec_allowed_after_review": true,
+  "outputs": {
+    "archive_manifest": "docs/idare_label_semantics_redesigned_task_archive_manifest.csv",
+    "archive_status": "docs/idare_label_semantics_redesigned_task_archive_status.csv",
+    "next_options_after_archive": "docs/idare_label_semantics_redesigned_task_next_options_after_archive.csv"
+  },
+  "next_allowed_step": "human_review_closeout_before_alternative_formulation_or_stop_line_objective"
+}

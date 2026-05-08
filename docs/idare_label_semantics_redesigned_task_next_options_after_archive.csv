@@ -1,0 +1,5 @@
+option_id,option,status_after_archive,recommended,next_objective,constraints
+NEXT_OPTION_001,alternative_formulation_design_spec,allowed_after_human_review,yes_conditional,label_semantics_alternative_formulation_design_spec_objective,design/spec only; no training; must address archived failure mechanism
+NEXT_OPTION_002,stop_label_semantics_line,allowed_after_human_review,acceptable,idare_label_semantics_stop_line_closeout_objective,preserve evidence and document that no alternative will be pursued now
+NEXT_OPTION_003,continue_current_redesigned_task_training,blocked,no,not_allowed,archived branch cannot receive more training/model search
+NEXT_OPTION_004,return_to_supcon_dg_or_broad_search,blocked,no,not_allowed,"bottleneck is task/label semantics, not model capacity"

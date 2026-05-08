@@ -608,3 +608,14 @@ Updated: `2026-05-08T15:23:41+00:00`
 - Current formulation selected for archive closeout: `subject_relative_ordinal_affect_regression_v1`.
 - Alternative formulation remains blocked until archive closeout review and a separate design/spec objective.
 
+## I-DARE Redesigned-Task Archive Closeout Report
+
+Updated: `2026-05-08T15:27:24+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE redesigned-task archive closeout report | complete pending human review; diagnosis=`redesigned_task_branch_archived_as_negative_result` | `docs/idare_label_semantics_redesigned_task_archive_closeout_report.md` | Human review / closeout before alternative-formulation design/spec or stop-line objective. | new training on archived formulation; model search on archived formulation; SupCon/DG; broad search; fusion; final LOSO claim |
+
+- Archived formulation: `subject_relative_ordinal_affect_regression_v1`.
+- Recommended next objective after review: `label_semantics_alternative_formulation_design_spec_objective` if continuing; otherwise stop-line closeout.
+
