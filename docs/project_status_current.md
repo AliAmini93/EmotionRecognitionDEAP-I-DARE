@@ -461,3 +461,14 @@ Updated: `2026-05-08T12:08:54+00:00`
 - Frozen first-pass run matrix: `docs/idare_label_semantics_minimal_redesigned_task_first_pass_run_matrix.csv`.
 - Training remains limited to the authorized minimal matrix; broad search remains blocked.
 
+## I-DARE Minimal Redesigned-Task First-Pass Report
+
+Updated: `2026-05-08T12:17:50+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE minimal redesigned-task first-pass report | complete pending human review; diagnosis=`minimal_redesigned_task_first_pass_mixed_signal` | `docs/idare_label_semantics_minimal_redesigned_task_first_pass_report.md` | Human review / closeout before next objective. | direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim; mainline change |
+
+- Frozen 48-row minimal first-pass matrix was executed.
+- Recommended next objective is `label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis_objective` only after human review.
+

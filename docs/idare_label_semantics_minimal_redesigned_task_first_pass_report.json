@@ -1,0 +1,75 @@
+{
+  "status": "complete_pending_human_review",
+  "created_utc": "2026-05-08T12:17:50+00:00",
+  "selected_primary_formulation": "subject_relative_ordinal_affect_regression_v1",
+  "source_objective": "docs/idare_label_semantics_minimal_redesigned_task_first_pass_training_objective.json",
+  "source_run_matrix": "docs/idare_label_semantics_minimal_redesigned_task_first_pass_run_matrix.csv",
+  "n_runs": 48,
+  "n_predictions": 16128,
+  "n_metric_summary_rows": 8,
+  "n_subject_error_rows": 504,
+  "models": [
+    "mean_baseline_no_training",
+    "ridge_regression_summary_features"
+  ],
+  "modalities": [
+    "EEG",
+    "EMG"
+  ],
+  "tasks": [
+    "arousal",
+    "valence"
+  ],
+  "folds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "best_ridge_cell": {
+    "model": "ridge_regression_summary_features",
+    "training_category": "minimal_classical_regression_baseline",
+    "modality": "EMG",
+    "task": "valence",
+    "n_runs": 6,
+    "mean_spearman_rho": 0.019171068580299756,
+    "std_spearman_rho": 0.03616566585938214,
+    "min_spearman_rho": -0.02218678848688097,
+    "max_spearman_rho": 0.0703934891849777,
+    "mean_mae_rank_percentile": 0.2738398698175183,
+    "mean_rmse_rank_percentile": 0.37267500096217704,
+    "mean_top_bottom_q33_balanced_accuracy": 0.507051545095359,
+    "mean_permutation_control_spearman": 0.003361478472845352,
+    "folds_positive_spearman": 4,
+    "folds_over_010_spearman": 0,
+    "folds_under_000_spearman": 2,
+    "mean_baseline_spearman_rho": 0.0,
+    "mean_baseline_mae": 0.25245295698924736,
+    "mean_baseline_rmse": 0.29255926858015163,
+    "delta_vs_mean_baseline_spearman": 0.019171068580299756,
+    "delta_vs_mean_baseline_mae": -0.021386912828270932,
+    "delta_vs_mean_baseline_rmse": -0.0801157323820254
+  },
+  "key_indicators": {
+    "ridge_mean_spearman": -0.001048407795379929,
+    "ridge_best_spearman": 0.019171068580299756,
+    "ridge_cells_over_010_spearman": 0,
+    "ridge_cells_positive_spearman": 2,
+    "ridge_cells_mae_improved_vs_mean_baseline": 0,
+    "permutation_abs_max_mean_spearman": 0.011130770077244055
+  },
+  "diagnosis": "minimal_redesigned_task_first_pass_mixed_signal",
+  "recommended_next_objective": "label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis_objective",
+  "training_authorized": false,
+  "blocked": [
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "mainline change",
+    "deep neural training for redesigned task",
+    "unregistered feature engineering"
+  ]
+}
