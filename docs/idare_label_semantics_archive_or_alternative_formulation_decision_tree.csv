@@ -1,0 +1,6 @@
+decision_option,recommended,criteria,next_objective_if_selected,allowed_now
+archive_current_redesigned_task_branch,yes,No actionable signal; no MAE/RMSE improvement; q33 near chance; Spearman near zero.,label_semantics_redesigned_task_archive_closeout_objective,only after objective report and human review
+prepare_alternative_formulation_spec,conditional,Allowed only if a new formulation directly addresses the failure mechanism and remains design/spec-only first.,label_semantics_alternative_formulation_design_spec_objective,only after objective report and human review
+continue_training_current_redesigned_task,no,Metric-debug found no actionable signal.,not_allowed,no
+patch_metric_thresholds_to_rescue_current_task,no,Weak rank signal is too small; q33 and MAE/RMSE do not support rescue by thresholding.,not_allowed_without_new_manual_justification,no
+return_to_supcon_dg_or_broad_model_search,no,"The bottleneck is task/label semantics, not model capacity.",not_allowed,no

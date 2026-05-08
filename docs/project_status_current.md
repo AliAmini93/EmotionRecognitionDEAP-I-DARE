@@ -573,3 +573,15 @@ Updated: `2026-05-08T15:09:20+00:00`
 - Recommended next objective: `label_semantics_redesigned_task_archive_or_alternative_formulation_objective` only after human review/closeout.
 - Decision reason: The best rank signal is far below a practical threshold, q33 separation remains near chance, and no cell improves MAE/RMSE over the mean baseline.
 
+## I-DARE Redesigned-Task Archive-or-Alternative Objective
+
+Updated: `2026-05-08T15:14:36+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE redesigned-task metric-debug review | human review accepted; diagnosis=`redesigned_task_metric_debug_no_actionable_signal` | `docs/idare_label_semantics_redesigned_task_metric_debug_review_status.md` | Create/use archive-or-alternative-formulation objective. | new training; model search; direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim |
+| I-DARE redesigned-task archive-or-alternative-formulation objective | read-only decision objective created; no training authorized | `docs/idare_label_semantics_redesigned_task_archive_or_alternative_formulation_objective.md` | Prepare reviewed archive-or-alternative decision command/script. | new training; model search; direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim |
+
+- Current formulation under decision: `subject_relative_ordinal_affect_regression_v1`.
+- Archive implementation is not yet performed; alternative formulation is not yet authorized beyond design/spec constraints.
+

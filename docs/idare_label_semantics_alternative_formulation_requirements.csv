@@ -1,0 +1,6 @@
+requirement_id,requirement,required_evidence,pass_condition
+ALT_REQ_001,Any alternative formulation must explain why the current subject-relative ordinal regression target failed.,Must cite metric-debug and first-pass evidence.,"The alternative addresses target compression, rank/absolute-error mismatch, or subject semantics explicitly."
+ALT_REQ_002,Any alternative must be design/spec first; no training in the same step.,A separate objective and reviewed spec.,"The spec defines labels, target construction, metrics, leakage guards, and stop criteria."
+ALT_REQ_003,Any alternative must include a no-training smoke/sanity phase before first-pass training.,"Target audit, fold audit, metric sanity, baseline controls.",Smoke tests pass without relying on model performance.
+ALT_REQ_004,Any alternative must specify what result would stop/archive it before broad search.,Quantified pass/fail and stop criteria.,"No broad search is allowed without minimal, stable evidence."
+ALT_REQ_005,Any alternative must avoid reintroducing the same global binary LOSO or current ordinal target problem without new evidence.,Comparison against archived failure chain.,The formulation is materially different or explicitly justified.

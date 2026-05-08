@@ -1,0 +1,52 @@
+{
+  "status": "objective_created",
+  "created_utc": "2026-05-08T15:14:36+00:00",
+  "source_review": "docs/idare_label_semantics_redesigned_task_metric_debug_review_status.md",
+  "source_report": "docs/idare_label_semantics_redesigned_task_metric_debug_report.md",
+  "accepted_diagnosis": "redesigned_task_metric_debug_no_actionable_signal",
+  "accepted_recommendation": "archive_or_alternative_formulation_after_review",
+  "scientific_question": "Should the current redesigned task branch be archived, and under what constraints may an alternative formulation be designed?",
+  "selected_current_formulation": "subject_relative_ordinal_affect_regression_v1",
+  "authorized_work": [
+    "Read existing metric-debug and redesigned-task evidence",
+    "Define precise archive scope for the current task branch",
+    "Define requirements for any future alternative formulation",
+    "Produce a decision matrix selecting archive, alternative-spec, or no-action"
+  ],
+  "not_authorized": [
+    "new training",
+    "model search",
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "implementation of archive before this objective is reported/reviewed",
+    "implementation of alternative formulation before a separate design/spec is reviewed"
+  ],
+  "required_inputs": [
+    "docs/idare_label_semantics_redesigned_task_metric_debug_report.json",
+    "docs/idare_label_semantics_redesigned_task_metric_debug_decision_matrix.csv",
+    "docs/idare_label_semantics_redesigned_task_metric_debug_fold_signal.csv",
+    "docs/idare_label_semantics_redesigned_task_metric_debug_metric_decomposition.csv",
+    "docs/idare_label_semantics_redesigned_task_metric_debug_subject_concentration.csv",
+    "docs/idare_label_semantics_selected_task_definition.csv",
+    "docs/idare_label_semantics_task_redesign_spec.md",
+    "docs/idare_label_semantics_task_redesign_metric_plan.csv"
+  ],
+  "expected_outputs": [
+    "docs/idare_label_semantics_redesigned_task_archive_or_alternative_formulation_report.md",
+    "docs/idare_label_semantics_redesigned_task_archive_or_alternative_formulation_report.json",
+    "docs/idare_label_semantics_redesigned_task_archive_scope_decision.csv",
+    "docs/idare_label_semantics_alternative_formulation_candidate_constraints.csv",
+    "docs/idare_label_semantics_archive_or_alternative_formulation_final_decision_matrix.csv"
+  ],
+  "pass_criteria": [
+    "No training is run",
+    "No archive implementation is performed inside the objective creation step",
+    "The archive scope clearly says what is and is not archived",
+    "Any alternative path is design/spec-only and gated by a separate review",
+    "Exactly one recommended next objective is produced"
+  ],
+  "next_allowed_step": "prepare_reviewed_label_semantics_redesigned_task_archive_or_alternative_formulation_command",
+  "training_authorized": false
+}

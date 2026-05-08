@@ -8035,7 +8035,7 @@
     "next_step": "human_review_closeout_of_supcon_dg_failure_analysis",
     "updated_at_utc": "2026-05-08T09:59:59+00:00"
   },
-  "last_updated_utc": "2026-05-08T15:09:20+00:00",
+  "last_updated_utc": "2026-05-08T15:14:36+00:00",
   "idare_protocol_events": [
     {
       "timestamp_utc": "2026-05-08T10:06:00+00:00",
@@ -8692,18 +8692,54 @@
         "final LOSO claim",
         "mainline change unrelated to reviewed next objective"
       ]
+    },
+    {
+      "timestamp_utc": "2026-05-08T15:14:36+00:00",
+      "type": "review_closeout",
+      "name": "I-DARE redesigned-task metric-debug review",
+      "status": "human review accepted; diagnosis=redesigned_task_metric_debug_no_actionable_signal; archive/alternative objective selected",
+      "evidence": "docs/idare_label_semantics_redesigned_task_metric_debug_review_status.md",
+      "next_allowed_step": "Create/run archive-or-alternative-formulation decision objective.",
+      "blocked": [
+        "new training",
+        "model search",
+        "direct full SupCon/DG training",
+        "broad hyperparameter search",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "implementation of archive before this objective is reported/reviewed",
+        "implementation of alternative formulation before a separate design/spec is reviewed"
+      ]
+    },
+    {
+      "timestamp_utc": "2026-05-08T15:14:36+00:00",
+      "type": "objective",
+      "name": "I-DARE redesigned-task archive-or-alternative-formulation objective",
+      "status": "read-only decision objective created; no training authorized",
+      "evidence": "docs/idare_label_semantics_redesigned_task_archive_or_alternative_formulation_objective.md",
+      "next_allowed_step": "prepare_reviewed_label_semantics_redesigned_task_archive_or_alternative_formulation_command",
+      "blocked": [
+        "new training",
+        "model search",
+        "direct full SupCon/DG training",
+        "broad hyperparameter search",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "implementation of archive before this objective is reported/reviewed",
+        "implementation of alternative formulation before a separate design/spec is reviewed"
+      ]
     }
   ],
-  "current_idare_next_allowed_step": "human_review_closeout_before_archive_patch_confirmation_or_redesign",
+  "current_idare_next_allowed_step": "prepare_reviewed_label_semantics_redesigned_task_archive_or_alternative_formulation_command",
   "current_idare_blocked_steps": [
     "new training",
-    "task redesign",
-    "stop/archive implementation",
+    "model search",
     "direct full SupCon/DG training",
     "broad hyperparameter search",
     "EEG+EMG fusion",
     "final LOSO claim",
-    "mainline change unrelated to reviewed next objective"
+    "implementation of archive before this objective is reported/reviewed",
+    "implementation of alternative formulation before a separate design/spec is reviewed"
   ],
   "idare_historical_script_backfill_objective": {
     "status": "objective_created_no_backfill_copy_yet",

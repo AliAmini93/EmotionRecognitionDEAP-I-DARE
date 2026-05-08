@@ -1,0 +1,32 @@
+{
+  "status": "human_review_accepted",
+  "created_utc": "2026-05-08T15:14:36+00:00",
+  "reviewed_report": "docs/idare_label_semantics_redesigned_task_metric_debug_report.md",
+  "accepted_diagnosis": "redesigned_task_metric_debug_no_actionable_signal",
+  "accepted_recommendation": "archive_or_alternative_formulation_after_review",
+  "accepted_recommended_next_objective": "label_semantics_redesigned_task_archive_or_alternative_formulation_objective",
+  "accepted_decision_reason": "The best rank signal is far below a practical threshold, q33 separation remains near chance, and no cell improves MAE/RMSE over the mean baseline.",
+  "accepted_key_indicators": {
+    "max_mean_spearman_rho": 0.019171068580299766,
+    "max_mean_q33_bal_acc": 0.5070515450953589,
+    "n_cells_mean_spearman_over_010": 0,
+    "n_cells_q33_over_055": 0,
+    "n_cells_mae_improved_vs_baseline": 0,
+    "n_cells_rmse_improved_vs_baseline": 0,
+    "best_modality": "EMG",
+    "best_task": "valence"
+  },
+  "decision": "create_archive_or_alternative_formulation_decision_objective",
+  "training_authorized_by_this_review": false,
+  "next_allowed_step": "prepare_reviewed_label_semantics_redesigned_task_archive_or_alternative_formulation_command",
+  "blocked": [
+    "new training",
+    "model search",
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "implementation of archive before this objective is reported/reviewed",
+    "implementation of alternative formulation before a separate design/spec is reviewed"
+  ]
+}
