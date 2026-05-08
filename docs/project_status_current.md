@@ -97,6 +97,7 @@ No final global label policy is locked. `midpoint_as_high` remains only the prac
 | I-DARE subject-variability SupCon/DG smoke-tests report | smoke tests complete; pending human review | yes | `docs/idare_subject_variability_supcon_dg_smoke_tests_report.md` | Human review / closeout before minimal first-pass training or smoke-fix objective. | EEG+EMG fusion; final LOSO claim; direct full SupCon/DG training; broad hyperparameter search; mainline change. |
 | I-DARE subject-variability SupCon/DG smoke-tests review | human review accepted smoke tests; minimal first-pass training selected next | yes | `docs/idare_subject_variability_supcon_dg_smoke_tests_review_status.md` | Create/run minimal SupCon/DG first-pass objective. | EEG+EMG fusion; final LOSO claim; direct full SupCon/DG training; broad hyperparameter search; mainline change. |
 | I-DARE minimal SupCon/DG first-pass training objective | short-term diagnostic training objective created | yes | `docs/idare_minimal_supcon_dg_first_pass_training_objective.md` | Prepare reviewed implementation/run command for minimal first-pass matrix. | EEG+EMG fusion; final LOSO claim; direct full SupCon/DG training; broad hyperparameter search; mainline change. |
+| I-DARE minimal SupCon/DG first-pass training report | minimal first-pass SupCon/DG diagnostic training complete; pending human review | yes | `docs/idare_minimal_supcon_dg_first_pass_report.md` | Human review / closeout before second-pass confirmation, targeted ablation, or failure analysis. | EEG+EMG fusion; final LOSO claim; direct full SupCon/DG training; broad hyperparameter search; mainline change. |
 | EEG+EMG fusion | not started intentionally | no | `docs/idare_eeg_bsl_stats_ablation_status.md`<br>`docs/idare_emg_bsl_stats_ablation_status.md` | Start only after current baseline/ablation status is indexed and compared cleanly. | All fusion experiments. |
 | Full model(BSL, STIM, STIM-BSL) | not started intentionally | no | `docs/idare_baseline_modeling_literature_plan.md` | Only after low-capacity BSL-stats ablation beats STIM-BSL-only baselines consistently. | Two-branch or three-branch full paired neural model. |
 | I-DARE controlled label-policy ablation objective | short-term objective created and executed for 144-run label-policy matrix | yes | `docs/idare_label_policy_ablation_objective.md` | Review status is frozen in `docs/idare_label_policy_ablation_review_status.md`. | EEG+EMG fusion; final LOSO claim; locking final label policy before review. |
@@ -230,6 +231,8 @@ Note: DEAP EMG feature rows are sourced from the frozen `docs/deap_emg_feature_o
 - Human review of SupCon/DG smoke tests is frozen in `docs/idare_subject_variability_supcon_dg_smoke_tests_review_status.md`; minimal first-pass training is selected, but full training remains blocked.
 
 - A minimal SupCon/DG first-pass training objective is defined in `docs/idare_minimal_supcon_dg_first_pass_training_objective.md`; next work is a reviewed implementation/run command, not broad search.
+
+- Minimal SupCon/DG first-pass diagnostic training is complete in `docs/idare_minimal_supcon_dg_first_pass_report.md`; diagnosis is `minimal_supcon_dg_first_pass_not_sufficient`, and full SupCon/DG training remains blocked pending review.
 
 ## Documentation Gap Closed by This File
 

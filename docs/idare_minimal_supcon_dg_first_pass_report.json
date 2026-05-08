@@ -1,0 +1,183 @@
+{
+  "aggregate_by_method_modality_task": [
+    {
+      "mean_accuracy": 0.4874749553287656,
+      "mean_balanced_accuracy": 0.4844674914233447,
+      "mean_macro_f1": 0.47713590482276325,
+      "mean_positive_pair_coverage": 1.0,
+      "method": "CE_plus_SupCon",
+      "modality": "EEG",
+      "n_runs": 6,
+      "one_class_pred_count": 0,
+      "task": "arousal"
+    },
+    {
+      "mean_accuracy": 0.4881427250966434,
+      "mean_balanced_accuracy": 0.4909369875063525,
+      "mean_macro_f1": 0.47841677435068486,
+      "mean_positive_pair_coverage": 1.0,
+      "method": "CE_plus_SupCon",
+      "modality": "EEG",
+      "n_runs": 6,
+      "one_class_pred_count": 0,
+      "task": "valence"
+    },
+    {
+      "mean_accuracy": 0.49882840577107607,
+      "mean_balanced_accuracy": 0.5006738336667316,
+      "mean_macro_f1": 0.4816758119400267,
+      "mean_positive_pair_coverage": 1.0,
+      "method": "CE_plus_SupCon",
+      "modality": "EMG",
+      "n_runs": 6,
+      "one_class_pred_count": 0,
+      "task": "arousal"
+    },
+    {
+      "mean_accuracy": 0.5062754606506087,
+      "mean_balanced_accuracy": 0.5059156889086484,
+      "mean_macro_f1": 0.49206489825467564,
+      "mean_positive_pair_coverage": 1.0,
+      "method": "CE_plus_SupCon",
+      "modality": "EMG",
+      "n_runs": 6,
+      "one_class_pred_count": 0,
+      "task": "valence"
+    },
+    {
+      "mean_accuracy": 0.4993261219804373,
+      "mean_balanced_accuracy": 0.49612620845683836,
+      "mean_macro_f1": 0.4871367546309133,
+      "mean_positive_pair_coverage": 1.0,
+      "method": "CE_plus_SupCon_plus_VREx",
+      "modality": "EEG",
+      "n_runs": 6,
+      "one_class_pred_count": 0,
+      "task": "arousal"
+    },
+    {
+      "mean_accuracy": 0.48607593245389014,
+      "mean_balanced_accuracy": 0.49283072163707997,
+      "mean_macro_f1": 0.4738182461310541,
+      "mean_positive_pair_coverage": 1.0,
+      "method": "CE_plus_SupCon_plus_VREx",
+      "modality": "EEG",
+      "n_runs": 6,
+      "one_class_pred_count": 0,
+      "task": "valence"
+    },
+    {
+      "mean_accuracy": 0.5036238102846006,
+      "mean_balanced_accuracy": 0.5097351576754078,
+      "mean_macro_f1": 0.48665211741476533,
+      "mean_positive_pair_coverage": 1.0,
+      "method": "CE_plus_SupCon_plus_VREx",
+      "modality": "EMG",
+      "n_runs": 6,
+      "one_class_pred_count": 0,
+      "task": "arousal"
+    },
+    {
+      "mean_accuracy": 0.5123630489439027,
+      "mean_balanced_accuracy": 0.5128975002109376,
+      "mean_macro_f1": 0.49746633557204983,
+      "mean_positive_pair_coverage": 1.0,
+      "method": "CE_plus_SupCon_plus_VREx",
+      "modality": "EMG",
+      "n_runs": 6,
+      "one_class_pred_count": 0,
+      "task": "valence"
+    },
+    {
+      "mean_accuracy": 0.5058483135777155,
+      "mean_balanced_accuracy": 0.5013508236181345,
+      "mean_macro_f1": 0.4986816435814158,
+      "mean_positive_pair_coverage": 1.0,
+      "method": "CE_plus_VREx",
+      "modality": "EEG",
+      "n_runs": 6,
+      "one_class_pred_count": 0,
+      "task": "arousal"
+    },
+    {
+      "mean_accuracy": 0.4932904549706007,
+      "mean_balanced_accuracy": 0.49754552334509333,
+      "mean_macro_f1": 0.48925650724296066,
+      "mean_positive_pair_coverage": 1.0,
+      "method": "CE_plus_VREx",
+      "modality": "EEG",
+      "n_runs": 6,
+      "one_class_pred_count": 0,
+      "task": "valence"
+    },
+    {
+      "mean_accuracy": 0.5033492231543106,
+      "mean_balanced_accuracy": 0.5060278771870381,
+      "mean_macro_f1": 0.49947515164393125,
+      "mean_positive_pair_coverage": 1.0,
+      "method": "CE_plus_VREx",
+      "modality": "EMG",
+      "n_runs": 6,
+      "one_class_pred_count": 0,
+      "task": "arousal"
+    },
+    {
+      "mean_accuracy": 0.5185094553335976,
+      "mean_balanced_accuracy": 0.5151315622001712,
+      "mean_macro_f1": 0.5064987409626326,
+      "mean_positive_pair_coverage": 1.0,
+      "method": "CE_plus_VREx",
+      "modality": "EMG",
+      "n_runs": 6,
+      "one_class_pred_count": 0,
+      "task": "valence"
+    }
+  ],
+  "best_aggregate_row": {
+    "mean_accuracy": 0.5185094553335976,
+    "mean_balanced_accuracy": 0.5151315622001712,
+    "mean_macro_f1": 0.5064987409626326,
+    "mean_positive_pair_coverage": 1.0,
+    "method": "CE_plus_VREx",
+    "modality": "EMG",
+    "n_runs": 6,
+    "one_class_pred_count": 0,
+    "task": "valence"
+  },
+  "blocked": [
+    "direct_full_supcon_dg_training",
+    "broad_hyperparameter_search",
+    "eeg_emg_fusion",
+    "final_loso_claim",
+    "mainline_default_replacement"
+  ],
+  "created_or_updated_utc": "2026-05-08T09:46:03.236877+00:00",
+  "design_first_pass_rows": 12,
+  "design_matrix": "docs/idare_subject_variability_supcon_dg_first_pass_run_matrix.csv",
+  "device": "cuda",
+  "diagnosis": "minimal_supcon_dg_first_pass_not_sufficient",
+  "epochs": 12,
+  "expanded_run_count": 72,
+  "hyperparameter_registry": "docs/idare_subject_variability_supcon_dg_hyperparameter_registry.csv",
+  "objective": "docs/idare_minimal_supcon_dg_first_pass_training_objective.md",
+  "objective_json": "docs/idare_minimal_supcon_dg_first_pass_training_objective.json",
+  "outputs": {
+    "embedding_summary_csv": "docs/idare_minimal_supcon_dg_first_pass_embedding_summary.csv",
+    "loss_summary_csv": "docs/idare_minimal_supcon_dg_first_pass_loss_summary.csv",
+    "predictions_csv": "docs/idare_minimal_supcon_dg_first_pass_predictions.csv",
+    "report_json": "docs/idare_minimal_supcon_dg_first_pass_report.json",
+    "report_md": "docs/idare_minimal_supcon_dg_first_pass_report.md",
+    "runs_csv": "docs/idare_minimal_supcon_dg_first_pass_runs.csv"
+  },
+  "prediction_rows": 19632,
+  "recommended_next_objective": "supcon_dg_failure_analysis_objective",
+  "seed": 11,
+  "smoke_report_json": "docs/idare_subject_variability_supcon_dg_smoke_tests_report.json",
+  "smoke_review": "docs/idare_subject_variability_supcon_dg_smoke_tests_review_status.md",
+  "status": "first_pass_training_complete_pending_human_review",
+  "status_by_method": {
+    "CE_plus_SupCon": "not_sufficient",
+    "CE_plus_SupCon_plus_VREx": "not_sufficient",
+    "CE_plus_VREx": "not_sufficient"
+  }
+}
