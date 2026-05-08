@@ -1,0 +1,22 @@
+{
+  "status": "human_review_accepted",
+  "created_utc": "2026-05-08T16:58:43+00:00",
+  "reviewed_smoke_report": "docs/idare_label_semantics_alternative_formulation_smoke_tests_report.md",
+  "accepted_diagnosis": "alternative_pairwise_formulation_smoke_tests_passed",
+  "accepted_all_passed": true,
+  "accepted_selected_primary_formulation": "within_subject_pairwise_affect_preference_ranking_v1",
+  "accepted_selected_candidate_id": "ALT_A_within_subject_pairwise_preference_ranking",
+  "accepted_recommended_next_objective": "label_semantics_alternative_pairwise_minimal_first_pass_objective",
+  "minimal_first_pass_objective_authorized_by_this_review": true,
+  "training_authorized_by_this_review": false,
+  "next_allowed_step": "prepare_reviewed_label_semantics_alternative_pairwise_minimal_first_pass_run_command",
+  "blocked": [
+    "broad hyperparameter search",
+    "direct full SupCon/DG training",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "training outside frozen minimal first-pass matrix",
+    "using archived subject_relative_ordinal_affect_regression_v1 formulation",
+    "claiming final performance from this diagnostic first pass"
+  ]
+}

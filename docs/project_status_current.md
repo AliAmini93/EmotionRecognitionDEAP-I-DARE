@@ -655,3 +655,15 @@ Updated: `2026-05-08T16:47:26+00:00`
 - All smoke tests passed: `True`.
 - Recommended next objective: `label_semantics_alternative_pairwise_minimal_first_pass_objective`.
 
+## I-DARE Alternative Pairwise Minimal First-Pass Objective
+
+Updated: `2026-05-08T16:58:43+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE alternative-formulation smoke-test review | human review accepted; diagnosis=`alternative_pairwise_formulation_smoke_tests_passed` | `docs/idare_label_semantics_alternative_formulation_smoke_tests_review_status.md` | Create/use minimal first-pass objective. | broad search; SupCon/DG; fusion; final claim |
+| I-DARE alternative pairwise minimal first-pass objective | objective created; planned rows=`96`; frozen matrix only | `docs/idare_label_semantics_alternative_pairwise_minimal_first_pass_objective.md` | Prepare reviewed minimal first-pass run command/script. | broad search; SupCon/DG; fusion; final claim; training outside frozen matrix |
+
+- Selected formulation: `within_subject_pairwise_affect_preference_ranking_v1`.
+- Training authorization is limited to the frozen matrix only; no broad search is authorized.
+

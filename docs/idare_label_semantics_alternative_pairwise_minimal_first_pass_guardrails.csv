@@ -1,0 +1,7 @@
+guardrail_id,rule,failure_action,rationale
+PAIRWISE_FIRST_PASS_GUARD_001,Run exactly the frozen matrix in docs/idare_label_semantics_alternative_pairwise_minimal_first_pass_run_matrix.csv.,abort,Avoid broad search after smoke-test pass.
+PAIRWISE_FIRST_PASS_GUARD_002,"No SupCon/DG, deep models, fusion, or hyperparameter sweep.",abort,This is a minimal diagnostic first pass.
+PAIRWISE_FIRST_PASS_GUARD_003,All pairs must remain within-subject and LOSO subject-disjoint.,abort,Preserve the validated pairwise label semantics.
+PAIRWISE_FIRST_PASS_GUARD_004,Pair orientation must be counterbalanced or randomized in a deterministic seeded way.,abort_or_fail_report,Avoid position shortcuts.
+PAIRWISE_FIRST_PASS_GUARD_005,No final LOSO performance claim may be made from this first pass.,fail_review,"This is diagnostic, not confirmatory."
+PAIRWISE_FIRST_PASS_GUARD_006,The run script must be committed under scripts/idare/analysis before execution.,abort,Maintain reproducibility layer.

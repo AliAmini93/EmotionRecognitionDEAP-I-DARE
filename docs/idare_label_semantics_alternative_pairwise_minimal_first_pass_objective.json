@@ -1,0 +1,63 @@
+{
+  "status": "objective_created",
+  "created_utc": "2026-05-08T16:58:43+00:00",
+  "source_smoke_review": "docs/idare_label_semantics_alternative_formulation_smoke_tests_review_status.md",
+  "source_smoke_report": "docs/idare_label_semantics_alternative_formulation_smoke_tests_report.md",
+  "accepted_diagnosis": "alternative_pairwise_formulation_smoke_tests_passed",
+  "accepted_selected_primary_formulation": "within_subject_pairwise_affect_preference_ranking_v1",
+  "scientific_question": "Does a minimal classical first pass show actionable signal for the within-subject pairwise affect preference formulation beyond no-training controls?",
+  "authorized_scope": "frozen minimal diagnostic first pass only",
+  "authorized_models": [
+    "random_balanced_no_training",
+    "majority_train_label_no_training",
+    "logistic_regression_pairwise_summary_diff",
+    "ridge_classifier_pairwise_summary_diff"
+  ],
+  "authorized_modalities": [
+    "EEG",
+    "EMG"
+  ],
+  "authorized_tasks": [
+    "valence",
+    "arousal"
+  ],
+  "authorized_folds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "planned_rows": 96,
+  "run_matrix": "docs/idare_label_semantics_alternative_pairwise_minimal_first_pass_run_matrix.csv",
+  "training_authorized": true,
+  "training_authorization_scope": "only the frozen 96-row matrix; no broad search",
+  "not_authorized": [
+    "broad hyperparameter search",
+    "direct full SupCon/DG training",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "training outside frozen minimal first-pass matrix",
+    "using archived subject_relative_ordinal_affect_regression_v1 formulation",
+    "claiming final performance from this diagnostic first pass"
+  ],
+  "expected_outputs": [
+    "docs/idare_label_semantics_alternative_pairwise_minimal_first_pass_report.md",
+    "docs/idare_label_semantics_alternative_pairwise_minimal_first_pass_report.json",
+    "docs/idare_label_semantics_alternative_pairwise_minimal_first_pass_runs.csv",
+    "docs/idare_label_semantics_alternative_pairwise_minimal_first_pass_metric_summary.csv",
+    "docs/idare_label_semantics_alternative_pairwise_minimal_first_pass_predictions.csv",
+    "docs/idare_label_semantics_alternative_pairwise_minimal_first_pass_pair_audit.csv",
+    "scripts/idare/analysis/run_idare_label_semantics_alternative_pairwise_minimal_first_pass.py"
+  ],
+  "pass_criteria": [
+    "Run exactly the frozen matrix",
+    "Commit the run script under scripts/idare/analysis",
+    "Report no-training baselines separately",
+    "Use pairwise balanced accuracy and macro F1 as primary diagnostic metrics",
+    "Do not make a final LOSO claim",
+    "Recommend confirm/patch/archive only after first-pass analysis"
+  ],
+  "next_allowed_step": "prepare_reviewed_label_semantics_alternative_pairwise_minimal_first_pass_run_command"
+}

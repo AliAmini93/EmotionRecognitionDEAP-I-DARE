@@ -1,0 +1,6 @@
+metric,role,interesting_threshold,failure_threshold
+pairwise_balanced_accuracy,primary,mean >= 0.55 and no catastrophic fold < 0.45,mean <= 0.52 or unstable/fold-concentrated
+pairwise_macro_f1,primary_support,mean >= 0.55 with zero one-class-like behavior,near 0.50 or one-class behavior
+delta_vs_majority_no_training,control,positive lift for both selected tasks or clear task-specific signal,no lift over majority/no-training controls
+per_subject_lift_distribution,stability,positive lift for majority of held-out subjects,lift concentrated in a few subjects/folds
+leakage_guard,hard_gate,all leakage checks pass,any leakage or pair reuse across fold boundaries
