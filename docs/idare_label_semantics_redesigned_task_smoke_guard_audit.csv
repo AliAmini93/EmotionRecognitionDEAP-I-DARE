@@ -1,0 +1,8 @@
+check,value,passed,details
+explicit_method_columns_present,model,True,Patched guard scans only explicit model/method columns.
+future_rows,48,True,Expected future matrix size is 48.
+authorized_now_all_no,True,True,Future matrix must not authorize immediate training.
+forbidden_explicit_model_rows,0,True,"Explicit model/method columns must not contain SupCon, VREx, DG, domain-generalization, fusion, or contrastive rows."
+notes_mentions_supcon_dg_ignored,48,True,Notes are explanatory metadata; negated guardrail text is not an authorized method.
+notes_negative_guardrail_mentions,48,True,SupCon/DG appears only as negative guardrail prose in current matrix.
+ridge_not_dg,24,True,Token-aware DG check must not match letters inside ridge.

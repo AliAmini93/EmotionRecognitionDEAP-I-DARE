@@ -438,3 +438,14 @@ Updated: `2026-05-08T12:01:45+00:00`
 - Manual future-matrix audit found zero actual forbidden model rows.
 - Training remains blocked until patched smoke tests pass and are reviewed.
 
+## I-DARE Label-Semantics Redesigned-Task Smoke-Guard Patch Report
+
+Updated: `2026-05-08T12:05:24+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE redesigned-task smoke-guard patch report | complete pending human review; diagnosis=`redesigned_task_smoke_tests_passed_after_guard_patch`; all_passed=`True` | `docs/idare_label_semantics_redesigned_task_smoke_guard_patch_report.md` | `human_review_closeout_then_create_minimal_redesigned_task_first_pass_objective` | direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim; mainline change |
+
+- Actual forbidden future model rows: `0`.
+- Training remains blocked until patched smoke-test review.
+

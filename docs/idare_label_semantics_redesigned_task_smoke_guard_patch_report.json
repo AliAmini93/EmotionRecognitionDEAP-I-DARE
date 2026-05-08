@@ -1,0 +1,42 @@
+{
+  "status": "complete_pending_human_review",
+  "created_utc": "2026-05-08T12:05:24+00:00",
+  "source_objective": "docs/idare_label_semantics_redesigned_task_smoke_guard_patch_objective.json",
+  "source_manual_review": "docs/idare_label_semantics_redesigned_task_spec_fix_or_stop_manual_review_status.md",
+  "selected_primary_formulation": "subject_relative_ordinal_affect_regression_v1",
+  "patched_guard": {
+    "method_columns_scanned": [
+      "model"
+    ],
+    "notes_scanned_for_forbidden_methods": false,
+    "token_aware_dg": true,
+    "actual_forbidden_model_rows": 0,
+    "future_guard_passed": true,
+    "allowed_model_values": [
+      "mean_baseline_no_training",
+      "ridge_regression_summary_features"
+    ]
+  },
+  "all_passed": true,
+  "failed_smoke_tests": [],
+  "diagnosis": "redesigned_task_smoke_tests_passed_after_guard_patch",
+  "recommended_next_objective": "label_semantics_minimal_redesigned_task_first_pass_training_objective",
+  "next_allowed_step": "human_review_closeout_then_create_minimal_redesigned_task_first_pass_objective",
+  "training_authorized": false,
+  "blocked": [
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "mainline change",
+    "minimal regression training until patched smoke-test report is reviewed"
+  ],
+  "outputs": {
+    "patch_report_md": "docs/idare_label_semantics_redesigned_task_smoke_guard_patch_report.md",
+    "patch_report_json": "docs/idare_label_semantics_redesigned_task_smoke_guard_patch_report.json",
+    "guard_audit_csv": "docs/idare_label_semantics_redesigned_task_smoke_guard_audit.csv",
+    "patched_smoke_decision_matrix_csv": "docs/idare_label_semantics_redesigned_task_patched_smoke_decision_matrix.csv",
+    "updated_smoke_report_md": "docs/idare_label_semantics_redesigned_task_smoke_tests_report.md",
+    "updated_smoke_report_json": "docs/idare_label_semantics_redesigned_task_smoke_tests_report.json"
+  }
+}

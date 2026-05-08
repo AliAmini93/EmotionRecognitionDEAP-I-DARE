@@ -3,9 +3,9 @@
   "created_utc": "2026-05-08T11:24:30+00:00",
   "source_objective": "docs/idare_label_semantics_redesigned_task_smoke_tests_objective.md",
   "selected_primary_formulation": "subject_relative_ordinal_affect_regression_v1",
-  "diagnosis": "redesigned_task_smoke_tests_failed",
-  "recommended_next_objective": "label_semantics_redesigned_task_spec_fix_or_stop_objective",
-  "all_passed": false,
+  "diagnosis": "redesigned_task_smoke_tests_passed_after_guard_patch",
+  "recommended_next_objective": "label_semantics_minimal_redesigned_task_first_pass_training_objective",
+  "all_passed": true,
   "smoke_results": [
     {
       "smoke_test": "target_construction_integrity",
@@ -68,5 +68,23 @@
     "final LOSO claim",
     "mainline change",
     "full redesigned-task training before review"
-  ]
+  ],
+  "patched_utc": "2026-05-08T12:05:24+00:00",
+  "patch_source_objective": "docs/idare_label_semantics_redesigned_task_smoke_guard_patch_objective.json",
+  "patch_report": "docs/idare_label_semantics_redesigned_task_smoke_guard_patch_report.json",
+  "failed_smoke_tests": [],
+  "future_run_matrix_guard_patch": {
+    "method_columns_scanned": [
+      "model"
+    ],
+    "notes_scanned_for_forbidden_methods": false,
+    "token_aware_dg": true,
+    "actual_forbidden_model_rows": 0,
+    "future_guard_passed": true,
+    "allowed_model_values": [
+      "mean_baseline_no_training",
+      "ridge_regression_summary_features"
+    ]
+  },
+  "training_authorized": false
 }
