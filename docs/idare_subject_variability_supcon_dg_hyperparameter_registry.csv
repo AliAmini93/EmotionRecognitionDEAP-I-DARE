@@ -1,0 +1,9 @@
+parameter,candidate_values,default_first_pass,stage,why,not_full_grid
+loss_family,CE+SupCon | CE+VREx | CE+SupCon+VREx,CE+SupCon,design_select_then_smoke,CE anchors task classification; SupCon directly tests cross-subject alignment.,yes
+supcon_temperature_tau,0.07 | 0.10 | 0.20,0.10,smoke_then_limited_ablation,"Controls contrastive softness; too small can destabilize, too large can under-separate.",yes
+lambda_supcon,0.05 | 0.10 | 0.20 | 0.50,0.10,smoke_then_limited_ablation,Must be strong enough to align but not overpower CE.,yes
+lambda_vrex,0.01 | 0.05 | 0.10,0.05 if VREx selected,only_after_CE_SupCon_smoke_or_parallel_one_config,Penalizes environment risk variance; may reduce subject instability.,yes
+projection_dim,32 | 64 | 128,64,smoke_then_single_alternative_if_needed,Projection head capacity affects contrastive geometry.,yes
+warmup_epochs,0 | 3 | 5,3,smoke_required,Warmup can prevent early contrastive collapse.,yes
+batch_policy,largest_valid_subject_class_balanced_batch | fixed_64_if_valid | fixed_128_if_valid,largest_valid_subject_class_balanced_batch,sampler_integrity_smoke,Batch validity matters more than nominal batch size for SupCon.,yes
+optimizer_lr,reuse_current_mainline | one_lower_lr_if_micro_overfit_unstable,reuse_current_mainline,only_change_if_smoke_fails_due_to_optimization,Avoid mixing method effect with optimizer retuning.,yes

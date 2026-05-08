@@ -1,0 +1,6 @@
+order,smoke_test,scope,pass_gate,failure_interpretation,outputs_required
+1,pair_sampler_integrity_smoke,train folds only; one modality/task first,"all batches have both classes, >=4 subjects, positive_pair_coverage >= 0.95, anchors_without_positive <= 0.05",Sampler/design issue; do not train.,batch_sampler_audit.csv; pair_coverage_summary.json
+2,leakage_guard_smoke,"all preprocessing, scaling, pair construction","no validation labels/features used in train scaler, sampler, pair mining, environment risk computation",Protocol invalid; fix before any model run.,leakage_guard_report.md/json
+3,supcon_micro_overfit_smoke,tiny train-only subset,CE+SupCon loss decreases; train macro_f1 or proxy overfits; no NaN/collapse,Implementation or optimization bug.,micro_overfit_loss_trace.csv; embedding_trace.csv
+4,shuffled_label_negative_control,same fold/task with train labels shuffled,performance near chance; no suspicious leakage-driven gain,Leakage or invalid evaluation.,negative_control_report.md/json
+5,one_fold_one_task_minimal_smoke,one modality/task/fold; default hp only,no collapse; valid pair coverage logs; embedding diagnostics produced,Use loss/embedding diagnostics before expanding.,one_fold_smoke_report.md/json; predictions.csv

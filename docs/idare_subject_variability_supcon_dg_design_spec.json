@@ -1,0 +1,992 @@
+{
+  "status": "design_spec_complete_pending_human_review",
+  "created_or_updated_utc": "2026-05-08T09:27:29.681220+00:00",
+  "objective": "docs/idare_subject_variability_supcon_dg_design_objective.md",
+  "objective_json": "docs/idare_subject_variability_supcon_dg_design_objective.json",
+  "parent_review": "docs/idare_subject_variability_intervention_failure_analysis_review_status.md",
+  "evidence": {
+    "intervention_failure_report": "docs/idare_subject_variability_intervention_failure_analysis_report.md",
+    "intervention_failure_json": "docs/idare_subject_variability_intervention_failure_analysis_report.json",
+    "diagnosis": "subject_variability_diagnosis_still_supported_intervention_too_weak"
+  },
+  "project_scan_summary": {
+    "total_files_scanned": 388,
+    "total_hits": 39627,
+    "top_files": [
+      {
+        "path": "docs/deap_emg_feature_arousal_training_smoke_predictions.csv",
+        "hit_count": 5760
+      },
+      {
+        "path": "docs/deap_emg_feature_training_smoke_predictions.csv",
+        "hit_count": 5760
+      },
+      {
+        "path": "docs/idare_broader_eval_eeg_stim_bsl_only_primary_predictions.csv",
+        "hit_count": 4033
+      },
+      {
+        "path": "docs/idare_broader_eval_eeg_bsl_stats_primary_predictions.csv",
+        "hit_count": 4032
+      },
+      {
+        "path": "docs/idare_broader_eval_emg_bsl_stats_primary_predictions.csv",
+        "hit_count": 4032
+      },
+      {
+        "path": "docs/idare_broader_eval_emg_feature_only_primary_predictions.csv",
+        "hit_count": 4032
+      },
+      {
+        "path": "docs/idare_root_cause_subject_summary.csv",
+        "hit_count": 1260
+      },
+      {
+        "path": "docs/idare_subject_difficulty_ranking.csv",
+        "hit_count": 756
+      },
+      {
+        "path": "docs/idare_eeg_stim_bsl_only_arousal_standardized_smoke_predictions.csv",
+        "hit_count": 705
+      },
+      {
+        "path": "docs/idare_eeg_stim_bsl_only_valence_standardized_smoke_predictions.csv",
+        "hit_count": 705
+      },
+      {
+        "path": "docs/idare_valence_fold_bias_predictions_smoke.csv",
+        "hit_count": 705
+      },
+      {
+        "path": "docs/idare_eeg_bsl_stats_arousal_ablation_smoke_predictions.csv",
+        "hit_count": 704
+      },
+      {
+        "path": "docs/idare_eeg_bsl_stats_valence_ablation_smoke_predictions.csv",
+        "hit_count": 704
+      },
+      {
+        "path": "docs/idare_emg_bsl_stats_arousal_ablation_smoke_predictions.csv",
+        "hit_count": 704
+      },
+      {
+        "path": "docs/idare_emg_bsl_stats_valence_ablation_smoke_predictions.csv",
+        "hit_count": 704
+      },
+      {
+        "path": "docs/idare_emg_feature_arousal_training_smoke_predictions.csv",
+        "hit_count": 704
+      },
+      {
+        "path": "docs/idare_emg_feature_valence_training_smoke_predictions.csv",
+        "hit_count": 704
+      },
+      {
+        "path": "docs/idare_raw_emg_arousal_training_smoke_predictions.csv",
+        "hit_count": 704
+      },
+      {
+        "path": "docs/idare_raw_emg_valence_training_smoke_predictions.csv",
+        "hit_count": 704
+      },
+      {
+        "path": "docs/idare_calibration_subject_threshold_summary.csv",
+        "hit_count": 140
+      },
+      {
+        "path": "docs/project_status_current.json",
+        "hit_count": 122
+      },
+      {
+        "path": "docs/idare_failure_analysis_fold_summary.csv",
+        "hit_count": 120
+      },
+      {
+        "path": "docs/idare_root_cause_calibration_summary.csv",
+        "hit_count": 120
+      },
+      {
+        "path": "docs/handoff_bundle_latest.md",
+        "hit_count": 115
+      },
+      {
+        "path": "docs/idare_eeg_cache_recipe_stabilization_status.md",
+        "hit_count": 100
+      }
+    ],
+    "has_supcon_notes": true,
+    "has_domain_generalization_notes": true,
+    "has_sampler_notes": true,
+    "representative_hits": [
+      {
+        "path": "docs/idare_subject_variability_intervention_failure_analysis_report.json",
+        "line": 171,
+        "groups": [
+          "domain_generalization",
+          "sampler",
+          "supcon"
+        ],
+        "snippet": "L170: \"intervention_adequacy\": \"The tested intervention was too weak/incomplete because preprocessing and CE-only training do not enforce subject-invariant affective representation.\", | L171: \"supcon_dg_justification\": \"Affective SupCon and VREx/DG are justified for design, but positive/negative pairs, sampler, environment definition, and leakage constraints must be specified before training.\", | L172: \"feature_engineering_position\": \"Generic feature engineering should not be the primary next step unless future analysis rejects subject variability as the blocker.\""
+      },
+      {
+        "path": "docs/project_status_current.json",
+        "line": 1325,
+        "groups": [
+          "domain_generalization",
+          "sampler",
+          "supcon"
+        ],
+        "snippet": "L1324: \"intervention_adequacy\": \"The tested intervention was too weak/incomplete because preprocessing and CE-only training do not enforce subject-invariant affective representation.\", | L1325: \"supcon_dg_justification\": \"Affective SupCon and VREx/DG are justified for design, but positive/negative pairs, sampler, environment definition, and leakage constraints must be specified before training.\" | L1326: },"
+      },
+      {
+        "path": "docs/handoff_after_bsl_stats_review.md",
+        "line": 57,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L56: - Data augmentation. | L57: - SupCon / VREx / domain generalization. | L58: "
+      },
+      {
+        "path": "docs/handoff_bundle_latest.md",
+        "line": 1986,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L1985: ```text | L1986: L_total = L_CE + lambda_contrastive * L_supcon + lambda_vrex * L_vrex | L1987: ```"
+      },
+      {
+        "path": "docs/handoff_bundle_latest.md",
+        "line": 2062,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L2061: C3: CE + SupCon + hard-negative weighting | L2062: C4: CE + SupCon + VREx | L2063: ```"
+      },
+      {
+        "path": "docs/handoff_bundle_latest.md",
+        "line": 2116,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L2115:  | L2116: VREx or GroupDRO can be tested after baseline and SupCon are stable. | L2117: "
+      },
+      {
+        "path": "docs/handoff_bundle_latest.md",
+        "line": 2148,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L2147: CE + SupCon | L2148: CE + SupCon + VREx | L2149: ```"
+      },
+      {
+        "path": "docs/handoff_bundle_latest.md",
+        "line": 2401,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L2400: C3: CE + SupCon + hard-negative weighting | L2401: C4: CE + SupCon + VREx | L2402: ```"
+      },
+      {
+        "path": "docs/idare_broader_standardized_single_modality_evaluation_execution_spec.json",
+        "line": 72,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L71: \"data augmentation\", | L72: \"SupCon / VREx / domain generalization\" | L73: ],"
+      },
+      {
+        "path": "docs/idare_broader_standardized_single_modality_evaluation_execution_spec.md",
+        "line": 33,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L32: - Data augmentation. | L33: - SupCon / VREx / domain generalization. | L34: "
+      },
+      {
+        "path": "docs/idare_broader_standardized_single_modality_evaluation_objective.json",
+        "line": 68,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L67: \"data augmentation\", | L68: \"SupCon / VREx / domain generalization\" | L69: ],"
+      },
+      {
+        "path": "docs/idare_broader_standardized_single_modality_evaluation_objective.md",
+        "line": 64,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L63: - data augmentation | L64: - SupCon / VREx / domain generalization | L65: "
+      },
+      {
+        "path": "docs/idare_broader_standardized_single_modality_evaluation_plan.json",
+        "line": 49,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L48: \"data augmentation\", | L49: \"SupCon / VREx / domain generalization\" | L50: ],"
+      },
+      {
+        "path": "docs/idare_broader_standardized_single_modality_evaluation_plan.md",
+        "line": 132,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L131: - Data augmentation. | L132: - SupCon / VREx / domain generalization. | L133: "
+      },
+      {
+        "path": "docs/idare_broader_standardized_single_modality_evaluation_report.json",
+        "line": 1193,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L1192: \"data augmentation\", | L1193: \"SupCon / VREx / domain generalization\", | L1194: \"optional robustness seed 13 without explicit objective\""
+      },
+      {
+        "path": "docs/idare_broader_standardized_single_modality_evaluation_report.md",
+        "line": 75,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L74: - data augmentation | L75: - SupCon / VREx / domain generalization | L76: - optional robustness seed 13 without explicit objective"
+      },
+      {
+        "path": "docs/idare_broader_standardized_single_modality_evaluation_review_status.json",
+        "line": 25,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L24: \"data augmentation\", | L25: \"SupCon / VREx / domain generalization\", | L26: \"optional robustness seed 13 without explicit objective\""
+      },
+      {
+        "path": "docs/idare_broader_standardized_single_modality_evaluation_review_status.md",
+        "line": 63,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L62: - data augmentation | L63: - SupCon / VREx / domain generalization | L64: - optional robustness seed 13 without explicit objective"
+      },
+      {
+        "path": "docs/idare_calibration_and_subject_generalization_objective.json",
+        "line": 113,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L112: \"data augmentation\", | L113: \"SupCon / VREx / domain generalization\", | L114: \"broad hyperparameter search\","
+      },
+      {
+        "path": "docs/idare_calibration_and_subject_generalization_objective.md",
+        "line": 132,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L131: - data augmentation | L132: - SupCon / VREx / domain generalization | L133: - broad hyperparameter search"
+      },
+      {
+        "path": "docs/idare_calibration_protocol_objective.json",
+        "line": 99,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L98: \"data augmentation\", | L99: \"SupCon / VREx / domain generalization\", | L100: \"broad hyperparameter search\","
+      },
+      {
+        "path": "docs/idare_calibration_protocol_objective.md",
+        "line": 111,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L110: - data augmentation | L111: - SupCon / VREx / domain generalization | L112: - broad hyperparameter search"
+      },
+      {
+        "path": "docs/idare_calibration_protocol_report.json",
+        "line": 1385,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L1384: \"data augmentation\", | L1385: \"SupCon / VREx / domain generalization\", | L1386: \"broad hyperparameter search\","
+      },
+      {
+        "path": "docs/idare_calibration_protocol_report.md",
+        "line": 111,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L110: - data augmentation | L111: - SupCon / VREx / domain generalization | L112: - broad hyperparameter search"
+      },
+      {
+        "path": "docs/idare_calibration_protocol_review_status.json",
+        "line": 53,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L52: \"data augmentation\", | L53: \"SupCon / VREx / domain generalization\", | L54: \"broad hyperparameter search\","
+      },
+      {
+        "path": "docs/idare_calibration_protocol_review_status.md",
+        "line": 40,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L39: - data augmentation | L40: - SupCon / VREx / domain generalization | L41: - broad hyperparameter search"
+      },
+      {
+        "path": "docs/idare_calibration_subject_generalization_report.json",
+        "line": 1852,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L1851: \"data augmentation\", | L1852: \"SupCon / VREx / domain generalization\", | L1853: \"broad hyperparameter search\","
+      },
+      {
+        "path": "docs/idare_calibration_subject_generalization_report.md",
+        "line": 165,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L164: - data augmentation | L165: - SupCon / VREx / domain generalization | L166: - broad hyperparameter search"
+      },
+      {
+        "path": "docs/idare_calibration_subject_generalization_review_status.json",
+        "line": 62,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L61: \"data augmentation\", | L62: \"SupCon / VREx / domain generalization\", | L63: \"broad hyperparameter search\","
+      },
+      {
+        "path": "docs/idare_calibration_subject_generalization_review_status.md",
+        "line": 38,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L37: - data augmentation | L38: - SupCon / VREx / domain generalization | L39: - broad hyperparameter search"
+      },
+      {
+        "path": "docs/idare_diagnostic_sanity_tests_objective.json",
+        "line": 117,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L116: \"data augmentation\", | L117: \"SupCon / VREx / domain generalization\", | L118: \"broad hyperparameter search\","
+      },
+      {
+        "path": "docs/idare_diagnostic_sanity_tests_objective.md",
+        "line": 120,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L119: - data augmentation | L120: - SupCon / VREx / domain generalization | L121: - broad hyperparameter search"
+      },
+      {
+        "path": "docs/idare_diagnostic_sanity_tests_report.json",
+        "line": 934,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L933: \"data augmentation\", | L934: \"SupCon / VREx / domain generalization\", | L935: \"broad hyperparameter search\","
+      },
+      {
+        "path": "docs/idare_diagnostic_sanity_tests_report.md",
+        "line": 87,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L86: - data augmentation | L87: - SupCon / VREx / domain generalization | L88: - broad hyperparameter search"
+      },
+      {
+        "path": "docs/idare_diagnostic_sanity_tests_review_status.json",
+        "line": 48,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L47: \"data augmentation\", | L48: \"SupCon / VREx / domain generalization\", | L49: \"broad hyperparameter search\","
+      },
+      {
+        "path": "docs/idare_diagnostic_sanity_tests_review_status.md",
+        "line": 38,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L37: - data augmentation | L38: - SupCon / VREx / domain generalization | L39: - broad hyperparameter search"
+      },
+      {
+        "path": "docs/idare_eeg_stim_bsl_only_standardized_status.json",
+        "line": 186,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L185: \"data augmentation\", | L186: \"SupCon / VREx / domain generalization\" | L187: ],"
+      },
+      {
+        "path": "docs/idare_eeg_stim_bsl_only_standardized_status.md",
+        "line": 85,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L84: - Data augmentation. | L85: - SupCon / VREx / domain generalization."
+      },
+      {
+        "path": "docs/idare_failure_analysis_objective.json",
+        "line": 98,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L97: \"data augmentation\", | L98: \"SupCon / VREx / domain generalization\", | L99: \"extra seeds unless a follow-up objective is created\""
+      },
+      {
+        "path": "docs/idare_failure_analysis_objective.md",
+        "line": 124,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L123: - data augmentation | L124: - SupCon / VREx / domain generalization | L125: - extra seeds unless a follow-up objective is created"
+      },
+      {
+        "path": "docs/idare_failure_analysis_report.json",
+        "line": 1381,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L1380: \"augmentation\", | L1381: \"SupCon / VREx / domain generalization\" | L1382: ],"
+      },
+      {
+        "path": "docs/idare_failure_analysis_report.md",
+        "line": 122,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L121: - augmentation | L122: - SupCon / VREx / domain generalization | L123: "
+      },
+      {
+        "path": "docs/idare_failure_analysis_review_status.json",
+        "line": 27,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L26: \"data augmentation\", | L27: \"SupCon / VREx / domain generalization\" | L28: ]"
+      },
+      {
+        "path": "docs/idare_failure_analysis_review_status.md",
+        "line": 47,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L46: - data augmentation | L47: - SupCon / VREx / domain generalization"
+      },
+      {
+        "path": "docs/idare_label_policy_ablation_objective.json",
+        "line": 55,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L54: \"data augmentation\", | L55: \"SupCon / VREx / domain generalization\", | L56: \"optional extra seeds without explicit objective\""
+      },
+      {
+        "path": "docs/idare_label_policy_ablation_objective.md",
+        "line": 60,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L59: - Data augmentation. | L60: - SupCon / VREx / domain generalization. | L61: - Optional extra seeds without explicit objective."
+      },
+      {
+        "path": "docs/idare_label_policy_ablation_report.json",
+        "line": 141,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L140: \"data augmentation\", | L141: \"SupCon / VREx / domain generalization\" | L142: ],"
+      },
+      {
+        "path": "docs/idare_label_policy_ablation_report.md",
+        "line": 66,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L65: - data augmentation | L66: - SupCon / VREx / domain generalization | L67: "
+      },
+      {
+        "path": "docs/idare_label_policy_ablation_review_status.json",
+        "line": 68,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L67: \"data augmentation\", | L68: \"SupCon / VREx / domain generalization\", | L69: \"optional extra seeds without explicit objective\""
+      },
+      {
+        "path": "docs/idare_label_policy_ablation_review_status.md",
+        "line": 53,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L52: - data augmentation | L53: - SupCon / VREx / domain generalization | L54: - optional extra seeds without explicit objective"
+      },
+      {
+        "path": "docs/idare_minimal_subject_relative_preprocessed_training_objective.json",
+        "line": 79,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L78: \"data augmentation\", | L79: \"SupCon / VREx / domain generalization\", | L80: \"broad hyperparameter search\","
+      },
+      {
+        "path": "docs/idare_minimal_subject_relative_preprocessed_training_objective.md",
+        "line": 78,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L77: - data augmentation | L78: - SupCon / VREx / domain generalization | L79: - broad hyperparameter search"
+      },
+      {
+        "path": "docs/idare_minimal_subject_relative_training_objective.json",
+        "line": 80,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L79: \"data augmentation\", | L80: \"SupCon / VREx / domain generalization\", | L81: \"broad hyperparameter search\","
+      },
+      {
+        "path": "docs/idare_minimal_subject_relative_training_objective.md",
+        "line": 122,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L121: - data augmentation | L122: - SupCon / VREx / domain generalization | L123: - broad hyperparameter search"
+      },
+      {
+        "path": "docs/idare_representation_label_task_redesign_objective.json",
+        "line": 102,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L101: \"data augmentation\", | L102: \"SupCon / VREx / domain generalization\", | L103: \"broad hyperparameter search\","
+      },
+      {
+        "path": "docs/idare_representation_label_task_redesign_objective.md",
+        "line": 112,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L111: - data augmentation | L112: - SupCon / VREx / domain generalization | L113: - broad hyperparameter search"
+      },
+      {
+        "path": "docs/idare_representation_label_task_redesign_report.json",
+        "line": 544,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L543: \"data augmentation\", | L544: \"SupCon / VREx / domain generalization\", | L545: \"broad hyperparameter search\","
+      },
+      {
+        "path": "docs/idare_representation_label_task_redesign_report.md",
+        "line": 107,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L106: - data augmentation | L107: - SupCon / VREx / domain generalization | L108: - broad hyperparameter search"
+      },
+      {
+        "path": "docs/idare_representation_label_task_redesign_review_status.json",
+        "line": 48,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L47: \"data augmentation\", | L48: \"SupCon / VREx / domain generalization\", | L49: \"broad hyperparameter search\","
+      },
+      {
+        "path": "docs/idare_representation_label_task_redesign_review_status.md",
+        "line": 44,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L43: - data augmentation | L44: - SupCon / VREx / domain generalization | L45: - broad hyperparameter search"
+      },
+      {
+        "path": "docs/idare_root_cause_diagnostic_objective.json",
+        "line": 117,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L116: \"data augmentation\", | L117: \"SupCon / VREx / domain generalization\", | L118: \"diagnostic sanity tests before read-only root-cause report is reviewed\""
+      },
+      {
+        "path": "docs/idare_root_cause_diagnostic_objective.md",
+        "line": 125,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L124: - data augmentation | L125: - SupCon / VREx / domain generalization | L126: - diagnostic sanity tests before read-only root-cause report review"
+      },
+      {
+        "path": "docs/idare_root_cause_diagnostic_report.json",
+        "line": 2427,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L2426: \"data augmentation\", | L2427: \"SupCon / VREx / domain generalization\" | L2428: ]"
+      },
+      {
+        "path": "docs/idare_root_cause_diagnostic_report.md",
+        "line": 144,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L143: - data augmentation | L144: - SupCon / VREx / domain generalization | L145: "
+      },
+      {
+        "path": "docs/idare_root_cause_diagnostic_review_status.json",
+        "line": 85,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L84: \"data augmentation\", | L85: \"SupCon / VREx / domain generalization\", | L86: \"mainline change\""
+      },
+      {
+        "path": "docs/idare_root_cause_diagnostic_review_status.md",
+        "line": 49,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L48: - data augmentation | L49: - SupCon / VREx / domain generalization | L50: - mainline change"
+      },
+      {
+        "path": "docs/idare_single_modality_bsl_stats_vs_baseline_comparison.json",
+        "line": 174,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L173: \"data augmentation\", | L174: \"SupCon / VREx / domain generalization\" | L175: ],"
+      },
+      {
+        "path": "docs/idare_single_modality_bsl_stats_vs_baseline_comparison.md",
+        "line": 86,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L85: - Data augmentation. | L86: - SupCon / VREx / domain generalization."
+      },
+      {
+        "path": "docs/idare_single_modality_bsl_stats_vs_baseline_review_status.json",
+        "line": 178,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L177: \"data augmentation\", | L178: \"SupCon / VREx / domain generalization\" | L179: ],"
+      },
+      {
+        "path": "docs/idare_single_modality_bsl_stats_vs_baseline_review_status.md",
+        "line": 58,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L57: - Data augmentation. | L58: - SupCon / VREx / domain generalization."
+      },
+      {
+        "path": "docs/idare_subject_relative_minimal_training_report.json",
+        "line": 100,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L99: \"data augmentation\", | L100: \"SupCon / VREx / domain generalization\", | L101: \"broad hyperparameter search\","
+      },
+      {
+        "path": "docs/idare_subject_relative_minimal_training_report.md",
+        "line": 57,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L56: - data augmentation | L57: - SupCon / VREx / domain generalization | L58: - broad hyperparameter search"
+      },
+      {
+        "path": "docs/idare_subject_relative_minimal_training_review_status.json",
+        "line": 26,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L25: \"data augmentation\", | L26: \"SupCon / VREx / domain generalization\", | L27: \"broad hyperparameter search\","
+      },
+      {
+        "path": "docs/idare_subject_relative_minimal_training_review_status.md",
+        "line": 48,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L47: - data augmentation | L48: - SupCon / VREx / domain generalization | L49: - broad hyperparameter search"
+      },
+      {
+        "path": "docs/idare_subject_relative_preprocessed_minimal_training_report.json",
+        "line": 165,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L164: \"data augmentation\", | L165: \"SupCon / VREx / domain generalization\", | L166: \"broad hyperparameter search\","
+      },
+      {
+        "path": "docs/idare_subject_relative_preprocessed_minimal_training_report.md",
+        "line": 56,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L55: - data augmentation | L56: - SupCon / VREx / domain generalization | L57: - broad hyperparameter search"
+      },
+      {
+        "path": "docs/idare_subject_relative_preprocessed_minimal_training_review_status.json",
+        "line": 13,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L12: \"selected_next_step\": \"subject_variability_intervention_failure_analysis_objective\", | L13: \"decision\": \"Do not jump directly to generic feature engineering, SupCon, VREx, domain generalization, fusion, architecture changes, or broad hyperparameter search. First analyze why the subject-relative + preprocessi... | L14: },"
+      },
+      {
+        "path": "docs/idare_subject_relative_preprocessed_minimal_training_review_status.json",
+        "line": 26,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L25: \"generic feature engineering objective\", | L26: \"SupCon / VREx / domain generalization training\", | L27: \"architecture ablation for improvement\","
+      },
+      {
+        "path": "docs/idare_subject_relative_preprocessed_minimal_training_review_status.md",
+        "line": 63,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L62: 4. The tested CE-only objective does not explicitly force cross-subject affect alignment. | L63: 5. A SupCon / VREx / DG method may be justified only if the failure analysis shows the remaining blocker is specifically cross-subject representation mismatch. | L64: 6. The issue may also involve label/task formulation or low within-subject signal, in which case SupCon/DG would not be enough."
+      },
+      {
+        "path": "docs/idare_subject_relative_preprocessed_minimal_training_review_status.md",
+        "line": 82,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L81: - Generic feature engineering objective | L82: - SupCon / VREx / domain generalization training | L83: - Architecture ablation for improvement"
+      },
+      {
+        "path": "docs/idare_subject_relative_representation_preprocessing_objective.json",
+        "line": 45,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L44: \"data augmentation\", | L45: \"SupCon / VREx / domain generalization\", | L46: \"broad hyperparameter search\","
+      },
+      {
+        "path": "docs/idare_subject_relative_representation_preprocessing_objective.md",
+        "line": 62,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L61: - data augmentation | L62: - SupCon / VREx / domain generalization | L63: - broad hyperparameter search"
+      },
+      {
+        "path": "docs/idare_subject_relative_representation_preprocessing_report.json",
+        "line": 65,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L64: \"data augmentation\", | L65: \"SupCon / VREx / domain generalization\", | L66: \"broad hyperparameter search\","
+      },
+      {
+        "path": "docs/idare_subject_relative_representation_preprocessing_report.md",
+        "line": 62,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L61: - data augmentation | L62: - SupCon / VREx / domain generalization | L63: - broad hyperparameter search"
+      },
+      {
+        "path": "docs/idare_subject_relative_representation_preprocessing_review_status.json",
+        "line": 35,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L34: \"data augmentation\", | L35: \"SupCon / VREx / domain generalization\", | L36: \"broad hyperparameter search\","
+      },
+      {
+        "path": "docs/idare_subject_relative_representation_preprocessing_review_status.md",
+        "line": 42,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L41: - data augmentation | L42: - SupCon / VREx / domain generalization | L43: - broad hyperparameter search"
+      },
+      {
+        "path": "docs/idare_subject_relative_task_formulation_objective.json",
+        "line": 90,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L89: \"data augmentation\", | L90: \"SupCon / VREx / domain generalization\", | L91: \"broad hyperparameter search\","
+      },
+      {
+        "path": "docs/idare_subject_relative_task_formulation_objective.md",
+        "line": 101,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L100: - data augmentation | L101: - SupCon / VREx / domain generalization | L102: - broad hyperparameter search"
+      },
+      {
+        "path": "docs/idare_subject_relative_task_formulation_report.json",
+        "line": 376,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L375: \"data augmentation\", | L376: \"SupCon / VREx / domain generalization\", | L377: \"broad hyperparameter search\","
+      },
+      {
+        "path": "docs/idare_subject_relative_task_formulation_report.md",
+        "line": 82,
+        "groups": [
+          "domain_generalization",
+          "supcon"
+        ],
+        "snippet": "L81: - data augmentation | L82: - SupCon / VREx / domain generalization | L83: - broad hyperparameter search"
+      }
+    ]
+  },
+  "evidence_risks": [],
+  "selected_first_pass": {
+    "primary": "CE_plus_SupCon",
+    "reason": "SupCon directly targets cross-subject same-class alignment; VREx/DG remains a controlled probe after smoke tests.",
+    "dg_probe": "CE_plus_VREx and CE_plus_SupCon_plus_VREx are listed as design-stage probes, not full-grid runs.",
+    "not_selected": "A full Cartesian hyperparameter search is explicitly not selected."
+  },
+  "pair_sampler_spec": "docs/idare_subject_variability_supcon_dg_pair_sampler_spec.csv",
+  "hyperparameter_registry": "docs/idare_subject_variability_supcon_dg_hyperparameter_registry.csv",
+  "smoke_test_plan": "docs/idare_subject_variability_supcon_dg_smoke_test_plan.csv",
+  "first_pass_run_matrix": "docs/idare_subject_variability_supcon_dg_first_pass_run_matrix.csv",
+  "decision_tree": [
+    {
+      "condition": "pair_sampler_integrity_smoke fails",
+      "interpretation": "The method has not been tested; sampler is invalid.",
+      "next_action": "Fix sampler/pair rules before any training."
+    },
+    {
+      "condition": "leakage_guard_smoke fails",
+      "interpretation": "Protocol is invalid.",
+      "next_action": "Fix preprocessing/pair construction and rerun smoke only."
+    },
+    {
+      "condition": "micro_overfit fails",
+      "interpretation": "Implementation/optimization bug likely.",
+      "next_action": "Inspect loss implementation, projection head, tau, lambda, lr."
+    },
+    {
+      "condition": "shuffled-label negative control succeeds too well",
+      "interpretation": "Leakage or invalid evaluation likely.",
+      "next_action": "Stop; audit labels, folds, sampler and metrics."
+    },
+    {
+      "condition": "SupCon loss decreases but validation macro-F1 does not improve",
+      "interpretation": "Embedding alignment alone may not solve task signal, labels, or classifier calibration.",
+      "next_action": "Inspect embedding distance metrics and per-subject risk before adding VREx or changing labels."
+    },
+    {
+      "condition": "VREx reduces risk variance but macro-F1 does not improve",
+      "interpretation": "Subject risk stability improved without enough class signal.",
+      "next_action": "Consider CE/SupCon balance, task formulation, or representation—not claim success."
+    },
+    {
+      "condition": "Only EMG or only EEG improves",
+      "interpretation": "Subject variability may be modality-dependent or representation-dependent.",
+      "next_action": "Keep modality-specific conclusions; do not fuse."
+    }
+  ],
+  "not_authorized_by_this_spec": [
+    "training",
+    "performance claim",
+    "mainline change",
+    "fusion",
+    "final LOSO claim",
+    "broad hyperparameter search"
+  ],
+  "recommended_next_objective": "supcon_dg_smoke_tests_objective_after_human_review"
+}

@@ -1435,6 +1435,19 @@
       ],
       "scientific_question": "How should SupCon and/or domain-generalization losses be designed, staged, smoke-tested, and interpreted so the next controlled run directly targets subject variability and remains scientifically diagnosable?",
       "status": "short_term_design_objective_created"
+    },
+    "idare_subject_variability_supcon_dg_design_spec": {
+      "diagnosis": "subject_variability_diagnosis_still_supported_intervention_too_weak",
+      "evidence": "docs/idare_subject_variability_supcon_dg_design_spec.md",
+      "evidence_json": "docs/idare_subject_variability_supcon_dg_design_spec.json",
+      "first_pass_run_matrix": "docs/idare_subject_variability_supcon_dg_first_pass_run_matrix.csv",
+      "hyperparameter_registry": "docs/idare_subject_variability_supcon_dg_hyperparameter_registry.csv",
+      "mainline_changed": false,
+      "pair_sampler_spec": "docs/idare_subject_variability_supcon_dg_pair_sampler_spec.csv",
+      "recommended_next_objective": "supcon_dg_smoke_tests_objective_after_human_review",
+      "smoke_test_plan": "docs/idare_subject_variability_supcon_dg_smoke_test_plan.csv",
+      "status": "design_spec_complete_pending_human_review",
+      "training_authorized": false
     }
   },
   "failure_analysis_objective": {

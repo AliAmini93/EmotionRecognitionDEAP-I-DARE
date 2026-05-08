@@ -1,0 +1,13 @@
+component,rule_id,definition,required,diagnostic_reason,failure_action
+task_scope,TASK_001,Run SupCon/DG only within one task at a time; never mix valence and arousal labels inside one contrastive target.,yes,Avoids false positives/negatives caused by task-label mismatch.,Abort smoke; fix task routing.
+label_formulation,LABEL_001,First-pass labels use subject_top_bottom_quantile_q33 unless design review overrides it.,yes,Targets subject-relative affect rather than global raw rating thresholds.,Do not compare with prior first-pass results.
+positive_pair,POS_001,"Valid positive: same task, same subject-relative class, different trial/window.",yes,Minimum SupCon validity.,Drop anchor or rebuild batch.
+positive_pair,POS_002,"Preferred positive: same task, same class, different subject.",yes_when_feasible,Directly targets cross-subject alignment.,"Log positive coverage; if coverage is low, revise sampler before training."
+positive_pair,POS_003,Do not use validation samples as positives for train anchors.,yes,Leakage prevention.,Abort leakage smoke.
+negative_pair,NEG_001,"Valid negative: same task, opposite subject-relative class.",yes,Ensures label-contrast signal is present.,Rebuild batch.
+hard_negative,HNEG_001,"Optional hard negative: same or similar stimulus/context but opposite subject-relative class, if metadata supports it.",optional_first_pass_log_only,May expose individual interpretation differences without forcing unstable mining initially.,Do not enable hard-negative weighting until coverage is audited.
+sampler,SAMP_001,Each SupCon batch must include at least 4 subjects and both classes.,yes,Prevents subject-collapsed contrastive batches.,Abort pair sampler integrity smoke.
+sampler,SAMP_002,Each anchor should have at least one positive; cross-subject positive is preferred.,yes_log_anchor_exceptions,SupCon loss can silently degrade if anchors lack positives.,"If anchor exceptions exceed 5%, revise sampler."
+sampler,SAMP_003,"Log per-batch subject count, class count, positive-pair coverage, and anchors_without_positive.",yes,Makes failure diagnosable.,Do not accept smoke without logs.
+domain_generalization,DG_001,Default environment is subject_id.,yes,Subject variability is the target diagnosis.,Any alternative environment must be justified in a separate design update.
+domain_generalization,DG_002,VREx/risk variance term is computed across train subjects/environments only.,yes,Avoid validation leakage and direct target subject risk instability.,Abort leakage smoke.
