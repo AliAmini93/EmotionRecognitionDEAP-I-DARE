@@ -472,3 +472,15 @@ Updated: `2026-05-08T12:17:50+00:00`
 - Frozen 48-row minimal first-pass matrix was executed.
 - Recommended next objective is `label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis_objective` only after human review.
 
+## I-DARE Minimal Redesigned-Task Failure-or-Confirmation Objective
+
+Updated: `2026-05-08T12:23:16+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE minimal redesigned-task first-pass review | human review accepted; diagnosis=`minimal_redesigned_task_first_pass_mixed_signal` | `docs/idare_label_semantics_minimal_redesigned_task_first_pass_review_status.md` | Create/use failure-or-confirmation analysis objective. | direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim; mainline change |
+| I-DARE minimal redesigned-task failure-or-confirmation analysis objective | read-only objective created; no training authorized | `docs/idare_label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis_objective.md` | Prepare reviewed read-only analysis command/script. | direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim; mainline change |
+
+- The first-pass result is mixed, not confirmatory.
+- Next work is read-only analysis before any confirmation, failure, redesign, or archive decision.
+

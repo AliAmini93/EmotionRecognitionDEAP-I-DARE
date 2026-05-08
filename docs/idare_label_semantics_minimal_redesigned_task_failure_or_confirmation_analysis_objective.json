@@ -1,0 +1,64 @@
+{
+  "status": "objective_created",
+  "created_utc": "2026-05-08T12:23:16+00:00",
+  "source_review": "docs/idare_label_semantics_minimal_redesigned_task_first_pass_review_status.md",
+  "source_first_pass_report": "docs/idare_label_semantics_minimal_redesigned_task_first_pass_report.md",
+  "source_runs": "docs/idare_label_semantics_minimal_redesigned_task_first_pass_runs.csv",
+  "source_predictions": "docs/idare_label_semantics_minimal_redesigned_task_first_pass_predictions.csv",
+  "source_metric_summary": "docs/idare_label_semantics_minimal_redesigned_task_first_pass_metric_summary.csv",
+  "source_subject_error_summary": "docs/idare_label_semantics_minimal_redesigned_task_first_pass_subject_error_summary.csv",
+  "scientific_question": "Should the minimal redesigned-task first-pass result be interpreted as a real but weak signal worth confirming, or as another failure mode requiring redesign/stop?",
+  "authorized_work": [
+    "read-only fold/task/cell instability analysis",
+    "compare ridge cells against mean baseline and permutation control",
+    "identify whether positive Spearman is concentrated in specific modality/task/folds",
+    "audit whether MAE/RMSE worsening invalidates the small positive Spearman signal",
+    "audit hard-subject concentration from subject-error summary",
+    "produce a decision matrix with one of: confirmation objective, targeted metric/debug analysis, or stop/archive"
+  ],
+  "not_authorized": [
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "mainline change",
+    "deep neural training for redesigned task",
+    "unregistered feature engineering",
+    "confirmation training before this analysis closes"
+  ],
+  "required_analysis_questions": [
+    "Are positive Spearman values robust across folds or driven by one/two folds?",
+    "Does any modality/task cell beat mean baseline on both Spearman and MAE/RMSE?",
+    "Is q33 balanced accuracy consistent with ordinal Spearman or just noise around 0.5?",
+    "Does permutation control remain near zero for every candidate cell?",
+    "Are errors concentrated in particular held-out subjects?",
+    "Is the redesigned task promising enough for a confirmation run, or should it stop?"
+  ],
+  "expected_outputs": [
+    "docs/idare_label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis_report.md",
+    "docs/idare_label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis_report.json",
+    "docs/idare_label_semantics_minimal_redesigned_task_cell_decision_matrix.csv",
+    "docs/idare_label_semantics_minimal_redesigned_task_fold_instability_audit.csv",
+    "docs/idare_label_semantics_minimal_redesigned_task_subject_error_audit.csv",
+    "docs/idare_label_semantics_minimal_redesigned_task_metric_conflict_audit.csv"
+  ],
+  "pass_criteria": [
+    "uses only committed first-pass outputs",
+    "does not run new training",
+    "explains why mixed signal is or is not confirmable",
+    "selects exactly one next objective",
+    "keeps SupCon/DG, fusion, broad search, and final claims blocked"
+  ],
+  "next_allowed_step": "prepare_reviewed_label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis_command",
+  "training_authorized": false,
+  "blocked": [
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "mainline change",
+    "deep neural training for redesigned task",
+    "unregistered feature engineering",
+    "confirmation training before this analysis closes"
+  ]
+}

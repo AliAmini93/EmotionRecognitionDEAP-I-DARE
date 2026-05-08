@@ -1,0 +1,28 @@
+{
+  "status": "human_review_accepted",
+  "created_utc": "2026-05-08T12:23:16+00:00",
+  "reviewed_report": "docs/idare_label_semantics_minimal_redesigned_task_first_pass_report.md",
+  "accepted_diagnosis": "minimal_redesigned_task_first_pass_mixed_signal",
+  "accepted_recommended_next_objective": "label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis_objective",
+  "accepted_key_indicators": {
+    "ridge_mean_spearman": -0.001048407795379929,
+    "ridge_best_spearman": 0.019171068580299756,
+    "ridge_cells_over_010_spearman": 0,
+    "ridge_cells_positive_spearman": 2,
+    "ridge_cells_mae_improved_vs_mean_baseline": 0,
+    "permutation_abs_max_mean_spearman": 0.011130770077244055
+  },
+  "interpretation": "First pass is mixed: a few positive Spearman folds exist, but no cell exceeds the >0.10 mean-Spearman threshold, MAE does not beat mean baseline, and evidence is not strong enough for confirmation without read-only analysis.",
+  "next_selected_step": "create_failure_or_confirmation_analysis_objective",
+  "training_authorized": false,
+  "blocked": [
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "mainline change",
+    "deep neural training for redesigned task",
+    "unregistered feature engineering",
+    "confirmation training before this analysis closes"
+  ]
+}
