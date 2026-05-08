@@ -1,0 +1,39 @@
+{
+  "status": "frozen_human_review_closeout",
+  "created_or_updated_utc": "2026-05-08T08:53:32.888984+00:00",
+  "reviewed_document": "docs/idare_subject_relative_preprocessed_minimal_training_report.md",
+  "reviewed_json": "docs/idare_subject_relative_preprocessed_minimal_training_report.json",
+  "evidence_level": "24-run minimal diagnostic training; not final LOSO performance",
+  "human_review_decision": {
+    "accepted": true,
+    "mainline_changed": false,
+    "preprocessed_subject_relative_result": "preprocessed_subject_relative_first_pass_not_sufficient",
+    "feature_engineering_objective_paused": true,
+    "selected_next_step": "subject_variability_intervention_failure_analysis_objective",
+    "decision": "Do not jump directly to generic feature engineering, SupCon, VREx, domain generalization, fusion, architecture changes, or broad hyperparameter search. First analyze why the subject-relative + preprocessing intervention failed."
+  },
+  "rationale": {
+    "why_review_needed": "If the project diagnosis is subject variability, a failed intervention must be audited before selecting the next fix.",
+    "current_result": "The subject-relative preprocessed first pass remained close to chance/mixed and was not sufficient to justify a mainline change.",
+    "preprocessing_result": "The preprocessing diagnostic justified a small test, but preprocessing alone did not establish a strong label-discriminative or subject-invariant representation."
+  },
+  "frozen_constraints": {
+    "not_authorized_until_failure_analysis_review": [
+      "EEG+EMG fusion",
+      "final LOSO / final paper claim",
+      "mainline change",
+      "generic feature engineering objective",
+      "SupCon / VREx / domain generalization training",
+      "architecture ablation for improvement",
+      "data augmentation",
+      "broad hyperparameter search"
+    ],
+    "allowed_next_step": "docs/idare_subject_variability_intervention_failure_analysis_objective.md"
+  },
+  "source_reports": {
+    "preprocessed_training_report": "docs/idare_subject_relative_preprocessed_minimal_training_report.md",
+    "preprocessing_diagnostic_report": "docs/idare_subject_relative_representation_preprocessing_report.md",
+    "root_cause_diagnostic_report": "docs/idare_root_cause_diagnostic_report.md",
+    "diagnostic_sanity_tests_report": "docs/idare_diagnostic_sanity_tests_report.md"
+  }
+}

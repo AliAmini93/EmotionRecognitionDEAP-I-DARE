@@ -1,0 +1,115 @@
+{
+  "status": "short_term_objective_created",
+  "created_or_updated_utc": "2026-05-08T08:53:32.888984+00:00",
+  "objective_name": "I-DARE subject-variability intervention-failure analysis",
+  "objective_type": "read_only_diagnostic_analysis",
+  "parent_review": "docs/idare_subject_relative_preprocessed_minimal_training_review_status.md",
+  "parent_review_json": "docs/idare_subject_relative_preprocessed_minimal_training_review_status.json",
+  "primary_evidence": {
+    "preprocessed_training_report": "docs/idare_subject_relative_preprocessed_minimal_training_report.md",
+    "preprocessed_training_json": "docs/idare_subject_relative_preprocessed_minimal_training_report.json",
+    "preprocessing_diagnostic_report": "docs/idare_subject_relative_representation_preprocessing_report.md",
+    "preprocessing_diagnostic_json": "docs/idare_subject_relative_representation_preprocessing_report.json",
+    "root_cause_report": "docs/idare_root_cause_diagnostic_report.md",
+    "sanity_tests_report": "docs/idare_diagnostic_sanity_tests_report.md"
+  },
+  "scientific_question": "Why did the subject-relative + preprocessing intervention fail, and does the failure support or weaken the hypothesis that low accuracy is primarily caused by subject variability?",
+  "core_decision_tests": [
+    {
+      "id": "diagnosis_check",
+      "question": "Does evidence still support subject variability as a leading blocker after the failed intervention?",
+      "required_outputs": [
+        "subject dominance / label dominance comparison before and after preprocessing when available",
+        "fold and subject difficulty persistence",
+        "within-subject vs subject-heldout contrast interpretation"
+      ]
+    },
+    {
+      "id": "intervention_strength_check",
+      "question": "Did preprocessing reduce domain shift but fail to improve label separation?",
+      "required_outputs": [
+        "shift reduction vs validation separation gain",
+        "per-modality interpretation",
+        "whether improvement was expected to be enough for training"
+      ]
+    },
+    {
+      "id": "subject_relative_label_check",
+      "question": "Did subject-relative labels create balanced labels but still fail to create separable signal?",
+      "required_outputs": [
+        "class balance audit",
+        "retention / discarded middle-third summary",
+        "fold/task metrics under subject-relative formulation"
+      ]
+    },
+    {
+      "id": "failure_localization",
+      "question": "Is failure global or concentrated in specific folds, tasks, or subjects?",
+      "required_outputs": [
+        "per-fold macro-F1 and balanced accuracy",
+        "hard subject carryover from previous diagnostics",
+        "whether EEG and EMG fail differently"
+      ]
+    },
+    {
+      "id": "next_method_justification",
+      "question": "Which next method directly targets the remaining failure mode?",
+      "required_outputs": [
+        "decision: SupCon/DG justified, feature engineering justified, task/label redesign justified, or stop",
+        "evidence for or against affective SupCon across subjects",
+        "evidence for or against VREx/domain generalization"
+      ]
+    }
+  ],
+  "authorized_scope": [
+    "Read existing committed JSON/CSV/MD outputs only.",
+    "No new performance training.",
+    "No new model architecture changes.",
+    "No data augmentation.",
+    "No fusion.",
+    "No broad hyperparameter search.",
+    "Produce a report that explicitly separates diagnosis validity from intervention adequacy."
+  ],
+  "expected_outputs": [
+    "docs/idare_subject_variability_intervention_failure_analysis_report.md",
+    "docs/idare_subject_variability_intervention_failure_analysis_report.json",
+    "docs/idare_subject_variability_intervention_failure_fold_task_summary.csv",
+    "docs/idare_subject_variability_intervention_failure_decision_matrix.csv"
+  ],
+  "pass_criteria": [
+    "Report must explain why the tested intervention failed or say that current evidence is insufficient.",
+    "Report must decide whether subject variability remains a leading blocker.",
+    "Report must decide whether SupCon/DG is justified by the failure evidence.",
+    "Report must explicitly avoid final LOSO claims and mainline changes.",
+    "Report must update docs/project_status_current.md and docs/project_status_current.json."
+  ],
+  "not_authorized": [
+    "EEG+EMG fusion",
+    "final LOSO / final paper claim",
+    "mainline change",
+    "SupCon / VREx / domain generalization training",
+    "generic feature engineering training",
+    "architecture ablation for improvement",
+    "data augmentation",
+    "broad hyperparameter search"
+  ],
+  "suggested_analysis_algorithm": {
+    "inputs": [
+      "docs/idare_subject_relative_preprocessed_minimal_training_report.json",
+      "docs/idare_subject_relative_preprocessed_minimal_eeg_primary.json",
+      "docs/idare_subject_relative_preprocessed_minimal_emg_primary.json",
+      "docs/idare_subject_relative_representation_preprocessing_report.json",
+      "docs/idare_subject_relative_distribution_shift_summary.csv",
+      "docs/idare_subject_relative_preprocessing_candidate_matrix.csv",
+      "docs/idare_root_cause_subject_summary.csv",
+      "docs/idare_diagnostic_sanity_tests_summary.csv"
+    ],
+    "outputs": [
+      "failure_reason_ranking",
+      "diagnosis_validity_assessment",
+      "intervention_adequacy_assessment",
+      "next_method_decision_matrix"
+    ]
+  },
+  "next_allowed_step": "Prepare and run a reviewed read-only intervention-failure analysis script."
+}

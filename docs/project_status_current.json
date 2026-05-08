@@ -1126,6 +1126,25 @@
       ],
       "status": "frozen_human_review_closeout"
     },
+    "idare_subject_relative_preprocessed_minimal_training_review": {
+      "accepted_result": "preprocessed_subject_relative_first_pass_not_sufficient",
+      "evidence": "docs/idare_subject_relative_preprocessed_minimal_training_review_status.md",
+      "evidence_json": "docs/idare_subject_relative_preprocessed_minimal_training_review_status.json",
+      "mainline_changed": false,
+      "next_step": "docs/idare_subject_variability_intervention_failure_analysis_objective.md",
+      "not_authorized": [
+        "EEG+EMG fusion",
+        "final LOSO / final paper claim",
+        "mainline change",
+        "generic feature engineering objective",
+        "SupCon / VREx / domain generalization training",
+        "architecture ablation for improvement",
+        "data augmentation",
+        "broad hyperparameter search"
+      ],
+      "reviewed_report": "docs/idare_subject_relative_preprocessed_minimal_training_report.md",
+      "status": "frozen_human_review_closeout"
+    },
     "idare_subject_relative_representation_preprocessing_objective": {
       "evidence": "docs/idare_subject_relative_representation_preprocessing_objective.md",
       "evidence_json": "docs/idare_subject_relative_representation_preprocessing_objective.json",
@@ -1270,6 +1289,30 @@
       "selected_next_objective": "minimal_subject_relative_training_objective",
       "status": "frozen_human_review_closeout",
       "training_authorized_by_review": false
+    },
+    "idare_subject_variability_intervention_failure_analysis_objective": {
+      "evidence": "docs/idare_subject_variability_intervention_failure_analysis_objective.md",
+      "evidence_json": "docs/idare_subject_variability_intervention_failure_analysis_objective.json",
+      "expected_outputs": [
+        "docs/idare_subject_variability_intervention_failure_analysis_report.md",
+        "docs/idare_subject_variability_intervention_failure_analysis_report.json",
+        "docs/idare_subject_variability_intervention_failure_fold_task_summary.csv",
+        "docs/idare_subject_variability_intervention_failure_decision_matrix.csv"
+      ],
+      "next_allowed_step": "Prepare and run a reviewed read-only intervention-failure analysis script.",
+      "not_authorized": [
+        "EEG+EMG fusion",
+        "final LOSO / final paper claim",
+        "mainline change",
+        "SupCon / VREx / domain generalization training",
+        "generic feature engineering training",
+        "architecture ablation for improvement",
+        "data augmentation",
+        "broad hyperparameter search"
+      ],
+      "objective_type": "read_only_diagnostic_analysis",
+      "scientific_question": "Why did the subject-relative + preprocessing intervention fail, and does the failure support or weaken the hypothesis that low accuracy is primarily caused by subject variability?",
+      "status": "short_term_objective_created"
     }
   },
   "failure_analysis_objective": {
