@@ -1,0 +1,78 @@
+{
+  "authorized_scope": {
+    "allowed_method_components": [
+      "CE baseline branch for comparison inside smoke",
+      "SupCon projection head",
+      "CE+SupCon loss",
+      "optional VREx computation only as diagnostic if implemented readably"
+    ],
+    "fold_scope": "fold1_only unless explicitly noted",
+    "label_formulation": "subject_top_bottom_quantile_q33",
+    "modalities": [
+      "EEG",
+      "EMG"
+    ],
+    "smoke_tests_authorized": true,
+    "tasks": [
+      "valence",
+      "arousal"
+    ],
+    "training_authorized": false
+  },
+  "created_or_updated_utc": "2026-05-08T09:29:54.424115+00:00",
+  "expected_outputs": [
+    "docs/idare_subject_variability_supcon_dg_smoke_tests_report.md",
+    "docs/idare_subject_variability_supcon_dg_smoke_tests_report.json",
+    "docs/idare_subject_variability_supcon_dg_pair_sampler_audit.csv",
+    "docs/idare_subject_variability_supcon_dg_loss_trace_summary.csv",
+    "docs/idare_subject_variability_supcon_dg_embedding_diagnostic_summary.csv"
+  ],
+  "next_allowed_step_after_this_objective": "prepare reviewed implementation/run command for smoke tests only",
+  "not_authorized": [
+    "full first-pass SupCon/DG training matrix",
+    "broad hyperparameter search",
+    "fusion",
+    "mainline change",
+    "final LOSO claim"
+  ],
+  "objective_type": "diagnostic_smoke_tests_only",
+  "parent_design_spec": "docs/idare_subject_variability_supcon_dg_design_spec.md",
+  "parent_review": "docs/idare_subject_variability_supcon_dg_design_spec_review_status.md",
+  "pass_criteria": [
+    "all required smoke tests execute or clearly report why a test cannot execute",
+    "pair/sampler audit is generated",
+    "leakage guard passes",
+    "micro-overfit passes",
+    "negative control does not indicate leakage",
+    "one-fold minimal smoke produces interpretable diagnostics",
+    "next action is based on smoke evidence, not metric optimism"
+  ],
+  "required_smoke_tests": [
+    {
+      "failure_means": "sampler/pair design invalid; do not train",
+      "name": "pair_sampler_integrity_smoke",
+      "pass_gate": "all audited batches contain both classes, at least 4 subjects, positive_pair_coverage >= 0.95, anchors_without_positive <= 0.05"
+    },
+    {
+      "failure_means": "protocol invalid",
+      "name": "leakage_guard_smoke",
+      "pass_gate": "no validation sample appears in train scaler, train pairs, positive/negative pools, or environment-risk terms"
+    },
+    {
+      "failure_means": "implementation or optimization bug",
+      "name": "supcon_micro_overfit_smoke",
+      "pass_gate": "tiny train-only subset overfits; CE and SupCon losses are finite and decreasing; embeddings do not collapse"
+    },
+    {
+      "failure_means": "leakage or invalid evaluation likely",
+      "name": "shuffled_label_negative_control",
+      "pass_gate": "train-label-shuffled control remains near chance and does not show suspicious gain"
+    },
+    {
+      "failure_means": "inspect logs before expanding",
+      "name": "one_fold_one_task_minimal_smoke",
+      "pass_gate": "one fold/task run completes with valid logs, non-collapsed predictions, and embedding/pair diagnostics"
+    }
+  ],
+  "status": "objective_created"
+}

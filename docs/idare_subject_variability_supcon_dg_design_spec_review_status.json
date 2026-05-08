@@ -1,0 +1,32 @@
+{
+  "accepted_constraints": [
+    "SupCon/DG must proceed through smoke tests before any first-pass training.",
+    "Positive/negative pair and sampler integrity must be audited before model training.",
+    "Leakage guard must pass before any training result can be trusted.",
+    "Hyperparameter changes must be registry-based and staged, not broad-grid.",
+    "Failure interpretation must be tied to smoke outputs, not just aggregate metric movement."
+  ],
+  "blocked_until_after_smoke_review": [
+    "direct SupCon/DG training",
+    "broad hyperparameter search",
+    "fusion",
+    "mainline change",
+    "final LOSO claim"
+  ],
+  "created_or_updated_utc": "2026-05-08T09:29:54.424115+00:00",
+  "next_selected_step": "subject_variability_supcon_dg_smoke_tests_objective",
+  "review_decision": "accepted_for_smoke_tests_only",
+  "reviewed_artifact": "docs/idare_subject_variability_supcon_dg_design_spec.md",
+  "reviewed_artifact_json": "docs/idare_subject_variability_supcon_dg_design_spec.json",
+  "status": "human_review_accepted",
+  "summary": {
+    "design_spec_complete": true,
+    "draft_run_matrix_rows": 16,
+    "full_supcon_dg_training_authorized": false,
+    "hyperparameter_registry_rows": 8,
+    "pair_sampler_spec_rows": 12,
+    "smoke_test_plan_rows": 5,
+    "smoke_tests_authorized_next": true,
+    "training_authorized": false
+  }
+}

@@ -1448,6 +1448,31 @@
       "smoke_test_plan": "docs/idare_subject_variability_supcon_dg_smoke_test_plan.csv",
       "status": "design_spec_complete_pending_human_review",
       "training_authorized": false
+    },
+    "idare_subject_variability_supcon_dg_design_spec_review": {
+      "decision": "accepted_for_smoke_tests_only",
+      "evidence": "docs/idare_subject_variability_supcon_dg_design_spec_review_status.md",
+      "evidence_json": "docs/idare_subject_variability_supcon_dg_design_spec_review_status.json",
+      "reviewed_artifact": "docs/idare_subject_variability_supcon_dg_design_spec.md",
+      "smoke_tests_authorized_next": true,
+      "status": "human_review_accepted",
+      "training_authorized": false
+    },
+    "idare_subject_variability_supcon_dg_smoke_tests_objective": {
+      "evidence": "docs/idare_subject_variability_supcon_dg_smoke_tests_objective.md",
+      "evidence_json": "docs/idare_subject_variability_supcon_dg_smoke_tests_objective.json",
+      "next_allowed_step": "prepare reviewed smoke-test implementation/run command",
+      "objective_type": "diagnostic_smoke_tests_only",
+      "required_smoke_tests": [
+        "pair_sampler_integrity_smoke",
+        "leakage_guard_smoke",
+        "supcon_micro_overfit_smoke",
+        "shuffled_label_negative_control",
+        "one_fold_one_task_minimal_smoke"
+      ],
+      "smoke_tests_authorized": true,
+      "status": "objective_created",
+      "training_authorized": false
     }
   },
   "failure_analysis_objective": {
