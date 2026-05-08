@@ -516,3 +516,15 @@ Updated: `2026-05-08T13:00:51+00:00`
 - Next allowed step: `prepare_reviewed_historical_script_backfill_command`.
 - Blocked: executing historical scripts during archival; running active scientific analysis before backfill review; direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim.
 
+## I-DARE Historical Script Backfill Report
+
+Updated: `2026-05-08T13:54:10+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE historical script backfill report | complete pending human review; copied `71` scripts byte-for-byte; no historical script executed | `docs/idare_historical_script_backfill_report.md` | Human review / closeout, then resume committed failure-or-confirmation analysis. | executing historical scripts during archival; direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim |
+
+- Historical scripts are preserved under `scripts/idare/archive_or_reconstructed/from_downloads_bundle/`.
+- Updated manifest: `docs/idare_script_archival_manifest.csv`.
+- Manifest delta: `docs/idare_historical_script_backfill_manifest_delta.csv`.
+

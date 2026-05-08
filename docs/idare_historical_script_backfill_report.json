@@ -1,0 +1,27 @@
+{
+  "status": "complete_pending_human_review",
+  "created_utc": "2026-05-08T13:54:10+00:00",
+  "source_objective": "docs/idare_historical_script_backfill_objective.md",
+  "source_archive": "/home/armin/Downloads/Downloads.tar.gz",
+  "source_inventory": "docs/idare_historical_script_backfill_source_inventory.csv",
+  "target_map": "docs/idare_historical_script_backfill_target_map.csv",
+  "manifest_delta": "docs/idare_historical_script_backfill_manifest_delta.csv",
+  "copied_script_count": 71,
+  "source_script_count": 71,
+  "all_sha256_matched": true,
+  "all_scripts_copied_byte_for_byte": true,
+  "any_script_executed": false,
+  "target_root": "scripts/idare/archive_or_reconstructed/from_downloads_bundle",
+  "diagnosis": "historical_download_scripts_backfilled_byte_for_byte",
+  "recommended_next_objective": "resume_committed_failure_or_confirmation_analysis_after_backfill_review",
+  "training_authorized": false,
+  "blocked": [
+    "executing historical scripts during archival",
+    "running active scientific analysis before historical backfill review",
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "mainline change unrelated to archival"
+  ]
+}

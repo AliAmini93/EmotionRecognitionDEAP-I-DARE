@@ -8035,7 +8035,7 @@
     "next_step": "human_review_closeout_of_supcon_dg_failure_analysis",
     "updated_at_utc": "2026-05-08T09:59:59+00:00"
   },
-  "last_updated_utc": "2026-05-08T13:00:51+00:00",
+  "last_updated_utc": "2026-05-08T13:54:10+00:00",
   "idare_protocol_events": [
     {
       "timestamp_utc": "2026-05-08T10:06:00+00:00",
@@ -8587,17 +8587,34 @@
         "deep neural training for redesigned task",
         "unregistered feature engineering"
       ]
+    },
+    {
+      "timestamp_utc": "2026-05-08T13:54:10+00:00",
+      "type": "script_backfill_report",
+      "name": "I-DARE historical script backfill report",
+      "status": "complete pending human review; copied_script_count=71; no script executed",
+      "evidence": "docs/idare_historical_script_backfill_report.md",
+      "next_allowed_step": "Human review / closeout, then resume committed failure-or-confirmation analysis.",
+      "blocked": [
+        "executing historical scripts during archival",
+        "running active scientific analysis before historical backfill review",
+        "direct full SupCon/DG training",
+        "broad hyperparameter search",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "mainline change unrelated to archival"
+      ]
     }
   ],
-  "current_idare_next_allowed_step": "human_review_closeout_then_run_committed_failure_or_confirmation_analysis_script",
+  "current_idare_next_allowed_step": "human_review_closeout_then_resume_committed_failure_or_confirmation_analysis",
   "current_idare_blocked_steps": [
+    "executing historical scripts during archival",
+    "running active scientific analysis before historical backfill review",
     "direct full SupCon/DG training",
     "broad hyperparameter search",
     "EEG+EMG fusion",
     "final LOSO claim",
-    "mainline change unrelated to script archival",
-    "deep neural training for redesigned task",
-    "unregistered feature engineering"
+    "mainline change unrelated to archival"
   ],
   "idare_historical_script_backfill_objective": {
     "status": "objective_created_no_backfill_copy_yet",
