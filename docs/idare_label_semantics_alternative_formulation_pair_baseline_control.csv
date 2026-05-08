@@ -1,0 +1,3 @@
+task,canonical_majority_baseline,counterbalanced_majority_baseline,position_shortcut_risk,baseline_control_pass
+valence,0.5174553337818644,0.5,low_or_moderate,True
+arousal,0.5575950337216432,0.5,low_or_moderate,True

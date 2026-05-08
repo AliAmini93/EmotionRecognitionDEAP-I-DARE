@@ -643,3 +643,15 @@ Updated: `2026-05-08T15:59:11+00:00`
 - Smoke tests are read-only gates for the selected pairwise formulation.
 - Training remains blocked until smoke-test report, review, and a separate minimal first-pass objective.
 
+## I-DARE Alternative-Formulation Smoke Tests Report
+
+Updated: `2026-05-08T16:47:26+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE alternative pairwise formulation smoke tests | complete pending human review; diagnosis=`alternative_pairwise_formulation_smoke_tests_passed` | `docs/idare_label_semantics_alternative_formulation_smoke_tests_report.md` | `human_review_closeout_then_create_alternative_pairwise_minimal_first_pass_objective` | training before review; model search; SupCon/DG; broad search; fusion; final claim |
+
+- Selected formulation: `within_subject_pairwise_affect_preference_ranking_v1`.
+- All smoke tests passed: `True`.
+- Recommended next objective: `label_semantics_alternative_pairwise_minimal_first_pass_objective`.
+

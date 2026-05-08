@@ -1,0 +1,5 @@
+case,balanced_accuracy,macro_f1,expected_behavior_pass
+perfect,1.0,1.0,True
+random,0.477,0.4769743717442154,True
+shuffled_labels,0.46,0.46,True
+majority_zero,0.5,0.3333333333333333,True

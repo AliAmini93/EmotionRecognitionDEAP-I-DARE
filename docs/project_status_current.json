@@ -8035,7 +8035,7 @@
     "next_step": "human_review_closeout_of_supcon_dg_failure_analysis",
     "updated_at_utc": "2026-05-08T09:59:59+00:00"
   },
-  "last_updated_utc": "2026-05-08T15:59:11+00:00",
+  "last_updated_utc": "2026-05-08T16:47:26+00:00",
   "idare_protocol_events": [
     {
       "timestamp_utc": "2026-05-08T10:06:00+00:00",
@@ -8890,18 +8890,32 @@
         "alternative first-pass training",
         "reopening archived subject_relative_ordinal_affect_regression_v1 unchanged"
       ]
+    },
+    {
+      "timestamp_utc": "2026-05-08T16:47:26+00:00",
+      "type": "smoke_test_report",
+      "name": "I-DARE alternative pairwise formulation smoke tests",
+      "status": "complete pending human review; diagnosis=alternative_pairwise_formulation_smoke_tests_passed",
+      "evidence": "docs/idare_label_semantics_alternative_formulation_smoke_tests_report.md",
+      "recommended_next_objective": "label_semantics_alternative_pairwise_minimal_first_pass_objective",
+      "blocked": [
+        "training before smoke-test review",
+        "model search",
+        "direct full SupCon/DG training",
+        "broad hyperparameter search",
+        "EEG+EMG fusion",
+        "final LOSO claim"
+      ]
     }
   ],
-  "current_idare_next_allowed_step": "prepare_reviewed_label_semantics_alternative_formulation_smoke_tests_command",
+  "current_idare_next_allowed_step": "human_review_closeout_then_create_alternative_pairwise_minimal_first_pass_objective",
   "current_idare_blocked_steps": [
-    "training",
+    "training before smoke-test review",
     "model search",
     "direct full SupCon/DG training",
     "broad hyperparameter search",
     "EEG+EMG fusion",
-    "final LOSO claim",
-    "alternative first-pass training",
-    "reopening archived subject_relative_ordinal_affect_regression_v1 unchanged"
+    "final LOSO claim"
   ],
   "idare_historical_script_backfill_objective": {
     "status": "objective_created_no_backfill_copy_yet",
@@ -8923,5 +8937,6 @@
   "current_idare_active_script": "scripts/idare/analysis/run_idare_label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis.py",
   "current_idare_archived_formulation": "subject_relative_ordinal_affect_regression_v1",
   "current_idare_archive_status": "redesigned_task_branch_archived_as_negative_result",
-  "current_idare_selected_alternative_formulation": "within_subject_pairwise_affect_preference_ranking_v1"
+  "current_idare_selected_alternative_formulation": "within_subject_pairwise_affect_preference_ranking_v1",
+  "current_idare_alternative_smoke_diagnosis": "alternative_pairwise_formulation_smoke_tests_passed"
 }

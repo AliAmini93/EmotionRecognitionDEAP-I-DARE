@@ -1,0 +1,7 @@
+smoke_test,passed,evidence,interpretation
+pair_target_construction_integrity,True,docs/idare_label_semantics_alternative_formulation_pair_target_audit.csv,Pairwise targets are constructible with ordered within-subject ratings.
+LOSO_pair_leakage_guard,True,docs/idare_label_semantics_alternative_formulation_pair_fold_audit.csv,LOSO pair partitions are subject-disjoint and leak-free.
+pair_retention_balance_audit,True,docs/idare_label_semantics_alternative_formulation_pair_balance_audit.csv,Pair retention and fold coverage are sufficient for a later minimal first-pass design.
+position_and_majority_baseline_control,True,docs/idare_label_semantics_alternative_formulation_pair_baseline_control.csv,Counterbalanced orientation plan blocks trivial majority/position shortcut.
+metric_sanity_control,True,docs/idare_label_semantics_alternative_formulation_pair_metric_sanity.csv,Pairwise metrics behave correctly on synthetic sanity controls.
+reproducibility_guard,True,docs/idare_label_semantics_alternative_formulation_smoke_reproducibility_audit.csv,Committed script exists for replay.

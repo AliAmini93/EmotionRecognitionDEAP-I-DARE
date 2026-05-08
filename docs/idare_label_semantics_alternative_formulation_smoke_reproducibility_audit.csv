@@ -1,0 +1,4 @@
+check_id,check,path,passed,notes
+REPRO_ALT_001,committed_script_path_exists,scripts/idare/analysis/run_idare_label_semantics_alternative_formulation_smoke_tests.py,True,Smoke-test analysis is written into scripts/idare/analysis before execution.
+REPRO_ALT_002,historical_download_script_not_needed_for_replay,scripts/idare/analysis/run_idare_label_semantics_alternative_formulation_smoke_tests.py,True,The committed Python script is the replayable source for this smoke report.
+REPRO_ALT_003,no_training_libraries_required,scripts/idare/analysis/run_idare_label_semantics_alternative_formulation_smoke_tests.py,True,Script uses pandas/numpy/csv/json only and does not instantiate models.

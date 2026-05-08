@@ -1,0 +1,3 @@
+task,margin,n_subjects,n_trials,rating_unique_values,rating_min,rating_max,total_possible_pairs,unique_pairs_kept,oriented_pairs_if_counterbalanced,tie_or_ambiguous_pairs_excluded,retention_rate,subjects_with_zero_pairs,min_pairs_per_subject,median_pairs_per_subject,max_pairs_per_subject,canonical_positive_rate,counterbalanced_positive_rate,continuous_or_ordered_rating_available,target_construction_pass,status
+valence,1.0,63,2016,9,1.0,9.0,31248,26754,53508,4494,0.8561827956989247,0,364,426.0,449,0.5174553337818644,0.5,True,True,pass
+arousal,1.0,63,2016,9,1.0,9.0,31248,26096,52192,5152,0.8351254480286738,0,313,423.0,447,0.5575950337216432,0.5,True,True,pass
