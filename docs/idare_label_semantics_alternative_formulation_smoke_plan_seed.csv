@@ -1,0 +1,6 @@
+smoke_id,name,purpose,pass_signal
+SMOKE_ALT_001,target_construction_integrity,Verify alternative labels/targets are constructible and match semantics.,No missing/invalid targets; target distribution documented.
+SMOKE_ALT_002,fold_leakage_guard,Verify no held-out subject leakage or pair leakage.,No subject overlap; no row/pair overlap across train/test.
+SMOKE_ALT_003,retention_balance_audit,Verify enough usable data remains after alternative target rules.,Retention and class/target balance exceed spec thresholds.
+SMOKE_ALT_004,trivial_baseline_control,Verify the task is not solved by trivial subject/fold artifacts.,Trivial/no-training controls are reported and do not create false confidence.
+SMOKE_ALT_005,metric_sanity_control,Verify chosen metrics respond to known synthetic or baseline cases.,Primary and secondary metrics behave consistently with target semantics.

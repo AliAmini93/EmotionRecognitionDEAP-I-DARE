@@ -1,0 +1,6 @@
+decision_node,question,if_yes,if_no,evidence_required
+D1,Does any alternative materially differ from the archived formulation?,Evaluate candidate-specific smoke-test feasibility.,Recommend stop-line closeout.,Candidate formulation comparison.
+D2,Can target construction be audited without training?,Include smoke-test objective as next step after spec review.,Reject candidate.,Target audit and fold audit definitions.
+D3,Are metrics aligned with target semantics?,Lock metric plan.,Revise or reject candidate.,Metric alignment plan.
+D4,Does the candidate preserve enough data without leakage?,Candidate may be selected for smoke tests.,Reject candidate or choose stop-line closeout.,"Retention, balance, and leakage guard plan."
+D5,Is training requested in the spec step?,Fail objective.,Pass design/spec objective if other criteria are satisfied.,Objective scope and blocked steps.

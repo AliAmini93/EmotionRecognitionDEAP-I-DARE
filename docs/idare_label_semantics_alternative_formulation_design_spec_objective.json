@@ -1,0 +1,52 @@
+{
+  "status": "objective_created",
+  "created_utc": "2026-05-08T15:46:10+00:00",
+  "source_archive_closeout_review": "docs/idare_label_semantics_redesigned_task_archive_closeout_report_review_status.md",
+  "source_archive_closeout_report": "docs/idare_label_semantics_redesigned_task_archive_closeout_report.md",
+  "accepted_archive_diagnosis": "redesigned_task_branch_archived_as_negative_result",
+  "accepted_archived_formulation": "subject_relative_ordinal_affect_regression_v1",
+  "scientific_question": "Can we define a materially different label-semantics task formulation that avoids the archived branch failure mode before any new training is considered?",
+  "authorized_work": [
+    "Read archived-branch evidence",
+    "Compare alternative task formulation candidates",
+    "Select zero or one primary alternative candidate for a future smoke-test objective",
+    "Define metric alignment, target-construction guardrails, and stop/archive criteria",
+    "Produce an implementation-ready design/spec only"
+  ],
+  "not_authorized": [
+    "training",
+    "model search",
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "implementation of any alternative before design/spec review",
+    "reopening archived subject_relative_ordinal_affect_regression_v1 without new evidence"
+  ],
+  "required_inputs": [
+    "docs/idare_label_semantics_redesigned_task_archive_closeout_report.json",
+    "docs/idare_label_semantics_redesigned_task_archive_manifest.csv",
+    "docs/idare_label_semantics_redesigned_task_archive_status.csv",
+    "docs/idare_label_semantics_redesigned_task_next_options_after_archive.csv",
+    "docs/idare_label_semantics_redesigned_task_metric_debug_report.json",
+    "docs/idare_label_semantics_alternative_formulation_candidate_constraints.csv"
+  ],
+  "expected_outputs": [
+    "docs/idare_label_semantics_alternative_formulation_design_spec.md",
+    "docs/idare_label_semantics_alternative_formulation_design_spec.json",
+    "docs/idare_label_semantics_alternative_formulation_candidate_decision_matrix.csv",
+    "docs/idare_label_semantics_alternative_formulation_selected_task_definition.csv",
+    "docs/idare_label_semantics_alternative_formulation_metric_plan.csv",
+    "docs/idare_label_semantics_alternative_formulation_smoke_test_plan.csv",
+    "docs/idare_label_semantics_alternative_formulation_stop_criteria.csv"
+  ],
+  "pass_criteria": [
+    "No training is run or authorized",
+    "The archived formulation is not reused unchanged",
+    "The spec explains why the selected candidate is materially different",
+    "The spec defines smoke tests before any future training",
+    "The spec defines stop/archive criteria before any future training"
+  ],
+  "next_allowed_step": "prepare_reviewed_label_semantics_alternative_formulation_design_spec_command",
+  "training_authorized": false
+}

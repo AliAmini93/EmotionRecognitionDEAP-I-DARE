@@ -1,0 +1,7 @@
+section_id,required_section,purpose,minimum_content
+SPEC_REQ_001,Archived failure recap,Summarize the exact failure mode that the new formulation must avoid.,"Cite archive closeout, metric-debug, and first-pass evidence."
+SPEC_REQ_002,Candidate formulation comparison,Evaluate alternative candidates before choosing one.,"Compare target semantics, data retention, leakage risk, metrics, and expected failure modes."
+SPEC_REQ_003,Selected alternative task definition,Lock target construction before any smoke tests.,"Define label/target, exclusion rules, fold protocol, and blocked shortcuts."
+SPEC_REQ_004,Metric alignment plan,Prevent another weak rank vs absolute-error conflict.,"Define primary metric, supporting metrics, baseline controls, and stop thresholds."
+SPEC_REQ_005,Smoke-test plan,Gate any later first-pass training.,"Target audit, fold audit, leakage audit, balance/retention audit, negative/trivial controls."
+SPEC_REQ_006,Stop/archive criteria,Avoid broad search if the alternative is weak.,Predeclare conditions that force stop/archive before training or after minimal first pass.

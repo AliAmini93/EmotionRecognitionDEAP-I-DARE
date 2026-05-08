@@ -619,3 +619,15 @@ Updated: `2026-05-08T15:27:24+00:00`
 - Archived formulation: `subject_relative_ordinal_affect_regression_v1`.
 - Recommended next objective after review: `label_semantics_alternative_formulation_design_spec_objective` if continuing; otherwise stop-line closeout.
 
+## I-DARE Alternative-Formulation Design Spec Objective
+
+Updated: `2026-05-08T15:46:10+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE redesigned-task archive closeout review | human review accepted; archived formulation=`subject_relative_ordinal_affect_regression_v1` | `docs/idare_label_semantics_redesigned_task_archive_closeout_report_review_status.md` | Create/use alternative-formulation design/spec objective. | training; model search; SupCon/DG; broad search; fusion; final claim |
+| I-DARE label-semantics alternative-formulation design spec objective | design/spec objective created; no training authorized | `docs/idare_label_semantics_alternative_formulation_design_spec_objective.md` | Prepare reviewed alternative-formulation design/spec command/script. | training; model search; SupCon/DG; broad search; fusion; final claim |
+
+- The archived formulation remains closed: `subject_relative_ordinal_affect_regression_v1`.
+- The next work is design/spec only, not training.
+

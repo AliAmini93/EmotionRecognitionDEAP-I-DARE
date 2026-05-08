@@ -1,0 +1,6 @@
+constraint_id,constraint,rationale,pass_condition
+ALT_DESIGN_CONSTRAINT_001,The archived formulation must not be reopened or renamed as a new task.,It was archived as a negative result after metric-debug and archive closeout.,The spec states exactly how the chosen formulation differs from subject_relative_ordinal_affect_regression_v1.
+ALT_DESIGN_CONSTRAINT_002,The next step is design/spec only.,Alternative training remains unauthorized.,No executable training matrix is produced except future placeholder matrices clearly marked not authorized.
+ALT_DESIGN_CONSTRAINT_003,Metrics must be aligned with target semantics before model work.,The archived branch failed partly through weak/conflicting metric behavior.,"The spec defines primary, secondary, and stop metrics with quantitative thresholds."
+ALT_DESIGN_CONSTRAINT_004,Smoke tests must precede any later first-pass training.,Prior guard and task smoke tests caught important issues.,"The spec includes target audit, fold audit, leakage audit, and no-training controls."
+ALT_DESIGN_CONSTRAINT_005,Reproducibility assets must be committed before execution.,The reproducibility layer has been fixed and must not regress.,Any future script is under scripts/idare or archived with manifest entries.

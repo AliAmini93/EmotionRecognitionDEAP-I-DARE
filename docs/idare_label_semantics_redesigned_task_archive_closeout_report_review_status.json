@@ -1,0 +1,25 @@
+{
+  "status": "human_review_accepted",
+  "created_utc": "2026-05-08T15:46:10+00:00",
+  "reviewed_report": "docs/idare_label_semantics_redesigned_task_archive_closeout_report.md",
+  "accepted_diagnosis": "redesigned_task_branch_archived_as_negative_result",
+  "accepted_decision": "archive_closeout_complete_for_subject_relative_ordinal_affect_regression_v1",
+  "accepted_archived_formulation": "subject_relative_ordinal_affect_regression_v1",
+  "accepted_recommendation": "optional_alternative_formulation_design_spec_after_review",
+  "accepted_recommended_next_objective": "label_semantics_alternative_formulation_design_spec_objective",
+  "accepted_decision_reason": "The current redesigned task branch is formally archived as a negative result; any continuation must start from a separate alternative-formulation design/spec objective, not more training.",
+  "training_authorized_by_this_review": false,
+  "alternative_training_authorized_by_this_review": false,
+  "next_selected_step": "create_alternative_formulation_design_spec_objective",
+  "next_allowed_step": "prepare_reviewed_label_semantics_alternative_formulation_design_spec_command",
+  "blocked": [
+    "training",
+    "model search",
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "implementation of any alternative before design/spec review",
+    "reopening archived subject_relative_ordinal_affect_regression_v1 without new evidence"
+  ]
+}
