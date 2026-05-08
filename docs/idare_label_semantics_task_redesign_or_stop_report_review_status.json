@@ -1,0 +1,18 @@
+{
+  "status": "human_review_accepted",
+  "created_utc": "2026-05-08T11:10:33+00:00",
+  "reviewed_report": "docs/idare_label_semantics_task_redesign_or_stop_report.md",
+  "accepted_diagnosis": "current_global_binary_loso_task_not_defensible_for_more_model_search",
+  "accepted_decision": "pause_current_global_binary_loso_training_and_prepare_task_redesign_spec",
+  "accepted_recommended_next_objective": "label_semantics_task_redesign_spec_objective",
+  "stop_condition": "If a defensible redesign spec cannot be accepted, stop/archive the current binary LOSO branch.",
+  "next_selected_step": "create_label_semantics_task_redesign_spec_objective",
+  "blocked": [
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "mainline change",
+    "new training before redesign spec review"
+  ]
+}

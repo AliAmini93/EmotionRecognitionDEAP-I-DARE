@@ -8035,7 +8035,7 @@
     "next_step": "human_review_closeout_of_supcon_dg_failure_analysis",
     "updated_at_utc": "2026-05-08T09:59:59+00:00"
   },
-  "last_updated_utc": "2026-05-08T11:06:28+00:00",
+  "last_updated_utc": "2026-05-08T11:10:33+00:00",
   "idare_protocol_events": [
     {
       "timestamp_utc": "2026-05-08T10:06:00+00:00",
@@ -8255,15 +8255,47 @@
         "mainline change",
         "new model training before task redesign spec review"
       ]
+    },
+    {
+      "timestamp_utc": "2026-05-08T11:10:33+00:00",
+      "type": "review",
+      "name": "I-DARE label-semantics task-redesign-or-stop report review",
+      "status": "human review accepted; diagnosis=current_global_binary_loso_task_not_defensible_for_more_model_search",
+      "evidence": "docs/idare_label_semantics_task_redesign_or_stop_report_review_status.md",
+      "next_allowed_step": "create/use label-semantics task-redesign spec objective",
+      "blocked": [
+        "direct full SupCon/DG training",
+        "broad hyperparameter search",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "mainline change",
+        "new training before redesign spec review"
+      ]
+    },
+    {
+      "timestamp_utc": "2026-05-08T11:10:33+00:00",
+      "type": "objective",
+      "name": "I-DARE label-semantics task-redesign spec objective",
+      "status": "objective created; no training authorized",
+      "evidence": "docs/idare_label_semantics_task_redesign_spec_objective.md",
+      "next_allowed_step": "prepare reviewed task-redesign spec command",
+      "blocked": [
+        "direct full SupCon/DG training",
+        "broad hyperparameter search",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "mainline change",
+        "new training before redesign spec review"
+      ]
     }
   ],
-  "current_idare_next_allowed_step": "human_review_closeout_then_task_redesign_spec_or_stop_archive",
+  "current_idare_next_allowed_step": "prepare_reviewed_label_semantics_task_redesign_spec_command",
   "current_idare_blocked_steps": [
     "direct full SupCon/DG training",
     "broad hyperparameter search",
     "EEG+EMG fusion",
     "final LOSO claim",
     "mainline change",
-    "new model training before task redesign spec review"
+    "new training before redesign spec review"
   ]
 }

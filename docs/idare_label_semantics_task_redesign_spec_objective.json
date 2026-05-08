@@ -1,0 +1,52 @@
+{
+  "status": "objective_created",
+  "created_utc": "2026-05-08T11:10:33+00:00",
+  "source_review": "docs/idare_label_semantics_task_redesign_or_stop_report_review_status.md",
+  "source_report": "docs/idare_label_semantics_task_redesign_or_stop_report.md",
+  "scientific_question": "Can we define one defensible label/task formulation that directly addresses the accepted label-semantics and representation-transfer bottleneck without cherry-picking or resuming broad model search?",
+  "diagnosis_context": "current_global_binary_loso_task_not_defensible_for_more_model_search",
+  "authorized_work": [
+    "read existing decision/candidate/evidence-gap reports",
+    "write an implementation-ready task-redesign specification",
+    "lock candidate task definitions, inclusion rules, metrics, and anti-cherry-picking guardrails",
+    "choose exactly one primary next task formulation or recommend stop/archive",
+    "no model training",
+    "no broad hyperparameter search"
+  ],
+  "candidate_formulations_to_evaluate": [
+    "ordinal_or_regression_affect_rating_task",
+    "subject_relative_binary_top_bottom_q33",
+    "restricted_high_confidence_label_task",
+    "personalization_or_few_shot_adaptation_task",
+    "stop_archive_current_global_binary_loso_path"
+  ],
+  "required_spec_sections": [
+    "scientific claim",
+    "label definition",
+    "allowed samples and excluded samples",
+    "train/validation/test protocol",
+    "metrics and pass criteria",
+    "leakage controls",
+    "anti-cherry-picking rules",
+    "minimal future run matrix if training is later authorized",
+    "explicit stop/archive criteria"
+  ],
+  "pass_criteria": [
+    "spec is complete enough to implement without guessing",
+    "exactly one primary candidate is selected, or stop/archive is selected",
+    "all inclusion/exclusion rules are pre-registered before training",
+    "metrics align with the scientific claim",
+    "direct full SupCon/DG training remains blocked",
+    "broad hyperparameter search remains blocked",
+    "final LOSO claim remains blocked"
+  ],
+  "next_allowed_step": "prepare_reviewed_label_semantics_task_redesign_spec_command",
+  "blocked": [
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "mainline change",
+    "new training before redesign spec review"
+  ]
+}

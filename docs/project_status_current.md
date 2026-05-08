@@ -357,3 +357,15 @@ Updated: `2026-05-08T11:06:28+00:00`
 - Recommended next objective is `label_semantics_task_redesign_spec_objective` only after human review/closeout.
 - Stop/archive is explicitly allowed if no defensible task redesign spec is accepted.
 
+## I-DARE Label-Semantics Task-Redesign Spec Objective
+
+Updated: `2026-05-08T11:10:33+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE label-semantics task-redesign-or-stop report review | human review accepted; diagnosis=`current_global_binary_loso_task_not_defensible_for_more_model_search` | `docs/idare_label_semantics_task_redesign_or_stop_report_review_status.md` | Create/use label-semantics task-redesign spec objective. | direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim; mainline change |
+| I-DARE label-semantics task-redesign spec objective | design/spec objective created; no training authorized | `docs/idare_label_semantics_task_redesign_spec_objective.md` | Prepare reviewed task-redesign spec command/script. | direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim; mainline change |
+
+- A label-semantics task-redesign spec objective is defined in `docs/idare_label_semantics_task_redesign_spec_objective.md`.
+- Training remains blocked until this design/spec is reviewed.
+
