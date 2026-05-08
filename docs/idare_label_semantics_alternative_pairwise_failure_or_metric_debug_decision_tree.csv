@@ -1,0 +1,6 @@
+decision_id,condition,decision,current_status
+D1,best mean balanced accuracy >= 0.55 and at least 3 folds >= 0.55,candidate for narrow confirmation objective,not met
+D2,"best mean balanced accuracy > 0.52 and positive lift over majority baseline, but no fold >= 0.55",weak mixed signal; run read-only failure/metric-debug,met
+D3,cell lift concentrated in one subject/fold or metric conflict detected,debug metric/stability before training,to evaluate
+D4,all learned cells near chance and no stable lift,archive current pairwise feature-summary first pass,to evaluate
+D5,signal exists only in EEG/arousal with simple linear models,"consider narrow representation/feature objective, not broad model search",to evaluate

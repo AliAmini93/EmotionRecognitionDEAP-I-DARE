@@ -678,3 +678,15 @@ Updated: `2026-05-08T17:05:28+00:00`
 - Frozen 96-row matrix was executed.
 - Recommended next objective: `label_semantics_alternative_pairwise_failure_or_metric_debug_objective` only after human review.
 
+## I-DARE Alternative Pairwise Failure-or-Metric-Debug Objective
+
+Updated: `2026-05-08T19:06:50+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE alternative pairwise minimal first-pass review | human review accepted; diagnosis=`alternative_pairwise_minimal_first_pass_weak_mixed_signal` | `docs/idare_label_semantics_alternative_pairwise_minimal_first_pass_review_status.md` | Create/use failure-or-metric-debug objective. | additional training before read-only review; broad search; SupCon/DG; fusion; final claim |
+| I-DARE alternative pairwise failure-or-metric-debug objective | read-only objective created; no training authorized | `docs/idare_label_semantics_alternative_pairwise_failure_or_metric_debug_objective.md` | Prepare reviewed read-only debug command/script. | additional training before read-only review; broad search; SupCon/DG; fusion; final claim |
+
+- Trigger: best learned cell `ridge_classifier_pairwise_summary_diff` / `EEG` / `arousal` reached mean balanced accuracy `0.521671` with delta vs majority baseline `0.021671`.
+- The current pairwise branch remains promising-but-unconfirmed; next work is read-only failure/metric-debug.
+

@@ -8035,7 +8035,7 @@
     "next_step": "human_review_closeout_of_supcon_dg_failure_analysis",
     "updated_at_utc": "2026-05-08T09:59:59+00:00"
   },
-  "last_updated_utc": "2026-05-08T17:05:28+00:00",
+  "last_updated_utc": "2026-05-08T19:06:50+00:00",
   "idare_protocol_events": [
     {
       "timestamp_utc": "2026-05-08T10:06:00+00:00",
@@ -8955,15 +8955,48 @@
         "final LOSO claim",
         "training outside reviewed next objective"
       ]
+    },
+    {
+      "timestamp_utc": "2026-05-08T19:06:50+00:00",
+      "type": "review_closeout",
+      "name": "I-DARE alternative pairwise minimal first-pass review",
+      "status": "human review accepted; diagnosis=alternative_pairwise_minimal_first_pass_weak_mixed_signal",
+      "evidence": "docs/idare_label_semantics_alternative_pairwise_minimal_first_pass_review_status.md",
+      "next_allowed_step": "Create/use failure-or-metric-debug objective.",
+      "blocked": [
+        "running additional training before read-only failure/metric-debug review",
+        "broad hyperparameter search",
+        "direct full SupCon/DG training",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "training outside a reviewed objective"
+      ]
+    },
+    {
+      "timestamp_utc": "2026-05-08T19:06:50+00:00",
+      "type": "objective",
+      "name": "I-DARE alternative pairwise failure-or-metric-debug objective",
+      "status": "read-only objective created; no training authorized",
+      "evidence": "docs/idare_label_semantics_alternative_pairwise_failure_or_metric_debug_objective.md",
+      "next_allowed_step": "prepare_reviewed_label_semantics_alternative_pairwise_failure_or_metric_debug_command",
+      "blocked": [
+        "running additional training before read-only failure/metric-debug review",
+        "broad hyperparameter search",
+        "direct full SupCon/DG training",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "training outside a reviewed objective"
+      ]
     }
   ],
-  "current_idare_next_allowed_step": "human_review_closeout_before_next_pairwise_decision",
+  "current_idare_next_allowed_step": "prepare_reviewed_label_semantics_alternative_pairwise_failure_or_metric_debug_command",
   "current_idare_blocked_steps": [
+    "running additional training before read-only failure/metric-debug review",
     "broad hyperparameter search",
     "direct full SupCon/DG training",
     "EEG+EMG fusion",
     "final LOSO claim",
-    "training outside reviewed next objective"
+    "training outside a reviewed objective"
   ],
   "idare_historical_script_backfill_objective": {
     "status": "objective_created_no_backfill_copy_yet",
@@ -8988,5 +9021,6 @@
   "current_idare_selected_alternative_formulation": "within_subject_pairwise_affect_preference_ranking_v1",
   "current_idare_alternative_smoke_diagnosis": "alternative_pairwise_formulation_smoke_tests_passed",
   "current_idare_alternative_pairwise_first_pass_planned_rows": 96,
-  "current_idare_alternative_pairwise_first_pass_diagnosis": "alternative_pairwise_minimal_first_pass_weak_mixed_signal"
+  "current_idare_alternative_pairwise_first_pass_diagnosis": "alternative_pairwise_minimal_first_pass_weak_mixed_signal",
+  "current_idare_pairwise_debug_objective_status": "objective_created"
 }

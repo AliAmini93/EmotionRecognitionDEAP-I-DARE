@@ -1,0 +1,40 @@
+{
+  "status": "human_review_accepted",
+  "created_utc": "2026-05-08T19:06:50+00:00",
+  "reviewed_first_pass_report": "docs/idare_label_semantics_alternative_pairwise_minimal_first_pass_report.md",
+  "accepted_diagnosis": "alternative_pairwise_minimal_first_pass_weak_mixed_signal",
+  "accepted_recommended_next_objective": "label_semantics_alternative_pairwise_failure_or_metric_debug_objective",
+  "best_learned_cell": {
+    "model": "ridge_classifier_pairwise_summary_diff",
+    "training_category": "minimal_classical_pairwise_baseline",
+    "modality": "EEG",
+    "task": "arousal",
+    "n_runs": 6,
+    "mean_balanced_accuracy": 0.5216709095350218,
+    "std_balanced_accuracy": 0.018748839652001463,
+    "min_balanced_accuracy": 0.5053943898345721,
+    "max_balanced_accuracy": 0.5497501135847342,
+    "mean_macro_f1": 0.5216709095350218,
+    "mean_accuracy": 0.5216709095350218,
+    "mean_pred_positive_rate": 0.5,
+    "one_class_pred_count": 0,
+    "folds_over_055_bal_acc": 0,
+    "folds_under_045_bal_acc": 0,
+    "mean_majority_baseline_bal_acc": 0.5,
+    "delta_vs_majority_baseline_bal_acc": 0.02167090953502182,
+    "mean_random_baseline_bal_acc": 0.501244141659629,
+    "delta_vs_random_baseline_bal_acc": 0.02042676787539277
+  },
+  "interpretation": "weak mixed pairwise signal; read-only failure/metric-debug required before any training decision",
+  "failure_or_metric_debug_objective_authorized_by_this_review": true,
+  "training_authorized_by_this_review": false,
+  "next_allowed_step": "prepare_reviewed_label_semantics_alternative_pairwise_failure_or_metric_debug_command",
+  "blocked": [
+    "running additional training before read-only failure/metric-debug review",
+    "broad hyperparameter search",
+    "direct full SupCon/DG training",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "training outside a reviewed objective"
+  ]
+}

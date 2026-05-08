@@ -1,0 +1,6 @@
+scope_id,authorized,item,notes
+SCOPE_001,yes,read existing first-pass outputs,No new training.
+SCOPE_002,yes,"compute fold stability, control-adjusted lift, and subject concentration",Derived analysis only.
+SCOPE_003,yes,write failure/metric-debug report and CSV audits,Read-only objective output.
+SCOPE_004,no,"rerun models, change matrix, or tune hyperparameters",Requires a separate reviewed objective.
+SCOPE_005,no,claim pairwise formulation is solved or publishable,First-pass result is weak/mixed.
