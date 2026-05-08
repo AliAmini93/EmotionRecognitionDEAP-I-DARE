@@ -1,0 +1,6 @@
+hypothesis,evidence_for,evidence_against,verdict
+Implementation/leakage failure,Smoke and guardrail checks were required and passed before ablation training.,All 120 runs completed; one-class prediction count remains zero in candidate-level aggregation.,unlikely_primary
+Positive-pair coverage failure,SupCon variants depend on enough positives per batch/fold.,SupCon candidates have mean positive-pair coverage near 1.0 but still hover near chance.,unlikely_primary
+Pair design semantic-noise failure,Cross-subject positives may connect trials with the same binary label but different subject-specific affect semantics.,"A5 and A4 sometimes improve isolated cells, so pair design is not fully useless.",supported_partial
+VREx / DG regularizer mismatch,A6 VREx-only mean macro-F1=0.5048; A5 mean macro-F1=0.5119; A5-A6 delta=0.0071.,VREx alone is also unstable and not sufficient.,supported_but_insufficient
+Representation or label/task semantic bottleneck,Valid pairs and valid smokes do not translate into stable held-out subject performance; this matches previous subject-variability and label/task diagnoses.,"Some fold/task cells exceed 0.55, so the signal is weak/intermittent rather than absent.",most_supported

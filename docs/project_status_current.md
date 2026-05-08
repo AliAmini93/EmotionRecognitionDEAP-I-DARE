@@ -299,3 +299,14 @@ Updated: `2026-05-08T10:30:45+00:00`
 - Human review of the targeted pair/sampler ablation is frozen in `docs/idare_targeted_supcon_dg_pair_sampler_ablation_review_status.md`.
 - A read-only SupCon/DG pair-sampler failure-analysis objective is defined in `docs/idare_supcon_dg_pair_sampler_failure_analysis_objective.md`.
 
+## I-DARE SupCon/DG Pair-Sampler Failure Analysis Report
+
+Updated: `2026-05-08T10:40:16+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE SupCon/DG pair-sampler failure analysis report | complete pending human review; diagnosis=`pair_sampler_valid_but_not_primary_failure_mode` | `docs/idare_supcon_dg_pair_sampler_failure_analysis_report.md` | Human review / closeout before next objective. | direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim; mainline change |
+
+- Read-only pair-sampler failure analysis is complete in `docs/idare_supcon_dg_pair_sampler_failure_analysis_report.md`.
+- Recommended next objective is `representation_or_label_semantics_failure_analysis_objective` only after review/closeout.
+
