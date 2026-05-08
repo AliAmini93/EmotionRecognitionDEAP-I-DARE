@@ -8598,5 +8598,22 @@
     "mainline change unrelated to script archival",
     "deep neural training for redesigned task",
     "unregistered feature engineering"
-  ]
+  ],
+  "idare_historical_script_backfill_objective": {
+    "status": "objective_created_no_backfill_copy_yet",
+    "created_utc": "2026-05-08T13:44:25+00:00",
+    "evidence": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/idare_historical_script_backfill_objective.md",
+    "source_inventory": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/idare_historical_script_backfill_source_inventory.csv",
+    "target_map": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/idare_historical_script_backfill_target_map.csv",
+    "source_script_count": 71,
+    "next_allowed_step": "prepare_reviewed_historical_script_backfill_command",
+    "blocked": [
+      "executing historical scripts during archival",
+      "running active scientific analysis before backfill review",
+      "direct full SupCon/DG training",
+      "broad hyperparameter search",
+      "EEG+EMG fusion",
+      "final LOSO claim"
+    ]
+  }
 }

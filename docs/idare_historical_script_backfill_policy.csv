@@ -1,0 +1,7 @@
+policy_id,rule
+P01,Preserve uploaded scripts byte-for-byte when backfilled from archive; do not rewrite into curated form during historical backfill.
+P02,Mark provenance as user_uploaded_downloads_archive and retain sha256 for every script.
+P03,Do not claim these are already committed historical originals until they are copied and manifest-linked.
+P04,Do not execute any backfilled historical script as part of archival.
+P05,Keep the active scientific failure-or-confirmation analysis paused until backfill objective/report is reviewed.
+P06,Any later curated reusable scripts must be separate from preserved raw download scripts and linked to the raw source.

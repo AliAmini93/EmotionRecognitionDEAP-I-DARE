@@ -1,0 +1,8 @@
+{
+  "status": "human_review_accepted_for_historical_backfill_objective",
+  "created_utc": "2026-05-08T13:44:25+00:00",
+  "accepted_prior_diagnosis": "reproducibility_layer_fixed_for_active_next_step_but_historical_scripts_not_backfilled",
+  "source_report": "docs/idare_script_archival_and_reproducibility_report.md",
+  "next_selected_step": "historical_script_backfill_objective",
+  "pause_commit_before_backfill_objective": "5dfddbe"
+}

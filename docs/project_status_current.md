@@ -507,3 +507,12 @@ Updated: `2026-05-08T13:00:51+00:00`
 - Active analysis script: `scripts/idare/analysis/run_idare_label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis.py`
 - Historical backfill remains allowed only when reconstructable from logs and labeled honestly.
 
+## I-DARE Historical Script Backfill Objective
+
+- Status: objective created; historical `~/Downloads` shell scripts are inventoried from `Downloads.tar.gz`, but not yet copied into `scripts/`.
+- Evidence: `docs/idare_historical_script_backfill_objective.md`, `docs/idare_historical_script_backfill_source_inventory.csv`, `docs/idare_historical_script_backfill_target_map.csv`.
+- Source script count: `71`.
+- Current scientific pause remains: `docs/idare_label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis_objective.md`.
+- Next allowed step: `prepare_reviewed_historical_script_backfill_command`.
+- Blocked: executing historical scripts during archival; running active scientific analysis before backfill review; direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim.
+

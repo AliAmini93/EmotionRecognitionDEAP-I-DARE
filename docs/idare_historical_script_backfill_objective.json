@@ -1,0 +1,34 @@
+{
+  "status": "objective_created_no_backfill_copy_yet",
+  "created_utc": "2026-05-08T13:44:25+00:00",
+  "source_archive": "/home/armin/Downloads/Downloads.tar.gz",
+  "source_archive_name": "Downloads.tar.gz",
+  "source_script_count": 71,
+  "pause_commit": "5dfddbe",
+  "scientific_pause_point": "docs/idare_label_semantics_minimal_redesigned_task_failure_or_confirmation_analysis_objective.md",
+  "authorized_work": [
+    "inventory uploaded historical shell scripts",
+    "define byte-preserving backfill policy",
+    "propose target paths under scripts/idare/archive_or_reconstructed/from_downloads_bundle/",
+    "prepare next reviewed backfill command"
+  ],
+  "not_authorized": [
+    "execute historical scripts",
+    "rewrite historical scripts as curated scripts",
+    "run active scientific analysis",
+    "new training",
+    "broad search",
+    "fusion",
+    "final claims"
+  ],
+  "outputs": [
+    "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/idare_script_archival_and_reproducibility_report_review_status.md",
+    "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/idare_script_archival_and_reproducibility_report_review_status.json",
+    "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/idare_historical_script_backfill_objective.md",
+    "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/idare_historical_script_backfill_objective.json",
+    "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/idare_historical_script_backfill_source_inventory.csv",
+    "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/idare_historical_script_backfill_target_map.csv",
+    "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/idare_historical_script_backfill_policy.csv"
+  ],
+  "next_allowed_step": "prepare_reviewed_historical_script_backfill_command"
+}
