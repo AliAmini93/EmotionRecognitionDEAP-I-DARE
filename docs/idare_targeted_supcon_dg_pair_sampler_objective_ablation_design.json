@@ -1,0 +1,43 @@
+{
+  "status": "objective_created",
+  "created_utc": "2026-05-08T10:06:00+00:00",
+  "objective": "targeted_supcon_dg_pair_sampler_objective_ablation_design",
+  "review_input": "docs/idare_supcon_dg_failure_analysis_review_status.json",
+  "evidence_inputs": [
+    "docs/idare_supcon_dg_failure_analysis_report.json",
+    "docs/idare_minimal_supcon_dg_first_pass_report.json",
+    "docs/idare_subject_variability_supcon_dg_design_spec.json"
+  ],
+  "scientific_question": "Which pair/sampler/objective design most directly tests the subject-variability hypothesis after the first SupCon/DG pass failed?",
+  "authorized_scope": [
+    "read existing SupCon/DG design and failure-analysis outputs",
+    "produce implementation-ready targeted ablation design",
+    "define positive/negative pair policies",
+    "define subject-balanced batch sampler requirements",
+    "define smoke tests and pass/fail interpretation",
+    "define a small future ablation matrix only"
+  ],
+  "not_authorized": [
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "mainline change"
+  ],
+  "generated_outputs": {
+    "markdown": "docs/idare_targeted_supcon_dg_pair_sampler_objective_ablation_design.md",
+    "json": "docs/idare_targeted_supcon_dg_pair_sampler_objective_ablation_design.json",
+    "ablation_design_matrix_csv": "docs/idare_targeted_supcon_dg_pair_sampler_ablation_design_matrix.csv",
+    "hyperparameter_registry_csv": "docs/idare_targeted_supcon_dg_pair_sampler_hyperparameter_registry.csv",
+    "smoke_test_plan_csv": "docs/idare_targeted_supcon_dg_pair_sampler_smoke_test_plan.csv",
+    "decision_tree_csv": "docs/idare_targeted_supcon_dg_pair_sampler_decision_tree.csv"
+  },
+  "pass_criteria": [
+    "review closeout exists and blocks full training",
+    "objective specifies positive/negative pair definitions",
+    "objective specifies sampler and hyperparameter registry",
+    "objective specifies smoke tests before any training",
+    "objective defines interpretation rules for success/failure"
+  ],
+  "next_allowed_step": "prepare_reviewed_targeted_pair_sampler_ablation_design_report_or_run_command"
+}

@@ -1,0 +1,7 @@
+smoke_test_id,required_before_training,pass_rule,failure_action
+S1_pair_coverage,yes,>=95% eligible anchors have at least one valid positive and one valid negative under each candidate policy.,Do not train candidate; redesign sampler.
+S2_leakage_guard,yes,"No validation row, trial, or subject appears in training pair construction for the held-out fold.",Stop and fix split/pair construction.
+S3_batch_balance,yes,Each sampled batch has at least two subjects per class when possible and no subject dominates more than 35%.,Adjust batch sampler before training.
+S4_rating_distance_audit,yes_for_distance_guarded_candidates,Negative pairs have larger subject-relative rating distance than positive pairs on average.,Do not use distance-guarded policy until corrected.
+S5_micro_overfit,yes,Small same-subset train/eval reaches macro_f1 >= 0.95 for CE+SupCon candidate.,Fix loss/model plumbing.
+S6_shuffled_label_negative_control,yes,Shuffled-label control remains near chance and below matched real-label run.,Investigate leakage or label handling.

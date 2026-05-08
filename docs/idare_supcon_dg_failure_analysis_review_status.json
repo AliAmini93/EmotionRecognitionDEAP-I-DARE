@@ -1,0 +1,32 @@
+{
+  "status": "review_closed",
+  "created_utc": "2026-05-08T10:06:00+00:00",
+  "reviewed_report": "docs/idare_supcon_dg_failure_analysis_report.md",
+  "reviewed_report_json": "docs/idare_supcon_dg_failure_analysis_report.json",
+  "accepted_diagnosis": "supcon_dg_first_pass_failed_despite_valid_smokes",
+  "review_decision": "Human review accepted that first-pass SupCon/DG failed despite valid smoke tests; proceed to targeted pair/sampler ablation design before any broader training.",
+  "best_cell": {
+    "method": "CE_plus_VREx",
+    "modality": "EMG",
+    "task": "valence",
+    "n_runs": 6,
+    "mean_macro_f1": 0.5064987409626325,
+    "std_macro_f1": 0.04144051165063541,
+    "min_macro_f1": 0.4376097222411236,
+    "max_macro_f1": 0.5563108336859924,
+    "mean_balanced_accuracy": 0.5151315622001712,
+    "mean_accuracy": 0.5185094553335976,
+    "folds_over_055_macro_f1": 2,
+    "folds_under_050_macro_f1": 3,
+    "one_class_pred_count": 0
+  },
+  "selected_next_objective": "targeted_supcon_dg_pair_sampler_objective_ablation_design",
+  "blocked_until_next_review": [
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "mainline change"
+  ],
+  "next_allowed_step": "create_targeted_supcon_dg_pair_sampler_ablation_design_spec"
+}

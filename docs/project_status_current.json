@@ -8034,5 +8034,46 @@
     "artifact": "docs/idare_supcon_dg_failure_analysis_report.md",
     "next_step": "human_review_closeout_of_supcon_dg_failure_analysis",
     "updated_at_utc": "2026-05-08T09:59:59+00:00"
-  }
+  },
+  "last_updated_utc": "2026-05-08T10:06:00+00:00",
+  "idare_protocol_events": [
+    {
+      "timestamp_utc": "2026-05-08T10:06:00+00:00",
+      "type": "review_closeout",
+      "name": "I-DARE SupCon/DG failure-analysis review",
+      "status": "human review accepted failure analysis; targeted pair/sampler ablation design selected",
+      "evidence": "docs/idare_supcon_dg_failure_analysis_review_status.md",
+      "next_allowed_step": "create targeted SupCon/DG pair/sampler ablation design",
+      "blocked": [
+        "direct full SupCon/DG training",
+        "broad hyperparameter search",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "mainline change"
+      ]
+    },
+    {
+      "timestamp_utc": "2026-05-08T10:06:00+00:00",
+      "type": "objective_created",
+      "name": "I-DARE targeted SupCon/DG pair-sampler objective ablation design",
+      "status": "short-term design objective created; no training authorized",
+      "evidence": "docs/idare_targeted_supcon_dg_pair_sampler_objective_ablation_design.md",
+      "next_allowed_step": "prepare reviewed targeted pair/sampler ablation implementation command",
+      "blocked": [
+        "direct full SupCon/DG training",
+        "broad hyperparameter search",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "mainline change"
+      ]
+    }
+  ],
+  "current_idare_next_allowed_step": "prepare_reviewed_targeted_pair_sampler_ablation_design_report_or_run_command",
+  "current_idare_blocked_steps": [
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "mainline change"
+  ]
 }

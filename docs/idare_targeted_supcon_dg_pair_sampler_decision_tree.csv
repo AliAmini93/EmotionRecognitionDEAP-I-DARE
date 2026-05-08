@@ -1,0 +1,6 @@
+observed_result_after_targeted_ablation,interpretation,next_allowed_step
+Cross-subject-positive SupCon improves consistently across tasks/folds,"Pair definition was the primary weakness; proceed to confirmation matrix, not broad search.",targeted_confirmation_matrix_objective
+VREx-only improves while SupCon variants do not,DG regularization helps more than contrastive pair shaping; investigate subject-domain loss and stability.,vrex_subject_generalization_confirmation_objective
+Distance-guarded pairs improve but label-only pairs do not,Hard binary labels are noisy; continuous/ranking-aware pair definitions are needed.,rating_distance_contrastive_objective
+No candidate improves and embeddings/loss look healthy,The current summary features/model likely lack transferable signal or task remains poorly posed.,representation_or_task_reformulation_review
+Smoke tests fail for pair coverage or leakage,Implementation/sampler is not safe to train.,pair_sampler_fix_objective

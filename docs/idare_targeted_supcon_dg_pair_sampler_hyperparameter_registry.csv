@@ -1,0 +1,9 @@
+parameter,default,allowed_values_first_targeted_matrix,reason
+temperature,0.10,0.10,Avoid broad search; keep contrastive scale fixed unless failure analysis specifically implicates saturation.
+lambda_supcon,0.10,"0.05,0.10",Small two-value check only if matrix budget allows; prior first pass may have over-regularized embeddings.
+lambda_vrex,0.10,"0.05,0.10",VREx was the best family but unstable; use low values and compare against VREx-only control.
+supcon_warmup_epochs,2,2,Let CE stabilize before applying representation pressure.
+vrex_warmup_epochs,4,4,Avoid early penalty from noisy subject losses.
+batch_subjects,8,8,Ensure cross-subject positives/negatives exist in each batch.
+samples_per_subject,4,4,Maintains within-subject anchors without letting one subject dominate.
+rating_distance_negative_margin,0.33,0.33,Avoid pushing borderline affect states apart.

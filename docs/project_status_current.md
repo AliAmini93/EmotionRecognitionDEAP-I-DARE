@@ -252,3 +252,15 @@ Before this file, the project had strong per-phase status docs but no central st
 - Recommended next objective: `targeted_supcon_dg_pair_sampler_objective_ablation_design`.
 - Human review is required before any new SupCon/DG training, targeted ablation, broad hyperparameter search, EEG+EMG fusion, final LOSO claim, or mainline change.
 
+## I-DARE SupCon/DG Failure-analysis Review and Targeted Pair/Sampler Objective
+
+Updated: `2026-05-08T10:06:00+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE SupCon/DG failure-analysis review | human review accepted first-pass failure analysis; targeted pair/sampler design selected | `docs/idare_supcon_dg_failure_analysis_review_status.md` | Create/use targeted SupCon/DG pair/sampler ablation design. | direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim; mainline change |
+| I-DARE targeted SupCon/DG pair-sampler objective ablation design | short-term design objective created; no training authorized | `docs/idare_targeted_supcon_dg_pair_sampler_objective_ablation_design.md` | Prepare reviewed targeted pair/sampler ablation implementation command. | direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim; mainline change |
+
+- A targeted SupCon/DG pair/sampler ablation design objective is defined in `docs/idare_targeted_supcon_dg_pair_sampler_objective_ablation_design.md`.
+- The first-pass failure is interpreted as evidence that the pair/sampler/objective design needs targeted ablation before any full SupCon/DG training.
+
