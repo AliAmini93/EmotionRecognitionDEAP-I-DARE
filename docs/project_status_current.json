@@ -8035,7 +8035,7 @@
     "next_step": "human_review_closeout_of_supcon_dg_failure_analysis",
     "updated_at_utc": "2026-05-08T09:59:59+00:00"
   },
-  "last_updated_utc": "2026-05-08T11:32:40+00:00",
+  "last_updated_utc": "2026-05-08T11:42:58+00:00",
   "idare_protocol_events": [
     {
       "timestamp_utc": "2026-05-08T10:06:00+00:00",
@@ -8383,15 +8383,31 @@
         "mainline change",
         "minimal regression training before smoke-fix/stop review"
       ]
+    },
+    {
+      "timestamp_utc": "2026-05-08T11:42:58+00:00",
+      "type": "report",
+      "name": "I-DARE label-semantics redesigned-task spec-fix-or-stop report",
+      "status": "complete pending human review; diagnosis=redesigned_task_smoke_failure_not_yet_fixable; recommendation=stop_archive_objective",
+      "evidence": "docs/idare_label_semantics_redesigned_task_spec_fix_or_stop_report.md",
+      "next_allowed_step": "human_review_closeout_then_stop_archive",
+      "blocked": [
+        "direct full SupCon/DG training",
+        "broad hyperparameter search",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "mainline change",
+        "minimal regression training before patched smoke-test review"
+      ]
     }
   ],
-  "current_idare_next_allowed_step": "prepare_reviewed_label_semantics_redesigned_task_spec_fix_or_stop_command",
+  "current_idare_next_allowed_step": "human_review_closeout_then_stop_archive",
   "current_idare_blocked_steps": [
     "direct full SupCon/DG training",
     "broad hyperparameter search",
     "EEG+EMG fusion",
     "final LOSO claim",
     "mainline change",
-    "minimal regression training before smoke-fix/stop review"
+    "minimal regression training before patched smoke-test review"
   ]
 }

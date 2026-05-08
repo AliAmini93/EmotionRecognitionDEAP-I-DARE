@@ -1,0 +1,50 @@
+{
+  "status": "complete_pending_human_review",
+  "created_utc": "2026-05-08T11:42:58+00:00",
+  "source_objective": "docs/idare_label_semantics_redesigned_task_spec_fix_or_stop_objective.json",
+  "source_smoke_report": "docs/idare_label_semantics_redesigned_task_smoke_tests_report.json",
+  "selected_primary_formulation": "subject_relative_ordinal_affect_regression_v1",
+  "diagnosis": "redesigned_task_smoke_failure_not_yet_fixable",
+  "decision": "stop_or_archive_redesigned_branch_pending_manual_review",
+  "recommendation": "stop_archive_objective",
+  "recommended_next_objective": "label_semantics_redesigned_task_stop_archive_objective",
+  "failed_smoke_tests": [
+    "future_run_matrix_guard"
+  ],
+  "future_run_matrix_guard": {
+    "future_rows": 48,
+    "authorized_now_ok": true,
+    "contains_ridge": true,
+    "contains_supcon": true,
+    "contains_fusion": false,
+    "contains_real_dg": false,
+    "has_actual_forbidden_future_rows": true,
+    "future_guard_is_false_positive": false
+  },
+  "other_smoke_status": {
+    "all_other_smokes_passed": true,
+    "target_ok": true,
+    "fold_leakage_ok": true,
+    "target_distribution_ok": true,
+    "metric_sanity_ok": true,
+    "baseline_controls_ok": true
+  },
+  "stop_archive_selected": true,
+  "training_authorized": false,
+  "next_allowed_step": "human_review_closeout_then_stop_archive",
+  "outputs": {
+    "report_md": "docs/idare_label_semantics_redesigned_task_spec_fix_or_stop_report.md",
+    "report_json": "docs/idare_label_semantics_redesigned_task_spec_fix_or_stop_report.json",
+    "failed_smoke_diagnosis_csv": "docs/idare_label_semantics_redesigned_task_failed_smoke_diagnosis.csv",
+    "fix_or_stop_decision_matrix_csv": "docs/idare_label_semantics_redesigned_task_fix_or_stop_decision_matrix.csv",
+    "smoke_guard_patch_plan_csv": "docs/idare_label_semantics_redesigned_task_smoke_guard_patch_plan.csv"
+  },
+  "blocked": [
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "mainline change",
+    "minimal regression training before patched smoke-test review"
+  ]
+}

@@ -415,3 +415,14 @@ Updated: `2026-05-08T11:32:40+00:00`
 - Failed smoke tests: `future_run_matrix_guard`.
 - Training remains blocked until this failure triage is reviewed.
 
+## I-DARE Label-Semantics Redesigned-Task Spec-Fix-or-Stop Report
+
+Updated: `2026-05-08T11:42:58+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE label-semantics redesigned-task spec-fix-or-stop report | complete pending human review; diagnosis=`redesigned_task_smoke_failure_not_yet_fixable`; recommendation=`stop_archive_objective` | `docs/idare_label_semantics_redesigned_task_spec_fix_or_stop_report.md` | Human review / closeout before selected next objective. | direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim; mainline change |
+
+- Recommended next objective is `label_semantics_redesigned_task_stop_archive_objective` only after human review/closeout.
+- Training remains blocked.
+

@@ -1,0 +1,5 @@
+decision_option,selected,rationale,next_step,training_authorized
+narrow_fix_objective,False,"Only failed smoke is future_run_matrix_guard, and it is explained by a tokenization bug: 'dg' matched inside 'ridge'.",Create patch objective that fixes only the guard and reruns smoke tests.,no
+stop_archive_objective,True,Use only if failure is a true spec/data degeneracy rather than a guard implementation bug.,Archive redesigned task branch.,no
+minimal_regression_training,False,Not allowed until patched smoke tests pass and are reviewed.,blocked,no
+direct_full_supcon_dg_training,False,Still blocked by the project guardrails and unrelated to this smoke failure.,blocked,no

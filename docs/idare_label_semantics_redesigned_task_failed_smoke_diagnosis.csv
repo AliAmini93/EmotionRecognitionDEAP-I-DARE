@@ -1,0 +1,2 @@
+smoke_test,failure_classification,root_cause,actual_spec_problem,actual_forbidden_future_rows,evidence,recommended_action
+future_run_matrix_guard,unresolved_or_stop_trigger,not proven to be a narrow implementation false positive,unknown,True,requires manual review,stop/archive or create a more focused manual audit objective

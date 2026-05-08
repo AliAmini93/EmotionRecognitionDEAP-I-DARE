@@ -1,0 +1,4 @@
+patch_item,current_behavior,patched_behavior,why,training_authorized
+replace_substring_dg_check,checks whether 'dg' appears anywhere in future matrix text,"check explicit forbidden method names/tokens only, e.g. SupCon, VREx, domain_generalization, fusion",prevents false positive on ridge_regression_summary_features,no
+rerun_same_smokes,smoke test report is failed,rerun all six smoke tests after guard patch,confirm no other hidden failure emerges,no
+preserve_future_matrix,48-row matrix contains mean baseline and ridge regression only,do not change future matrix unless explicit forbidden row is found,the future matrix itself appears consistent with the spec,no
