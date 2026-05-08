@@ -585,3 +585,14 @@ Updated: `2026-05-08T15:14:36+00:00`
 - Current formulation under decision: `subject_relative_ordinal_affect_regression_v1`.
 - Archive implementation is not yet performed; alternative formulation is not yet authorized beyond design/spec constraints.
 
+## I-DARE Redesigned-Task Archive-or-Alternative Report
+
+Updated: `2026-05-08T15:19:19+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE redesigned-task archive-or-alternative-formulation report | complete pending human review; diagnosis=`current_redesigned_task_branch_should_be_archived` | `docs/idare_label_semantics_redesigned_task_archive_or_alternative_formulation_report.md` | Human review / closeout before archive closeout objective. | new training; model search; SupCon/DG; broad search; fusion; final claim; archive implementation before review; alternative formulation before archive closeout |
+
+- Recommended next objective: `label_semantics_redesigned_task_archive_closeout_objective` only after human review/closeout.
+- Current formulation under archive decision: `subject_relative_ordinal_affect_regression_v1`.
+

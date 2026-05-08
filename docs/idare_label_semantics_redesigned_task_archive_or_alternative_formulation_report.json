@@ -1,0 +1,30 @@
+{
+  "status": "complete_pending_human_review",
+  "created_utc": "2026-05-08T15:19:19+00:00",
+  "source_objective": "docs/idare_label_semantics_redesigned_task_archive_or_alternative_formulation_objective.json",
+  "source_metric_debug_report": "docs/idare_label_semantics_redesigned_task_metric_debug_report.json",
+  "diagnosis": "current_redesigned_task_branch_should_be_archived",
+  "decision": "archive_current_subject_relative_ordinal_affect_regression_v1_branch",
+  "recommendation": "archive_closeout_first_then_optional_alternative_formulation_spec",
+  "recommended_next_objective": "label_semantics_redesigned_task_archive_closeout_objective",
+  "decision_reason": "The current redesigned task has no actionable rank, threshold, or absolute-error signal; therefore the branch should be archived before any alternative formulation is designed.",
+  "selected_current_formulation": "subject_relative_ordinal_affect_regression_v1",
+  "training_authorized": false,
+  "archive_implementation_authorized_by_this_report": false,
+  "alternative_training_authorized_by_this_report": false,
+  "alternative_spec_allowed_after_archive_review": true,
+  "key_indicators": {
+    "max_mean_spearman_rho": 0.019171068580299766,
+    "max_mean_q33_bal_acc": 0.5070515450953589,
+    "n_cells_mean_spearman_over_010": 0,
+    "n_cells_q33_over_055": 0,
+    "n_cells_mae_improved_vs_baseline": 0,
+    "n_cells_rmse_improved_vs_baseline": 0
+  },
+  "outputs": {
+    "archive_scope_decision": "docs/idare_label_semantics_redesigned_task_archive_scope_decision.csv",
+    "alternative_constraints": "docs/idare_label_semantics_alternative_formulation_candidate_constraints.csv",
+    "final_decision_matrix": "docs/idare_label_semantics_archive_or_alternative_formulation_final_decision_matrix.csv"
+  },
+  "next_allowed_step": "human_review_closeout_before_archive_closeout_objective"
+}

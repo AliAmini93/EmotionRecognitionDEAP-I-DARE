@@ -8035,7 +8035,7 @@
     "next_step": "human_review_closeout_of_supcon_dg_failure_analysis",
     "updated_at_utc": "2026-05-08T09:59:59+00:00"
   },
-  "last_updated_utc": "2026-05-08T15:14:36+00:00",
+  "last_updated_utc": "2026-05-08T15:19:19+00:00",
   "idare_protocol_events": [
     {
       "timestamp_utc": "2026-05-08T10:06:00+00:00",
@@ -8728,9 +8728,28 @@
         "implementation of archive before this objective is reported/reviewed",
         "implementation of alternative formulation before a separate design/spec is reviewed"
       ]
+    },
+    {
+      "timestamp_utc": "2026-05-08T15:19:19+00:00",
+      "type": "decision_report",
+      "name": "I-DARE redesigned-task archive-or-alternative-formulation report",
+      "status": "complete pending human review; diagnosis=current_redesigned_task_branch_should_be_archived",
+      "evidence": "docs/idare_label_semantics_redesigned_task_archive_or_alternative_formulation_report.md",
+      "recommended_next_objective": "label_semantics_redesigned_task_archive_closeout_objective",
+      "blocked": [
+        "new training",
+        "model search",
+        "direct full SupCon/DG training",
+        "broad hyperparameter search",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "archive implementation before human review/closeout",
+        "alternative formulation spec before archive closeout review",
+        "alternative formulation training"
+      ]
     }
   ],
-  "current_idare_next_allowed_step": "prepare_reviewed_label_semantics_redesigned_task_archive_or_alternative_formulation_command",
+  "current_idare_next_allowed_step": "human_review_closeout_before_archive_closeout_objective",
   "current_idare_blocked_steps": [
     "new training",
     "model search",
@@ -8738,8 +8757,9 @@
     "broad hyperparameter search",
     "EEG+EMG fusion",
     "final LOSO claim",
-    "implementation of archive before this objective is reported/reviewed",
-    "implementation of alternative formulation before a separate design/spec is reviewed"
+    "archive implementation before human review/closeout",
+    "alternative formulation spec before archive closeout review",
+    "alternative formulation training"
   ],
   "idare_historical_script_backfill_objective": {
     "status": "objective_created_no_backfill_copy_yet",

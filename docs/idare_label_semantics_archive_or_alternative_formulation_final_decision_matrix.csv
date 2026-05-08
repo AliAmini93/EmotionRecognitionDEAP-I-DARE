@@ -1,0 +1,6 @@
+decision_option,decision,rationale,next_objective_if_selected,allowed_after_human_review
+archive_current_redesigned_task_branch,selected,No actionable signal after read-only metric debug.,label_semantics_redesigned_task_archive_closeout_objective,yes
+prepare_alternative_formulation_spec,allowed_after_archive_closeout,"A future alternative may be justified, but only as a separate design/spec objective after the current branch is archived.",label_semantics_alternative_formulation_design_spec_objective,conditional
+continue_current_redesigned_task_training,rejected,No cell improves MAE/RMSE; q33 remains near chance; Spearman is near zero.,not_allowed,no
+patch_metrics_to_rescue_current_branch,rejected,The problem is not only metric wording; the signal is too weak to rescue the branch.,not_allowed_without_new_evidence,no
+return_to_SupCon_DG_or_broad_search,rejected,"The bottleneck is label/task semantics, not model capacity.",not_allowed,no
