@@ -369,3 +369,15 @@ Updated: `2026-05-08T11:10:33+00:00`
 - A label-semantics task-redesign spec objective is defined in `docs/idare_label_semantics_task_redesign_spec_objective.md`.
 - Training remains blocked until this design/spec is reviewed.
 
+## I-DARE Label-Semantics Task Redesign Spec
+
+Updated: `2026-05-08T11:15:29+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE label-semantics task redesign spec | complete pending human review; selected=`subject_relative_ordinal_affect_regression_v1` | `docs/idare_label_semantics_task_redesign_spec.md` | Human review / closeout before redesigned-task smoke tests. | direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim; mainline change |
+
+- Selected primary formulation: `subject_relative_ordinal_affect_regression_v1`.
+- Recommended next objective is `label_semantics_redesigned_task_smoke_tests_objective` only after human review/closeout.
+- No training is authorized by this spec.
+

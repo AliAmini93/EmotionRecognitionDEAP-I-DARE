@@ -1,0 +1,9 @@
+guardrail,rule,why,blocking
+no_global_binary_threshold,Do not use raw rating >= midpoint as the primary label.,The accepted diagnosis says the current global binary LOSO task is not defensible for more model search.,yes
+no_model_training_in_spec_step,This spec does not authorize training.,Task definition must be reviewed before implementation.,yes
+no_direct_full_supcon_dg_training,direct full SupCon/DG training remains blocked.,SupCon/DG and pair-sampler ablations were not sufficient.,yes
+no_broad_hyperparameter_search,broad hyperparameter search remains blocked.,Would obscure whether the task redesign fixed the root issue.,yes
+heldout_subject_isolation,No subject overlap between train and validation folds; scalers fit train only.,Keeps LOSO leakage controls intact.,yes
+target_transform_usage,"Held-out labels may be transformed only to define evaluation targets; target statistics must not enter feature preprocessing, training inputs, sampler state, or model selection.",Allows subject-relative ground truth without leaking into the predictor.,yes
+anti_cherry_picking,No fold/task/modality exclusion after seeing results; all exclusions must be declared before any training.,Avoids converting redesign into outcome selection.,yes
+final_loso_claim_blocked,final LOSO claim remains blocked until redesigned-task results pass review.,This spec changes the scientific target.,yes

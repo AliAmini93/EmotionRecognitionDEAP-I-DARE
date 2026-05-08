@@ -1,0 +1,7 @@
+metric,role,definition,direction,pass_rule_for_future_minimal_training,reason
+spearman_rho,primary,Spearman rank correlation between predicted continuous score and target rank percentile within each fold/task/modality.,higher_better,mean across folds must be positive and exceed mean-baseline/permutation controls by a pre-registered margin.,Directly matches ordinal/relative affect claim.
+mae_rank_percentile,secondary,"Mean absolute error on [0,1] rank-percentile target.",lower_better,must improve over train-mean predictor.,Interpretable regression error.
+rmse_rank_percentile,secondary,"Root mean squared error on [0,1] rank-percentile target.",lower_better,must improve over train-mean predictor.,Penalizes large rank errors.
+top_bottom_q33_balanced_accuracy,audit_only,"Evaluate predicted score as top-vs-bottom third after excluding middle third, with thresholds locked from target rank percentiles.",higher_better,used only as a secondary bridge to old binary results; cannot be sole success criterion.,Connects to earlier q33 analysis while avoiding global threshold semantics.
+per_subject_error_dispersion,fairness_stability_audit,Distribution of rank-percentile errors by held-out subject.,lower_dispersion_better,must report hard-subject concentration; no fold hiding.,Keeps subject-variability diagnosis visible.
+permutation_control_spearman,negative_control,Same pipeline with train labels shuffled within fold.,near_zero_expected,"must stay near zero; if not, leakage or metric bug suspected.",Protects against false positive redesigned task.

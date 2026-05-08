@@ -1,0 +1,6 @@
+condition,action,reason
+spec_rejected,stop_archive_current_global_binary_loso_branch,No defensible target was accepted.
+smoke_tests_fail_label_construction_or_leakage,fix_spec_or_stop_archive,Cannot train on a target that fails construction/leakage sanity checks.
+future_minimal_regression_not_above_controls,stop_or_reframe_as_negative_result,Would indicate even redesigned target has weak physiological signal under current features.
+future_success_only_in_one_fold_or_one_subject_cluster,run failure analysis_before_any_claim,Avoids false positives from subject/fold idiosyncrasy.
+request_to_resume_direct_full_supcon_dg_training,block_until_redesigned_task_review_and_smoke_tests_pass,Model-side search is not the accepted next scientific step.

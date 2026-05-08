@@ -1,0 +1,45 @@
+{
+  "status": "complete_pending_human_review",
+  "created_utc": "2026-05-08T11:15:29+00:00",
+  "source_objective": "docs/idare_label_semantics_task_redesign_spec_objective.md",
+  "source_decision_report": "docs/idare_label_semantics_task_redesign_or_stop_report.md",
+  "selected_primary_formulation": "subject_relative_ordinal_affect_regression_v1",
+  "scientific_claim": "Predict within-subject affect-rating order/percentile for held-out subjects, not global high/low affect by an absolute threshold.",
+  "diagnosis_context": "current_global_binary_loso_task_not_defensible_for_more_model_search",
+  "decision_context": "pause_current_global_binary_loso_training_and_prepare_task_redesign_spec",
+  "recommended_next_objective": "label_semantics_redesigned_task_smoke_tests_objective",
+  "next_allowed_step": "human_review_closeout_then_redesigned_task_smoke_tests_objective",
+  "training_authorized": false,
+  "final_loso_claim_authorized": false,
+  "direct_full_supcon_dg_training_authorized": false,
+  "broad_hyperparameter_search_authorized": false,
+  "key_indicators": {
+    "decision_report_diagnosis": "current_global_binary_loso_task_not_defensible_for_more_model_search",
+    "decision_report_decision": "pause_current_global_binary_loso_training_and_prepare_task_redesign_spec",
+    "failure_report_diagnosis": "label_semantics_and_representation_transfer_joint_bottleneck",
+    "best_pair_sampler_candidate_mean_macro_f1": 0.5118600603082725,
+    "best_pair_sampler_candidate_folds_under_050": 7,
+    "mean_label_entropy": 0.9190643971472996,
+    "high_subject_rating_shift": true,
+    "objective_alignment_weak": true,
+    "max_abs_loss_embedding_corr_with_macro_f1": 0.3001215860428951
+  },
+  "outputs": {
+    "spec_md": "docs/idare_label_semantics_task_redesign_spec.md",
+    "spec_json": "docs/idare_label_semantics_task_redesign_spec.json",
+    "selected_task_definition_csv": "docs/idare_label_semantics_selected_task_definition.csv",
+    "guardrails_csv": "docs/idare_label_semantics_task_redesign_guardrails.csv",
+    "metric_plan_csv": "docs/idare_label_semantics_task_redesign_metric_plan.csv",
+    "protocol_matrix_csv": "docs/idare_label_semantics_task_redesign_protocol_matrix.csv",
+    "future_run_matrix_csv": "docs/idare_label_semantics_task_redesign_future_run_matrix.csv",
+    "stop_criteria_csv": "docs/idare_label_semantics_task_redesign_stop_criteria.csv"
+  },
+  "blocked": [
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "mainline change",
+    "new training before redesigned-task smoke-test review"
+  ]
+}

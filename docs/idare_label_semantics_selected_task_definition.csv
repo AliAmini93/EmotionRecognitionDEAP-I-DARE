@@ -1,0 +1,10 @@
+field,value,locked,rationale
+selected_primary_formulation,subject_relative_ordinal_affect_regression_v1,yes,Combines ordinal/regression preservation of rating magnitude with subject-relative semantics.
+scientific_claim,"Predict within-subject affect-rating order/percentile for held-out subjects, not global high/low affect by an absolute threshold.",yes,Avoids unsupported global binary LOSO claim.
+raw_label_source,raw valence_score and arousal_score ratings from cache/index files,yes,Uses existing labels only; no new annotation or model-derived labels.
+target_transform,"per_subject_average_rank_percentile: rank(raw_rating within subject and task, ties averaged, mapped to [0,1]",yes,Removes between-subject scale offsets while preserving within-subject ordering.
+secondary_target,"per_subject_z_score_rating for audit only, not the primary target",yes,Useful to check scale sensitivity without changing primary target.
+primary_tasks,valence and arousal evaluated separately,yes,Keeps task-specific interpretation.
+primary_split,existing 6-fold subject-heldout protocol; no subject overlap between train and validation,yes,Preserves the most important leakage guardrail.
+allowed_modalities_first_pass,"EEG summary features and EMG signed_log1p features only, separately",yes,No fusion and no architecture jump before redesigned-task smoke review.
+training_status,not authorized by this spec,yes,This document only defines the task; future training requires review and a new objective.

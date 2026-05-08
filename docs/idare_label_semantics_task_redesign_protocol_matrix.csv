@@ -1,0 +1,7 @@
+component,locked_rule,leakage_control,review_required
+label_construction,"For each subject and task, compute average rank of raw rating and convert to percentile in [0,1].",Labels only; no feature or model input gets held-out label statistics.,yes
+split,Use the existing 6 subject-heldout folds.,Validation subjects are completely held out from training.,yes
+preprocessing,Feature scalers fit on train fold only; apply to held-out fold.,No validation statistics in scaler.,yes
+baseline,Train-mean predictor and shuffled-label negative control must be reported.,Controls are generated within each fold.,yes
+primary_model_family_if_later_authorized,Start with minimal ridge/linear regression or a single small MLP regression; no SupCon/DG first.,No tuning on validation beyond pre-registered run matrix.,yes
+success_claim,"Success means evidence for within-subject affect-order prediction, not global high/low classification.",Claim text must match target definition.,yes
