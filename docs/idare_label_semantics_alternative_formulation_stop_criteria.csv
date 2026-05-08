@@ -1,0 +1,6 @@
+criterion_id,phase,stop_condition,decision,rationale
+STOP_ALT_001,design_spec,No candidate is materially different from the archived formulation.,stop_line_closeout,Avoid renaming/retrying archived failure.
+STOP_ALT_002,smoke_tests,"Pair construction has low retention, severe imbalance, or leakage.",archive_alternative_before_training,Do not train on invalid pair semantics.
+STOP_ALT_003,smoke_tests,No-training controls reveal position/order/fold shortcuts.,fix_or_stop_before_training,Prevent false confidence from artifacts.
+STOP_ALT_004,minimal_first_pass_if_later_authorized,Mean pairwise balanced accuracy and macro F1 remain near chance or unstable across folds.,archive_alternative_branch,Avoid broad search on a weak alternative.
+STOP_ALT_005,any_phase,"A proposed step requests broad search, SupCon/DG, fusion, or final claims before smoke-test evidence.",reject_step,Preserve guardrails after archived negative result.

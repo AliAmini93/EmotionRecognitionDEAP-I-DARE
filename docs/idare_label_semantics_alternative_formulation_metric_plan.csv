@@ -1,0 +1,7 @@
+metric_id,metric,role,why_aligned,minimum_interesting_signal_for_future_first_pass,failure_condition
+METRIC_ALT_001,pairwise_balanced_accuracy,primary,Target is binary pairwise preference; balanced accuracy handles label imbalance.,mean >= 0.55 across folds and no catastrophic fold below 0.45,near chance across folds or driven by one subject/fold
+METRIC_ALT_002,pairwise_macro_f1,primary_support,"Checks whether both preference directions are predicted, not one-class behavior.",mean >= 0.55 with zero one-class folds,one-class predictions or macro_f1 near 0.50
+METRIC_ALT_003,per_subject_pairwise_accuracy_distribution,stability,Ensures signal is not concentrated in a few subjects.,positive lift over trivial baseline for a majority of held-out subjects,lift explained by few subjects or fold artifacts
+METRIC_ALT_004,trivial_baseline_delta,control,Pairwise task must beat random/majority/position baselines.,positive delta over random/majority/position controls,model does not beat no-feature controls
+METRIC_ALT_005,pair_retention_and_balance,pre_training_gate,Pairwise formulation is only usable if enough balanced pairs exist.,predeclared retention and class balance thresholds pass in smoke tests,"too few pairs, severe imbalance, or fold-specific collapse"
+METRIC_ALT_006,leakage_guard_pass,hard_gate,Pairs can leak if trial IDs cross train/test or if reversed duplicates are mishandled.,all leakage checks pass,"any row, subject, pair, or reversed-pair leakage"

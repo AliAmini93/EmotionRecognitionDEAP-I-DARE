@@ -1,0 +1,11 @@
+field,value,locked,notes
+formulation_id,within_subject_pairwise_affect_preference_ranking_v1,yes,Selected design/spec candidate; not yet authorized for training.
+base_candidate,ALT_A_within_subject_pairwise_preference_ranking,yes,Primary alternative candidate selected from candidate matrix.
+target_type,binary_pairwise_within_subject_preference,yes,"For a pair of trials from the same subject and same affect dimension, predict which trial has the higher rating."
+pair_scope,within_subject_only,yes,No cross-subject positive/negative target semantics; subject rating scale is treated as local.
+affect_dimensions,"valence,arousal",yes,Each dimension must be audited separately.
+minimum_rating_margin_seed,>=1.0_original_DEAP_rating_point_or_quantile_separation_if_original_scale_unavailable,no,Exact threshold must be finalized by smoke-test target audit; ambiguous/tied pairs are excluded.
+pair_direction,label_1_if_anchor_rating_higher_than_comparison_else_0,yes,Pair order must be randomized/balanced during future implementation to avoid positional shortcuts.
+fold_protocol,LOSO_subject_disjoint_pairs,yes,All pairs involving held-out subjects must be validation/test only; train pairs contain train subjects only.
+allowed_modalities_for_future_smokes,metadata_only_or_summary_feature_audits; no model training,yes,This spec does not authorize EEG/EMG training.
+archived_formulation_reuse,forbidden,yes,Must not reproduce subject_relative_ordinal_affect_regression_v1 unchanged.

@@ -1,0 +1,26 @@
+{
+  "status": "complete_pending_human_review",
+  "created_utc": "2026-05-08T15:53:15+00:00",
+  "source_objective": "docs/idare_label_semantics_alternative_formulation_design_spec_objective.json",
+  "source_archive_closeout_report": "docs/idare_label_semantics_redesigned_task_archive_closeout_report.md",
+  "archived_formulation": "subject_relative_ordinal_affect_regression_v1",
+  "diagnosis": "alternative_formulation_design_spec_complete",
+  "decision": "select_within_subject_pairwise_preference_ranking_for_smoke_test_design",
+  "selected_primary_formulation": "within_subject_pairwise_affect_preference_ranking_v1",
+  "selected_candidate_id": "ALT_A_within_subject_pairwise_preference_ranking",
+  "recommendation": "create_guardrailed_alternative_formulation_smoke_tests_objective_after_review",
+  "recommended_next_objective": "label_semantics_alternative_formulation_smoke_tests_objective",
+  "training_authorized": false,
+  "implementation_authorized": false,
+  "smoke_tests_authorized_by_this_spec": false,
+  "material_difference_from_archived": "Pairwise within-subject preference ranking replaces continuous subject-relative regression and uses metrics aligned to binary preference semantics.",
+  "key_failure_mode_addressed": "Avoids direct regression on weak subject-relative rank/percentile targets that had near-zero Spearman, near-chance q33, and no MAE/RMSE improvement.",
+  "outputs": {
+    "candidate_decision_matrix": "docs/idare_label_semantics_alternative_formulation_candidate_decision_matrix.csv",
+    "selected_task_definition": "docs/idare_label_semantics_alternative_formulation_selected_task_definition.csv",
+    "metric_plan": "docs/idare_label_semantics_alternative_formulation_metric_plan.csv",
+    "smoke_test_plan": "docs/idare_label_semantics_alternative_formulation_smoke_test_plan.csv",
+    "stop_criteria": "docs/idare_label_semantics_alternative_formulation_stop_criteria.csv"
+  },
+  "next_allowed_step": "human_review_closeout_then_create_alternative_formulation_smoke_tests_objective"
+}
