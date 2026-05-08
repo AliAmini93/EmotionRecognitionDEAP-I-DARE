@@ -1,0 +1,62 @@
+{
+  "status": "objective_created",
+  "created_utc": "2026-05-08T10:30:45+00:00",
+  "objective_id": "idare_supcon_dg_pair_sampler_failure_analysis_objective",
+  "title": "I-DARE SupCon/DG Pair-Sampler Failure Analysis Objective",
+  "scientific_question": "Why did the targeted SupCon/DG pair-sampler ablation fail to produce a stable subject-heldout improvement, despite passing smoke tests, leakage guards, and positive-pair coverage checks?",
+  "evidence_inputs": {
+    "ablation_report": "docs/idare_targeted_supcon_dg_pair_sampler_ablation_report.md",
+    "ablation_report_json": "docs/idare_targeted_supcon_dg_pair_sampler_ablation_report.json",
+    "runs": "docs/idare_targeted_supcon_dg_pair_sampler_ablation_runs.csv",
+    "predictions": "docs/idare_targeted_supcon_dg_pair_sampler_ablation_predictions.csv",
+    "pair_audit": "docs/idare_targeted_supcon_dg_pair_sampler_ablation_pair_audit.csv",
+    "loss_embedding_summary": "docs/idare_targeted_supcon_dg_pair_sampler_ablation_loss_embedding_summary.csv",
+    "candidate_summary": "docs/idare_targeted_supcon_dg_pair_sampler_ablation_candidate_summary.csv",
+    "method_task_summary": "docs/idare_targeted_supcon_dg_pair_sampler_ablation_method_task_summary.csv",
+    "smoke_summary": "docs/idare_targeted_supcon_dg_pair_sampler_ablation_smoke_summary.csv",
+    "previous_supcon_dg_failure_report": "docs/idare_supcon_dg_failure_analysis_report.md"
+  },
+  "required_analysis_questions": [
+    "Did pair/sampler variants improve any modality/task/fold pattern consistently, or only isolated cells?",
+    "Was A5 better because of cross-subject SupCon, VREx, or their interaction?",
+    "Did positive-pair coverage hide semantic label noise, subject-specific label meaning, or rating-distance mismatch?",
+    "Did SupCon lower contrastive loss without improving class-separable validation embeddings?",
+    "Did VREx reduce fold variance or suppress weak useful signal?",
+    "Are improvements concentrated in EMG/arousal, EEG/arousal, or particular folds/subjects?",
+    "Do prediction errors overlap with the earlier subject-variability hard-subject patterns?",
+    "Which failure mode is now most supported: pair design, label/task semantics, representation weakness, optimization, or domain-generalization regularizer mismatch?"
+  ],
+  "authorized_scope": [
+    "read existing committed CSV/JSON outputs only",
+    "aggregate by candidate, modality, task, fold, and subject",
+    "compare pair-audit coverage to actual metrics",
+    "align loss/embedding summaries with validation outcomes",
+    "compare against first-pass SupCon/DG and CE controls",
+    "write markdown/json/csv report",
+    "update roadmap"
+  ],
+  "blocked": [
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "mainline change",
+    "new training before failure-analysis review"
+  ],
+  "expected_outputs": [
+    "docs/idare_supcon_dg_pair_sampler_failure_analysis_report.md",
+    "docs/idare_supcon_dg_pair_sampler_failure_analysis_report.json",
+    "docs/idare_supcon_dg_pair_sampler_failure_candidate_deltas.csv",
+    "docs/idare_supcon_dg_pair_sampler_failure_fold_subject_summary.csv",
+    "docs/idare_supcon_dg_pair_sampler_failure_loss_alignment.csv",
+    "docs/idare_supcon_dg_pair_sampler_failure_decision_matrix.csv"
+  ],
+  "pass_criteria": [
+    "No new training is run.",
+    "Report identifies whether failure is more likely from pair design, labels/task, representation, optimization, or regularizer mismatch.",
+    "Report explains why A5 was best but insufficient.",
+    "Report recommends exactly one next objective or a stop/rollback decision.",
+    "Full SupCon/DG training remains blocked unless the analysis provides a specific, reviewable justification."
+  ],
+  "next_allowed_step": "prepare_reviewed_supcon_dg_pair_sampler_failure_analysis_command"
+}

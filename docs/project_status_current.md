@@ -287,3 +287,15 @@ Updated: `2026-05-08T10:23:39+00:00`
 - Targeted pair/sampler ablation is complete in `docs/idare_targeted_supcon_dg_pair_sampler_ablation_report.md`.
 - Best aggregate candidate is `A5_cross_subject_supcon_vrex`; full training remains blocked pending review.
 
+## I-DARE Targeted SupCon/DG Pair-Sampler Ablation Review and Failure Analysis Objective
+
+Updated: `2026-05-08T10:30:45+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE targeted SupCon/DG pair-sampler ablation review | human review accepted insufficient ablation; failure analysis selected | `docs/idare_targeted_supcon_dg_pair_sampler_ablation_review_status.md` | Create/run pair-sampler failure-analysis objective. | direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim; mainline change |
+| I-DARE SupCon/DG pair-sampler failure analysis objective | read-only objective created; no training authorized | `docs/idare_supcon_dg_pair_sampler_failure_analysis_objective.md` | Prepare reviewed read-only failure-analysis command. | direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim; mainline change |
+
+- Human review of the targeted pair/sampler ablation is frozen in `docs/idare_targeted_supcon_dg_pair_sampler_ablation_review_status.md`.
+- A read-only SupCon/DG pair-sampler failure-analysis objective is defined in `docs/idare_supcon_dg_pair_sampler_failure_analysis_objective.md`.
+
