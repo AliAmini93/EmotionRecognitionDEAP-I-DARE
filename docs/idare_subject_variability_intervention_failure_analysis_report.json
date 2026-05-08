@@ -1,0 +1,182 @@
+{
+  "status": "read_only_intervention_failure_analysis_complete",
+  "created_or_updated_utc": "2026-05-08T08:56:44.158159+00:00",
+  "objective": "docs/idare_subject_variability_intervention_failure_analysis_objective.md",
+  "review": "docs/idare_subject_relative_preprocessed_minimal_training_review_status.md",
+  "diagnosis": "subject_variability_diagnosis_still_supported_intervention_too_weak",
+  "recommended_next_objective": "subject_variability_supcon_dg_design_objective",
+  "overall_preprocessed_subject_relative": {
+    "n_runs": 24,
+    "mean_macro_f1": 0.5028095422206009,
+    "median_macro_f1": 0.49742129834327553,
+    "fold_task_runs_below_0p50": 13,
+    "fold_task_runs_at_or_above_0p55": 2
+  },
+  "aggregate_by_modality_task": [
+    {
+      "modality": "EEG",
+      "task": "arousal",
+      "n_folds": 6,
+      "mean_macro_f1": 0.4791653017690679,
+      "median_macro_f1": 0.48802309493758145,
+      "min_macro_f1": 0.4326597545493017,
+      "max_macro_f1": 0.5072409604783705,
+      "above_055_folds": 0,
+      "below_050_folds": 5
+    },
+    {
+      "modality": "EEG",
+      "task": "valence",
+      "n_folds": 6,
+      "mean_macro_f1": 0.49612021417947405,
+      "median_macro_f1": 0.49781665369952616,
+      "min_macro_f1": 0.46120689655172414,
+      "max_macro_f1": 0.54871293580971,
+      "above_055_folds": 0,
+      "below_050_folds": 3
+    },
+    {
+      "modality": "EMG",
+      "task": "arousal",
+      "n_folds": 6,
+      "mean_macro_f1": 0.5086217329433358,
+      "median_macro_f1": 0.5072381480616436,
+      "min_macro_f1": 0.46834529127746943,
+      "max_macro_f1": 0.5403425888784894,
+      "above_055_folds": 0,
+      "below_050_folds": 3
+    },
+    {
+      "modality": "EMG",
+      "task": "valence",
+      "n_folds": 6,
+      "mean_macro_f1": 0.5273309199905258,
+      "median_macro_f1": 0.532054497226911,
+      "min_macro_f1": 0.4900572969329289,
+      "max_macro_f1": 0.5655129143574192,
+      "above_055_folds": 2,
+      "below_050_folds": 2
+    }
+  ],
+  "preprocessing_diagnostic": {
+    "diagnosis": "preprocessing_candidate_worth_testing",
+    "best_candidate": {
+      "modality": "EMG",
+      "candidate": "emg_signed_log1p_train_standard_scaled",
+      "description": "signed log1p EMG features plus train-only standard scaling",
+      "diagnostic_score": 0.5219554947235828,
+      "mean_shift_reduction_vs_raw": 0.21727928519248962,
+      "mean_val_sep_gain_vs_raw": -0.007143065954248111,
+      "leakage_risk": "low",
+      "implementation_risk": "low"
+    },
+    "best_candidate_shift_reduction": null,
+    "best_candidate_validation_separation_gain": null,
+    "mean_shift_reduction_seen": null,
+    "mean_separation_gain_seen": null
+  },
+  "sanity_test_context": {
+    "diagnosis": "unknown",
+    "micro_overfit_all_passed": false,
+    "shuffled_negative_control_pass_count": 0,
+    "shuffled_negative_control_n": 0,
+    "within_subject_delta_mean": null,
+    "classical_baseline_pass_count": 0,
+    "classical_baseline_n": 0
+  },
+  "root_cause_context": {
+    "diagnosis": "unknown",
+    "recommended_next_objective": "diagnostic_sanity_tests_objective"
+  },
+  "evidence_flags": {
+    "intervention_failed_or_insufficient": true,
+    "not_pipeline_dead": false,
+    "negative_control_mostly_ok": false,
+    "preprocessing_not_primary_fix": true,
+    "subject_variability_still_likely": true,
+    "supcon_dg_worth_testing": true,
+    "generic_feature_engineering_not_first_choice": true
+  },
+  "failure_reason_ranking": [
+    {
+      "rank": 1,
+      "reason": "Intervention targeted scale/distribution more than cross-subject affective alignment.",
+      "evidence": "Preprocessing was weak/diagnostic and first-pass macro-F1 remained near chance.",
+      "confidence": "high"
+    },
+    {
+      "rank": 2,
+      "reason": "CE-only objective does not explicitly suppress subject identity or align same-affect samples across subjects.",
+      "evidence": "Previous diagnostics found subject-dominated representations; current CE-only preprocessed run was insufficient.",
+      "confidence": "medium-high"
+    },
+    {
+      "rank": 3,
+      "reason": "Subject-relative labels improved balance/definition but did not guarantee separable affective representation.",
+      "evidence": "Both EEG and EMG subject-relative preprocessed runs remain mixed across folds/tasks.",
+      "confidence": "medium"
+    },
+    {
+      "rank": 4,
+      "reason": "Some fold/task effects persist, so the problem is not localized to one isolated run.",
+      "evidence": "13 of 24 fold-task runs are below macro-F1 0.50.",
+      "confidence": "medium"
+    }
+  ],
+  "decision_matrix": [
+    {
+      "candidate_next_method": "Affective SupCon across subjects",
+      "targets_subject_variability_directly": "yes",
+      "evidence_for": "Designed to pull same-affect samples from different subjects together and counter subject-dominated embeddings.",
+      "evidence_against_or_risk": "Will fail if label/task signal is intrinsically weak or batch sampler does not provide valid cross-subject positives.",
+      "decision": "justified_as_next_design_candidate",
+      "recommended_scope": "implementation/spec objective before training; lock positive/negative pairs and sampler"
+    },
+    {
+      "candidate_next_method": "VREx / domain generalization",
+      "targets_subject_variability_directly": "yes",
+      "evidence_for": "Explicitly penalizes risk variance across subject environments; matches subject-heldout failure mode.",
+      "evidence_against_or_risk": "Needs enough per-environment samples and careful environment definition.",
+      "decision": "justified_as_next_design_candidate",
+      "recommended_scope": "pair with CE and optionally SupCon in controlled first pass"
+    },
+    {
+      "candidate_next_method": "Generic feature engineering",
+      "targets_subject_variability_directly": "weakly",
+      "evidence_for": "May improve signal quality if feature representation is poor.",
+      "evidence_against_or_risk": "Previous preprocessing/feature change did not address cross-subject affective alignment.",
+      "decision": "pause_as_primary_next_step",
+      "recommended_scope": "only after subject-targeted methods are specified or if analysis later rejects subject-variability hypothesis"
+    },
+    {
+      "candidate_next_method": "Subject-aware calibration/adaptation",
+      "targets_subject_variability_directly": "yes_if_protocol_allows",
+      "evidence_for": "Could handle subject-specific baselines if calibration samples are scientifically allowed.",
+      "evidence_against_or_risk": "May violate pure LOSO/zero-calibration setting; needs explicit protocol.",
+      "decision": "defer_until_protocol_question",
+      "recommended_scope": "separate protocol objective if allowed by research claim"
+    },
+    {
+      "candidate_next_method": "Further task/label redesign",
+      "targets_subject_variability_directly": "partly",
+      "evidence_for": "May be needed if even subject-targeted losses cannot find signal.",
+      "evidence_against_or_risk": "Subject-relative q33 already tested minimally and was insufficient alone.",
+      "decision": "keep_as_backup_path",
+      "recommended_scope": "revisit after SupCon/DG design decision or if within-subject signal is weak"
+    }
+  ],
+  "interpretation": {
+    "diagnosis_validity": "Subject variability remains a leading blocker; current failure does not falsify it.",
+    "intervention_adequacy": "The tested intervention was too weak/incomplete because preprocessing and CE-only training do not enforce subject-invariant affective representation.",
+    "supcon_dg_justification": "Affective SupCon and VREx/DG are justified for design, but positive/negative pairs, sampler, environment definition, and leakage constraints must be specified before training.",
+    "feature_engineering_position": "Generic feature engineering should not be the primary next step unless future analysis rejects subject variability as the blocker."
+  },
+  "not_authorized": [
+    "EEG+EMG fusion",
+    "final LOSO / final paper claim",
+    "mainline change",
+    "broad hyperparameter search",
+    "direct SupCon/DG training without implementation/spec review",
+    "generic feature engineering as primary next step"
+  ]
+}

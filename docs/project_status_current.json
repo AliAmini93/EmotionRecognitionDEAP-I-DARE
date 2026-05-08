@@ -1313,6 +1313,28 @@
       "objective_type": "read_only_diagnostic_analysis",
       "scientific_question": "Why did the subject-relative + preprocessing intervention fail, and does the failure support or weaken the hypothesis that low accuracy is primarily caused by subject variability?",
       "status": "short_term_objective_created"
+    },
+    "idare_subject_variability_intervention_failure_analysis_report": {
+      "diagnosis": "subject_variability_diagnosis_still_supported_intervention_too_weak",
+      "evidence": "docs/idare_subject_variability_intervention_failure_analysis_report.md",
+      "evidence_json": "docs/idare_subject_variability_intervention_failure_analysis_report.json",
+      "interpretation": {
+        "diagnosis_validity": "Subject variability remains a leading blocker; current failure does not falsify it.",
+        "feature_engineering_position": "Generic feature engineering should not be the primary next step unless future analysis rejects subject variability as the blocker.",
+        "intervention_adequacy": "The tested intervention was too weak/incomplete because preprocessing and CE-only training do not enforce subject-invariant affective representation.",
+        "supcon_dg_justification": "Affective SupCon and VREx/DG are justified for design, but positive/negative pairs, sampler, environment definition, and leakage constraints must be specified before training."
+      },
+      "next_allowed_step": "Human review / closeout before SupCon/DG design objective.",
+      "not_authorized": [
+        "EEG+EMG fusion",
+        "final LOSO / final paper claim",
+        "mainline change",
+        "broad hyperparameter search",
+        "direct SupCon/DG training without implementation/spec review",
+        "generic feature engineering as primary next step"
+      ],
+      "recommended_next_objective": "subject_variability_supcon_dg_design_objective",
+      "status": "read_only_analysis_complete_pending_human_review"
     }
   },
   "failure_analysis_objective": {
