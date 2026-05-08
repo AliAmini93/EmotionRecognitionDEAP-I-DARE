@@ -1,0 +1,42 @@
+{
+  "accepted_evidence": {
+    "all_passed": true,
+    "by_test": {
+      "leakage_guard_smoke": {
+        "failed": 0,
+        "passed": 4
+      },
+      "one_fold_one_task_minimal_smoke": {
+        "failed": 0,
+        "passed": 4
+      },
+      "pair_sampler_integrity_smoke": {
+        "failed": 0,
+        "passed": 4
+      },
+      "shuffled_label_negative_control": {
+        "failed": 0,
+        "passed": 4
+      },
+      "supcon_micro_overfit_smoke": {
+        "failed": 0,
+        "passed": 4
+      }
+    },
+    "diagnosis": "supcon_dg_smoke_tests_passed_ready_for_minimal_first_pass_objective",
+    "recommended_next_objective": "minimal_supcon_dg_first_pass_training_objective"
+  },
+  "blocked": [
+    "direct_full_supcon_dg_training",
+    "broad_hyperparameter_search",
+    "eeg_emg_fusion",
+    "final_loso_claim",
+    "mainline_default_replacement"
+  ],
+  "created_or_updated_utc": "2026-05-08T09:39:01.179380+00:00",
+  "decision": "smoke_tests_passed_accept_minimal_first_pass_objective",
+  "next_selected_step": "minimal_supcon_dg_first_pass_training_objective",
+  "reviewed_report": "docs/idare_subject_variability_supcon_dg_smoke_tests_report.md",
+  "reviewed_report_json": "docs/idare_subject_variability_supcon_dg_smoke_tests_report.json",
+  "status": "review_accepted"
+}

@@ -848,6 +848,16 @@
         "arousal"
       ]
     },
+    "idare_minimal_supcon_dg_first_pass_training_objective": {
+      "broad_hyperparameter_search_authorized": false,
+      "direct_full_training_authorized": false,
+      "evidence": "docs/idare_minimal_supcon_dg_first_pass_training_objective.md",
+      "evidence_json": "docs/idare_minimal_supcon_dg_first_pass_training_objective.json",
+      "minimal_first_pass_training_authorized": true,
+      "next_allowed_step": "prepare_reviewed_minimal_supcon_dg_first_pass_run_command",
+      "planned_run_matrix_rows": 16,
+      "status": "objective_created"
+    },
     "idare_representation_label_task_redesign_objective": {
       "authorized_work": [
         "label_noise_and_policy_diagnosis",
@@ -1487,6 +1497,13 @@
       "recommended_next_objective": "minimal_supcon_dg_first_pass_training_objective",
       "status": "smoke_tests_complete",
       "training_authorized": false
+    },
+    "idare_subject_variability_supcon_dg_smoke_tests_review": {
+      "decision": "minimal_supcon_dg_first_pass_training_selected",
+      "evidence": "docs/idare_subject_variability_supcon_dg_smoke_tests_review_status.md",
+      "evidence_json": "docs/idare_subject_variability_supcon_dg_smoke_tests_review_status.json",
+      "full_training_authorized": false,
+      "status": "review_accepted"
     }
   },
   "failure_analysis_objective": {

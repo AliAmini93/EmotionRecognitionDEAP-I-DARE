@@ -1,0 +1,41 @@
+{
+  "authorized_scope": {
+    "broad_hyperparameter_search_authorized": false,
+    "direct_full_training_authorized": false,
+    "final_claim_authorized": false,
+    "fusion_authorized": false,
+    "mainline_change_authorized": false,
+    "minimal_first_pass_training_authorized": true
+  },
+  "blocked": [
+    "direct_full_supcon_dg_training",
+    "broad_hyperparameter_search",
+    "eeg_emg_fusion",
+    "final_loso_claim",
+    "mainline_default_replacement"
+  ],
+  "created_or_updated_utc": "2026-05-08T09:39:01.179380+00:00",
+  "evidence": {
+    "design_spec": "docs/idare_subject_variability_supcon_dg_design_spec.md",
+    "first_pass_run_matrix": "docs/idare_subject_variability_supcon_dg_first_pass_run_matrix.csv",
+    "hyperparameter_registry": "docs/idare_subject_variability_supcon_dg_hyperparameter_registry.csv",
+    "smoke_diagnosis": "supcon_dg_smoke_tests_passed_ready_for_minimal_first_pass_objective",
+    "smoke_report": "docs/idare_subject_variability_supcon_dg_smoke_tests_report.md",
+    "smoke_report_json": "docs/idare_subject_variability_supcon_dg_smoke_tests_report.json",
+    "smoke_review": "docs/idare_subject_variability_supcon_dg_smoke_tests_review_status.md"
+  },
+  "expected_outputs": [
+    "docs/idare_minimal_supcon_dg_first_pass_report.md",
+    "docs/idare_minimal_supcon_dg_first_pass_report.json",
+    "docs/idare_minimal_supcon_dg_first_pass_runs.csv",
+    "docs/idare_minimal_supcon_dg_first_pass_predictions.csv",
+    "docs/idare_minimal_supcon_dg_first_pass_embedding_summary.csv",
+    "docs/idare_minimal_supcon_dg_first_pass_loss_summary.csv"
+  ],
+  "hyperparameter_registry_rows": 8,
+  "next_allowed_step": "prepare_reviewed_minimal_supcon_dg_first_pass_run_command",
+  "objective": "docs/idare_minimal_supcon_dg_first_pass_training_objective.md",
+  "planned_run_matrix_rows": 16,
+  "scientific_question": "Does cautious SupCon/DG improve subject-heldout generalization over current subject-relative/preprocessed diagnostic baselines?",
+  "status": "objective_created"
+}
