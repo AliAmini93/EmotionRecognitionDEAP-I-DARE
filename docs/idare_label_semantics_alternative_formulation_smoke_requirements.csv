@@ -1,0 +1,7 @@
+smoke_id,name,required,hard_gate,purpose,minimum_required_output
+SMOKE_ALT_001,pair_target_construction_integrity,yes,yes,"Verify pair labels are constructible, non-ambiguous, and not dominated by ties.",docs/idare_label_semantics_alternative_formulation_pair_target_audit.csv
+SMOKE_ALT_002,LOSO_pair_leakage_guard,yes,yes,Verify subject-disjoint train/validation folds and no pair/reversed-pair leakage.,docs/idare_label_semantics_alternative_formulation_pair_fold_audit.csv
+SMOKE_ALT_003,pair_retention_balance_audit,yes,yes,"Check retention, label balance, and fold coverage.",docs/idare_label_semantics_alternative_formulation_pair_balance_audit.csv
+SMOKE_ALT_004,position_and_majority_baseline_control,yes,yes,"Ensure pair order, majority class, or fold artifacts cannot solve the task.",docs/idare_label_semantics_alternative_formulation_pair_baseline_control.csv
+SMOKE_ALT_005,metric_sanity_control,yes,yes,Verify pairwise metrics behave correctly for perfect/random/shuffled predictions.,docs/idare_label_semantics_alternative_formulation_pair_metric_sanity.csv
+SMOKE_ALT_006,reproducibility_guard,yes,yes,Ensure any smoke-test script/report is committed or archived before scientific continuation.,docs/idare_label_semantics_alternative_formulation_smoke_reproducibility_audit.csv

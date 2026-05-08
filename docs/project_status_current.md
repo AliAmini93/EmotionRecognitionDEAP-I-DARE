@@ -631,3 +631,15 @@ Updated: `2026-05-08T15:46:10+00:00`
 - The archived formulation remains closed: `subject_relative_ordinal_affect_regression_v1`.
 - The next work is design/spec only, not training.
 
+## I-DARE Alternative-Formulation Smoke Tests Objective
+
+Updated: `2026-05-08T15:59:11+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE alternative-formulation design spec review | human review accepted; selected=`within_subject_pairwise_affect_preference_ranking_v1` | `docs/idare_label_semantics_alternative_formulation_design_spec_review_status.md` | Create/use smoke-tests objective. | training; model search; SupCon/DG; broad search; fusion; final claim |
+| I-DARE alternative-formulation smoke tests objective | smoke-test objective created; no training authorized | `docs/idare_label_semantics_alternative_formulation_smoke_tests_objective.md` | Prepare reviewed smoke-test command/script. | training; model search; SupCon/DG; broad search; fusion; final claim |
+
+- Smoke tests are read-only gates for the selected pairwise formulation.
+- Training remains blocked until smoke-test report, review, and a separate minimal first-pass objective.
+

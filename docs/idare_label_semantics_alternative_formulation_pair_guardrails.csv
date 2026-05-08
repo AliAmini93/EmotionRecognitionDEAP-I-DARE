@@ -1,0 +1,8 @@
+guardrail_id,rule,failure_action,rationale
+PAIR_GUARD_001,Only within-subject pairs are allowed.,fail_smoke_tests,Avoids cross-subject rating-scale semantics that contributed to archived failure.
+PAIR_GUARD_002,No pair may contain a held-out subject in train folds.,fail_smoke_tests,Maintains LOSO subject-disjoint protocol.
+PAIR_GUARD_003,No pair or reversed pair may appear in both train and validation/test partitions.,fail_smoke_tests,Pairwise data can leak through reversed duplicates.
+PAIR_GUARD_004,Ambiguous or tied pairs must be excluded or explicitly audited.,fail_or_fix_before_training,Weak pair labels would repeat label-semantics bottleneck.
+PAIR_GUARD_005,Pair order must be randomized or counterbalanced before any model training is later proposed.,fail_smoke_tests,Prevents positional shortcuts.
+PAIR_GUARD_006,A no-feature/position/majority baseline must remain near chance.,fail_or_fix_before_training,Prevents trivial artifact-driven task success.
+PAIR_GUARD_007,No training is authorized by this objective.,reject_step,Smoke tests are read-only/design-validation only.

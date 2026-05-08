@@ -1,0 +1,58 @@
+{
+  "status": "objective_created",
+  "created_utc": "2026-05-08T15:59:11+00:00",
+  "source_design_spec_review": "docs/idare_label_semantics_alternative_formulation_design_spec_review_status.md",
+  "source_design_spec": "docs/idare_label_semantics_alternative_formulation_design_spec.md",
+  "accepted_diagnosis": "alternative_formulation_design_spec_complete",
+  "accepted_selected_primary_formulation": "within_subject_pairwise_affect_preference_ranking_v1",
+  "accepted_selected_candidate_id": "ALT_A_within_subject_pairwise_preference_ranking",
+  "scientific_question": "Do read-only smoke tests support the selected within-subject pairwise affect preference formulation before any training is considered?",
+  "authorized_work": [
+    "Construct/audit pairwise targets from existing labels/metadata",
+    "Audit LOSO pair leakage and reversed-pair leakage",
+    "Audit pair retention, class balance, and fold coverage",
+    "Run no-training/position/majority baseline controls",
+    "Run metric sanity controls",
+    "Write smoke-test report and decision matrix"
+  ],
+  "not_authorized": [
+    "training",
+    "model search",
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "alternative first-pass training",
+    "reopening archived subject_relative_ordinal_affect_regression_v1 unchanged"
+  ],
+  "required_inputs": [
+    "docs/idare_label_semantics_alternative_formulation_design_spec.json",
+    "docs/idare_label_semantics_alternative_formulation_selected_task_definition.csv",
+    "docs/idare_label_semantics_alternative_formulation_metric_plan.csv",
+    "docs/idare_label_semantics_alternative_formulation_smoke_test_plan.csv",
+    "docs/idare_label_semantics_alternative_formulation_stop_criteria.csv",
+    ".cache/idare_eeg_cache_index_baseline_corrected.csv",
+    ".cache/idare_emg_feature_cache_index.csv"
+  ],
+  "expected_outputs": [
+    "docs/idare_label_semantics_alternative_formulation_smoke_tests_report.md",
+    "docs/idare_label_semantics_alternative_formulation_smoke_tests_report.json",
+    "docs/idare_label_semantics_alternative_formulation_pair_target_audit.csv",
+    "docs/idare_label_semantics_alternative_formulation_pair_fold_audit.csv",
+    "docs/idare_label_semantics_alternative_formulation_pair_balance_audit.csv",
+    "docs/idare_label_semantics_alternative_formulation_pair_baseline_control.csv",
+    "docs/idare_label_semantics_alternative_formulation_pair_metric_sanity.csv",
+    "docs/idare_label_semantics_alternative_formulation_smoke_decision_matrix.csv"
+  ],
+  "pass_criteria": [
+    "No model training is run",
+    "All pair leakage guards pass",
+    "Pair construction has enough retention and class/fold balance to justify later minimal first-pass planning",
+    "No-feature/position/majority controls do not indicate trivial shortcut success",
+    "Metric sanity controls behave as expected",
+    "Decision matrix recommends either minimal first-pass objective, spec patch, or archive/stop"
+  ],
+  "next_allowed_step": "prepare_reviewed_label_semantics_alternative_formulation_smoke_tests_command",
+  "training_authorized": false,
+  "model_search_authorized": false
+}
