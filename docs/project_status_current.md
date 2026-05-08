@@ -323,3 +323,14 @@ Updated: `2026-05-08T10:44:24+00:00`
 - A read-only representation or label-semantics failure-analysis objective is defined in `docs/idare_representation_or_label_semantics_failure_analysis_objective.md`.
 - The next allowed step is to prepare the analysis command/script; new training remains blocked.
 
+## I-DARE Representation or Label-Semantics Failure Analysis Report
+
+Updated: `2026-05-08T10:53:45+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE representation or label-semantics failure-analysis report | complete pending human review; diagnosis=`label_semantics_and_representation_transfer_joint_bottleneck` | `docs/idare_representation_or_label_semantics_failure_analysis_report.md` | Human review / closeout before next objective. | direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim; mainline change |
+
+- Read-only representation or label-semantics failure analysis is complete in `docs/idare_representation_or_label_semantics_failure_analysis_report.md`.
+- Recommended next objective is `label_semantics_task_redesign_or_stop_objective` only after human review/closeout.
+

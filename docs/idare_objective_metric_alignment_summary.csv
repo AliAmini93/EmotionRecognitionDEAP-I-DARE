@@ -1,0 +1,8 @@
+analysis,candidate_id,n_cells,mean_macro_f1,mean_delta_vs_A0_macro_f1,mean_delta_vs_A6_macro_f1,positive_delta_cells_vs_A0,negative_delta_cells_vs_A0,metric,n,corr_with_macro_f1,corr_with_bal_acc
+candidate_delta_map,A0_CE_control,4.0,0.5087842221409249,0.0,0.0039937045691974,0.0,0.0,,,,
+candidate_delta_map,A2_cross_subject_positive_only,4.0,0.5060875555452323,-0.0026966665956924753,0.0012970379735049746,2.0,2.0,,,,
+candidate_delta_map,A4_rating_distance_guarded_supcon,4.0,0.5070852701825401,-0.0016989519583847004,0.002294752610812675,2.0,2.0,,,,
+candidate_delta_map,A5_cross_subject_supcon_vrex,4.0,0.5118600603082725,0.0030758381673475755,0.007069542736544975,3.0,1.0,,,,
+candidate_delta_map,A6_vrex_only_recheck,4.0,0.5047905175717274,-0.0039937045691974,0.0,1.0,3.0,,,,
+loss_embedding_metric_alignment,,,,,,,,ce_loss,120.0,-0.3001215860428951,-0.24356974485565985
+loss_embedding_metric_alignment,,,,,,,,supcon_loss,120.0,0.0181758801858478,0.01762462576358073

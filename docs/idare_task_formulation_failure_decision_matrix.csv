@@ -1,0 +1,6 @@
+hypothesis,evidence_for,evidence_against,verdict
+Label semantics across subjects are inconsistent,Subject rating distributions vary; mean global entropy=0.919; high_subject_rating_shift=True; low_entropy_problem=True.,"Subject-relative formulations were tried, so label semantics alone may not be the only blocker.",supported_primary
+Representation transfer is weak under held-out subjects,Best pair/SupCon/DG candidate mean macro-F1=0.5119; folds_under_050=7; candidate improvements are fold-dependent.,"Some isolated folds/cells exceed 0.55, so signal is intermittent rather than absent.",supported_primary
+Task formulation is not currently defensible for a final LOSO claim,"Global labels, subject-relative labels, preprocessing, SupCon, pair redesign, and VREx all failed to create stable held-out performance.","A few cells improve, so a redesigned task may still be viable.",supported_primary
+Objective/metric mismatch explains SupCon/DG failure,Loss/embedding metric alignment with held-out macro-F1 appears weak; max_abs_corr=0.3001215860428951.,"Correlation evidence is post-hoc and based on logged summaries, not a controlled causal test.",supported_partial
+Pair sampler remains the primary issue,Pair design may still contain semantic noise.,Coverage and smoke tests passed; targeted pair/sampler changes were not sufficient.,not_primary
