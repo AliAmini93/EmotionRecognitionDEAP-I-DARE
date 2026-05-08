@@ -8035,7 +8035,7 @@
     "next_step": "human_review_closeout_of_supcon_dg_failure_analysis",
     "updated_at_utc": "2026-05-08T09:59:59+00:00"
   },
-  "last_updated_utc": "2026-05-08T12:05:24+00:00",
+  "last_updated_utc": "2026-05-08T12:08:54+00:00",
   "idare_protocol_events": [
     {
       "timestamp_utc": "2026-05-08T10:06:00+00:00",
@@ -8447,15 +8447,50 @@
         "mainline change",
         "minimal regression training until patched smoke-test report is reviewed"
       ]
+    },
+    {
+      "timestamp_utc": "2026-05-08T12:08:54+00:00",
+      "type": "review",
+      "name": "I-DARE redesigned-task smoke-guard patch review",
+      "status": "human review accepted; diagnosis=redesigned_task_smoke_tests_passed_after_guard_patch; all_passed=True",
+      "evidence": "docs/idare_label_semantics_redesigned_task_smoke_guard_patch_review_status.md",
+      "next_allowed_step": "create/use minimal redesigned-task first-pass objective",
+      "blocked": [
+        "direct full SupCon/DG training",
+        "broad hyperparameter search",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "mainline change",
+        "deep neural training for redesigned task",
+        "unregistered feature engineering"
+      ]
+    },
+    {
+      "timestamp_utc": "2026-05-08T12:08:54+00:00",
+      "type": "objective",
+      "name": "I-DARE minimal redesigned-task first-pass objective",
+      "status": "objective created; planned_rows=48; no broad search authorized",
+      "evidence": "docs/idare_label_semantics_minimal_redesigned_task_first_pass_training_objective.md",
+      "next_allowed_step": "prepare reviewed minimal first-pass run command",
+      "blocked": [
+        "direct full SupCon/DG training",
+        "broad hyperparameter search",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "mainline change",
+        "deep neural training for redesigned task",
+        "unregistered feature engineering"
+      ]
     }
   ],
-  "current_idare_next_allowed_step": "human_review_closeout_then_create_minimal_redesigned_task_first_pass_objective",
+  "current_idare_next_allowed_step": "prepare_reviewed_label_semantics_minimal_redesigned_task_first_pass_run_command",
   "current_idare_blocked_steps": [
     "direct full SupCon/DG training",
     "broad hyperparameter search",
     "EEG+EMG fusion",
     "final LOSO claim",
     "mainline change",
-    "minimal regression training until patched smoke-test report is reviewed"
+    "deep neural training for redesigned task",
+    "unregistered feature engineering"
   ]
 }

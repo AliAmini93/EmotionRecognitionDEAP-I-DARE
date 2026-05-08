@@ -1,0 +1,7 @@
+guardrail,requirement,blocked_if_violated
+frozen_run_matrix,Run exactly the 48 rows in docs/idare_label_semantics_minimal_redesigned_task_first_pass_run_matrix.csv.,yes
+allowed_models_only,Only mean_baseline_no_training and ridge_regression_summary_features are authorized.,yes
+no_supcon_dg_fusion,"No SupCon, DG/VREx/domain-generalization, contrastive learning, or EEG+EMG fusion.",yes
+no_broad_search,No hyperparameter sweep beyond the fixed minimal baseline specification.,yes
+fold_protocol,Use the locked subject-heldout protocol and the selected redesigned task definition.,yes
+report_before_next_step,Write report and require human review before any next model/training objective.,yes

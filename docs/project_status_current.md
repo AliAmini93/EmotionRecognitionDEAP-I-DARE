@@ -449,3 +449,15 @@ Updated: `2026-05-08T12:05:24+00:00`
 - Actual forbidden future model rows: `0`.
 - Training remains blocked until patched smoke-test review.
 
+## I-DARE Minimal Redesigned-Task First-Pass Objective
+
+Updated: `2026-05-08T12:08:54+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE redesigned-task smoke-guard patch review | human review accepted; diagnosis=`redesigned_task_smoke_tests_passed_after_guard_patch`; all_passed=`True` | `docs/idare_label_semantics_redesigned_task_smoke_guard_patch_review_status.md` | Create/use minimal redesigned-task first-pass objective. | direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim; mainline change |
+| I-DARE minimal redesigned-task first-pass objective | minimal 48-row baseline/regression objective created | `docs/idare_label_semantics_minimal_redesigned_task_first_pass_training_objective.md` | Prepare reviewed run command/script. | direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim; mainline change |
+
+- Frozen first-pass run matrix: `docs/idare_label_semantics_minimal_redesigned_task_first_pass_run_matrix.csv`.
+- Training remains limited to the authorized minimal matrix; broad search remains blocked.
+

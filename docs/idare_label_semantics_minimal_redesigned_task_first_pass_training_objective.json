@@ -1,0 +1,75 @@
+{
+  "status": "objective_created",
+  "created_utc": "2026-05-08T12:08:54+00:00",
+  "source_review": "docs/idare_label_semantics_redesigned_task_smoke_guard_patch_review_status.md",
+  "source_patch_report": "docs/idare_label_semantics_redesigned_task_smoke_guard_patch_report.md",
+  "selected_primary_formulation": "subject_relative_ordinal_affect_regression_v1",
+  "scientific_question": "Does the redesigned subject-relative ordinal/regression task produce a defensible signal under a minimal, frozen baseline/regression first-pass matrix before any neural, SupCon/DG, fusion, or broad-search work?",
+  "authorized_scope": {
+    "run_matrix": "docs/idare_label_semantics_minimal_redesigned_task_first_pass_run_matrix.csv",
+    "planned_rows": 48,
+    "models": [
+      "mean_baseline_no_training",
+      "ridge_regression_summary_features"
+    ],
+    "modalities": [
+      "EEG",
+      "EMG"
+    ],
+    "tasks": [
+      "arousal",
+      "valence"
+    ],
+    "folds": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  "authorized_work": [
+    "run exactly the frozen 48-row minimal first-pass matrix",
+    "compute no-training mean baselines",
+    "compute ridge regression summary-feature baselines",
+    "use the selected redesigned task target only",
+    "write predictions, run summary, metric summary, and report",
+    "compare against smoke-test expectations and stop criteria"
+  ],
+  "not_authorized": [
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "mainline change",
+    "deep neural training for redesigned task",
+    "unregistered feature engineering"
+  ],
+  "expected_outputs": [
+    "docs/idare_label_semantics_minimal_redesigned_task_first_pass_report.md",
+    "docs/idare_label_semantics_minimal_redesigned_task_first_pass_report.json",
+    "docs/idare_label_semantics_minimal_redesigned_task_first_pass_runs.csv",
+    "docs/idare_label_semantics_minimal_redesigned_task_first_pass_predictions.csv",
+    "docs/idare_label_semantics_minimal_redesigned_task_first_pass_metric_summary.csv"
+  ],
+  "pass_criteria": [
+    "all 48 planned rows are executed or explicitly accounted for",
+    "no unregistered model/method appears",
+    "metrics include regression and directional/ordinal summaries per metric plan",
+    "results are compared against no-training baseline",
+    "no final claim is made",
+    "next step is selected only after human review"
+  ],
+  "next_allowed_step": "prepare_reviewed_label_semantics_minimal_redesigned_task_first_pass_run_command",
+  "training_authorized": false,
+  "blocked": [
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "mainline change",
+    "deep neural training for redesigned task",
+    "unregistered feature engineering"
+  ]
+}

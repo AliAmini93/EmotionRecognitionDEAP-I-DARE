@@ -1,0 +1,22 @@
+{
+  "status": "human_review_accepted",
+  "created_utc": "2026-05-08T12:08:54+00:00",
+  "reviewed_report": "docs/idare_label_semantics_redesigned_task_smoke_guard_patch_report.md",
+  "accepted_diagnosis": "redesigned_task_smoke_tests_passed_after_guard_patch",
+  "accepted_all_passed": true,
+  "accepted_future_guard_passed": true,
+  "accepted_actual_forbidden_model_rows": 0,
+  "accepted_selected_primary_formulation": "subject_relative_ordinal_affect_regression_v1",
+  "accepted_recommended_next_objective": "label_semantics_minimal_redesigned_task_first_pass_training_objective",
+  "training_authorized": false,
+  "next_selected_step": "create_minimal_redesigned_task_first_pass_objective",
+  "blocked": [
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "mainline change",
+    "deep neural training for redesigned task",
+    "unregistered feature engineering"
+  ]
+}
