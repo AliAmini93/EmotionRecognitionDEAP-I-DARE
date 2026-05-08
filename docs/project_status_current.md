@@ -245,3 +245,10 @@ Before this file, the project had strong per-phase status docs but no central st
 - Next work is to prepare a reviewed read-only failure-analysis command/script.
 - Blocked until review: direct full SupCon/DG training, broad hyperparameter search, EEG+EMG fusion, final LOSO claim, and mainline change.
 
+## I-DARE SupCon/DG Failure Analysis Report
+
+- Read-only SupCon/DG failure analysis is complete in `docs/idare_supcon_dg_failure_analysis_report.md`.
+- Diagnosis: `supcon_dg_first_pass_failed_despite_valid_smokes`.
+- Recommended next objective: `targeted_supcon_dg_pair_sampler_objective_ablation_design`.
+- Human review is required before any new SupCon/DG training, targeted ablation, broad hyperparameter search, EEG+EMG fusion, final LOSO claim, or mainline change.
+

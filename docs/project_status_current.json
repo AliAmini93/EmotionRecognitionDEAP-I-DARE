@@ -8016,12 +8016,23 @@
       "next_step": "Prepare reviewed read-only failure-analysis command/script.",
       "blocked": "EEG+EMG fusion; final LOSO claim; direct full SupCon/DG training; broad hyperparameter search; mainline change.",
       "created_at_utc": "2026-05-08T09:55:30+00:00"
+    },
+    {
+      "name": "I-DARE SupCon/DG failure analysis report",
+      "status": "read-only failure analysis complete; pending human review",
+      "active": true,
+      "artifact": "docs/idare_supcon_dg_failure_analysis_report.md",
+      "next_step": "Human review / closeout before targeted pair/sampler ablation or any new training.",
+      "blocked": "EEG+EMG fusion; final LOSO claim; direct full SupCon/DG training; broad hyperparameter search; mainline change.",
+      "diagnosis": "supcon_dg_first_pass_failed_despite_valid_smokes",
+      "recommended_next_objective": "targeted_supcon_dg_pair_sampler_objective_ablation_design",
+      "created_at_utc": "2026-05-08T09:59:59+00:00"
     }
   ],
   "current_idare_next_step": {
-    "objective": "supcon_dg_failure_analysis_objective",
-    "artifact": "docs/idare_supcon_dg_failure_analysis_objective.md",
-    "next_step": "prepare_reviewed_supcon_dg_failure_analysis_command",
-    "updated_at_utc": "2026-05-08T09:55:30+00:00"
+    "objective": "targeted_supcon_dg_pair_sampler_objective_ablation_design",
+    "artifact": "docs/idare_supcon_dg_failure_analysis_report.md",
+    "next_step": "human_review_closeout_of_supcon_dg_failure_analysis",
+    "updated_at_utc": "2026-05-08T09:59:59+00:00"
   }
 }

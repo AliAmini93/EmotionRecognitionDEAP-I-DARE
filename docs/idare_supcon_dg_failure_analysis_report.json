@@ -1,0 +1,231 @@
+{
+  "status": "failure_analysis_complete_pending_review",
+  "created_at_utc": "2026-05-08T09:59:59+00:00",
+  "objective": "docs/idare_supcon_dg_failure_analysis_objective.json",
+  "inputs": {
+    "runs_csv": "docs/idare_minimal_supcon_dg_first_pass_runs.csv",
+    "predictions_csv": "docs/idare_minimal_supcon_dg_first_pass_predictions.csv",
+    "embedding_summary_csv": "docs/idare_minimal_supcon_dg_first_pass_embedding_summary.csv",
+    "loss_summary_csv": "docs/idare_minimal_supcon_dg_first_pass_loss_summary.csv",
+    "smoke_report": "docs/idare_subject_variability_supcon_dg_smoke_tests_report.json",
+    "first_pass_report": "docs/idare_minimal_supcon_dg_first_pass_report.json"
+  },
+  "counts": {
+    "runs": 72,
+    "prediction_rows": 19632,
+    "embedding_summary_rows": 72,
+    "loss_summary_rows": 864,
+    "method_task_rows": 12,
+    "fold_summary_rows": 72,
+    "loss_alignment_rows": 72
+  },
+  "diagnosis": "supcon_dg_first_pass_failed_despite_valid_smokes",
+  "best_cell": {
+    "method": "CE_plus_VREx",
+    "modality": "EMG",
+    "task": "valence",
+    "n_runs": 6,
+    "mean_macro_f1": 0.5064987409626325,
+    "std_macro_f1": 0.04144051165063541,
+    "min_macro_f1": 0.4376097222411236,
+    "max_macro_f1": 0.5563108336859924,
+    "mean_balanced_accuracy": 0.5151315622001712,
+    "mean_accuracy": 0.5185094553335976,
+    "folds_over_055_macro_f1": 2,
+    "folds_under_050_macro_f1": 3,
+    "one_class_pred_count": 0
+  },
+  "method_overall": [
+    {
+      "method": "CE_plus_VREx",
+      "n_runs": 24,
+      "mean_macro_f1": 0.49847801085773497,
+      "mean_balanced_accuracy": 0.5050139465876092,
+      "std_macro_f1": 0.034668970540553255,
+      "folds_over_055_macro_f1": 3,
+      "folds_under_050_macro_f1": 14
+    },
+    {
+      "method": "CE_plus_SupCon_plus_VREx",
+      "n_runs": 24,
+      "mean_macro_f1": 0.48626836343719565,
+      "mean_balanced_accuracy": 0.502897396995066,
+      "std_macro_f1": 0.03214268646468957,
+      "folds_over_055_macro_f1": 0,
+      "folds_under_050_macro_f1": 12
+    },
+    {
+      "method": "CE_plus_SupCon",
+      "n_runs": 24,
+      "mean_macro_f1": 0.4823233473420376,
+      "mean_balanced_accuracy": 0.4954985003762693,
+      "std_macro_f1": 0.03521365629988165,
+      "folds_over_055_macro_f1": 0,
+      "folds_under_050_macro_f1": 14
+    }
+  ],
+  "top_correlations": [
+    {
+      "diagnostic_metric": "active_lambda_supcon_end",
+      "corr_with_macro_f1": -0.19254162789015725,
+      "corr_with_balanced_accuracy": -0.09615769574884951,
+      "n_nonmissing": 72
+    },
+    {
+      "diagnostic_metric": "active_lambda_supcon_delta",
+      "corr_with_macro_f1": -0.19254162789015725,
+      "corr_with_balanced_accuracy": -0.09615769574884951,
+      "n_nonmissing": 72
+    },
+    {
+      "diagnostic_metric": "supcon_loss_end",
+      "corr_with_macro_f1": -0.1921609959665803,
+      "corr_with_balanced_accuracy": -0.09568606922751674,
+      "n_nonmissing": 72
+    },
+    {
+      "diagnostic_metric": "total_loss_relative_delta",
+      "corr_with_macro_f1": -0.19081896739795218,
+      "corr_with_balanced_accuracy": -0.09246038619404275,
+      "n_nonmissing": 72
+    },
+    {
+      "diagnostic_metric": "total_loss_delta",
+      "corr_with_macro_f1": -0.19059146681943262,
+      "corr_with_balanced_accuracy": -0.09174098519445324,
+      "n_nonmissing": 72
+    },
+    {
+      "diagnostic_metric": "total_loss_end",
+      "corr_with_macro_f1": -0.18975600209710639,
+      "corr_with_balanced_accuracy": -0.09041308512452087,
+      "n_nonmissing": 72
+    },
+    {
+      "diagnostic_metric": "supcon_loss_start",
+      "corr_with_macro_f1": -0.18870295602860865,
+      "corr_with_balanced_accuracy": -0.08980846509713472,
+      "n_nonmissing": 72
+    },
+    {
+      "diagnostic_metric": "supcon_loss_relative_delta",
+      "corr_with_macro_f1": -0.1530677526808507,
+      "corr_with_balanced_accuracy": -0.26988324489562077,
+      "n_nonmissing": 48
+    },
+    {
+      "diagnostic_metric": "vrex_environment_count_start",
+      "corr_with_macro_f1": 0.14075216026108833,
+      "corr_with_balanced_accuracy": 0.14510478540520155,
+      "n_nonmissing": 72
+    },
+    {
+      "diagnostic_metric": "vrex_environment_count_end",
+      "corr_with_macro_f1": 0.14075216026108833,
+      "corr_with_balanced_accuracy": 0.14510478540520155,
+      "n_nonmissing": 72
+    },
+    {
+      "diagnostic_metric": "same_class_cross_subject_distance_mean",
+      "corr_with_macro_f1": 0.14015356564012688,
+      "corr_with_balanced_accuracy": 0.007470530814074846,
+      "n_nonmissing": 72
+    },
+    {
+      "diagnostic_metric": "diff_class_cross_subject_distance_mean",
+      "corr_with_macro_f1": 0.13998329835121404,
+      "corr_with_balanced_accuracy": 0.007321731340971964,
+      "n_nonmissing": 72
+    }
+  ],
+  "prediction_error_summary": {
+    "overall_error_rate": 0.5,
+    "top_subject_error_rates": [
+      {
+        "subject": "49",
+        "error_rate": 0.5807291666666666
+      },
+      {
+        "subject": "34",
+        "error_rate": 0.564327485380117
+      },
+      {
+        "subject": "22",
+        "error_rate": 0.5614035087719298
+      },
+      {
+        "subject": "52",
+        "error_rate": 0.5544871794871795
+      },
+      {
+        "subject": "46",
+        "error_rate": 0.5533333333333333
+      },
+      {
+        "subject": "12",
+        "error_rate": 0.546875
+      },
+      {
+        "subject": "63",
+        "error_rate": 0.5390070921985816
+      },
+      {
+        "subject": "60",
+        "error_rate": 0.5374149659863946
+      },
+      {
+        "subject": "3",
+        "error_rate": 0.5352564102564102
+      },
+      {
+        "subject": "58",
+        "error_rate": 0.5289855072463768
+      }
+    ]
+  },
+  "decision_matrix": [
+    {
+      "hypothesis": "implementation_or_sampler_bug",
+      "evidence": "smoke_all_passed=True; one_class_pred_total=0",
+      "support": "low",
+      "interpretation": "Smoke tests make a gross implementation failure unlikely, though subtle objective mismatch remains possible.",
+      "decision": "do_not_debug_basic_plumbing_unless_future smoke fails"
+    },
+    {
+      "hypothesis": "SupCon/DG objective not aligned with subject-heldout performance",
+      "evidence": "best_mean_macro_f1=0.5065; best_mean_balanced_accuracy=0.5151; best_cell=CE_plus_VREx EMG valence",
+      "support": "high",
+      "interpretation": "The auxiliary objectives can run, but first-pass validation remains near chance/mixed.",
+      "decision": "analyze objective/pair design before more training"
+    },
+    {
+      "hypothesis": "pair_sampler_or_positive_definition_too_weak",
+      "evidence": "First-pass used label-based positive structure, but did not produce robust cross-subject gains.",
+      "support": "medium_high",
+      "interpretation": "Positive/negative definitions may be too noisy, too task-local, or insufficiently subject-invariant.",
+      "decision": "targeted pair/sampler ablation is more justified than broad hyperparameter search"
+    },
+    {
+      "hypothesis": "VREx/domain_regularization_insufficient",
+      "evidence": "CE_plus_VREx: mean_f1=0.4985; CE_plus_SupCon_plus_VREx: mean_f1=0.4863; CE_plus_SupCon: mean_f1=0.4823",
+      "support": "high",
+      "interpretation": "Domain regularization did not transform subject-heldout generalization in this first pass.",
+      "decision": "do not launch full DG training without a narrower failure hypothesis"
+    },
+    {
+      "hypothesis": "representation_or_label_task_remains_primary_bottleneck",
+      "evidence": "Earlier diagnostics supported subject variability / label-task dependence; this first-pass intervention did not overcome it.",
+      "support": "medium_high",
+      "interpretation": "SupCon/DG may need representation redesign, subject-aware positives, or different target formulation.",
+      "decision": "targeted_supcon_dg_pair_sampler_objective_ablation_design"
+    }
+  ],
+  "recommended_next_objective": "targeted_supcon_dg_pair_sampler_objective_ablation_design",
+  "blocked": [
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "mainline change"
+  ]
+}
