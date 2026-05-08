@@ -1,0 +1,22 @@
+{
+  "status": "human_review_accepted",
+  "created_utc": "2026-05-08T10:59:14+00:00",
+  "reviewed_report": "docs/idare_representation_or_label_semantics_failure_analysis_report.md",
+  "accepted_diagnosis": "label_semantics_and_representation_transfer_joint_bottleneck",
+  "accepted_recommended_next_objective": "label_semantics_task_redesign_or_stop_objective",
+  "decision": "Proceed to a read-only label-semantics task-redesign-or-stop objective before any further training.",
+  "rationale": [
+    "SupCon/DG pair sampler mechanics were validated but not sufficient.",
+    "The latest report identified a joint bottleneck in label semantics and representation transfer.",
+    "The next scientific decision is whether the current binary affect task should be redesigned, narrowed, paused, or stopped."
+  ],
+  "next_allowed_step": "create/use label-semantics task-redesign-or-stop objective",
+  "blocked_steps": [
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "mainline change",
+    "new model training before task-redesign/stop review"
+  ]
+}

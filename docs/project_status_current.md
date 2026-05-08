@@ -334,3 +334,15 @@ Updated: `2026-05-08T10:53:45+00:00`
 - Read-only representation or label-semantics failure analysis is complete in `docs/idare_representation_or_label_semantics_failure_analysis_report.md`.
 - Recommended next objective is `label_semantics_task_redesign_or_stop_objective` only after human review/closeout.
 
+## I-DARE Representation/Label-Semantics Review and Task-Redesign-or-Stop Objective
+
+Updated: `2026-05-08T10:59:14+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE representation or label-semantics failure-analysis review | human review accepted; diagnosis=`label_semantics_and_representation_transfer_joint_bottleneck` | `docs/idare_representation_or_label_semantics_failure_analysis_review_status.md` | Create/use label-semantics task-redesign-or-stop objective. | direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim; mainline change |
+| I-DARE label-semantics task-redesign-or-stop objective | read-only decision-analysis objective created; no training authorized | `docs/idare_label_semantics_task_redesign_or_stop_objective.md` | Prepare reviewed read-only report command/script. | direct full SupCon/DG training; broad hyperparameter search; EEG+EMG fusion; final LOSO claim; mainline change |
+
+- Human review of the representation/label-semantics failure analysis is frozen in `docs/idare_representation_or_label_semantics_failure_analysis_review_status.md`.
+- A label-semantics task-redesign-or-stop objective is defined in `docs/idare_label_semantics_task_redesign_or_stop_objective.md`.
+

@@ -8035,7 +8035,7 @@
     "next_step": "human_review_closeout_of_supcon_dg_failure_analysis",
     "updated_at_utc": "2026-05-08T09:59:59+00:00"
   },
-  "last_updated_utc": "2026-05-08T10:53:45+00:00",
+  "last_updated_utc": "2026-05-08T10:59:14+00:00",
   "idare_protocol_events": [
     {
       "timestamp_utc": "2026-05-08T10:06:00+00:00",
@@ -8207,15 +8207,47 @@
         "mainline change",
         "new training before representation/label-semantics failure analysis review"
       ]
+    },
+    {
+      "timestamp_utc": "2026-05-08T10:59:14+00:00",
+      "type": "review_closeout",
+      "name": "I-DARE representation or label-semantics failure-analysis review",
+      "status": "human review accepted; diagnosis=label_semantics_and_representation_transfer_joint_bottleneck",
+      "evidence": "docs/idare_representation_or_label_semantics_failure_analysis_review_status.md",
+      "next_allowed_step": "create/use label-semantics task-redesign-or-stop objective",
+      "blocked": [
+        "direct full SupCon/DG training",
+        "broad hyperparameter search",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "mainline change",
+        "new model training before task-redesign/stop review"
+      ]
+    },
+    {
+      "timestamp_utc": "2026-05-08T10:59:14+00:00",
+      "type": "objective",
+      "name": "I-DARE label-semantics task-redesign-or-stop objective",
+      "status": "read-only objective created; no training authorized",
+      "evidence": "docs/idare_label_semantics_task_redesign_or_stop_objective.md",
+      "next_allowed_step": "prepare reviewed read-only decision-analysis command",
+      "blocked": [
+        "direct full SupCon/DG training",
+        "broad hyperparameter search",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "mainline change",
+        "new model training before task-redesign/stop review"
+      ]
     }
   ],
-  "current_idare_next_allowed_step": "human_review_closeout_before_next_objective",
+  "current_idare_next_allowed_step": "prepare_reviewed_label_semantics_task_redesign_or_stop_report_command",
   "current_idare_blocked_steps": [
     "direct full SupCon/DG training",
     "broad hyperparameter search",
     "EEG+EMG fusion",
     "final LOSO claim",
     "mainline change",
-    "new training before representation/label-semantics failure analysis review"
+    "new model training before task-redesign/stop review"
   ]
 }

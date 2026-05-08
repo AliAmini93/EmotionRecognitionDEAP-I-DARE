@@ -1,0 +1,45 @@
+{
+  "status": "objective_created",
+  "created_utc": "2026-05-08T10:59:14+00:00",
+  "objective_name": "I-DARE label-semantics task-redesign-or-stop objective",
+  "triggering_review": "docs/idare_representation_or_label_semantics_failure_analysis_review_status.md",
+  "triggering_diagnosis": "label_semantics_and_representation_transfer_joint_bottleneck",
+  "scientific_question": "Given the joint label-semantics and representation-transfer bottleneck, should the current I-DARE binary affect-recognition task be redesigned, narrowed, paused, or stopped before any further training?",
+  "authorized_work": [
+    "Read existing reports and committed CSV/JSON outputs only.",
+    "Compare feasible task alternatives against leakage, subject validity, class balance, and scientific usefulness.",
+    "Create a decision matrix covering stop/pause, subject-relative task, within-subject/personalization task, ordinal/regression task, and restricted-cohort task.",
+    "Define what evidence would be required before any future training is allowed.",
+    "Recommend exactly one next objective: stop/archive, task redesign implementation spec, or narrow validation diagnostic."
+  ],
+  "explicitly_not_authorized": [
+    "direct full SupCon/DG training",
+    "broad hyperparameter search",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "mainline change",
+    "new model training before task-redesign/stop review"
+  ],
+  "required_analysis_questions": [
+    "Does the current binary global-label task have enough semantic consistency for a final cross-subject claim?",
+    "Would a subject-relative binary task be scientifically meaningful, or did previous results already rule it out as a primary fix?",
+    "Would ordinal/regression modeling preserve more label semantics than binary discretization?",
+    "Would a restricted-cohort or high-confidence-label task be defensible without cherry-picking?",
+    "Would personalization/few-shot adaptation be more scientifically honest than LOSO-only generalization?",
+    "What result would justify stopping or parking the current line of experiments?"
+  ],
+  "expected_outputs": {
+    "report_md": "docs/idare_label_semantics_task_redesign_or_stop_report.md",
+    "report_json": "docs/idare_label_semantics_task_redesign_or_stop_report.json",
+    "decision_matrix_csv": "docs/idare_label_semantics_task_redesign_or_stop_decision_matrix.csv",
+    "task_candidate_matrix_csv": "docs/idare_label_semantics_task_candidate_matrix.csv",
+    "evidence_gap_audit_csv": "docs/idare_label_semantics_evidence_gap_audit.csv"
+  },
+  "pass_criteria": [
+    "No new model training is run.",
+    "The report explicitly distinguishes redesign, stop, pause, and narrow-validation options.",
+    "The recommendation is falsifiable and includes blocked next steps.",
+    "The report prevents another broad hyperparameter or SupCon/DG run without a task-level decision."
+  ],
+  "next_allowed_step": "prepare_reviewed_label_semantics_task_redesign_or_stop_report_command"
+}
