@@ -1,0 +1,194 @@
+{
+  "status": "short_term_design_objective_created",
+  "created_or_updated_utc": "2026-05-08T09:24:04.815694+00:00",
+  "objective_name": "I-DARE cautious subject-variability SupCon/DG design",
+  "objective_type": "read_only_design_and_implementation_spec",
+  "parent_review": "docs/idare_subject_variability_intervention_failure_analysis_review_status.md",
+  "parent_review_json": "docs/idare_subject_variability_intervention_failure_analysis_review_status.json",
+  "primary_evidence": {
+    "intervention_failure_report": "docs/idare_subject_variability_intervention_failure_analysis_report.md",
+    "intervention_failure_json": "docs/idare_subject_variability_intervention_failure_analysis_report.json",
+    "decision_matrix": "docs/idare_subject_variability_intervention_failure_decision_matrix.csv",
+    "fold_task_summary": "docs/idare_subject_variability_intervention_failure_fold_task_summary.csv"
+  },
+  "scientific_question": "How should SupCon and/or domain-generalization losses be designed, staged, smoke-tested, and interpreted so the next controlled run directly targets subject variability and remains scientifically diagnosable?",
+  "authorized_scope": [
+    "Read project docs and scripts to recover existing SupCon/DG design notes.",
+    "Create an implementation-ready design spec.",
+    "Define smoke tests before any performance run.",
+    "Define a small controlled hyperparameter plan, not a broad search.",
+    "Define decision logic for interpreting success/failure.",
+    "No new model training.",
+    "No performance claim.",
+    "No mainline change."
+  ],
+  "must_review_existing_project_docs_for": [
+    "SupCon implementation plan",
+    "positive-pair definition",
+    "negative-pair definition",
+    "hard-negative definition",
+    "subject-aware batch sampler",
+    "domain generalization / VREx references",
+    "loss weighting and scheduling",
+    "temperature and projection-head settings",
+    "leakage controls",
+    "existing smoke-test conventions"
+  ],
+  "design_decisions_to_lock": [
+    {
+      "area": "task formulation",
+      "required_decision": "Use subject-relative q33 labels initially or justify another label policy."
+    },
+    {
+      "area": "positive pairs",
+      "required_decision": "Define same-task/same-class positives, with cross-subject positives required when feasible."
+    },
+    {
+      "area": "negative pairs",
+      "required_decision": "Define opposite-class negatives and hard negatives, including same-stimulus/different-label cases if available."
+    },
+    {
+      "area": "sampler",
+      "required_decision": "Guarantee each contrastive batch contains enough subjects and class diversity for valid positives/negatives."
+    },
+    {
+      "area": "domain generalization",
+      "required_decision": "Define subject as environment for VREx/DG or justify a coarser fold/task environment."
+    },
+    {
+      "area": "loss",
+      "required_decision": "Choose CE+SupCon, CE+VREx, or CE+SupCon+VREx first-pass; specify weights and warmup."
+    },
+    {
+      "area": "hyperparameters",
+      "required_decision": "Define candidate ranges for temperature, SupCon weight, VREx weight, projection dimension, batch size, warmup, and optimizer/lr; specify which are smoke-only versus first-pass ablations."
+    },
+    {
+      "area": "smoke tests",
+      "required_decision": "Define sampler integrity, leakage guard, micro-overfit, shuffled-label negative control, and minimal fold/task smoke gates."
+    },
+    {
+      "area": "evaluation",
+      "required_decision": "Keep first pass minimal and diagnostic; specify run count, metrics, and pass/fail criteria."
+    },
+    {
+      "area": "leakage controls",
+      "required_decision": "All preprocessing/scaling and sampler construction must respect train/validation separation."
+    },
+    {
+      "area": "decision tree",
+      "required_decision": "Define what to conclude if smoke fails, if embeddings align but macro-F1 does not improve, or if VREx reduces risk variance without performance gain."
+    }
+  ],
+  "preliminary_hyperparameter_registry_to_refine": {
+    "supcon_temperature_tau": [
+      0.07,
+      0.1,
+      0.2
+    ],
+    "lambda_supcon": [
+      0.05,
+      0.1,
+      0.2,
+      0.5
+    ],
+    "lambda_vrex": [
+      0.01,
+      0.05,
+      0.1
+    ],
+    "projection_dim": [
+      32,
+      64,
+      128
+    ],
+    "warmup_epochs": [
+      0,
+      3,
+      5
+    ],
+    "batch_size_policy": [
+      "largest_valid_subject_class_balanced_batch",
+      "fixed_64_if_valid",
+      "fixed_128_if_valid"
+    ],
+    "optimizer_policy": [
+      "reuse_current_mainline_first",
+      "only_change_if_smoke_fails_due_to_optimization"
+    ],
+    "grid_policy": "Do not run full Cartesian grid in first pass; choose a small staged matrix after smoke tests."
+  },
+  "required_smoke_tests": [
+    {
+      "name": "pair_sampler_integrity_smoke",
+      "purpose": "Verify every contrastive batch has valid positives/negatives and enough subjects/classes.",
+      "failure_interpretation": "Sampler/design issue; do not train."
+    },
+    {
+      "name": "leakage_guard_smoke",
+      "purpose": "Verify preprocessing/scaling and pair selection do not use validation labels/features improperly.",
+      "failure_interpretation": "Protocol invalid; do not train."
+    },
+    {
+      "name": "supcon_micro_overfit_smoke",
+      "purpose": "Verify CE+SupCon can overfit a tiny train-only subset and loss decreases.",
+      "failure_interpretation": "Implementation/optimization bug."
+    },
+    {
+      "name": "shuffled_label_negative_control",
+      "purpose": "Verify contrastive setup does not produce meaningful performance on shuffled labels.",
+      "failure_interpretation": "Leakage or invalid metric interpretation."
+    },
+    {
+      "name": "one_fold_one_task_minimal_smoke",
+      "purpose": "Run one task/fold/config only after integrity tests pass.",
+      "failure_interpretation": "Use embedding diagnostics to decide if loss, sampler, or task signal is failing."
+    }
+  ],
+  "diagnostic_metrics_to_log": [
+    "macro_f1",
+    "balanced_accuracy",
+    "accuracy",
+    "one_class_pred",
+    "environment_risk_variance",
+    "within_subject_vs_cross_subject_embedding_distance",
+    "same_class_cross_subject_distance",
+    "different_class_cross_subject_distance",
+    "positive_pair_coverage",
+    "anchors_without_positive_count",
+    "batch_subject_count_distribution",
+    "loss_ce",
+    "loss_supcon",
+    "loss_vrex"
+  ],
+  "expected_outputs": [
+    "docs/idare_subject_variability_supcon_dg_design_spec.md",
+    "docs/idare_subject_variability_supcon_dg_design_spec.json",
+    "docs/idare_subject_variability_supcon_dg_pair_sampler_spec.csv",
+    "docs/idare_subject_variability_supcon_dg_hyperparameter_registry.csv",
+    "docs/idare_subject_variability_supcon_dg_smoke_test_plan.csv",
+    "docs/idare_subject_variability_supcon_dg_first_pass_run_matrix.csv"
+  ],
+  "pass_criteria": [
+    "Spec must cite and summarize existing project SupCon/DG design notes found in docs/scripts.",
+    "Spec must state exactly whether SupCon, VREx/DG, or both are selected for first pass.",
+    "Spec must define positive/negative/hard-negative pairs.",
+    "Spec must define subject-aware sampler constraints.",
+    "Spec must define smoke tests before training.",
+    "Spec must define a small staged hyperparameter plan, not a broad search.",
+    "Spec must define VREx/DG environment rules.",
+    "Spec must define leakage controls.",
+    "Spec must provide a minimal first-pass run matrix.",
+    "Spec must include failure-interpretation logic.",
+    "Spec must update docs/project_status_current.md and docs/project_status_current.json."
+  ],
+  "not_authorized": [
+    "Training SupCon/DG models",
+    "EEG+EMG fusion",
+    "final LOSO / final paper claim",
+    "mainline change",
+    "architecture/augmentation work",
+    "broad hyperparameter search"
+  ],
+  "next_allowed_step": "Search/read existing project docs and scripts, then generate the cautious SupCon/DG design spec with smoke tests and hyperparameter registry."
+}

@@ -1335,6 +1335,106 @@
       ],
       "recommended_next_objective": "subject_variability_supcon_dg_design_objective",
       "status": "read_only_analysis_complete_pending_human_review"
+    },
+    "idare_subject_variability_intervention_failure_analysis_review": {
+      "accepted_diagnosis": "subject_variability_diagnosis_still_supported_intervention_too_weak",
+      "caution_required": true,
+      "direct_training_authorized": false,
+      "evidence": "docs/idare_subject_variability_intervention_failure_analysis_review_status.md",
+      "evidence_json": "docs/idare_subject_variability_intervention_failure_analysis_review_status.json",
+      "mainline_changed": false,
+      "reviewed_report": "docs/idare_subject_variability_intervention_failure_analysis_report.md",
+      "selected_next_step": "docs/idare_subject_variability_supcon_dg_design_objective.md",
+      "status": "frozen_human_review_closeout"
+    },
+    "idare_subject_variability_supcon_dg_design_objective": {
+      "evidence": "docs/idare_subject_variability_supcon_dg_design_objective.md",
+      "evidence_json": "docs/idare_subject_variability_supcon_dg_design_objective.json",
+      "expected_outputs": [
+        "docs/idare_subject_variability_supcon_dg_design_spec.md",
+        "docs/idare_subject_variability_supcon_dg_design_spec.json",
+        "docs/idare_subject_variability_supcon_dg_pair_sampler_spec.csv",
+        "docs/idare_subject_variability_supcon_dg_hyperparameter_registry.csv",
+        "docs/idare_subject_variability_supcon_dg_smoke_test_plan.csv",
+        "docs/idare_subject_variability_supcon_dg_first_pass_run_matrix.csv"
+      ],
+      "next_allowed_step": "Search/read existing project docs and scripts, then generate the cautious SupCon/DG design spec with smoke tests and hyperparameter registry.",
+      "not_authorized": [
+        "Training SupCon/DG models",
+        "EEG+EMG fusion",
+        "final LOSO / final paper claim",
+        "mainline change",
+        "architecture/augmentation work",
+        "broad hyperparameter search"
+      ],
+      "objective_type": "read_only_design_and_implementation_spec",
+      "preliminary_hyperparameter_registry_to_refine": {
+        "batch_size_policy": [
+          "largest_valid_subject_class_balanced_batch",
+          "fixed_64_if_valid",
+          "fixed_128_if_valid"
+        ],
+        "grid_policy": "Do not run full Cartesian grid in first pass; choose a small staged matrix after smoke tests.",
+        "lambda_supcon": [
+          0.05,
+          0.1,
+          0.2,
+          0.5
+        ],
+        "lambda_vrex": [
+          0.01,
+          0.05,
+          0.1
+        ],
+        "optimizer_policy": [
+          "reuse_current_mainline_first",
+          "only_change_if_smoke_fails_due_to_optimization"
+        ],
+        "projection_dim": [
+          32,
+          64,
+          128
+        ],
+        "supcon_temperature_tau": [
+          0.07,
+          0.1,
+          0.2
+        ],
+        "warmup_epochs": [
+          0,
+          3,
+          5
+        ]
+      },
+      "required_smoke_tests": [
+        {
+          "failure_interpretation": "Sampler/design issue; do not train.",
+          "name": "pair_sampler_integrity_smoke",
+          "purpose": "Verify every contrastive batch has valid positives/negatives and enough subjects/classes."
+        },
+        {
+          "failure_interpretation": "Protocol invalid; do not train.",
+          "name": "leakage_guard_smoke",
+          "purpose": "Verify preprocessing/scaling and pair selection do not use validation labels/features improperly."
+        },
+        {
+          "failure_interpretation": "Implementation/optimization bug.",
+          "name": "supcon_micro_overfit_smoke",
+          "purpose": "Verify CE+SupCon can overfit a tiny train-only subset and loss decreases."
+        },
+        {
+          "failure_interpretation": "Leakage or invalid metric interpretation.",
+          "name": "shuffled_label_negative_control",
+          "purpose": "Verify contrastive setup does not produce meaningful performance on shuffled labels."
+        },
+        {
+          "failure_interpretation": "Use embedding diagnostics to decide if loss, sampler, or task signal is failing.",
+          "name": "one_fold_one_task_minimal_smoke",
+          "purpose": "Run one task/fold/config only after integrity tests pass."
+        }
+      ],
+      "scientific_question": "How should SupCon and/or domain-generalization losses be designed, staged, smoke-tested, and interpreted so the next controlled run directly targets subject variability and remains scientifically diagnosable?",
+      "status": "short_term_design_objective_created"
     }
   },
   "failure_analysis_objective": {

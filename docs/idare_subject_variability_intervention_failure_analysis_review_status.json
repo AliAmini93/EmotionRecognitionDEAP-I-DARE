@@ -1,0 +1,50 @@
+{
+  "status": "frozen_human_review_closeout",
+  "created_or_updated_utc": "2026-05-08T09:24:04.815694+00:00",
+  "reviewed_document": "docs/idare_subject_variability_intervention_failure_analysis_report.md",
+  "reviewed_json": "docs/idare_subject_variability_intervention_failure_analysis_report.json",
+  "review_decision": {
+    "accepted": true,
+    "mainline_changed": false,
+    "diagnosis": "subject_variability_diagnosis_still_supported_intervention_too_weak",
+    "accepted_interpretation": "Subject variability remains a leading blocker; the failed intervention is interpreted as too weak/incomplete, not as falsification of the diagnosis.",
+    "selected_next_step": "docs/idare_subject_variability_supcon_dg_design_objective.md",
+    "direct_training_authorized": false,
+    "caution_required": true
+  },
+  "scientific_rationale": {
+    "why_supcon_dg_design_next": [
+      "SupCon and domain generalization directly target cross-subject representation alignment.",
+      "The failed preprocessing/CE-only intervention did not explicitly align same-affect samples across subjects.",
+      "The project already contains planned SupCon ideas, but implementation details and assumptions must be audited before training.",
+      "Hyperparameters and smoke tests must be planned before any performance run, otherwise improvements/failures will not be diagnosable."
+    ],
+    "must_lock_before_training": [
+      "positive-pair definition",
+      "negative-pair and hard-negative definition",
+      "subject/environment definition",
+      "batch sampler constraints",
+      "loss weights and schedule",
+      "temperature and projection-head hyperparameters",
+      "smoke tests and acceptance gates",
+      "leakage controls",
+      "diagnostic decision tree for success/failure interpretation",
+      "minimal first-pass run matrix"
+    ]
+  },
+  "frozen_constraints": {
+    "not_authorized_until_design_review": [
+      "SupCon/DG training",
+      "EEG+EMG fusion",
+      "final LOSO claim",
+      "mainline change",
+      "broad hyperparameter search",
+      "architecture/augmentation work"
+    ]
+  },
+  "source_evidence": {
+    "intervention_failure_report": "docs/idare_subject_variability_intervention_failure_analysis_report.md",
+    "decision_matrix": "docs/idare_subject_variability_intervention_failure_decision_matrix.csv",
+    "fold_task_summary": "docs/idare_subject_variability_intervention_failure_fold_task_summary.csv"
+  }
+}
