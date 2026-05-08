@@ -667,3 +667,14 @@ Updated: `2026-05-08T16:58:43+00:00`
 - Selected formulation: `within_subject_pairwise_affect_preference_ranking_v1`.
 - Training authorization is limited to the frozen matrix only; no broad search is authorized.
 
+## I-DARE Alternative Pairwise Minimal First-Pass Report
+
+Updated: `2026-05-08T17:05:28+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE alternative pairwise minimal first pass | complete pending human review; diagnosis=`alternative_pairwise_minimal_first_pass_weak_mixed_signal` | `docs/idare_label_semantics_alternative_pairwise_minimal_first_pass_report.md` | Human review / closeout before next pairwise decision. | broad search; SupCon/DG; fusion; final claim; training outside reviewed objective |
+
+- Frozen 96-row matrix was executed.
+- Recommended next objective: `label_semantics_alternative_pairwise_failure_or_metric_debug_objective` only after human review.
+

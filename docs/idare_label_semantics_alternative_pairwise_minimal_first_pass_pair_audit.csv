@@ -1,0 +1,5 @@
+modality,task,margin,possible_unoriented_pairs,excluded_unoriented_pairs,kept_unoriented_pairs,kept_oriented_pairs,n_subjects,positive_rate,min_oriented_pairs_per_fold,max_oriented_pairs_per_fold,fold_count,feature_dim,leakage_guard_pass
+EEG,valence,1.0,31248,4494,26754,53508,63,0.5,8368,9446,6,66,True
+EEG,arousal,1.0,31248,5152,26096,52192,63,0.5,8176,9356,6,66,True
+EMG,valence,1.0,31248,4494,26754,53508,63,0.5,8368,9446,6,22,True
+EMG,arousal,1.0,31248,5152,26096,52192,63,0.5,8176,9356,6,22,True
