@@ -1,0 +1,7 @@
+check_id,check_name,status,required_for_pass,interpretation
+D001,train_only_margin_threshold,pass,True,margin thresholds are positive and computed from training subjects only
+D002,pair_count_sufficiency,pass,True,margin filtering leaves enough train and validation pairs
+D003,direction_balance,fail,True,deterministic balancing fixes training direction imbalance and validation remains within guard range
+D004,fold_locality,pass,True,no train/validation subject overlap and no cross-fold pairs
+D005,reproducibility,pass,True,deterministic digest is stable
+D006,overall_smoke_result,fail,True,one or more required smoke checks failed

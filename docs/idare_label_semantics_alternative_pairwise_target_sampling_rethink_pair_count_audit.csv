@@ -1,0 +1,13 @@
+task,fold,margin_threshold,train_raw_pairs,train_balanced_pairs,validation_raw_pairs,min_training_balanced_pairs_required,min_validation_pairs_required,train_subjects_with_pairs,validation_subjects_with_pairs,pass
+arousal,1,3.0,11126,9212,2145,500,1000,52,11,True
+arousal,2,3.0,10749,8972,2522,500,1000,52,11,True
+arousal,3,3.0,10853,9106,2418,500,1000,52,11,True
+arousal,4,3.0,11013,9072,2258,500,1000,53,10,True
+arousal,5,3.0,11449,9790,1822,500,1000,53,10,True
+arousal,6,3.0,11165,9338,2106,500,1000,53,10,True
+valence,1,3.0,12897,10372,2395,500,1000,52,11,True
+valence,2,3.0,12509,10006,2783,500,1000,52,11,True
+valence,3,3.0,12583,10144,2709,500,1000,52,11,True
+valence,4,3.0,12799,10300,2493,500,1000,53,10,True
+valence,5,3.0,13065,10486,2227,500,1000,53,10,True
+valence,6,3.0,12607,10202,2685,500,1000,53,10,True

@@ -1,0 +1,13 @@
+task,fold,n_train_subjects,n_validation_subjects,subject_overlap_count,within_subject_only,cross_fold_pairs_constructed,validation_subjects,pass
+arousal,1,52,11,0,True,False,1;15;20;26;31;37;43;49;55;60;7,True
+arousal,2,52,11,0,True,False,10;16;21;27;32;38;44;5;56;61;8,True
+arousal,3,52,11,0,True,False,11;17;22;28;33;39;45;50;57;62;9,True
+arousal,4,53,10,0,True,False,12;18;23;29;34;40;46;52;58;63,True
+arousal,5,53,10,0,True,False,13;19;24;3;35;41;47;53;59;64,True
+arousal,6,53,10,0,True,False,14;2;25;30;36;42;48;54;6;65,True
+valence,1,52,11,0,True,False,1;15;20;26;31;37;43;49;55;60;7,True
+valence,2,52,11,0,True,False,10;16;21;27;32;38;44;5;56;61;8,True
+valence,3,52,11,0,True,False,11;17;22;28;33;39;45;50;57;62;9,True
+valence,4,53,10,0,True,False,12;18;23;29;34;40;46;52;58;63,True
+valence,5,53,10,0,True,False,13;19;24;3;35;41;47;53;59;64,True
+valence,6,53,10,0,True,False,14;2;25;30;36;42;48;54;6;65,True

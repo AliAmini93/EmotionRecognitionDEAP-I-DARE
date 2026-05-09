@@ -1,0 +1,38 @@
+{
+  "status": "complete_pending_human_review",
+  "created_utc": "2026-05-09T08:02:58+00:00",
+  "script": "scripts/idare/analysis/run_idare_label_semantics_alternative_pairwise_target_sampling_rethink_smoke_tests.py",
+  "source_objective": "docs/idare_label_semantics_alternative_pairwise_target_sampling_rethink_smoke_tests_objective.json",
+  "source_spec": "docs/idare_label_semantics_alternative_pairwise_target_sampling_rethink_spec.json",
+  "diagnosis": "target_sampling_rethink_smoke_tests_failed",
+  "all_passed": false,
+  "recommendation": "archive_or_revise_target_sampling_rethink_after_review",
+  "recommended_next_objective": "label_semantics_alternative_pairwise_target_sampling_rethink_fix_or_archive_objective",
+  "selected_rule_id": "margin_thresholded_within_subject_pairwise_preference_v1",
+  "selected_candidate_id": "TS_A_margin_thresholded_pairs",
+  "selected_formulation": "within_subject_pairwise_affect_preference_ranking_v1",
+  "training_authorized": false,
+  "model_fitting_authorized": false,
+  "first_pass_authorized": false,
+  "n_subjects": 63,
+  "n_folds": 6,
+  "subject_column": "subject_id",
+  "trial_column": "__row_id__",
+  "target_columns": {
+    "valence": "valence_score",
+    "arousal": "arousal_score"
+  },
+  "min_train_balanced_pairs": 8972,
+  "min_validation_pairs": 1822,
+  "min_margin_threshold": 3.0,
+  "max_margin_threshold": 3.0,
+  "max_validation_direction_imbalance_abs": 0.1410537870472009,
+  "outputs": {
+    "margin_threshold_audit": "docs/idare_label_semantics_alternative_pairwise_target_sampling_rethink_margin_threshold_audit.csv",
+    "pair_count_audit": "docs/idare_label_semantics_alternative_pairwise_target_sampling_rethink_pair_count_audit.csv",
+    "direction_balance_audit": "docs/idare_label_semantics_alternative_pairwise_target_sampling_rethink_direction_balance_audit.csv",
+    "fold_locality_audit": "docs/idare_label_semantics_alternative_pairwise_target_sampling_rethink_fold_locality_audit.csv",
+    "reproducibility_audit": "docs/idare_label_semantics_alternative_pairwise_target_sampling_rethink_reproducibility_audit.csv",
+    "decision_matrix": "docs/idare_label_semantics_alternative_pairwise_target_sampling_rethink_smoke_decision_matrix.csv"
+  }
+}

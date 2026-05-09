@@ -1,0 +1,13 @@
+task,fold,target_column,threshold_source,n_train_subjects,n_validation_subjects,n_train_nonzero_margins,margin_threshold,validation_labels_used_for_threshold,pass
+arousal,1,arousal_score,training_subjects_only,52,11,21694,3.0,False,True
+arousal,2,arousal_score,training_subjects_only,52,11,21418,3.0,False,True
+arousal,3,arousal_score,training_subjects_only,52,11,21478,3.0,False,True
+arousal,4,arousal_score,training_subjects_only,53,10,21925,3.0,False,True
+arousal,5,arousal_score,training_subjects_only,53,10,22008,3.0,False,True
+arousal,6,arousal_score,training_subjects_only,53,10,21957,3.0,False,True
+valence,1,valence_score,training_subjects_only,52,11,22192,3.0,False,True
+valence,2,valence_score,training_subjects_only,52,11,22031,3.0,False,True
+valence,3,valence_score,training_subjects_only,52,11,22082,3.0,False,True
+valence,4,valence_score,training_subjects_only,53,10,22443,3.0,False,True
+valence,5,valence_score,training_subjects_only,53,10,22570,3.0,False,True
+valence,6,valence_score,training_subjects_only,53,10,22452,3.0,False,True

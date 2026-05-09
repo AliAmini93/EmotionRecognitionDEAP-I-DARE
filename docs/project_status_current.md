@@ -871,3 +871,15 @@ Updated: `2026-05-09T07:55:48+00:00`
 - Selected rule: `margin_thresholded_within_subject_pairwise_preference_v1`.
 - Smoke tests may construct/audit pairs only; model training remains blocked.
 
+## I-DARE Alternative Pairwise Target/Sampling Rethink Smoke-Tests Report
+
+Updated: `2026-05-09T08:02:58+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE alternative pairwise target/sampling rethink smoke tests | complete pending human review; diagnosis `target_sampling_rethink_smoke_tests_failed` | `docs/idare_label_semantics_alternative_pairwise_target_sampling_rethink_smoke_tests_report.md` | Human review then `label_semantics_alternative_pairwise_target_sampling_rethink_fix_or_archive_objective`. | training before smoke-test review; model fitting before reviewed first-pass objective; feature/model search; SupCon/DG; fusion; final claim |
+
+- All smoke tests passed: `False`.
+- Minimum balanced training pairs: `8972`.
+- Minimum validation pairs: `1822`.
+
