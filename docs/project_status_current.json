@@ -8035,7 +8035,7 @@
     "next_step": "human_review_closeout_of_supcon_dg_failure_analysis",
     "updated_at_utc": "2026-05-08T09:59:59+00:00"
   },
-  "last_updated_utc": "2026-05-09T01:22:22+00:00",
+  "last_updated_utc": "2026-05-09T01:26:43+00:00",
   "idare_protocol_events": [
     {
       "timestamp_utc": "2026-05-08T10:06:00+00:00",
@@ -9195,9 +9195,43 @@
         "final LOSO claim",
         "changing label formulation before archive closeout"
       ]
+    },
+    {
+      "timestamp_utc": "2026-05-09T01:26:43+00:00",
+      "type": "review_closeout",
+      "name": "I-DARE alternative pairwise feature patch archive-or-rethink report review",
+      "status": "human review accepted; decision=archive_patch_a_eeg_arousal_bandpower_temporal_stats_branch",
+      "evidence": "docs/idare_label_semantics_alternative_pairwise_feature_patch_archive_or_rethink_report_review_status.md",
+      "next_allowed_step": "Create/use feature patch archive-closeout objective.",
+      "blocked": [
+        "feature patch confirmation training",
+        "broad hyperparameter search",
+        "new feature patch search",
+        "direct full SupCon/DG training",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "changing label formulation before feature patch archive closeout"
+      ]
+    },
+    {
+      "timestamp_utc": "2026-05-09T01:26:43+00:00",
+      "type": "objective",
+      "name": "I-DARE alternative pairwise feature patch archive-closeout objective",
+      "status": "objective created; archive-closeout only",
+      "evidence": "docs/idare_label_semantics_alternative_pairwise_feature_patch_archive_closeout_objective.md",
+      "next_allowed_step": "prepare_reviewed_label_semantics_alternative_pairwise_feature_patch_archive_closeout_command",
+      "blocked": [
+        "feature patch confirmation training",
+        "broad hyperparameter search",
+        "new feature patch search",
+        "direct full SupCon/DG training",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "changing label formulation before feature patch archive closeout"
+      ]
     }
   ],
-  "current_idare_next_allowed_step": "human_review_closeout_then_create_feature_patch_archive_closeout_objective",
+  "current_idare_next_allowed_step": "prepare_reviewed_label_semantics_alternative_pairwise_feature_patch_archive_closeout_command",
   "current_idare_blocked_steps": [
     "feature patch confirmation training",
     "broad hyperparameter search",
@@ -9205,7 +9239,7 @@
     "direct full SupCon/DG training",
     "EEG+EMG fusion",
     "final LOSO claim",
-    "changing label formulation before archive closeout"
+    "changing label formulation before feature patch archive closeout"
   ],
   "idare_historical_script_backfill_objective": {
     "status": "objective_created_no_backfill_copy_yet",
@@ -9240,5 +9274,6 @@
   "current_idare_pairwise_feature_patch_first_pass_objective_status": "objective_created",
   "current_idare_pairwise_feature_patch_first_pass_status": "complete_pending_human_review; diagnosis=feature_representation_patch_first_pass_no_actionable_signal",
   "current_idare_pairwise_feature_patch_archive_or_rethink_objective_status": "objective_created",
-  "current_idare_pairwise_feature_patch_archive_or_rethink_report_status": "complete_pending_human_review; diagnosis=feature_patch_branch_should_be_archived_as_negative_result"
+  "current_idare_pairwise_feature_patch_archive_or_rethink_report_status": "complete_pending_human_review; diagnosis=feature_patch_branch_should_be_archived_as_negative_result",
+  "current_idare_pairwise_feature_patch_archive_closeout_objective_status": "objective_created"
 }

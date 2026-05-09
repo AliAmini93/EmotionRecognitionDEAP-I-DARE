@@ -1,0 +1,5 @@
+criterion_id,criterion,observed,met
+STOP_001,best mean balanced accuracy below 0.53,0.5167558046828528,True
+STOP_002,delta vs majority below 0.03,0.01675580468285276,True
+STOP_003,no fold over 0.55,0,True
+STOP_004,"archive/rethink accepted feature patch archive, not whole formulation archive",archive_feature_patch_branch=true; archive_entire_pairwise_formulation=false,True

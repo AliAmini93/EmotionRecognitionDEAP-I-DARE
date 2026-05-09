@@ -800,3 +800,15 @@ Updated: `2026-05-09T01:22:22+00:00`
 - This archives only the narrow feature patch branch, not the entire pairwise formulation.
 - Recommended next objective: `label_semantics_alternative_pairwise_feature_patch_archive_closeout_objective` after human review.
 
+## I-DARE Alternative Pairwise Feature Patch Archive-Closeout Objective
+
+Updated: `2026-05-09T01:26:43+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE alternative pairwise feature patch archive/rethink review | human review accepted; decision=`archive_patch_a_eeg_arousal_bandpower_temporal_stats_branch` | `docs/idare_label_semantics_alternative_pairwise_feature_patch_archive_or_rethink_report_review_status.md` | Create/use archive-closeout objective. | confirmation training; broad search; new feature patch search; SupCon/DG; fusion; final claim |
+| I-DARE alternative pairwise feature patch archive-closeout objective | objective created; archive-closeout only | `docs/idare_label_semantics_alternative_pairwise_feature_patch_archive_closeout_objective.md` | Prepare reviewed archive-closeout report command/script. | confirmation training; broad search; new feature patch search; SupCon/DG; fusion; final claim |
+
+- Feature patch branch is selected for archive as a negative result.
+- Entire pairwise formulation remains not archived by this objective.
+

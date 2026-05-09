@@ -1,0 +1,5 @@
+policy_id,next_option,allowed,timing,notes
+NEXT_001,feature_patch_archive_closeout_report,True,immediate after this objective review,read-only closeout only
+NEXT_002,pairwise_target_sampling_read_only_audit_objective,True,only after archive closeout report review,optional; no training
+NEXT_003,new feature/model search,False,blocked,would violate non-actionable first-pass decision
+NEXT_004,SupCon/DG or fusion,False,blocked,outside current evidence and authorization
