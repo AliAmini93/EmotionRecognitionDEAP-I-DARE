@@ -1,0 +1,6 @@
+option_id,description,allowed_now,risk,expected_decision
+FIX_A_direction_balance_train_and_validation_guard,Revise the sampling rule to enforce balanced direction counts in both training and validation audit views without using validation labels for threshold selection.,True,may alter validation set composition and make the target less natural,spec-only audit before any execution
+FIX_B_adaptive_train_only_margin_quantile,Change the train-only margin threshold from median to a lower quantile to reduce validation imbalance and increase pair diversity.,True,may reintroduce near-tie noise,spec-only candidate comparison
+FIX_C_task_specific_arousal_only_rule,"Restrict the rethink rule to the previously strongest task, arousal, and treat valence only as a negative-control audit.",True,narrower claim; avoids pretending valence supports the same target design,spec-only scope decision
+ARCHIVE_TS_A,Archive margin-thresholded pair sampling as a negative smoke result and keep the broader pairwise formulation open only for non-TS_A alternatives.,True,ends this branch without another patch,archive closeout
+STOP_PAIRWISE_LABEL_SEMANTICS_BRANCH,Stop the broader alternative pairwise label-semantics branch if the audit indicates the target itself is structurally unstable.,False,too broad for this objective without a dedicated closeout,future reviewed closeout only

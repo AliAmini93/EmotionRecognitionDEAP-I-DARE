@@ -883,3 +883,16 @@ Updated: `2026-05-09T08:02:58+00:00`
 - Minimum balanced training pairs: `8972`.
 - Minimum validation pairs: `1822`.
 
+## I-DARE Alternative Pairwise Target/Sampling Rethink Fix-or-Archive Objective
+
+Updated: `2026-05-09T08:10:20+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE alternative pairwise target/sampling rethink smoke-tests review | human review accepted; smoke tests failed | `docs/idare_label_semantics_alternative_pairwise_target_sampling_rethink_smoke_tests_review_status.md` | Create/use fix-or-archive objective. | training; rerun; model fitting; first-pass execution |
+| I-DARE alternative pairwise target/sampling rethink fix-or-archive objective | objective created; read-only decision analysis only | `docs/idare_label_semantics_alternative_pairwise_target_sampling_rethink_fix_or_archive_objective.md` | Prepare reviewed fix-or-archive decision command/script. | training; rerun; model fitting; feature/model search; SupCon/DG; fusion; final claim |
+
+- Accepted smoke diagnosis: `target_sampling_rethink_smoke_tests_failed`.
+- Main failure signal: validation direction imbalance after margin thresholding.
+- First-pass execution remains blocked.
+

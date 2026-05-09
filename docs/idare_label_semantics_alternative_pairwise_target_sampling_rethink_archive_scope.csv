@@ -1,0 +1,5 @@
+scope_id,item,archive_if
+ARCHIVE_SCOPE_001,margin_thresholded_within_subject_pairwise_preference_v1,direction imbalance is not fixable without validation-label-aware filtering
+ARCHIVE_SCOPE_002,TS_A_margin_thresholded_pairs,a spec-only review chooses ARCHIVE_TS_A
+ARCHIVE_SCOPE_003,broader within-subject pairwise formulation,only after a separate branch-level closeout objective; not authorized here
+ARCHIVE_SCOPE_004,previous negative feature patch and original pairwise summaries,already archived/closed; used as context only

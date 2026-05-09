@@ -1,0 +1,27 @@
+{
+  "status": "human_review_accepted",
+  "created_utc": "2026-05-09T08:10:20+00:00",
+  "reviewed_report": "docs/idare_label_semantics_alternative_pairwise_target_sampling_rethink_smoke_tests_report.md",
+  "accepted_diagnosis": "target_sampling_rethink_smoke_tests_failed",
+  "accepted_all_passed": false,
+  "accepted_recommended_next_objective": "label_semantics_alternative_pairwise_target_sampling_rethink_fix_or_archive_objective",
+  "selected_rule_id": "margin_thresholded_within_subject_pairwise_preference_v1",
+  "selected_candidate_id": "TS_A_margin_thresholded_pairs",
+  "selected_formulation": "within_subject_pairwise_affect_preference_ranking_v1",
+  "observed_failing_checks": [
+    "direction_balance",
+    "overall_smoke_result"
+  ],
+  "training_authorized": false,
+  "fix_or_archive_objective_authorized": true,
+  "next_allowed_step": "create_target_sampling_rethink_fix_or_archive_objective",
+  "blocked": [
+    "training before fix/archive review",
+    "model fitting",
+    "minimal first-pass execution",
+    "feature/model search",
+    "direct full SupCon/DG training",
+    "EEG+EMG fusion",
+    "final LOSO claim"
+  ]
+}

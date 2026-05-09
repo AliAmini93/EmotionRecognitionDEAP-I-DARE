@@ -1,0 +1,6 @@
+branch,decision,training_authorized
+direction_balance_failure_is_fixable_by_train_only_rule,create spec-only fix objective for revised sampling rule,False
+fix_requires_validation_label_optimization,archive TS_A margin-thresholded sampling,False
+pair_count_or_locality_also_fails_on inspection,archive TS_A and do not patch,False
+arousal_only_scope_is_scientifically_defensible,create a narrow arousal-only spec-only sampling rethink,False
+no clean fix,archive target/sampling rethink branch as negative smoke result,False

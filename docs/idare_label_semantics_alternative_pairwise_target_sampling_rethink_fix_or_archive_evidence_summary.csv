@@ -1,0 +1,9 @@
+evidence_id,metric,value,interpretation
+EV001,smoke_diagnosis,target_sampling_rethink_smoke_tests_failed,target/sampling rethink smoke tests did not pass
+EV002,all_passed,False,must not proceed to first-pass training
+EV003,direction_balance_pass_rows,9/12,direction balance is the key suspect; inspect fold/task failures before any further execution
+EV004,max_validation_direction_imbalance_abs,0.1410537870472009,validation direction imbalance exceeds the guard range used by the smoke script
+EV005,pair_count_pass_rows,12/12,"pair counts appear sufficient, so a pure pair-count failure is unlikely"
+EV006,margin_threshold_pass_rows,12/12,train-only threshold construction appears technically valid
+EV007,fold_locality_pass_rows,12/12,LOSO/fold locality appears intact
+EV008,reproducibility_pass_rows,3/3,deterministic construction appears reproducible
