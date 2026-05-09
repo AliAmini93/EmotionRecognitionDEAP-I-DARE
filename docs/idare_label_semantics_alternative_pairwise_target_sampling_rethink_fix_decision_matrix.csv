@@ -1,0 +1,6 @@
+option_id,allowed_now,selected,decision,reason
+FIX_A_direction_balance_train_and_validation_guard,True,False,reject_for_now,would require validation-direction-aware evaluation sampling; do not patch into first-pass without a new target design
+FIX_B_adaptive_train_only_margin_quantile,True,False,reject_for_now,a lower train-only margin threshold may reduce imbalance but also reintroduces near-tie noise; speculative after failed smoke
+FIX_C_task_specific_arousal_only_rule,True,False,defer,"arousal-only narrowing may be defensible, but it changes claim scope and needs a separate spec rather than a patch to TS_A"
+ARCHIVE_TS_A,True,True,select,the TS_A margin-thresholded rule failed a pre-training smoke guard on validation direction balance
+STOP_PAIRWISE_LABEL_SEMANTICS_BRANCH,False,False,not_authorized_here,broader pairwise formulation remains open; only the TS_A rethink rule should be closed by this branch

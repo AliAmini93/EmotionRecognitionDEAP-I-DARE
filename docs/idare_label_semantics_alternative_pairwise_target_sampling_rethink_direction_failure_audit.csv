@@ -1,0 +1,13 @@
+task,fold,train_balanced_positive_fraction,validation_positive_fraction,validation_imbalance_abs,pass,failure_mode,interpretation
+arousal,5,0.5,0.3589462129527991,0.1410537870472009,False,validation_direction_imbalance,margin rule creates or exposes fold-specific validation class skew
+valence,6,0.5,0.6089385474860335,0.10893854748603349,False,validation_direction_imbalance,margin rule creates or exposes fold-specific validation class skew
+valence,3,0.5,0.6016980435585086,0.10169804355850864,False,validation_direction_imbalance,margin rule creates or exposes fold-specific validation class skew
+valence,4,0.5,0.5984757320497393,0.09847573204973925,True,within_guard,direction balance guard passed
+valence,1,0.5,0.5970772442588727,0.09707724425887265,True,within_guard,direction balance guard passed
+valence,5,0.5,0.592276605298608,0.09227660529860804,True,within_guard,direction balance guard passed
+arousal,3,0.5,0.4119106699751861,0.0880893300248139,True,within_guard,direction balance guard passed
+valence,2,0.5,0.587495508444125,0.08749550844412501,True,within_guard,direction balance guard passed
+arousal,6,0.5,0.4178537511870845,0.08214624881291549,True,within_guard,direction balance guard passed
+arousal,2,0.5,0.4214908802537668,0.0785091197462332,True,within_guard,direction balance guard passed
+arousal,1,0.5,0.4396270396270396,0.060372960372960416,True,within_guard,direction balance guard passed
+arousal,4,0.5,0.4486271036315323,0.0513728963684677,True,within_guard,direction balance guard passed

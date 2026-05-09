@@ -896,3 +896,15 @@ Updated: `2026-05-09T08:10:20+00:00`
 - Main failure signal: validation direction imbalance after margin thresholding.
 - First-pass execution remains blocked.
 
+## I-DARE Alternative Pairwise Target/Sampling Rethink Fix-or-Archive Report
+
+Updated: `2026-05-09T08:15:52+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE alternative pairwise target/sampling rethink fix-or-archive report | complete pending human review; diagnosis `target_sampling_rethink_margin_rule_should_be_archived` | `docs/idare_label_semantics_alternative_pairwise_target_sampling_rethink_fix_or_archive_report.md` | Human review then `label_semantics_alternative_pairwise_target_sampling_rethink_archive_closeout_objective`. | training; rerun; model fitting; first-pass execution; feature/model search; SupCon/DG; fusion; final claim |
+
+- Decision: `archive_ts_a_margin_thresholded_pair_sampling_rule`.
+- Archive TS_A margin-thresholded rule: `True`.
+- Broader pairwise formulation is not archived by this report.
+

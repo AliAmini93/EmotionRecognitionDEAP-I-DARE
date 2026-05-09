@@ -1,0 +1,39 @@
+{
+  "status": "complete_pending_human_review",
+  "created_utc": "2026-05-09T08:15:52+00:00",
+  "source_objective": "docs/idare_label_semantics_alternative_pairwise_target_sampling_rethink_fix_or_archive_objective.json",
+  "source_smoke_report": "docs/idare_label_semantics_alternative_pairwise_target_sampling_rethink_smoke_tests_report.json",
+  "diagnosis": "target_sampling_rethink_margin_rule_should_be_archived",
+  "decision": "archive_ts_a_margin_thresholded_pair_sampling_rule",
+  "recommendation": "archive_closeout_then_optional_new_target_design_only_after_review",
+  "recommended_next_objective": "label_semantics_alternative_pairwise_target_sampling_rethink_archive_closeout_objective",
+  "selected_rule_id": "margin_thresholded_within_subject_pairwise_preference_v1",
+  "selected_candidate_id": "TS_A_margin_thresholded_pairs",
+  "selected_formulation": "within_subject_pairwise_affect_preference_ranking_v1",
+  "archive_ts_a_margin_rule": true,
+  "archive_broader_pairwise_formulation": false,
+  "create_patch": false,
+  "training_authorized": false,
+  "rerun_authorized": false,
+  "model_fitting_authorized": false,
+  "first_pass_authorized": false,
+  "feature_search_authorized": false,
+  "model_search_authorized": false,
+  "summary": {
+    "direction_pass_rows": "9/12",
+    "pair_count_pass_rows": "12/12",
+    "margin_pass_rows": "12/12",
+    "fold_locality_pass_rows": "12/12",
+    "reproducibility_pass_rows": "3/3",
+    "max_validation_direction_imbalance_abs": 0.1410537870472009,
+    "direction_fail_rows": 3,
+    "direction_severe_fail_rows_gt_0_10": 3,
+    "min_train_balanced_pairs": 8972,
+    "min_validation_pairs": 1822
+  },
+  "outputs": {
+    "direction_failure_audit": "docs/idare_label_semantics_alternative_pairwise_target_sampling_rethink_direction_failure_audit.csv",
+    "fix_decision_matrix": "docs/idare_label_semantics_alternative_pairwise_target_sampling_rethink_fix_decision_matrix.csv",
+    "next_options": "docs/idare_label_semantics_alternative_pairwise_target_sampling_rethink_next_options.csv"
+  }
+}
