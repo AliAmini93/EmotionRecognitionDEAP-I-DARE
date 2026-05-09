@@ -836,3 +836,14 @@ Updated: `2026-05-09T07:27:24+00:00`
 - Feature patch branch is closed as negative result.
 - Pairwise formulation remains open only for read-only target/sampling audit.
 
+## I-DARE Alternative Pairwise Target/Sampling Audit Report
+
+Updated: `2026-05-09T07:34:24+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE alternative pairwise target/sampling audit report | complete pending human review; diagnosis=`alternative_pairwise_target_sampling_audit_possible_sampling_artifact` | `docs/idare_label_semantics_alternative_pairwise_target_sampling_audit_report.md` | Human review then `label_semantics_alternative_pairwise_target_sampling_rethink_spec_objective`. | training; rerun; model fitting; feature/model search; SupCon/DG; fusion; final claim |
+
+- Decision reason: Read-only audit found a possible sampling/target artifact that could explain weak pairwise signal.
+- Actionable sampling issue found: `true`.
+

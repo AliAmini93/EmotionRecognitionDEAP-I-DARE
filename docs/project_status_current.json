@@ -8035,7 +8035,7 @@
     "next_step": "human_review_closeout_of_supcon_dg_failure_analysis",
     "updated_at_utc": "2026-05-08T09:59:59+00:00"
   },
-  "last_updated_utc": "2026-05-09T07:27:24+00:00",
+  "last_updated_utc": "2026-05-09T07:34:24+00:00",
   "idare_protocol_events": [
     {
       "timestamp_utc": "2026-05-08T10:06:00+00:00",
@@ -9284,19 +9284,36 @@
         "changing fold definitions",
         "creating new pair samples beyond read-only audit statistics"
       ]
+    },
+    {
+      "timestamp_utc": "2026-05-09T07:34:24+00:00",
+      "type": "read_only_audit_report",
+      "name": "I-DARE alternative pairwise target/sampling audit report",
+      "status": "complete pending human review; diagnosis=alternative_pairwise_target_sampling_audit_possible_sampling_artifact",
+      "evidence": "docs/idare_label_semantics_alternative_pairwise_target_sampling_audit_report.md",
+      "recommended_next_objective": "label_semantics_alternative_pairwise_target_sampling_rethink_spec_objective",
+      "blocked": [
+        "training or rerun",
+        "model fitting",
+        "new feature patch search",
+        "broad hyperparameter search",
+        "direct full SupCon/DG training",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "changing labels or fold definitions"
+      ]
     }
   ],
-  "current_idare_next_allowed_step": "prepare_reviewed_label_semantics_alternative_pairwise_target_sampling_audit_command",
+  "current_idare_next_allowed_step": "human_review_then_label_semantics_alternative_pairwise_target_sampling_rethink_spec_objective",
   "current_idare_blocked_steps": [
-    "any training or rerun",
+    "training or rerun",
+    "model fitting",
     "new feature patch search",
     "broad hyperparameter search",
     "direct full SupCon/DG training",
     "EEG+EMG fusion",
     "final LOSO claim",
-    "changing label formulation",
-    "changing fold definitions",
-    "creating new pair samples beyond read-only audit statistics"
+    "changing labels or fold definitions"
   ],
   "idare_historical_script_backfill_objective": {
     "status": "objective_created_no_backfill_copy_yet",
@@ -9334,5 +9351,6 @@
   "current_idare_pairwise_feature_patch_archive_or_rethink_report_status": "complete_pending_human_review; diagnosis=feature_patch_branch_should_be_archived_as_negative_result",
   "current_idare_pairwise_feature_patch_archive_closeout_objective_status": "objective_created",
   "current_idare_pairwise_feature_patch_archive_closeout_report_status": "complete_pending_human_review; diagnosis=feature_patch_branch_archived_as_negative_result",
-  "current_idare_pairwise_target_sampling_audit_objective_status": "objective_created"
+  "current_idare_pairwise_target_sampling_audit_objective_status": "objective_created",
+  "current_idare_pairwise_target_sampling_audit_report_status": "complete_pending_human_review; diagnosis=alternative_pairwise_target_sampling_audit_possible_sampling_artifact"
 }

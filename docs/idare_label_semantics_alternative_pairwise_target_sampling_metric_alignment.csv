@@ -1,0 +1,9 @@
+model,modality,task,mean_balanced_accuracy,delta_vs_majority_baseline_bal_acc,folds_over_055_bal_acc,task_pair_count_cv,corr_n_val_pairs_vs_balanced_accuracy,metric_strength,sampling_alignment_flag
+logistic_regression_pairwise_summary_diff,EEG,arousal,0.5212300585899118,0.0212300585899117,0,0.053701307121725314,0.41861612935278486,weak,False
+logistic_regression_pairwise_summary_diff,EEG,valence,0.5144921704153708,0.0144921704153707,0,0.0455809231105299,0.011870010193151051,weak,False
+logistic_regression_pairwise_summary_diff,EMG,arousal,0.5078025298608785,0.0078025298608784,0,0.053701307121725314,0.1411223473553797,weak,False
+logistic_regression_pairwise_summary_diff,EMG,valence,0.5110322609499353,0.0110322609499352,0,0.0455809231105299,-0.7058617516948105,weak,True
+ridge_classifier_pairwise_summary_diff,EEG,arousal,0.5216709095350218,0.0216709095350218,0,0.053701307121725314,0.4748322940657732,weak,False
+ridge_classifier_pairwise_summary_diff,EEG,valence,0.514171467706751,0.014171467706751,0,0.0455809231105299,0.03695799751260746,weak,False
+ridge_classifier_pairwise_summary_diff,EMG,arousal,0.5070697458002597,0.0070697458002596,0,0.053701307121725314,-0.16638115303509637,weak,False
+ridge_classifier_pairwise_summary_diff,EMG,valence,0.511954974495675,0.0119549744956749,0,0.0455809231105299,-0.7308804567438636,weak,True

@@ -1,0 +1,82 @@
+# I-DARE Alternative Pairwise Target/Sampling Audit Report
+
+## Status
+
+Status: complete; pending human review.
+
+Created UTC: `2026-05-09T07:34:24+00:00`
+
+## Executive Diagnosis
+
+Diagnosis: `alternative_pairwise_target_sampling_audit_possible_sampling_artifact`
+
+Recommendation: `create_spec_only_pair_sampling_rethink_after_review`
+
+Recommended next objective: `label_semantics_alternative_pairwise_target_sampling_rethink_spec_objective`
+
+Decision reason: Read-only audit found a possible sampling/target artifact that could explain weak pairwise signal.
+
+## Best Prior Pairwise Signal
+
+Best model: `ridge_classifier_pairwise_summary_diff`
+
+Best modality/task: `EEG` / `arousal`
+
+Best mean balanced accuracy: `0.521671`
+
+Delta vs majority baseline: `0.021671`
+
+Folds over 0.55 balanced accuracy: `0`
+
+## Fold / Pair Count Audit
+
+Max pair-count coefficient of variation across tasks: `0.053701`
+
+Max pair-count ratio range across tasks: `0.135653`
+
+Pair-count issue found: `false`
+
+## Class Balance Audit
+
+Balance reference column: `pair_balance_pass`
+
+Max absolute deviation from 0.5: `0.500000`
+
+Class-balance issue found: `true`
+
+## Subject Concentration Audit
+
+Subjects audited: `0`
+
+Subject positive lift fraction: `nan`
+
+Top-20% absolute lift share: `nan`
+
+Subject concentration issue found: `false`
+
+## Metric Alignment
+
+Correlation between validation pair count and best-cell balanced accuracy: `0.474832`
+
+Pair-count/metric alignment issue found: `false`
+
+## Decision Matrix
+
+| decision_id | check | observed | issue_found | decision |
+| --- | --- | --- | --- | --- |
+| D1 | pair_count_distribution | max_pair_count_cv=0.053701; max_ratio_range=0.135653 | False | no_major_pair_count_artifact |
+| D2 | class_balance | max_abs_deviation_from_0_5=0.500000; column=pair_balance_pass | True | class_balance_artifact_possible |
+| D3 | subject_concentration | n_subjects=0; positive_fraction=nan; top20_abs_lift_share=nan | False | no_strong_subject_concentration_artifact |
+| D4 | pair_count_metric_alignment | corr_n_val_pairs_vs_balanced_accuracy=0.474832 | False | metric_not_strongly_explained_by_pair_count |
+| D5 | best_metric_strength | best_mean_balanced_accuracy=0.521671; delta_vs_majority=0.021671; folds_over_055=0 | True | weak_signal_below_confirmation_threshold |
+| D6 | overall | Read-only audit found a possible sampling/target artifact that could explain weak pairwise signal. | True | create_spec_only_pair_sampling_rethink_after_review |
+
+## Interpretation
+
+This read-only audit does not perform training, reruns, model fitting, feature search, label changes, or fold changes.
+
+The feature patch branch remains archived as a negative result. The broader pairwise formulation is evaluated here only through existing target/sampling evidence.
+
+## Next Allowed Step
+
+`human_review_then_label_semantics_alternative_pairwise_target_sampling_rethink_spec_objective`
