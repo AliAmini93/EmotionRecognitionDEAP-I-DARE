@@ -1,0 +1,6 @@
+scope_id,item,authorized,notes
+SCOPE_001,read committed pair-target/fold/balance/runs/subject summaries,True,read-only audit from existing outputs
+SCOPE_002,summarize pair-count imbalance across task/fold/subject,True,no new training; no new labels
+SCOPE_003,derive read-only target/sampling diagnostics,True,statistics only
+SCOPE_004,run models or regenerate feature predictions,False,blocked
+SCOPE_005,"change labels, folds, or target formulation",False,blocked until a later reviewed design/spec objective

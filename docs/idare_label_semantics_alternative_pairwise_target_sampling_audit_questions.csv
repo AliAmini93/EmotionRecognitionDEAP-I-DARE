@@ -1,0 +1,7 @@
+question_id,question,required_inputs,decision_use
+Q1,Does within-subject pair construction create uneven task difficulty across folds or subjects?,pair target audit; fold audit; pair audit; first-pass runs,explain weak but consistent pairwise signal without new training
+Q2,"Are non-tie pair counts and label balance sufficient and comparable across valence/arousal, folds, and subjects?",smoke pair target/fold/balance audit; pair audit,detect whether sampling imbalance diluted balanced accuracy
+Q3,Is the weak signal concentrated in a small subset of subjects or folds?,subject lift summary; metric summary; fold-level runs,distinguish broad weak signal from subject-concentrated artifact
+Q4,Do pair-distance thresholds or tie-removal rules need a future spec-only rethink?,pair target audit; selected task definition; smoke reports,determine if a future design/spec objective is warranted
+Q5,"Should the pairwise formulation be paused, audited further, or redesigned at target/sampling level?",all current pairwise reports,choose next objective after read-only audit
+Q6,Can any conclusion be made without training?,existing committed CSVs only,ensure audit remains read-only and reproducible

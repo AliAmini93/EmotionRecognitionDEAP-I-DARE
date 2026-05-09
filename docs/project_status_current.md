@@ -824,3 +824,15 @@ Updated: `2026-05-09T01:30:55+00:00`
 - Not archived by this closeout: broader pairwise formulation `within_subject_pairwise_affect_preference_ranking_v1`.
 - Recommended next objective after review: `label_semantics_alternative_pairwise_target_sampling_audit_objective`.
 
+## I-DARE Alternative Pairwise Target/Sampling Audit Objective
+
+Updated: `2026-05-09T07:27:24+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE alternative pairwise feature patch archive-closeout review | human review accepted; feature patch archived; full pairwise formulation not archived | `docs/idare_label_semantics_alternative_pairwise_feature_patch_archive_closeout_report_review_status.md` | Create/use target/sampling audit objective. | training; rerun; feature/model search; SupCon/DG; fusion; final claim |
+| I-DARE alternative pairwise target/sampling audit objective | objective created; read-only audit only | `docs/idare_label_semantics_alternative_pairwise_target_sampling_audit_objective.md` | Prepare reviewed target/sampling audit command/script. | training; rerun; feature/model search; SupCon/DG; fusion; final claim |
+
+- Feature patch branch is closed as negative result.
+- Pairwise formulation remains open only for read-only target/sampling audit.
+

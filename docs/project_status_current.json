@@ -8035,7 +8035,7 @@
     "next_step": "human_review_closeout_of_supcon_dg_failure_analysis",
     "updated_at_utc": "2026-05-08T09:59:59+00:00"
   },
-  "last_updated_utc": "2026-05-09T01:30:55+00:00",
+  "last_updated_utc": "2026-05-09T07:27:24+00:00",
   "idare_protocol_events": [
     {
       "timestamp_utc": "2026-05-08T10:06:00+00:00",
@@ -9246,17 +9246,57 @@
         "final LOSO claim",
         "changing label formulation before target/sampling audit review"
       ]
+    },
+    {
+      "timestamp_utc": "2026-05-09T07:27:24+00:00",
+      "type": "review_closeout",
+      "name": "I-DARE alternative pairwise feature patch archive-closeout report review",
+      "status": "human review accepted; diagnosis=feature_patch_branch_archived_as_negative_result",
+      "evidence": "docs/idare_label_semantics_alternative_pairwise_feature_patch_archive_closeout_report_review_status.md",
+      "next_allowed_step": "Create/use target/sampling audit objective.",
+      "blocked": [
+        "any training or rerun",
+        "new feature patch search",
+        "broad hyperparameter search",
+        "direct full SupCon/DG training",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "changing label formulation",
+        "changing fold definitions",
+        "creating new pair samples beyond read-only audit statistics"
+      ]
+    },
+    {
+      "timestamp_utc": "2026-05-09T07:27:24+00:00",
+      "type": "objective",
+      "name": "I-DARE alternative pairwise target/sampling audit objective",
+      "status": "objective created; read-only audit only",
+      "evidence": "docs/idare_label_semantics_alternative_pairwise_target_sampling_audit_objective.md",
+      "next_allowed_step": "prepare_reviewed_label_semantics_alternative_pairwise_target_sampling_audit_command",
+      "blocked": [
+        "any training or rerun",
+        "new feature patch search",
+        "broad hyperparameter search",
+        "direct full SupCon/DG training",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "changing label formulation",
+        "changing fold definitions",
+        "creating new pair samples beyond read-only audit statistics"
+      ]
     }
   ],
-  "current_idare_next_allowed_step": "human_review_closeout_then_optional_target_sampling_audit_objective",
+  "current_idare_next_allowed_step": "prepare_reviewed_label_semantics_alternative_pairwise_target_sampling_audit_command",
   "current_idare_blocked_steps": [
-    "feature patch confirmation training",
-    "broad hyperparameter search",
+    "any training or rerun",
     "new feature patch search",
+    "broad hyperparameter search",
     "direct full SupCon/DG training",
     "EEG+EMG fusion",
     "final LOSO claim",
-    "changing label formulation before target/sampling audit review"
+    "changing label formulation",
+    "changing fold definitions",
+    "creating new pair samples beyond read-only audit statistics"
   ],
   "idare_historical_script_backfill_objective": {
     "status": "objective_created_no_backfill_copy_yet",
@@ -9293,5 +9333,6 @@
   "current_idare_pairwise_feature_patch_archive_or_rethink_objective_status": "objective_created",
   "current_idare_pairwise_feature_patch_archive_or_rethink_report_status": "complete_pending_human_review; diagnosis=feature_patch_branch_should_be_archived_as_negative_result",
   "current_idare_pairwise_feature_patch_archive_closeout_objective_status": "objective_created",
-  "current_idare_pairwise_feature_patch_archive_closeout_report_status": "complete_pending_human_review; diagnosis=feature_patch_branch_archived_as_negative_result"
+  "current_idare_pairwise_feature_patch_archive_closeout_report_status": "complete_pending_human_review; diagnosis=feature_patch_branch_archived_as_negative_result",
+  "current_idare_pairwise_target_sampling_audit_objective_status": "objective_created"
 }

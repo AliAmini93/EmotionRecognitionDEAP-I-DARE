@@ -1,0 +1,7 @@
+guardrail_id,rule,enforced_value
+G1,read-only audit only,"no training, no rerun, no model fitting"
+G2,use existing committed outputs only,no new pair-generation outside statistics derived from existing CSVs
+G3,do not archive full pairwise formulation in objective,only audit target/sampling
+G4,do not change labels/folds,analysis only
+G5,no SupCon/DG/fusion/final claim,blocked
+G6,next step requires human review,report complete pending review

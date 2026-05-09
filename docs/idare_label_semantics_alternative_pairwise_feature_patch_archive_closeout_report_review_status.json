@@ -1,0 +1,24 @@
+{
+  "status": "human_review_accepted",
+  "created_utc": "2026-05-09T07:27:24+00:00",
+  "reviewed_report": "docs/idare_label_semantics_alternative_pairwise_feature_patch_archive_closeout_report.md",
+  "accepted_diagnosis": "feature_patch_branch_archived_as_negative_result",
+  "accepted_decision": "archive_closeout_complete_for_patch_a_eeg_arousal_bandpower_temporal_stats",
+  "accepted_recommendation": "optional_read_only_pairwise_target_sampling_audit_after_review",
+  "accepted_recommended_next_objective": "label_semantics_alternative_pairwise_target_sampling_audit_objective",
+  "archive_feature_patch_branch": true,
+  "archive_entire_pairwise_formulation": false,
+  "training_authorized": false,
+  "next_allowed_step": "create_pairwise_target_sampling_audit_objective",
+  "blocked": [
+    "any training or rerun",
+    "new feature patch search",
+    "broad hyperparameter search",
+    "direct full SupCon/DG training",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "changing label formulation",
+    "changing fold definitions",
+    "creating new pair samples beyond read-only audit statistics"
+  ]
+}
