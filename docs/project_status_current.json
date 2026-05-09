@@ -8035,7 +8035,7 @@
     "next_step": "human_review_closeout_of_supcon_dg_failure_analysis",
     "updated_at_utc": "2026-05-08T09:59:59+00:00"
   },
-  "last_updated_utc": "2026-05-09T01:02:05+00:00",
+  "last_updated_utc": "2026-05-09T01:08:56+00:00",
   "idare_protocol_events": [
     {
       "timestamp_utc": "2026-05-08T10:06:00+00:00",
@@ -9130,16 +9130,32 @@
         "changing label formulation during this patch branch",
         "running outside the frozen 96-row matrix"
       ]
+    },
+    {
+      "timestamp_utc": "2026-05-09T01:08:56+00:00",
+      "type": "first_pass_report",
+      "name": "I-DARE alternative pairwise feature patch first pass",
+      "status": "complete pending human review; diagnosis=feature_representation_patch_first_pass_no_actionable_signal",
+      "evidence": "docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_report.md",
+      "recommended_next_objective": "label_semantics_alternative_pairwise_feature_patch_archive_or_rethink_objective",
+      "blocked": [
+        "broad hyperparameter search",
+        "direct full SupCon/DG training",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "changing label formulation during this patch branch",
+        "confirmation training before review"
+      ]
     }
   ],
-  "current_idare_next_allowed_step": "prepare_reviewed_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_run_command",
+  "current_idare_next_allowed_step": "human_review_closeout_then_archive_or_rethink_feature_patch",
   "current_idare_blocked_steps": [
     "broad hyperparameter search",
     "direct full SupCon/DG training",
     "EEG+EMG fusion",
     "final LOSO claim",
     "changing label formulation during this patch branch",
-    "running outside the frozen 96-row matrix"
+    "confirmation training before review"
   ],
   "idare_historical_script_backfill_objective": {
     "status": "objective_created_no_backfill_copy_yet",
@@ -9171,5 +9187,6 @@
   "current_idare_pairwise_feature_patch_spec_status": "complete_pending_human_review",
   "current_idare_pairwise_feature_patch_smoke_objective_status": "objective_created",
   "current_idare_pairwise_feature_patch_smoke_status": "complete_pending_human_review; diagnosis=feature_representation_patch_smoke_tests_passed",
-  "current_idare_pairwise_feature_patch_first_pass_objective_status": "objective_created"
+  "current_idare_pairwise_feature_patch_first_pass_objective_status": "objective_created",
+  "current_idare_pairwise_feature_patch_first_pass_status": "complete_pending_human_review; diagnosis=feature_representation_patch_first_pass_no_actionable_signal"
 }

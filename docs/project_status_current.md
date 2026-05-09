@@ -763,3 +763,16 @@ Updated: `2026-05-09T01:02:05+00:00`
 - Frozen formulation: `within_subject_pairwise_affect_preference_ranking_v1`.
 - Authorized scope is limited to the frozen 96-row matrix only.
 
+## I-DARE Alternative Pairwise Feature-Representation Patch First-Pass Report
+
+Updated: `2026-05-09T01:08:56+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE alternative pairwise feature patch first pass | complete pending human review; diagnosis=`feature_representation_patch_first_pass_no_actionable_signal` | `docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_report.md` | `human_review_closeout_then_archive_or_rethink_feature_patch` | broad search; SupCon/DG; fusion; final claim; confirmation before review |
+
+- Frozen 96-row matrix was executed.
+- Best cell: `bandpower_temporal_stats_v1` / `ridge_classifier_pairwise_feature_patch`.
+- Mean balanced accuracy: `0.516756`.
+- Recommended next objective: `label_semantics_alternative_pairwise_feature_patch_archive_or_rethink_objective` only after human review.
+

@@ -1,0 +1,6 @@
+threshold_id,metric,observed,pass,decision
+T1_actionable_patch_signal,mean_balanced_accuracy,0.5167558046828528,False,candidate for narrow confirmation objective if also fold stability passes
+T2_fold_stability,folds_over_055_bal_acc_and_no_folds_under_045,folds_over_055=0; folds_under_045=0,False,supports non-spurious patch signal
+T3_control_lift,delta_vs_majority_baseline_bal_acc,0.01675580468285276,False,practical improvement over majority control
+T4_subject_lift,subject_positive_lift_fraction,0.3968253968253968,False,supports broader subject-level lift
+T5_archive_floor,mean_balanced_accuracy_below_053_or_no_improvement,mean_bal=0.5167558046828528; delta=0.01675580468285276,False,archive patch branch or redesign representation if floor fails
