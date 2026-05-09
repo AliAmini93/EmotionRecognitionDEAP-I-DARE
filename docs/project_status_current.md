@@ -788,3 +788,15 @@ Updated: `2026-05-09T01:15:40+00:00`
 - Best first-pass cell: `bandpower_temporal_stats_v1` / `ridge_classifier_pairwise_feature_patch` with mean balanced accuracy `0.516756`.
 - Feature patch branch is non-actionable pending archive/rethink review.
 
+## I-DARE Alternative Pairwise Feature Patch Archive-or-Rethink Report
+
+Updated: `2026-05-09T01:22:22+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE alternative pairwise feature patch archive-or-rethink report | complete pending human review; diagnosis=`feature_patch_branch_should_be_archived_as_negative_result` | `docs/idare_label_semantics_alternative_pairwise_feature_patch_archive_or_rethink_report.md` | Human review closeout then create feature patch archive-closeout objective. | confirmation training; broad search; SupCon/DG; fusion; final claim |
+
+- Decision: `archive_patch_a_eeg_arousal_bandpower_temporal_stats_branch`.
+- This archives only the narrow feature patch branch, not the entire pairwise formulation.
+- Recommended next objective: `label_semantics_alternative_pairwise_feature_patch_archive_closeout_objective` after human review.
+

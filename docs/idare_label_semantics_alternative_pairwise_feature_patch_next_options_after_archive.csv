@@ -1,0 +1,5 @@
+rank,next_option,type,allowed_after_review,why,allowed_after_archive_closeout
+1,label_semantics_alternative_pairwise_feature_patch_archive_closeout_objective,archive_closeout,True,close feature patch branch as negative result,
+2,pairwise_target_sampling_read_only_audit_objective,optional_read_only,,inspect whether target/pair construction diluted signal before any new formulation,True
+3,new_feature_or_model_search,blocked,False,would be broad search after non-actionable evidence,
+4,supcon_dg_or_fusion,blocked,False,outside authorized scope and not supported by evidence,

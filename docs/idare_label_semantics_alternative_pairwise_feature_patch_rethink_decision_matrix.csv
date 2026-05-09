@@ -1,0 +1,6 @@
+option_id,option,allowed,recommended,training_required,rationale
+OPT_001,archive_feature_patch_closeout,True,True,False,preserves negative result and prevents repeated patch search
+OPT_002,read_only_pairwise_target_sampling_audit,True,True,False,may explain weak signal without launching new training
+OPT_003,new_feature_patch_search,False,False,True,would become broad feature/model search after a weak first-pass
+OPT_004,feature_patch_confirmation,False,False,True,thresholds for confirmation were not met
+OPT_005,jump_to_supcon_dg,False,False,True,not justified by patch evidence and outside current scope

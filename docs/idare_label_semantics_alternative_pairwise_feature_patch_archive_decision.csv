@@ -1,0 +1,5 @@
+decision_id,scope,item,decision,reason
+ARCH_DEC_001,feature patch branch only,PATCH_A_eeg_arousal_bandpower_temporal_stats_v1,archive,best mean balanced accuracy below 0.53 and no fold over 0.55
+ARCH_DEC_002,current pairwise formulation,within_subject_pairwise_affect_preference_ranking_v1,do_not_archive_here,this report only evaluates the feature patch; pairwise formulation was not fully invalidated
+ARCH_DEC_003,confirmation training,feature patch confirmation,not_authorized,mean balanced accuracy and fold thresholds were not met
+ARCH_DEC_004,future work,target/sampling audit,optional_read_only_after_archive_closeout,"weak pairwise signal may still merit read-only target/sampling analysis, not new training"
