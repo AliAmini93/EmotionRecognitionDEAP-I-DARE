@@ -1,0 +1,5 @@
+step_id,step,authorized_now,requires_next_objective,notes
+P1,smoke-test feature extraction only,no,yes,"Check dimensions, finite values, fold-local transforms, pair counts."
+P2,run frozen patch first-pass matrix,no,yes after smoke passes,Use the 96-row matrix only if smoke tests pass and are reviewed.
+P3,narrow confirmation,no,yes only if thresholds pass,No final LOSO claim.
+P4,broad model search / SupCon / fusion,no,not allowed from this evidence,Explicitly blocked.

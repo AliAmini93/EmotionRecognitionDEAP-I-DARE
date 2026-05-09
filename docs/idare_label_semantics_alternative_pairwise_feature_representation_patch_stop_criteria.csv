@@ -1,0 +1,6 @@
+criterion_id,condition,action
+STOP_001,No learned patch cell beats current best mean balanced accuracy by at least +0.01,stop patch branch; archive or redesign representation
+STOP_002,Best patch cell remains below 0.55 mean balanced accuracy,do not create confirmation objective unless justified by strong stability diagnostics
+STOP_003,Signal appears in only one fold or one/few subjects,stop and write instability closeout
+STOP_004,Any leakage or fold-local transform violation is detected,invalidate patch output and fix leakage before any interpretation
+STOP_005,"Patch requires additional model families, neural encoders, or fusion to look promising",stop; create a new reviewed objective instead of expanding scope

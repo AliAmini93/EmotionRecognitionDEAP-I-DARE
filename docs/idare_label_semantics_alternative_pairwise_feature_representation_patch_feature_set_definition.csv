@@ -1,0 +1,5 @@
+feature_set_id,source,modality,task,feature_blocks,role,train_fold_only_fit_required
+current_summary_diff_control,existing first-pass pairwise summary-diff features,EEG,arousal,current mean/std/min/max-style summary diff as already used,control to preserve comparability with first pass,yes
+bandpower_temporal_stats_v1,.cache/idare_eeg_windows_32x640_float32_baseline_corrected.npy,EEG,arousal,per-channel temporal mean/std/rms/line-length plus coarse bandpower summary over fixed bands; pairwise diff and absolute diff,primary narrow patch candidate,yes
+bandpower_only_control_v1,.cache/idare_eeg_windows_32x640_float32_baseline_corrected.npy,EEG,arousal,coarse bandpower summary only; pairwise diff and absolute diff,diagnostic control for spectral vs temporal contribution,yes
+robust_scaled_current_summary_diff_control,existing first-pass pairwise summary-diff features,EEG,arousal,current summary-diff features with fold-local robust/standard scaling audit,normalization control,yes

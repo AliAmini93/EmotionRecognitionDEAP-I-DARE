@@ -1,0 +1,6 @@
+threshold_id,metric,comparison,decision
+T1_actionable_patch_signal,mean_balanced_accuracy,>= 0.55 on best learned patch cell,candidate for narrow confirmation objective if also fold stability passes
+T2_fold_stability,folds_over_055_bal_acc,>= 3 folds and no folds under 0.45,supports non-spurious patch signal
+T3_control_lift,delta_vs_majority_baseline_bal_acc,>= +0.03,practical improvement over majority control
+T4_subject_lift,subject_positive_lift_fraction,>= 0.65,supports broader subject-level lift
+T5_archive_floor,mean_balanced_accuracy,< 0.53 or no improvement over current first-pass best,archive patch branch or redesign representation; do not broaden search

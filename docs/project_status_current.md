@@ -713,3 +713,16 @@ Updated: `2026-05-09T00:42:47+00:00`
 - Trigger: weak but consistent EEG/arousal pairwise signal with mean balanced accuracy `0.521671`, delta vs majority `0.021671`, and positive-delta folds `6` / `6`.
 - Next work is a narrow feature-representation patch design/spec, not training.
 
+## I-DARE Alternative Pairwise Feature-Representation Patch Spec
+
+Updated: `2026-05-09T00:47:54+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE alternative pairwise feature-representation patch spec | complete pending human review; selected `PATCH_A_eeg_arousal_bandpower_temporal_stats_v1` | `docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_spec.md` | Human review / closeout before feature-patch smoke-test objective. | patch training before smoke tests; broad search; SupCon/DG; fusion; final claim; label-formulation change |
+
+- Frozen formulation: `within_subject_pairwise_affect_preference_ranking_v1`.
+- Frozen selected branch: `EEG / arousal`.
+- Future run matrix rows: `96`; not authorized for training yet.
+- Recommended next objective is `label_semantics_alternative_pairwise_feature_representation_patch_smoke_tests_objective` only after human review.
+

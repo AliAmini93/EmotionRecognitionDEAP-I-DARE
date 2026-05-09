@@ -1,0 +1,6 @@
+item_id,requirement,target_path,status
+R1,commit executable script before or during patch run,scripts/idare/analysis/run_idare_label_semantics_alternative_pairwise_feature_representation_patch_smoke_tests.py,required_for_next_objective
+R2,all generated reports and CSVs committed,docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_*,required
+R3,no historical Downloads-only script dependency,scripts/idare/archive_or_reconstructed/from_downloads_bundle/,already backfilled; future scripts should be committed
+R4,fold-local feature/scaler fit audit,docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_leakage_audit.csv,required_for_future_run
+R5,versioned run matrix,docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_run_matrix.csv,created_by_this_spec

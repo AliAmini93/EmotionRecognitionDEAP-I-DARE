@@ -1,0 +1,48 @@
+{
+  "status": "complete_pending_human_review",
+  "created_utc": "2026-05-09T00:47:54+00:00",
+  "source_objective": "docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_objective.json",
+  "source_metric_debug_report": "docs/idare_label_semantics_alternative_pairwise_failure_or_metric_debug_report.json",
+  "diagnosis": "feature_representation_patch_spec_complete",
+  "decision": "select_narrow_eeg_arousal_bandpower_temporal_stats_patch_for_smoke_test_design",
+  "selected_formulation": "within_subject_pairwise_affect_preference_ranking_v1",
+  "selected_primary_patch": "PATCH_A_eeg_arousal_bandpower_temporal_stats_v1",
+  "selected_auxiliary_patch": "PATCH_C_eeg_arousal_bandpower_only_control_v1",
+  "selected_branch": {
+    "modality": "EEG",
+    "task": "arousal",
+    "current_best_model": "ridge_classifier_pairwise_summary_diff"
+  },
+  "current_best_baseline": {
+    "mean_balanced_accuracy": 0.5216709095350218,
+    "delta_vs_majority_baseline_bal_acc": 0.02167090953502182,
+    "positive_delta_folds": 6,
+    "subject_positive_lift_fraction": 0.6031746031746031
+  },
+  "training_authorized": false,
+  "patch_run_authorized": false,
+  "smoke_test_authorized_by_this_document": false,
+  "model_search_authorized": false,
+  "supcon_dg_authorized": false,
+  "fusion_authorized": false,
+  "final_loso_claim_authorized": false,
+  "run_matrix_rows": 96,
+  "recommended_next_objective": "label_semantics_alternative_pairwise_feature_representation_patch_smoke_tests_objective",
+  "next_allowed_step": "create_reviewed_feature_representation_patch_smoke_tests_objective_after_human_review",
+  "outputs": {
+    "run_matrix": "docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_run_matrix.csv",
+    "feature_set_definition": "docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_feature_set_definition.csv",
+    "metric_thresholds": "docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_metric_thresholds.csv",
+    "stop_criteria": "docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_stop_criteria.csv",
+    "reproducibility_plan": "docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_reproducibility_plan.csv",
+    "protocol_matrix": "docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_protocol_matrix.csv"
+  },
+  "blocked": [
+    "running patch training before smoke-test objective and review",
+    "broad hyperparameter search",
+    "direct full SupCon/DG training",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "changing label formulation during this patch branch"
+  ]
+}
