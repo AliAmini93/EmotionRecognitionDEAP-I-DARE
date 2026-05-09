@@ -750,3 +750,16 @@ Updated: `2026-05-09T00:58:08+00:00`
 - No learned patch model training was run.
 - Recommended next objective: `label_semantics_alternative_pairwise_feature_representation_patch_first_pass_objective` only after human review.
 
+## I-DARE Alternative Pairwise Feature-Representation Patch First-Pass Objective
+
+Updated: `2026-05-09T01:02:05+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE alternative pairwise feature patch smoke-test review | human review accepted; diagnosis=`feature_representation_patch_smoke_tests_passed` | `docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_smoke_tests_review_status.md` | Create/use first-pass objective. | broad search; SupCon/DG; fusion; final claim |
+| I-DARE alternative pairwise feature patch first-pass objective | objective created; limited frozen 96-row first pass only | `docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_objective.md` | Prepare reviewed first-pass run command/script. | broad search; SupCon/DG; fusion; final claim; label-formulation change |
+
+- Frozen selected patch: `PATCH_A_eeg_arousal_bandpower_temporal_stats_v1`.
+- Frozen formulation: `within_subject_pairwise_affect_preference_ranking_v1`.
+- Authorized scope is limited to the frozen 96-row matrix only.
+

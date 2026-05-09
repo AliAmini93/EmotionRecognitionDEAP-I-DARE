@@ -1,0 +1,8 @@
+guardrail_id,rule,enforcement
+FP_G1,Only frozen 96-row matrix may be run,docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_run_matrix.csv
+FP_G2,No broad hyperparameter search,fixed models and default deterministic settings only
+FP_G3,No SupCon/DG or neural encoder,classical pairwise patch baselines only
+FP_G4,No EEG+EMG fusion,modality fixed to EEG
+FP_G5,No label formulation change,formulation fixed to within_subject_pairwise_affect_preference_ranking_v1
+FP_G6,Fold-local transforms only,fit scalers only on train fold; apply to validation fold
+FP_G7,No final LOSO claim,diagnostic first-pass only; pending human review

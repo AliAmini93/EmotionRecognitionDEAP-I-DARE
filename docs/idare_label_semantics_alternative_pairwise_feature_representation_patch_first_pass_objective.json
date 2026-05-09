@@ -1,0 +1,33 @@
+{
+  "status": "objective_created",
+  "created_utc": "2026-05-09T01:02:05+00:00",
+  "source_review": "docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_smoke_tests_review_status.md",
+  "source_smoke_report": "docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_smoke_tests_report.md",
+  "source_spec": "docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_spec.md",
+  "accepted_smoke_diagnosis": "feature_representation_patch_smoke_tests_passed",
+  "scientific_question": "Does the frozen narrow EEG/arousal feature-representation patch improve pairwise preference ranking enough to justify a later confirmation objective?",
+  "selected_primary_patch": "PATCH_A_eeg_arousal_bandpower_temporal_stats_v1",
+  "selected_formulation": "within_subject_pairwise_affect_preference_ranking_v1",
+  "authorized_scope": "limited first-pass training/evaluation of frozen 96-row feature patch matrix only",
+  "limited_first_pass_authorized": true,
+  "training_authorized_scope": "limited_to_frozen_96_row_matrix",
+  "broad_model_search_authorized": false,
+  "model_search_authorized": false,
+  "supcon_dg_authorized": false,
+  "fusion_authorized": false,
+  "final_loso_claim_authorized": false,
+  "run_matrix": "docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_run_matrix.csv",
+  "run_matrix_rows": 96,
+  "guardrails": "docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_guardrails.csv",
+  "metric_thresholds": "docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_metric_thresholds.csv",
+  "expected_outputs": "docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_expected_outputs.csv",
+  "next_allowed_step": "prepare_reviewed_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_run_command",
+  "blocked": [
+    "broad hyperparameter search",
+    "direct full SupCon/DG training",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "changing label formulation during this patch branch",
+    "running outside the frozen 96-row matrix"
+  ]
+}
