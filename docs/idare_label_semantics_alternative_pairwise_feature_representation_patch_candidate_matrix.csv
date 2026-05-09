@@ -1,0 +1,5 @@
+candidate_id,scope,feature_patch,why_allowed,risk,priority
+PATCH_A_eeg_arousal_bandpower_temporal_stats_v1,EEG/arousal only,add compact bandpower plus temporal statistics to current pairwise summary-diff features,targets representation weakness while keeping formulation and model family fixed,may still be too weak; must remain a small frozen candidate,1
+PATCH_B_eeg_arousal_robust_subject_relative_scaling_v1,EEG/arousal only,apply train-fold-only robust feature scaling and subject-relative normalization audit,tests whether scaling/normalization suppresses weak but consistent signal,leakage risk unless fold-local only,2
+PATCH_C_eeg_arousal_bandpower_only_control_v1,EEG/arousal only,bandpower-only control to isolate whether temporal raw summary is the bottleneck,"diagnostic control, not broad search",may underperform but improves interpretability,3
+PATCH_D_emg_valence_negative_control_v1,EMG/valence negative control,optional negative-control cell using same classical pairwise pipeline,guards against over-interpreting a single EEG/arousal lift,must not expand into multi-modal/fusion search,4

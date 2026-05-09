@@ -701,3 +701,15 @@ Updated: `2026-05-09T00:37:12+00:00`
 - Decision reason: Best cell is consistently weak-positive but below confirmation threshold; summary features may be limiting.
 - Recommended next objective: `label_semantics_alternative_pairwise_feature_representation_patch_objective` only after human review.
 
+## I-DARE Alternative Pairwise Feature-Representation Patch Objective
+
+Updated: `2026-05-09T00:42:47+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE alternative pairwise metric-debug review | human review accepted; diagnosis=`alternative_pairwise_metric_debug_weak_but_consistent_signal` | `docs/idare_label_semantics_alternative_pairwise_failure_or_metric_debug_report_review_status.md` | Create/use feature-representation patch objective. | broad search; SupCon/DG; fusion; final claim; training before review |
+| I-DARE alternative pairwise feature-representation patch objective | design/spec objective created; no training authorized | `docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_objective.md` | Prepare reviewed patch spec command/script. | broad search; SupCon/DG; fusion; final claim; training before reviewed patch spec/run matrix |
+
+- Trigger: weak but consistent EEG/arousal pairwise signal with mean balanced accuracy `0.521671`, delta vs majority `0.021671`, and positive-delta folds `6` / `6`.
+- Next work is a narrow feature-representation patch design/spec, not training.
+

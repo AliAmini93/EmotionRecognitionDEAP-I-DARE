@@ -1,0 +1,6 @@
+decision_id,condition,decision,current_status
+D1,patch spec can define <= 4 frozen candidate cells without broad search,allow patch spec generation,met
+D2,patch requires changing label semantics,reject patch and create new formulation objective instead,not met
+D3,"patch requires SupCon/DG, neural encoder, or fusion",reject as broad training,not met
+D4,patch can be implemented as fold-local deterministic feature extraction,candidate for narrow patch first-pass after spec review,to verify in patch spec
+D5,patch first pass later fails to clear threshold,"archive or alternative representation objective, not broad search",future decision

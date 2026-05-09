@@ -8035,7 +8035,7 @@
     "next_step": "human_review_closeout_of_supcon_dg_failure_analysis",
     "updated_at_utc": "2026-05-08T09:59:59+00:00"
   },
-  "last_updated_utc": "2026-05-09T00:37:12+00:00",
+  "last_updated_utc": "2026-05-09T00:42:47+00:00",
   "idare_protocol_events": [
     {
       "timestamp_utc": "2026-05-08T10:06:00+00:00",
@@ -9002,15 +9002,48 @@
         "final LOSO claim",
         "training before review of this metric-debug report"
       ]
+    },
+    {
+      "timestamp_utc": "2026-05-09T00:42:47+00:00",
+      "type": "review_closeout",
+      "name": "I-DARE alternative pairwise metric-debug review",
+      "status": "human review accepted; diagnosis=alternative_pairwise_metric_debug_weak_but_consistent_signal",
+      "evidence": "docs/idare_label_semantics_alternative_pairwise_failure_or_metric_debug_report_review_status.md",
+      "next_allowed_step": "Create/use feature-representation patch objective.",
+      "blocked": [
+        "broad hyperparameter search",
+        "direct full SupCon/DG training",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "training before reviewed patch spec/run matrix",
+        "changing the label formulation during feature patching"
+      ]
+    },
+    {
+      "timestamp_utc": "2026-05-09T00:42:47+00:00",
+      "type": "objective",
+      "name": "I-DARE alternative pairwise feature-representation patch objective",
+      "status": "design/spec objective created; no training authorized",
+      "evidence": "docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_objective.md",
+      "next_allowed_step": "prepare_reviewed_label_semantics_alternative_pairwise_feature_representation_patch_command",
+      "blocked": [
+        "broad hyperparameter search",
+        "direct full SupCon/DG training",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "training before reviewed patch spec/run matrix",
+        "changing the label formulation during feature patching"
+      ]
     }
   ],
-  "current_idare_next_allowed_step": "human_review_closeout_before_pairwise_patch_or_archive",
+  "current_idare_next_allowed_step": "prepare_reviewed_label_semantics_alternative_pairwise_feature_representation_patch_command",
   "current_idare_blocked_steps": [
     "broad hyperparameter search",
     "direct full SupCon/DG training",
     "EEG+EMG fusion",
     "final LOSO claim",
-    "training before review of this metric-debug report"
+    "training before reviewed patch spec/run matrix",
+    "changing the label formulation during feature patching"
   ],
   "idare_historical_script_backfill_objective": {
     "status": "objective_created_no_backfill_copy_yet",
@@ -9037,5 +9070,6 @@
   "current_idare_alternative_pairwise_first_pass_planned_rows": 96,
   "current_idare_alternative_pairwise_first_pass_diagnosis": "alternative_pairwise_minimal_first_pass_weak_mixed_signal",
   "current_idare_pairwise_debug_objective_status": "objective_created",
-  "current_idare_pairwise_metric_debug_diagnosis": "alternative_pairwise_metric_debug_weak_but_consistent_signal"
+  "current_idare_pairwise_metric_debug_diagnosis": "alternative_pairwise_metric_debug_weak_but_consistent_signal",
+  "current_idare_pairwise_feature_patch_objective_status": "objective_created"
 }

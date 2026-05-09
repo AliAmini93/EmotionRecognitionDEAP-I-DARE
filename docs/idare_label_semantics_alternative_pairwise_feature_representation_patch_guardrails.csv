@@ -1,0 +1,8 @@
+guardrail_id,rule,required,enforcement
+G1,No broad hyperparameter search,yes,fixed model family and small predefined candidate matrix only
+G2,No direct full SupCon/DG training,yes,classical pairwise baselines only unless a later objective authorizes otherwise
+G3,No EEG+EMG fusion,yes,single-modality cells only
+G4,Keep selected label formulation frozen,yes,within_subject_pairwise_affect_preference_ranking_v1 only
+G5,Fold-local transforms only,yes,all scalers/features that learn parameters must be fit on train fold only
+G6,No final LOSO claim,yes,results are diagnostic first-pass only
+G7,Patch must have explicit stop criteria,yes,"if no candidate clears threshold, archive or redesign before more training"

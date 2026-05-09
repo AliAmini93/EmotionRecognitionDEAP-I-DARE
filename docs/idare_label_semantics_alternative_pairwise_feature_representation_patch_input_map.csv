@@ -1,0 +1,9 @@
+input_id,path,role,required
+IN_PATCH_001,docs/idare_label_semantics_alternative_pairwise_failure_or_metric_debug_report.md,accepted metric-debug report,yes
+IN_PATCH_002,docs/idare_label_semantics_alternative_pairwise_failure_or_metric_debug_report.json,structured diagnosis and best-cell indicators,yes
+IN_PATCH_003,docs/idare_label_semantics_alternative_pairwise_failure_or_metric_debug_cell_audit.csv,cell-level weak/consistent signal audit,yes
+IN_PATCH_004,docs/idare_label_semantics_alternative_pairwise_failure_or_metric_debug_fold_audit.csv,fold-level lift and stability audit,yes
+IN_PATCH_005,docs/idare_label_semantics_alternative_pairwise_failure_or_metric_debug_subject_concentration.csv,subject concentration and lift audit,yes
+IN_PATCH_006,docs/idare_label_semantics_alternative_pairwise_minimal_first_pass_metric_summary.csv,first-pass metric baseline for comparison,yes
+IN_PATCH_007,.cache/idare_eeg_cache_index_baseline_corrected.csv,EEG metadata/index for future reviewed patch script,yes later
+IN_PATCH_008,.cache/idare_eeg_windows_32x640_float32_baseline_corrected.npy,EEG windows for future reviewed patch script,yes later
