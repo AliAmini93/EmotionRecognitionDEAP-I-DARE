@@ -776,3 +776,15 @@ Updated: `2026-05-09T01:08:56+00:00`
 - Mean balanced accuracy: `0.516756`.
 - Recommended next objective: `label_semantics_alternative_pairwise_feature_patch_archive_or_rethink_objective` only after human review.
 
+## I-DARE Alternative Pairwise Feature Patch Archive-or-Rethink Objective
+
+Updated: `2026-05-09T01:15:40+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE alternative pairwise feature patch first-pass review | human review accepted; diagnosis=`feature_representation_patch_first_pass_no_actionable_signal` | `docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_review_status.md` | Create/use archive-or-rethink objective. | confirmation training; broad search; SupCon/DG; fusion; final claim |
+| I-DARE alternative pairwise feature patch archive-or-rethink objective | objective created; read-only decision analysis only | `docs/idare_label_semantics_alternative_pairwise_feature_patch_archive_or_rethink_objective.md` | Prepare reviewed archive/rethink report command/script. | confirmation training; broad search; SupCon/DG; fusion; final claim |
+
+- Best first-pass cell: `bandpower_temporal_stats_v1` / `ridge_classifier_pairwise_feature_patch` with mean balanced accuracy `0.516756`.
+- Feature patch branch is non-actionable pending archive/rethink review.
+

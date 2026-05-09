@@ -1,0 +1,6 @@
+option_id,description,allowed_next,requires_new_training,risk,recommended
+R1_archive_patch_only,Close out the feature-representation patch branch as a negative result.,True,False,low,True
+R2_read_only_pair_sampling_or_target_debug,"Audit whether pair sampling, subject imbalance, or target construction diluted signal.",True,False,low,True
+R3_design_new_representation_objective_later,"After archive closeout, design a new representation objective only if read-only evidence supports it.",True,False,medium,False
+R4_expand_hyperparameter_search_now,Tune C/alpha/windowing/bands broadly after weak first-pass result.,False,True,high,False
+R5_jump_to_SupCon_DG_now,Use SupCon/DG directly after weak classical patch.,False,True,high,False

@@ -1,0 +1,6 @@
+node,condition,decision
+D1,best_mean_balanced_accuracy >= 0.55 and fold stability passes,not satisfied; no confirmation objective
+D2,best_mean_balanced_accuracy < 0.53 or delta_vs_majority <= 0,satisfied enough for no_actionable_signal closeout path
+D3,entire pairwise formulation invalidated,not concluded; only feature patch branch should be closed
+D4,broad search justified,not justified by weak first-pass result
+D5,next safe work,read-only archive/rethink report before any new objective

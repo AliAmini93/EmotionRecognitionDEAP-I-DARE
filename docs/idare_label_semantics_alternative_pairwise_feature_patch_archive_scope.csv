@@ -1,0 +1,5 @@
+scope_id,component,decision,reason
+ARCHIVE_001,PATCH_A_eeg_arousal_bandpower_temporal_stats_v1,archive_as_non_actionable_first_pass,best cell did not reach actionable mean balanced-accuracy threshold
+ARCHIVE_002,bandpower_temporal_stats_v1 + ridge/logistic pairwise baselines,preserve_as_negative_result,handcrafted bandpower+temporal patch did not rescue signal
+ARCHIVE_003,current_summary_diff_control and robust_scaled_current_summary_diff_control,preserve_as_controls,controls establish feature patch was not materially better than earlier summary features
+ARCHIVE_004,pairwise preference formulation,do_not_archive_entire_formulation_yet,only this feature patch is non-actionable; pairwise formulation is not fully closed by this result
