@@ -1,0 +1,6 @@
+metric,value,threshold_or_context,status
+mean_balanced_accuracy,0.5216709095350218,actionable >= 0.55,below_actionable_threshold
+delta_vs_majority_baseline_bal_acc,0.02167090953502182,positive but should be practically meaningful,positive_but_small
+folds_over_055_bal_acc,0,confirmation candidate requires >= 3,not_met
+fold_positive_delta_count,6,majority of folds positive supports weak signal,weak_support
+subject_positive_lift_fraction,0.6031746031746031,broad subject lift would support generality,to_review_below_or_near_mixed

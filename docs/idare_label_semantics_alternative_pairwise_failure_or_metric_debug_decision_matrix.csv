@@ -1,0 +1,6 @@
+decision_id,option,status,rationale
+D1,narrow confirmation,not_selected,Requires mean balanced accuracy >= 0.55 and at least 3 folds over 0.55.
+D2,narrow feature/representation patch,selected,Weak-positive signal is present but below confirmation threshold; avoid broad search.
+D3,archive or patch,not_selected,Marginal signal without enough stability.
+D4,archive closeout,not_selected,No actionable signal beyond controls.
+D5,broad training / SupCon / fusion,blocked,Not authorized by evidence; would be premature.

@@ -690,3 +690,14 @@ Updated: `2026-05-08T19:06:50+00:00`
 - Trigger: best learned cell `ridge_classifier_pairwise_summary_diff` / `EEG` / `arousal` reached mean balanced accuracy `0.521671` with delta vs majority baseline `0.021671`.
 - The current pairwise branch remains promising-but-unconfirmed; next work is read-only failure/metric-debug.
 
+## I-DARE Alternative Pairwise Failure-or-Metric-Debug Report
+
+Updated: `2026-05-09T00:37:12+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE alternative pairwise failure-or-metric-debug report | complete pending human review; diagnosis=`alternative_pairwise_metric_debug_weak_but_consistent_signal` | `docs/idare_label_semantics_alternative_pairwise_failure_or_metric_debug_report.md` | Human review / closeout before pairwise patch-or-archive decision. | broad search; SupCon/DG; fusion; final claim; training before review |
+
+- Decision reason: Best cell is consistently weak-positive but below confirmation threshold; summary features may be limiting.
+- Recommended next objective: `label_semantics_alternative_pairwise_feature_representation_patch_objective` only after human review.
+

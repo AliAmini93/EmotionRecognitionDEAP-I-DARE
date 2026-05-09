@@ -8035,7 +8035,7 @@
     "next_step": "human_review_closeout_of_supcon_dg_failure_analysis",
     "updated_at_utc": "2026-05-08T09:59:59+00:00"
   },
-  "last_updated_utc": "2026-05-08T19:06:50+00:00",
+  "last_updated_utc": "2026-05-09T00:37:12+00:00",
   "idare_protocol_events": [
     {
       "timestamp_utc": "2026-05-08T10:06:00+00:00",
@@ -8987,16 +8987,30 @@
         "final LOSO claim",
         "training outside a reviewed objective"
       ]
+    },
+    {
+      "timestamp_utc": "2026-05-09T00:37:12+00:00",
+      "type": "analysis_report",
+      "name": "I-DARE alternative pairwise failure-or-metric-debug report",
+      "status": "complete pending human review; diagnosis=alternative_pairwise_metric_debug_weak_but_consistent_signal",
+      "evidence": "docs/idare_label_semantics_alternative_pairwise_failure_or_metric_debug_report.md",
+      "recommended_next_objective": "label_semantics_alternative_pairwise_feature_representation_patch_objective",
+      "blocked": [
+        "broad hyperparameter search",
+        "direct full SupCon/DG training",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "training before review of this metric-debug report"
+      ]
     }
   ],
-  "current_idare_next_allowed_step": "prepare_reviewed_label_semantics_alternative_pairwise_failure_or_metric_debug_command",
+  "current_idare_next_allowed_step": "human_review_closeout_before_pairwise_patch_or_archive",
   "current_idare_blocked_steps": [
-    "running additional training before read-only failure/metric-debug review",
     "broad hyperparameter search",
     "direct full SupCon/DG training",
     "EEG+EMG fusion",
     "final LOSO claim",
-    "training outside a reviewed objective"
+    "training before review of this metric-debug report"
   ],
   "idare_historical_script_backfill_objective": {
     "status": "objective_created_no_backfill_copy_yet",
@@ -9022,5 +9036,6 @@
   "current_idare_alternative_smoke_diagnosis": "alternative_pairwise_formulation_smoke_tests_passed",
   "current_idare_alternative_pairwise_first_pass_planned_rows": 96,
   "current_idare_alternative_pairwise_first_pass_diagnosis": "alternative_pairwise_minimal_first_pass_weak_mixed_signal",
-  "current_idare_pairwise_debug_objective_status": "objective_created"
+  "current_idare_pairwise_debug_objective_status": "objective_created",
+  "current_idare_pairwise_metric_debug_diagnosis": "alternative_pairwise_metric_debug_weak_but_consistent_signal"
 }
