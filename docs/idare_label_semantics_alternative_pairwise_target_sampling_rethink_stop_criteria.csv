@@ -1,0 +1,6 @@
+criterion_id,criterion,decision
+STOP_001,smoke test fails fold locality or threshold leakage,archive/pause target-sampling rethink immediately
+STOP_002,margin filtering leaves insufficient pairs in any fold,archive/pause target-sampling rethink; do not lower threshold ad hoc
+STOP_003,class balance remains outside allowed range after deterministic balancing,archive/pause target-sampling rethink
+STOP_004,future first-pass best cell does not exceed 0.55 mean balanced accuracy or does not improve at least +0.03 over majority baseline,archive/pause pairwise line after review
+STOP_005,future first-pass signal is fold/subject concentrated rather than broad,read-only failure analysis before any further branch

@@ -8035,7 +8035,7 @@
     "next_step": "human_review_closeout_of_supcon_dg_failure_analysis",
     "updated_at_utc": "2026-05-08T09:59:59+00:00"
   },
-  "last_updated_utc": "2026-05-09T07:41:38+00:00",
+  "last_updated_utc": "2026-05-09T07:46:36+00:00",
   "idare_protocol_events": [
     {
       "timestamp_utc": "2026-05-08T10:06:00+00:00",
@@ -9340,9 +9340,27 @@
         "changing labels/folds in this objective",
         "executing any redesigned sampling matrix"
       ]
+    },
+    {
+      "timestamp_utc": "2026-05-09T07:46:36+00:00",
+      "type": "design_spec",
+      "name": "I-DARE alternative pairwise target/sampling rethink spec",
+      "status": "complete pending human review; selected margin-thresholded within-subject pairwise preference",
+      "evidence": "docs/idare_label_semantics_alternative_pairwise_target_sampling_rethink_spec.md",
+      "recommended_next_objective": "label_semantics_alternative_pairwise_target_sampling_rethink_smoke_tests_objective",
+      "blocked": [
+        "training or rerun",
+        "model fitting",
+        "feature/model search",
+        "broad hyperparameter search",
+        "direct full SupCon/DG training",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "executing redesigned sampling matrix before smoke-test objective"
+      ]
     }
   ],
-  "current_idare_next_allowed_step": "prepare_reviewed_label_semantics_alternative_pairwise_target_sampling_rethink_spec_command",
+  "current_idare_next_allowed_step": "human_review_then_label_semantics_alternative_pairwise_target_sampling_rethink_smoke_tests_objective",
   "current_idare_blocked_steps": [
     "training or rerun",
     "model fitting",
@@ -9351,8 +9369,7 @@
     "direct full SupCon/DG training",
     "EEG+EMG fusion",
     "final LOSO claim",
-    "changing labels/folds in this objective",
-    "executing any redesigned sampling matrix"
+    "executing redesigned sampling matrix before smoke-test objective"
   ],
   "idare_historical_script_backfill_objective": {
     "status": "objective_created_no_backfill_copy_yet",
@@ -9392,5 +9409,6 @@
   "current_idare_pairwise_feature_patch_archive_closeout_report_status": "complete_pending_human_review; diagnosis=feature_patch_branch_archived_as_negative_result",
   "current_idare_pairwise_target_sampling_audit_objective_status": "objective_created",
   "current_idare_pairwise_target_sampling_audit_report_status": "complete_pending_human_review; diagnosis=alternative_pairwise_target_sampling_audit_possible_sampling_artifact",
-  "current_idare_target_sampling_rethink_spec_objective_status": "objective_created"
+  "current_idare_target_sampling_rethink_spec_objective_status": "objective_created",
+  "current_idare_target_sampling_rethink_spec_status": "complete_pending_human_review"
 }

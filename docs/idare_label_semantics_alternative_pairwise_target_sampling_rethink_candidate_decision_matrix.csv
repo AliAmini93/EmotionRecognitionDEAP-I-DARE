@@ -1,0 +1,5 @@
+candidate_id,description,decision,priority,rationale,training_authorized
+TS_A_margin_thresholded_pairs,keep within-subject pairwise preference but require a larger affect-label margin before a pair is eligible,selected,1,Audit accepted a possible sampling artifact with class-balance issue; margin thresholding directly targets near-tie/ambiguous pair contamination without changing models.,False
+TS_B_fold_balanced_pair_subsampling,define deterministic fold-local pair subsampling caps/quotas to reduce pair-count imbalance,defer,2,Fold pair-count CV was modest (0.053701); keep as smoke-test guard rather than primary rethink.,False
+TS_C_subject_balanced_pair_quota,define per-subject pair quotas so a few high-pair subjects cannot dominate,defer,3,"Subject concentration audit was inconclusive in current CSV schema; add as smoke-test diagnostic, not primary rule.",False
+TS_D_archive_pairwise_line,archive/pause pairwise line if no safe sampling rethink is scientifically justified,not_selected,4,Do not archive the full pairwise line before testing the one narrow sampling-level rethink suggested by the audit.,False

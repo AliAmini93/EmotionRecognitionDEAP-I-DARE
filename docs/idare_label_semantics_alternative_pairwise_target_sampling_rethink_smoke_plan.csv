@@ -1,0 +1,7 @@
+test_id,name,purpose,pass_criterion
+SMOKE_001,margin_threshold_train_only,verify margin threshold is computed using training subjects only,no validation subject label contributes to threshold
+SMOKE_002,non_tie_pair_count_sufficient,verify margin-filtered pairs remain sufficient,each task/fold has at least 1000 validation pairs and at least 500 training pairs after balancing
+SMOKE_003,direction_balance_after_sampling,verify class balance artifact is reduced,"positive direction fraction is within [0.45, 0.55] for every training fold and within [0.40, 0.60] for validation audit"
+SMOKE_004,fold_locality_guard,verify pairs never cross LOSO fold boundaries,validation pairs only contain the held-out subject; training pairs exclude held-out subject
+SMOKE_005,task_scope_guard,verify arousal is primary and valence is guard only,future first-pass objective cannot expand beyond the selected scope without a separate review
+SMOKE_006,baseline_control_sanity,verify no-training baselines stay near chance,random/majority controls remain in expected range before any first-pass execution
