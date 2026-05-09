@@ -859,3 +859,15 @@ Updated: `2026-05-09T07:41:38+00:00`
 - Accepted audit diagnosis: `alternative_pairwise_target_sampling_audit_possible_sampling_artifact`.
 - This objective can only create a design/spec, not execute it.
 
+## I-DARE Alternative Pairwise Target/Sampling Rethink Smoke-Tests Objective
+
+Updated: `2026-05-09T07:55:48+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE alternative pairwise target/sampling rethink spec review | human review accepted; selected margin-thresholded rule | `docs/idare_label_semantics_alternative_pairwise_target_sampling_rethink_spec_review_status.md` | Create/use smoke-tests objective. | training; rerun; model fitting; feature/model search; SupCon/DG; fusion; final claim |
+| I-DARE alternative pairwise target/sampling rethink smoke-tests objective | objective created; smoke-test only; no training authorized | `docs/idare_label_semantics_alternative_pairwise_target_sampling_rethink_smoke_tests_objective.md` | Prepare reviewed target/sampling rethink smoke-tests command/script. | training; rerun; model fitting; first-pass execution before smoke review |
+
+- Selected rule: `margin_thresholded_within_subject_pairwise_preference_v1`.
+- Smoke tests may construct/audit pairs only; model training remains blocked.
+

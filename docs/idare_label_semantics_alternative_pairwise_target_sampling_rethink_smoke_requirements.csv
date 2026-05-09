@@ -1,0 +1,7 @@
+requirement_id,name,purpose,pass_criterion
+SMOKE_REQ_001,train_only_margin_threshold,ensure the margin threshold is learned only from training subjects inside each LOSO fold,no held-out subject label contributes to threshold selection
+SMOKE_REQ_002,within_subject_only_pairs,ensure every pair is within a single subject,zero cross-subject pairs
+SMOKE_REQ_003,non_tie_margin_filter_sufficiency,ensure filtering does not collapse pair availability,each fold has enough eligible training and validation pairs after filtering
+SMOKE_REQ_004,direction_balance_after_deterministic_downsampling,ensure pair direction is balanced after the selected rule,"training direction fraction is within [0.45,0.55] for every fold/task"
+SMOKE_REQ_005,fold_locality_and_loso_guard,ensure training and validation pair construction respects LOSO split,validation pairs contain only the held-out subject and training pairs exclude it
+SMOKE_REQ_006,reproducibility_guard,ensure deterministic seed/rule reproducibility,same counts and thresholds are reproduced across repeated construction

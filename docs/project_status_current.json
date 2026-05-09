@@ -8035,7 +8035,7 @@
     "next_step": "human_review_closeout_of_supcon_dg_failure_analysis",
     "updated_at_utc": "2026-05-08T09:59:59+00:00"
   },
-  "last_updated_utc": "2026-05-09T07:46:36+00:00",
+  "last_updated_utc": "2026-05-09T07:55:48+00:00",
   "idare_protocol_events": [
     {
       "timestamp_utc": "2026-05-08T10:06:00+00:00",
@@ -9358,18 +9358,54 @@
         "final LOSO claim",
         "executing redesigned sampling matrix before smoke-test objective"
       ]
+    },
+    {
+      "timestamp_utc": "2026-05-09T07:55:48+00:00",
+      "type": "review_closeout",
+      "name": "I-DARE alternative pairwise target/sampling rethink spec review",
+      "status": "human review accepted; selected rule=margin_thresholded_within_subject_pairwise_preference_v1",
+      "evidence": "docs/idare_label_semantics_alternative_pairwise_target_sampling_rethink_spec_review_status.md",
+      "next_allowed_step": "Create/use smoke-tests objective.",
+      "blocked": [
+        "training beyond smoke/audit construction",
+        "model fitting",
+        "feature/model search",
+        "broad hyperparameter search",
+        "direct full SupCon/DG training",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "first-pass execution before smoke tests pass and are reviewed"
+      ]
+    },
+    {
+      "timestamp_utc": "2026-05-09T07:55:48+00:00",
+      "type": "objective",
+      "name": "I-DARE alternative pairwise target/sampling rethink smoke-tests objective",
+      "status": "objective created; smoke-test only; no training authorized",
+      "evidence": "docs/idare_label_semantics_alternative_pairwise_target_sampling_rethink_smoke_tests_objective.md",
+      "next_allowed_step": "prepare_reviewed_label_semantics_alternative_pairwise_target_sampling_rethink_smoke_tests_command",
+      "blocked": [
+        "training beyond smoke/audit construction",
+        "model fitting",
+        "feature/model search",
+        "broad hyperparameter search",
+        "direct full SupCon/DG training",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "first-pass execution before smoke tests pass and are reviewed"
+      ]
     }
   ],
-  "current_idare_next_allowed_step": "human_review_then_label_semantics_alternative_pairwise_target_sampling_rethink_smoke_tests_objective",
+  "current_idare_next_allowed_step": "prepare_reviewed_label_semantics_alternative_pairwise_target_sampling_rethink_smoke_tests_command",
   "current_idare_blocked_steps": [
-    "training or rerun",
+    "training beyond smoke/audit construction",
     "model fitting",
     "feature/model search",
     "broad hyperparameter search",
     "direct full SupCon/DG training",
     "EEG+EMG fusion",
     "final LOSO claim",
-    "executing redesigned sampling matrix before smoke-test objective"
+    "first-pass execution before smoke tests pass and are reviewed"
   ],
   "idare_historical_script_backfill_objective": {
     "status": "objective_created_no_backfill_copy_yet",
@@ -9410,5 +9446,6 @@
   "current_idare_pairwise_target_sampling_audit_objective_status": "objective_created",
   "current_idare_pairwise_target_sampling_audit_report_status": "complete_pending_human_review; diagnosis=alternative_pairwise_target_sampling_audit_possible_sampling_artifact",
   "current_idare_target_sampling_rethink_spec_objective_status": "objective_created",
-  "current_idare_target_sampling_rethink_spec_status": "complete_pending_human_review"
+  "current_idare_target_sampling_rethink_spec_status": "complete_pending_human_review",
+  "current_idare_target_sampling_rethink_smoke_tests_objective_status": "objective_created"
 }

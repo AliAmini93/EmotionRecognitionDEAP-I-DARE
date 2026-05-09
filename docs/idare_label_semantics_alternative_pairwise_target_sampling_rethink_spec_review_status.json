@@ -1,0 +1,24 @@
+{
+  "status": "human_review_accepted",
+  "created_utc": "2026-05-09T07:55:48+00:00",
+  "reviewed_spec": "docs/idare_label_semantics_alternative_pairwise_target_sampling_rethink_spec.md",
+  "accepted_diagnosis": "target_sampling_rethink_spec_complete",
+  "accepted_decision": "select_margin_thresholded_within_subject_pairwise_preference_for_smoke_test_design",
+  "accepted_selected_candidate_id": "TS_A_margin_thresholded_pairs",
+  "accepted_selected_rule_id": "margin_thresholded_within_subject_pairwise_preference_v1",
+  "accepted_recommended_next_objective": "label_semantics_alternative_pairwise_target_sampling_rethink_smoke_tests_objective",
+  "training_authorized": false,
+  "rerun_authorized": false,
+  "smoke_tests_authorized": true,
+  "next_allowed_step": "create_target_sampling_rethink_smoke_tests_objective",
+  "blocked": [
+    "training beyond smoke/audit construction",
+    "model fitting",
+    "feature/model search",
+    "broad hyperparameter search",
+    "direct full SupCon/DG training",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "first-pass execution before smoke tests pass and are reviewed"
+  ]
+}

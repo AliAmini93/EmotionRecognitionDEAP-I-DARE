@@ -1,0 +1,7 @@
+branch,next_step,training_authorized_now
+all_smoke_tests_pass,create reviewed target-sampling rethink minimal first-pass objective,False
+threshold_leakage_detected,stop/archive target-sampling rethink,False
+insufficient_pairs_after_filter,stop/archive target-sampling rethink,False
+class_balance_still_fails,stop/archive target-sampling rethink or revise spec only,False
+fold_locality_fails,stop/archive target-sampling rethink,False
+user_requests_first_pass_now,blocked until smoke tests pass and are reviewed,False

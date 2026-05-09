@@ -1,0 +1,8 @@
+guardrail_id,rule,enforced_value
+G1,smoke tests may construct/audit pairs but must not train models,training_authorized=false
+G2,margin thresholds must be fold-local and train-only,no validation labels for threshold selection
+G3,pair construction must remain within-subject,zero cross-subject pairs
+G4,direction balancing must be deterministic,fixed rule and seed 20260509
+G5,do not expand to feature or model search,selected sampling rule only
+G6,"SupCon/DG, fusion, and final LOSO claims remain blocked",not authorized
+G7,future first-pass can only be objective-created after smoke review,first-pass blocked until smoke pass and review

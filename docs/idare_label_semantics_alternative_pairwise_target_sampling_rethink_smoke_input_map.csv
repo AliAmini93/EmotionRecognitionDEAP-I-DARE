@@ -1,0 +1,8 @@
+input_id,path,role,required
+IN_001,docs/idare_label_semantics_alternative_pairwise_target_sampling_rethink_spec.json,accepted target/sampling rethink spec,True
+IN_002,docs/idare_label_semantics_alternative_pairwise_target_sampling_rethink_selected_rule.csv,selected sampling rule,True
+IN_003,docs/idare_label_semantics_alternative_pairwise_target_sampling_rethink_smoke_plan.csv,seed smoke plan,True
+IN_004,.cache/idare_eeg_cache_index_baseline_corrected.csv,EEG metadata / labels / subjects,True
+IN_005,.cache/idare_emg_feature_cache_index.csv,EMG metadata cross-check only,True
+IN_006,docs/idare_label_semantics_alternative_formulation_pair_target_audit.csv,previous pair target audit baseline,True
+IN_007,docs/idare_label_semantics_alternative_pairwise_target_sampling_audit_report.json,accepted sampling artifact audit,True
