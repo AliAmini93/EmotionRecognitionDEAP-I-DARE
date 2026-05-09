@@ -726,3 +726,15 @@ Updated: `2026-05-09T00:47:54+00:00`
 - Future run matrix rows: `96`; not authorized for training yet.
 - Recommended next objective is `label_semantics_alternative_pairwise_feature_representation_patch_smoke_tests_objective` only after human review.
 
+## I-DARE Alternative Pairwise Feature-Representation Patch Smoke Tests Objective
+
+Updated: `2026-05-09T00:52:45+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE alternative pairwise feature patch spec review | human review accepted; selected `PATCH_A_eeg_arousal_bandpower_temporal_stats_v1` | `docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_spec_review_status.md` | Create/use smoke-test objective. | patch training; broad search; SupCon/DG; fusion; final claim |
+| I-DARE alternative pairwise feature patch smoke-tests objective | objective created; smoke-test only; no training authorized | `docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_smoke_tests_objective.md` | Prepare reviewed smoke-test command/script. | patch training before smoke-test review; broad search; SupCon/DG; fusion; final claim |
+
+- Smoke-test scope: feature extraction, fold-locality, pair target construction, and matrix guard only.
+- Frozen formulation remains `within_subject_pairwise_affect_preference_ranking_v1`.
+

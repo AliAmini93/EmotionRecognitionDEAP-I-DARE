@@ -1,0 +1,32 @@
+{
+  "status": "objective_created",
+  "created_utc": "2026-05-09T00:52:45+00:00",
+  "source_review": "docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_spec_review_status.md",
+  "source_spec": "docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_spec.md",
+  "accepted_spec_diagnosis": "feature_representation_patch_spec_complete",
+  "selected_primary_patch": "PATCH_A_eeg_arousal_bandpower_temporal_stats_v1",
+  "selected_formulation": "within_subject_pairwise_affect_preference_ranking_v1",
+  "authorized_scope": "smoke-test feature extraction, leakage guards, pair target audit, and matrix validation only",
+  "smoke_tests_authorized": true,
+  "training_authorized": false,
+  "patch_first_pass_authorized": false,
+  "model_search_authorized": false,
+  "supcon_dg_authorized": false,
+  "fusion_authorized": false,
+  "final_loso_claim_authorized": false,
+  "run_matrix_rows_to_audit": 96,
+  "smoke_requirements": "docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_smoke_requirements.csv",
+  "feature_guardrails": "docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_smoke_feature_guardrails.csv",
+  "input_map": "docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_smoke_input_map.csv",
+  "expected_outputs": "docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_smoke_expected_outputs.csv",
+  "decision_tree": "docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_smoke_decision_tree.csv",
+  "next_allowed_step": "prepare_reviewed_label_semantics_alternative_pairwise_feature_representation_patch_smoke_tests_command",
+  "blocked": [
+    "patch model training before smoke-test review",
+    "broad hyperparameter search",
+    "direct full SupCon/DG training",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "changing label formulation during this patch branch"
+  ]
+}

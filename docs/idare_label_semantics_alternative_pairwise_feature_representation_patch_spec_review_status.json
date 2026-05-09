@@ -1,0 +1,21 @@
+{
+  "status": "human_review_accepted",
+  "created_utc": "2026-05-09T00:52:45+00:00",
+  "reviewed_spec": "docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_spec.md",
+  "accepted_diagnosis": "feature_representation_patch_spec_complete",
+  "accepted_decision": "select_narrow_eeg_arousal_bandpower_temporal_stats_patch_for_smoke_test_design",
+  "accepted_selected_primary_patch": "PATCH_A_eeg_arousal_bandpower_temporal_stats_v1",
+  "accepted_selected_formulation": "within_subject_pairwise_affect_preference_ranking_v1",
+  "accepted_run_matrix_rows": 96,
+  "smoke_tests_objective_authorized_by_this_review": true,
+  "training_authorized_by_this_review": false,
+  "next_allowed_step": "prepare_reviewed_label_semantics_alternative_pairwise_feature_representation_patch_smoke_tests_command",
+  "blocked": [
+    "patch model training before smoke-test review",
+    "broad hyperparameter search",
+    "direct full SupCon/DG training",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "changing label formulation during this patch branch"
+  ]
+}

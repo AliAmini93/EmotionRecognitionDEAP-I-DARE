@@ -1,0 +1,8 @@
+guardrail_id,guardrail,implementation_check
+FG1,No learned model fitting during smoke tests,script must not call fit/predict for learned classifiers
+FG2,Fold-local transform fit only,scaler/stat extraction learned parameters are fit on train split only
+FG3,No cross-subject pairs,pair audit confirms each pair has same subject and heldout-fold separation
+FG4,No EEG+EMG fusion,modality column fixed to EEG for patch smoke
+FG5,No label formulation change,formulation fixed to within_subject_pairwise_affect_preference_ranking_v1
+FG6,No broad feature family expansion,feature_set_id limited to four spec-defined feature sets
+FG7,No final claim,report status remains smoke-test only / pending review

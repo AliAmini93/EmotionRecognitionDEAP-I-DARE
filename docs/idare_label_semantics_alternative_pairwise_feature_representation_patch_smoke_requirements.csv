@@ -1,0 +1,7 @@
+requirement_id,requirement,pass_condition,failure_action
+SMOKE_001,Verify EEG cache/index row alignment against windows array shape,index rows equal window count and required label/subject/video/fold fields are available,stop and write cache-alignment failure report
+SMOKE_002,Build all four feature sets without NaN/Inf,finite feature matrices for every feature_set_id in the spec,stop and write feature-extraction failure report
+SMOKE_003,Verify pairwise target construction for EEG/arousal only,"within-subject pairs exist, balanced direction targets are possible, no cross-subject pair leakage",stop and revise pair construction before training
+SMOKE_004,Verify fold-local transforms only,any scaler/statistic fit is train-fold only and applied to validation fold without validation fitting,stop and invalidate smoke run
+SMOKE_005,Validate frozen 96-row matrix coverage,rows match spec matrix; no extra model/modality/task/formulation cells,stop and correct matrix before future run
+SMOKE_006,Validate no training metrics are produced by smoke test,smoke outputs are audits only; no model fit/prediction CSV from learned patch models,stop and treat as protocol violation

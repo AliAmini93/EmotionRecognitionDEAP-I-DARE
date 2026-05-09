@@ -8035,7 +8035,7 @@
     "next_step": "human_review_closeout_of_supcon_dg_failure_analysis",
     "updated_at_utc": "2026-05-08T09:59:59+00:00"
   },
-  "last_updated_utc": "2026-05-09T00:47:54+00:00",
+  "last_updated_utc": "2026-05-09T00:52:45+00:00",
   "idare_protocol_events": [
     {
       "timestamp_utc": "2026-05-08T10:06:00+00:00",
@@ -9050,11 +9050,43 @@
         "final LOSO claim",
         "changing label formulation during this patch branch"
       ]
+    },
+    {
+      "timestamp_utc": "2026-05-09T00:52:45+00:00",
+      "type": "review_closeout",
+      "name": "I-DARE alternative pairwise feature patch spec review",
+      "status": "human review accepted; smoke-test objective authorized",
+      "evidence": "docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_spec_review_status.md",
+      "next_allowed_step": "Create/use feature patch smoke-test objective.",
+      "blocked": [
+        "patch model training before smoke-test review",
+        "broad hyperparameter search",
+        "direct full SupCon/DG training",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "changing label formulation during this patch branch"
+      ]
+    },
+    {
+      "timestamp_utc": "2026-05-09T00:52:45+00:00",
+      "type": "objective",
+      "name": "I-DARE alternative pairwise feature patch smoke-tests objective",
+      "status": "objective created; smoke-test only; no training authorized",
+      "evidence": "docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_smoke_tests_objective.md",
+      "next_allowed_step": "prepare_reviewed_label_semantics_alternative_pairwise_feature_representation_patch_smoke_tests_command",
+      "blocked": [
+        "patch model training before smoke-test review",
+        "broad hyperparameter search",
+        "direct full SupCon/DG training",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "changing label formulation during this patch branch"
+      ]
     }
   ],
-  "current_idare_next_allowed_step": "create_reviewed_feature_representation_patch_smoke_tests_objective_after_human_review",
+  "current_idare_next_allowed_step": "prepare_reviewed_label_semantics_alternative_pairwise_feature_representation_patch_smoke_tests_command",
   "current_idare_blocked_steps": [
-    "running patch training before smoke-test objective and review",
+    "patch model training before smoke-test review",
     "broad hyperparameter search",
     "direct full SupCon/DG training",
     "EEG+EMG fusion",
@@ -9088,5 +9120,6 @@
   "current_idare_pairwise_debug_objective_status": "objective_created",
   "current_idare_pairwise_metric_debug_diagnosis": "alternative_pairwise_metric_debug_weak_but_consistent_signal",
   "current_idare_pairwise_feature_patch_objective_status": "objective_created",
-  "current_idare_pairwise_feature_patch_spec_status": "complete_pending_human_review"
+  "current_idare_pairwise_feature_patch_spec_status": "complete_pending_human_review",
+  "current_idare_pairwise_feature_patch_smoke_objective_status": "objective_created"
 }

@@ -1,0 +1,6 @@
+decision_id,condition,decision,future_objective
+D1,all smoke requirements pass,create reviewed narrow patch first-pass run objective,label_semantics_alternative_pairwise_feature_representation_patch_first_pass_objective
+D2,feature extraction fails for primary patch but control features pass,create narrow feature extraction fix objective,label_semantics_alternative_pairwise_feature_representation_patch_fix_objective
+D3,fold-locality/leakage guard fails,stop and fix leakage before any future training,label_semantics_alternative_pairwise_feature_representation_patch_leakage_fix_objective
+D4,pair target construction fails,stop and revise pair construction or archive patch branch,label_semantics_alternative_pairwise_patch_pair_target_fix_or_archive_objective
+D5,smoke passes but matrix scope expanded beyond spec,reject expanded scope; regenerate objective/spec,new_reviewed_scope_objective_required
