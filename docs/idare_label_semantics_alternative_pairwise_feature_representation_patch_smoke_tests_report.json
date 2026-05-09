@@ -1,0 +1,45 @@
+{
+  "status": "complete_pending_human_review",
+  "created_utc": "2026-05-09T00:58:08+00:00",
+  "source_objective": "docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_smoke_tests_objective.json",
+  "source_spec": "docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_spec.json",
+  "diagnosis": "feature_representation_patch_smoke_tests_passed",
+  "all_passed": true,
+  "training_authorized": false,
+  "patch_first_pass_authorized": false,
+  "model_search_authorized": false,
+  "supcon_dg_authorized": false,
+  "fusion_authorized": false,
+  "final_loso_claim_authorized": false,
+  "selected_primary_patch": "PATCH_A_eeg_arousal_bandpower_temporal_stats_v1",
+  "selected_formulation": "within_subject_pairwise_affect_preference_ranking_v1",
+  "cache_index_rows": 2016,
+  "windows_shape": [
+    2016,
+    32,
+    640
+  ],
+  "subject_col": "subject_id",
+  "trial_col": "__row_id__",
+  "arousal_col": "arousal_score",
+  "feature_shape_rows": 4,
+  "non_tie_within_subject_pairs": 26096,
+  "run_matrix_rows": 96,
+  "recommended_next_objective": "label_semantics_alternative_pairwise_feature_representation_patch_first_pass_objective",
+  "next_allowed_step": "human_review_closeout_then_create_feature_patch_first_pass_objective",
+  "outputs": {
+    "feature_shape_audit": "docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_feature_shape_audit.csv",
+    "pair_target_audit": "docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_pair_target_audit.csv",
+    "fold_locality_audit": "docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_fold_locality_audit.csv",
+    "matrix_guard_audit": "docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_matrix_guard_audit.csv",
+    "smoke_decision_matrix": "docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_smoke_decision_matrix.csv"
+  },
+  "blocked": [
+    "patch first-pass training before smoke-test review",
+    "broad hyperparameter search",
+    "direct full SupCon/DG training",
+    "EEG+EMG fusion",
+    "final LOSO claim",
+    "changing label formulation during this patch branch"
+  ]
+}

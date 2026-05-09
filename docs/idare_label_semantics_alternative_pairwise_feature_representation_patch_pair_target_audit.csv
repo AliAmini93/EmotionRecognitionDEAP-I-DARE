@@ -1,0 +1,2 @@
+task,subject_col,trial_col,label_col,n_index_rows,n_subjects,total_within_subject_pairs_including_ties,non_tie_within_subject_pairs,canonical_positive_pairs,canonical_positive_rate,subjects_with_non_tie_pairs,same_subject_only_by_construction,pass
+arousal,subject_id,__row_id__,arousal_score,2016,63,31248,26096,14534,0.5569435928877989,63,True,True

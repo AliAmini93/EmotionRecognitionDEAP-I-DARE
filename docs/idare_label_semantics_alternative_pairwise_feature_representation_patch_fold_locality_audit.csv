@@ -1,0 +1,7 @@
+fold,n_train_rows,n_val_rows,n_train_subjects,n_val_subjects,subject_overlap_count,scaler_fit_scope,pass
+1,1664,352,52,11,0,train_fold_only_required_for_future_run,True
+2,1664,352,52,11,0,train_fold_only_required_for_future_run,True
+3,1664,352,52,11,0,train_fold_only_required_for_future_run,True
+4,1696,320,53,10,0,train_fold_only_required_for_future_run,True
+5,1696,320,53,10,0,train_fold_only_required_for_future_run,True
+6,1696,320,53,10,0,train_fold_only_required_for_future_run,True

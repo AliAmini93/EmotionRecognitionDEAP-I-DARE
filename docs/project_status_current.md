@@ -738,3 +738,15 @@ Updated: `2026-05-09T00:52:45+00:00`
 - Smoke-test scope: feature extraction, fold-locality, pair target construction, and matrix guard only.
 - Frozen formulation remains `within_subject_pairwise_affect_preference_ranking_v1`.
 
+## I-DARE Alternative Pairwise Feature-Representation Patch Smoke Tests Report
+
+Updated: `2026-05-09T00:58:08+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE alternative pairwise feature patch smoke tests | complete pending human review; diagnosis=`feature_representation_patch_smoke_tests_passed` | `docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_smoke_tests_report.md` | `human_review_closeout_then_create_feature_patch_first_pass_objective` | patch first-pass training before review; broad search; SupCon/DG; fusion; final claim |
+
+- All smoke tests passed: `True`.
+- No learned patch model training was run.
+- Recommended next objective: `label_semantics_alternative_pairwise_feature_representation_patch_first_pass_objective` only after human review.
+

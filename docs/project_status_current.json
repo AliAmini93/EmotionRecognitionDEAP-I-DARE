@@ -8035,7 +8035,7 @@
     "next_step": "human_review_closeout_of_supcon_dg_failure_analysis",
     "updated_at_utc": "2026-05-08T09:59:59+00:00"
   },
-  "last_updated_utc": "2026-05-09T00:52:45+00:00",
+  "last_updated_utc": "2026-05-09T00:58:08+00:00",
   "idare_protocol_events": [
     {
       "timestamp_utc": "2026-05-08T10:06:00+00:00",
@@ -9082,11 +9082,27 @@
         "final LOSO claim",
         "changing label formulation during this patch branch"
       ]
+    },
+    {
+      "timestamp_utc": "2026-05-09T00:58:08+00:00",
+      "type": "smoke_test_report",
+      "name": "I-DARE alternative pairwise feature-representation patch smoke tests",
+      "status": "complete pending human review; diagnosis=feature_representation_patch_smoke_tests_passed",
+      "evidence": "docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_smoke_tests_report.md",
+      "recommended_next_objective": "label_semantics_alternative_pairwise_feature_representation_patch_first_pass_objective",
+      "blocked": [
+        "patch first-pass training before smoke-test review",
+        "broad hyperparameter search",
+        "direct full SupCon/DG training",
+        "EEG+EMG fusion",
+        "final LOSO claim",
+        "changing label formulation during this patch branch"
+      ]
     }
   ],
-  "current_idare_next_allowed_step": "prepare_reviewed_label_semantics_alternative_pairwise_feature_representation_patch_smoke_tests_command",
+  "current_idare_next_allowed_step": "human_review_closeout_then_create_feature_patch_first_pass_objective",
   "current_idare_blocked_steps": [
-    "patch model training before smoke-test review",
+    "patch first-pass training before smoke-test review",
     "broad hyperparameter search",
     "direct full SupCon/DG training",
     "EEG+EMG fusion",
@@ -9121,5 +9137,6 @@
   "current_idare_pairwise_metric_debug_diagnosis": "alternative_pairwise_metric_debug_weak_but_consistent_signal",
   "current_idare_pairwise_feature_patch_objective_status": "objective_created",
   "current_idare_pairwise_feature_patch_spec_status": "complete_pending_human_review",
-  "current_idare_pairwise_feature_patch_smoke_objective_status": "objective_created"
+  "current_idare_pairwise_feature_patch_smoke_objective_status": "objective_created",
+  "current_idare_pairwise_feature_patch_smoke_status": "complete_pending_human_review; diagnosis=feature_representation_patch_smoke_tests_passed"
 }

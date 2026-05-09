@@ -1,0 +1,5 @@
+feature_set_id,expected_in_spec,window_rows,n_features,finite_fraction,finite_count,total_values,min,max,mean_abs,pass
+current_summary_diff_control,True,2016,128,1.0,258048,258048,-5.505741119384766,5.655533790588379,0.5952671766281128,True
+robust_scaled_current_summary_diff_control,True,2016,128,1.0,258048,258048,-5.505741119384766,5.655533790588379,0.5952671766281128,True
+bandpower_only_control_v1,True,2016,128,1.0,258048,258048,0.011194891296327114,86715.921875,537.7367553710938,True
+bandpower_temporal_stats_v1,True,2016,256,1.0,516096,516096,-5.505741119384766,86715.921875,269.1659851074219,True
