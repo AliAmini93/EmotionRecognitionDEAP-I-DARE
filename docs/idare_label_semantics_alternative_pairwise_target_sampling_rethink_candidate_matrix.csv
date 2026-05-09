@@ -1,0 +1,5 @@
+candidate_id,description,targets_artifact,expected_effect,training_authorized,status
+TS_A_margin_thresholded_pairs,keep within-subject pairwise preference but require a larger affect-label margin before a pair is eligible,class-balance and ambiguous-near-tie contamination,fewer but cleaner non-tie pairs,False,candidate_for_spec_only_design
+TS_B_fold_balanced_pair_subsampling,define deterministic fold-local pair subsampling caps/quotas to reduce pair-count imbalance,uneven fold/task pair availability,more comparable validation difficulty across folds,False,candidate_for_spec_only_design
+TS_C_subject_balanced_pair_quota,define per-subject pair quotas so a few high-pair subjects cannot dominate,subject concentration,less subject-dominated pair distribution,False,candidate_for_spec_only_design
+TS_D_archive_pairwise_line,archive/pause pairwise line if no safe sampling rethink is scientifically justified,no-action option,avoid repeated weak-signal branches,False,candidate_stop_option

@@ -1,0 +1,6 @@
+branch,next_step,training_authorized
+margin_thresholded_pairs_selected,write target/sampling rethink spec with margin thresholds and smoke plan,False
+fold_balanced_subsampling_selected,write deterministic fold-balanced sampling spec and smoke plan,False
+subject_quota_selected,write subject-balanced quota spec and smoke plan,False
+no_candidate_safe,pause/archive pairwise line after review,False
+user_requests_training,blocked until a later reviewed smoke-test and first-pass objective,False

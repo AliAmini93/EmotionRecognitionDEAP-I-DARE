@@ -1,0 +1,7 @@
+guardrail_id,rule,enforced_value
+G1,"no training, rerun, or model fitting",false for all execution permissions
+G2,no feature/model search,only target/sampling spec decisions
+G3,future spec must produce smoke-test objective before execution,smoke-first workflow
+G4,fold locality must be explicit,no cross-fold pair leakage
+G5,sampling rules must be deterministic and auditable,fixed seed/rules if future matrix is created
+G6,SupCon/DG/fusion/final claim remain blocked,not authorized

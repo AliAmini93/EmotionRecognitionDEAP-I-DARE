@@ -847,3 +847,15 @@ Updated: `2026-05-09T07:34:24+00:00`
 - Decision reason: Read-only audit found a possible sampling/target artifact that could explain weak pairwise signal.
 - Actionable sampling issue found: `true`.
 
+## I-DARE Alternative Pairwise Target/Sampling Rethink Spec Objective
+
+Updated: `2026-05-09T07:41:38+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE alternative pairwise target/sampling audit review | human review accepted; actionable sampling artifact accepted | `docs/idare_label_semantics_alternative_pairwise_target_sampling_audit_report_review_status.md` | Create/use target/sampling rethink spec objective. | training; rerun; feature/model search; SupCon/DG; fusion; final claim |
+| I-DARE alternative pairwise target/sampling rethink spec objective | objective created; spec-only; no training authorized | `docs/idare_label_semantics_alternative_pairwise_target_sampling_rethink_spec_objective.md` | Prepare reviewed target/sampling rethink spec command/script. | training; rerun; execution; feature/model search; SupCon/DG; fusion; final claim |
+
+- Accepted audit diagnosis: `alternative_pairwise_target_sampling_audit_possible_sampling_artifact`.
+- This objective can only create a design/spec, not execute it.
+

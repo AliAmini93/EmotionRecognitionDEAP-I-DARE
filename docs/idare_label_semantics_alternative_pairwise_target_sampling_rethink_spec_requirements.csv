@@ -1,0 +1,7 @@
+requirement_id,requirement,why
+R1,"select exactly one of margin threshold, fold-balanced subsampling, subject quota, or archive/pause",avoid branching into broad target search
+R2,define non-tie/margin rule precisely if selected,the audit flagged target/sampling artifact risk
+R3,include fold-local leakage guard,pair construction must remain LOSO-safe
+R4,include class-balance and pair-count smoke tests,class-balance issue was accepted
+R5,do not authorize training,spec must be reviewed before smoke/execution objective
+R6,define archive criteria if spec cannot justify a safe sampling rethink,avoid repeated weak-signal loops

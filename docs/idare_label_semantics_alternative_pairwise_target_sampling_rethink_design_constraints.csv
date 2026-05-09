@@ -1,0 +1,6 @@
+constraint_id,constraint,rationale
+C1,spec-only; no training or rerun,audit was read-only and did not authorize execution
+C2,preserve within-subject pairwise formulation unless explicitly archived in report,"feature patch was archived, not the whole formulation"
+C3,any future sampling rule must be deterministic and fold-local,avoid leakage and reproducibility ambiguity
+C4,new spec must include smoke tests before first-pass training,catch target/sampling artifacts before execution
+C5,do not increase scope to model/feature search,weak signal does not justify broad search
