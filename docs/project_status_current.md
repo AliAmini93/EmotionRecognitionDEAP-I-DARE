@@ -812,3 +812,15 @@ Updated: `2026-05-09T01:26:43+00:00`
 - Feature patch branch is selected for archive as a negative result.
 - Entire pairwise formulation remains not archived by this objective.
 
+## I-DARE Alternative Pairwise Feature Patch Archive-Closeout Report
+
+Updated: `2026-05-09T01:30:55+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE alternative pairwise feature patch archive-closeout report | complete pending human review; diagnosis=`feature_patch_branch_archived_as_negative_result` | `docs/idare_label_semantics_alternative_pairwise_feature_patch_archive_closeout_report.md` | Human review closeout then optional target/sampling audit objective. | confirmation training; broad search; new feature patch search; SupCon/DG; fusion; final claim |
+
+- Archived as negative result: `PATCH_A_eeg_arousal_bandpower_temporal_stats_v1`.
+- Not archived by this closeout: broader pairwise formulation `within_subject_pairwise_affect_preference_ranking_v1`.
+- Recommended next objective after review: `label_semantics_alternative_pairwise_target_sampling_audit_objective`.
+

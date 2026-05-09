@@ -1,0 +1,5 @@
+status_id,component,archive_status,rationale
+STATUS_001,PATCH_A_eeg_arousal_bandpower_temporal_stats_v1,archived_as_negative_result,best mean balanced accuracy and fold thresholds did not justify confirmation
+STATUS_002,bandpower_temporal_stats_v1,best_cell_preserved,best cell ridge_classifier_pairwise_feature_patch; mean balanced accuracy 0.516756; delta vs majority 0.016756
+STATUS_003,within_subject_pairwise_affect_preference_ranking_v1,not_archived_by_this_closeout,feature patch closeout does not invalidate the entire pairwise formulation
+STATUS_004,future training/search,blocked,"no confirmation, broad search, SupCon/DG, fusion, or final LOSO claim authorized"

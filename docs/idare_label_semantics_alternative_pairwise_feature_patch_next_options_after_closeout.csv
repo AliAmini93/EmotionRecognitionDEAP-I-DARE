@@ -1,0 +1,5 @@
+rank,next_option,type,allowed_after_review,why
+1,label_semantics_alternative_pairwise_target_sampling_audit_objective,read_only_objective,True,audit whether target/pair construction diluted the weak pairwise signal without new training
+2,pause_pairwise_line_after_feature_patch_archive,pause,True,acceptable if no target/sampling audit is desired
+3,new_feature_patch_search,blocked,False,would become broad feature/model search after non-actionable evidence
+4,SupCon_DG_or_fusion,blocked,False,not supported by this branch and outside authorization
