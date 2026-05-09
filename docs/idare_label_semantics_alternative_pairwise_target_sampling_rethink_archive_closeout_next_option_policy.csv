@@ -1,0 +1,5 @@
+option_id,option,allowed_after_objective,recommended,notes,allowed_after_closeout_review
+NEXT_001,archive_closeout_report,True,True,complete closeout of TS_A margin-thresholded rule,
+NEXT_002,new_pairwise_target_design_spec,,False,optional future branch; not part of this closeout,True
+NEXT_003,first_pass_training,False,False,blocked for TS_A,
+NEXT_004,archive_broader_pairwise_formulation,False,False,requires separate branch-level closeout objective,

@@ -1,0 +1,5 @@
+scope_id,item,status,reason
+SCOPE_001,TS_A_margin_thresholded_pairs,archive,failed target/sampling rethink smoke tests due to validation direction imbalance
+SCOPE_002,margin_thresholded_within_subject_pairwise_preference_v1,archive,margin-thresholded pair rule should not proceed to first-pass execution
+SCOPE_003,within_subject_pairwise_affect_preference_ranking_v1,keep_open,broader pairwise formulation is not archived by the fix/archive report
+SCOPE_004,future target design,defer,only allowed after archive closeout and separate reviewed objective

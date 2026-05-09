@@ -1,0 +1,5 @@
+criterion_id,criterion,satisfied
+STOP_001,No first-pass training is allowed for TS_A margin-thresholded sampling.,True
+STOP_002,No validation-direction-aware sampling patch is allowed without a new target-design spec and smoke objective.,True
+STOP_003,Broader pairwise formulation is not closed by this archive closeout.,True
+STOP_004,Any future target design must be a new reviewed objective before execution.,True

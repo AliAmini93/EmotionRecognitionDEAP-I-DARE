@@ -908,3 +908,15 @@ Updated: `2026-05-09T08:15:52+00:00`
 - Archive TS_A margin-thresholded rule: `True`.
 - Broader pairwise formulation is not archived by this report.
 
+## I-DARE Alternative Pairwise Target/Sampling Rethink Archive-Closeout Objective
+
+Updated: `2026-05-09T08:22:30+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE alternative pairwise target/sampling rethink fix-or-archive review | human review accepted; archive TS_A | `docs/idare_label_semantics_alternative_pairwise_target_sampling_rethink_fix_or_archive_report_review_status.md` | Create/use archive-closeout objective. | training; rerun; model fitting; first-pass execution |
+| I-DARE alternative pairwise target/sampling rethink archive-closeout objective | objective created; archive-closeout only | `docs/idare_label_semantics_alternative_pairwise_target_sampling_rethink_archive_closeout_objective.md` | Prepare reviewed archive-closeout command/script. | training; rerun; model fitting; feature/model search; SupCon/DG; fusion; final claim |
+
+- TS_A margin-thresholded sampling will be closed as a negative smoke result.
+- The broader pairwise formulation is not archived by this objective.
+
