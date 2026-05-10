@@ -1,0 +1,6 @@
+decision_id,condition,observed,decision
+D001,pairwise branch has strong actionable signal,False,do not promote to solved branch
+D002,pairwise branch has weak but consistent signal,True,preserve as reference baseline
+D003,feature patch improves pairwise branch,False,keep feature patch archived
+D004,target/sampling rethink passes smoke tests,False,keep TS_A archived
+D005,open ablations remain unstructured,True,next objective must be systematic ablation/intervention roadmap

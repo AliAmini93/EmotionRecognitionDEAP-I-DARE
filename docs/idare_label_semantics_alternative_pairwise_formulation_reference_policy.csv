@@ -1,0 +1,5 @@
+policy_id,policy,meaning,applies_to
+P001,reference_baseline_only,branch may be used as comparator but not as solution claim,within_subject_pairwise_affect_preference_ranking_v1
+P002,no_rerun_without_new_objective,no direct rerun or hyperparameter search is authorized,all pairwise branch scripts/results
+P003,future_ablation_anchor,future ablations should compare to best weak pairwise baseline when relevant,systematic ablation roadmap
+P004,claim_blocked,no final LOSO or solved-accuracy claim can be made from this branch,within_subject_pairwise_affect_preference_ranking_v1

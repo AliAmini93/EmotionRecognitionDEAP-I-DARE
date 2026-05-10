@@ -1,0 +1,5 @@
+scope_id,item,action,allowed,rationale
+S001,within_subject_pairwise_affect_preference_ranking_v1,close current branch as reference-only baseline,True,best result is weak/non-actionable but useful as comparator
+S002,current_summary_diff_pairwise_baseline_outputs,preserve as reference artifacts,True,future ablations need a stable anchor
+S003,new training or first-pass rerun,not allowed,False,closeout is decision/documentation only
+S004,augmentation/SupCon/input ablations,not allowed in this objective,False,must be planned in systematic roadmap

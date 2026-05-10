@@ -1,0 +1,5 @@
+branch_id,branch,status,reason
+BR001,subject_relative_ordinal_affect_regression_v1,archived_prior_negative_result,weak rank signal plus metric conflict; not reopened here
+BR002,within_subject_pairwise_affect_preference_ranking_v1,closeout_objective_created_reference_only,weak but consistent signal; insufficient for claim; preserve as comparator
+BR003,PATCH_A_eeg_arousal_bandpower_temporal_stats_v1,archived_prior_negative_result,feature patch did not improve actionable signal
+BR004,TS_A_margin_thresholded_pairs,archived_prior_negative_smoke_result,validation direction imbalance smoke-test failure

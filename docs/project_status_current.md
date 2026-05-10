@@ -932,3 +932,15 @@ Updated: `2026-05-10T12:22:31+00:00`
 - Not archived: broader `within_subject_pairwise_affect_preference_ranking_v1` formulation.
 - Recommended next scientific step: systematic ablation/intervention roadmap objective.
 
+## I-DARE Alternative Pairwise Formulation Closeout Objective
+
+Updated: `2026-05-10T15:26:04+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| Broader within-subject pairwise formulation branch | closeout objective created; reference-only decision pending report | `docs/idare_label_semantics_alternative_pairwise_formulation_closeout_objective.md` | `prepare_reviewed_label_semantics_alternative_pairwise_formulation_closeout_report` | training; rerun; model fitting; first-pass execution; feature/model search; augmentation; SupCon/DG; fusion; final claim |
+
+- Branch under closeout: `within_subject_pairwise_affect_preference_ranking_v1`.
+- Best known weak baseline: `EEG` `arousal` `ridge_classifier_pairwise_summary_diff` with mean balanced accuracy `0.5216709095350218`.
+- Intended decision: close current pairwise branch as reference-only baseline before systematic ablation/intervention roadmap.
+

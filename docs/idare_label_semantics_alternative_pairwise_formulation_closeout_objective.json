@@ -1,0 +1,59 @@
+{
+  "status": "objective_created",
+  "created_utc": "2026-05-10T15:26:04+00:00",
+  "scientific_question": "Should the broader within-subject pairwise formulation remain active, or should the current branch be closed as a weak reference-only baseline before systematic ablation planning?",
+  "accepted_current_state": "weak_but_non_actionable_reference_baseline",
+  "selected_formulation": "within_subject_pairwise_affect_preference_ranking_v1",
+  "objective_decision_target": "close_current_broader_pairwise_branch_as_reference_only",
+  "best_known_cell": {
+    "modality": "EEG",
+    "task": "arousal",
+    "model": "ridge_classifier_pairwise_summary_diff",
+    "mean_balanced_accuracy": 0.5216709095350218,
+    "delta_vs_majority_baseline_bal_acc": 0.02167090953502182,
+    "subject_positive_lift_fraction": ""
+  },
+  "authorized_work": [
+    "Create read-only closeout report for current broader pairwise branch.",
+    "Preserve current weak pairwise result as reference-only baseline.",
+    "Block training/rerun/search until a reviewed objective exists.",
+    "Recommend systematic ablation/intervention roadmap as next step."
+  ],
+  "not_authorized": [
+    "Training or rerun.",
+    "Model fitting.",
+    "First-pass execution.",
+    "Feature/model/hyperparameter search.",
+    "Augmentation run.",
+    "SupCon/DG run.",
+    "EEG+EMG fusion.",
+    "Final LOSO claim."
+  ],
+  "training_authorized": false,
+  "rerun_authorized": false,
+  "model_fitting_authorized": false,
+  "first_pass_authorized": false,
+  "feature_search_authorized": false,
+  "model_search_authorized": false,
+  "augmentation_authorized": false,
+  "supcon_dg_authorized": false,
+  "fusion_authorized": false,
+  "final_loso_claim_authorized": false,
+  "input_files": {
+    "evidence_summary": "docs/idare_label_semantics_alternative_pairwise_formulation_closeout_evidence_summary.csv",
+    "branch_status": "docs/idare_label_semantics_alternative_pairwise_formulation_branch_status.csv",
+    "closeout_scope": "docs/idare_label_semantics_alternative_pairwise_formulation_closeout_scope.csv",
+    "decision_tree": "docs/idare_label_semantics_alternative_pairwise_formulation_closeout_decision_tree.csv",
+    "expected_outputs": "docs/idare_label_semantics_alternative_pairwise_formulation_closeout_expected_outputs.csv",
+    "reference_policy": "docs/idare_label_semantics_alternative_pairwise_formulation_reference_policy.csv"
+  },
+  "pass_criteria": [
+    "Closeout report states current broader pairwise branch is closed as reference-only baseline.",
+    "Report preserves weak pairwise baseline as comparator, not solved claim.",
+    "Report does not archive unrelated future ablation directions.",
+    "Report recommends systematic ablation/intervention roadmap.",
+    "All training/search/fusion/final-claim authorizations remain false."
+  ],
+  "next_allowed_step": "prepare_reviewed_label_semantics_alternative_pairwise_formulation_closeout_report",
+  "recommended_next_after_closeout": "idare_systematic_ablation_intervention_roadmap_objective"
+}

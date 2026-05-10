@@ -1,0 +1,10 @@
+{
+  "status": "human_review_accepted",
+  "created_utc": "2026-05-10T15:26:04+00:00",
+  "reviewed_report": "docs/idare_label_semantics_alternative_pairwise_target_sampling_rethink_archive_closeout_report.md",
+  "accepted_diagnosis": "target_sampling_rethink_rule_archived_as_negative_smoke_result",
+  "accepted_decision": "archive_closeout_complete_for_ts_a_margin_thresholded_pair_sampling_rule",
+  "archive_ts_a_margin_rule": true,
+  "archive_broader_pairwise_formulation": false,
+  "next_allowed_step": "create_broader_pairwise_formulation_closeout_objective"
+}

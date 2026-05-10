@@ -1,0 +1,7 @@
+evidence_id,branch,evidence,diagnosis,key_result,interpretation
+E001,within_subject_pairwise_affect_preference_ranking_v1,minimal first-pass,alternative_pairwise_minimal_first_pass_weak_mixed_signal,best=EEG arousal ridge_classifier_pairwise_summary_diff; mean_bal_acc=0.5216709095350218; delta_vs_majority=0.02167090953502182,weak signal exists but is below practical/actionable threshold
+E002,pairwise metric debug,metric-debug report,alternative_pairwise_metric_debug_weak_but_consistent_signal,subject_positive_lift_fraction=,"weak but somewhat consistent signal; preserve as reference, not solution"
+E003,PATCH_A_eeg_arousal_bandpower_temporal_stats_v1,feature patch closeout,feature_patch_branch_archived_as_negative_result,feature patch archived,simple bandpower/temporal patch did not rescue the pairwise formulation
+E004,target/sampling audit,read-only sampling audit,alternative_pairwise_target_sampling_audit_possible_sampling_artifact,possible sampling artifact detected,"target/sampling needs systematic ablation, not ad hoc continuation"
+E005,TS_A_margin_thresholded_pairs,smoke/fix/archive reports,target_sampling_rethink_margin_rule_should_be_archived,margin-thresholded rule archived before first-pass,new target/sampling rule failed guardrails before training
+E006,current broader pairwise branch,synthesis,weak_but_non_actionable_reference_baseline,close as reference-only baseline,do not spend more ad hoc iterations until systematic roadmap is defined
