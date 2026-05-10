@@ -1,0 +1,5 @@
+option_id,next_option,allowed_after_human_review,recommended,reason
+NEXT001,idare_systematic_ablation_intervention_roadmap_objective,True,True,all current pairwise sub-branches are closed or reference-only; next step should organize ablations and interventions
+NEXT002,input_definition_ablation_objective,True,False,important but should be included inside/after the systematic roadmap
+NEXT003,augmentation_feasibility_objective,True,False,promising but requires no-leakage guardrails and ablation priority order
+NEXT004,direct_training_or_search,False,False,blocked until a reviewed objective authorizes a specific run matrix

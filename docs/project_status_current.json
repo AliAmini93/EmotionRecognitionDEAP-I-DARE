@@ -8035,7 +8035,7 @@
     "next_step": "human_review_closeout_of_supcon_dg_failure_analysis",
     "updated_at_utc": "2026-05-08T09:59:59+00:00"
   },
-  "last_updated_utc": "2026-05-10T15:26:04+00:00",
+  "last_updated_utc": "2026-05-10T15:31:40+00:00",
   "idare_protocol_events": [
     {
       "timestamp_utc": "2026-05-08T10:06:00+00:00",
@@ -9535,9 +9535,28 @@
         "EEG+EMG fusion",
         "final LOSO claim"
       ]
+    },
+    {
+      "timestamp_utc": "2026-05-10T15:31:40+00:00",
+      "type": "closeout_report",
+      "name": "I-DARE alternative pairwise formulation closeout report",
+      "status": "complete pending human review; diagnosis=alternative_pairwise_formulation_closed_as_reference_only",
+      "evidence": "docs/idare_label_semantics_alternative_pairwise_formulation_closeout_report.md",
+      "recommended_next_objective": "idare_systematic_ablation_intervention_roadmap_objective",
+      "blocked": [
+        "training",
+        "rerun",
+        "model fitting",
+        "first-pass execution",
+        "feature/model search",
+        "augmentation run",
+        "SupCon/DG run",
+        "EEG+EMG fusion",
+        "final LOSO claim"
+      ]
     }
   ],
-  "current_idare_next_allowed_step": "prepare_reviewed_label_semantics_alternative_pairwise_formulation_closeout_report",
+  "current_idare_next_allowed_step": "human_review_then_idare_systematic_ablation_intervention_roadmap_objective",
   "current_idare_blocked_steps": [
     "training",
     "rerun",
@@ -9595,5 +9614,17 @@
   "current_idare_target_sampling_rethink_fix_or_archive_status": "complete_pending_human_review",
   "current_idare_target_sampling_rethink_archive_closeout_objective_status": "objective_created",
   "current_idare_target_sampling_rethink_archive_closeout_status": "complete_pending_human_review",
-  "current_idare_broader_pairwise_status": "closeout_objective_created_reference_only_pending_report"
+  "current_idare_broader_pairwise_status": "closed_reference_only_pending_human_review",
+  "current_idare_reference_baseline": {
+    "formulation": "within_subject_pairwise_affect_preference_ranking_v1",
+    "best_known_cell": {
+      "modality": "EEG",
+      "task": "arousal",
+      "model": "ridge_classifier_pairwise_summary_diff",
+      "mean_balanced_accuracy": 0.5216709095350218,
+      "delta_vs_majority_baseline_bal_acc": 0.02167090953502182,
+      "subject_positive_lift_fraction": ""
+    },
+    "status": "closed_reference_only_baseline"
+  }
 }

@@ -944,3 +944,15 @@ Updated: `2026-05-10T15:26:04+00:00`
 - Best known weak baseline: `EEG` `arousal` `ridge_classifier_pairwise_summary_diff` with mean balanced accuracy `0.5216709095350218`.
 - Intended decision: close current pairwise branch as reference-only baseline before systematic ablation/intervention roadmap.
 
+## I-DARE Alternative Pairwise Formulation Closeout Report
+
+Updated: `2026-05-10T15:31:40+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| Broader within-subject pairwise formulation branch | closed as reference-only baseline; pending human review | `docs/idare_label_semantics_alternative_pairwise_formulation_closeout_report.md` | Human review then `idare_systematic_ablation_intervention_roadmap_objective` | training; rerun; model fitting; first-pass execution; feature/model search; augmentation; SupCon/DG; fusion; final claim |
+
+- Closed active branch: `within_subject_pairwise_affect_preference_ranking_v1`.
+- Preserved reference baseline: `EEG` `arousal` `ridge_classifier_pairwise_summary_diff` with mean balanced accuracy `0.5216709095350218`.
+- Next recommended scientific step: systematic ablation/intervention roadmap.
+

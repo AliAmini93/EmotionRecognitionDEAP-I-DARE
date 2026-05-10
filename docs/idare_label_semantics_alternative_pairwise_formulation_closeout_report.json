@@ -1,0 +1,43 @@
+{
+  "status": "complete_pending_human_review",
+  "created_utc": "2026-05-10T15:31:40+00:00",
+  "source_objective": "docs/idare_label_semantics_alternative_pairwise_formulation_closeout_objective.md",
+  "diagnosis": "alternative_pairwise_formulation_closed_as_reference_only",
+  "decision": "close_current_within_subject_pairwise_branch_as_weak_reference_baseline",
+  "recommendation": "proceed_to_systematic_ablation_intervention_roadmap_after_review",
+  "recommended_next_objective": "idare_systematic_ablation_intervention_roadmap_objective",
+  "selected_formulation": "within_subject_pairwise_affect_preference_ranking_v1",
+  "branch_closed_as_reference_only": true,
+  "archive_broader_pairwise_formulation_as_invalid": false,
+  "reference_baseline_preserved": true,
+  "best_known_cell": {
+    "modality": "EEG",
+    "task": "arousal",
+    "model": "ridge_classifier_pairwise_summary_diff",
+    "mean_balanced_accuracy": 0.5216709095350218,
+    "delta_vs_majority_baseline_bal_acc": 0.02167090953502182,
+    "subject_positive_lift_fraction": ""
+  },
+  "training_authorized": false,
+  "rerun_authorized": false,
+  "model_fitting_authorized": false,
+  "first_pass_authorized": false,
+  "feature_search_authorized": false,
+  "model_search_authorized": false,
+  "augmentation_authorized": false,
+  "supcon_dg_authorized": false,
+  "fusion_authorized": false,
+  "final_loso_claim_authorized": false,
+  "summary": {
+    "evidence_rows": 6,
+    "branch_status_rows": 4,
+    "archive_manifest_rows": 8,
+    "reference_status_rows": 3,
+    "next_options_rows": 4
+  },
+  "outputs": {
+    "archive_manifest": "docs/idare_label_semantics_alternative_pairwise_formulation_archive_manifest.csv",
+    "reference_baseline_status": "docs/idare_label_semantics_alternative_pairwise_formulation_reference_baseline_status.csv",
+    "next_options_after_closeout": "docs/idare_label_semantics_alternative_pairwise_formulation_next_options_after_closeout.csv"
+  }
+}
