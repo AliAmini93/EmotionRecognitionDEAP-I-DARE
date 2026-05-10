@@ -1,0 +1,5 @@
+option_id,next_option,allowed_after_human_review,recommended,reason
+NEXT_001,idare_systematic_ablation_intervention_roadmap_objective,True,True,"before trying augmentation/SupCon/new sampling, consolidate open ablations and diagnosis rules"
+NEXT_002,new_pairwise_target_design_spec,True,False,"should be subordinate to the systematic roadmap, not launched ad hoc"
+NEXT_003,augmentation_feasibility_objective,True,False,"promising, but should be placed in ablation roadmap with leakage guardrails first"
+NEXT_004,training_or_first_pass_now,False,False,blocked until a reviewed objective authorizes it

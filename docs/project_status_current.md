@@ -920,3 +920,15 @@ Updated: `2026-05-09T08:22:30+00:00`
 - TS_A margin-thresholded sampling will be closed as a negative smoke result.
 - The broader pairwise formulation is not archived by this objective.
 
+## I-DARE Alternative Pairwise Target/Sampling Rethink Archive-Closeout Report
+
+Updated: `2026-05-10T12:22:31+00:00`
+
+| Item | Status | Evidence | Next allowed step | Blocked |
+|---|---|---|---|---|
+| I-DARE target/sampling rethink archive closeout | complete pending human review; TS_A archived as negative smoke result | `docs/idare_label_semantics_alternative_pairwise_target_sampling_rethink_archive_closeout_report.md` | Human review then `idare_systematic_ablation_intervention_roadmap_objective`. | training; rerun; model fitting; first-pass execution; feature/model search; SupCon/DG; fusion; final claim |
+
+- Archived: `TS_A_margin_thresholded_pairs` / `margin_thresholded_within_subject_pairwise_preference_v1`.
+- Not archived: broader `within_subject_pairwise_affect_preference_ranking_v1` formulation.
+- Recommended next scientific step: systematic ablation/intervention roadmap objective.
+

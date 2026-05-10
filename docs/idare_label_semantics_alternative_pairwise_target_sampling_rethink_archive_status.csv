@@ -1,0 +1,5 @@
+item_id,item,status,reason
+ARCHIVE_001,TS_A_margin_thresholded_pairs,archived_negative_smoke_result,margin-thresholded target/sampling rethink failed validation direction balance smoke guard
+ARCHIVE_002,margin_thresholded_within_subject_pairwise_preference_v1,archived_negative_smoke_result,rule is blocked from first-pass execution
+ARCHIVE_003,within_subject_pairwise_affect_preference_ranking_v1,not_archived_keep_open,broader within-subject pairwise formulation remains open pending systematic ablation roadmap
+ARCHIVE_004,feature_patch_branch,already_archived_prior_negative_result,not reopened by this target/sampling closeout

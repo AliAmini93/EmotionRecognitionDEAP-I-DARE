@@ -1,0 +1,35 @@
+{
+  "status": "complete_pending_human_review",
+  "created_utc": "2026-05-10T12:22:31+00:00",
+  "diagnosis": "target_sampling_rethink_rule_archived_as_negative_smoke_result",
+  "decision": "archive_closeout_complete_for_ts_a_margin_thresholded_pair_sampling_rule",
+  "recommendation": "create_systematic_ablation_intervention_roadmap_after_review",
+  "recommended_next_objective": "idare_systematic_ablation_intervention_roadmap_objective",
+  "archive_ts_a_margin_rule": true,
+  "archive_broader_pairwise_formulation": false,
+  "selected_rule_id": "margin_thresholded_within_subject_pairwise_preference_v1",
+  "selected_candidate_id": "TS_A_margin_thresholded_pairs",
+  "selected_formulation": "within_subject_pairwise_affect_preference_ranking_v1",
+  "training_authorized": false,
+  "rerun_authorized": false,
+  "model_fitting_authorized": false,
+  "first_pass_authorized": false,
+  "feature_search_authorized": false,
+  "model_search_authorized": false,
+  "supcon_dg_authorized": false,
+  "fusion_authorized": false,
+  "final_loso_claim_authorized": false,
+  "summary": {
+    "direction_fail_rows": 3,
+    "max_validation_direction_imbalance_abs": 0.1410537870472009,
+    "direction_severe_fail_rows_gt_0_10": 3,
+    "manifest_rows": 10,
+    "archive_status_rows": 4,
+    "next_options_rows": 4
+  },
+  "outputs": {
+    "archive_manifest": "docs/idare_label_semantics_alternative_pairwise_target_sampling_rethink_archive_manifest.csv",
+    "archive_status": "docs/idare_label_semantics_alternative_pairwise_target_sampling_rethink_archive_status.csv",
+    "next_options_after_closeout": "docs/idare_label_semantics_alternative_pairwise_target_sampling_rethink_next_options_after_closeout.csv"
+  }
+}
