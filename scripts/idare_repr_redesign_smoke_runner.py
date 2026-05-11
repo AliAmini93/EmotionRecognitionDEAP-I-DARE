@@ -126,7 +126,7 @@ def write_csv(path: Path, rows: list[dict[str, Any]], fieldnames: list[str] | No
         raise SystemExit(f"BLOCKER: refusing to write empty CSV: {path}")
     cols = fieldnames or list(rows[0].keys())
     with path.open("w", encoding="utf-8", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=cols)
+        writer = csv.DictWriter(f, fieldnames=cols, lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 
