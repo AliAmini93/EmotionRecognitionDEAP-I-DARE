@@ -1,0 +1,227 @@
+{
+  "status": "validation_passed",
+  "generated_at_utc": "2026-05-11T17:04:11+00:00",
+  "mode": "validate",
+  "blocker_count": 0,
+  "smoke_execution_occurred": false,
+  "experiment_execution_occurred": false,
+  "checks": [
+    {
+      "level": "OK",
+      "message": "git metadata read",
+      "details": {
+        "cwd": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-repr-redesign-smoke",
+        "top": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-repr-redesign-smoke",
+        "branch": "idare/postwave1/representation-redesign-smoke",
+        "head": "fc60e753d303ad5dfdbdd892fc220a0839cc95b9"
+      }
+    },
+    {
+      "level": "OK",
+      "message": "branch matches expected branch",
+      "details": {}
+    },
+    {
+      "level": "OK",
+      "message": "worktree matches expected worktree",
+      "details": {}
+    },
+    {
+      "level": "OK",
+      "message": "dirty paths are empty or restricted to allowed idare_repr_redesign_smoke_* prefixes",
+      "details": {
+        "paths": [
+          "docs/idare_repr_redesign_smoke_objective.json",
+          "docs/idare_repr_redesign_smoke_objective.md",
+          "scripts/idare_repr_redesign_smoke_runner.py"
+        ]
+      }
+    },
+    {
+      "level": "OK",
+      "message": "objective JSON loaded",
+      "details": {
+        "path": "docs/idare_repr_redesign_smoke_objective.json"
+      }
+    },
+    {
+      "level": "OK",
+      "message": "objective field validated: objective_id",
+      "details": {}
+    },
+    {
+      "level": "OK",
+      "message": "objective field validated: allowed_branch",
+      "details": {}
+    },
+    {
+      "level": "OK",
+      "message": "objective field validated: allowed_worktree",
+      "details": {}
+    },
+    {
+      "level": "OK",
+      "message": "objective correctly keeps smoke execution unauthorized",
+      "details": {}
+    },
+    {
+      "level": "OK",
+      "message": "required EEG cache/index files exist",
+      "details": {
+        "cache_npy": ".cache/idare_eeg_windows_32x640_float32_baseline_corrected.npy",
+        "cache_index": ".cache/idare_eeg_cache_index_baseline_corrected.csv"
+      }
+    },
+    {
+      "level": "OK",
+      "message": "EEG cache shape is compatible",
+      "details": {
+        "shape": [
+          2016,
+          32,
+          640
+        ],
+        "dtype": "float32"
+      }
+    },
+    {
+      "level": "OK",
+      "message": "cache-index required arousal/subject/cache columns exist",
+      "details": {
+        "columns": [
+          "cache_row",
+          "subject_id",
+          "subject_col",
+          "stimulus_id",
+          "raw_event_name",
+          "bsl_raw_event_name",
+          "eeg_file",
+          "eeg_begin_raw",
+          "bsl_eeg_begin_raw",
+          "stim_event_index_0based",
+          "bsl_event_index_0based",
+          "stim_event_index_1based",
+          "bsl_event_index_1based",
+          "baseline_correction",
+          "valence_score",
+          "arousal_score",
+          "diag_baseline_mean_global",
+          "diag_baseline_mean_abs_mean",
+          "diag_corrected_mean_before_zscore",
+          "diag_corrected_std_before_zscore",
+          "valence_discard_midpoint",
+          "valence_midpoint_as_low",
+          "valence_midpoint_as_high",
+          "arousal_discard_midpoint",
+          "arousal_midpoint_as_low",
+          "arousal_midpoint_as_high"
+        ]
+      }
+    },
+    {
+      "level": "OK",
+      "message": "planned outputs are restricted to allowed prefixes",
+      "details": {
+        "planned_outputs": [
+          "docs/idare_repr_redesign_smoke_validation_report.md",
+          "docs/idare_repr_redesign_smoke_validation_report.json",
+          "docs/idare_repr_redesign_smoke_runs.csv",
+          "docs/idare_repr_redesign_smoke_metric_summary.csv",
+          "docs/idare_repr_redesign_smoke_fold_level_report.md",
+          "docs/idare_repr_redesign_smoke_fold_level_report.json",
+          "docs/idare_repr_redesign_smoke_leakage_audit.md",
+          "docs/idare_repr_redesign_smoke_leakage_audit.json",
+          "docs/idare_repr_redesign_smoke_representation_diagnostic_report.md",
+          "docs/idare_repr_redesign_smoke_representation_diagnostic_report.json",
+          "docs/idare_repr_redesign_smoke_closeout_report.md",
+          "docs/idare_repr_redesign_smoke_closeout_report.json"
+        ]
+      }
+    },
+    {
+      "level": "OK",
+      "message": "scope validated: dataset",
+      "details": {}
+    },
+    {
+      "level": "OK",
+      "message": "scope validated: modality",
+      "details": {}
+    },
+    {
+      "level": "OK",
+      "message": "scope validated: task",
+      "details": {}
+    },
+    {
+      "level": "OK",
+      "message": "scope validated: evaluation",
+      "details": {}
+    },
+    {
+      "level": "OK",
+      "message": "scope validated: comparison",
+      "details": {}
+    },
+    {
+      "level": "OK",
+      "message": "scope validated: model_family",
+      "details": {}
+    },
+    {
+      "level": "OK",
+      "message": "scope validated: cells_only",
+      "details": {}
+    },
+    {
+      "level": "OK",
+      "message": "planned 4 x 6 = 24 run matrix is declared but not executed",
+      "details": {
+        "planned_matrix": {
+          "cells": 4,
+          "folds": 6,
+          "planned_runs": 24,
+          "execution_authorized": false
+        }
+      }
+    },
+    {
+      "level": "OK",
+      "message": "planned matrix correctly remains unauthorized for execution",
+      "details": {}
+    },
+    {
+      "level": "OK",
+      "message": "representation cell set validated",
+      "details": {
+        "cells": [
+          "R0",
+          "R1",
+          "R2",
+          "R3"
+        ]
+      }
+    },
+    {
+      "level": "OK",
+      "message": "hard leakage constraints asserted in objective",
+      "details": {}
+    },
+    {
+      "level": "OK",
+      "message": "R1 leakage guard validated",
+      "details": {}
+    },
+    {
+      "level": "OK",
+      "message": "R2 leakage guard validated",
+      "details": {}
+    },
+    {
+      "level": "OK",
+      "message": "R3 leakage guard validated",
+      "details": {}
+    }
+  ],
+  "required_next_control_notification": true
+}
