@@ -1,0 +1,182 @@
+{
+  "branch_scope": "W1D Feature Discriminability",
+  "cache_overwrite": false,
+  "config": {
+    "folds": 6,
+    "max_eeg_rows": 0,
+    "max_emg_features": 5000,
+    "top_k": 20
+  },
+  "deap_used": false,
+  "fusion": false,
+  "generated_at_utc": "2026-05-11T12:32:35.423123+00:00",
+  "inputs": {
+    "eeg_index": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-w1d/.cache/idare_eeg_cache_index_baseline_corrected.csv",
+    "eeg_npy": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-w1d/.cache/idare_eeg_windows_32x640_float32_baseline_corrected.npy",
+    "emg_index": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-w1d/.cache/idare_emg_feature_cache_index.csv",
+    "emg_npy": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-w1d/.cache/idare_emg_features.npy"
+  },
+  "results": [
+    {
+      "d1_cross_subject": {
+        "global_abs_d_p95": 0.08614056280965929,
+        "global_topk_abs_d_mean": 0.09748133482055132,
+        "subject_centered_abs_d_p95": 0.09867765473451728,
+        "subject_centered_topk_abs_d_mean": 0.1066341525798308
+      },
+      "d2_within_vs_cross": {
+        "within_minus_subject_centered_topk_gap": 0.6956455941884355,
+        "within_subject_topk_abs_d_mean": 0.8022797467682663,
+        "within_subject_topk_abs_d_median": 0.7805996167428196,
+        "within_subject_usable_subjects": 63
+      },
+      "d3_subject_vs_label": {
+        "label_eta2_mean": 0.00047872390915883705,
+        "label_eta2_median": 0.0002526388602097436,
+        "subject_eta2_mean": 0.42784606936324,
+        "subject_eta2_median": 0.4719953883639644,
+        "subject_to_label_eta2_ratio_mean": 893.7219578504148
+      },
+      "d4_top_feature_stability": {
+        "folds_requested": 6,
+        "folds_usable": 6,
+        "mean_jaccard_vs_global": 0.5239587572920906,
+        "mean_pairwise_jaccard": 0.3526216488025906,
+        "top_k": 20
+      },
+      "diagnosis": "within_subject_signal_present_cross_subject_signal_collapses_subject_normalization_or_domain_generalization_priority",
+      "label_column": "valence_midpoint_as_high",
+      "label_counts": {
+        "0": 812,
+        "1": 1204
+      },
+      "label_policy_note": "binary column detected",
+      "modality": "EEG",
+      "n_features": 256,
+      "n_rows": 2016,
+      "n_subjects": 63,
+      "task": "valence"
+    },
+    {
+      "d1_cross_subject": {
+        "global_abs_d_p95": 0.14648287678542013,
+        "global_topk_abs_d_mean": 0.15965373756224127,
+        "subject_centered_abs_d_p95": 0.0940485272092163,
+        "subject_centered_topk_abs_d_mean": 0.10348640029529961
+      },
+      "d2_within_vs_cross": {
+        "within_minus_subject_centered_topk_gap": 0.735436158014183,
+        "within_subject_topk_abs_d_mean": 0.8389225583094827,
+        "within_subject_topk_abs_d_median": 0.8007254583371941,
+        "within_subject_usable_subjects": 62
+      },
+      "d3_subject_vs_label": {
+        "label_eta2_mean": 0.0011752414446407871,
+        "label_eta2_median": 0.0004647728024700357,
+        "subject_eta2_mean": 0.42784606936324,
+        "subject_eta2_median": 0.4719953883639644,
+        "subject_to_label_eta2_ratio_mean": 364.0495077111676
+      },
+      "d4_top_feature_stability": {
+        "folds_requested": 6,
+        "folds_usable": 6,
+        "mean_jaccard_vs_global": 0.5654621814042103,
+        "mean_pairwise_jaccard": 0.422910575763855,
+        "top_k": 20
+      },
+      "diagnosis": "within_subject_signal_present_cross_subject_signal_collapses_subject_normalization_or_domain_generalization_priority",
+      "label_column": "arousal_midpoint_as_high",
+      "label_counts": {
+        "0": 1112,
+        "1": 904
+      },
+      "label_policy_note": "binary column detected",
+      "modality": "EEG",
+      "n_features": 256,
+      "n_rows": 2016,
+      "n_subjects": 63,
+      "task": "arousal"
+    },
+    {
+      "d1_cross_subject": {
+        "global_abs_d_p95": 0.05535919116926737,
+        "global_topk_abs_d_mean": 0.03202167697609716,
+        "subject_centered_abs_d_p95": 0.0745343698102378,
+        "subject_centered_topk_abs_d_mean": 0.03683115047103899
+      },
+      "d2_within_vs_cross": {
+        "within_minus_subject_centered_topk_gap": 0.319960366612998,
+        "within_subject_topk_abs_d_mean": 0.35679151708403695,
+        "within_subject_topk_abs_d_median": 0.3305883071204915,
+        "within_subject_usable_subjects": 63
+      },
+      "d3_subject_vs_label": {
+        "label_eta2_mean": 0.0003014501832696123,
+        "label_eta2_median": 0.00017878501298960325,
+        "subject_eta2_mean": 0.2683318090289653,
+        "subject_eta2_median": 0.2345800413542823,
+        "subject_to_label_eta2_ratio_mean": 890.1364932625487
+      },
+      "d4_top_feature_stability": {
+        "folds_requested": 6,
+        "folds_usable": 6,
+        "mean_jaccard_vs_global": 0.8903318903318903,
+        "mean_pairwise_jaccard": 0.894949494949495,
+        "top_k": 20
+      },
+      "diagnosis": "within_subject_signal_present_cross_subject_signal_collapses_subject_normalization_or_domain_generalization_priority",
+      "label_column": "valence_midpoint_as_high",
+      "label_counts": {
+        "0": 812,
+        "1": 1204
+      },
+      "label_policy_note": "binary column detected",
+      "modality": "EMG",
+      "n_features": 22,
+      "n_rows": 2016,
+      "n_subjects": 63,
+      "task": "valence"
+    },
+    {
+      "d1_cross_subject": {
+        "global_abs_d_p95": 0.06425221848283837,
+        "global_topk_abs_d_mean": 0.04313346580526071,
+        "subject_centered_abs_d_p95": 0.04597487124127154,
+        "subject_centered_topk_abs_d_mean": 0.03218906545843595
+      },
+      "d2_within_vs_cross": {
+        "within_minus_subject_centered_topk_gap": 0.30681056180014876,
+        "within_subject_topk_abs_d_mean": 0.33899962725858473,
+        "within_subject_topk_abs_d_median": 0.2909240483537603,
+        "within_subject_usable_subjects": 62
+      },
+      "d3_subject_vs_label": {
+        "label_eta2_mean": 0.0005142437834536688,
+        "label_eta2_median": 0.0005451197030416283,
+        "subject_eta2_mean": 0.2683318090289653,
+        "subject_eta2_median": 0.2345800413542823,
+        "subject_to_label_eta2_ratio_mean": 521.7988387275096
+      },
+      "d4_top_feature_stability": {
+        "folds_requested": 6,
+        "folds_usable": 6,
+        "mean_jaccard_vs_global": 0.862914862914863,
+        "mean_pairwise_jaccard": 0.8297258297258298,
+        "top_k": 20
+      },
+      "diagnosis": "within_subject_signal_present_cross_subject_signal_collapses_subject_normalization_or_domain_generalization_priority",
+      "label_column": "arousal_midpoint_as_high",
+      "label_counts": {
+        "0": 1112,
+        "1": 904
+      },
+      "label_policy_note": "binary column detected",
+      "modality": "EMG",
+      "n_features": 22,
+      "n_rows": 2016,
+      "n_subjects": 63,
+      "task": "arousal"
+    }
+  ],
+  "training_runs": 0
+}
