@@ -1,0 +1,24 @@
+{
+  "status": "closed_pending_control_tower_review",
+  "created_utc": "2026-05-11T13:26:24+00:00",
+  "source_report": "docs/idare_w1b_eeg_subj_norm_report.json",
+  "diagnosis": "heterogeneity_pass_candidate_observed",
+  "best_overall_cell": "B3",
+  "best_overall_mean_balanced_accuracy": 0.5277857086503814,
+  "best_strict_nontransductive_cell": "B0",
+  "best_strict_nontransductive_mean_balanced_accuracy": 0.5149869508085442,
+  "transductive_cells": [
+    "B1",
+    "B3"
+  ],
+  "strict_nontransductive_cells": [
+    "B0",
+    "B2"
+  ],
+  "control_tower_handoff": {
+    "review_needed": true,
+    "do_not_push_to_main": true,
+    "do_not_start_wave2_from_w1b": true,
+    "do_not_reopen_pairwise_or_input_definition_from_w1b": true
+  }
+}
