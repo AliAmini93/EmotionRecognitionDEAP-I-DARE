@@ -1,0 +1,269 @@
+{
+  "status": "complete",
+  "rows": [
+    {
+      "run_id": 1,
+      "cell": "R0",
+      "fold": 1,
+      "base_feature_count": 288,
+      "selected_feature_count": 288,
+      "first_selected_features": "ch00_mean; ch00_std; ch00_rms; ch00_line_length; ch00_abs_mean; ch01_mean; ch01_std; ch01_rms; ch01_line_length; ch01_abs_mean; ch02_mean; ch02_std",
+      "scaler_fit_scope": "train_fold_only",
+      "model_family": "RidgeClassifier",
+      "transform_notes": "R0 anchor: all base EEG summary features; StandardScaler fit on training fold only."
+    },
+    {
+      "run_id": 2,
+      "cell": "R1",
+      "fold": 1,
+      "base_feature_count": 288,
+      "selected_feature_count": 288,
+      "first_selected_features": "ch00_mean; ch00_std; ch00_rms; ch00_line_length; ch00_abs_mean; ch01_mean; ch01_std; ch01_rms; ch01_line_length; ch01_abs_mean; ch02_mean; ch02_std",
+      "scaler_fit_scope": "train_fold_only",
+      "model_family": "RidgeClassifier",
+      "transform_notes": "R1: train-subject residualization fit only on training subjects; unseen held-out subject receives no per-subject fitted offset."
+    },
+    {
+      "run_id": 3,
+      "cell": "R2",
+      "fold": 1,
+      "base_feature_count": 288,
+      "selected_feature_count": 96,
+      "first_selected_features": "ch05_rms; ch01_mean; ch04_rms; ch02_std; ch02_mean; ch03_line_length; ch04_line_length; ch00_gamma_30_45; ch05_gamma_30_45; ch26_rms; ch13_gamma_30_45; ch13_line_length",
+      "scaler_fit_scope": "train_fold_only",
+      "model_family": "RidgeClassifier",
+      "transform_notes": "R2: train-only subject-invariant feature selection using training labels and training-subject variability only."
+    },
+    {
+      "run_id": 4,
+      "cell": "R3",
+      "fold": 1,
+      "base_feature_count": 288,
+      "selected_feature_count": 64,
+      "first_selected_features": "ch22_alpha_8_13; ch24_std; ch28_mean; ch15_std; ch23_std; ch02_beta_13_30; ch11_theta_4_8; ch26_beta_13_30; ch00_gamma_30_45; ch05_rms; ch01_mean; ch08_abs_mean",
+      "scaler_fit_scope": "train_fold_only",
+      "model_family": "RidgeClassifier",
+      "transform_notes": "R3: diagnostics-first stable subset selected only from training-subject label effects."
+    },
+    {
+      "run_id": 5,
+      "cell": "R0",
+      "fold": 2,
+      "base_feature_count": 288,
+      "selected_feature_count": 288,
+      "first_selected_features": "ch00_mean; ch00_std; ch00_rms; ch00_line_length; ch00_abs_mean; ch01_mean; ch01_std; ch01_rms; ch01_line_length; ch01_abs_mean; ch02_mean; ch02_std",
+      "scaler_fit_scope": "train_fold_only",
+      "model_family": "RidgeClassifier",
+      "transform_notes": "R0 anchor: all base EEG summary features; StandardScaler fit on training fold only."
+    },
+    {
+      "run_id": 6,
+      "cell": "R1",
+      "fold": 2,
+      "base_feature_count": 288,
+      "selected_feature_count": 288,
+      "first_selected_features": "ch00_mean; ch00_std; ch00_rms; ch00_line_length; ch00_abs_mean; ch01_mean; ch01_std; ch01_rms; ch01_line_length; ch01_abs_mean; ch02_mean; ch02_std",
+      "scaler_fit_scope": "train_fold_only",
+      "model_family": "RidgeClassifier",
+      "transform_notes": "R1: train-subject residualization fit only on training subjects; unseen held-out subject receives no per-subject fitted offset."
+    },
+    {
+      "run_id": 7,
+      "cell": "R2",
+      "fold": 2,
+      "base_feature_count": 288,
+      "selected_feature_count": 96,
+      "first_selected_features": "ch01_mean; ch05_rms; ch02_mean; ch03_rms; ch02_std; ch00_abs_mean; ch04_rms; ch05_gamma_30_45; ch02_rms; ch01_abs_mean; ch03_mean; ch04_mean",
+      "scaler_fit_scope": "train_fold_only",
+      "model_family": "RidgeClassifier",
+      "transform_notes": "R2: train-only subject-invariant feature selection using training labels and training-subject variability only."
+    },
+    {
+      "run_id": 8,
+      "cell": "R3",
+      "fold": 2,
+      "base_feature_count": 288,
+      "selected_feature_count": 64,
+      "first_selected_features": "ch22_alpha_8_13; ch01_abs_mean; ch11_theta_4_8; ch26_beta_13_30; ch28_mean; ch01_mean; ch05_rms; ch00_abs_mean; ch02_gamma_30_45; ch12_rms; ch18_abs_mean; ch15_std",
+      "scaler_fit_scope": "train_fold_only",
+      "model_family": "RidgeClassifier",
+      "transform_notes": "R3: diagnostics-first stable subset selected only from training-subject label effects."
+    },
+    {
+      "run_id": 9,
+      "cell": "R0",
+      "fold": 3,
+      "base_feature_count": 288,
+      "selected_feature_count": 288,
+      "first_selected_features": "ch00_mean; ch00_std; ch00_rms; ch00_line_length; ch00_abs_mean; ch01_mean; ch01_std; ch01_rms; ch01_line_length; ch01_abs_mean; ch02_mean; ch02_std",
+      "scaler_fit_scope": "train_fold_only",
+      "model_family": "RidgeClassifier",
+      "transform_notes": "R0 anchor: all base EEG summary features; StandardScaler fit on training fold only."
+    },
+    {
+      "run_id": 10,
+      "cell": "R1",
+      "fold": 3,
+      "base_feature_count": 288,
+      "selected_feature_count": 288,
+      "first_selected_features": "ch00_mean; ch00_std; ch00_rms; ch00_line_length; ch00_abs_mean; ch01_mean; ch01_std; ch01_rms; ch01_line_length; ch01_abs_mean; ch02_mean; ch02_std",
+      "scaler_fit_scope": "train_fold_only",
+      "model_family": "RidgeClassifier",
+      "transform_notes": "R1: train-subject residualization fit only on training subjects; unseen held-out subject receives no per-subject fitted offset."
+    },
+    {
+      "run_id": 11,
+      "cell": "R2",
+      "fold": 3,
+      "base_feature_count": 288,
+      "selected_feature_count": 96,
+      "first_selected_features": "ch01_mean; ch02_mean; ch02_std; ch24_alpha_8_13; ch19_std; ch05_rms; ch24_theta_4_8; ch16_theta_4_8; ch03_beta_13_30; ch24_beta_13_30; ch03_rms; ch20_mean",
+      "scaler_fit_scope": "train_fold_only",
+      "model_family": "RidgeClassifier",
+      "transform_notes": "R2: train-only subject-invariant feature selection using training labels and training-subject variability only."
+    },
+    {
+      "run_id": 12,
+      "cell": "R3",
+      "fold": 3,
+      "base_feature_count": 288,
+      "selected_feature_count": 64,
+      "first_selected_features": "ch11_abs_mean; ch31_mean; ch02_mean; ch18_std; ch04_line_length; ch08_gamma_30_45; ch17_line_length; ch06_gamma_30_45; ch25_alpha_8_13; ch01_gamma_30_45; ch11_theta_4_8; ch24_std",
+      "scaler_fit_scope": "train_fold_only",
+      "model_family": "RidgeClassifier",
+      "transform_notes": "R3: diagnostics-first stable subset selected only from training-subject label effects."
+    },
+    {
+      "run_id": 13,
+      "cell": "R0",
+      "fold": 4,
+      "base_feature_count": 288,
+      "selected_feature_count": 288,
+      "first_selected_features": "ch00_mean; ch00_std; ch00_rms; ch00_line_length; ch00_abs_mean; ch01_mean; ch01_std; ch01_rms; ch01_line_length; ch01_abs_mean; ch02_mean; ch02_std",
+      "scaler_fit_scope": "train_fold_only",
+      "model_family": "RidgeClassifier",
+      "transform_notes": "R0 anchor: all base EEG summary features; StandardScaler fit on training fold only."
+    },
+    {
+      "run_id": 14,
+      "cell": "R1",
+      "fold": 4,
+      "base_feature_count": 288,
+      "selected_feature_count": 288,
+      "first_selected_features": "ch00_mean; ch00_std; ch00_rms; ch00_line_length; ch00_abs_mean; ch01_mean; ch01_std; ch01_rms; ch01_line_length; ch01_abs_mean; ch02_mean; ch02_std",
+      "scaler_fit_scope": "train_fold_only",
+      "model_family": "RidgeClassifier",
+      "transform_notes": "R1: train-subject residualization fit only on training subjects; unseen held-out subject receives no per-subject fitted offset."
+    },
+    {
+      "run_id": 15,
+      "cell": "R2",
+      "fold": 4,
+      "base_feature_count": 288,
+      "selected_feature_count": 96,
+      "first_selected_features": "ch05_rms; ch01_mean; ch02_mean; ch02_std; ch04_rms; ch03_rms; ch03_std; ch03_line_length; ch03_mean; ch04_mean; ch21_theta_4_8; ch00_gamma_30_45",
+      "scaler_fit_scope": "train_fold_only",
+      "model_family": "RidgeClassifier",
+      "transform_notes": "R2: train-only subject-invariant feature selection using training labels and training-subject variability only."
+    },
+    {
+      "run_id": 16,
+      "cell": "R3",
+      "fold": 4,
+      "base_feature_count": 288,
+      "selected_feature_count": 64,
+      "first_selected_features": "ch01_gamma_30_45; ch18_rms; ch27_mean; ch31_mean; ch17_beta_13_30; ch01_abs_mean; ch29_theta_4_8; ch18_std; ch14_std; ch19_gamma_30_45; ch19_theta_4_8; ch22_std",
+      "scaler_fit_scope": "train_fold_only",
+      "model_family": "RidgeClassifier",
+      "transform_notes": "R3: diagnostics-first stable subset selected only from training-subject label effects."
+    },
+    {
+      "run_id": 17,
+      "cell": "R0",
+      "fold": 5,
+      "base_feature_count": 288,
+      "selected_feature_count": 288,
+      "first_selected_features": "ch00_mean; ch00_std; ch00_rms; ch00_line_length; ch00_abs_mean; ch01_mean; ch01_std; ch01_rms; ch01_line_length; ch01_abs_mean; ch02_mean; ch02_std",
+      "scaler_fit_scope": "train_fold_only",
+      "model_family": "RidgeClassifier",
+      "transform_notes": "R0 anchor: all base EEG summary features; StandardScaler fit on training fold only."
+    },
+    {
+      "run_id": 18,
+      "cell": "R1",
+      "fold": 5,
+      "base_feature_count": 288,
+      "selected_feature_count": 288,
+      "first_selected_features": "ch00_mean; ch00_std; ch00_rms; ch00_line_length; ch00_abs_mean; ch01_mean; ch01_std; ch01_rms; ch01_line_length; ch01_abs_mean; ch02_mean; ch02_std",
+      "scaler_fit_scope": "train_fold_only",
+      "model_family": "RidgeClassifier",
+      "transform_notes": "R1: train-subject residualization fit only on training subjects; unseen held-out subject receives no per-subject fitted offset."
+    },
+    {
+      "run_id": 19,
+      "cell": "R2",
+      "fold": 5,
+      "base_feature_count": 288,
+      "selected_feature_count": 96,
+      "first_selected_features": "ch01_mean; ch05_rms; ch02_std; ch03_line_length; ch02_mean; ch01_gamma_30_45; ch05_gamma_30_45; ch30_mean; ch03_abs_mean; ch00_gamma_30_45; ch00_std; ch17_std",
+      "scaler_fit_scope": "train_fold_only",
+      "model_family": "RidgeClassifier",
+      "transform_notes": "R2: train-only subject-invariant feature selection using training labels and training-subject variability only."
+    },
+    {
+      "run_id": 20,
+      "cell": "R3",
+      "fold": 5,
+      "base_feature_count": 288,
+      "selected_feature_count": 64,
+      "first_selected_features": "ch18_std; ch31_mean; ch00_beta_13_30; ch30_alpha_8_13; ch11_abs_mean; ch27_mean; ch01_gamma_30_45; ch14_alpha_8_13; ch20_line_length; ch14_std; ch24_std; ch07_abs_mean",
+      "scaler_fit_scope": "train_fold_only",
+      "model_family": "RidgeClassifier",
+      "transform_notes": "R3: diagnostics-first stable subset selected only from training-subject label effects."
+    },
+    {
+      "run_id": 21,
+      "cell": "R0",
+      "fold": 6,
+      "base_feature_count": 288,
+      "selected_feature_count": 288,
+      "first_selected_features": "ch00_mean; ch00_std; ch00_rms; ch00_line_length; ch00_abs_mean; ch01_mean; ch01_std; ch01_rms; ch01_line_length; ch01_abs_mean; ch02_mean; ch02_std",
+      "scaler_fit_scope": "train_fold_only",
+      "model_family": "RidgeClassifier",
+      "transform_notes": "R0 anchor: all base EEG summary features; StandardScaler fit on training fold only."
+    },
+    {
+      "run_id": 22,
+      "cell": "R1",
+      "fold": 6,
+      "base_feature_count": 288,
+      "selected_feature_count": 288,
+      "first_selected_features": "ch00_mean; ch00_std; ch00_rms; ch00_line_length; ch00_abs_mean; ch01_mean; ch01_std; ch01_rms; ch01_line_length; ch01_abs_mean; ch02_mean; ch02_std",
+      "scaler_fit_scope": "train_fold_only",
+      "model_family": "RidgeClassifier",
+      "transform_notes": "R1: train-subject residualization fit only on training subjects; unseen held-out subject receives no per-subject fitted offset."
+    },
+    {
+      "run_id": 23,
+      "cell": "R2",
+      "fold": 6,
+      "base_feature_count": 288,
+      "selected_feature_count": 96,
+      "first_selected_features": "ch01_mean; ch02_mean; ch02_std; ch05_rms; ch03_rms; ch03_line_length; ch03_std; ch24_theta_4_8; ch04_rms; ch04_line_length; ch03_mean; ch13_gamma_30_45",
+      "scaler_fit_scope": "train_fold_only",
+      "model_family": "RidgeClassifier",
+      "transform_notes": "R2: train-only subject-invariant feature selection using training labels and training-subject variability only."
+    },
+    {
+      "run_id": 24,
+      "cell": "R3",
+      "fold": 6,
+      "base_feature_count": 288,
+      "selected_feature_count": 64,
+      "first_selected_features": "ch18_std; ch31_mean; ch03_rms; ch11_abs_mean; ch01_mean; ch11_mean; ch03_abs_mean; ch25_line_length; ch12_abs_mean; ch04_line_length; ch02_std; ch21_gamma_30_45",
+      "scaler_fit_scope": "train_fold_only",
+      "model_family": "RidgeClassifier",
+      "transform_notes": "R3: diagnostics-first stable subset selected only from training-subject label effects."
+    }
+  ]
+}
