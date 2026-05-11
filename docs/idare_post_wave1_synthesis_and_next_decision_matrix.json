@@ -1,0 +1,43 @@
+{
+  "status": "created",
+  "branch": "idare/control-tower",
+  "wave2_execution_authorized": false,
+  "rows": [
+    {
+      "option": "A",
+      "direction": "documentation-only W2E interaction-grid design",
+      "decision_status": "reviewable_not_authorized_for_execution",
+      "allowed_next": "documentation design only"
+    },
+    {
+      "option": "B",
+      "direction": "strict non-transductive normalization/domain-generalization design",
+      "decision_status": "strongest_next_candidate_for_review",
+      "allowed_next": "documentation design only"
+    },
+    {
+      "option": "C",
+      "direction": "model-capacity probe",
+      "decision_status": "defer_until_better_operating_point",
+      "allowed_next": "not now"
+    },
+    {
+      "option": "D",
+      "direction": "augmentation",
+      "decision_status": "defer",
+      "allowed_next": "not now"
+    },
+    {
+      "option": "E",
+      "direction": "stop/pivot toward representation redesign",
+      "decision_status": "reviewable_fallback",
+      "allowed_next": "decision-only"
+    },
+    {
+      "option": "F",
+      "direction": "keep DEAP/fusion frozen",
+      "decision_status": "maintain",
+      "allowed_next": "keep frozen"
+    }
+  ]
+}
