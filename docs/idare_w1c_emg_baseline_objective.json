@@ -1,0 +1,20 @@
+{
+  "branch": "idare/wave1/emg-baseline-ablation",
+  "docs_prefix": "idare_w1c_emg_baseline_",
+  "status": "objective_created",
+  "dataset": "I-DARE",
+  "modality": "EMG",
+  "formulation": "binary",
+  "model": "closed_form_binary_ridge",
+  "ridge_alpha": 1.0,
+  "label_policy": "midpoint_as_high",
+  "max_registered_runs": 72,
+  "tasks": ["arousal", "valence"],
+  "cells": ["C1", "C2", "C3", "C4", "C5", "C6"],
+  "forbidden": ["EEG", "fusion", "DEAP", "pairwise EMG reopen", "neural training", "broad hyperparameter search", "cache overwrite", "push to main"],
+  "comparison_baselines": {
+    "arousal": {"reference": "REF-BIN-EMG-ARO-001", "balanced_accuracy": 0.5365},
+    "valence": {"reference": "REF-BIN-EMG-VAL-001", "balanced_accuracy": 0.5202}
+  },
+  "pass_gates": {"moderate_balanced_accuracy": 0.54, "strong_balanced_accuracy": 0.55}
+}
