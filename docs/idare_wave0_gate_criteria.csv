@@ -1,0 +1,12 @@
+gate_id,stage,condition,decision,action
+G0_PREPROCESSING_UNBLOCK,before_wave0,corrected_eeg_source_pass=True AND downsample_pass=True AND prior_results_preprocessing_valid=True,satisfied,Wave 0 launch pack may be committed.
+G0_NO_PREPROC_BRANCH,wave0,I-DARE EEG paper preprocessing includes rereference and follow-up downsampling passes,satisfied,No EEG rereference/downsampling branch in Wave 1.
+G1_PARALLEL_START,wave1,Wave 0 launch pack committed and human approved,pending,W1A/W1B/W1C/W1D may start in parallel in separate chats/terminals/branches.
+G1_STRONG_PASS,wave1,any W1A/W1B/W1C cell mean_balanced_accuracy >= 0.55,pending,Strong pass; Control Tower prioritizes confirmation and Wave 2 design.
+G1_MODERATE_PASS,wave1,any W1A/W1B/W1C cell mean_balanced_accuracy >= 0.53,pending,Moderate pass; qualifies for Wave 2 integration/model probe.
+G1_FEATURE_SIGNAL_EXISTS,wave1d,feature discriminability shows cross-subject effect size signal,pending,"Interpret weak classifiers as extraction/model/formulation bottleneck, not no-signal."
+G2E_MANDATORY,wave2,W1A and W1B closed,mandatory,Run W2E interaction grid even if one-factor screens are neutral.
+G_PAIRWISE_REOPEN,wave2,changed input or changed normalization pairwise cell >= 0.53,pending,Flag pairwise branch for controlled reevaluation; do not reopen ad hoc.
+G_TRANSDUCTIVE_LABELING,all_norm_branches,per-subject z-score or rank transform uses unlabeled test-subject statistics,allowed_with_label,Report as transductive normalization; never claim strict non-transductive setting.
+G_NO_MAIN_PUSH,all_branch_chats,branch chat intends to push,guardrail,Push only its own git branch; no branch pushes to main unless Control Tower merge step is explicitly authorized.
+G_NO_DEAP_NO_FUSION,wave0_wave1_wave2,DEAP or fusion requested,blocked,Reject as out of scope until I-DARE single-modality readiness.

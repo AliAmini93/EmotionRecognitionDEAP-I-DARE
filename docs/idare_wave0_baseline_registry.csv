@@ -1,0 +1,7 @@
+baseline_id,dataset,modality,task,formulation,reference_model,balanced_accuracy,delta_vs_majority,status,use,notes
+REF-BIN-EEG-ARO-001,I-DARE,EEG,arousal,binary,MLP/ce_class_weighted,0.5417,0.042,frozen_reference,Compare EEG arousal binary branches.,Prior best binary EEG arousal reference.
+REF-BIN-EEG-VAL-001,I-DARE,EEG,valence,binary,MLP/balanced_sampler_ce,0.5219,0.022,frozen_reference,Compare EEG valence binary branches if authorized.,Prior best binary EEG valence reference.
+REF-BIN-EMG-ARO-001,I-DARE,EMG,arousal,binary,MLP/ce_class_weighted,0.5365,0.037,frozen_reference,Compare EMG arousal independent baseline branch.,EMG is not ignored; it has a competitive prior reference.
+REF-BIN-EMG-VAL-001,I-DARE,EMG,valence,binary,MLP/ce_class_weighted,0.5202,0.020,frozen_reference,Compare EMG valence independent baseline branch.,Prior EMG valence reference.
+REF-PW-EEG-ARO-001,I-DARE,EEG,arousal,within_subject_pairwise_affect_preference_ranking_v1,ridge_classifier_pairwise_summary_diff,0.5216709095350218,0.02167090953502182,closed_reference_only,Compare pairwise EEG arousal screening branches.,"Pairwise branch closed as weak reference, not invalidated."
+REF-BSL-EEG-ARO-001,I-DARE,EEG,arousal,binary_with_bsl_stats_sidecar,MLP/balanced_sampler_ce,0.5427,0.043,frozen_reference_underexplored,Compare BSL-stats related branch results.,Highest known EEG arousal reference; not a new preprocessing blocker.

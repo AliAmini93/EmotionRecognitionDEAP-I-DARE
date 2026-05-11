@@ -1017,3 +1017,17 @@ Recommended next objective: `idare_wave0_parallel_launch_pack_objective`
 
 Next allowed step: `prepare_reviewed_idare_wave0_parallel_launch_pack_objective`
 
+## Current Objective: I-DARE Wave 0 Parallel Launch Pack
+
+Status: complete; pending human review.
+
+Diagnosis: `wave0_parallel_launch_pack_ready`
+
+Decision: `ready_to_open_control_tower_and_wave1_branch_chats_after_human_review`
+
+Preprocessing decision: no EEG re-reference/CAR or downsampling rebuild branch is active for Wave 1.
+
+Recommended next objective: `idare_wave1_parallel_branch_objectives`
+
+Next allowed step: `open_control_tower_and_wave1_branch_chats_after_human_review`
+

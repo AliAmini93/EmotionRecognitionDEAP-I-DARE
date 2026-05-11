@@ -1,0 +1,59 @@
+{
+  "report_id": "idare_wave0_parallel_launch_pack_report",
+  "created_at_utc": "2026-05-11T10:37:48+00:00",
+  "status": "complete_pending_human_review",
+  "diagnosis": "wave0_parallel_launch_pack_ready",
+  "decision": "ready_to_open_control_tower_and_wave1_branch_chats_after_human_review",
+  "recommended_next_objective": "idare_wave1_parallel_branch_objectives",
+  "preprocessing_context": {
+    "diagnosis": "preprocessing_provenance_followup_resolved_prior_results_valid",
+    "decision": "proceed_to_wave0_after_human_review",
+    "corrected_eeg_source_pass": true,
+    "downsample_pass": true,
+    "prior_results_preprocessing_valid": true,
+    "rereference_branch_active": false,
+    "downsampling_rebuild_branch_active": false,
+    "preprocessing_decision": "No EEG rereference/CAR or downsampling rebuild branch is active for Wave 1."
+  },
+  "pairwise_reference_context": {
+    "diagnosis": "alternative_pairwise_formulation_closed_as_reference_only",
+    "decision": "close_current_within_subject_pairwise_branch_as_weak_reference_baseline",
+    "branch_closed_as_reference_only": true,
+    "reference_baseline_preserved": true
+  },
+  "parallel_wave1_branches": [
+    "W1A",
+    "W1B",
+    "W1C",
+    "W1D"
+  ],
+  "control_tower_required": true,
+  "sequential_after_wave1": [
+    "W2E",
+    "W2F",
+    "W2_LABEL"
+  ],
+  "deferred": [
+    "W3G",
+    "W3H",
+    "SUPCON_DG"
+  ],
+  "cancelled_as_blocker": [
+    "PREPROC_REREF_DOWNSAMPLE"
+  ],
+  "outputs": [
+    "docs/idare_wave0_parallel_operating_model.md",
+    "docs/idare_wave0_baseline_registry.csv",
+    "docs/idare_wave0_branch_registry.csv",
+    "docs/idare_wave0_gate_criteria.csv",
+    "docs/idare_wave0_control_tower_policy.md",
+    "docs/idare_wave0_chat_bootstrap_prompts.md",
+    "docs/idare_wave0_parallel_launch_pack_report.md",
+    "docs/idare_wave0_parallel_launch_pack_report.json"
+  ],
+  "counts": {
+    "baseline_rows": 6,
+    "branch_rows": 12,
+    "gate_rows": 11
+  }
+}
