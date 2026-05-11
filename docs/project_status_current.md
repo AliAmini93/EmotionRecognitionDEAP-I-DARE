@@ -999,3 +999,21 @@ Recommended next objective: `idare_preprocessing_provenance_followup_report`
 
 Next allowed step: `prepare_reviewed_idare_preprocessing_provenance_followup_command`
 
+## Current Result: I-DARE Preprocessing Provenance Follow-up Report
+
+Status: complete; pending human review.
+
+Diagnosis: `preprocessing_provenance_followup_resolved_prior_results_valid`
+
+Decision: `proceed_to_wave0_after_human_review`
+
+Corrected EEG source pass: `True`
+
+Downsample pass: `True`
+
+Prior results preprocessing valid: `True`
+
+Recommended next objective: `idare_wave0_parallel_launch_pack_objective`
+
+Next allowed step: `prepare_reviewed_idare_wave0_parallel_launch_pack_objective`
+

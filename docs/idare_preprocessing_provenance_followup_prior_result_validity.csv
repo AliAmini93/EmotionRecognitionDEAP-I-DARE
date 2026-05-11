@@ -1,0 +1,10 @@
+branch_or_result,modality_scope,previous_validity_status,followup_validity_status,reason
+current_project_status,ALL,preprocessing_contingent,valid_after_followup,No EEG dependency detected or EMG provenance passed in previous audit.
+eeg_cache_build,EEG,preprocessing_contingent,valid_after_followup,Corrected EEG source audit passes and stride downsampling is not materially different from anti-aliased alternatives under declared thresholds.
+eeg_baseline_corrected_cache_build,EEG,preprocessing_contingent,valid_after_followup,Corrected EEG source audit passes and stride downsampling is not materially different from anti-aliased alternatives under declared thresholds.
+emg_feature_cache,EMG,valid,valid_after_followup,No EEG dependency detected or EMG provenance passed in previous audit.
+raw_emg_cache,EMG,valid,valid_after_followup,No EEG dependency detected or EMG provenance passed in previous audit.
+subject_relative_ordinal_archive,EEG/EMG,preprocessing_contingent,valid_after_followup,Corrected EEG source audit passes and stride downsampling is not materially different from anti-aliased alternatives under declared thresholds.
+pairwise_reference_closeout,EEG/EMG,preprocessing_contingent,valid_after_followup,Corrected EEG source audit passes and stride downsampling is not materially different from anti-aliased alternatives under declared thresholds.
+feature_patch_archive,EEG,preprocessing_contingent,valid_after_followup,Corrected EEG source audit passes and stride downsampling is not materially different from anti-aliased alternatives under declared thresholds.
+target_sampling_rethink_archive,EEG/EMG,preprocessing_contingent,valid_after_followup,Corrected EEG source audit passes and stride downsampling is not materially different from anti-aliased alternatives under declared thresholds.

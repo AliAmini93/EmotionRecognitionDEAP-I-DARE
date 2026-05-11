@@ -1,0 +1,13 @@
+subject_id,subject_col,raw_eeg_file_value,normalized_eeg_file_path,exists,looks_like_tuple_string,example_stimulus_id,example_eeg_begin_raw
+1,sbj_P_01,/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_01.mat,/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_01.mat,True,False,Dummy_1,212425.0
+2,sbj_P_02,/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_02.mat,/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_02.mat,True,False,Dummy_1,189235.0
+3,sbj_P_03,/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_03.mat,/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_03.mat,True,False,Dummy_1,212000.0
+5,sbj_P_05,/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_05.mat,/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_05.mat,True,False,Dummy_1,187037.0
+6,sbj_P_06,/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_06.mat,/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_06.mat,True,False,Dummy_1,179775.0
+7,sbj_P_07,/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_07.mat,/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_07.mat,True,False,Dummy_1,175683.0
+8,sbj_P_08,/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_08.mat,/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_08.mat,True,False,Dummy_1,170374.0
+9,sbj_P_09,/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_09.mat,/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_09.mat,True,False,Dummy_1,173478.0
+10,sbj_P_10,/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_10.mat,/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_10.mat,True,False,Dummy_1,180412.0
+11,sbj_P_11,/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_11.mat,/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_11.mat,True,False,Dummy_1,183167.0
+12,sbj_P_12,/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_12.mat,/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_12.mat,True,False,Dummy_1,176323.0
+13,sbj_P_13,/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_13.mat,/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_13.mat,True,False,Dummy_1,185181.0

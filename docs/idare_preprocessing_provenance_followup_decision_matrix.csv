@@ -1,0 +1,6 @@
+check,pass,decision_impact
+corrected_eeg_source_audit,True,source provenance unblocked
+downsample_stride_vs_resample_poly_and_lowpass,True,current EEG cache acceptable for prior-result validity
+temporary_mini_cache,True,mini-cache verification path works without overwriting current cache
+prior_result_validity,True,prior results valid from preprocessing standpoint
+manual_source_provenance_needed,True,manual source check not required by repository evidence

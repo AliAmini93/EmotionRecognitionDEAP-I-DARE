@@ -8035,7 +8035,7 @@
     "next_step": "human_review_closeout_of_supcon_dg_failure_analysis",
     "updated_at_utc": "2026-05-08T09:59:59+00:00"
   },
-  "last_updated_utc": "2026-05-11T09:48:21+00:00",
+  "last_updated_utc": "2026-05-11T09:59:40+00:00",
   "idare_protocol_events": [
     {
       "timestamp_utc": "2026-05-08T10:06:00+00:00",
@@ -9628,17 +9628,20 @@
     "status": "closed_reference_only_baseline"
   },
   "current_objective": {
-    "objective_id": "idare_preprocessing_provenance_followup_objective",
-    "status": "objective_created_pending_human_review",
-    "created_at_utc": "2026-05-11T09:48:21+00:00",
-    "accepted_prior_diagnosis": "preprocessing_provenance_incomplete_or_failed",
-    "training_authorized": false,
-    "cache_overwrite_authorized": false,
-    "recommended_next_objective": "idare_preprocessing_provenance_followup_report",
-    "next_allowed_step": "prepare_reviewed_idare_preprocessing_provenance_followup_command"
+    "objective_id": "idare_preprocessing_provenance_followup_report",
+    "status": "complete_pending_human_review",
+    "created_at_utc": "2026-05-11T09:59:40+00:00",
+    "diagnosis": "preprocessing_provenance_followup_resolved_prior_results_valid",
+    "decision": "proceed_to_wave0_after_human_review",
+    "recommendation": "create_wave0_parallel_launch_pack_after_review",
+    "recommended_next_objective": "idare_wave0_parallel_launch_pack_objective",
+    "next_allowed_step": "prepare_reviewed_idare_wave0_parallel_launch_pack_objective",
+    "corrected_eeg_source_pass": true,
+    "downsample_pass": true,
+    "prior_results_preprocessing_valid": true
   },
-  "recommended_next_objective": "idare_preprocessing_provenance_followup_report",
-  "next_allowed_step": "prepare_reviewed_idare_preprocessing_provenance_followup_command",
+  "recommended_next_objective": "idare_wave0_parallel_launch_pack_objective",
+  "next_allowed_step": "prepare_reviewed_idare_wave0_parallel_launch_pack_objective",
   "objective_history": [
     {
       "objective_id": "idare_preprocessing_provenance_audit_objective",
@@ -9672,6 +9675,19 @@
       "cache_overwrite_authorized": false,
       "recommended_next_objective": "idare_preprocessing_provenance_followup_report",
       "next_allowed_step": "prepare_reviewed_idare_preprocessing_provenance_followup_command"
+    },
+    {
+      "objective_id": "idare_preprocessing_provenance_followup_report",
+      "status": "complete_pending_human_review",
+      "created_at_utc": "2026-05-11T09:59:40+00:00",
+      "diagnosis": "preprocessing_provenance_followup_resolved_prior_results_valid",
+      "decision": "proceed_to_wave0_after_human_review",
+      "recommendation": "create_wave0_parallel_launch_pack_after_review",
+      "recommended_next_objective": "idare_wave0_parallel_launch_pack_objective",
+      "next_allowed_step": "prepare_reviewed_idare_wave0_parallel_launch_pack_objective",
+      "corrected_eeg_source_pass": true,
+      "downsample_pass": true,
+      "prior_results_preprocessing_valid": true
     }
   ],
   "last_completed_objective": {

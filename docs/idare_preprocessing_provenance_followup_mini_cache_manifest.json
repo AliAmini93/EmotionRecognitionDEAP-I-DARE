@@ -1,0 +1,220 @@
+{
+  "created_at_utc": "2026-05-11T09:59:54+00:00",
+  "temporary_mini_cache_path": "/tmp/idare_preprocessing_followup_mini_cache_1778493594.npz",
+  "temporary_mini_cache_sha256": "8b387e542e52d126d60d3c858def085ff49661b28e577e328b7c0547fabfb013",
+  "temporary_mini_cache_size_bytes": 5484137,
+  "rows": [
+    {
+      "cache_row": 0,
+      "subject_id": 1,
+      "subject_col": "sbj_P_01",
+      "stimulus_id": "Dummy_1",
+      "eeg_file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_01.mat",
+      "eeg_begin_raw": 212425.0
+    },
+    {
+      "cache_row": 1,
+      "subject_id": 1,
+      "subject_col": "sbj_P_01",
+      "stimulus_id": "3053",
+      "eeg_file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_01.mat",
+      "eeg_begin_raw": 226483.0
+    },
+    {
+      "cache_row": 2,
+      "subject_id": 1,
+      "subject_col": "sbj_P_01",
+      "stimulus_id": "Tumor_1",
+      "eeg_file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_01.mat",
+      "eeg_begin_raw": 239003.0
+    },
+    {
+      "cache_row": 3,
+      "subject_id": 1,
+      "subject_col": "sbj_P_01",
+      "stimulus_id": "Dog_18",
+      "eeg_file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_01.mat",
+      "eeg_begin_raw": 253964.0
+    },
+    {
+      "cache_row": 4,
+      "subject_id": 1,
+      "subject_col": "sbj_P_01",
+      "stimulus_id": "Miserable_pose_3",
+      "eeg_file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_01.mat",
+      "eeg_begin_raw": 264561.0
+    },
+    {
+      "cache_row": 5,
+      "subject_id": 1,
+      "subject_col": "sbj_P_01",
+      "stimulus_id": "Pinecone_1",
+      "eeg_file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_01.mat",
+      "eeg_begin_raw": 276235.0
+    },
+    {
+      "cache_row": 6,
+      "subject_id": 1,
+      "subject_col": "sbj_P_01",
+      "stimulus_id": "Garbage_dump_6",
+      "eeg_file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_01.mat",
+      "eeg_begin_raw": 287363.0
+    },
+    {
+      "cache_row": 7,
+      "subject_id": 1,
+      "subject_col": "sbj_P_01",
+      "stimulus_id": "Depressed_pose_4",
+      "eeg_file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_01.mat",
+      "eeg_begin_raw": 296904.0
+    },
+    {
+      "cache_row": 8,
+      "subject_id": 1,
+      "subject_col": "sbj_P_01",
+      "stimulus_id": "Angry_face_1",
+      "eeg_file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_01.mat",
+      "eeg_begin_raw": 305880.0
+    },
+    {
+      "cache_row": 9,
+      "subject_id": 1,
+      "subject_col": "sbj_P_01",
+      "stimulus_id": "Dog_26",
+      "eeg_file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_01.mat",
+      "eeg_begin_raw": 315458.0
+    },
+    {
+      "cache_row": 10,
+      "subject_id": 1,
+      "subject_col": "sbj_P_01",
+      "stimulus_id": "8370",
+      "eeg_file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_01.mat",
+      "eeg_begin_raw": 326070.0
+    },
+    {
+      "cache_row": 11,
+      "subject_id": 1,
+      "subject_col": "sbj_P_01",
+      "stimulus_id": "Dog_6",
+      "eeg_file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_01.mat",
+      "eeg_begin_raw": 335422.0
+    },
+    {
+      "cache_row": 12,
+      "subject_id": 1,
+      "subject_col": "sbj_P_01",
+      "stimulus_id": "9220",
+      "eeg_file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_01.mat",
+      "eeg_begin_raw": 345287.0
+    },
+    {
+      "cache_row": 13,
+      "subject_id": 1,
+      "subject_col": "sbj_P_01",
+      "stimulus_id": "Lake_12",
+      "eeg_file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_01.mat",
+      "eeg_begin_raw": 353739.0
+    },
+    {
+      "cache_row": 14,
+      "subject_id": 1,
+      "subject_col": "sbj_P_01",
+      "stimulus_id": "2314",
+      "eeg_file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_01.mat",
+      "eeg_begin_raw": 363963.0
+    },
+    {
+      "cache_row": 15,
+      "subject_id": 1,
+      "subject_col": "sbj_P_01",
+      "stimulus_id": "1750",
+      "eeg_file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_01.mat",
+      "eeg_begin_raw": 373509.0
+    },
+    {
+      "cache_row": 16,
+      "subject_id": 1,
+      "subject_col": "sbj_P_01",
+      "stimulus_id": "8492",
+      "eeg_file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_01.mat",
+      "eeg_begin_raw": 382155.0
+    },
+    {
+      "cache_row": 17,
+      "subject_id": 1,
+      "subject_col": "sbj_P_01",
+      "stimulus_id": "1441",
+      "eeg_file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_01.mat",
+      "eeg_begin_raw": 391442.0
+    },
+    {
+      "cache_row": 18,
+      "subject_id": 1,
+      "subject_col": "sbj_P_01",
+      "stimulus_id": "Flowers_6",
+      "eeg_file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_01.mat",
+      "eeg_begin_raw": 401067.0
+    },
+    {
+      "cache_row": 19,
+      "subject_id": 1,
+      "subject_col": "sbj_P_01",
+      "stimulus_id": "Yarn_1",
+      "eeg_file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_01.mat",
+      "eeg_begin_raw": 410923.0
+    },
+    {
+      "cache_row": 20,
+      "subject_id": 1,
+      "subject_col": "sbj_P_01",
+      "stimulus_id": "9331",
+      "eeg_file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_01.mat",
+      "eeg_begin_raw": 421544.0
+    },
+    {
+      "cache_row": 21,
+      "subject_id": 1,
+      "subject_col": "sbj_P_01",
+      "stimulus_id": "Beach_1",
+      "eeg_file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_01.mat",
+      "eeg_begin_raw": 431351.0
+    },
+    {
+      "cache_row": 22,
+      "subject_id": 1,
+      "subject_col": "sbj_P_01",
+      "stimulus_id": "2491",
+      "eeg_file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_01.mat",
+      "eeg_begin_raw": 441047.0
+    },
+    {
+      "cache_row": 23,
+      "subject_id": 1,
+      "subject_col": "sbj_P_01",
+      "stimulus_id": "9360",
+      "eeg_file": "/mnt/HDD/AliWorks/I-DARE/raw_downloads/EEG/sbj_P_01.mat",
+      "eeg_begin_raw": 450986.0
+    }
+  ],
+  "n_rows": 24,
+  "arrays": {
+    "stride": [
+      24,
+      32,
+      640
+    ],
+    "resample_poly": [
+      24,
+      32,
+      640
+    ],
+    "lowpass_before_decimation": [
+      24,
+      32,
+      640
+    ]
+  },
+  "cache_overwrite": false,
+  "elapsed_sec": 14.379048368893564
+}
