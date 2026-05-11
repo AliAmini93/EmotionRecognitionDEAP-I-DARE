@@ -1,0 +1,39 @@
+{
+  "status": "created",
+  "branch": "idare/control-tower",
+  "scope": "documentation_decision_only",
+  "execution_authorized": false,
+  "wave2_execution_authorized": false,
+  "w2e_execution_authorized": false,
+  "dg_execution_authorized": false,
+  "model_capacity_probe_authorized": false,
+  "augmentation_authorized": false,
+  "deap": "frozen",
+  "fusion": "frozen",
+  "preprocessing_changes": "forbidden",
+  "threshold_changes": "forbidden",
+  "main_push": "forbidden",
+  "current_state": {
+    "WAVE_1": "CLOSED_ACCEPTED",
+    "STRICT_NTD_NORM_SMOKE": "ACCEPTED_CLEAN_WEAK_EFFECT",
+    "STRICT_NTD_NORM_SMOKE_GATE": "NO_PASS",
+    "FOLLOWUP_EXECUTION": "NOT_AUTHORIZED"
+  },
+  "evidence_summary": {
+    "wave1_performance_gate": "failed",
+    "w1d": "within_subject_signal_present_cross_subject_collapse_subject_dominated",
+    "w1b": "transductive_heterogeneity_reduction_only",
+    "w1a": "input_definition_variants_no_rescue",
+    "w1c": "emg_aggregate_no_pass",
+    "strict_ntd_smoke": "technically_clean_weak_effect"
+  },
+  "decision": {
+    "primary_next_design_candidate": "representation_redesign",
+    "secondary_next_design_candidate": "dg_design",
+    "w2e_interaction_grid": "deprioritized_design_only",
+    "model_capacity_probe": "deferred",
+    "augmentation": "deferred",
+    "stop_pivot_rethink": "reviewable_fallback"
+  },
+  "next_state": "REQUEST_REPRESENTATION_REDESIGN_DESIGN_OBJECTIVE"
+}
