@@ -1,0 +1,40 @@
+{
+  "status": "created",
+  "branch": "idare/control-tower",
+  "scope": "documentation_design_only",
+  "execution_authorized": false,
+  "wave2_execution_authorized": false,
+  "w2e_execution_authorized": false,
+  "strict_candidates": [
+    "N0_current_none",
+    "N1_train_fold_standard_scaler",
+    "N2_train_fold_robust_scaler",
+    "N3_train_fold_frozen_quantile_rank_mapper",
+    "N4_train_fold_pca_whitening_conditional",
+    "DG1_train_subject_domain_regularization",
+    "DG2_vrex_irm_training_subject_only",
+    "DG3_source_only_dann_training_subject_domains",
+    "DG4_groupdro_training_subjects"
+  ],
+  "transductive_or_invalid": [
+    "per_test_subject_z_score",
+    "per_test_subject_rank_transform",
+    "per_test_subject_quantile_normalization",
+    "test_time_adaptation",
+    "target_coral_mmd_alignment",
+    "batch_norm_updated_on_test",
+    "global_all_subject_scaler",
+    "threshold_calibration_on_test",
+    "preprocessing_cache_rebuild"
+  ],
+  "minimum_future_cell_matrix": [
+    "S0_current_none_anchor",
+    "S1_train_fold_standard_scaler",
+    "S2_train_fold_robust_scaler",
+    "S3_train_fold_frozen_quantile_rank_mapper",
+    "D1_training_subject_vrex_or_groupdro_only_if_explicitly_approved"
+  ],
+  "w2e_position": "design_subsection_only",
+  "pivot_condition": "if_strict_candidates_are_too_weak_or_leakage_prone_consider_representation_redesign",
+  "next_state": "REQUEST_STRICT_NTD_NORM_DG_CANDIDATE_SPEC_REVIEW"
+}
