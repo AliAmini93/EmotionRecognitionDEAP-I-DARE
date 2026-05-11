@@ -1,0 +1,7 @@
+guardrail_id,guardrail,validation
+G1,No model training is authorized.,script must not import training modules or write model outputs
+G2,No overwrite of existing .cache/*.npy or .cache/*.csv files.,all temporary arrays must be written under /tmp or docs with explicit mini-cache naming
+G3,"Downsampling comparison must include current stride, resample_poly, and low-pass-before-decimation.",summary file must contain all three method names
+G4,Corrected EEG source audit must unwrap singleton tuple groupby keys.,"path_sample and source_audit must show normal absolute paths, not tuple-string paths"
+G5,"If provenance/downsampling remains unresolved, Wave 0 and Wave 1 remain blocked.",decision matrix and project_status next_allowed_step must reflect the block
+G6,"If corrected audit fully passes, the next step may be Wave 0 launch pack only after human review.",no automatic branch creation from the follow-up script

@@ -1,0 +1,11 @@
+input_id,path,role,required
+IN1,docs/idare_preprocessing_provenance_audit_report.json,accepted failed/incomplete audit summary,True
+IN2,docs/idare_preprocessing_provenance_eeg_source_audit.csv,failed EEG source provenance rows; used to reproduce tuple/path bug,True
+IN3,docs/idare_preprocessing_provenance_eeg_downsample_audit.csv,prior window-level downsampling warning rows,True
+IN4,docs/idare_preprocessing_provenance_prior_result_validity.csv,prior result validity status before follow-up,True
+IN5,.cache/idare_trial_index.csv,"source-of-truth trial paths, subject ids, labels, event begins",True
+IN6,scripts/06_build_idare_trial_index.py,trial-index source path construction logic,True
+IN7,scripts/12_build_idare_eeg_cache.py,current EEG cache extraction/downsampling implementation,True
+IN8,scripts/23_build_idare_eeg_baseline_corrected_cache.py,current baseline-corrected EEG cache implementation,True
+IN9,.cache/idare_eeg_cache_index.csv,current EEG cache index to compare shape/order only,True
+IN10,.cache/idare_eeg_cache_index_baseline_corrected.csv,current baseline-corrected EEG cache index to compare shape/order only,True

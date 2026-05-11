@@ -1,0 +1,6 @@
+node_id,condition,decision,next_objective
+D1,Corrected EEG source audit fails for any required subject/file,stop_for_dataset_path_or_source_mismatch,idare_preprocessing_source_resolution_objective
+D2,Corrected EEG source audit passes and anti-aliased methods are nearly identical to current stride under declared thresholds,prior_results_remain_preprocessing_valid,idare_wave0_parallel_launch_pack_objective
+D3,Corrected EEG source audit passes but current stride differs materially from anti-aliased downsampling,prior_eeg_results_are_preprocessing_contingent_until_corrected_cache_rerun,idare_eeg_corrected_downsample_cache_objective
+D4,Corrected EEG source audit passes but source files do not match expected processed I-DARE structure/metadata,manual_paper_source_provenance_confirmation_required,idare_preprocessing_source_provenance_manual_check_objective
+D5,Temporary mini-cache cannot be produced without overwriting existing cache or changing labels/folds,do_not_rebuild_cache_until_mini_cache_bug_fixed,idare_preprocessing_followup_fix_objective

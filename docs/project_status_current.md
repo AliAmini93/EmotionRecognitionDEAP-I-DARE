@@ -987,3 +987,15 @@ Recommended next objective: `idare_preprocessing_provenance_followup_objective`
 
 Next allowed step: `prepare_reviewed_idare_preprocessing_provenance_followup_command`
 
+## Current Objective: I-DARE Preprocessing Provenance Follow-up
+
+Status: objective created; read-only follow-up audit only; no training is authorized.
+
+Accepted prior diagnosis: `preprocessing_provenance_incomplete_or_failed`
+
+Purpose: resolve whether EEG provenance/downsampling warnings are real blockers or audit/downsampling-method artifacts.
+
+Recommended next objective: `idare_preprocessing_provenance_followup_report`
+
+Next allowed step: `prepare_reviewed_idare_preprocessing_provenance_followup_command`
+

@@ -1,0 +1,9 @@
+scope_id,status,item
+S1,authorized,Correct the EEG source audit path parsing bug in a new follow-up script.
+S2,authorized,Print and persist sample real paths from trial_index for transparent human inspection.
+S3,authorized,"Compare stride, resample_poly, and low-pass-before-decimation downsampling on a bounded representative sample and optionally all windows if cheap."
+S4,authorized,Build a temporary read-only mini-cache under docs or /tmp with manifest/checksums; do not overwrite repository caches.
+S5,authorized,Update prior-result validity classification based on corrected provenance and downsampling evidence.
+S6,not_authorized,"No model training, no Wave 0 launch pack, no Wave 1 branch creation."
+S7,not_authorized,No overwrite of .cache EEG/EMG arrays or cache indexes.
+S8,not_authorized,"No broad EEG preprocessing redesign, ICA, artifact rejection, or filtering pipeline rebuild yet."

@@ -1,0 +1,11 @@
+output_id,path,description
+O1,scripts/idare/analysis/run_idare_preprocessing_provenance_followup.py,Committed read-only follow-up audit script.
+O2,docs/idare_preprocessing_provenance_followup_report.md,Human-readable follow-up diagnosis and next allowed step.
+O3,docs/idare_preprocessing_provenance_followup_report.json,Machine-readable follow-up diagnosis and decision.
+O4,docs/idare_preprocessing_provenance_followup_path_sample.csv,Sample real paths from trial_index plus existence checks.
+O5,docs/idare_preprocessing_provenance_followup_eeg_source_audit.csv,Corrected EEG source provenance audit.
+O6,docs/idare_preprocessing_provenance_followup_downsample_method_comparison.csv,"Window-level comparison of stride, resample_poly, and low-pass-before-decimation."
+O7,docs/idare_preprocessing_provenance_followup_downsample_method_summary.csv,Aggregated downsampling method comparison and pass/fail flags.
+O8,docs/idare_preprocessing_provenance_followup_mini_cache_manifest.json,Temporary mini-cache manifest/checksum; no cache overwrite.
+O9,docs/idare_preprocessing_provenance_followup_prior_result_validity.csv,Updated prior-result validity classification.
+O10,docs/idare_preprocessing_provenance_followup_decision_matrix.csv,Decision table for Wave 0 vs corrected cache vs manual source provenance.

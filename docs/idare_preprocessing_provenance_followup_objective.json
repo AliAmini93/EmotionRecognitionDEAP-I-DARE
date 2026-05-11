@@ -1,0 +1,28 @@
+{
+  "objective_id": "idare_preprocessing_provenance_followup_objective",
+  "created_at_utc": "2026-05-11T09:48:21+00:00",
+  "status": "objective_created_pending_human_review",
+  "accepted_prior_diagnosis": "preprocessing_provenance_incomplete_or_failed",
+  "accepted_prior_decision": "do_not_launch_parallel_wave1_until_provenance_resolved",
+  "accepted_prior_recommended_next_objective": "idare_preprocessing_provenance_followup_objective",
+  "scientific_question": "Are the failed EEG source audit and downsampling warning real blockers, or were they caused by an audit path bug and conservative downsampling thresholds?",
+  "authorized_scope": "read_only_followup_audit_only",
+  "training_authorized": false,
+  "cache_overwrite_authorized": false,
+  "mini_cache_authorized": true,
+  "wave0_authorized": false,
+  "wave1_authorized": false,
+  "next_allowed_step": "prepare_reviewed_idare_preprocessing_provenance_followup_command",
+  "expected_outputs": [
+    "scripts/idare/analysis/run_idare_preprocessing_provenance_followup.py",
+    "docs/idare_preprocessing_provenance_followup_report.md",
+    "docs/idare_preprocessing_provenance_followup_report.json",
+    "docs/idare_preprocessing_provenance_followup_path_sample.csv",
+    "docs/idare_preprocessing_provenance_followup_eeg_source_audit.csv",
+    "docs/idare_preprocessing_provenance_followup_downsample_method_comparison.csv",
+    "docs/idare_preprocessing_provenance_followup_downsample_method_summary.csv",
+    "docs/idare_preprocessing_provenance_followup_mini_cache_manifest.json",
+    "docs/idare_preprocessing_provenance_followup_prior_result_validity.csv",
+    "docs/idare_preprocessing_provenance_followup_decision_matrix.csv"
+  ]
+}

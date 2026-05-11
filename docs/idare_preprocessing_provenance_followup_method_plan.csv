@@ -1,0 +1,7 @@
+step_id,step,output
+M1,"Load .cache/idare_trial_index.csv and verify eeg_file values are plain strings, not tuple strings.",path_sample.csv
+M2,Normalize any groupby key with a helper that unwraps singleton tuples before Path construction.,corrected_eeg_source_audit.csv
+M3,"For each selected EEG window, extract 512Hz raw window, compute stride[::4], resample_poly(1/4), and low-pass+sosfiltfilt+decimate/stride output.",downsample_method_comparison.csv
+M4,"Summarize method differences using z-normalized NRMSE, correlation, high-frequency energy, and shape checks.",downsample_method_summary.csv
+M5,Write a temporary mini-cache .npz and manifest with checksums for a small subset only.,mini_cache_manifest.json/csv
+M6,Emit final decision matrix: audit bug only vs corrected downsample cache needed vs manual source provenance needed.,followup_report.md/json
