@@ -1,0 +1,92 @@
+{
+  "package_id": "idare_representation_redesign_smoke_authorization_package",
+  "status": "created",
+  "branch": "idare/control-tower",
+  "execution_authorized": false,
+  "required_human_approval_phrase": "APPROVE_REPRESENTATION_REDESIGN_SMOKE_EXECUTION",
+  "future_executable_branch": "idare/postwave1/representation-redesign-smoke",
+  "future_worktree": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-repr-redesign-smoke",
+  "future_allowed_file_prefix": "idare_repr_redesign_smoke_",
+  "scope": {
+    "type": "documentation_authorization_package_only",
+    "experiments": false,
+    "runner_creation": false,
+    "branch_creation": false,
+    "worktree_creation": false,
+    "smoke_run": false,
+    "wave2_execution": false,
+    "dg_execution": false,
+    "model_capacity_probe": false,
+    "augmentation": false,
+    "DEAP": "frozen",
+    "fusion": "frozen",
+    "preprocessing_changes": "forbidden",
+    "threshold_changes": "forbidden",
+    "main_push": "forbidden",
+    "w1_branch_owned_files": "do_not_modify"
+  },
+  "future_executable_scope": {
+    "dataset": "I-DARE only",
+    "modality": "EEG-only first",
+    "task": "arousal-only first",
+    "evaluation": "cross-subject held-out-subject",
+    "comparison": "pairwise reference comparison required",
+    "model": "ridge/classical model only unless explicitly justified",
+    "cells": "representation redesign cells only"
+  },
+  "future_cells": [
+    "R0_current_representation_anchor",
+    "R1_train_only_subject_residualized_features",
+    "R2_train_only_subject_invariant_feature_selection",
+    "R3_diagnostics_first_stable_feature_subset"
+  ],
+  "run_count": {
+    "cells": 4,
+    "folds": 6,
+    "total_runs": 24
+  },
+  "leakage_assertions": [
+    "all_fitted_statistics_training_subjects_only",
+    "no_heldout_test_subject_feature_statistics",
+    "no_test_labels",
+    "no_global_all_subject_feature_selection",
+    "no_per_test_subject_normalization",
+    "no_target_adaptation",
+    "no_threshold_tuning_on_heldout_subjects",
+    "feature_selection_residualization_stability_filters_fit_training_folds_only"
+  ],
+  "required_outputs": [
+    "objective_doc_json",
+    "runner_script",
+    "runs_csv",
+    "metric_summary",
+    "fold_level_report",
+    "leakage_audit",
+    "representation_diagnostic_report",
+    "closeout_report_json",
+    "artifact_review_bundle"
+  ],
+  "gates": {
+    "moderate_mean_balanced_accuracy": 0.53,
+    "strong_mean_balanced_accuracy": 0.55,
+    "thresholds_modified": false
+  },
+  "stop_blocker_rules": [
+    "stop_if_leakage_audit_fails",
+    "stop_if_any_transform_uses_test_subject_statistics",
+    "stop_if_required_cache_index_files_missing",
+    "stop_if_outputs_escape_allowed_prefix",
+    "archive_if_no_R_cell_improves_meaningfully_over_R0",
+    "consider_DG_design_only_if_representation_redesign_shows_some_signal_but_insufficient_transfer"
+  ],
+  "required_control_sequence_after_human_approval": [
+    "create_branch_worktree_only",
+    "future_chat_preflight_only",
+    "control_reviews_preflight",
+    "objective_runner_creation_only_if_control_approves",
+    "future_chat_must_request_control_run_approval_before_24_run_smoke",
+    "closeout_artifact_review_bundle_after_execution",
+    "control_formal_artifact_review"
+  ],
+  "next_state": "AWAITING_APPROVE_REPRESENTATION_REDESIGN_SMOKE_EXECUTION"
+}
