@@ -973,3 +973,17 @@ Authorized scope:
 
 Next allowed step: `prepare_reviewed_idare_preprocessing_provenance_audit_command`
 
+## Completed Objective: I-DARE Preprocessing Provenance Audit
+
+Status: complete; pending human review.
+
+Diagnosis: `preprocessing_provenance_incomplete_or_failed`
+
+Decision: `do_not_launch_parallel_wave1_until_provenance_resolved`
+
+Recommendation: `resolve_missing_source_or_metadata_provenance_first`
+
+Recommended next objective: `idare_preprocessing_provenance_followup_objective`
+
+Next allowed step: `prepare_reviewed_idare_preprocessing_provenance_followup_command`
+
