@@ -1,0 +1,7 @@
+guardrail_id,guardrail,reason
+G1,"No training, no model evaluation, no new performance claims.",This is a provenance and signal-processing validity gate only.
+G2,Do not overwrite existing caches.,The audit must be read-only and must preserve all prior evidence.
+G3,"Do not apply new filtering, ICA, ASR, or rereferencing in this objective.",The objective decides whether reprocessing is needed; it does not perform reprocessing.
+G4,"If anti-aliased comparison requires temporary arrays, write only audit-local temporary outputs or summaries.",Avoid accidentally replacing training inputs.
+G5,I-DARE only; EEG and EMG before fusion.,Current project scope is I-DARE single-modality diagnosis.
+G6,"Treat published paper preprocessing as expected provenance, but verify against local/repository metadata.",The paper is not enough; the actual files used by the repo must match.

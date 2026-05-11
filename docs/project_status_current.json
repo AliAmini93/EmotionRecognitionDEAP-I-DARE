@@ -8035,7 +8035,7 @@
     "next_step": "human_review_closeout_of_supcon_dg_failure_analysis",
     "updated_at_utc": "2026-05-08T09:59:59+00:00"
   },
-  "last_updated_utc": "2026-05-10T15:31:40+00:00",
+  "last_updated_utc": "2026-05-11T09:18:37+00:00",
   "idare_protocol_events": [
     {
       "timestamp_utc": "2026-05-08T10:06:00+00:00",
@@ -9626,5 +9626,35 @@
       "subject_positive_lift_fraction": ""
     },
     "status": "closed_reference_only_baseline"
-  }
+  },
+  "current_objective": {
+    "objective_id": "idare_preprocessing_provenance_audit_objective",
+    "status": "objective_created_pending_human_review",
+    "created_at_utc": "2026-05-11T09:18:37+00:00",
+    "dataset_scope": "I-DARE only",
+    "modalities": [
+      "EEG",
+      "EMG"
+    ],
+    "training_authorized": false,
+    "next_allowed_step": "prepare_reviewed_idare_preprocessing_provenance_audit_command",
+    "recommended_next_after_pass": "idare_wave0_parallel_launch_pack_objective"
+  },
+  "recommended_next_objective": "idare_preprocessing_provenance_audit_objective",
+  "next_allowed_step": "prepare_reviewed_idare_preprocessing_provenance_audit_command",
+  "objective_history": [
+    {
+      "objective_id": "idare_preprocessing_provenance_audit_objective",
+      "status": "objective_created_pending_human_review",
+      "created_at_utc": "2026-05-11T09:18:37+00:00",
+      "dataset_scope": "I-DARE only",
+      "modalities": [
+        "EEG",
+        "EMG"
+      ],
+      "training_authorized": false,
+      "next_allowed_step": "prepare_reviewed_idare_preprocessing_provenance_audit_command",
+      "recommended_next_after_pass": "idare_wave0_parallel_launch_pack_objective"
+    }
+  ]
 }

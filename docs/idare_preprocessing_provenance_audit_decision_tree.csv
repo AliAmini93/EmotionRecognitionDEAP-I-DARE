@@ -1,0 +1,6 @@
+decision_id,condition,decision,next_objective
+D1,Processed-source provenance confirmed AND EEG Fs=512 confirmed AND downsampling alias/distortion audit passes,Proceed to Wave 0 launch pack and parallel I-DARE ablation architecture; prior results remain preprocessing-valid.,idare_wave0_parallel_launch_pack_objective
+D2,Processed-source provenance confirmed BUT downsampling stride-vs-anti-aliased comparison shows material distortion,"Create corrected EEG cache objective, then rerun minimal reference baselines before Wave 1.",idare_eeg_corrected_downsample_cache_objective
+D3,EEG source files are not processed as described by the paper,Stop Wave 1; create EEG preprocessing reconstruction/validation objective before any further model work.,idare_eeg_preprocessing_reconstruction_objective
+D4,EMG source provenance fails or EMG cache/source mismatch is detected,Freeze EMG branches until EMG provenance is resolved; EEG may proceed only if EEG audit passes.,idare_emg_preprocessing_provenance_fix_objective
+D5,Audit is inconclusive because source files or metadata are missing,Do not open new experimental branches; request missing inputs and rerun the provenance audit.,idare_preprocessing_provenance_audit_rerun_objective

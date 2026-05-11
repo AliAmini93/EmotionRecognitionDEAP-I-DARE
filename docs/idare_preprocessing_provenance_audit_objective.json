@@ -1,0 +1,32 @@
+{
+  "objective_id": "idare_preprocessing_provenance_audit_objective",
+  "created_at_utc": "2026-05-11T09:18:37+00:00",
+  "status": "objective_created_pending_human_review",
+  "dataset_scope": "I-DARE only",
+  "modalities": [
+    "EEG",
+    "EMG"
+  ],
+  "authorization": {
+    "training_authorized": false,
+    "read_only_audit_authorized": true,
+    "cache_overwrite_authorized": false,
+    "raw_reprocessing_authorized": false,
+    "deap_authorized": false,
+    "fusion_authorized": false
+  },
+  "scientific_question": "Have we missed any essential EEG/EMG preprocessing step for I-DARE, and is the repository EEG 512Hz-to-128Hz downsampling safe enough that prior results remain valid?",
+  "accepted_paper_context": {
+    "eeg": "Paper reports processed EEG: linked-earlobes rereference, resample to 512Hz, 0.1-40Hz band-pass, CleanLine 50/100Hz, ASR, ICA/ICLabel artifact removal, REST rereference.",
+    "emg": "Paper reports processed EMG: notch 50/100Hz and 10-400Hz band-pass.",
+    "processed_data": "Paper states processed modalities were saved as .mat files."
+  },
+  "required_questions_count": 6,
+  "input_map_rows": 8,
+  "scope_rows": 7,
+  "decision_tree_rows": 5,
+  "expected_outputs_rows": 7,
+  "guardrails_rows": 6,
+  "next_allowed_step": "prepare_reviewed_idare_preprocessing_provenance_audit_command",
+  "recommended_next_after_pass": "idare_wave0_parallel_launch_pack_objective"
+}

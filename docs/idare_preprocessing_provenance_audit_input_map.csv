@@ -1,0 +1,9 @@
+input_id,path_or_source,role,required
+PAPER_EEG,I-DARE paper Section 2.4.1 EEG,"Defines published EEG preprocessing: linked-earlobes reference, 512Hz, 0.1-40Hz band-pass, CleanLine 50/100Hz, ASR, ICA/ICLabel, REST.",yes
+PAPER_EMG,I-DARE paper Section 2.4.4 EMG,Defines published EMG preprocessing: notch 50/100Hz and 10-400Hz band-pass.,yes
+EEG_CACHE_BUILDER,scripts/12_build_idare_eeg_cache.py,"Documents repository EEG extraction, source_fs=512, target_fs=128, source_samples=2560, target_samples=640, stride downsampling, per-trial global z-score.",yes
+EEG_CACHE_REPORT,docs/idare_eeg_cache_build_report.md and .json,Documents the current EEG cache configuration and completed cache shape.,yes
+TRIAL_INDEX,.cache/idare_trial_index.csv,"Maps subject, stimulus, and event timing to source modality files.",yes
+EEG_SOURCE_FILES,I-DARE EEG .mat files referenced by trial index,"Audited read-only for Fs, fields, shape, event timing, and spectral properties.",yes
+EMG_SOURCE_FILES,I-DARE EMG .mat files and/or EMG feature cache index,"Audited read-only for Fs, fields, shape, channel count, and processed-source consistency.",yes
+PRIOR_RESULTS,project status and archived/closed branch reports,Used only to decide whether prior results remain valid after the provenance/downsampling audit.,yes

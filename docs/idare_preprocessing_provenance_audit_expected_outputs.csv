@@ -1,0 +1,8 @@
+output_id,path,purpose
+O1,docs/idare_preprocessing_provenance_audit_report.md,"Human-readable audit report with provenance verdict, downsampling verdict, and prior-result validity decision."
+O2,docs/idare_preprocessing_provenance_audit_report.json,"Machine-readable summary with diagnosis, decision, recommendation, and recommended_next_objective."
+O3,docs/idare_preprocessing_provenance_eeg_source_audit.csv,"Per-subject EEG source metadata audit: Fs, shape, fields, channels, timing/window compatibility."
+O4,docs/idare_preprocessing_provenance_emg_source_audit.csv,Per-subject EMG source metadata audit or EMG source/cache consistency audit.
+O5,docs/idare_preprocessing_provenance_eeg_downsample_audit.csv,Quantifies PSD/alias risk and stride-vs-anti-aliased downsampling differences.
+O6,docs/idare_preprocessing_provenance_prior_result_validity.csv,"Maps prior I-DARE results/branches to valid, preprocessing-contingent, or rerun-required status."
+O7,scripts/idare/analysis/run_idare_preprocessing_provenance_audit.py,Committed read-only audit script for reproducibility.

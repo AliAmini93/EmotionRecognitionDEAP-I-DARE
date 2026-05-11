@@ -1,0 +1,8 @@
+scope_id,item,authorized,details
+S1,Published preprocessing provenance,yes,Compare paper-described EEG/EMG preprocessing to repository source file metadata and cache assumptions.
+S2,EEG downsampling verification,yes,Read-only comparison of stride decimation vs anti-aliased downsampling on representative or all EEG windows.
+S3,PSD/aliasing audit,yes,Quantify energy near and above the 64Hz Nyquist relevant to 128Hz target sampling; expected low if paper 0.1-40Hz filtering is reflected in files.
+S4,Prior-result validity decision,yes,"Mark previous I-DARE results as valid, preprocessing-contingent, or requiring rerun based on audit outcomes."
+S5,Model training,no,"No training, no hyperparameter search, no performance claims beyond provenance/downsampling validity."
+S6,Reprocessing raw EEG/EMG,no,Do not create a new cleaned EEG/EMG dataset in this objective. This objective decides whether such a branch is needed.
+S7,DEAP or fusion,no,I-DARE only; no DEAP and no fusion.

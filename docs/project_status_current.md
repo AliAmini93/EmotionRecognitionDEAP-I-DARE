@@ -956,3 +956,20 @@ Updated: `2026-05-10T15:31:40+00:00`
 - Preserved reference baseline: `EEG` `arousal` `ridge_classifier_pairwise_summary_diff` with mean balanced accuracy `0.5216709095350218`.
 - Next recommended scientific step: systematic ablation/intervention roadmap.
 
+## Current Objective: I-DARE Preprocessing Provenance Audit
+
+Status: objective created; read-only preprocessing provenance audit only; no training is authorized.
+
+Objective ID: `idare_preprocessing_provenance_audit_objective`
+
+Scientific question: Have we missed any essential EEG/EMG preprocessing step for I-DARE, and is the repository EEG 512Hz-to-128Hz downsampling safe enough that prior results remain valid?
+
+Authorized scope:
+- I-DARE only.
+- EEG and EMG provenance audit.
+- EEG downsampling safety audit.
+- Prior-result validity decision.
+- No training, no cache overwrite, no raw reprocessing, no DEAP, no fusion.
+
+Next allowed step: `prepare_reviewed_idare_preprocessing_provenance_audit_command`
+
