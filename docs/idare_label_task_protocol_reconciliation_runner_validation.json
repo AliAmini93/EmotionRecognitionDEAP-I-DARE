@@ -22,7 +22,7 @@
       "status": "PASSED"
     },
     {
-      "detail": "only allowed-prefix changes: ?? docs/idare_label_task_protocol_reconciliation_objective.json | ?? docs/idare_label_task_protocol_reconciliation_objective.md | ?? scripts/idare_label_task_protocol_reconciliation_runner.py",
+      "detail": "only allowed-prefix changes: M docs/idare_label_task_protocol_reconciliation_runner_validation.json |  M docs/idare_label_task_protocol_reconciliation_runner_validation.md |  M scripts/idare_label_task_protocol_reconciliation_runner.py",
       "name": "git_status_allowed_prefix",
       "status": "PASSED"
     },
@@ -83,17 +83,7 @@
     },
     {
       "detail": "exists",
-      "name": "required_cache_or_index:.cache/idare_eeg_windows_32x640_float32.npy",
-      "status": "PASSED"
-    },
-    {
-      "detail": "exists",
       "name": "required_cache_or_index:.cache/idare_eeg_cache_index.csv",
-      "status": "PASSED"
-    },
-    {
-      "detail": "exists",
-      "name": "required_cache_or_index:.cache/idare_eeg_windows_32x640_float32_baseline_corrected.npy",
       "status": "PASSED"
     },
     {
@@ -104,6 +94,16 @@
     {
       "detail": "exists",
       "name": "required_cache_or_index:.cache/idare_trial_index.csv",
+      "status": "PASSED"
+    },
+    {
+      "detail": "exists size_bytes=165150848",
+      "name": "required_cache_array_metadata_only:.cache/idare_eeg_windows_32x640_float32.npy",
+      "status": "PASSED"
+    },
+    {
+      "detail": "exists size_bytes=165150848",
+      "name": "required_cache_array_metadata_only:.cache/idare_eeg_windows_32x640_float32_baseline_corrected.npy",
       "status": "PASSED"
     },
     {
@@ -132,12 +132,12 @@
       "status": "PASSED"
     },
     {
-      "detail": "reconciliation audit execution; experiments; model results; Wave 2; DG; model-capacity probe; augmentation; representation redesign v2; DEAP; fusion; preprocessing changes; threshold changes; main push; W1-owned file edits",
+      "detail": "experiments; model results; Wave 2; DG; model-capacity probe; augmentation; representation redesign v2; DEAP; fusion; preprocessing changes; threshold changes; W1-owned file edits; main push; new operating-point claim",
       "name": "forbidden_now_encoded",
       "status": "PASSED"
     },
     {
-      "detail": "validate/preflight mode only; no audit execution requested",
+      "detail": "explicit Control Tower audit run approval phrase supplied",
       "name": "audit_execution_guard",
       "status": "PASSED"
     }
@@ -146,7 +146,6 @@
   "expected_worktree": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-label-task-protocol",
   "experiment_or_model_result_created": false,
   "forbidden_now": [
-    "reconciliation audit execution",
     "experiments",
     "model results",
     "Wave 2",
@@ -158,11 +157,12 @@
     "fusion",
     "preprocessing changes",
     "threshold changes",
+    "W1-owned file edits",
     "main push",
-    "W1-owned file edits"
+    "new operating-point claim"
   ],
-  "generated_at_utc": "2026-05-12T10:06:40.758282+00:00",
-  "mode": "validate",
+  "generated_at_utc": "2026-05-12T10:14:55.659600+00:00",
+  "mode": "audit",
   "runner": "scripts/idare_label_task_protocol_reconciliation_runner.py",
   "status": "PASSED"
 }

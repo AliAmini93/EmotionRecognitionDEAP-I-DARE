@@ -1,0 +1,131 @@
+# I-DARE Prior-Results Interpretation Report
+
+## Status
+
+`complete`
+
+## Conclusion
+
+Prior results are interpreted as diagnostic/mixed evidence. They support a label-task/protocol decision step rather than more blind modeling.
+
+## JSON Source Summaries
+
+| path | summary |
+|---|---|
+| docs/project_status_current.json | `{"loaded": true, "next_allowed_step": "open_control_tower_and_wave1_branch_chats_after_human_review", "recommended_next_objective": "idare_wave1_parallel_branch_objectives", "status": "current"}` |
+| docs/idare_label_policy_ablation_report.json | `{"decision": {"evidence_level": "controlled label-policy primary matrix, not final LOSO", "final_label_policy_locked": false, "next_allowed_step": "Human review / closeout decision for label-policy ablation.", "not_authorized_from_this_report": ["EEG+EMG fusion", "full model(BSL, STIM, STIM-BSL)", "final LOSO / final paper claim", "locking a final label policy without review", "raw EMG mainline", "architecture ablations", "data augmentation", "SupCon / VREx / domain generalization"], "status": "` |
+| docs/idare_failure_analysis_report.json | `{"evidence_level": "post-hoc analysis of existing smoke/stabilization outputs; no new training", "loaded": true, "status": "failure_analysis_complete_pending_review"}` |
+| docs/idare_root_cause_diagnostic_report.json | `{"evidence_level": "read-only diagnostic analysis from existing committed outputs; no new training", "loaded": true, "recommended_next_objective": "diagnostic_sanity_tests_objective", "status": "complete_pending_review"}` |
+| docs/idare_representation_label_task_redesign_report.json | `{"diagnosis": "subject_relative_label_task_problem_supported", "evidence_level": "read-only representation/label-task diagnostic; no new model training; no final performance claim", "loaded": true, "next_allowed_step": "Human review / closeout before creating the selected next objective.", "recommended_next_objective": "subject_relative_task_formulation_objective", "status": "complete_pending_review"}` |
+| docs/idare_subject_relative_task_formulation_report.json | `{"evidence_level": "read-only subject-relative task formulation diagnostic/design; no new model training; no final performance claim", "loaded": true, "next_allowed_step": "Human review / closeout before creating the selected minimal controlled training objective.", "recommended_next_objective": "minimal_subject_relative_training_objective", "status": "complete_pending_review"}` |
+| docs/idare_minimal_supcon_dg_first_pass_report.json | `{"diagnosis": "minimal_supcon_dg_first_pass_not_sufficient", "loaded": true, "recommended_next_objective": "supcon_dg_failure_analysis_objective", "status": "first_pass_training_complete_pending_human_review"}` |
+| docs/idare_project_synthesis_review_and_final_registry_update.json | `{"loaded": true, "status": "created"}` |
+| docs/idare_label_task_protocol_reconciliation_execution_authorization_package.json | `{"loaded": true, "status": "created"}` |
+| docs/idare_label_task_protocol_reconciliation_design_objective.json | `{"loaded": true, "status": "created"}` |
+| docs/idare_label_task_protocol_reconciliation_objective.json | `{"loaded": true, "status": "created_for_control_authorized_runner_creation_only"}` |
+
+## Keyword Evidence
+
+```json
+{
+  "label_policy_docs": [
+    "docs/idare_label_task_protocol_reconciliation_design_objective.md",
+    "docs/project_status_current.md",
+    "docs/project_status_current.json",
+    "docs/project_operating_protocol.md",
+    "docs/research_scope_and_objectives.md",
+    "docs/smoke_and_evaluation_protocol.md",
+    "docs/idare_label_policy_ablation_objective.md",
+    "docs/idare_label_policy_ablation_report.md",
+    "docs/idare_label_policy_ablation_report.json",
+    "docs/idare_label_policy_ablation_review_status.md",
+    "docs/idare_failure_analysis_report.md",
+    "docs/idare_failure_analysis_report.json",
+    "docs/idare_failure_analysis_review_status.md",
+    "docs/idare_root_cause_diagnostic_report.md",
+    "docs/idare_root_cause_diagnostic_report.json",
+    "docs/idare_root_cause_diagnostic_review_status.md",
+    "docs/idare_diagnostic_sanity_tests_report.md",
+    "docs/idare_calibration_subject_generalization_report.md",
+    "docs/idare_calibration_protocol_report.md",
+    "docs/idare_calibration_protocol_review_status.md",
+    "docs/idare_representation_label_task_redesign_report.md",
+    "docs/idare_representation_label_task_redesign_report.json",
+    "docs/idare_representation_label_task_redesign_review_status.md",
+    "docs/idare_subject_relative_task_formulation_report.md",
+    "docs/idare_subject_relative_task_formulation_report.json",
+    "docs/idare_subject_relative_task_formulation_review_status.md",
+    "docs/idare_subject_relative_minimal_training_report.md",
+    "docs/idare_subject_relative_minimal_training_review_status.md"
+  ],
+  "near_chance_docs": [
+    "docs/project_status_current.md",
+    "docs/idare_failure_analysis_review_status.md",
+    "docs/idare_diagnostic_sanity_tests_report.md",
+    "docs/idare_subject_variability_intervention_failure_analysis_report.md"
+  ],
+  "stop_docs": [
+    "docs/idare_label_task_protocol_reconciliation_execution_authorization_package.md",
+    "docs/idare_label_task_protocol_reconciliation_execution_authorization_package.json",
+    "docs/idare_label_task_protocol_reconciliation_design_objective.md",
+    "docs/idare_label_task_protocol_reconciliation_design_objective.json",
+    "docs/idare_label_task_protocol_reconciliation_objective.md",
+    "docs/idare_root_cause_triage_execution_authorization_package.md",
+    "docs/idare_cross_subject_failure_root_cause_triage_objective.md",
+    "docs/idare_project_final_registry.csv",
+    "docs/idare_project_synthesis_review_and_final_registry_update.json",
+    "docs/project_status_current.md",
+    "docs/project_status_current.json",
+    "docs/project_operating_protocol.md",
+    "docs/smoke_and_evaluation_protocol.md",
+    "docs/idare_label_policy_ablation_objective.md",
+    "docs/idare_label_policy_ablation_review_status.md",
+    "docs/idare_subject_relative_minimal_training_report.md",
+    "docs/idare_subject_relative_preprocessed_minimal_training_report.md"
+  ],
+  "subject_relative_docs": [
+    "docs/idare_label_task_protocol_reconciliation_execution_authorization_package.md",
+    "docs/idare_label_task_protocol_reconciliation_execution_authorization_package.json",
+    "docs/idare_label_task_protocol_reconciliation_design_objective.md",
+    "docs/idare_label_task_protocol_reconciliation_design_objective.json",
+    "docs/project_status_current.md",
+    "docs/project_status_current.json",
+    "docs/idare_representation_label_task_redesign_report.md",
+    "docs/idare_representation_label_task_redesign_report.json",
+    "docs/idare_representation_label_task_redesign_review_status.md",
+    "docs/idare_subject_relative_task_formulation_report.md",
+    "docs/idare_subject_relative_task_formulation_report.json",
+    "docs/idare_subject_relative_task_formulation_review_status.md",
+    "docs/idare_subject_relative_minimal_training_report.md",
+    "docs/idare_subject_relative_minimal_training_review_status.md",
+    "docs/idare_subject_relative_representation_preprocessing_report.md",
+    "docs/idare_subject_relative_preprocessed_minimal_training_report.md",
+    "docs/idare_subject_relative_preprocessed_minimal_training_review_status.md",
+    "docs/idare_subject_variability_intervention_failure_analysis_report.md",
+    "docs/idare_subject_variability_intervention_failure_analysis_review_status.md"
+  ],
+  "threshold_docs": [
+    "docs/idare_label_task_protocol_reconciliation_execution_authorization_package.md",
+    "docs/idare_label_task_protocol_reconciliation_execution_authorization_package.json",
+    "docs/idare_label_task_protocol_reconciliation_design_objective.md",
+    "docs/idare_label_task_protocol_reconciliation_design_objective.json",
+    "docs/idare_label_task_protocol_reconciliation_objective.md",
+    "docs/idare_label_task_protocol_reconciliation_objective.json",
+    "docs/idare_root_cause_triage_execution_authorization_package.md",
+    "docs/idare_cross_subject_failure_root_cause_triage_objective.md",
+    "docs/idare_project_synthesis_review_and_final_registry_update.json",
+    "docs/project_status_current.md",
+    "docs/project_status_current.json",
+    "docs/project_operating_protocol.md",
+    "docs/smoke_and_evaluation_protocol.md",
+    "docs/idare_label_policy_ablation_objective.md",
+    "docs/idare_failure_analysis_report.md",
+    "docs/idare_failure_analysis_report.json",
+    "docs/idare_root_cause_diagnostic_report.md",
+    "docs/idare_root_cause_diagnostic_report.json",
+    "docs/idare_root_cause_diagnostic_review_status.md",
+    "docs/idare_calibration_subject_generalization_report.md",
+    "docs/idare_calibration_protocol_report.md"
+  ]
+}
+```
