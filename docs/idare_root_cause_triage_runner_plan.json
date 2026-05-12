@@ -1,0 +1,36 @@
+{
+  "audit_executed": false,
+  "created_at_utc": "2026-05-12T09:21:36.838097+00:00",
+  "documentation_only": true,
+  "experiment_executed": false,
+  "future_default_mode": "status",
+  "future_modes": [
+    "status",
+    "inventory",
+    "validate",
+    "audit_label_task",
+    "audit_subject_domain",
+    "audit_protocol_alignment",
+    "audit_representation_failure",
+    "audit_null_permutation",
+    "decision_matrix",
+    "closeout"
+  ],
+  "hard_boundaries": [
+    "no Wave 2",
+    "no DG execution",
+    "no model-capacity probe",
+    "no augmentation",
+    "no DEAP",
+    "no fusion",
+    "no preprocessing changes",
+    "no threshold changes",
+    "no W1 branch-owned file edits",
+    "no main push",
+    "no scripts now",
+    "no audit execution now"
+  ],
+  "plan_id": "idare_root_cause_triage_runner_plan",
+  "script_created": false,
+  "status": "created"
+}
