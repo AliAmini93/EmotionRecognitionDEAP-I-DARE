@@ -33,9 +33,13 @@
     {
       "details": {
         "changed_paths": [
-          "docs/idare_data_augmentation_objective.json",
-          "docs/idare_data_augmentation_objective.md",
-          "scripts/idare_data_augmentation_runner.py"
+          "docs/idare_data_augmentation_validation_report.json",
+          "docs/idare_data_augmentation_validation_report.md",
+          "scripts/idare_data_augmentation_runner.py",
+          "docs/idare_data_augmentation_option_a_implementation_report.json",
+          "docs/idare_data_augmentation_option_a_implementation_report.md",
+          "docs/idare_data_augmentation_option_a_recovery_plan_terminal.log",
+          "docs/idare_data_augmentation_option_a_run_matrix.csv"
         ],
         "disallowed": []
       },
@@ -244,9 +248,7 @@
         "required": [
           "cache_row",
           "subject_id",
-          "valence_discard_midpoint",
           "valence_midpoint_as_high",
-          "arousal_discard_midpoint",
           "arousal_midpoint_as_high"
         ]
       },
@@ -293,9 +295,7 @@
         "required": [
           "cache_row",
           "subject_id",
-          "valence_discard_midpoint",
           "valence_midpoint_as_high",
-          "arousal_discard_midpoint",
           "arousal_midpoint_as_high"
         ]
       },
@@ -303,60 +303,38 @@
       "ok": true
     },
     {
-      "details": [
-        "E0_none_baseline",
-        "E1_additive_gaussian_noise_weak",
-        "E2_additive_gaussian_noise_medium",
-        "E3_amplitude_scaling",
-        "E4_time_channel_masking_or_dropout"
-      ],
-      "name": "eeg_policy_registry_exact",
+      "details": {
+        "rows": 120
+      },
+      "name": "option_A_matrix_has_120_rows",
       "ok": true
     },
     {
       "details": [
-        "M0_none_baseline",
-        "M1_feature_gaussian_jitter_weak",
-        "M2_feature_gaussian_jitter_medium",
-        "M3_feature_scaling",
-        "M4_feature_dropout"
+        "arousal",
+        "valence"
       ],
-      "name": "emg_policy_registry_exact",
+      "name": "option_A_targets_exact",
       "ok": true
     },
     {
-      "details": {
-        "execution_authorized": false,
-        "folds": 6,
-        "modalities": [
-          "EEG",
-          "EMG"
-        ],
-        "policies_per_modality": 5,
-        "targets": [
-          "valence",
-          "arousal"
-        ],
-        "total_runs": 120
-      },
-      "name": "option_A_metadata_120_runs",
+      "details": [
+        "EEG",
+        "EMG"
+      ],
+      "name": "option_A_modalities_exact",
       "ok": true
     },
     {
-      "details": {
-        "execution_authorized": false,
-        "folds": 6,
-        "modalities": [
-          "EEG"
-        ],
-        "policies_per_modality": 5,
-        "targets": [
-          "valence",
-          "arousal"
-        ],
-        "total_runs": 60
-      },
-      "name": "option_B_metadata_60_runs",
+      "details": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "name": "option_A_folds_exact",
       "ok": true
     }
   ],
@@ -390,37 +368,36 @@
     "preprocessing_change": false,
     "threshold_change": false
   },
-  "generated_at_utc": "2026-05-12T14:39:41.555239+00:00",
-  "git_status_short_branch": "## idare/postwave1/data-augmentation-track...origin/idare/control-tower\n?? docs/idare_data_augmentation_objective.json\n?? docs/idare_data_augmentation_objective.md\n?? scripts/idare_data_augmentation_runner.py",
-  "mode": "validate",
-  "planned_matrix_metadata": {
-    "A_preferred": {
-      "execution_authorized": false,
-      "folds": 6,
-      "modalities": [
-        "EEG",
-        "EMG"
-      ],
-      "policies_per_modality": 5,
-      "targets": [
-        "valence",
-        "arousal"
-      ],
-      "total_runs": 120
-    },
-    "B_runtime_fallback": {
-      "execution_authorized": false,
-      "folds": 6,
-      "modalities": [
-        "EEG"
-      ],
-      "policies_per_modality": 5,
-      "targets": [
-        "valence",
-        "arousal"
-      ],
-      "total_runs": 60
-    }
+  "generated_at_utc": "2026-05-12T14:47:44.474149+00:00",
+  "git_status_short_branch": "## idare/postwave1/data-augmentation-track...origin/idare/postwave1/data-augmentation-track\n M docs/idare_data_augmentation_validation_report.json\n M docs/idare_data_augmentation_validation_report.md\n M scripts/idare_data_augmentation_runner.py\n?? docs/idare_data_augmentation_option_a_implementation_report.json\n?? docs/idare_data_augmentation_option_a_implementation_report.md\n?? docs/idare_data_augmentation_option_a_recovery_plan_terminal.log\n?? docs/idare_data_augmentation_option_a_run_matrix.csv",
+  "label_columns": {
+    "arousal": "arousal_midpoint_as_high",
+    "valence": "valence_midpoint_as_high"
+  },
+  "mode": "plan",
+  "model_results_created": false,
+  "option_A": {
+    "dataset": "I-DARE",
+    "execution_authorized": false,
+    "expected_runs": 120,
+    "folds": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "modalities": [
+      "EEG",
+      "EMG"
+    ],
+    "run_matrix_csv": "docs/idare_data_augmentation_option_a_run_matrix.csv",
+    "selected": true,
+    "targets": [
+      "valence",
+      "arousal"
+    ]
   },
   "status": "PASSED"
 }

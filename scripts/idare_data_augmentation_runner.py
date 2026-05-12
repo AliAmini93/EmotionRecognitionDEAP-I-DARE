@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 import subprocess
 import sys
@@ -16,6 +17,9 @@ ALLOWED_PREFIX = "idare_data_augmentation_"
 OBJECTIVE_JSON = Path("docs/idare_data_augmentation_objective.json")
 VALIDATION_JSON = Path("docs/idare_data_augmentation_validation_report.json")
 VALIDATION_MD = Path("docs/idare_data_augmentation_validation_report.md")
+OPTION_A_MATRIX_CSV = Path("docs/idare_data_augmentation_option_a_run_matrix.csv")
+IMPLEMENTATION_JSON = Path("docs/idare_data_augmentation_option_a_implementation_report.json")
+IMPLEMENTATION_MD = Path("docs/idare_data_augmentation_option_a_implementation_report.md")
 
 CONTROL_DOCS = [
     "docs/idare_deap_cross_subject_data_augmentation_objective.md",
@@ -46,23 +50,9 @@ REQUIRED_INPUTS = {
     "raw_emg_index": ".cache/idare_raw_emg_cache_index.csv",
 }
 
-EEG_REQUIRED_COLUMNS = [
-    "cache_row",
-    "subject_id",
-    "valence_discard_midpoint",
-    "valence_midpoint_as_high",
-    "arousal_discard_midpoint",
-    "arousal_midpoint_as_high",
-]
-
-EMG_REQUIRED_COLUMNS = [
-    "cache_row",
-    "subject_id",
-    "valence_discard_midpoint",
-    "valence_midpoint_as_high",
-    "arousal_discard_midpoint",
-    "arousal_midpoint_as_high",
-]
+TASKS = ["valence", "arousal"]
+MODALITIES = ["EEG", "EMG"]
+FOLDS = [1, 2, 3, 4, 5, 6]
 
 EEG_POLICIES = [
     "E0_none_baseline",
@@ -80,30 +70,17 @@ EMG_POLICIES = [
     "M4_feature_dropout",
 ]
 
-PLANNED_OPTIONS = {
-    "A_preferred": {
-        "targets": ["valence", "arousal"],
-        "modalities": ["EEG", "EMG"],
-        "policies_per_modality": 5,
-        "folds": 6,
-        "total_runs": 120,
-        "execution_authorized": False,
-    },
-    "B_runtime_fallback": {
-        "targets": ["valence", "arousal"],
-        "modalities": ["EEG"],
-        "policies_per_modality": 5,
-        "folds": 6,
-        "total_runs": 60,
-        "execution_authorized": False,
-    },
+LABEL_COLUMNS = {
+    "valence": "valence_midpoint_as_high",
+    "arousal": "arousal_midpoint_as_high",
 }
 
+OPTION_A_EXPECTED_RUNS = 120
 
-def run_cmd(args: list[str], cwd: Path | None = None) -> tuple[int, str, str]:
+
+def run_cmd(args: list[str]) -> tuple[int, str, str]:
     proc = subprocess.run(
         args,
-        cwd=cwd,
         text=True,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
@@ -141,19 +118,20 @@ def changed_paths() -> list[str]:
     rc, out, _ = run_cmd(["git", "status", "--porcelain=v1"])
     if rc != 0 or not out:
         return []
-    paths = []
+    paths: list[str] = []
     for line in out.splitlines():
-        if len(line) >= 4:
-            paths.append(line[3:])
+        # Porcelain v1 format is "XY PATH" for tracked changes and
+        # "?? PATH" for untracked files. Split instead of slicing so
+        # paths like "scripts/..." and "docs/..." are never truncated.
+        parts = line.split(maxsplit=1)
+        if len(parts) == 2:
+            paths.append(parts[1])
     return paths
 
 
 def path_allowed(path: str) -> bool:
-    p = Path(path)
-    return (
-        str(p).startswith(f"docs/{ALLOWED_PREFIX}")
-        or str(p).startswith(f"scripts/{ALLOWED_PREFIX}")
-    )
+    p = str(Path(path))
+    return p.startswith(f"docs/{ALLOWED_PREFIX}") or p.startswith(f"scripts/{ALLOWED_PREFIX}")
 
 
 def load_numpy_shape(path: Path) -> dict[str, Any]:
@@ -168,6 +146,44 @@ def csv_columns(path: Path, required: list[str]) -> dict[str, Any]:
     cols = list(df.columns)
     missing = [c for c in required if c not in cols]
     return {"columns": cols, "required": required, "missing": missing, "preview_rows": len(df)}
+
+
+def option_a_rows() -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    run_id = 1
+    for target in TASKS:
+        for modality in MODALITIES:
+            policies = EEG_POLICIES if modality == "EEG" else EMG_POLICIES
+            for policy in policies:
+                for fold_id in FOLDS:
+                    rows.append(
+                        {
+                            "run_id": run_id,
+                            "matrix_option": "A",
+                            "dataset": "I-DARE",
+                            "target": target,
+                            "label_column": LABEL_COLUMNS[target],
+                            "modality": modality,
+                            "da_policy": policy,
+                            "fold_id": fold_id,
+                            "execution_authorized": False,
+                            "status": "planned_metadata_only",
+                        }
+                    )
+                    run_id += 1
+    return rows
+
+
+def write_option_a_matrix() -> None:
+    rows = option_a_rows()
+    if len(rows) != OPTION_A_EXPECTED_RUNS:
+        raise RuntimeError(f"Option A matrix row count mismatch: {len(rows)} != {OPTION_A_EXPECTED_RUNS}")
+
+    OPTION_A_MATRIX_CSV.parent.mkdir(parents=True, exist_ok=True)
+    with OPTION_A_MATRIX_CSV.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
+        writer.writeheader()
+        writer.writerows(rows)
 
 
 def build_report(mode: str) -> dict[str, Any]:
@@ -204,31 +220,29 @@ def build_report(mode: str) -> dict[str, Any]:
     if Path(REQUIRED_INPUTS["raw_emg_npy"]).exists():
         checks.append(check(True, "raw_emg_npy_shape", load_numpy_shape(Path(REQUIRED_INPUTS["raw_emg_npy"]))))
 
+    required_label_cols = [
+        "cache_row",
+        "subject_id",
+        "valence_midpoint_as_high",
+        "arousal_midpoint_as_high",
+    ]
+
     if Path(REQUIRED_INPUTS["eeg_bsl_index"]).exists():
-        c = csv_columns(Path(REQUIRED_INPUTS["eeg_bsl_index"]), EEG_REQUIRED_COLUMNS)
+        c = csv_columns(Path(REQUIRED_INPUTS["eeg_bsl_index"]), required_label_cols)
         checks.append(check(len(c["missing"]) == 0, "eeg_bsl_index_required_columns", c))
     if Path(REQUIRED_INPUTS["emg_features_index"]).exists():
-        c = csv_columns(Path(REQUIRED_INPUTS["emg_features_index"]), EMG_REQUIRED_COLUMNS)
+        c = csv_columns(Path(REQUIRED_INPUTS["emg_features_index"]), required_label_cols)
         checks.append(check(len(c["missing"]) == 0, "emg_features_index_required_columns", c))
 
-    checks.append(check(EEG_POLICIES == [
-        "E0_none_baseline",
-        "E1_additive_gaussian_noise_weak",
-        "E2_additive_gaussian_noise_medium",
-        "E3_amplitude_scaling",
-        "E4_time_channel_masking_or_dropout",
-    ], "eeg_policy_registry_exact", EEG_POLICIES))
+    rows = option_a_rows()
+    checks.append(check(len(rows) == OPTION_A_EXPECTED_RUNS, "option_A_matrix_has_120_rows", {"rows": len(rows)}))
 
-    checks.append(check(EMG_POLICIES == [
-        "M0_none_baseline",
-        "M1_feature_gaussian_jitter_weak",
-        "M2_feature_gaussian_jitter_medium",
-        "M3_feature_scaling",
-        "M4_feature_dropout",
-    ], "emg_policy_registry_exact", EMG_POLICIES))
-
-    checks.append(check(PLANNED_OPTIONS["A_preferred"]["total_runs"] == 120, "option_A_metadata_120_runs", PLANNED_OPTIONS["A_preferred"]))
-    checks.append(check(PLANNED_OPTIONS["B_runtime_fallback"]["total_runs"] == 60, "option_B_metadata_60_runs", PLANNED_OPTIONS["B_runtime_fallback"]))
+    unique_targets = sorted({r["target"] for r in rows})
+    unique_modalities = sorted({r["modality"] for r in rows})
+    unique_folds = sorted({r["fold_id"] for r in rows})
+    checks.append(check(unique_targets == ["arousal", "valence"], "option_A_targets_exact", unique_targets))
+    checks.append(check(unique_modalities == ["EEG", "EMG"], "option_A_modalities_exact", unique_modalities))
+    checks.append(check(unique_folds == FOLDS, "option_A_folds_exact", unique_folds))
 
     forbidden_scope = {
         "DEAP_stage_1": False,
@@ -256,7 +270,18 @@ def build_report(mode: str) -> dict[str, Any]:
         "execution_authorized": False,
         "da_execution_occurred": False,
         "experiment_or_model_result_created": False,
-        "planned_matrix_metadata": PLANNED_OPTIONS,
+        "model_results_created": False,
+        "option_A": {
+            "selected": True,
+            "dataset": "I-DARE",
+            "targets": TASKS,
+            "modalities": MODALITIES,
+            "folds": FOLDS,
+            "expected_runs": OPTION_A_EXPECTED_RUNS,
+            "execution_authorized": False,
+            "run_matrix_csv": str(OPTION_A_MATRIX_CSV),
+        },
+        "label_columns": LABEL_COLUMNS,
         "eeg_da_policies": EEG_POLICIES,
         "emg_da_policies": EMG_POLICIES,
         "forbidden_scope": forbidden_scope,
@@ -266,7 +291,7 @@ def build_report(mode: str) -> dict[str, Any]:
     }
 
 
-def write_reports(report: dict[str, Any]) -> None:
+def write_validation_reports(report: dict[str, Any]) -> None:
     VALIDATION_JSON.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
     lines = [
@@ -281,13 +306,15 @@ def write_reports(report: dict[str, Any]) -> None:
         f"- execution_authorized: `{str(report['execution_authorized']).lower()}`",
         f"- da_execution_occurred: `{str(report['da_execution_occurred']).lower()}`",
         f"- experiment_or_model_result_created: `{str(report['experiment_or_model_result_created']).lower()}`",
+        f"- model_results_created: `{str(report['model_results_created']).lower()}`",
         f"- blocker_count: `{report['blocker_count']}`",
         "",
-        "## Planned Matrix Metadata",
+        "## Option A Matrix Metadata",
         "",
-        "- Option A: `2 targets x 2 modalities x 5 DA policies x 6 folds = 120 runs`",
-        "- Option B: `2 targets x 1 modality x 5 DA policies x 6 folds = 60 EEG-first runs`",
-        "- Metadata only; no DA run executed.",
+        "- Option A selected: `true`",
+        "- Matrix: `2 targets x 2 modalities x 5 DA policies x 6 folds = 120 runs`",
+        "- Execution authorized: `false`",
+        "- Metadata/plan only; no DA run executed.",
         "",
         "## Blockers",
         "",
@@ -316,28 +343,77 @@ def write_reports(report: dict[str, Any]) -> None:
     VALIDATION_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
+def write_implementation_report(report: dict[str, Any]) -> None:
+    impl = {
+        "status": report["status"],
+        "implementation_stage": "option_A_run_implementation_plan_only",
+        "execution_authorized": False,
+        "da_execution_occurred": False,
+        "model_results_created": False,
+        "option_A_run_matrix_csv": str(OPTION_A_MATRIX_CSV),
+        "option_A_expected_runs": OPTION_A_EXPECTED_RUNS,
+        "label_columns": LABEL_COLUMNS,
+        "eeg_da_policies": EEG_POLICIES,
+        "emg_da_policies": EMG_POLICIES,
+        "blocker_count": report["blocker_count"],
+        "blockers": report["blockers"],
+    }
+    IMPLEMENTATION_JSON.write_text(json.dumps(impl, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+
+    lines = [
+        "# I-DARE Data Augmentation Option A Implementation Report",
+        "",
+        f"- status: `{impl['status']}`",
+        "- implementation_stage: `option_A_run_implementation_plan_only`",
+        "- execution_authorized: `false`",
+        "- da_execution_occurred: `false`",
+        "- model_results_created: `false`",
+        f"- option_A_expected_runs: `{OPTION_A_EXPECTED_RUNS}`",
+        f"- option_A_run_matrix_csv: `{OPTION_A_MATRIX_CSV}`",
+        "",
+        "## Option A",
+        "",
+        "`2 targets x 2 modalities x 5 DA policies x 6 folds = 120 runs`",
+        "",
+        "## Current Boundary",
+        "",
+        "`RUN_IMPLEMENTATION_ONLY_NO_EXECUTION`",
+    ]
+    IMPLEMENTATION_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Guarded I-DARE data augmentation runner")
-    parser.add_argument("--mode", choices=["status", "validate", "run", "closeout"], default="status")
+    parser.add_argument("--mode", choices=["status", "validate", "plan", "run", "closeout"], default="status")
+    parser.add_argument("--matrix-option", choices=["A"], default="A")
     parser.add_argument("--write-report", action="store_true")
     args = parser.parse_args()
 
     if args.mode in {"run", "closeout"}:
-        print("BLOCKER: DA execution/closeout is not authorized yet. Runner is validation-only at this gate.")
-        print("da_execution_occurred=false")
-        print("experiment_or_model_result_created=false")
+        print("BLOCKER: DA run/closeout is not authorized yet. Runner is implementation/validation-only at this gate.")
+        print("DA_EXECUTION_OCCURRED: false")
+        print("EXPERIMENT_OR_MODEL_RESULT_CREATED: false")
+        print("MODEL_RESULTS_CREATED: false")
         return 2
 
     report = build_report(args.mode)
 
+    if args.mode == "plan":
+        write_option_a_matrix()
+        report = build_report(args.mode)
+
     if args.write_report:
-        write_reports(report)
+        write_validation_reports(report)
+        if args.mode == "plan":
+            write_implementation_report(report)
 
     print(f"STATUS: {report['status']}")
     print(f"MODE: {report['mode']}")
     print(f"BLOCKERS: {report['blocker_count']}")
+    print(f"OPTION_A_EXPECTED_RUNS: {OPTION_A_EXPECTED_RUNS}")
     print("DA_EXECUTION_OCCURRED: false")
     print("EXPERIMENT_OR_MODEL_RESULT_CREATED: false")
+    print("MODEL_RESULTS_CREATED: false")
 
     if report["blockers"]:
         for b in report["blockers"]:

@@ -1,7 +1,7 @@
 # I-DARE Data Augmentation Validation Report
 
 - status: `PASSED`
-- mode: `validate`
+- mode: `plan`
 - expected_branch: `idare/postwave1/data-augmentation-track`
 - actual_branch: `idare/postwave1/data-augmentation-track`
 - expected_worktree: `/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-data-augmentation`
@@ -9,13 +9,15 @@
 - execution_authorized: `false`
 - da_execution_occurred: `false`
 - experiment_or_model_result_created: `false`
+- model_results_created: `false`
 - blocker_count: `0`
 
-## Planned Matrix Metadata
+## Option A Matrix Metadata
 
-- Option A: `2 targets x 2 modalities x 5 DA policies x 6 folds = 120 runs`
-- Option B: `2 targets x 1 modality x 5 DA policies x 6 folds = 60 EEG-first runs`
-- Metadata only; no DA run executed.
+- Option A selected: `true`
+- Matrix: `2 targets x 2 modalities x 5 DA policies x 6 folds = 120 runs`
+- Execution authorized: `false`
+- Metadata/plan only; no DA run executed.
 
 ## Blockers
 
@@ -29,7 +31,7 @@
 | expected_branch | true | `{"actual": "idare/postwave1/data-augmentation-track", "expected": "idare/postwave1/data-augmentation-track"}` |
 | cache_symlink_or_dir_exists | true | `".cache"` |
 | venv_symlink_or_dir_exists | true | `".venv"` |
-| dirty_paths_limited_to_allowed_prefix | true | `{"changed_paths": ["docs/idare_data_augmentation_objective.json", "docs/idare_data_augmentation_objective.md", "scripts/idare_data_augmentation_runner.py"], "disallowed": []}` |
+| dirty_paths_limited_to_allowed_prefix | true | `{"changed_paths": ["docs/idare_data_augmentation_validation_report.json", "docs/idare_data_augmentation_validation_report.md", "scripts/idare_data_augmentation_runner.py", "docs/idare_data_augmentation_option_a_implementation_report.json...` |
 | control_doc_exists:docs/idare_deap_cross_subject_data_augmentation_objective.md | true | `"docs/idare_deap_cross_subject_data_augmentation_objective.md"` |
 | control_doc_exists:docs/idare_deap_cross_subject_data_augmentation_objective.json | true | `"docs/idare_deap_cross_subject_data_augmentation_objective.json"` |
 | control_doc_exists:docs/idare_data_augmentation_track_execution_authorization_package.md | true | `"docs/idare_data_augmentation_track_execution_authorization_package.md"` |
@@ -60,7 +62,7 @@
 | raw_emg_npy_shape | true | `{"dtype": "float32", "shape": [2016, 2, 10000]}` |
 | eeg_bsl_index_required_columns | true | `{"columns": ["cache_row", "subject_id", "subject_col", "stimulus_id", "raw_event_name", "bsl_raw_event_name", "eeg_file", "eeg_begin_raw", "bsl_eeg_begin_raw", "stim_event_index_0based", "bsl_event_index_0based", "stim_event_index_1based...` |
 | emg_features_index_required_columns | true | `{"columns": ["cache_row", "subject_id", "subject_col", "stimulus_id", "raw_event_name", "bsl_event_index_0based", "stim_event_index_0based", "bsl_event_index_1based", "stim_event_index_1based", "emg_file", "emg_channels", "emg_begin_raw"...` |
-| eeg_policy_registry_exact | true | `["E0_none_baseline", "E1_additive_gaussian_noise_weak", "E2_additive_gaussian_noise_medium", "E3_amplitude_scaling", "E4_time_channel_masking_or_dropout"]` |
-| emg_policy_registry_exact | true | `["M0_none_baseline", "M1_feature_gaussian_jitter_weak", "M2_feature_gaussian_jitter_medium", "M3_feature_scaling", "M4_feature_dropout"]` |
-| option_A_metadata_120_runs | true | `{"execution_authorized": false, "folds": 6, "modalities": ["EEG", "EMG"], "policies_per_modality": 5, "targets": ["valence", "arousal"], "total_runs": 120}` |
-| option_B_metadata_60_runs | true | `{"execution_authorized": false, "folds": 6, "modalities": ["EEG"], "policies_per_modality": 5, "targets": ["valence", "arousal"], "total_runs": 60}` |
+| option_A_matrix_has_120_rows | true | `{"rows": 120}` |
+| option_A_targets_exact | true | `["arousal", "valence"]` |
+| option_A_modalities_exact | true | `["EEG", "EMG"]` |
+| option_A_folds_exact | true | `[1, 2, 3, 4, 5, 6]` |
