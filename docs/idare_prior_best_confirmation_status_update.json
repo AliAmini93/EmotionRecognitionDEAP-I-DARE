@@ -1,0 +1,63 @@
+{
+  "status_update_id": "idare_prior_best_confirmation_status_update",
+  "status": "created",
+  "branch": "idare/control-tower",
+  "scope": "documentation_status_update_only",
+  "execution_authorized": false,
+  "runner_creation_authorized": false,
+  "experiments_authorized": false,
+  "model_results_authorized": false,
+  "wave2_execution_authorized": false,
+  "dg_execution_authorized": false,
+  "model_capacity_probe_authorized": false,
+  "augmentation_authorized": false,
+  "representation_redesign_v2_authorized": false,
+  "deap_execution_authorized": false,
+  "fusion_execution_authorized": false,
+  "preprocessing_changes": "forbidden",
+  "threshold_changes": "forbidden",
+  "main_push": "forbidden",
+  "formal_status": {
+    "PRIOR_BEST_CONFIRMATION": "ACCEPTED_CLEAN_NO_PASS",
+    "PRIOR_MODERATE_CELLS": "NOT_ROBUSTLY_CONFIRMED",
+    "CURRENT_MODELING_PATH": "PAUSED",
+    "FOLLOWUP_EXECUTION": "NOT_AUTHORIZED"
+  },
+  "evidence_base": {
+    "branch": "idare/postwave1/idare-prior-best-cell-confirmation",
+    "latest_result_commit": "2b72f40e6f1ed68090b820d6ae96a94e5de56479",
+    "run_count": 24,
+    "registered_cells": 4,
+    "folds": 6,
+    "leakage_scope_audit": "passed",
+    "blockers": "none_reported",
+    "final_paper_level_claim": false
+  },
+  "cell_outcomes": {
+    "C0_EEG_arousal_midpoint_as_high_ce_weighted": "weakened_borderline_not_confirmed_moderate",
+    "C1_EEG_valence_discard_midpoint_balanced_sampler": "rejected_as_useful_confirmation",
+    "C2_EMG_arousal_discard_midpoint_ce_weighted": "weakened_prior_moderate_not_confirmed",
+    "C3_EMG_valence_midpoint_as_high_ce_weighted": "confirmed_weak_comparator_only"
+  },
+  "project_level_ruling": {
+    "robust_idare_single_modality_operating_point": "not_found",
+    "confirmed_moderate_final_cell": "none",
+    "modeling_path": "paused_pending_human_decision"
+  },
+  "blocked_escalations": [
+    "DEAP",
+    "fusion",
+    "DG_Wave2",
+    "model_capacity_probe",
+    "augmentation",
+    "representation_redesign_v2",
+    "final_paper_level_operating_point_claim"
+  ],
+  "required_next_human_decision": [
+    "STOP_HANDOFF",
+    "RETHINK_TARGET_PROTOCOL_MODELING_STRATEGY",
+    "REQUEST_FINAL_PROJECT_CLOSEOUT_SUMMARY",
+    "REQUEST_NON_EXECUTION_RESEARCH_WRITEUP"
+  ],
+  "current_state": "AWAITING_STOP_HANDOFF_OR_STRATEGY_RETHINK_DECISION"
+}
