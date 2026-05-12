@@ -1,0 +1,52 @@
+{
+  "objective_id": "idare_cross_subject_failure_root_cause_triage_objective",
+  "status": "created",
+  "branch": "idare/control-tower",
+  "scope": "documentation_only",
+  "execution_authorized": false,
+  "runner_creation_authorized": false,
+  "wave2_execution_authorized": false,
+  "dg_execution_authorized": false,
+  "model_capacity_probe_authorized": false,
+  "augmentation_authorized": false,
+  "deap": "frozen",
+  "fusion": "frozen",
+  "preprocessing_changes": "forbidden",
+  "threshold_changes": "forbidden",
+  "main_push": "forbidden",
+  "current_project_state": "PROJECT_EXECUTION_PAUSED_PENDING_HUMAN_PIVOT_DECISION",
+  "root_cause_questions": {
+    "label_task_sanity": [
+      "are_arousal_valence_labels_too_subject_dependent",
+      "are_midpoint_policies_causing_instability",
+      "are_fold_label_distributions_or_subject_label_biases_dominating"
+    ],
+    "subject_domain_shift": [
+      "how_much_feature_geometry_is_subject_identity_vs_affect",
+      "which_folds_subjects_break_generalization",
+      "are_failures_concentrated_in_heldout_subject_groups"
+    ],
+    "evaluation_protocol_alignment": [
+      "is_current_cross_subject_setting_comparable_to_idare_paper",
+      "did_paper_use_subject_dependent_cross_subject_or_other_protocol",
+      "are_we_chasing_target_original_protocol_does_not_support"
+    ],
+    "representation_failure": [
+      "do_features_preserve_affect_only_within_subject",
+      "did_R2_R3_fail_due_to_instability_or_weakness",
+      "should_representation_redesign_continue_or_label_task_redesign_take_priority"
+    ],
+    "null_permutation_sanity": [
+      "compare_observed_BA_against_null_permutation_majority_fold_baselines",
+      "decide_whether_current_gains_are_above_noise"
+    ]
+  },
+  "decision_matrix": {
+    "A_label_task_redesign": "primary_candidate",
+    "B_evaluation_protocol_reconciliation": "primary_candidate",
+    "C_representation_redesign_v2": "secondary",
+    "D_subject_domain_generalization": "deferred",
+    "E_stop_pivot_current_cross_subject_formulation": "reviewable"
+  },
+  "next_state": "REQUEST_ROOT_CAUSE_TRIAGE_EXECUTION_AUTHORIZATION_PACKAGE"
+}
