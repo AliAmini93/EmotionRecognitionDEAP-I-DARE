@@ -1,0 +1,66 @@
+{
+  "objective_id": "idare_label_task_protocol_reconciliation_design_objective",
+  "status": "created",
+  "branch": "idare/control-tower",
+  "scope": "documentation_design_only",
+  "execution_authorized": false,
+  "runner_creation_authorized": false,
+  "wave2_execution_authorized": false,
+  "dg_execution_authorized": false,
+  "model_capacity_probe_authorized": false,
+  "augmentation_authorized": false,
+  "deap": "frozen",
+  "fusion": "frozen",
+  "preprocessing_changes": "forbidden",
+  "threshold_changes": "forbidden",
+  "main_push": "forbidden",
+  "root_cause_context": {
+    "primary_diagnosis": "LABEL_TASK_AND_PROTOCOL_UNCERTAINTY_INTERACTING_WITH_STRONG_SUBJECT_DOMAIN_SHIFT",
+    "label_task_redesign": "PRIMARY_RECOMMENDED",
+    "evaluation_protocol_reconciliation": "PRIMARY_RECOMMENDED",
+    "representation_redesign_v2": "NOT_PRIMARY_NOW",
+    "subject_domain_generalization": "MECHANISM_PRIMARY_BUT_EXECUTION_DEFERRED",
+    "stop_pivot": "CONTINGENT_FALLBACK"
+  },
+  "reconciliation_questions": {
+    "protocol_alignment": [
+      "did_idare_paper_use_subject_dependent_within_subject_cross_subject_loso_or_other_protocol",
+      "is_current_heldout_subject_protocol_comparable_to_paper",
+      "are_current_results_judged_against_unsupported_target"
+    ],
+    "label_task_formulation": [
+      "are_arousal_valence_labels_too_subject_dependent",
+      "is_midpoint_as_high_creating_instability",
+      "should_discard_midpoint_subject_relative_or_preference_targets_be_reviewed",
+      "should_arousal_or_valence_be_deprioritized"
+    ],
+    "fold_subject_bias": [
+      "are_some_heldout_folds_intrinsically_harder",
+      "do_failures_cluster_around_subject_groups",
+      "are_label_distributions_confounded_with_subject_identity"
+    ],
+    "prior_results_interpretation": [
+      "does_w1d_imply_subject_relative_label_signal",
+      "did_r3_fail_due_to_instability_or_target_mismatch",
+      "did_strict_ntd_and_w1b_fail_because_normalization_cannot_fix_task_protocol_mismatch"
+    ]
+  },
+  "candidate_next_directions": {
+    "keep_current_cross_subject_binary_formulation": "not_supported_yet",
+    "label_task_redesign": "primary_candidate",
+    "protocol_target_redesign": "primary_candidate",
+    "representation_redesign_v2": "deferred",
+    "dg_execution": "deferred",
+    "stop_pivot": "fallback"
+  },
+  "minimum_future_reconciliation_audit_outputs": [
+    "protocol_comparison_report",
+    "label_task_policy_report",
+    "fold_subject_label_bias_report",
+    "prior_results_interpretation_report",
+    "final_reconciliation_decision_matrix",
+    "closeout_report_json",
+    "artifact_review_bundle"
+  ],
+  "next_state": "REQUEST_LABEL_TASK_PROTOCOL_RECONCILIATION_EXECUTION_AUTHORIZATION_PACKAGE"
+}
