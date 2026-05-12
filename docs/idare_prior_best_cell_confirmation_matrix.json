@@ -1,0 +1,63 @@
+{
+  "matrix_id": "idare_prior_best_cell_confirmation_matrix",
+  "status": "created",
+  "execution_authorized": false,
+  "cells": [
+    {
+      "cell": "C0",
+      "dataset": "I-DARE",
+      "modality": "EEG",
+      "task": "arousal",
+      "policy": "midpoint_as_high",
+      "recipe": "ce_class_weighted",
+      "prior_balanced_accuracy_mean": 0.5416327025978417,
+      "future_status": "confirmation_candidate"
+    },
+    {
+      "cell": "C1",
+      "dataset": "I-DARE",
+      "modality": "EEG",
+      "task": "valence",
+      "policy": "discard_midpoint",
+      "recipe": "balanced_sampler_ce",
+      "prior_balanced_accuracy_mean": 0.5218687143901377,
+      "future_status": "confirmation_candidate"
+    },
+    {
+      "cell": "C2",
+      "dataset": "I-DARE",
+      "modality": "EMG",
+      "task": "arousal",
+      "policy": "discard_midpoint",
+      "recipe": "ce_class_weighted",
+      "prior_balanced_accuracy_mean": 0.5364967332261366,
+      "future_status": "confirmation_candidate"
+    },
+    {
+      "cell": "C3",
+      "dataset": "I-DARE",
+      "modality": "EMG",
+      "task": "valence",
+      "policy": "midpoint_as_high",
+      "recipe": "ce_class_weighted",
+      "prior_balanced_accuracy_mean": 0.5201507593591346,
+      "future_status": "confirmation_candidate"
+    }
+  ],
+  "run_count_if_later_approved": {
+    "cells": 4,
+    "folds": 6,
+    "total_runs": 24
+  },
+  "non_goals": [
+    "rerun_full_144_run_label_policy_matrix",
+    "DEAP",
+    "fusion",
+    "DG",
+    "model_capacity_probe",
+    "augmentation",
+    "threshold_change",
+    "final_paper_level_performance_claim"
+  ],
+  "current_decision": "CONFIRMATION_PACKAGE_CREATED_EXECUTION_BLOCKED"
+}
