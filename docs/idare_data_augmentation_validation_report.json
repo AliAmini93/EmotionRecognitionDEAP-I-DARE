@@ -33,13 +33,11 @@
     {
       "details": {
         "changed_paths": [
+          "docs/idare_data_augmentation_option_a_recovery_plan_terminal.log",
+          "docs/idare_data_augmentation_option_a_run_matrix.csv",
           "docs/idare_data_augmentation_validation_report.json",
           "docs/idare_data_augmentation_validation_report.md",
-          "scripts/idare_data_augmentation_runner.py",
-          "docs/idare_data_augmentation_option_a_implementation_report.json",
-          "docs/idare_data_augmentation_option_a_implementation_report.md",
-          "docs/idare_data_augmentation_option_a_recovery_plan_terminal.log",
-          "docs/idare_data_augmentation_option_a_run_matrix.csv"
+          "scripts/idare_data_augmentation_runner.py"
         ],
         "disallowed": []
       },
@@ -368,8 +366,8 @@
     "preprocessing_change": false,
     "threshold_change": false
   },
-  "generated_at_utc": "2026-05-12T14:47:44.474149+00:00",
-  "git_status_short_branch": "## idare/postwave1/data-augmentation-track...origin/idare/postwave1/data-augmentation-track\n M docs/idare_data_augmentation_validation_report.json\n M docs/idare_data_augmentation_validation_report.md\n M scripts/idare_data_augmentation_runner.py\n?? docs/idare_data_augmentation_option_a_implementation_report.json\n?? docs/idare_data_augmentation_option_a_implementation_report.md\n?? docs/idare_data_augmentation_option_a_recovery_plan_terminal.log\n?? docs/idare_data_augmentation_option_a_run_matrix.csv",
+  "generated_at_utc": "2026-05-12T14:50:26.350387+00:00",
+  "git_status_short_branch": "## idare/postwave1/data-augmentation-track...origin/idare/postwave1/data-augmentation-track\n M docs/idare_data_augmentation_option_a_recovery_plan_terminal.log\n M docs/idare_data_augmentation_option_a_run_matrix.csv\n M docs/idare_data_augmentation_validation_report.json\n M docs/idare_data_augmentation_validation_report.md\n M scripts/idare_data_augmentation_runner.py",
   "label_columns": {
     "arousal": "arousal_midpoint_as_high",
     "valence": "valence_midpoint_as_high"

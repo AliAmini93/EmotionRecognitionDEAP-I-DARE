@@ -31,7 +31,7 @@
 | expected_branch | true | `{"actual": "idare/postwave1/data-augmentation-track", "expected": "idare/postwave1/data-augmentation-track"}` |
 | cache_symlink_or_dir_exists | true | `".cache"` |
 | venv_symlink_or_dir_exists | true | `".venv"` |
-| dirty_paths_limited_to_allowed_prefix | true | `{"changed_paths": ["docs/idare_data_augmentation_validation_report.json", "docs/idare_data_augmentation_validation_report.md", "scripts/idare_data_augmentation_runner.py", "docs/idare_data_augmentation_option_a_implementation_report.json...` |
+| dirty_paths_limited_to_allowed_prefix | true | `{"changed_paths": ["docs/idare_data_augmentation_option_a_recovery_plan_terminal.log", "docs/idare_data_augmentation_option_a_run_matrix.csv", "docs/idare_data_augmentation_validation_report.json", "docs/idare_data_augmentation_validatio...` |
 | control_doc_exists:docs/idare_deap_cross_subject_data_augmentation_objective.md | true | `"docs/idare_deap_cross_subject_data_augmentation_objective.md"` |
 | control_doc_exists:docs/idare_deap_cross_subject_data_augmentation_objective.json | true | `"docs/idare_deap_cross_subject_data_augmentation_objective.json"` |
 | control_doc_exists:docs/idare_data_augmentation_track_execution_authorization_package.md | true | `"docs/idare_data_augmentation_track_execution_authorization_package.md"` |

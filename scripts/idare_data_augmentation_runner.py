@@ -181,7 +181,7 @@ def write_option_a_matrix() -> None:
 
     OPTION_A_MATRIX_CSV.parent.mkdir(parents=True, exist_ok=True)
     with OPTION_A_MATRIX_CSV.open("w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
+        writer = csv.DictWriter(f, fieldnames=list(rows[0].keys()), lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 
