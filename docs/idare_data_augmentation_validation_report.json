@@ -1,0 +1,426 @@
+{
+  "actual_branch": "idare/postwave1/data-augmentation-track",
+  "actual_worktree": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-data-augmentation",
+  "blocker_count": 0,
+  "blockers": [],
+  "checks": [
+    {
+      "details": {
+        "actual": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-data-augmentation",
+        "expected": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-data-augmentation"
+      },
+      "name": "expected_worktree",
+      "ok": true
+    },
+    {
+      "details": {
+        "actual": "idare/postwave1/data-augmentation-track",
+        "expected": "idare/postwave1/data-augmentation-track"
+      },
+      "name": "expected_branch",
+      "ok": true
+    },
+    {
+      "details": ".cache",
+      "name": "cache_symlink_or_dir_exists",
+      "ok": true
+    },
+    {
+      "details": ".venv",
+      "name": "venv_symlink_or_dir_exists",
+      "ok": true
+    },
+    {
+      "details": {
+        "changed_paths": [
+          "docs/idare_data_augmentation_objective.json",
+          "docs/idare_data_augmentation_objective.md",
+          "scripts/idare_data_augmentation_runner.py"
+        ],
+        "disallowed": []
+      },
+      "name": "dirty_paths_limited_to_allowed_prefix",
+      "ok": true
+    },
+    {
+      "details": "docs/idare_deap_cross_subject_data_augmentation_objective.md",
+      "name": "control_doc_exists:docs/idare_deap_cross_subject_data_augmentation_objective.md",
+      "ok": true
+    },
+    {
+      "details": "docs/idare_deap_cross_subject_data_augmentation_objective.json",
+      "name": "control_doc_exists:docs/idare_deap_cross_subject_data_augmentation_objective.json",
+      "ok": true
+    },
+    {
+      "details": "docs/idare_data_augmentation_track_execution_authorization_package.md",
+      "name": "control_doc_exists:docs/idare_data_augmentation_track_execution_authorization_package.md",
+      "ok": true
+    },
+    {
+      "details": "docs/idare_data_augmentation_track_execution_authorization_package.json",
+      "name": "control_doc_exists:docs/idare_data_augmentation_track_execution_authorization_package.json",
+      "ok": true
+    },
+    {
+      "details": "docs/project_status_current.md",
+      "name": "control_doc_exists:docs/project_status_current.md",
+      "ok": true
+    },
+    {
+      "details": "docs/project_status_current.json",
+      "name": "control_doc_exists:docs/project_status_current.json",
+      "ok": true
+    },
+    {
+      "details": "docs/project_operating_protocol.md",
+      "name": "control_doc_exists:docs/project_operating_protocol.md",
+      "ok": true
+    },
+    {
+      "details": "docs/research_scope_and_objectives.md",
+      "name": "control_doc_exists:docs/research_scope_and_objectives.md",
+      "ok": true
+    },
+    {
+      "details": "docs/smoke_and_evaluation_protocol.md",
+      "name": "control_doc_exists:docs/smoke_and_evaluation_protocol.md",
+      "ok": true
+    },
+    {
+      "details": "docs/idare_prior_best_confirmation_status_update.md",
+      "name": "control_doc_exists:docs/idare_prior_best_confirmation_status_update.md",
+      "ok": true
+    },
+    {
+      "details": "docs/idare_prior_best_confirmation_status_update.json",
+      "name": "control_doc_exists:docs/idare_prior_best_confirmation_status_update.json",
+      "ok": true
+    },
+    {
+      "details": "docs/idare_data_augmentation_objective.json",
+      "name": "branch_objective_json_exists",
+      "ok": true
+    },
+    {
+      "details": ".cache/idare_eeg_windows_32x640_float32_baseline_corrected.npy",
+      "name": "required_input_exists:eeg_bsl_npy",
+      "ok": true
+    },
+    {
+      "details": ".cache/idare_eeg_cache_index_baseline_corrected.csv",
+      "name": "required_input_exists:eeg_bsl_index",
+      "ok": true
+    },
+    {
+      "details": ".cache/idare_eeg_windows_32x640_float32.npy",
+      "name": "required_input_exists:eeg_raw_npy",
+      "ok": true
+    },
+    {
+      "details": ".cache/idare_eeg_cache_index.csv",
+      "name": "required_input_exists:eeg_raw_index",
+      "ok": true
+    },
+    {
+      "details": ".cache/idare_eeg_bsl_stats.npy",
+      "name": "required_input_exists:eeg_bsl_stats",
+      "ok": true
+    },
+    {
+      "details": ".cache/idare_eeg_bsl_stats_index.csv",
+      "name": "required_input_exists:eeg_bsl_stats_index",
+      "ok": true
+    },
+    {
+      "details": ".cache/idare_emg_features.npy",
+      "name": "required_input_exists:emg_features_npy",
+      "ok": true
+    },
+    {
+      "details": ".cache/idare_emg_feature_cache_index.csv",
+      "name": "required_input_exists:emg_features_index",
+      "ok": true
+    },
+    {
+      "details": ".cache/idare_emg_bsl_stats.npy",
+      "name": "required_input_exists:emg_bsl_stats",
+      "ok": true
+    },
+    {
+      "details": ".cache/idare_emg_bsl_stats_index.csv",
+      "name": "required_input_exists:emg_bsl_stats_index",
+      "ok": true
+    },
+    {
+      "details": ".cache/idare_raw_emg_windows_2x10000_float32.npy",
+      "name": "required_input_exists:raw_emg_npy",
+      "ok": true
+    },
+    {
+      "details": ".cache/idare_raw_emg_cache_index.csv",
+      "name": "required_input_exists:raw_emg_index",
+      "ok": true
+    },
+    {
+      "details": {
+        "dtype": "float32",
+        "shape": [
+          2016,
+          32,
+          640
+        ]
+      },
+      "name": "eeg_bsl_npy_shape",
+      "ok": true
+    },
+    {
+      "details": {
+        "dtype": "float32",
+        "shape": [
+          2016,
+          32,
+          640
+        ]
+      },
+      "name": "eeg_raw_npy_shape",
+      "ok": true
+    },
+    {
+      "details": {
+        "dtype": "float32",
+        "shape": [
+          2016,
+          22
+        ]
+      },
+      "name": "emg_features_npy_shape",
+      "ok": true
+    },
+    {
+      "details": {
+        "dtype": "float32",
+        "shape": [
+          2016,
+          2,
+          10000
+        ]
+      },
+      "name": "raw_emg_npy_shape",
+      "ok": true
+    },
+    {
+      "details": {
+        "columns": [
+          "cache_row",
+          "subject_id",
+          "subject_col",
+          "stimulus_id",
+          "raw_event_name",
+          "bsl_raw_event_name",
+          "eeg_file",
+          "eeg_begin_raw",
+          "bsl_eeg_begin_raw",
+          "stim_event_index_0based",
+          "bsl_event_index_0based",
+          "stim_event_index_1based",
+          "bsl_event_index_1based",
+          "baseline_correction",
+          "valence_score",
+          "arousal_score",
+          "diag_baseline_mean_global",
+          "diag_baseline_mean_abs_mean",
+          "diag_corrected_mean_before_zscore",
+          "diag_corrected_std_before_zscore",
+          "valence_discard_midpoint",
+          "valence_midpoint_as_low",
+          "valence_midpoint_as_high",
+          "arousal_discard_midpoint",
+          "arousal_midpoint_as_low",
+          "arousal_midpoint_as_high"
+        ],
+        "missing": [],
+        "preview_rows": 5,
+        "required": [
+          "cache_row",
+          "subject_id",
+          "valence_discard_midpoint",
+          "valence_midpoint_as_high",
+          "arousal_discard_midpoint",
+          "arousal_midpoint_as_high"
+        ]
+      },
+      "name": "eeg_bsl_index_required_columns",
+      "ok": true
+    },
+    {
+      "details": {
+        "columns": [
+          "cache_row",
+          "subject_id",
+          "subject_col",
+          "stimulus_id",
+          "raw_event_name",
+          "bsl_event_index_0based",
+          "stim_event_index_0based",
+          "bsl_event_index_1based",
+          "stim_event_index_1based",
+          "emg_file",
+          "emg_channels",
+          "emg_begin_raw",
+          "emg_end_raw",
+          "bsl_emg_begin_raw",
+          "bsl_emg_end_raw",
+          "fixed_window_samples",
+          "stim_event_duration_samples",
+          "bsl_event_duration_samples",
+          "baseline_correction",
+          "valence_score",
+          "arousal_score",
+          "diag_baseline_mean_global",
+          "diag_baseline_mean_abs_mean",
+          "diag_corrected_mean_before_features",
+          "diag_corrected_std_before_features",
+          "valence_discard_midpoint",
+          "valence_midpoint_as_low",
+          "valence_midpoint_as_high",
+          "arousal_discard_midpoint",
+          "arousal_midpoint_as_low",
+          "arousal_midpoint_as_high"
+        ],
+        "missing": [],
+        "preview_rows": 5,
+        "required": [
+          "cache_row",
+          "subject_id",
+          "valence_discard_midpoint",
+          "valence_midpoint_as_high",
+          "arousal_discard_midpoint",
+          "arousal_midpoint_as_high"
+        ]
+      },
+      "name": "emg_features_index_required_columns",
+      "ok": true
+    },
+    {
+      "details": [
+        "E0_none_baseline",
+        "E1_additive_gaussian_noise_weak",
+        "E2_additive_gaussian_noise_medium",
+        "E3_amplitude_scaling",
+        "E4_time_channel_masking_or_dropout"
+      ],
+      "name": "eeg_policy_registry_exact",
+      "ok": true
+    },
+    {
+      "details": [
+        "M0_none_baseline",
+        "M1_feature_gaussian_jitter_weak",
+        "M2_feature_gaussian_jitter_medium",
+        "M3_feature_scaling",
+        "M4_feature_dropout"
+      ],
+      "name": "emg_policy_registry_exact",
+      "ok": true
+    },
+    {
+      "details": {
+        "execution_authorized": false,
+        "folds": 6,
+        "modalities": [
+          "EEG",
+          "EMG"
+        ],
+        "policies_per_modality": 5,
+        "targets": [
+          "valence",
+          "arousal"
+        ],
+        "total_runs": 120
+      },
+      "name": "option_A_metadata_120_runs",
+      "ok": true
+    },
+    {
+      "details": {
+        "execution_authorized": false,
+        "folds": 6,
+        "modalities": [
+          "EEG"
+        ],
+        "policies_per_modality": 5,
+        "targets": [
+          "valence",
+          "arousal"
+        ],
+        "total_runs": 60
+      },
+      "name": "option_B_metadata_60_runs",
+      "ok": true
+    }
+  ],
+  "da_execution_occurred": false,
+  "eeg_da_policies": [
+    "E0_none_baseline",
+    "E1_additive_gaussian_noise_weak",
+    "E2_additive_gaussian_noise_medium",
+    "E3_amplitude_scaling",
+    "E4_time_channel_masking_or_dropout"
+  ],
+  "emg_da_policies": [
+    "M0_none_baseline",
+    "M1_feature_gaussian_jitter_weak",
+    "M2_feature_gaussian_jitter_medium",
+    "M3_feature_scaling",
+    "M4_feature_dropout"
+  ],
+  "execution_authorized": false,
+  "expected_branch": "idare/postwave1/data-augmentation-track",
+  "expected_worktree": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-data-augmentation",
+  "experiment_or_model_result_created": false,
+  "forbidden_scope": {
+    "DEAP_stage_1": false,
+    "DG": false,
+    "SupCon": false,
+    "augmentation_plus_model_search": false,
+    "fusion": false,
+    "main_push": false,
+    "model_capacity_probe": false,
+    "preprocessing_change": false,
+    "threshold_change": false
+  },
+  "generated_at_utc": "2026-05-12T14:39:41.555239+00:00",
+  "git_status_short_branch": "## idare/postwave1/data-augmentation-track...origin/idare/control-tower\n?? docs/idare_data_augmentation_objective.json\n?? docs/idare_data_augmentation_objective.md\n?? scripts/idare_data_augmentation_runner.py",
+  "mode": "validate",
+  "planned_matrix_metadata": {
+    "A_preferred": {
+      "execution_authorized": false,
+      "folds": 6,
+      "modalities": [
+        "EEG",
+        "EMG"
+      ],
+      "policies_per_modality": 5,
+      "targets": [
+        "valence",
+        "arousal"
+      ],
+      "total_runs": 120
+    },
+    "B_runtime_fallback": {
+      "execution_authorized": false,
+      "folds": 6,
+      "modalities": [
+        "EEG"
+      ],
+      "policies_per_modality": 5,
+      "targets": [
+        "valence",
+        "arousal"
+      ],
+      "total_runs": 60
+    }
+  },
+  "status": "PASSED"
+}
