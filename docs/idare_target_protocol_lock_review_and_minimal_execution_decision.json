@@ -1,0 +1,96 @@
+{
+  "status": "created",
+  "document_id": "idare_target_protocol_lock_review_and_minimal_execution_decision",
+  "branch": "idare/control-tower",
+  "scope": "documentation_review_only",
+  "execution_authorized": false,
+  "runner_creation_authorized": false,
+  "new_audit_authorized": false,
+  "experiments_authorized": false,
+  "model_results_authorized": false,
+  "wave2_execution_authorized": false,
+  "dg_execution_authorized": false,
+  "model_capacity_probe_authorized": false,
+  "augmentation_authorized": false,
+  "representation_redesign_v2_authorized": false,
+  "deap_execution_authorized": false,
+  "fusion_execution_authorized": false,
+  "preprocessing_changes": "forbidden",
+  "threshold_changes": "forbidden",
+  "main_push": "forbidden",
+  "target_protocol_lock_review": "accepted",
+  "policy_lock": {
+    "P1_label_task_redesign": "primary",
+    "P2_protocol_target_reconciliation": "primary",
+    "P0_current_heldout_binary_arousal": "comparator_only",
+    "P3_subject_relative_within_subject": "scoped_diagnostic_candidate_only",
+    "P4_stop_pivot": "fallback_only"
+  },
+  "prior_coverage_reuse": {
+    "idare_label_policy_matrix": {
+      "status": "reuse_valid_controlled_prior_evidence",
+      "tasks": 2,
+      "modalities": 2,
+      "policies": 3,
+      "recipes": 2,
+      "folds": 6,
+      "total_runs": 144,
+      "rerun_by_default": false
+    }
+  },
+  "minimal_future_confirmation_matrix_if_later_approved": [
+    {
+      "cell": "C0",
+      "dataset": "I-DARE",
+      "modality": "EEG",
+      "task": "arousal",
+      "policy": "midpoint_as_high",
+      "recipe": "ce_class_weighted",
+      "prior_mean_balanced_accuracy": 0.5416327025978417,
+      "role": "prior_best_moderate_confirmation_candidate"
+    },
+    {
+      "cell": "C1",
+      "dataset": "I-DARE",
+      "modality": "EEG",
+      "task": "valence",
+      "policy": "discard_midpoint",
+      "recipe": "balanced_sampler_ce",
+      "prior_mean_balanced_accuracy": 0.5218687143901377,
+      "role": "prior_best_weaker_confirmation_candidate"
+    },
+    {
+      "cell": "C2",
+      "dataset": "I-DARE",
+      "modality": "EMG",
+      "task": "arousal",
+      "policy": "discard_midpoint",
+      "recipe": "ce_class_weighted",
+      "prior_mean_balanced_accuracy": 0.5364967332261366,
+      "role": "prior_best_moderate_confirmation_candidate"
+    },
+    {
+      "cell": "C3",
+      "dataset": "I-DARE",
+      "modality": "EMG",
+      "task": "valence",
+      "policy": "midpoint_as_high",
+      "recipe": "ce_class_weighted",
+      "prior_mean_balanced_accuracy": 0.5201507593591346,
+      "role": "prior_best_weaker_confirmation_candidate"
+    }
+  ],
+  "minimal_future_run_count_if_later_approved": {
+    "cells": 4,
+    "folds": 6,
+    "total_runs": 24
+  },
+  "not_recommended": [
+    "duplicate_144_run_idare_label_policy_rerun",
+    "deap_equivalent_before_unfreeze_review",
+    "fusion_before_single_modality_readiness",
+    "dg_model_capacity_augmentation_before_target_policy_confirmation",
+    "representation_redesign_v2_before_label_protocol_target_settled"
+  ],
+  "next_state": "REQUEST_IDARE_PRIOR_BEST_CELL_CONFIRMATION_AUTHORIZATION_PACKAGE"
+}
