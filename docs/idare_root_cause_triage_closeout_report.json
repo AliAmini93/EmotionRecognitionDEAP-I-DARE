@@ -1,0 +1,30 @@
+{
+  "audit_execution_completed": true,
+  "blocker_status": "no blockers",
+  "decision_matrix_summary": "A+B first; treat D as mechanism; defer C; keep E as fallback",
+  "experiments_run": false,
+  "forbidden_scope_confirmation": {
+    "DEAP work": false,
+    "DG execution": false,
+    "W1-owned file edits": false,
+    "Wave 2 execution": false,
+    "augmentation": false,
+    "broad model search": false,
+    "fusion": false,
+    "main push": false,
+    "model-capacity probe": false,
+    "new operating-point claim": false,
+    "new representation smoke": false,
+    "preprocessing changes": false,
+    "threshold changes": false
+  },
+  "generated_at_utc": "2026-05-12T09:37:03.331773+00:00",
+  "model_results_created": false,
+  "new_operating_point_claim": false,
+  "root_cause_summary": [
+    "The current failure is best classified as label/task and protocol uncertainty interacting with strong subject-domain shift.",
+    "Representation failure is confirmed, but representation redesign v2 should not be primary until label/protocol reconciliation is complete.",
+    "No new operating point is claimed."
+  ],
+  "status": "closeout_ready"
+}
