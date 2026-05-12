@@ -1,0 +1,342 @@
+{
+  "actual_root": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-idare-prior-best-confirm",
+  "allowed_prefix": "idare_prior_best_confirm_",
+  "blockers": [],
+  "checks": [
+    {
+      "details": {
+        "git_root": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-idare-prior-best-confirm",
+        "script_root": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-idare-prior-best-confirm"
+      },
+      "name": "git_root_matches_script_root",
+      "ok": true
+    },
+    {
+      "details": {
+        "actual": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-idare-prior-best-confirm",
+        "expected": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-idare-prior-best-confirm"
+      },
+      "name": "expected_worktree_path",
+      "ok": true
+    },
+    {
+      "details": {
+        "actual": "idare/postwave1/idare-prior-best-cell-confirmation",
+        "expected": "idare/postwave1/idare-prior-best-cell-confirmation",
+        "stderr": ""
+      },
+      "name": "expected_branch",
+      "ok": true
+    },
+    {
+      "details": {
+        "status": "## idare/postwave1/idare-prior-best-cell-confirmation...origin/idare/control-tower\n A docs/idare_prior_best_confirm_objective.json\n A docs/idare_prior_best_confirm_objective.md\n A docs/idare_prior_best_confirm_validation_report.json\n A docs/idare_prior_best_confirm_validation_report.md\n A docs/idare_prior_best_confirm_validation_terminal_recovery.log\n A scripts/idare_prior_best_confirm_runner.py",
+        "stderr": ""
+      },
+      "name": "git_status_readable",
+      "ok": true
+    },
+    {
+      "details": {
+        "changed_paths": [
+          "docs/idare_prior_best_confirm_objective.json",
+          "docs/idare_prior_best_confirm_objective.md",
+          "docs/idare_prior_best_confirm_validation_report.json",
+          "docs/idare_prior_best_confirm_validation_report.md",
+          "docs/idare_prior_best_confirm_validation_terminal_recovery.log",
+          "scripts/idare_prior_best_confirm_runner.py"
+        ],
+        "disallowed_changes": []
+      },
+      "name": "git_changes_limited_to_allowed_prefix",
+      "ok": true
+    },
+    {
+      "details": {
+        "prefix_files": [
+          "docs/idare_prior_best_confirm_objective.json",
+          "docs/idare_prior_best_confirm_objective.md",
+          "docs/idare_prior_best_confirm_validation_report.json",
+          "docs/idare_prior_best_confirm_validation_report.md",
+          "docs/idare_prior_best_confirm_validation_terminal_recovery.log",
+          "scripts/idare_prior_best_confirm_runner.py"
+        ],
+        "unexpected_prefix_files": []
+      },
+      "name": "only_expected_prefix_files_present",
+      "ok": true
+    },
+    {
+      "details": "docs/idare_prior_best_confirm_objective.json",
+      "name": "objective_json_exists",
+      "ok": true
+    },
+    {
+      "details": [
+        {
+          "cell_id": "C0",
+          "dataset": "I-DARE",
+          "label_policy": "midpoint_as_high",
+          "modality": "EEG",
+          "recipe": "ce_class_weighted",
+          "task": "arousal"
+        },
+        {
+          "cell_id": "C1",
+          "dataset": "I-DARE",
+          "label_policy": "discard_midpoint",
+          "modality": "EEG",
+          "recipe": "balanced_sampler_ce",
+          "task": "valence"
+        },
+        {
+          "cell_id": "C2",
+          "dataset": "I-DARE",
+          "label_policy": "discard_midpoint",
+          "modality": "EMG",
+          "recipe": "ce_class_weighted",
+          "task": "arousal"
+        },
+        {
+          "cell_id": "C3",
+          "dataset": "I-DARE",
+          "label_policy": "midpoint_as_high",
+          "modality": "EMG",
+          "recipe": "ce_class_weighted",
+          "task": "valence"
+        }
+      ],
+      "name": "exact_four_registered_cells",
+      "ok": true
+    },
+    {
+      "details": {
+        "cells": 4,
+        "folds_per_cell": 6,
+        "metadata_only": true,
+        "planned_confirmation_runs": 24
+      },
+      "name": "planned_matrix_metadata_only_4x6_24",
+      "ok": true
+    },
+    {
+      "details": "docs/project_status_current.md",
+      "name": "required_doc_exists:docs/project_status_current.md",
+      "ok": true
+    },
+    {
+      "details": "docs/project_operating_protocol.md",
+      "name": "required_doc_exists:docs/project_operating_protocol.md",
+      "ok": true
+    },
+    {
+      "details": "docs/research_scope_and_objectives.md",
+      "name": "required_doc_exists:docs/research_scope_and_objectives.md",
+      "ok": true
+    },
+    {
+      "details": "docs/smoke_and_evaluation_protocol.md",
+      "name": "required_doc_exists:docs/smoke_and_evaluation_protocol.md",
+      "ok": true
+    },
+    {
+      "details": "docs/idare_label_policy_ablation_objective.md",
+      "name": "required_doc_exists:docs/idare_label_policy_ablation_objective.md",
+      "ok": true
+    },
+    {
+      "details": "docs/idare_label_policy_ablation_objective.json",
+      "name": "required_doc_exists:docs/idare_label_policy_ablation_objective.json",
+      "ok": true
+    },
+    {
+      "details": "docs/idare_label_policy_ablation_report.md",
+      "name": "required_doc_exists:docs/idare_label_policy_ablation_report.md",
+      "ok": true
+    },
+    {
+      "details": "docs/idare_label_policy_ablation_report.json",
+      "name": "required_doc_exists:docs/idare_label_policy_ablation_report.json",
+      "ok": true
+    },
+    {
+      "details": "docs/idare_label_policy_ablation_eeg_primary.json",
+      "name": "required_doc_exists:docs/idare_label_policy_ablation_eeg_primary.json",
+      "ok": true
+    },
+    {
+      "details": "docs/idare_label_policy_ablation_emg_primary.json",
+      "name": "required_doc_exists:docs/idare_label_policy_ablation_emg_primary.json",
+      "ok": true
+    },
+    {
+      "details": "docs/idare_label_policy_ablation_review_status.md",
+      "name": "required_doc_exists:docs/idare_label_policy_ablation_review_status.md",
+      "ok": true
+    },
+    {
+      "details": "docs/idare_label_policy_ablation_review_status.json",
+      "name": "required_doc_exists:docs/idare_label_policy_ablation_review_status.json",
+      "ok": true
+    },
+    {
+      "details": ".cache/idare_eeg_windows_32x640_float32_baseline_corrected.npy",
+      "name": "required_input_exists:eeg_cache_npy",
+      "ok": true
+    },
+    {
+      "details": {
+        "actual": [
+          2016,
+          32,
+          640
+        ],
+        "expected": [
+          2016,
+          32,
+          640
+        ]
+      },
+      "name": "npy_shape:eeg_cache_npy",
+      "ok": true
+    },
+    {
+      "details": ".cache/idare_eeg_cache_index_baseline_corrected.csv",
+      "name": "required_input_exists:eeg_cache_index_csv",
+      "ok": true
+    },
+    {
+      "details": {
+        "missing": [],
+        "required": [
+          "cache_row",
+          "subject_id",
+          "arousal_midpoint_as_high",
+          "valence_discard_midpoint"
+        ],
+        "rows": 2016
+      },
+      "name": "csv_columns:eeg_cache_index_csv",
+      "ok": true
+    },
+    {
+      "details": {
+        "rows": 2016
+      },
+      "name": "csv_nonempty:eeg_cache_index_csv",
+      "ok": true
+    },
+    {
+      "details": ".cache/idare_emg_features.npy",
+      "name": "required_input_exists:emg_cache_npy",
+      "ok": true
+    },
+    {
+      "details": {
+        "actual": [
+          2016,
+          22
+        ],
+        "expected": [
+          2016,
+          22
+        ]
+      },
+      "name": "npy_shape:emg_cache_npy",
+      "ok": true
+    },
+    {
+      "details": ".cache/idare_emg_feature_cache_index.csv",
+      "name": "required_input_exists:emg_cache_index_csv",
+      "ok": true
+    },
+    {
+      "details": {
+        "missing": [],
+        "required": [
+          "cache_row",
+          "subject_id",
+          "arousal_discard_midpoint",
+          "valence_midpoint_as_high"
+        ],
+        "rows": 2016
+      },
+      "name": "csv_columns:emg_cache_index_csv",
+      "ok": true
+    },
+    {
+      "details": {
+        "rows": 2016
+      },
+      "name": "csv_nonempty:emg_cache_index_csv",
+      "ok": true
+    }
+  ],
+  "confirmation_execution_occurred": false,
+  "expected_branch": "idare/postwave1/idare-prior-best-cell-confirmation",
+  "expected_worktree": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-idare-prior-best-confirm",
+  "experiment_or_model_result_created": false,
+  "final_paper_level_claim_made": false,
+  "forbidden_actions": [
+    "confirmation_execution",
+    "144_run_label_policy_rerun",
+    "experiment",
+    "model_result_creation",
+    "wave2",
+    "domain_generalization",
+    "model_capacity_probe",
+    "augmentation",
+    "representation_redesign_v2",
+    "deap",
+    "fusion",
+    "preprocessing_change",
+    "threshold_change",
+    "main_push",
+    "final_paper_level_performance_claim"
+  ],
+  "generated_at_utc": "2026-05-12T11:32:32.368291+00:00",
+  "git_status_short_branch": "## idare/postwave1/idare-prior-best-cell-confirmation...origin/idare/control-tower\n A docs/idare_prior_best_confirm_objective.json\n A docs/idare_prior_best_confirm_objective.md\n A docs/idare_prior_best_confirm_validation_report.json\n A docs/idare_prior_best_confirm_validation_report.md\n A docs/idare_prior_best_confirm_validation_terminal_recovery.log\n A scripts/idare_prior_best_confirm_runner.py",
+  "mode": "validate",
+  "model_results_created": false,
+  "planned_matrix_metadata": {
+    "cells": 4,
+    "folds_per_cell": 6,
+    "metadata_only": true,
+    "planned_confirmation_runs": 24
+  },
+  "registered_cells": [
+    {
+      "cell_id": "C0",
+      "dataset": "I-DARE",
+      "label_policy": "midpoint_as_high",
+      "modality": "EEG",
+      "recipe": "ce_class_weighted",
+      "task": "arousal"
+    },
+    {
+      "cell_id": "C1",
+      "dataset": "I-DARE",
+      "label_policy": "discard_midpoint",
+      "modality": "EEG",
+      "recipe": "balanced_sampler_ce",
+      "task": "valence"
+    },
+    {
+      "cell_id": "C2",
+      "dataset": "I-DARE",
+      "label_policy": "discard_midpoint",
+      "modality": "EMG",
+      "recipe": "ce_class_weighted",
+      "task": "arousal"
+    },
+    {
+      "cell_id": "C3",
+      "dataset": "I-DARE",
+      "label_policy": "midpoint_as_high",
+      "modality": "EMG",
+      "recipe": "ce_class_weighted",
+      "task": "valence"
+    }
+  ],
+  "status": "PASSED"
+}

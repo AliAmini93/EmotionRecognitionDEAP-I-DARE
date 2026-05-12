@@ -1,0 +1,91 @@
+{
+  "allowed_file_globs": [
+    "docs/idare_prior_best_confirm_*",
+    "scripts/idare_prior_best_confirm_*"
+  ],
+  "allowed_prefix": "idare_prior_best_confirm_",
+  "control_authorization": {
+    "authorization_scope": "objective + guarded runner + validation artifacts only",
+    "commit_push_authorized": false,
+    "confirmation_execution_authorized": false
+  },
+  "created_utc": "2026-05-12T11:29:51.576577+00:00",
+  "forbidden_actions": [
+    "do_not_run_24_run_confirmation",
+    "do_not_rerun_144_run_label_policy_matrix",
+    "do_not_run_experiments",
+    "do_not_create_model_results",
+    "do_not_run_wave2",
+    "do_not_run_dg",
+    "do_not_run_model_capacity_probe",
+    "do_not_run_augmentation",
+    "do_not_run_representation_redesign_v2",
+    "do_not_run_deap",
+    "do_not_run_fusion",
+    "do_not_make_preprocessing_changes",
+    "do_not_change_thresholds",
+    "do_not_push_to_main",
+    "do_not_make_final_paper_level_performance_claims"
+  ],
+  "objective_id": "idare_prior_best_confirm_objective",
+  "planned_matrix_metadata": {
+    "cells": 4,
+    "folds_per_cell": 6,
+    "metadata_only": true,
+    "planned_confirmation_runs": 24
+  },
+  "registered_cells": [
+    {
+      "cell_id": "C0",
+      "dataset": "I-DARE",
+      "label_policy": "midpoint_as_high",
+      "modality": "EEG",
+      "recipe": "ce_class_weighted",
+      "task": "arousal"
+    },
+    {
+      "cell_id": "C1",
+      "dataset": "I-DARE",
+      "label_policy": "discard_midpoint",
+      "modality": "EEG",
+      "recipe": "balanced_sampler_ce",
+      "task": "valence"
+    },
+    {
+      "cell_id": "C2",
+      "dataset": "I-DARE",
+      "label_policy": "discard_midpoint",
+      "modality": "EMG",
+      "recipe": "ce_class_weighted",
+      "task": "arousal"
+    },
+    {
+      "cell_id": "C3",
+      "dataset": "I-DARE",
+      "label_policy": "midpoint_as_high",
+      "modality": "EMG",
+      "recipe": "ce_class_weighted",
+      "task": "valence"
+    }
+  ],
+  "required_inputs": {
+    "eeg": {
+      "cache_index_csv": ".cache/idare_eeg_cache_index_baseline_corrected.csv",
+      "cache_npy": ".cache/idare_eeg_windows_32x640_float32_baseline_corrected.npy",
+      "expected_shape": [
+        2016,
+        32,
+        640
+      ]
+    },
+    "emg": {
+      "cache_index_csv": ".cache/idare_emg_feature_cache_index.csv",
+      "cache_npy": ".cache/idare_emg_features.npy",
+      "expected_shape": [
+        2016,
+        22
+      ]
+    }
+  },
+  "status": "created_not_executed"
+}
