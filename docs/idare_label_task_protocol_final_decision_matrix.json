@@ -1,0 +1,58 @@
+{
+  "status": "created",
+  "matrix_id": "idare_label_task_protocol_final_decision_matrix",
+  "decision_rows": [
+    {
+      "option": "A",
+      "path": "keep_current_heldout_subject_binary_arousal_formulation",
+      "final_decision": "conditional_hold_only_comparator_not_final_target",
+      "allowed_next_step": "use_as_continuity_comparator",
+      "blocked_next_step": "do_not_make_it_sole_modeling_target"
+    },
+    {
+      "option": "B",
+      "path": "redesign_label_task_policy_before_more_modeling",
+      "final_decision": "recommended",
+      "allowed_next_step": "create_label_task_target_policy_decision_package",
+      "blocked_next_step": "do_not_run_model_development_experiment_yet"
+    },
+    {
+      "option": "C",
+      "path": "reconcile_or_change_evaluation_protocol_target",
+      "final_decision": "recommended",
+      "allowed_next_step": "create_protocol_target_policy_decision_package",
+      "blocked_next_step": "do_not_claim_final_loso_or_cross_subject_target_yet"
+    },
+    {
+      "option": "D",
+      "path": "subject_relative_or_within_subject_formulation",
+      "final_decision": "supported_candidate_not_auto_mainline",
+      "allowed_next_step": "include_as_scoped_candidate_in_target_policy_decision",
+      "blocked_next_step": "do_not_silently_replace_cross_subject_target"
+    },
+    {
+      "option": "E",
+      "path": "stop_pivot_if_current_formulation_unsupported",
+      "final_decision": "contingency_fallback",
+      "allowed_next_step": "keep_as_governance_fallback",
+      "blocked_next_step": "do_not_stop_before_final_target_policy_review"
+    }
+  ],
+  "control_ranking": [
+    "B_plus_C_first",
+    "D_as_candidate_path",
+    "A_as_comparator_only",
+    "E_as_fallback",
+    "DG_representation_v2_model_capacity_deferred"
+  ],
+  "required_before_future_execution": [
+    "final_label_policy",
+    "final_protocol_target",
+    "subject_relative_within_subject_scope_decision",
+    "comparator_definition",
+    "metric_gate_policy_unchanged_or_explicitly_reviewed",
+    "scientific_execution_justification"
+  ],
+  "current_decision": "NO_NEW_EXECUTION_UNTIL_TARGET_POLICY_LOCKED",
+  "next_state": "REQUEST_LABEL_TASK_PROTOCOL_TARGET_POLICY_DECISION_PACKAGE"
+}
