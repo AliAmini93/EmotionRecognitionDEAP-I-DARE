@@ -1,28 +1,6 @@
 {
-  "blocker_count": 0,
-  "blockers": [],
-  "da_execution_occurred": false,
-  "eeg_da_policies": [
-    "E0_none_baseline",
-    "E1_additive_gaussian_noise_weak",
-    "E2_additive_gaussian_noise_medium",
-    "E3_amplitude_scaling",
-    "E4_time_channel_masking_or_dropout"
-  ],
-  "emg_da_policies": [
-    "M0_none_baseline",
-    "M1_feature_gaussian_jitter_weak",
-    "M2_feature_gaussian_jitter_medium",
-    "M3_feature_scaling",
-    "M4_feature_dropout"
-  ],
   "execution_authorized": false,
-  "implementation_stage": "option_A_run_implementation_plan_only",
-  "label_columns": {
-    "arousal": "arousal_midpoint_as_high",
-    "valence": "valence_midpoint_as_high"
-  },
-  "model_results_created": false,
+  "implementation_stage": "option_A_ready_for_authorized_run",
   "option_A_expected_runs": 120,
   "option_A_run_matrix_csv": "docs/idare_data_augmentation_option_a_run_matrix.csv",
   "status": "PASSED"
