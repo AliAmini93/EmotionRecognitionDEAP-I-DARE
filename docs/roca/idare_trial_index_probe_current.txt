@@ -1,0 +1,95 @@
+Wrote: /mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/idare_trial_index_probe.md
+Wrote: /mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/idare_trial_index_probe.json
+summary:
+{
+  "specs_rows": 100,
+  "specs_stim_rows": 32,
+  "label_stimuli": 32,
+  "stim_rows_match_label_stimuli": true,
+  "specs_stim_ids_sorted": [
+    "1441",
+    "1750",
+    "2314",
+    "2491",
+    "3053",
+    "3063",
+    "3080",
+    "3170",
+    "4220",
+    "5760",
+    "8080",
+    "8370",
+    "8492",
+    "9220",
+    "9331",
+    "9360",
+    "Angry_face_1",
+    "Beach_1",
+    "Depressed_pose_4",
+    "Dog_18",
+    "Dog_26",
+    "Dog_6",
+    "Dummy_1",
+    "Flowers_6",
+    "Garbage_dump_6",
+    "Lake_12",
+    "Lake_3",
+    "Miserable_pose_3",
+    "Pinecone_1",
+    "Snow_1",
+    "Tumor_1",
+    "Yarn_1"
+  ],
+  "label_stim_ids_sorted": [
+    "1441",
+    "1750",
+    "2314",
+    "2491",
+    "3053",
+    "3063",
+    "3080",
+    "3170",
+    "4220",
+    "5760",
+    "8080",
+    "8370",
+    "8492",
+    "9220",
+    "9331",
+    "9360",
+    "Angry_face_1",
+    "Beach_1",
+    "Depressed_pose_4",
+    "Dog_18",
+    "Dog_26",
+    "Dog_6",
+    "Dummy_1",
+    "Flowers_6",
+    "Garbage_dump_6",
+    "Lake_12",
+    "Lake_3",
+    "Miserable_pose_3",
+    "Pinecone_1",
+    "Snow_1",
+    "Tumor_1",
+    "Yarn_1"
+  ],
+  "common_subject_count": 63,
+  "sample_subjects": [
+    1,
+    2,
+    3
+  ]
+}
+sbj_P_01
+  stim_rows_count: 32
+  labeled_stim_rows_count: 32
+  duration_checks: {'all_labeled_stim_eeg_4p5_to_5p5': True, 'all_labeled_stim_emg_4p5_to_5p5': True, 'eeg_labeled_stim_min_duration': 4.984375, 'eeg_labeled_stim_max_duration': 5.001953125, 'emg_labeled_stim_min_duration': 4.986, 'emg_labeled_stim_max_duration': 5.004}
+sbj_P_02
+  stim_rows_count: 32
+  labeled_stim_rows_count: 32
+  duration_checks: {'all_labeled_stim_eeg_4p5_to_5p5': True, 'all_labeled_stim_emg_4p5_to_5p5': True, 'eeg_labeled_stim_min_duration': 4.984375, 'eeg_labeled_stim_max_duration': 5.001953125, 'emg_labeled_stim_min_duration': 4.987, 'emg_labeled_stim_max_duration': 5.004}
+sbj_P_03
+  stim_rows_count: 32
+  labeled_stim_rows_count: 32
+  duration_checks: {'all_labeled_stim_eeg_4p5_to_5p5': True, 'all_labeled_stim_emg_4p5_to_5p5': True, 'eeg_labeled_stim_min_duration': 4.984375, 'eeg_labeled_stim_max_duration': 5.001953125, 'emg_labeled_stim_min_duration': 4.986, 'emg_labeled_stim_max_duration': 5.004}
