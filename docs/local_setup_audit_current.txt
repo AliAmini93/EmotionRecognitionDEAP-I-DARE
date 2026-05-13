@@ -1,0 +1,37 @@
+==== Local Setup Audit ====
+project_root: /mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE
+python: 3.12.3
+python_executable: /mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/.venv/bin/python
+platform: Linux-6.17.0-20-generic-x86_64-with-glibc2.39
+git_version: git version 2.43.0
+git_branch: main
+
+==== Paths ====
+deap_root: /mnt/HDD/AliWorks/DEAP | exists=True | is_dir=True
+idare_root: /mnt/HDD/AliWorks/I-DARE | exists=True | is_dir=True
+src_root: /mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/src | exists=True | is_dir=True
+models_root: /mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/src/emotion_deap_idare/models | exists=True | is_dir=True
+
+==== PyTorch / CUDA ====
+torch: 2.11.0+cu128
+cuda_available: True
+torch_cuda_version: 12.8
+gpu_name: NVIDIA GeForce RTX 5090
+gpu_count: 1
+
+==== Model Imports ====
+imported: EEGSegmentEncoder
+imported: EEGSegmentClassifier
+imported: OldStyleEEGClassifier
+
+==== Forward Smoke Test ====
+device: cuda
+input_shape: (8, 32, 640)
+logits_shape: (8, 2)
+z_shape: (8, 128)
+z_proj_shape: (8, 64)
+temporal_attn_shape: (8, 32, 320)
+channel_pool_attn_shape: (8, 32)
+num_params: 337955
+trainable_params: 337955
+smoke_test: OK
