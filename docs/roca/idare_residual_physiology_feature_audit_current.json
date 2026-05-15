@@ -332,7 +332,7 @@
     "subject_winloss": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/idare_residual_physiology_feature_audit_current_subject_winloss.csv",
     "fold_summary": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/idare_residual_physiology_feature_audit_current_fold_summary.csv"
   },
-  "elapsed_sec": 1275.114066451788,
+  "elapsed_sec": 1260.6229145899415,
   "main_metrics": [
     {
       "target": "arousal",
