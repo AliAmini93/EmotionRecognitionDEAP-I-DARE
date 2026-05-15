@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import hashlib
 import math
 from pathlib import Path
 from typing import Any
@@ -20,6 +21,12 @@ DEFAULT_OUT_PREFIX = "idare_residual_physiology_confirmatory_stats_current"
 PRACTICAL_RMSE_LIFT = 0.02
 MIN_WIN_MARGIN = 3
 
+
+
+def stable_seed(*parts: Any) -> int:
+    payload = "|".join(str(p) for p in parts).encode("utf-8")
+    digest = hashlib.sha256(payload).digest()
+    return int.from_bytes(digest[:8], "little") % (2**32)
 
 def parse_args():
     p = argparse.ArgumentParser()
@@ -50,7 +57,7 @@ def clean_json(x: Any):
         return int(x)
     if isinstance(x, (np.floating,)):
         v = float(x)
-        return None if math.isfinite(v) else None
+        return None if not math.isfinite(v) else v
     if isinstance(x, float):
         return x if math.isfinite(x) else None
     return x
@@ -251,7 +258,7 @@ def main():
                 metric=metric,
                 n_boot=args.n_bootstrap,
                 n_perm=args.n_permutations,
-                seed=args.seed + abs(hash((target, model, metric))) % 100000,
+                seed=stable_seed(args.seed, target, model, metric),
             )
             if stats is None:
                 continue
