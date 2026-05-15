@@ -1,0 +1,7 @@
+target,model,subjects,rmse_wins,rmse_losses,rmse_ties,mean_delta_rmse_model_minus_stimulus,median_delta_rmse_model_minus_stimulus,worst_regression_delta_rmse,best_gain_delta_rmse,dev_rmse_wins,dev_rmse_losses
+arousal,physio_eeg_entropy_complexity_ridge,4,1,3,0,0.49903756658411474,0.16115442916448453,2.122981331517883,-0.4491399235103932,1,3
+arousal,physio_emg_existing_22_ridge,4,2,2,0,0.047579820956441754,0.0395482887790477,0.1206718099754367,-0.009449103707765083,2,2
+arousal,physio_emg_lagged_interaction_experimental_ridge,4,1,3,0,0.11806056445774665,0.11840220059313344,0.28604614719927035,-0.05060829055455063,1,3
+valence,physio_eeg_entropy_complexity_ridge,4,2,2,0,0.15284452998598436,-0.008801593851187617,0.6996071585545489,-0.07062585090823625,2,2
+valence,physio_emg_existing_22_ridge,4,0,4,0,0.11244263097185936,0.10208263496513525,0.23617883045614962,0.0094264235010173,0,4
+valence,physio_emg_lagged_interaction_experimental_ridge,4,1,3,0,0.31668405774181463,0.005926535911472519,1.256080304383452,-0.0011971452391386084,1,3

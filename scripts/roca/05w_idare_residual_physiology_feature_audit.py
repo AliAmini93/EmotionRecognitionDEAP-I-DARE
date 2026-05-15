@@ -857,6 +857,8 @@ def main():
     out_md = ROCA_DIR / f"{out_prefix}.md"
     out_json = ROCA_DIR / f"{out_prefix}.json"
     out_pred = ROCA_DIR / f"{out_prefix}_predictions.csv"
+    out_best = ROCA_DIR / f"{out_prefix}_best_ranking.csv"
+    out_top3 = ROCA_DIR / f"{out_prefix}_top3_summary.csv"
     out_main = ROCA_DIR / f"{out_prefix}_main_metrics.csv"
     out_binary = ROCA_DIR / f"{out_prefix}_binary_metrics.csv"
     out_subject = ROCA_DIR / f"{out_prefix}_subject_metrics.csv"
@@ -864,6 +866,63 @@ def main():
     out_fold = ROCA_DIR / f"{out_prefix}_fold_summary.csv"
 
     pred.to_csv(out_pred, index=False)
+
+    best_ranking = main[main["model"].ne("stimulus_only")].copy()
+    if not best_ranking.empty:
+        best_ranking = best_ranking.sort_values(
+            ["target", "lift_vs_stimulus_rmse", "rmse"],
+            ascending=[True, False, True],
+        )
+
+    best_cols = [
+        "target", "model", "n",
+        "rmse", "lift_vs_stimulus_rmse",
+        "dev_rmse", "lift_vs_stimulus_dev_rmse",
+        "pearson", "spearman", "ccc",
+        "dev_pearson", "dev_sign_acc",
+        "pred_dev_std", "true_dev_std",
+    ]
+    best_ranking[[c for c in best_cols if c in best_ranking.columns]].to_csv(out_best, index=False)
+
+    stim = main[main["model"].eq("stimulus_only")][["target", "rmse", "dev_rmse"]].rename(
+        columns={"rmse": "stimulus_rmse", "dev_rmse": "stimulus_dev_rmse"}
+    )
+    phys = main[main["model"].ne("stimulus_only")].merge(stim, on="target", how="left")
+
+    if not phys.empty:
+        top3 = phys.sort_values(
+            ["target", "lift_vs_stimulus_rmse"],
+            ascending=[True, False],
+        )
+        top3 = top3.groupby("target", as_index=False).head(3)
+
+        winloss_table = locals().get("subject_winloss")
+        if winloss_table is None:
+            winloss_table = locals().get("subject_wins")
+        if winloss_table is None:
+            winloss_table = locals().get("wins")
+        if winloss_table is None:
+            winloss_table = pd.DataFrame()
+
+        winloss_cols = [
+            "target", "model", "rmse_wins", "rmse_losses",
+            "mean_delta_rmse_model_minus_stimulus",
+            "median_delta_rmse_model_minus_stimulus",
+            "worst_regression_delta_rmse",
+            "best_gain_delta_rmse",
+        ]
+
+        if all(c in winloss_table.columns for c in winloss_cols):
+            top3 = top3.merge(
+                winloss_table[winloss_cols],
+                on=["target", "model"],
+                how="left",
+            )
+    else:
+        top3 = phys
+
+    top3.to_csv(out_top3, index=False)
+
     main.to_csv(out_main, index=False)
     binary.to_csv(out_binary, index=False)
     subject.to_csv(out_subject, index=False)
@@ -952,7 +1011,7 @@ def main():
     out_md.write_text("\n".join(lines), encoding="utf-8")
 
     print("\nROCA step 05w completed.")
-    for p in [out_md, out_json, out_main, out_binary, out_subject, out_wins, out_fold, out_pred]:
+    for p in [out_md, out_json, out_main, out_binary, out_subject, out_wins, out_fold, out_pred, out_best, out_top3]:
         print(f"wrote: {p}")
 
     print("\nMain metrics:")
