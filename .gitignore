@@ -40,3 +40,6 @@ lightning_logs/
 .DS_Store
 .vscode/
 .idea/
+
+# Large generated 05aa prediction dump; regenerate locally if needed
+docs/roca/idare_fewshot_residual_calibration_audit_current_predictions.csv
