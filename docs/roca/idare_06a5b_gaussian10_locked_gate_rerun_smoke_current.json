@@ -1,0 +1,327 @@
+{
+  "args": {
+    "smoke": true,
+    "epochs": 3,
+    "batch_size": 64,
+    "seed": 2605
+  },
+  "device": "cuda:0",
+  "locked_bridge_rmse_05ak": 2.622267149339945,
+  "decision": [
+    {
+      "target": "arousal",
+      "decision": "NO_GO_AUGMENTATION_DOES_NOT_FIX_LOSO",
+      "best_method": "none_noaug_control",
+      "best_model_rmse_high": 3.7218038146209342,
+      "best_lift_vs_zero_high": -0.10358058224036792,
+      "best_lift_vs_fixed_same_eval_high": NaN,
+      "best_lift_vs_locked_bridge_rmse": -1.099536665280989,
+      "gaussian_delta_rmse_vs_noaug": -0.04529214085516786,
+      "passes_zero_gate": false,
+      "passes_fixed_reference_gate": false,
+      "passes_locked_bridge_gate": false,
+      "interpretation": "Clean locked-gate gaussian augmentation does not solve the LOSO residual problem.",
+      "recommended_next_action": "Finalize diagnosis: weak residual identifiability plus subject calibration/domain shift; avoid further blind architecture search."
+    }
+  ],
+  "method_metrics": [
+    {
+      "method": "none_noaug_control",
+      "n_eval": 192,
+      "n_high": 68,
+      "high_threshold": 2.2096774193548385,
+      "zero_rmse_high": 3.6182232323805663,
+      "model_rmse_high": 3.7218038146209342,
+      "lift_vs_zero_high": -0.10358058224036792,
+      "fixed_rmse_same_eval_high": NaN,
+      "lift_vs_fixed_same_eval_high": NaN,
+      "locked_bridge_rmse_05ak": 2.622267149339945,
+      "lift_vs_locked_bridge_rmse": -1.099536665280989,
+      "pearson_high": -0.4443926097548544,
+      "sign_acc_high": 0.3235294117647059
+    },
+    {
+      "method": "gaussian_0p10",
+      "n_eval": 192,
+      "n_high": 68,
+      "high_threshold": 2.2096774193548385,
+      "zero_rmse_high": 3.6182232323805663,
+      "model_rmse_high": 3.767095955476102,
+      "lift_vs_zero_high": -0.14887272309553579,
+      "fixed_rmse_same_eval_high": NaN,
+      "lift_vs_fixed_same_eval_high": NaN,
+      "locked_bridge_rmse_05ak": 2.622267149339945,
+      "lift_vs_locked_bridge_rmse": -1.144828806136157,
+      "pearson_high": -0.24763308908568024,
+      "sign_acc_high": 0.38235294117647056
+    }
+  ],
+  "fold_metrics": [
+    {
+      "method": "none_noaug_control",
+      "fold": 1,
+      "test_subject": 1,
+      "n": 32,
+      "n_high": 9,
+      "zero_rmse_high": 3.0402310991603514,
+      "model_rmse_high": 3.04761480404982,
+      "lift_vs_zero_high": -0.00738370488946849,
+      "pearson_high": 0.14126656428881293,
+      "sign_acc_high": 0.5555555555555556
+    },
+    {
+      "method": "none_noaug_control",
+      "fold": 2,
+      "test_subject": 2,
+      "n": 32,
+      "n_high": 15,
+      "zero_rmse_high": 3.676105404383153,
+      "model_rmse_high": 3.935709463663787,
+      "lift_vs_zero_high": -0.2596040592806341,
+      "pearson_high": 0.02576391160303286,
+      "sign_acc_high": 0.13333333333333333
+    },
+    {
+      "method": "none_noaug_control",
+      "fold": 3,
+      "test_subject": 3,
+      "n": 32,
+      "n_high": 6,
+      "zero_rmse_high": 3.0784190512442287,
+      "model_rmse_high": 3.2978107668200924,
+      "lift_vs_zero_high": -0.2193917155758638,
+      "pearson_high": -0.009107329360713264,
+      "sign_acc_high": 0.0
+    },
+    {
+      "method": "none_noaug_control",
+      "fold": 4,
+      "test_subject": 5,
+      "n": 32,
+      "n_high": 8,
+      "zero_rmse_high": 2.9168179622526837,
+      "model_rmse_high": 2.6934417976923397,
+      "lift_vs_zero_high": 0.22337616456034404,
+      "pearson_high": -0.03330865709903014,
+      "sign_acc_high": 1.0
+    },
+    {
+      "method": "none_noaug_control",
+      "fold": 5,
+      "test_subject": 6,
+      "n": 32,
+      "n_high": 23,
+      "zero_rmse_high": 4.323165902373108,
+      "model_rmse_high": 4.36873099415946,
+      "lift_vs_zero_high": -0.04556509178635171,
+      "pearson_high": -0.22219181259293203,
+      "sign_acc_high": 0.30434782608695654
+    },
+    {
+      "method": "none_noaug_control",
+      "fold": 6,
+      "test_subject": 7,
+      "n": 32,
+      "n_high": 7,
+      "zero_rmse_high": 2.6604029788570656,
+      "model_rmse_high": 3.017124035518261,
+      "lift_vs_zero_high": -0.3567210566611956,
+      "pearson_high": 0.2356048361523964,
+      "sign_acc_high": 0.0
+    },
+    {
+      "method": "gaussian_0p10",
+      "fold": 1,
+      "test_subject": 1,
+      "n": 32,
+      "n_high": 9,
+      "zero_rmse_high": 3.0402310991603514,
+      "model_rmse_high": 3.0525373411348653,
+      "lift_vs_zero_high": -0.01230624197451391,
+      "pearson_high": 0.1317221546657951,
+      "sign_acc_high": 0.4444444444444444
+    },
+    {
+      "method": "gaussian_0p10",
+      "fold": 2,
+      "test_subject": 2,
+      "n": 32,
+      "n_high": 15,
+      "zero_rmse_high": 3.676105404383153,
+      "model_rmse_high": 3.950726823325212,
+      "lift_vs_zero_high": -0.27462141894205905,
+      "pearson_high": -0.11092023504327649,
+      "sign_acc_high": 0.5333333333333333
+    },
+    {
+      "method": "gaussian_0p10",
+      "fold": 3,
+      "test_subject": 3,
+      "n": 32,
+      "n_high": 6,
+      "zero_rmse_high": 3.0784190512442287,
+      "model_rmse_high": 3.21388798754177,
+      "lift_vs_zero_high": -0.1354689362975412,
+      "pearson_high": -0.17198620584674207,
+      "sign_acc_high": 0.3333333333333333
+    },
+    {
+      "method": "gaussian_0p10",
+      "fold": 4,
+      "test_subject": 5,
+      "n": 32,
+      "n_high": 8,
+      "zero_rmse_high": 2.9168179622526837,
+      "model_rmse_high": 2.869595376810916,
+      "lift_vs_zero_high": 0.047222585441767606,
+      "pearson_high": -0.03688823812076948,
+      "sign_acc_high": 0.625
+    },
+    {
+      "method": "gaussian_0p10",
+      "fold": 5,
+      "test_subject": 6,
+      "n": 32,
+      "n_high": 23,
+      "zero_rmse_high": 4.323165902373108,
+      "model_rmse_high": 4.472264806240291,
+      "lift_vs_zero_high": -0.14909890386718327,
+      "pearson_high": 0.007730476881112216,
+      "sign_acc_high": 0.21739130434782608
+    },
+    {
+      "method": "gaussian_0p10",
+      "fold": 6,
+      "test_subject": 7,
+      "n": 32,
+      "n_high": 7,
+      "zero_rmse_high": 2.6604029788570656,
+      "model_rmse_high": 2.906292013713651,
+      "lift_vs_zero_high": -0.24588903485658564,
+      "pearson_high": -0.38886918427528955,
+      "sign_acc_high": 0.2857142857142857
+    }
+  ],
+  "subject_stats": [
+    {
+      "method": "gaussian_0p10",
+      "subject_id": 1,
+      "n_high": 9,
+      "zero_rmse_high": 3.0402310991603514,
+      "model_rmse_high": 3.0525373411348653,
+      "improvement_zero_minus_model": -0.01230624197451391,
+      "pearson_high": 0.1317221546657951,
+      "sign_acc_high": 0.4444444444444444
+    },
+    {
+      "method": "gaussian_0p10",
+      "subject_id": 2,
+      "n_high": 15,
+      "zero_rmse_high": 3.676105404383153,
+      "model_rmse_high": 3.950726823325212,
+      "improvement_zero_minus_model": -0.27462141894205905,
+      "pearson_high": -0.11092023504327649,
+      "sign_acc_high": 0.5333333333333333
+    },
+    {
+      "method": "gaussian_0p10",
+      "subject_id": 3,
+      "n_high": 6,
+      "zero_rmse_high": 3.0784190512442287,
+      "model_rmse_high": 3.21388798754177,
+      "improvement_zero_minus_model": -0.1354689362975412,
+      "pearson_high": -0.17198620584674207,
+      "sign_acc_high": 0.3333333333333333
+    },
+    {
+      "method": "gaussian_0p10",
+      "subject_id": 5,
+      "n_high": 8,
+      "zero_rmse_high": 2.9168179622526837,
+      "model_rmse_high": 2.869595376810916,
+      "improvement_zero_minus_model": 0.047222585441767606,
+      "pearson_high": -0.03688823812076948,
+      "sign_acc_high": 0.625
+    },
+    {
+      "method": "gaussian_0p10",
+      "subject_id": 6,
+      "n_high": 23,
+      "zero_rmse_high": 4.323165902373108,
+      "model_rmse_high": 4.472264806240291,
+      "improvement_zero_minus_model": -0.14909890386718327,
+      "pearson_high": 0.007730476881112216,
+      "sign_acc_high": 0.21739130434782608
+    },
+    {
+      "method": "gaussian_0p10",
+      "subject_id": 7,
+      "n_high": 7,
+      "zero_rmse_high": 2.6604029788570656,
+      "model_rmse_high": 2.906292013713651,
+      "improvement_zero_minus_model": -0.24588903485658564,
+      "pearson_high": -0.38886918427528955,
+      "sign_acc_high": 0.2857142857142857
+    },
+    {
+      "method": "none_noaug_control",
+      "subject_id": 1,
+      "n_high": 9,
+      "zero_rmse_high": 3.0402310991603514,
+      "model_rmse_high": 3.04761480404982,
+      "improvement_zero_minus_model": -0.00738370488946849,
+      "pearson_high": 0.14126656428881293,
+      "sign_acc_high": 0.5555555555555556
+    },
+    {
+      "method": "none_noaug_control",
+      "subject_id": 2,
+      "n_high": 15,
+      "zero_rmse_high": 3.676105404383153,
+      "model_rmse_high": 3.935709463663787,
+      "improvement_zero_minus_model": -0.2596040592806341,
+      "pearson_high": 0.02576391160303286,
+      "sign_acc_high": 0.13333333333333333
+    },
+    {
+      "method": "none_noaug_control",
+      "subject_id": 3,
+      "n_high": 6,
+      "zero_rmse_high": 3.0784190512442287,
+      "model_rmse_high": 3.2978107668200924,
+      "improvement_zero_minus_model": -0.2193917155758638,
+      "pearson_high": -0.009107329360713264,
+      "sign_acc_high": 0.0
+    },
+    {
+      "method": "none_noaug_control",
+      "subject_id": 5,
+      "n_high": 8,
+      "zero_rmse_high": 2.9168179622526837,
+      "model_rmse_high": 2.6934417976923397,
+      "improvement_zero_minus_model": 0.22337616456034404,
+      "pearson_high": -0.03330865709903014,
+      "sign_acc_high": 1.0
+    },
+    {
+      "method": "none_noaug_control",
+      "subject_id": 6,
+      "n_high": 23,
+      "zero_rmse_high": 4.323165902373108,
+      "model_rmse_high": 4.36873099415946,
+      "improvement_zero_minus_model": -0.04556509178635171,
+      "pearson_high": -0.22219181259293203,
+      "sign_acc_high": 0.30434782608695654
+    },
+    {
+      "method": "none_noaug_control",
+      "subject_id": 7,
+      "n_high": 7,
+      "zero_rmse_high": 2.6604029788570656,
+      "model_rmse_high": 3.017124035518261,
+      "improvement_zero_minus_model": -0.3567210566611956,
+      "pearson_high": 0.2356048361523964,
+      "sign_acc_high": 0.0
+    }
+  ]
+}
