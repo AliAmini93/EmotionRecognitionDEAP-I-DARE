@@ -1,0 +1,4 @@
+priority,step,title,purpose,success_condition
+1,06a4,Subject-normalization and domain-adaptation ablation,"Test whether subject/domain normalization, CORAL-style alignment, and k-shot context can turn subject-style structure into LOSO improvement.",Arousal high-disagreement LOSO improves beyond fixed EEG-bandpower and does not harm locked B2 gates.
+2,06a5,Augmentation rerun under current residual gates,"Only rerun prior augmentation if it is evaluated under 05ajb/06a1y residual gates, not old binary/oracle metrics.",Augmentation beats zero residual and fixed EEG-bandpower under subject-held-out residual gates.
+3,06a6,Neural pipeline anchor test against fixed EEG-bandpower,"Before larger deep models, force the neural pipeline to reproduce the simple bandpower/summary signal.",A neural or hybrid model matches/exceeds fixed EEG-bandpower on confirmed arousal high-disagreement residual prediction.
