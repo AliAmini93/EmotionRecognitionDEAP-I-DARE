@@ -1,0 +1,4 @@
+priority,step,title,purpose,success_condition
+1,06a1y,Split-control learning probe,Train the same lightweight model under random/within-subject/LOSO splits to isolate whether the failure is subject shift or weak signal.,Subject-overlap success plus LOSO failure proves generalization/domain shift; failure in all splits points to representation/target weakness.
+2,06a2,Subject-adaptive residual representation,"If split controls show subject shift, add explicit subject adaptation rather than larger generic CNNs.",Improves beyond B2 locked or matches B2 with fewer calibration samples under paired subject gates.
+3,06a3,Residual identifiability and label-noise bound,Quantify whether single-trial subjective residuals have enough repeatable structure to support learning.,A clear upper bound explains whether more model capacity can realistically help.

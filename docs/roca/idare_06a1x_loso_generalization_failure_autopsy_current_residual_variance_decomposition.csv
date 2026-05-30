@@ -1,0 +1,7 @@
+quantity,variance,proportion_of_total
+raw_rating_total,6.323268760629253,1.0
+raw_rating_subject_mean_component,0.985424638605442,0.15584101766178585
+raw_rating_stimulus_mean_component,2.6623812574798436,0.4210450889034961
+leave_subject_out_deviation_total,3.779933012486993,1.0
+deviation_subject_mean_component,1.0174688841376172,0.26917643269772584
+deviation_stimulus_mean_component,1.1664274125265904e-32,3.0858414915642746e-33
