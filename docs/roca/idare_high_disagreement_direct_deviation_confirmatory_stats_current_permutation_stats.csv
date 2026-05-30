@@ -1,0 +1,7 @@
+target,quantile,feature_block,model,permutation_p_alignment,signflip_p_one_sided_mean_gt_zero,sign_test_p_one_sided_wins_gt_losses,pooled_lift_vs_zero_residual_rmse,mean_subject_improvement_baseline_minus_model,ci95_low_mean_subject_improvement,wins,losses,win_margin,passes_confirmatory_gate
+arousal,0.5,eeg_bandpower,physio_eeg_bandpower_ridge,4.999750012499375e-05,0.1272936353182341,0.4006532462520331,0.03389436742147778,0.03943881290224615,-0.025492523971095336,33,30,3,False
+arousal,0.75,eeg_bandpower,physio_eeg_bandpower_ridge,4.999750012499375e-05,0.018849057547122645,0.22498126814511124,0.07172480101761458,0.09958803303877056,0.010963456655665825,35,28,7,True
+arousal,0.9,eeg_bandpower,physio_eeg_bandpower_ridge,4.999750012499375e-05,0.002449877506124694,0.029032073396204533,0.08969914380455046,0.18560877103251208,0.06618227291985743,35,20,15,True
+valence,0.5,emg_lagged_interaction_experimental,physio_emg_lagged_interaction_experimental_ridge,0.10459477026148692,0.28573571321433927,0.8432484733517736,-1.818118392593604e-05,0.001313957752411851,-0.0027741000440825174,28,35,-7,False
+valence,0.75,emg_lagged_interaction_experimental,physio_emg_lagged_interaction_experimental_ridge,0.05729713514324284,0.10649467526623668,0.7750187318548888,0.002008560364993972,0.004321047042389174,-0.002193793301385202,29,34,-5,False
+valence,0.9,emg_lagged_interaction_experimental,physio_emg_lagged_interaction_experimental_ridge,0.07874606269686515,0.2455377231138443,0.8814764426186402,0.002204188882679592,0.008103206083974432,-0.008718840936648134,25,33,-8,False
