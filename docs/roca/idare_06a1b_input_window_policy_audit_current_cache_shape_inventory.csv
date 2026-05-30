@@ -1,0 +1,16 @@
+path,kind,size_mb,shape,dtype,rows_trials,channels,samples,seconds_if_128hz,inferred_modality,window_status,baseline_policy_in_filename
+.cache/idare_eeg_windows_32x640_float32.npy,npy,157.5001,"[2016, 32, 640]",float32,2016,32,640,5.0,EEG,SHORT_5S_WINDOW_AT_128HZ,raw_or_unspecified
+.cache/idare_eeg_windows_32x640_float32_baseline_corrected_smoke.npy,npy,5.0001,"[64, 32, 640]",float32,64,32,640,5.0,EEG,SHORT_5S_WINDOW_AT_128HZ,baseline_corrected
+.cache/idare_eeg_windows_32x640_float32_baseline_corrected.npy,npy,157.5001,"[2016, 32, 640]",float32,2016,32,640,5.0,EEG,SHORT_5S_WINDOW_AT_128HZ,baseline_corrected
+.cache/deap_eeg_windows_32x640_float32_smoke.npy,npy,75.0001,"[960, 32, 640]",float32,960,32,640,5.0,EEG,SHORT_5S_WINDOW_AT_128HZ,raw_or_unspecified
+.cache/idare_raw_emg_windows_2x10000_float32_smoke.npy,npy,4.8829,"[64, 2, 10000]",float32,64,2,10000,78.125,EMG,EMG_WINDOW_CHECK_SAMPLE_RATE_POLICY,raw_or_unspecified
+.cache/idare_raw_emg_windows_2x10000_float32.npy,npy,153.8087,"[2016, 2, 10000]",float32,2016,2,10000,78.125,EMG,EMG_WINDOW_CHECK_SAMPLE_RATE_POLICY,raw_or_unspecified
+.cache/idare_emg_features.npy,npy,0.1693,"[2016, 22]",float32,2016,,,,EMG,NOT_TIME_SERIES_OR_UNKNOWN,
+.cache/roca_idare_emg_expanded_features.npy,npy,6.2448,"[2016, 812]",float32,2016,,,,EMG,NOT_TIME_SERIES_OR_UNKNOWN,
+.cache/idare_emg_features_smoke.npy,npy,0.1693,"[2016, 22]",float32,2016,,,,EMG,NOT_TIME_SERIES_OR_UNKNOWN,
+.cache/deap_emg_features.npy,npy,1.2892,"[15360, 22]",float32,15360,,,,EMG,NOT_TIME_SERIES_OR_UNKNOWN,
+.cache/deap_emg_features_smoke.npy,npy,0.0807,"[960, 22]",float32,960,,,,EMG,NOT_TIME_SERIES_OR_UNKNOWN,
+.cache/idare_eeg_bsl_stats.npy,npy,1.7612,"[2016, 229]",float32,2016,,,,EEG,NOT_TIME_SERIES_OR_UNKNOWN,
+.cache/idare_emg_bsl_stats.npy,npy,0.1693,"[2016, 22]",float32,2016,,,,EMG,NOT_TIME_SERIES_OR_UNKNOWN,
+.cache/idare_eeg_bsl_stats_smoke.npy,npy,0.056,"[64, 229]",float32,64,,,,EEG,NOT_TIME_SERIES_OR_UNKNOWN,
+.cache/idare_emg_bsl_stats_smoke.npy,npy,0.0055,"[64, 22]",float32,64,,,,EMG,NOT_TIME_SERIES_OR_UNKNOWN,
