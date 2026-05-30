@@ -12,10 +12,10 @@
     {
       "decision_item": "EEG_window_length",
       "observed": "4 EEG-like 640-sample cache(s)",
-      "interpretation": "640 samples at 128 Hz is 5 seconds, far shorter than DEAP's 60 s stimulus / 63 s baseline+stimulus expectation.",
-      "risk_for_06a1": "A deep model may fail because the input window is too short or not the right temporal segment, not because EEG lacks residual signal.",
-      "decision": "LOCK_CURRENT_06A1_AS_SHORT_WINDOW_FEASIBILITY_ONLY",
-      "required_before_final_claim": "Either document exactly what the 640 samples represent or build/use full-window or multi-window EEG cache."
+      "interpretation": "640 samples at 128 Hz is 5 seconds, which matches the I-DARE 5s stimulus-window policy; it is shorter only relative to DEAP's 60s video stimulus.",
+      "risk_for_06a1": "For I-DARE this is the intended full stimulus window; remaining risk is whether this 5s stimulus contains enough residual-relevant physiology.",
+      "decision": "I_DARE_5S_FULL_STIMULUS_WINDOW_CONFIRMED",
+      "required_before_final_claim": "Document that 640 samples represent the full 5s I-DARE stimulus after 512Hz-to-128Hz downsampling, with preceding 5s BSL used for baseline correction."
     },
     {
       "decision_item": "EEG_baseline_policy",
@@ -36,10 +36,10 @@
     {
       "decision_item": "full_trial_availability",
       "observed": "no full 7680/8064-sample EEG cache found in current scan",
-      "interpretation": "Current ready-to-train deep cache seems short-window rather than full-trial.",
-      "risk_for_06a1": "Architecture search over short windows may be an unfair test of representation learning.",
-      "decision": "RUN_06A1_MINIMAL_ONLY_THEN_DECIDE_FULL_WINDOW_CACHE",
-      "required_before_final_claim": "If 06a1 short-window fails, do not conclude learned EEG is exhausted; run full/multi-window cache audit/build first."
+      "interpretation": "Current ready-to-train I-DARE EEG cache is a full 5s stimulus window; no missing 60s window is expected for I-DARE.",
+      "risk_for_06a1": "Architecture search is fair for I-DARE if reported as 5s stimulus-window representation learning; do not compare this window policy directly to DEAP 60s without separation.",
+      "decision": "RUN_06A1_ON_CONFIRMED_I_DARE_5S_WINDOW",
+      "required_before_final_claim": "If 06a1 fails, do not blame missing I-DARE stimulus duration; investigate model/target/representation and optionally compare alternative segments or multimodal context."
     },
     {
       "decision_item": "evaluation_scope",
@@ -56,11 +56,11 @@
       "status": "GO_AS_FEASIBILITY_SMOKE",
       "input_cache": ".cache/idare_eeg_windows_32x640_float32_baseline_corrected.npy",
       "input_shape_expected": "[2016,32,640]",
-      "window_policy": "5s at 128Hz if sample-rate assumption holds; exact segment must be documented",
+      "window_policy": "full I-DARE 5s STIM window at 128Hz; preceding 5s BSL used for baseline correction",
       "target": "arousal residual/deviation on high-disagreement trials",
       "model": "small CNN/TCN encoder; residual head; GPU",
       "success_gate": "Beat 05ajb fixed EEG-bandpower residual model on arousal high-disagreement G2.",
-      "non_success_interpretation": "Failure only means current 5s cache/prototype failed, not that representation learning is exhausted."
+      "non_success_interpretation": "Failure means the current 5s I-DARE stimulus-window prototype failed; representation learning is not exhausted."
     },
     {
       "config_id": "06a1_full_or_multiwindow_eeg",
