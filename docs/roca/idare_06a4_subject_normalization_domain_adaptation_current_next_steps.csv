@@ -1,0 +1,4 @@
+priority,step,title,purpose,success_condition
+1,06a4b,Confirm best 06a4 candidate only if it passes,Rerun the best adaptation with more seeds/repeats and locked B2 bridge if 06a4 passes.,Stable paired subject improvement and no degradation against locked B2.
+2,06a5,Augmentation rerun under residual gates,Rerun old augmentation only if it can be evaluated against 05ajb/06a1y/06a4 metrics.,Augmentation beats fixed EEG-bandpower under subject-held-out residual gates.
+3,06a6,Target reformulation or calibration-first paper conclusion,"If adaptation fails, write the evidence-based stop condition: LOSO residual decoding is calibration-dominant.",A clear project decision that avoids unbounded architecture search.
