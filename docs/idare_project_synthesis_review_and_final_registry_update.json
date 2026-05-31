@@ -1,0 +1,85 @@
+{
+  "status": "created",
+  "branch": "idare/control-tower",
+  "scope": "documentation_final_registry_update_only",
+  "project_synthesis_review": "accepted",
+  "final_conclusion": "NO_ROBUST_CROSS_SUBJECT_OPERATING_POINT_FOUND",
+  "execution_state": "EXECUTION_PAUSED",
+  "followup_execution_authorized": false,
+  "wave2_execution_authorized": false,
+  "dg_execution_authorized": false,
+  "model_capacity_probe_authorized": false,
+  "augmentation_authorized": false,
+  "deap": "frozen",
+  "fusion": "frozen",
+  "preprocessing_changes": "forbidden",
+  "threshold_changes": "forbidden",
+  "main_push": "forbidden",
+  "final_evidence_registry": [
+    {
+      "workstream": "Wave 1",
+      "formal_status": "closed_accepted",
+      "gate_outcome": "performance_fail_diagnostic_partial_pass",
+      "registry_decision": "archived"
+    },
+    {
+      "workstream": "W1A_EEG_input_definition",
+      "formal_status": "accepted",
+      "gate_outcome": "no_pass",
+      "registry_decision": "archived_negative_evidence"
+    },
+    {
+      "workstream": "W1B_EEG_subject_normalization",
+      "formal_status": "accepted",
+      "gate_outcome": "no_aggregate_pass_B3_transductive_diagnostic_only",
+      "registry_decision": "archived_diagnostic"
+    },
+    {
+      "workstream": "W1C_EMG_independent_baseline",
+      "formal_status": "accepted",
+      "gate_outcome": "no_aggregate_pass",
+      "registry_decision": "emg_reference_only"
+    },
+    {
+      "workstream": "W1D_feature_discriminability",
+      "formal_status": "accepted",
+      "gate_outcome": "diagnostic_partial_pass",
+      "registry_decision": "subject_dominance_diagnosis_retained"
+    },
+    {
+      "workstream": "strict_NTD_normalization_smoke",
+      "formal_status": "accepted",
+      "gate_outcome": "no_pass",
+      "registry_decision": "clean_weak_effect_baseline"
+    },
+    {
+      "workstream": "representation_redesign_smoke",
+      "formal_status": "accepted",
+      "gate_outcome": "moderate_pass_once",
+      "registry_decision": "fragile_signal_required_confirmation"
+    },
+    {
+      "workstream": "representation_redesign_confirmation",
+      "formal_status": "accepted",
+      "gate_outcome": "fail",
+      "registry_decision": "R3_rejected_not_robust_R2_weak_comparator"
+    },
+    {
+      "workstream": "project_synthesis_stop_pivot",
+      "formal_status": "accepted",
+      "gate_outcome": "execution_pause",
+      "registry_decision": "current_final_state"
+    }
+  ],
+  "closed_paths": {
+    "R3_operating_point": "rejected_not_robust",
+    "R2_operating_point": "rejected_weak_comparator",
+    "strict_NTD_normalization": "archived_clean_weak_effect",
+    "current_representation_family": "insufficient_for_robust_cross_subject_transfer",
+    "W2E_interaction_grid": "not_authorized",
+    "DG_execution": "not_authorized",
+    "model_capacity_probe": "not_authorized",
+    "augmentation": "not_authorized"
+  },
+  "next_state": "PROJECT_EXECUTION_PAUSED_PENDING_HUMAN_PIVOT_DECISION"
+}

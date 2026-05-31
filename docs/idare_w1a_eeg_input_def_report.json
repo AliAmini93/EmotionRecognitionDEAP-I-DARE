@@ -1,0 +1,86 @@
+{
+  "status": "complete",
+  "created_utc": "2026-05-11T14:36:40+00:00",
+  "branch": "idare/wave1/eeg-input-definition",
+  "scope": {
+    "dataset": "I-DARE",
+    "modality": "EEG",
+    "task": "arousal",
+    "formulation": "within_subject_pairwise_affect_preference_ranking",
+    "model": "ridge_classifier",
+    "normalization": "none",
+    "registered_runs": 18
+  },
+  "input_manifest": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-w1a/docs/idare_w1a_eeg_input_def_input_manifest.csv",
+  "fold_source": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-w1a/docs/idare_broader_eval_eeg_stim_bsl_only_primary_predictions.csv",
+  "subject_column": "subject_id",
+  "arousal_rating_column": "arousal_score",
+  "summary": [
+    {
+      "cell": "A1",
+      "input_definition": "current_STIM_BSL_summary",
+      "runs": 6,
+      "mean_balanced_accuracy": 0.49986284463672437,
+      "std_balanced_accuracy": 0.021589717071821193,
+      "min_balanced_accuracy": 0.45929722670229,
+      "max_balanced_accuracy": 0.5280064174107143,
+      "mean_macro_f1": 0.49195370275351213,
+      "delta_vs_REF_PW_EEG_ARO_001": -0.021808064863275578,
+      "delta_vs_REF_BSL_EEG_ARO_001": -0.04283715536327559,
+      "moderate_pass": false,
+      "strong_pass": false
+    },
+    {
+      "cell": "A2",
+      "input_definition": "BSL_stats_sidecar",
+      "runs": 6,
+      "mean_balanced_accuracy": 0.5141089601689579,
+      "std_balanced_accuracy": 0.017286866710911463,
+      "min_balanced_accuracy": 0.48944688381109025,
+      "max_balanced_accuracy": 0.5331075902790781,
+      "mean_macro_f1": 0.5107647873457527,
+      "delta_vs_REF_PW_EEG_ARO_001": -0.007561949331042039,
+      "delta_vs_REF_BSL_EEG_ARO_001": -0.028591039831042053,
+      "moderate_pass": false,
+      "strong_pass": false
+    },
+    {
+      "cell": "A3",
+      "input_definition": "STIM_BSL_summary_plus_BSL_stats_concat",
+      "runs": 6,
+      "mean_balanced_accuracy": 0.5036175765867598,
+      "std_balanced_accuracy": 0.018543609699805588,
+      "min_balanced_accuracy": 0.4658062620369321,
+      "max_balanced_accuracy": 0.5206244503078277,
+      "mean_macro_f1": 0.5022841598640402,
+      "delta_vs_REF_PW_EEG_ARO_001": -0.018053332913240183,
+      "delta_vs_REF_BSL_EEG_ARO_001": -0.0390824234132402,
+      "moderate_pass": false,
+      "strong_pass": false
+    }
+  ],
+  "best_cell": {
+    "cell": "A2",
+    "input_definition": "BSL_stats_sidecar",
+    "runs": 6,
+    "mean_balanced_accuracy": 0.5141089601689579,
+    "std_balanced_accuracy": 0.017286866710911463,
+    "min_balanced_accuracy": 0.48944688381109025,
+    "max_balanced_accuracy": 0.5331075902790781,
+    "mean_macro_f1": 0.5107647873457527,
+    "delta_vs_REF_PW_EEG_ARO_001": -0.007561949331042039,
+    "delta_vs_REF_BSL_EEG_ARO_001": -0.028591039831042053,
+    "moderate_pass": false,
+    "strong_pass": false
+  },
+  "diagnosis": "no_gate_pass",
+  "gate_trigger": false,
+  "control_notify_required": false,
+  "outputs": {
+    "run_matrix_csv": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-w1a/docs/idare_w1a_eeg_input_def_run_matrix.csv",
+    "runs_csv": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-w1a/docs/idare_w1a_eeg_input_def_runs.csv",
+    "predictions_csv": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-w1a/docs/idare_w1a_eeg_input_def_predictions.csv",
+    "report_json": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-w1a/docs/idare_w1a_eeg_input_def_report.json",
+    "report_md": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-w1a/docs/idare_w1a_eeg_input_def_report.md"
+  }
+}

@@ -1,0 +1,1046 @@
+{
+  "audit_execution_occurred": true,
+  "cache_metadata": {
+    "arrays_metadata_only": {
+      ".cache/idare_eeg_windows_32x640_float32.npy": {
+        "exists": true,
+        "note": "metadata only; array not loaded by audit",
+        "size_bytes": 165150848
+      },
+      ".cache/idare_eeg_windows_32x640_float32_baseline_corrected.npy": {
+        "exists": true,
+        "note": "metadata only; array not loaded by audit",
+        "size_bytes": 165150848
+      }
+    },
+    "indices": {
+      ".cache/idare_eeg_cache_index.csv": {
+        "columns": [
+          "cache_row",
+          "subject_id",
+          "subject_col",
+          "stimulus_id",
+          "raw_event_name",
+          "eeg_file",
+          "eeg_begin_raw",
+          "valence_score",
+          "arousal_score",
+          "valence_discard_midpoint",
+          "valence_midpoint_as_low",
+          "valence_midpoint_as_high",
+          "arousal_discard_midpoint",
+          "arousal_midpoint_as_low",
+          "arousal_midpoint_as_high"
+        ],
+        "exists": true,
+        "label_columns_detected": [
+          "valence_score",
+          "arousal_score",
+          "valence_discard_midpoint",
+          "valence_midpoint_as_low",
+          "valence_midpoint_as_high",
+          "arousal_discard_midpoint",
+          "arousal_midpoint_as_low",
+          "arousal_midpoint_as_high"
+        ],
+        "label_summaries": {
+          "arousal_discard_midpoint": {
+            "counts": {
+              "0": 1112,
+              "1": 687
+            },
+            "missing": 217,
+            "nonnull": 1799,
+            "subject_positive_rate": {
+              "max": 0.9375,
+              "mean": 0.38358038569673825,
+              "min": 0.0,
+              "range": 0.9375,
+              "std": 0.19108832418603897
+            }
+          },
+          "arousal_midpoint_as_high": {
+            "counts": {
+              "0": 1112,
+              "1": 904
+            },
+            "missing": 0,
+            "nonnull": 2016,
+            "subject_positive_rate": {
+              "max": 0.9375,
+              "mean": 0.44841269841269843,
+              "min": 0.0,
+              "range": 0.9375,
+              "std": 0.18459713298265762
+            }
+          },
+          "arousal_midpoint_as_low": {
+            "counts": {
+              "0": 1329,
+              "1": 687
+            },
+            "missing": 0,
+            "nonnull": 2016,
+            "subject_positive_rate": {
+              "max": 0.9375,
+              "mean": 0.34077380952380953,
+              "min": 0.0,
+              "range": 0.9375,
+              "std": 0.17410078335963888
+            }
+          },
+          "arousal_score": {
+            "counts": {
+              "1": 341,
+              "2.0": 294,
+              "3.0": 246,
+              "4.0": 231,
+              "5.0": 217,
+              "6.0": 206,
+              "7.0": 193,
+              "8.0": 170,
+              "9.0": 118
+            },
+            "missing": 0,
+            "nonnull": 2016,
+            "subject_positive_rate": {
+              "max": 1.0,
+              "mean": 1.0,
+              "min": 1.0,
+              "range": 0.0,
+              "std": 0.0
+            }
+          },
+          "valence_discard_midpoint": {
+            "counts": {
+              "0": 812,
+              "1": 855
+            },
+            "missing": 349,
+            "nonnull": 1667,
+            "subject_positive_rate": {
+              "max": 0.6666666666666666,
+              "mean": 0.5130353424355923,
+              "min": 0.36666666666666664,
+              "range": 0.3,
+              "std": 0.06686245434939579
+            }
+          },
+          "valence_midpoint_as_high": {
+            "counts": {
+              "0": 812,
+              "1": 1204
+            },
+            "missing": 0,
+            "nonnull": 2016,
+            "subject_positive_rate": {
+              "max": 0.75,
+              "mean": 0.5972222222222222,
+              "min": 0.40625,
+              "range": 0.34375,
+              "std": 0.07219264504252723
+            }
+          },
+          "valence_midpoint_as_low": {
+            "counts": {
+              "0": 1161,
+              "1": 855
+            },
+            "missing": 0,
+            "nonnull": 2016,
+            "subject_positive_rate": {
+              "max": 0.625,
+              "mean": 0.42410714285714285,
+              "min": 0.28125,
+              "range": 0.34375,
+              "std": 0.07380712361688836
+            }
+          },
+          "valence_score": {
+            "counts": {
+              "1": 283,
+              "2.0": 188,
+              "3.0": 155,
+              "4.0": 186,
+              "5.0": 349,
+              "6.0": 241,
+              "7.0": 247,
+              "8.0": 190,
+              "9.0": 177
+            },
+            "missing": 0,
+            "nonnull": 2016,
+            "subject_positive_rate": {
+              "max": 1.0,
+              "mean": 1.0,
+              "min": 1.0,
+              "range": 0.0,
+              "std": 0.0
+            }
+          }
+        },
+        "path": ".cache/idare_eeg_cache_index.csv",
+        "rows_loaded_for_metadata": 2016,
+        "rows_per_subject": {
+          "max": 32,
+          "mean": 32.0,
+          "min": 32
+        },
+        "size_bytes": 242643,
+        "subject_column": "subject_id",
+        "subject_count": 63
+      },
+      ".cache/idare_eeg_cache_index_baseline_corrected.csv": {
+        "columns": [
+          "cache_row",
+          "subject_id",
+          "subject_col",
+          "stimulus_id",
+          "raw_event_name",
+          "bsl_raw_event_name",
+          "eeg_file",
+          "eeg_begin_raw",
+          "bsl_eeg_begin_raw",
+          "stim_event_index_0based",
+          "bsl_event_index_0based",
+          "stim_event_index_1based",
+          "bsl_event_index_1based",
+          "baseline_correction",
+          "valence_score",
+          "arousal_score",
+          "diag_baseline_mean_global",
+          "diag_baseline_mean_abs_mean",
+          "diag_corrected_mean_before_zscore",
+          "diag_corrected_std_before_zscore",
+          "valence_discard_midpoint",
+          "valence_midpoint_as_low",
+          "valence_midpoint_as_high",
+          "arousal_discard_midpoint",
+          "arousal_midpoint_as_low",
+          "arousal_midpoint_as_high"
+        ],
+        "exists": true,
+        "label_columns_detected": [
+          "valence_score",
+          "arousal_score",
+          "valence_discard_midpoint",
+          "valence_midpoint_as_low",
+          "valence_midpoint_as_high",
+          "arousal_discard_midpoint",
+          "arousal_midpoint_as_low",
+          "arousal_midpoint_as_high"
+        ],
+        "label_summaries": {
+          "arousal_discard_midpoint": {
+            "counts": {
+              "0": 1112,
+              "1": 687
+            },
+            "missing": 217,
+            "nonnull": 1799,
+            "subject_positive_rate": {
+              "max": 0.9375,
+              "mean": 0.38358038569673825,
+              "min": 0.0,
+              "range": 0.9375,
+              "std": 0.19108832418603897
+            }
+          },
+          "arousal_midpoint_as_high": {
+            "counts": {
+              "0": 1112,
+              "1": 904
+            },
+            "missing": 0,
+            "nonnull": 2016,
+            "subject_positive_rate": {
+              "max": 0.9375,
+              "mean": 0.44841269841269843,
+              "min": 0.0,
+              "range": 0.9375,
+              "std": 0.18459713298265762
+            }
+          },
+          "arousal_midpoint_as_low": {
+            "counts": {
+              "0": 1329,
+              "1": 687
+            },
+            "missing": 0,
+            "nonnull": 2016,
+            "subject_positive_rate": {
+              "max": 0.9375,
+              "mean": 0.34077380952380953,
+              "min": 0.0,
+              "range": 0.9375,
+              "std": 0.17410078335963888
+            }
+          },
+          "arousal_score": {
+            "counts": {
+              "1": 341,
+              "2.0": 294,
+              "3.0": 246,
+              "4.0": 231,
+              "5.0": 217,
+              "6.0": 206,
+              "7.0": 193,
+              "8.0": 170,
+              "9.0": 118
+            },
+            "missing": 0,
+            "nonnull": 2016,
+            "subject_positive_rate": {
+              "max": 1.0,
+              "mean": 1.0,
+              "min": 1.0,
+              "range": 0.0,
+              "std": 0.0
+            }
+          },
+          "valence_discard_midpoint": {
+            "counts": {
+              "0": 812,
+              "1": 855
+            },
+            "missing": 349,
+            "nonnull": 1667,
+            "subject_positive_rate": {
+              "max": 0.6666666666666666,
+              "mean": 0.5130353424355923,
+              "min": 0.36666666666666664,
+              "range": 0.3,
+              "std": 0.06686245434939579
+            }
+          },
+          "valence_midpoint_as_high": {
+            "counts": {
+              "0": 812,
+              "1": 1204
+            },
+            "missing": 0,
+            "nonnull": 2016,
+            "subject_positive_rate": {
+              "max": 0.75,
+              "mean": 0.5972222222222222,
+              "min": 0.40625,
+              "range": 0.34375,
+              "std": 0.07219264504252723
+            }
+          },
+          "valence_midpoint_as_low": {
+            "counts": {
+              "0": 1161,
+              "1": 855
+            },
+            "missing": 0,
+            "nonnull": 2016,
+            "subject_positive_rate": {
+              "max": 0.625,
+              "mean": 0.42410714285714285,
+              "min": 0.28125,
+              "range": 0.34375,
+              "std": 0.07380712361688836
+            }
+          },
+          "valence_score": {
+            "counts": {
+              "1": 283,
+              "2.0": 188,
+              "3.0": 155,
+              "4.0": 186,
+              "5.0": 349,
+              "6.0": 241,
+              "7.0": 247,
+              "8.0": 190,
+              "9.0": 177
+            },
+            "missing": 0,
+            "nonnull": 2016,
+            "subject_positive_rate": {
+              "max": 1.0,
+              "mean": 1.0,
+              "min": 1.0,
+              "range": 0.0,
+              "std": 0.0
+            }
+          }
+        },
+        "path": ".cache/idare_eeg_cache_index_baseline_corrected.csv",
+        "rows_loaded_for_metadata": 2016,
+        "rows_per_subject": {
+          "max": 32,
+          "mean": 32.0,
+          "min": 32
+        },
+        "size_bytes": 573506,
+        "subject_column": "subject_id",
+        "subject_count": 63
+      },
+      ".cache/idare_trial_index.csv": {
+        "columns": [
+          "subject_id",
+          "subject_col",
+          "stimulus_id",
+          "raw_event_name",
+          "event_index_0based",
+          "event_index_1based",
+          "description",
+          "metadata_duration_sec",
+          "eeg_file",
+          "emg_file",
+          "eeg_fs",
+          "emg_fs",
+          "eeg_data_shape",
+          "emg_data_shape",
+          "eeg_begin_raw",
+          "eeg_end_raw",
+          "eeg_duration_samples",
+          "eeg_duration_sec",
+          "emg_begin_raw",
+          "emg_end_raw",
+          "emg_duration_samples",
+          "emg_duration_sec",
+          "valence_score",
+          "arousal_score",
+          "valence_label_gt5",
+          "arousal_label_gt5",
+          "valence_is_discard_score5",
+          "arousal_is_discard_score5",
+          "quadrant_gs",
+          "quadrant_subject"
+        ],
+        "exists": true,
+        "label_columns_detected": [
+          "valence_score",
+          "arousal_score",
+          "valence_label_gt5",
+          "arousal_label_gt5",
+          "valence_is_discard_score5",
+          "arousal_is_discard_score5"
+        ],
+        "label_summaries": {
+          "arousal_is_discard_score5": {
+            "counts": {},
+            "missing": 2016,
+            "nonnull": 0
+          },
+          "arousal_label_gt5": {
+            "counts": {
+              "0": 1112,
+              "1": 687
+            },
+            "missing": 217,
+            "nonnull": 1799,
+            "subject_positive_rate": {
+              "max": 0.9375,
+              "mean": 0.38358038569673825,
+              "min": 0.0,
+              "range": 0.9375,
+              "std": 0.19108832418603897
+            }
+          },
+          "arousal_score": {
+            "counts": {
+              "1": 341,
+              "2.0": 294,
+              "3.0": 246,
+              "4.0": 231,
+              "5.0": 217,
+              "6.0": 206,
+              "7.0": 193,
+              "8.0": 170,
+              "9.0": 118
+            },
+            "missing": 0,
+            "nonnull": 2016,
+            "subject_positive_rate": {
+              "max": 1.0,
+              "mean": 1.0,
+              "min": 1.0,
+              "range": 0.0,
+              "std": 0.0
+            }
+          },
+          "valence_is_discard_score5": {
+            "counts": {},
+            "missing": 2016,
+            "nonnull": 0
+          },
+          "valence_label_gt5": {
+            "counts": {
+              "0": 812,
+              "1": 855
+            },
+            "missing": 349,
+            "nonnull": 1667,
+            "subject_positive_rate": {
+              "max": 0.6666666666666666,
+              "mean": 0.5130353424355923,
+              "min": 0.36666666666666664,
+              "range": 0.3,
+              "std": 0.06686245434939579
+            }
+          },
+          "valence_score": {
+            "counts": {
+              "1": 283,
+              "2.0": 188,
+              "3.0": 155,
+              "4.0": 186,
+              "5.0": 349,
+              "6.0": 241,
+              "7.0": 247,
+              "8.0": 190,
+              "9.0": 177
+            },
+            "missing": 0,
+            "nonnull": 2016,
+            "subject_positive_rate": {
+              "max": 1.0,
+              "mean": 1.0,
+              "min": 1.0,
+              "range": 0.0,
+              "std": 0.0
+            }
+          }
+        },
+        "path": ".cache/idare_trial_index.csv",
+        "rows_loaded_for_metadata": 2016,
+        "rows_per_subject": {
+          "max": 32,
+          "mean": 32.0,
+          "min": 32
+        },
+        "size_bytes": 643089,
+        "subject_column": "subject_id",
+        "subject_count": 63
+      }
+    }
+  },
+  "experiment_or_model_result_created": false,
+  "forbidden_scope_confirmation": {
+    "DEAP": false,
+    "DG": false,
+    "W1-owned file edits": false,
+    "Wave 2": false,
+    "augmentation": false,
+    "experiments": false,
+    "fusion": false,
+    "main push": false,
+    "model results": false,
+    "model-capacity probe": false,
+    "new operating-point claim": false,
+    "preprocessing changes": false,
+    "representation redesign v2": false,
+    "threshold changes": false
+  },
+  "produced_files": [
+    "docs/idare_label_task_protocol_protocol_comparison_report.md",
+    "docs/idare_label_task_protocol_protocol_comparison_report.json",
+    "docs/idare_label_task_protocol_label_task_policy_report.md",
+    "docs/idare_label_task_protocol_label_task_policy_report.json",
+    "docs/idare_label_task_protocol_midpoint_fold_subject_bias_report.md",
+    "docs/idare_label_task_protocol_midpoint_fold_subject_bias_report.json",
+    "docs/idare_label_task_protocol_prior_results_interpretation_report.md",
+    "docs/idare_label_task_protocol_prior_results_interpretation_report.json",
+    "docs/idare_label_task_protocol_final_reconciliation_decision_matrix.md",
+    "docs/idare_label_task_protocol_final_reconciliation_decision_matrix.json",
+    "docs/idare_label_task_protocol_reconciliation_closeout.md",
+    "docs/idare_label_task_protocol_reconciliation_closeout.json",
+    "docs/idare_label_task_protocol_artifact_review_bundle.md",
+    "docs/idare_label_task_protocol_artifact_review_bundle.json"
+  ],
+  "purpose": "artifact review bundle for Control Tower",
+  "source_inventory": {
+    "artifacts": [
+      {
+        "contains_label_policy": false,
+        "contains_near_chance": false,
+        "contains_stop": true,
+        "contains_subject_relative": true,
+        "contains_threshold": true,
+        "exists": true,
+        "kind": "md",
+        "path": "docs/idare_label_task_protocol_reconciliation_execution_authorization_package.md",
+        "size_bytes": 4407
+      },
+      {
+        "contains_label_policy": false,
+        "contains_near_chance": false,
+        "contains_stop": true,
+        "contains_subject_relative": true,
+        "contains_threshold": true,
+        "exists": true,
+        "kind": "json",
+        "path": "docs/idare_label_task_protocol_reconciliation_execution_authorization_package.json",
+        "size_bytes": 2428
+      },
+      {
+        "contains_label_policy": true,
+        "contains_near_chance": false,
+        "contains_stop": true,
+        "contains_subject_relative": true,
+        "contains_threshold": true,
+        "exists": true,
+        "kind": "md",
+        "path": "docs/idare_label_task_protocol_reconciliation_design_objective.md",
+        "size_bytes": 5215
+      },
+      {
+        "contains_label_policy": false,
+        "contains_near_chance": false,
+        "contains_stop": true,
+        "contains_subject_relative": true,
+        "contains_threshold": true,
+        "exists": true,
+        "kind": "json",
+        "path": "docs/idare_label_task_protocol_reconciliation_design_objective.json",
+        "size_bytes": 2732
+      },
+      {
+        "contains_label_policy": false,
+        "contains_near_chance": false,
+        "contains_stop": true,
+        "contains_subject_relative": false,
+        "contains_threshold": true,
+        "exists": true,
+        "kind": "md",
+        "path": "docs/idare_label_task_protocol_reconciliation_objective.md",
+        "size_bytes": 2286
+      },
+      {
+        "contains_label_policy": false,
+        "contains_near_chance": false,
+        "contains_stop": false,
+        "contains_subject_relative": false,
+        "contains_threshold": true,
+        "exists": true,
+        "kind": "json",
+        "path": "docs/idare_label_task_protocol_reconciliation_objective.json",
+        "size_bytes": 1598
+      },
+      {
+        "contains_label_policy": false,
+        "contains_near_chance": false,
+        "contains_stop": true,
+        "contains_subject_relative": false,
+        "contains_threshold": true,
+        "exists": true,
+        "kind": "md",
+        "path": "docs/idare_root_cause_triage_execution_authorization_package.md",
+        "size_bytes": 3911
+      },
+      {
+        "contains_label_policy": false,
+        "contains_near_chance": false,
+        "contains_stop": true,
+        "contains_subject_relative": false,
+        "contains_threshold": true,
+        "exists": true,
+        "kind": "md",
+        "path": "docs/idare_cross_subject_failure_root_cause_triage_objective.md",
+        "size_bytes": 4112
+      },
+      {
+        "contains_label_policy": false,
+        "contains_near_chance": false,
+        "contains_stop": true,
+        "contains_subject_relative": false,
+        "contains_threshold": false,
+        "exists": true,
+        "kind": "csv",
+        "path": "docs/idare_project_final_registry.csv",
+        "size_bytes": 818
+      },
+      {
+        "contains_label_policy": false,
+        "contains_near_chance": false,
+        "contains_stop": true,
+        "contains_subject_relative": false,
+        "contains_threshold": true,
+        "exists": true,
+        "kind": "json",
+        "path": "docs/idare_project_synthesis_review_and_final_registry_update.json",
+        "size_bytes": 2971
+      },
+      {
+        "contains_label_policy": true,
+        "contains_near_chance": true,
+        "contains_stop": true,
+        "contains_subject_relative": true,
+        "contains_threshold": true,
+        "exists": true,
+        "kind": "md",
+        "path": "docs/project_status_current.md",
+        "size_bytes": 99911
+      },
+      {
+        "contains_label_policy": true,
+        "contains_near_chance": false,
+        "contains_stop": true,
+        "contains_subject_relative": true,
+        "contains_threshold": true,
+        "exists": true,
+        "kind": "json",
+        "path": "docs/project_status_current.json",
+        "size_bytes": 362010
+      },
+      {
+        "contains_label_policy": true,
+        "contains_near_chance": false,
+        "contains_stop": true,
+        "contains_subject_relative": false,
+        "contains_threshold": true,
+        "exists": true,
+        "kind": "md",
+        "path": "docs/project_operating_protocol.md",
+        "size_bytes": 17231
+      },
+      {
+        "contains_label_policy": true,
+        "contains_near_chance": false,
+        "contains_stop": false,
+        "contains_subject_relative": false,
+        "contains_threshold": false,
+        "exists": true,
+        "kind": "md",
+        "path": "docs/research_scope_and_objectives.md",
+        "size_bytes": 7946
+      },
+      {
+        "contains_label_policy": true,
+        "contains_near_chance": false,
+        "contains_stop": true,
+        "contains_subject_relative": false,
+        "contains_threshold": true,
+        "exists": true,
+        "kind": "md",
+        "path": "docs/smoke_and_evaluation_protocol.md",
+        "size_bytes": 5615
+      },
+      {
+        "contains_label_policy": true,
+        "contains_near_chance": false,
+        "contains_stop": true,
+        "contains_subject_relative": false,
+        "contains_threshold": true,
+        "exists": true,
+        "kind": "md",
+        "path": "docs/idare_label_policy_ablation_objective.md",
+        "size_bytes": 4839
+      },
+      {
+        "contains_label_policy": true,
+        "contains_near_chance": false,
+        "contains_stop": false,
+        "contains_subject_relative": false,
+        "contains_threshold": false,
+        "exists": true,
+        "kind": "md",
+        "path": "docs/idare_label_policy_ablation_report.md",
+        "size_bytes": 2525
+      },
+      {
+        "contains_label_policy": true,
+        "contains_near_chance": false,
+        "contains_stop": false,
+        "contains_subject_relative": false,
+        "contains_threshold": false,
+        "exists": true,
+        "kind": "json",
+        "path": "docs/idare_label_policy_ablation_report.json",
+        "size_bytes": 5359
+      },
+      {
+        "contains_label_policy": true,
+        "contains_near_chance": false,
+        "contains_stop": true,
+        "contains_subject_relative": false,
+        "contains_threshold": false,
+        "exists": true,
+        "kind": "md",
+        "path": "docs/idare_label_policy_ablation_review_status.md",
+        "size_bytes": 2304
+      },
+      {
+        "contains_label_policy": true,
+        "contains_near_chance": false,
+        "contains_stop": false,
+        "contains_subject_relative": false,
+        "contains_threshold": true,
+        "exists": true,
+        "kind": "md",
+        "path": "docs/idare_failure_analysis_report.md",
+        "size_bytes": 10750
+      },
+      {
+        "contains_label_policy": true,
+        "contains_near_chance": false,
+        "contains_stop": false,
+        "contains_subject_relative": false,
+        "contains_threshold": true,
+        "exists": true,
+        "kind": "json",
+        "path": "docs/idare_failure_analysis_report.json",
+        "size_bytes": 52379
+      },
+      {
+        "contains_label_policy": true,
+        "contains_near_chance": true,
+        "contains_stop": false,
+        "contains_subject_relative": false,
+        "contains_threshold": false,
+        "exists": true,
+        "kind": "md",
+        "path": "docs/idare_failure_analysis_review_status.md",
+        "size_bytes": 1459
+      },
+      {
+        "contains_label_policy": true,
+        "contains_near_chance": false,
+        "contains_stop": false,
+        "contains_subject_relative": false,
+        "contains_threshold": true,
+        "exists": true,
+        "kind": "md",
+        "path": "docs/idare_root_cause_diagnostic_report.md",
+        "size_bytes": 9241
+      },
+      {
+        "contains_label_policy": true,
+        "contains_near_chance": false,
+        "contains_stop": false,
+        "contains_subject_relative": false,
+        "contains_threshold": true,
+        "exists": true,
+        "kind": "json",
+        "path": "docs/idare_root_cause_diagnostic_report.json",
+        "size_bytes": 80191
+      },
+      {
+        "contains_label_policy": true,
+        "contains_near_chance": false,
+        "contains_stop": false,
+        "contains_subject_relative": false,
+        "contains_threshold": true,
+        "exists": true,
+        "kind": "md",
+        "path": "docs/idare_root_cause_diagnostic_review_status.md",
+        "size_bytes": 1466
+      },
+      {
+        "contains_label_policy": true,
+        "contains_near_chance": true,
+        "contains_stop": false,
+        "contains_subject_relative": false,
+        "contains_threshold": false,
+        "exists": true,
+        "kind": "md",
+        "path": "docs/idare_diagnostic_sanity_tests_report.md",
+        "size_bytes": 4724
+      },
+      {
+        "contains_label_policy": true,
+        "contains_near_chance": false,
+        "contains_stop": false,
+        "contains_subject_relative": false,
+        "contains_threshold": true,
+        "exists": true,
+        "kind": "md",
+        "path": "docs/idare_calibration_subject_generalization_report.md",
+        "size_bytes": 13395
+      },
+      {
+        "contains_label_policy": true,
+        "contains_near_chance": false,
+        "contains_stop": false,
+        "contains_subject_relative": false,
+        "contains_threshold": true,
+        "exists": true,
+        "kind": "md",
+        "path": "docs/idare_calibration_protocol_report.md",
+        "size_bytes": 7210
+      },
+      {
+        "contains_label_policy": true,
+        "contains_near_chance": false,
+        "contains_stop": false,
+        "contains_subject_relative": false,
+        "contains_threshold": false,
+        "exists": true,
+        "kind": "md",
+        "path": "docs/idare_calibration_protocol_review_status.md",
+        "size_bytes": 1246
+      },
+      {
+        "contains_label_policy": true,
+        "contains_near_chance": false,
+        "contains_stop": false,
+        "contains_subject_relative": true,
+        "contains_threshold": false,
+        "exists": true,
+        "kind": "md",
+        "path": "docs/idare_representation_label_task_redesign_report.md",
+        "size_bytes": 5447
+      },
+      {
+        "contains_label_policy": true,
+        "contains_near_chance": false,
+        "contains_stop": false,
+        "contains_subject_relative": true,
+        "contains_threshold": false,
+        "exists": true,
+        "kind": "json",
+        "path": "docs/idare_representation_label_task_redesign_report.json",
+        "size_bytes": 19093
+      },
+      {
+        "contains_label_policy": true,
+        "contains_near_chance": false,
+        "contains_stop": false,
+        "contains_subject_relative": true,
+        "contains_threshold": false,
+        "exists": true,
+        "kind": "md",
+        "path": "docs/idare_representation_label_task_redesign_review_status.md",
+        "size_bytes": 1377
+      },
+      {
+        "contains_label_policy": true,
+        "contains_near_chance": false,
+        "contains_stop": false,
+        "contains_subject_relative": true,
+        "contains_threshold": false,
+        "exists": true,
+        "kind": "md",
+        "path": "docs/idare_subject_relative_task_formulation_report.md",
+        "size_bytes": 5386
+      },
+      {
+        "contains_label_policy": true,
+        "contains_near_chance": false,
+        "contains_stop": false,
+        "contains_subject_relative": true,
+        "contains_threshold": false,
+        "exists": true,
+        "kind": "json",
+        "path": "docs/idare_subject_relative_task_formulation_report.json",
+        "size_bytes": 16417
+      },
+      {
+        "contains_label_policy": true,
+        "contains_near_chance": false,
+        "contains_stop": false,
+        "contains_subject_relative": true,
+        "contains_threshold": false,
+        "exists": true,
+        "kind": "md",
+        "path": "docs/idare_subject_relative_task_formulation_review_status.md",
+        "size_bytes": 1358
+      },
+      {
+        "contains_label_policy": true,
+        "contains_near_chance": false,
+        "contains_stop": true,
+        "contains_subject_relative": true,
+        "contains_threshold": false,
+        "exists": true,
+        "kind": "md",
+        "path": "docs/idare_subject_relative_minimal_training_report.md",
+        "size_bytes": 2127
+      },
+      {
+        "contains_label_policy": true,
+        "contains_near_chance": false,
+        "contains_stop": false,
+        "contains_subject_relative": true,
+        "contains_threshold": false,
+        "exists": true,
+        "kind": "md",
+        "path": "docs/idare_subject_relative_minimal_training_review_status.md",
+        "size_bytes": 1784
+      },
+      {
+        "contains_label_policy": false,
+        "contains_near_chance": false,
+        "contains_stop": false,
+        "contains_subject_relative": true,
+        "contains_threshold": false,
+        "exists": true,
+        "kind": "md",
+        "path": "docs/idare_subject_relative_representation_preprocessing_report.md",
+        "size_bytes": 3144
+      },
+      {
+        "contains_label_policy": false,
+        "contains_near_chance": false,
+        "contains_stop": true,
+        "contains_subject_relative": true,
+        "contains_threshold": false,
+        "exists": true,
+        "kind": "md",
+        "path": "docs/idare_subject_relative_preprocessed_minimal_training_report.md",
+        "size_bytes": 2351
+      },
+      {
+        "contains_label_policy": false,
+        "contains_near_chance": false,
+        "contains_stop": false,
+        "contains_subject_relative": true,
+        "contains_threshold": false,
+        "exists": true,
+        "kind": "md",
+        "path": "docs/idare_subject_relative_preprocessed_minimal_training_review_status.md",
+        "size_bytes": 2763
+      },
+      {
+        "contains_label_policy": false,
+        "contains_near_chance": true,
+        "contains_stop": false,
+        "contains_subject_relative": true,
+        "contains_threshold": false,
+        "exists": true,
+        "kind": "md",
+        "path": "docs/idare_subject_variability_intervention_failure_analysis_report.md",
+        "size_bytes": 6891
+      },
+      {
+        "contains_label_policy": false,
+        "contains_near_chance": false,
+        "contains_stop": false,
+        "contains_subject_relative": true,
+        "contains_threshold": false,
+        "exists": true,
+        "kind": "md",
+        "path": "docs/idare_subject_variability_intervention_failure_analysis_review_status.md",
+        "size_bytes": 1967
+      },
+      {
+        "contains_label_policy": false,
+        "contains_near_chance": false,
+        "contains_stop": false,
+        "contains_subject_relative": false,
+        "contains_threshold": false,
+        "exists": true,
+        "kind": "md",
+        "path": "docs/idare_minimal_supcon_dg_first_pass_report.md",
+        "size_bytes": 2748
+      },
+      {
+        "contains_label_policy": false,
+        "contains_near_chance": false,
+        "contains_stop": false,
+        "contains_subject_relative": false,
+        "contains_threshold": false,
+        "exists": true,
+        "kind": "json",
+        "path": "docs/idare_minimal_supcon_dg_first_pass_report.json",
+        "size_bytes": 6115
+      }
+    ],
+    "missing_count": 0,
+    "present_count": 44
+  },
+  "status": "complete"
+}

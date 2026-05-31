@@ -1,0 +1,22 @@
+{
+  "bundle_id": "idare_repr_redesign_confirm_artifact_review_bundle",
+  "closeout_ready": true,
+  "files": [
+    "docs/idare_repr_redesign_confirm_runs.csv",
+    "docs/idare_repr_redesign_confirm_metric_summary.csv",
+    "docs/idare_repr_redesign_confirm_fold_level_report.md",
+    "docs/idare_repr_redesign_confirm_leakage_audit.json",
+    "docs/idare_repr_redesign_confirm_r2_vs_r3_stability_comparison.csv",
+    "docs/idare_repr_redesign_confirm_closeout_report.md",
+    "docs/idare_repr_redesign_confirm_closeout_report.json",
+    "docs/idare_repr_redesign_confirm_artifact_review_bundle.json",
+    "docs/idare_repr_redesign_confirm_artifact_review_bundle.md"
+  ],
+  "generated_at_utc": "2026-05-11T18:11:42.238996+00:00",
+  "latest_inputs": {
+    "cache_index": ".cache/idare_eeg_cache_index.csv",
+    "cache_npy": ".cache/idare_eeg_windows_32x640_float32.npy",
+    "label_column": "arousal_midpoint_as_high"
+  },
+  "status": "ready_for_control_tower_review"
+}

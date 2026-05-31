@@ -1,0 +1,30 @@
+{
+  "objective_id": "idare_post_wave1_synthesis_and_next_decision_objective",
+  "status": "created",
+  "branch": "idare/control-tower",
+  "scope": {
+    "type": "documentation_decision_only",
+    "experiments": false,
+    "wave2_execution": false,
+    "dataset": "I-DARE only",
+    "DEAP": "frozen",
+    "fusion": "frozen",
+    "preprocessing_changes": "forbidden",
+    "threshold_changes": "forbidden",
+    "main_push": "forbidden",
+    "branch_owned_w1_files": "do_not_modify"
+  },
+  "wave1_formal_state": {
+    "WAVE_1_FORMAL_STATUS": "CLOSED_ACCEPTED",
+    "WAVE_1_PERFORMANCE_GATE": "FAIL",
+    "WAVE_1_DIAGNOSTIC_GATE": "PARTIAL_PASS",
+    "WAVE_2_AUTHORIZATION": "NO"
+  },
+  "wave1_synthesis_inputs": {
+    "W1A": "tested EEG input definitions did not rescue pairwise arousal performance",
+    "W1B": "transductive rank transform reduced heterogeneity but no strict non-transductive pass",
+    "W1C": "EMG ridge aggregate no-pass; keep EMG as independent reference",
+    "W1D": "within-subject signal exists but cross-subject signal collapses due to subject-dominated geometry"
+  },
+  "next_control_state_after_commit": "REQUEST_POST_WAVE1_NEXT_DIRECTION_REVIEW"
+}

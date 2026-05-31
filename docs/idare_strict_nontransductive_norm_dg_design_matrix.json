@@ -1,0 +1,69 @@
+{
+  "status": "created",
+  "branch": "idare/control-tower",
+  "execution_authorized": false,
+  "wave2_execution_authorized": false,
+  "rows": [
+    {
+      "candidate": "train_fold_standard_scaler",
+      "strict_nontransductive": true,
+      "execution_status": "design_only"
+    },
+    {
+      "candidate": "train_fold_robust_scaler",
+      "strict_nontransductive": true,
+      "execution_status": "design_only"
+    },
+    {
+      "candidate": "train_fold_quantile_or_rank_mapper",
+      "strict_nontransductive": "potentially_true_if_fit_on_training_subjects_only",
+      "execution_status": "design_only"
+    },
+    {
+      "candidate": "per_test_subject_z_score",
+      "strict_nontransductive": false,
+      "execution_status": "forbidden_as_strict_evidence"
+    },
+    {
+      "candidate": "per_test_subject_rank_transform",
+      "strict_nontransductive": false,
+      "execution_status": "archive_as_transductive_diagnostic_only"
+    },
+    {
+      "candidate": "domain_adversarial_training_subject_domains",
+      "strict_nontransductive": "potentially_true_if_training_subjects_only",
+      "execution_status": "design_only"
+    },
+    {
+      "candidate": "irm_vrex_training_subject_domain_regularization",
+      "strict_nontransductive": "potentially_true_if_training_subjects_only",
+      "execution_status": "design_only"
+    },
+    {
+      "candidate": "test_time_adaptation",
+      "strict_nontransductive": false,
+      "execution_status": "not_allowed"
+    },
+    {
+      "candidate": "w2e_input_definition_x_normalization_interaction",
+      "strict_nontransductive": "reviewable_later",
+      "execution_status": "not_authorized"
+    },
+    {
+      "candidate": "model_capacity_probe",
+      "strict_nontransductive": "not_applicable",
+      "execution_status": "deferred"
+    },
+    {
+      "candidate": "augmentation",
+      "strict_nontransductive": "not_applicable",
+      "execution_status": "deferred"
+    },
+    {
+      "candidate": "representation_redesign",
+      "strict_nontransductive": "not_applicable",
+      "execution_status": "fallback_decision_only"
+    }
+  ],
+  "next_state": "REQUEST_STRICT_NTD_NORM_DG_DESIGN_REVIEW"
+}

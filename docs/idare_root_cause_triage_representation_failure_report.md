@@ -1,0 +1,45 @@
+# I-DARE Root-Cause Triage Representation Failure Report
+
+Status: `completed`
+
+## Summary
+
+- Representation redesign R3 produced a preliminary moderate pass but failed confirmation.
+- Existing synthesis closes R3 as not robust and treats R2 as insufficient replacement.
+- Representation redesign v2 is not the primary next action unless label/task and protocol audits fail to explain the collapse.
+
+## Classification Pressure
+
+- **A**: moderate because representation weakness may be downstream of task labels
+- **B**: moderate because confirmation failure may reflect target/protocol mismatch
+- **C**: secondary, not primary now; only revisit after A/B checks
+- **D**: moderate if failure is subject-domain geometry rather than architecture
+- **E**: moderate if repeated representation attempts stay near null
+
+## Evidence Snippets
+
+- `/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_run_matrix.csv:1` — objective_run_id,selected_formulation,patch_candidate_id,feature_set_id,model,training_category,modality,task,fold,train_subjects,val_subjects,include_predictions,authorized_status
+- `/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_run_matrix.csv:2` — 1,within_subject_pairwise_affect_preference_ranking_v1,CONTROL_current_summary_diff_control,current_summary_diff_control,random_balanced_no_training,no_training_control,EEG,arousal,1,fold_local_train_subjects,fold_heldout_subjects,yes,matri
+- `/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_run_matrix.csv:3` — 2,within_subject_pairwise_affect_preference_ranking_v1,CONTROL_current_summary_diff_control,current_summary_diff_control,random_balanced_no_training,no_training_control,EEG,arousal,2,fold_local_train_subjects,fold_heldout_subjects,yes,matri
+- `/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_run_matrix.csv:4` — 3,within_subject_pairwise_affect_preference_ranking_v1,CONTROL_current_summary_diff_control,current_summary_diff_control,random_balanced_no_training,no_training_control,EEG,arousal,3,fold_local_train_subjects,fold_heldout_subjects,yes,matri
+- `/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_run_matrix.csv:5` — 4,within_subject_pairwise_affect_preference_ranking_v1,CONTROL_current_summary_diff_control,current_summary_diff_control,random_balanced_no_training,no_training_control,EEG,arousal,4,fold_local_train_subjects,fold_heldout_subjects,yes,matri
+- `/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_run_matrix.csv:6` — 5,within_subject_pairwise_affect_preference_ranking_v1,CONTROL_current_summary_diff_control,current_summary_diff_control,random_balanced_no_training,no_training_control,EEG,arousal,5,fold_local_train_subjects,fold_heldout_subjects,yes,matri
+- `/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_run_matrix.csv:7` — 6,within_subject_pairwise_affect_preference_ranking_v1,CONTROL_current_summary_diff_control,current_summary_diff_control,random_balanced_no_training,no_training_control,EEG,arousal,6,fold_local_train_subjects,fold_heldout_subjects,yes,matri
+- `/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_run_matrix.csv:8` — 7,within_subject_pairwise_affect_preference_ranking_v1,CONTROL_current_summary_diff_control,current_summary_diff_control,majority_train_label_no_training,no_training_control,EEG,arousal,1,fold_local_train_subjects,fold_heldout_subjects,yes,
+- `/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_run_matrix.csv:9` — 8,within_subject_pairwise_affect_preference_ranking_v1,CONTROL_current_summary_diff_control,current_summary_diff_control,majority_train_label_no_training,no_training_control,EEG,arousal,2,fold_local_train_subjects,fold_heldout_subjects,yes,
+- `/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_run_matrix.csv:10` — 9,within_subject_pairwise_affect_preference_ranking_v1,CONTROL_current_summary_diff_control,current_summary_diff_control,majority_train_label_no_training,no_training_control,EEG,arousal,3,fold_local_train_subjects,fold_heldout_subjects,yes,
+- `/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_run_matrix.csv:11` — 10,within_subject_pairwise_affect_preference_ranking_v1,CONTROL_current_summary_diff_control,current_summary_diff_control,majority_train_label_no_training,no_training_control,EEG,arousal,4,fold_local_train_subjects,fold_heldout_subjects,yes
+- `/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_run_matrix.csv:12` — 11,within_subject_pairwise_affect_preference_ranking_v1,CONTROL_current_summary_diff_control,current_summary_diff_control,majority_train_label_no_training,no_training_control,EEG,arousal,5,fold_local_train_subjects,fold_heldout_subjects,yes
+- `/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_run_matrix.csv:13` — 12,within_subject_pairwise_affect_preference_ranking_v1,CONTROL_current_summary_diff_control,current_summary_diff_control,majority_train_label_no_training,no_training_control,EEG,arousal,6,fold_local_train_subjects,fold_heldout_subjects,yes
+- `/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_run_matrix.csv:14` — 13,within_subject_pairwise_affect_preference_ranking_v1,CONTROL_current_summary_diff_control,current_summary_diff_control,ridge_classifier_pairwise_feature_patch,minimal_classical_pairwise_patch,EEG,arousal,1,fold_local_train_subjects,fold_
+- `/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_run_matrix.csv:15` — 14,within_subject_pairwise_affect_preference_ranking_v1,CONTROL_current_summary_diff_control,current_summary_diff_control,ridge_classifier_pairwise_feature_patch,minimal_classical_pairwise_patch,EEG,arousal,2,fold_local_train_subjects,fold_
+- `/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_run_matrix.csv:16` — 15,within_subject_pairwise_affect_preference_ranking_v1,CONTROL_current_summary_diff_control,current_summary_diff_control,ridge_classifier_pairwise_feature_patch,minimal_classical_pairwise_patch,EEG,arousal,3,fold_local_train_subjects,fold_
+- `/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_run_matrix.csv:17` — 16,within_subject_pairwise_affect_preference_ranking_v1,CONTROL_current_summary_diff_control,current_summary_diff_control,ridge_classifier_pairwise_feature_patch,minimal_classical_pairwise_patch,EEG,arousal,4,fold_local_train_subjects,fold_
+- `/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_run_matrix.csv:18` — 17,within_subject_pairwise_affect_preference_ranking_v1,CONTROL_current_summary_diff_control,current_summary_diff_control,ridge_classifier_pairwise_feature_patch,minimal_classical_pairwise_patch,EEG,arousal,5,fold_local_train_subjects,fold_
+
+## Notes
+
+- No new representation smoke was run.
+- No model search was run.
+- No model-capacity probe was run.
+

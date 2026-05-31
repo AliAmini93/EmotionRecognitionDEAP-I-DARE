@@ -1,0 +1,66 @@
+{
+  "objective_id": "idare_representation_redesign_design_objective",
+  "status": "created",
+  "branch": "idare/control-tower",
+  "scope": {
+    "type": "documentation_design_only",
+    "experiments": false,
+    "runner_creation": false,
+    "wave2_execution": false,
+    "dg_execution": false,
+    "model_capacity_probe": false,
+    "augmentation": false,
+    "DEAP": "frozen",
+    "fusion": "frozen",
+    "preprocessing_changes": "forbidden",
+    "threshold_changes": "forbidden",
+    "main_push": "forbidden",
+    "w1_branch_owned_files": "do_not_modify"
+  },
+  "decision_context": {
+    "wave1_performance_gate": "failed",
+    "w1d": "within_subject_signal_exists_cross_subject_collapse_subject_dominated",
+    "w1b": "transductive_diagnostic_heterogeneity_reduction_only",
+    "w1a": "input_definition_variants_no_rescue",
+    "w1c": "emg_aggregate_no_pass",
+    "strict_ntd_smoke": "technically_clean_weak_effect"
+  },
+  "primary_next_design_candidate": "representation_redesign",
+  "secondary_candidate": "dg_design_after_better_representation",
+  "candidate_families": {
+    "primary": [
+      "train_only_subject_residualized_features",
+      "subject_invariant_feature_selection_train_subjects_only",
+      "representation_quality_diagnostics_before_training",
+      "eeg_first_redesigned_summaries"
+    ],
+    "reviewable": [
+      "improved_temporal_spectral_representations_without_blind_patch_a_reuse"
+    ],
+    "deferred": [
+      "emg_representation_redesign",
+      "dg_execution",
+      "neural_model_capacity_representation_learning",
+      "augmentation",
+      "fusion",
+      "deap_transfer",
+      "preprocessing_rebuild"
+    ]
+  },
+  "minimum_future_smoke_matrix": [
+    "R0_anchor_current_strict_ntd_or_ref_pw_eeg_aro_001",
+    "R1_train_only_subject_residualized_eeg_features",
+    "R2_train_only_subject_invariant_feature_selection",
+    "R3_representation_quality_diagnostics"
+  ],
+  "future_comparison_references": [
+    "REF-PW-EEG-ARO-001",
+    "W1A_A2_best_pairwise_input_definition",
+    "W1B_B3_transductive_diagnostic_labeled_non_strict",
+    "W1D_subject_dominance_diagnosis",
+    "Strict_NTD_S3_smoke_result",
+    "majority_baseline"
+  ],
+  "execution_authorized": false,
+  "next_state": "REQUEST_REPRESENTATION_REDESIGN_DESIGN_REVIEW"
+}

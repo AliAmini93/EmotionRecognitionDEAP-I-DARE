@@ -1,0 +1,119 @@
+{
+  "audit_executed": true,
+  "category": "subject-domain shift",
+  "classification_pressure": {
+    "A": "moderate if subject-domain shift is actually label tendency by subject",
+    "B": "moderate if held-out-subject protocol is stricter than source evidence supports",
+    "C": "moderate if feature geometry is the dominant failure and label/protocol checks pass",
+    "D": "strong mechanistic support, but execution remains deferred",
+    "E": "reviewable if subject-domain shift is irreducible under current formulation"
+  },
+  "evidence_snippets": [
+    {
+      "file": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_subject_variability_supcon_dg_smoke_tests_review_status.json",
+      "line": 39,
+      "text": "\"reviewed_report\": \"docs/idare_subject_variability_supcon_dg_smoke_tests_report.md\","
+    },
+    {
+      "file": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_subject_variability_supcon_dg_smoke_tests_review_status.json",
+      "line": 40,
+      "text": "\"reviewed_report_json\": \"docs/idare_subject_variability_supcon_dg_smoke_tests_report.json\","
+    },
+    {
+      "file": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_subject_relative_preprocessed_minimal_training_review_status.json",
+      "line": 4,
+      "text": "\"reviewed_document\": \"docs/idare_subject_relative_preprocessed_minimal_training_report.md\","
+    },
+    {
+      "file": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_subject_relative_preprocessed_minimal_training_review_status.json",
+      "line": 5,
+      "text": "\"reviewed_json\": \"docs/idare_subject_relative_preprocessed_minimal_training_report.json\","
+    },
+    {
+      "file": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_subject_relative_preprocessed_minimal_training_review_status.json",
+      "line": 10,
+      "text": "\"preprocessed_subject_relative_result\": \"preprocessed_subject_relative_first_pass_not_sufficient\","
+    },
+    {
+      "file": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_subject_relative_preprocessed_minimal_training_review_status.json",
+      "line": 12,
+      "text": "\"selected_next_step\": \"subject_variability_intervention_failure_analysis_objective\","
+    },
+    {
+      "file": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_subject_relative_preprocessed_minimal_training_review_status.json",
+      "line": 13,
+      "text": "\"decision\": \"Do not jump directly to generic feature engineering, SupCon, VREx, domain generalization, fusion, architecture changes, or broad hyperparameter search. First analyze why the subject-relative + preprocessing intervention failed."
+    },
+    {
+      "file": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_subject_relative_preprocessed_minimal_training_review_status.json",
+      "line": 16,
+      "text": "\"why_review_needed\": \"If the project diagnosis is subject variability, a failed intervention must be audited before selecting the next fix.\","
+    },
+    {
+      "file": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_subject_relative_preprocessed_minimal_training_review_status.json",
+      "line": 17,
+      "text": "\"current_result\": \"The subject-relative preprocessed first pass remained close to chance/mixed and was not sufficient to justify a mainline change.\","
+    },
+    {
+      "file": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_subject_relative_preprocessed_minimal_training_review_status.json",
+      "line": 18,
+      "text": "\"preprocessing_result\": \"The preprocessing diagnostic justified a small test, but preprocessing alone did not establish a strong label-discriminative or subject-invariant representation.\""
+    },
+    {
+      "file": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_subject_relative_preprocessed_minimal_training_review_status.json",
+      "line": 31,
+      "text": "\"allowed_next_step\": \"docs/idare_subject_variability_intervention_failure_analysis_objective.md\""
+    },
+    {
+      "file": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_subject_relative_preprocessed_minimal_training_review_status.json",
+      "line": 34,
+      "text": "\"preprocessed_training_report\": \"docs/idare_subject_relative_preprocessed_minimal_training_report.md\","
+    },
+    {
+      "file": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_subject_relative_preprocessed_minimal_training_review_status.json",
+      "line": 35,
+      "text": "\"preprocessing_diagnostic_report\": \"docs/idare_subject_relative_representation_preprocessing_report.md\","
+    },
+    {
+      "file": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_calibration_subject_generalization_report.md",
+      "line": 1,
+      "text": "# I-DARE Calibration and Subject-Generalization Report"
+    },
+    {
+      "file": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_calibration_subject_generalization_report.md",
+      "line": 5,
+      "text": "Calibration and subject-generalization diagnostic complete; pending human review."
+    },
+    {
+      "file": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_calibration_subject_generalization_report.md",
+      "line": 19,
+      "text": "| Subject difficulty rows | 756 |"
+    },
+    {
+      "file": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_calibration_subject_generalization_report.md",
+      "line": 27,
+      "text": "| Hard subject count | 163 |"
+    },
+    {
+      "file": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_calibration_subject_generalization_report.md",
+      "line": 75,
+      "text": "## Hard Subject Ranking"
+    }
+  ],
+  "experiment_executed": false,
+  "forbidden_scope_touched": false,
+  "generated_at_utc": "2026-05-12T09:37:02.862200+00:00",
+  "mode": "audit_subject_domain_shift",
+  "model_results_created": false,
+  "notes": [
+    "No DG execution was run.",
+    "No model-capacity probe was run.",
+    "No new feature extraction or preprocessing was performed."
+  ],
+  "status": "completed",
+  "summary": [
+    "Existing synthesis says affective signal exists within subject while cross-subject representations collapse.",
+    "W1D and related Wave 1 evidence point to subject-dominated geometry as a core mechanism.",
+    "Subject/domain-generalization work is plausible later, but should remain deferred until label and protocol root causes are reconciled."
+  ]
+}

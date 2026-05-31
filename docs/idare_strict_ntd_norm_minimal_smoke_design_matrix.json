@@ -1,0 +1,48 @@
+{
+  "status": "created",
+  "branch": "idare/control-tower",
+  "execution_authorized": false,
+  "wave2_execution_authorized": false,
+  "w2e_execution_authorized": false,
+  "matrix": [
+    {
+      "cell": "S0",
+      "candidate": "current_no_normalization_anchor",
+      "fit_rule": "no_transform_fit",
+      "heldout_usage": "no_heldout_stats_used",
+      "status": "design_candidate"
+    },
+    {
+      "cell": "S1",
+      "candidate": "train_fold_standard_scaler",
+      "fit_rule": "fit_mean_std_on_training_subjects_only",
+      "heldout_usage": "apply_frozen_transform_only",
+      "status": "design_candidate"
+    },
+    {
+      "cell": "S2",
+      "candidate": "train_fold_robust_scaler",
+      "fit_rule": "fit_median_iqr_on_training_subjects_only",
+      "heldout_usage": "apply_frozen_transform_only",
+      "status": "design_candidate"
+    },
+    {
+      "cell": "S3",
+      "candidate": "train_fold_frozen_quantile_rank_mapper",
+      "fit_rule": "fit_quantile_rank_mapping_on_training_subjects_only",
+      "heldout_usage": "apply_frozen_mapping_only",
+      "status": "design_candidate"
+    }
+  ],
+  "excluded": [
+    "per_test_subject_z_score",
+    "per_test_subject_rank_transform",
+    "test_time_adaptation",
+    "target_distribution_alignment",
+    "dg_smoke",
+    "w2e_interaction_grid_execution",
+    "model_capacity_probe",
+    "augmentation"
+  ],
+  "next_state": "REQUEST_STRICT_NTD_NORM_MINIMAL_SMOKE_DESIGN_REVIEW"
+}

@@ -1,0 +1,67 @@
+{
+  "status": "closeout_ready",
+  "generated_at_utc": "2026-05-12T15:51:40+00:00",
+  "branch": "idare/postwave1/data-augmentation-track",
+  "head": "bf7d9cf825c8bb4e9aa748b19f4c16aa2b4b560c",
+  "planned_runs": 120,
+  "completed_runs": 120,
+  "label_policy": "midpoint_as_high",
+  "recipe": "ce_class_weighted",
+  "best_by_modality_task": {
+    "EEG_arousal": {
+      "modality": "EEG",
+      "task": "arousal",
+      "da_policy": "E1_additive_gaussian_noise_weak",
+      "runs": 6,
+      "mean_balanced_accuracy": 0.5486431915971081,
+      "std_balanced_accuracy": 0.03120585958865024,
+      "mean_accuracy": 0.5448390151515151,
+      "mean_macro_f1": 0.5054818409014633,
+      "one_class_collapse_count": 0,
+      "mean_delta_vs_no_da": 0.01434433242810563,
+      "fold_wins_vs_no_da": 4
+    },
+    "EEG_valence": {
+      "modality": "EEG",
+      "task": "valence",
+      "da_policy": "E1_additive_gaussian_noise_weak",
+      "runs": 6,
+      "mean_balanced_accuracy": 0.5064684861878318,
+      "std_balanced_accuracy": 0.018702235958200766,
+      "mean_accuracy": 0.5508996212121212,
+      "mean_macro_f1": 0.45023468609577705,
+      "one_class_collapse_count": 0,
+      "mean_delta_vs_no_da": 0.008447851114761706,
+      "fold_wins_vs_no_da": 4
+    },
+    "EMG_arousal": {
+      "modality": "EMG",
+      "task": "arousal",
+      "da_policy": "M4_feature_dropout",
+      "runs": 6,
+      "mean_balanced_accuracy": 0.5251283429036621,
+      "std_balanced_accuracy": 0.025968037505106564,
+      "mean_accuracy": 0.5302083333333333,
+      "mean_macro_f1": 0.521280867409916,
+      "one_class_collapse_count": 0,
+      "mean_delta_vs_no_da": 0.019859651205814954,
+      "fold_wins_vs_no_da": 5
+    },
+    "EMG_valence": {
+      "modality": "EMG",
+      "task": "valence",
+      "da_policy": "M2_feature_gaussian_jitter_medium",
+      "runs": 6,
+      "mean_balanced_accuracy": 0.5165265752921115,
+      "std_balanced_accuracy": 0.03671730857245702,
+      "mean_accuracy": 0.5181344696969697,
+      "mean_macro_f1": 0.5104703824113392,
+      "one_class_collapse_count": 0,
+      "mean_delta_vs_no_da": 0.0013144425083211064,
+      "fold_wins_vs_no_da": 4
+    }
+  },
+  "leakage_status": "PASSED",
+  "one_class_total": 1,
+  "paper_level_claim": false
+}

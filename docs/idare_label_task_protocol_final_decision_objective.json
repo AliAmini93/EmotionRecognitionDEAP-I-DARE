@@ -1,0 +1,39 @@
+{
+  "objective_id": "idare_label_task_protocol_final_decision_objective",
+  "status": "created",
+  "branch": "idare/control-tower",
+  "scope": "documentation_final_decision_only",
+  "execution_authorized": false,
+  "runner_creation_authorized": false,
+  "new_audit_authorized": false,
+  "experiments_authorized": false,
+  "model_results_authorized": false,
+  "wave2_execution_authorized": false,
+  "dg_execution_authorized": false,
+  "model_capacity_probe_authorized": false,
+  "augmentation_authorized": false,
+  "representation_redesign_v2_authorized": false,
+  "deap": "frozen",
+  "fusion": "frozen",
+  "preprocessing_changes": "forbidden",
+  "threshold_changes": "forbidden",
+  "main_push": "forbidden",
+  "evidence_base": {
+    "project_final_registry": "NO_ROBUST_CROSS_SUBJECT_OPERATING_POINT_FOUND",
+    "root_cause_triage": "label_task_and_protocol_uncertainty_interacting_with_strong_subject_domain_shift",
+    "label_task_protocol_reconciliation_commit": "19188db",
+    "label_task_protocol_reconciliation_status": "closeout_ready",
+    "blocker_status": "none",
+    "new_operating_point_claim": false,
+    "experiments_or_model_results_created": false
+  },
+  "final_rulings": {
+    "current_heldout_subject_binary_arousal": "comparator_only_not_final_target",
+    "label_task_policy_redesign": "primary_next_design_path",
+    "protocol_target_reconciliation": "primary_next_design_path",
+    "subject_relative_within_subject": "supported_candidate_not_auto_mainline",
+    "stop_pivot": "contingency_not_immediate_default",
+    "dg_model_capacity_representation_v2": "deferred_until_label_protocol_target_locked"
+  },
+  "next_state": "REQUEST_LABEL_TASK_PROTOCOL_TARGET_POLICY_DECISION_PACKAGE"
+}

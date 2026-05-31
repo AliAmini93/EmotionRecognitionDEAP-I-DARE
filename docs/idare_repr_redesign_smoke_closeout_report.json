@@ -1,0 +1,17 @@
+{
+  "status": "closeout_ready",
+  "generated_at_utc": "2026-05-11T17:33:50+00:00",
+  "branch": "idare/postwave1/representation-redesign-smoke",
+  "worktree": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-repr-redesign-smoke",
+  "run_count": 24,
+  "expected_run_count": 24,
+  "best_cell": "R3",
+  "best_mean_balanced_accuracy": 0.532721790019799,
+  "leakage_audit_result": "passed",
+  "one_class_collapse_count": 0,
+  "gate_0_53_pass": true,
+  "gate_0_55_pass": false,
+  "smoke_execution_occurred": true,
+  "experiment_scope": "registered_24_run_representation_redesign_smoke_only",
+  "forbidden_scope_touched": false
+}

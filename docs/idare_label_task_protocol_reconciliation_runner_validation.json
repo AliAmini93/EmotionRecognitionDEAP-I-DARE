@@ -1,0 +1,168 @@
+{
+  "allowed_prefix": "idare_label_task_protocol_",
+  "audit_categories_encoded": [
+    "protocol alignment",
+    "label/task formulation",
+    "midpoint and threshold policy review",
+    "fold/subject label-bias review",
+    "prior-results interpretation",
+    "final label-task/protocol decision matrix"
+  ],
+  "audit_execution_occurred": false,
+  "blocker_count": 0,
+  "checks": [
+    {
+      "detail": "idare/postwave1/label-task-protocol-reconciliation",
+      "name": "branch",
+      "status": "PASSED"
+    },
+    {
+      "detail": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-label-task-protocol",
+      "name": "worktree",
+      "status": "PASSED"
+    },
+    {
+      "detail": "only allowed-prefix changes: M docs/idare_label_task_protocol_reconciliation_runner_validation.json |  M docs/idare_label_task_protocol_reconciliation_runner_validation.md |  M scripts/idare_label_task_protocol_reconciliation_runner.py",
+      "name": "git_status_allowed_prefix",
+      "status": "PASSED"
+    },
+    {
+      "detail": "no staged changes",
+      "name": "staged_changes",
+      "status": "PASSED"
+    },
+    {
+      "detail": "exists",
+      "name": "required_doc:docs/idare_label_task_protocol_reconciliation_execution_authorization_package.md",
+      "status": "PASSED"
+    },
+    {
+      "detail": "exists",
+      "name": "required_doc:docs/idare_label_task_protocol_reconciliation_execution_authorization_package.json",
+      "status": "PASSED"
+    },
+    {
+      "detail": "exists",
+      "name": "required_doc:docs/idare_label_task_protocol_reconciliation_design_objective.md",
+      "status": "PASSED"
+    },
+    {
+      "detail": "exists",
+      "name": "required_doc:docs/idare_label_task_protocol_reconciliation_design_objective.json",
+      "status": "PASSED"
+    },
+    {
+      "detail": "exists",
+      "name": "required_doc:docs/idare_label_task_protocol_reconciliation_objective.md",
+      "status": "PASSED"
+    },
+    {
+      "detail": "exists",
+      "name": "required_doc:docs/idare_label_task_protocol_reconciliation_objective.json",
+      "status": "PASSED"
+    },
+    {
+      "detail": "exists",
+      "name": "required_doc:docs/idare_root_cause_triage_execution_authorization_package.md",
+      "status": "PASSED"
+    },
+    {
+      "detail": "exists",
+      "name": "required_doc:docs/idare_cross_subject_failure_root_cause_triage_objective.md",
+      "status": "PASSED"
+    },
+    {
+      "detail": "exists",
+      "name": "required_doc:docs/idare_project_final_registry.csv",
+      "status": "PASSED"
+    },
+    {
+      "detail": "exists",
+      "name": "required_doc:docs/idare_project_synthesis_review_and_final_registry_update.json",
+      "status": "PASSED"
+    },
+    {
+      "detail": "exists",
+      "name": "required_cache_or_index:.cache/idare_eeg_cache_index.csv",
+      "status": "PASSED"
+    },
+    {
+      "detail": "exists",
+      "name": "required_cache_or_index:.cache/idare_eeg_cache_index_baseline_corrected.csv",
+      "status": "PASSED"
+    },
+    {
+      "detail": "exists",
+      "name": "required_cache_or_index:.cache/idare_trial_index.csv",
+      "status": "PASSED"
+    },
+    {
+      "detail": "exists size_bytes=165150848",
+      "name": "required_cache_array_metadata_only:.cache/idare_eeg_windows_32x640_float32.npy",
+      "status": "PASSED"
+    },
+    {
+      "detail": "exists size_bytes=165150848",
+      "name": "required_cache_array_metadata_only:.cache/idare_eeg_windows_32x640_float32_baseline_corrected.npy",
+      "status": "PASSED"
+    },
+    {
+      "detail": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/.cache",
+      "name": "local_link_or_dir:.cache",
+      "status": "PASSED"
+    },
+    {
+      "detail": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/.venv",
+      "name": "local_link_or_dir:.venv",
+      "status": "PASSED"
+    },
+    {
+      "detail": "all intended outputs use idare_label_task_protocol_",
+      "name": "output_prefix",
+      "status": "PASSED"
+    },
+    {
+      "detail": "compact label/task + protocol reconciliation only",
+      "name": "scope",
+      "status": "PASSED"
+    },
+    {
+      "detail": "protocol alignment; label/task formulation; midpoint and threshold policy review; fold/subject label-bias review; prior-results interpretation; final label-task/protocol decision matrix",
+      "name": "audit_categories_encoded",
+      "status": "PASSED"
+    },
+    {
+      "detail": "experiments; model results; Wave 2; DG; model-capacity probe; augmentation; representation redesign v2; DEAP; fusion; preprocessing changes; threshold changes; W1-owned file edits; main push; new operating-point claim",
+      "name": "forbidden_now_encoded",
+      "status": "PASSED"
+    },
+    {
+      "detail": "explicit Control Tower audit run approval phrase supplied",
+      "name": "audit_execution_guard",
+      "status": "PASSED"
+    }
+  ],
+  "expected_branch": "idare/postwave1/label-task-protocol-reconciliation",
+  "expected_worktree": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-label-task-protocol",
+  "experiment_or_model_result_created": false,
+  "forbidden_now": [
+    "experiments",
+    "model results",
+    "Wave 2",
+    "DG",
+    "model-capacity probe",
+    "augmentation",
+    "representation redesign v2",
+    "DEAP",
+    "fusion",
+    "preprocessing changes",
+    "threshold changes",
+    "W1-owned file edits",
+    "main push",
+    "new operating-point claim"
+  ],
+  "generated_at_utc": "2026-05-12T10:14:55.659600+00:00",
+  "mode": "audit",
+  "runner": "scripts/idare_label_task_protocol_reconciliation_runner.py",
+  "status": "PASSED"
+}

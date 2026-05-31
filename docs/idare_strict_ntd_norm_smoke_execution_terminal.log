@@ -1,0 +1,51 @@
+[RUN] 01/24 cell=S0_current_no_additional_normalization fold=1
+{"accuracy": 0.5222812283537289, "balanced_accuracy": 0.5222812283537289, "cell": "S0_current_no_additional_normalization", "fold": 1, "macro_f1": 0.5222812283537289, "one_class_pred": false, "run_id": 1}
+[RUN] 02/24 cell=S0_current_no_additional_normalization fold=2
+{"accuracy": 0.5163067430586161, "balanced_accuracy": 0.5163067430586161, "cell": "S0_current_no_additional_normalization", "fold": 2, "macro_f1": 0.5163067430586161, "one_class_pred": false, "run_id": 2}
+[RUN] 03/24 cell=S0_current_no_additional_normalization fold=3
+{"accuracy": 0.5016992353440951, "balanced_accuracy": 0.5016992353440951, "cell": "S0_current_no_additional_normalization", "fold": 3, "macro_f1": 0.5016992353440951, "one_class_pred": false, "run_id": 3}
+[RUN] 04/24 cell=S0_current_no_additional_normalization fold=4
+{"accuracy": 0.5034780522907172, "balanced_accuracy": 0.5034780522907172, "cell": "S0_current_no_additional_normalization", "fold": 4, "macro_f1": 0.5034780522907172, "one_class_pred": false, "run_id": 4}
+[RUN] 05/24 cell=S0_current_no_additional_normalization fold=5
+{"accuracy": 0.48616039744499645, "balanced_accuracy": 0.48616039744499645, "cell": "S0_current_no_additional_normalization", "fold": 5, "macro_f1": 0.48616039744499645, "one_class_pred": false, "run_id": 5}
+[RUN] 06/24 cell=S0_current_no_additional_normalization fold=6
+{"accuracy": 0.5209798690274072, "balanced_accuracy": 0.5209798690274072, "cell": "S0_current_no_additional_normalization", "fold": 6, "macro_f1": 0.5209798690274072, "one_class_pred": false, "run_id": 6}
+[RUN] 07/24 cell=S1_train_fold_standard_scaler fold=1
+{"accuracy": 0.5241283768182867, "balanced_accuracy": 0.5241283768182867, "cell": "S1_train_fold_standard_scaler", "fold": 1, "macro_f1": 0.5241283768182867, "one_class_pred": false, "run_id": 7}
+[RUN] 08/24 cell=S1_train_fold_standard_scaler fold=2
+{"accuracy": 0.5156456588805641, "balanced_accuracy": 0.5156456588805641, "cell": "S1_train_fold_standard_scaler", "fold": 2, "macro_f1": 0.5156456588805641, "one_class_pred": false, "run_id": 8}
+[RUN] 09/24 cell=S1_train_fold_standard_scaler fold=3
+{"accuracy": 0.5023364485981309, "balanced_accuracy": 0.5023364485981309, "cell": "S1_train_fold_standard_scaler", "fold": 3, "macro_f1": 0.5023364485981309, "one_class_pred": false, "run_id": 9}
+[RUN] 10/24 cell=S1_train_fold_standard_scaler fold=4
+{"accuracy": 0.502038858239386, "balanced_accuracy": 0.502038858239386, "cell": "S1_train_fold_standard_scaler", "fold": 4, "macro_f1": 0.502038858239386, "one_class_pred": false, "run_id": 10}
+[RUN] 11/24 cell=S1_train_fold_standard_scaler fold=5
+{"accuracy": 0.48757984386089426, "balanced_accuracy": 0.48757984386089426, "cell": "S1_train_fold_standard_scaler", "fold": 5, "macro_f1": 0.4875798438608942, "one_class_pred": false, "run_id": 11}
+[RUN] 12/24 cell=S1_train_fold_standard_scaler fold=6
+{"accuracy": 0.5209798690274072, "balanced_accuracy": 0.5209798690274072, "cell": "S1_train_fold_standard_scaler", "fold": 6, "macro_f1": 0.5209798690274072, "one_class_pred": false, "run_id": 12}
+[RUN] 13/24 cell=S2_train_fold_robust_scaler fold=1
+{"accuracy": 0.5241283768182867, "balanced_accuracy": 0.5241283768182867, "cell": "S2_train_fold_robust_scaler", "fold": 1, "macro_f1": 0.5241283768182867, "one_class_pred": false, "run_id": 13}
+[RUN] 14/24 cell=S2_train_fold_robust_scaler fold=2
+{"accuracy": 0.5156456588805641, "balanced_accuracy": 0.5156456588805641, "cell": "S2_train_fold_robust_scaler", "fold": 2, "macro_f1": 0.5156456588805641, "one_class_pred": false, "run_id": 14}
+[RUN] 15/24 cell=S2_train_fold_robust_scaler fold=3
+{"accuracy": 0.5025488530161427, "balanced_accuracy": 0.5025488530161427, "cell": "S2_train_fold_robust_scaler", "fold": 3, "macro_f1": 0.5025488530161427, "one_class_pred": false, "run_id": 15}
+[RUN] 16/24 cell=S2_train_fold_robust_scaler fold=4
+{"accuracy": 0.502038858239386, "balanced_accuracy": 0.502038858239386, "cell": "S2_train_fold_robust_scaler", "fold": 4, "macro_f1": 0.502038858239386, "one_class_pred": false, "run_id": 16}
+[RUN] 17/24 cell=S2_train_fold_robust_scaler fold=5
+{"accuracy": 0.48734326945824463, "balanced_accuracy": 0.48734326945824463, "cell": "S2_train_fold_robust_scaler", "fold": 5, "macro_f1": 0.48734326945824463, "one_class_pred": false, "run_id": 17}
+[RUN] 18/24 cell=S2_train_fold_robust_scaler fold=6
+{"accuracy": 0.5209798690274072, "balanced_accuracy": 0.5209798690274072, "cell": "S2_train_fold_robust_scaler", "fold": 6, "macro_f1": 0.5209798690274072, "one_class_pred": false, "run_id": 18}
+[RUN] 19/24 cell=S3_train_fold_frozen_quantile_rank_mapper fold=1
+{"accuracy": 0.5289771415377511, "balanced_accuracy": 0.5289771415377511, "cell": "S3_train_fold_frozen_quantile_rank_mapper", "fold": 1, "macro_f1": 0.5289771415377511, "one_class_pred": false, "run_id": 19}
+[RUN] 20/24 cell=S3_train_fold_frozen_quantile_rank_mapper fold=2
+{"accuracy": 0.5352578228294402, "balanced_accuracy": 0.5352578228294402, "cell": "S3_train_fold_frozen_quantile_rank_mapper", "fold": 2, "macro_f1": 0.5352578228294402, "one_class_pred": false, "run_id": 20}
+[RUN] 21/24 cell=S3_train_fold_frozen_quantile_rank_mapper fold=3
+{"accuracy": 0.52017841971113, "balanced_accuracy": 0.52017841971113, "cell": "S3_train_fold_frozen_quantile_rank_mapper", "fold": 3, "macro_f1": 0.52017841971113, "one_class_pred": false, "run_id": 21}
+[RUN] 22/24 cell=S3_train_fold_frozen_quantile_rank_mapper fold=4
+{"accuracy": 0.49292396258095467, "balanced_accuracy": 0.49292396258095467, "cell": "S3_train_fold_frozen_quantile_rank_mapper", "fold": 4, "macro_f1": 0.49292396258095467, "one_class_pred": false, "run_id": 22}
+[RUN] 23/24 cell=S3_train_fold_frozen_quantile_rank_mapper fold=5
+{"accuracy": 0.48355807901585046, "balanced_accuracy": 0.48355807901585046, "cell": "S3_train_fold_frozen_quantile_rank_mapper", "fold": 5, "macro_f1": 0.48355807901585046, "one_class_pred": false, "run_id": 23}
+[RUN] 24/24 cell=S3_train_fold_frozen_quantile_rank_mapper fold=6
+{"accuracy": 0.5243754547659472, "balanced_accuracy": 0.5243754547659472, "cell": "S3_train_fold_frozen_quantile_rank_mapper", "fold": 6, "macro_f1": 0.5243754547659472, "one_class_pred": false, "run_id": 24}
+[DONE] wrote /mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-strict-ntd-smoke/docs/idare_strict_ntd_norm_smoke_report.md
+[DONE] wrote /mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-strict-ntd-smoke/docs/idare_strict_ntd_norm_smoke_report.json
+[DONE] wrote /mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-strict-ntd-smoke/docs/idare_strict_ntd_norm_smoke_runs.csv

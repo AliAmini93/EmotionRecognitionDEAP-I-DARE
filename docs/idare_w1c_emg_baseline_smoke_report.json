@@ -1,0 +1,446 @@
+{
+  "aggregate": [
+    {
+      "accuracy": {
+        "max": 0.5227272727272727,
+        "mean": 0.5227272727272727,
+        "min": 0.5227272727272727,
+        "std": 0.0
+      },
+      "balanced_accuracy": {
+        "max": 0.4786138613861386,
+        "mean": 0.4786138613861386,
+        "min": 0.4786138613861386,
+        "std": 0.0
+      },
+      "cell": "C1",
+      "delta_vs_reference_balanced_accuracy": -0.05788613861386138,
+      "input_kind": "emg",
+      "macro_f1": {
+        "max": 0.44734776270045984,
+        "mean": 0.44734776270045984,
+        "min": 0.44734776270045984,
+        "std": 0.0
+      },
+      "moderate_pass": false,
+      "normalization": "none",
+      "one_class_runs": 0,
+      "reference_balanced_accuracy": 0.5365,
+      "runs": 1,
+      "strong_pass": false,
+      "task": "arousal"
+    },
+    {
+      "accuracy": {
+        "max": 0.5369318181818182,
+        "mean": 0.5369318181818182,
+        "min": 0.5369318181818182,
+        "std": 0.0
+      },
+      "balanced_accuracy": {
+        "max": 0.4884158415841584,
+        "mean": 0.4884158415841584,
+        "min": 0.4884158415841584,
+        "std": 0.0
+      },
+      "cell": "C2",
+      "delta_vs_reference_balanced_accuracy": -0.04808415841584157,
+      "input_kind": "emg",
+      "macro_f1": {
+        "max": 0.4484296742066658,
+        "mean": 0.4484296742066658,
+        "min": 0.4484296742066658,
+        "std": 0.0
+      },
+      "moderate_pass": false,
+      "normalization": "per_subject_zscore",
+      "one_class_runs": 0,
+      "reference_balanced_accuracy": 0.5365,
+      "runs": 1,
+      "strong_pass": false,
+      "task": "arousal"
+    }
+  ],
+  "best_by_task": {
+    "arousal": {
+      "accuracy": {
+        "max": 0.5369318181818182,
+        "mean": 0.5369318181818182,
+        "min": 0.5369318181818182,
+        "std": 0.0
+      },
+      "balanced_accuracy": {
+        "max": 0.4884158415841584,
+        "mean": 0.4884158415841584,
+        "min": 0.4884158415841584,
+        "std": 0.0
+      },
+      "cell": "C2",
+      "delta_vs_reference_balanced_accuracy": -0.04808415841584157,
+      "input_kind": "emg",
+      "macro_f1": {
+        "max": 0.4484296742066658,
+        "mean": 0.4484296742066658,
+        "min": 0.4484296742066658,
+        "std": 0.0
+      },
+      "moderate_pass": false,
+      "normalization": "per_subject_zscore",
+      "one_class_runs": 0,
+      "reference_balanced_accuracy": 0.5365,
+      "runs": 1,
+      "strong_pass": false,
+      "task": "arousal"
+    }
+  },
+  "branch": "idare/wave1/emg-baseline-ablation",
+  "comparison_baselines": {
+    "arousal": 0.5365,
+    "valence": 0.5202
+  },
+  "config": {
+    "alignment_common_cols": [
+      "subject_id",
+      "stimulus_id"
+    ],
+    "bsl_index": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-w1c/.cache/idare_emg_bsl_stats_index.csv",
+    "bsl_npy": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-w1c/.cache/idare_emg_bsl_stats.npy",
+    "feature_index": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-w1c/.cache/idare_emg_feature_cache_index.csv",
+    "feature_npy": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-w1c/.cache/idare_emg_features.npy",
+    "fold_seed": 20260511,
+    "folds": 6,
+    "label_policy": "midpoint_as_high",
+    "max_runs": 2,
+    "ridge_alpha": 1.0,
+    "run_tag": "smoke",
+    "tasks": [
+      "arousal",
+      "valence"
+    ]
+  },
+  "counts": {
+    "max_allowed_runs": 72,
+    "prediction_rows": 704,
+    "registered_runs_executed": 2,
+    "subjects": 63
+  },
+  "generated_at_utc": "2026-05-11T13:34:24.985245+00:00",
+  "interpretation": "No moderate pass observed. W1C provides an independent EMG ridge reference but does not justify Wave 2 EMG or fusion-readiness work by itself.",
+  "not_started": [
+    "EEG",
+    "fusion",
+    "pairwise EMG retest",
+    "neural training",
+    "broad hyperparameter search",
+    "DEAP",
+    "cache overwrite",
+    "push to main"
+  ],
+  "pass_gates": {
+    "moderate_balanced_accuracy": 0.54,
+    "strong_balanced_accuracy": 0.55
+  },
+  "registered_cells": [
+    {
+      "cell": "C1",
+      "input_kind": "emg",
+      "normalization": "none"
+    },
+    {
+      "cell": "C2",
+      "input_kind": "emg",
+      "normalization": "per_subject_zscore"
+    },
+    {
+      "cell": "C3",
+      "input_kind": "emg",
+      "normalization": "train_fold_standard_scaler"
+    },
+    {
+      "cell": "C4",
+      "input_kind": "emg_bsl",
+      "normalization": "none"
+    },
+    {
+      "cell": "C5",
+      "input_kind": "emg_bsl",
+      "normalization": "per_subject_zscore"
+    },
+    {
+      "cell": "C6",
+      "input_kind": "emg_bsl",
+      "normalization": "train_fold_standard_scaler"
+    }
+  ],
+  "runs": [
+    {
+      "cell": "C1",
+      "feature_dim": 22,
+      "fold_id": 1,
+      "input_kind": "emg",
+      "label_policy": "midpoint_as_high",
+      "normalization": "none",
+      "normalization_info": {
+        "type": "none"
+      },
+      "ridge_alpha": 1.0,
+      "run_id": 1,
+      "run_tag": "smoke",
+      "task": "arousal",
+      "train": {
+        "accuracy": 0.5685096153846154,
+        "balanced_accuracy": 0.5358090185676392,
+        "confusion": {
+          "fn": 613,
+          "fp": 105,
+          "tn": 805,
+          "tp": 141
+        },
+        "macro_f1": 0.48679037800687286,
+        "majority_baseline": {
+          "accuracy": 0.546875,
+          "label": 0
+        },
+        "n": 1664,
+        "one_class_pred": false,
+        "per_class": {
+          "0": {
+            "f1": 0.6915807560137457,
+            "precision": 0.5677009873060649,
+            "recall": 0.8846153846153846,
+            "support": 910
+          },
+          "1": {
+            "f1": 0.28200000000000003,
+            "precision": 0.573170731707317,
+            "recall": 0.1870026525198939,
+            "support": 754
+          }
+        },
+        "pred_counts": {
+          "0": 1418,
+          "1": 246
+        },
+        "pred_unique_labels": [
+          0,
+          1
+        ],
+        "true_counts": {
+          "0": 910,
+          "1": 754
+        }
+      },
+      "train_label_counts": {
+        "0": 910,
+        "1": 754
+      },
+      "train_n": 1664,
+      "train_subject_count": 52,
+      "val": {
+        "accuracy": 0.5227272727272727,
+        "balanced_accuracy": 0.4786138613861386,
+        "confusion": {
+          "fn": 123,
+          "fp": 45,
+          "tn": 157,
+          "tp": 27
+        },
+        "macro_f1": 0.44734776270045984,
+        "majority_baseline": {
+          "accuracy": 0.5738636363636364,
+          "label": 0
+        },
+        "n": 352,
+        "one_class_pred": false,
+        "per_class": {
+          "0": {
+            "f1": 0.6514522821576764,
+            "precision": 0.5607142857142857,
+            "recall": 0.7772277227722773,
+            "support": 202
+          },
+          "1": {
+            "f1": 0.24324324324324328,
+            "precision": 0.375,
+            "recall": 0.18,
+            "support": 150
+          }
+        },
+        "pred_counts": {
+          "0": 280,
+          "1": 72
+        },
+        "pred_unique_labels": [
+          0,
+          1
+        ],
+        "true_counts": {
+          "0": 202,
+          "1": 150
+        }
+      },
+      "val_label_counts": {
+        "0": 202,
+        "1": 150
+      },
+      "val_n": 352,
+      "val_subject_count": 11,
+      "val_subjects": [
+        7,
+        18,
+        22,
+        24,
+        29,
+        31,
+        32,
+        34,
+        42,
+        55,
+        60
+      ]
+    },
+    {
+      "cell": "C2",
+      "feature_dim": 22,
+      "fold_id": 1,
+      "input_kind": "emg",
+      "label_policy": "midpoint_as_high",
+      "normalization": "per_subject_zscore",
+      "normalization_info": {
+        "min_std_min": 0.010933311637000209,
+        "subjects": 63,
+        "transductive": true,
+        "type": "per_subject_zscore"
+      },
+      "ridge_alpha": 1.0,
+      "run_id": 2,
+      "run_tag": "smoke",
+      "task": "arousal",
+      "train": {
+        "accuracy": 0.5637019230769231,
+        "balanced_accuracy": 0.5311860553239863,
+        "confusion": {
+          "fn": 615,
+          "fp": 111,
+          "tn": 799,
+          "tp": 139
+        },
+        "macro_f1": 0.4822500017143132,
+        "majority_baseline": {
+          "accuracy": 0.546875,
+          "label": 0
+        },
+        "n": 1664,
+        "one_class_pred": false,
+        "per_class": {
+          "0": {
+            "f1": 0.6876075731497419,
+            "precision": 0.5650636492220651,
+            "recall": 0.878021978021978,
+            "support": 910
+          },
+          "1": {
+            "f1": 0.2768924302788845,
+            "precision": 0.556,
+            "recall": 0.1843501326259947,
+            "support": 754
+          }
+        },
+        "pred_counts": {
+          "0": 1414,
+          "1": 250
+        },
+        "pred_unique_labels": [
+          0,
+          1
+        ],
+        "true_counts": {
+          "0": 910,
+          "1": 754
+        }
+      },
+      "train_label_counts": {
+        "0": 910,
+        "1": 754
+      },
+      "train_n": 1664,
+      "train_subject_count": 52,
+      "val": {
+        "accuracy": 0.5369318181818182,
+        "balanced_accuracy": 0.4884158415841584,
+        "confusion": {
+          "fn": 126,
+          "fp": 37,
+          "tn": 165,
+          "tp": 24
+        },
+        "macro_f1": 0.4484296742066658,
+        "majority_baseline": {
+          "accuracy": 0.5738636363636364,
+          "label": 0
+        },
+        "n": 352,
+        "one_class_pred": false,
+        "per_class": {
+          "0": {
+            "f1": 0.6693711967545638,
+            "precision": 0.5670103092783505,
+            "recall": 0.8168316831683168,
+            "support": 202
+          },
+          "1": {
+            "f1": 0.22748815165876776,
+            "precision": 0.39344262295081966,
+            "recall": 0.16,
+            "support": 150
+          }
+        },
+        "pred_counts": {
+          "0": 291,
+          "1": 61
+        },
+        "pred_unique_labels": [
+          0,
+          1
+        ],
+        "true_counts": {
+          "0": 202,
+          "1": 150
+        }
+      },
+      "val_label_counts": {
+        "0": 202,
+        "1": 150
+      },
+      "val_n": 352,
+      "val_subject_count": 11,
+      "val_subjects": [
+        7,
+        18,
+        22,
+        24,
+        29,
+        31,
+        32,
+        34,
+        42,
+        55,
+        60
+      ]
+    }
+  ],
+  "scope_guardrails": [
+    "I-DARE only",
+    "EMG only",
+    "binary formulation",
+    "ridge only",
+    "no EEG",
+    "no fusion",
+    "no DEAP",
+    "no neural training",
+    "no cache overwrite",
+    "no broad hyperparameter search",
+    "no push to main"
+  ],
+  "status": "complete"
+}

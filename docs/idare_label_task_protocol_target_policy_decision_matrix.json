@@ -1,0 +1,58 @@
+{
+  "matrix_id": "idare_label_task_protocol_target_policy_decision_matrix",
+  "status": "created",
+  "rows": [
+    {
+      "code": "P0",
+      "target_policy_option": "current_heldout_subject_binary_arousal",
+      "decision": "comparator_only",
+      "permits_later": "continuity_reference_baseline",
+      "blocked": "cannot_be_sole_final_target"
+    },
+    {
+      "code": "P1",
+      "target_policy_option": "label_task_redesign",
+      "decision": "primary",
+      "permits_later": "future_documentation_package_for_redesigned_label_task_target",
+      "blocked": "no_run_until_target_locked"
+    },
+    {
+      "code": "P2",
+      "target_policy_option": "protocol_target_reconciliation_or_change",
+      "decision": "primary",
+      "permits_later": "future_documentation_package_for_evaluation_target",
+      "blocked": "no_protocol_claim_until_locked"
+    },
+    {
+      "code": "P3",
+      "target_policy_option": "subject_relative_within_subject_formulation",
+      "decision": "candidate",
+      "permits_later": "scoped_alternate_scientific_question",
+      "blocked": "cannot_silently_replace_cross_subject_target"
+    },
+    {
+      "code": "P4",
+      "target_policy_option": "stop_pivot",
+      "decision": "fallback",
+      "permits_later": "close_current_formulation_if_unsupported",
+      "blocked": "not_immediate_default"
+    }
+  ],
+  "ranking": [
+    "P1_plus_P2_together",
+    "P3_as_scoped_candidate",
+    "P0_as_comparator_only",
+    "P4_as_fallback"
+  ],
+  "execution_rule": "NO_EXECUTION_UNTIL_TARGET_POLICY_LOCKED",
+  "future_lock_requirements": [
+    "selected_scientific_target",
+    "selected_label_policy",
+    "selected_evaluation_protocol",
+    "comparator_baseline",
+    "subject_relative_scope_decision",
+    "success_definition",
+    "frozen_forbidden_scope"
+  ],
+  "next_state": "AWAITING_HUMAN_TARGET_POLICY_DECISION"
+}

@@ -1,0 +1,33 @@
+{
+  "objective_id": "idare_strict_nontransductive_norm_dg_design_objective",
+  "status": "created",
+  "branch": "idare/control-tower",
+  "scope": {
+    "type": "documentation_design_only",
+    "experiments": false,
+    "runner": false,
+    "wave2_execution": false,
+    "w2e_execution": false,
+    "DEAP": "frozen",
+    "fusion": "frozen",
+    "preprocessing_changes": "forbidden",
+    "threshold_changes": "forbidden",
+    "main_push": "forbidden",
+    "w1_branch_owned_files": "do_not_modify"
+  },
+  "wave1_inputs": {
+    "W1A": "tested EEG input definitions did not rescue pairwise arousal performance",
+    "W1B": "transductive rank transform reduced heterogeneity but no strict non-transductive pass",
+    "W1C": "EMG ridge aggregate no-pass; keep EMG as independent reference",
+    "W1D": "within-subject signal exists but cross-subject signal collapses due to subject-dominated geometry"
+  },
+  "strict_nontransductive_definition": [
+    "fit normalization parameters using training subjects only",
+    "do not use held-out subject feature statistics",
+    "apply train-fitted transform frozen to held-out subjects",
+    "target-subject unlabeled statistics make the method transductive"
+  ],
+  "b3_status": "transductive_diagnostic_only_not_strict_evidence",
+  "w2e_position": "design_subsection_only_not_execution_authorized",
+  "next_state": "REQUEST_STRICT_NTD_NORM_DG_DESIGN_REVIEW"
+}

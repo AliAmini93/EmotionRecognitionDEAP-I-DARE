@@ -1,0 +1,5 @@
+priority,step,action,success_condition
+1,review_06b3,Review final consolidated ROCA synthesis.,No historical branch is misrepresented as final proof.
+2,merge_to_roca,Merge roca-consolidate-branches into roca-idare-killtest.,"origin/roca-idare-killtest points to a commit containing 06b1, 06b2, 06b3 and historical evidence merges."
+3,archive_old_branches,"After verification, optionally delete/archive old idare/* remote branches.",GitHub branch list is reduced without losing evidence.
+4,scientific_next_track,Start next research track only after deciding whether the claim is calibrated/personalized or strict zero-calibration LOSO.,No more blind EEG/EMG architecture search without a success gate.

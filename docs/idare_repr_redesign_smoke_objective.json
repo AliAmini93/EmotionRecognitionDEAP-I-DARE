@@ -1,0 +1,81 @@
+{
+  "objective_id": "idare_repr_redesign_smoke_objective",
+  "status": "created_pending_validation",
+  "authorization": {
+    "guarded_objective_and_runner_creation": true,
+    "approval_phrase": "AUTHORIZE_REPRESENTATION_REDESIGN_SMOKE_GUARDED_OBJECTIVE_AND_RUNNER_CREATION",
+    "smoke_execution_authorized": false
+  },
+  "allowed_branch": "idare/postwave1/representation-redesign-smoke",
+  "allowed_worktree": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-repr-redesign-smoke",
+  "allowed_prefixes": [
+    "docs/idare_repr_redesign_smoke_",
+    "scripts/idare_repr_redesign_smoke_"
+  ],
+  "scope": {
+    "dataset": "I-DARE only",
+    "modality": "EEG-only first",
+    "task": "arousal-only first",
+    "evaluation": "cross-subject / held-out-subject",
+    "comparison": "pairwise reference comparison required",
+    "model_family": "Ridge/classical model only",
+    "cells_only": true
+  },
+  "cells": [
+    {
+      "cell": "R0",
+      "definition": "current representation anchor",
+      "fit_scope": "train_fold_only"
+    },
+    {
+      "cell": "R1",
+      "definition": "train-only subject-residualized features",
+      "fit_scope": "training_subjects_only",
+      "held_out_subject_statistics_allowed": false
+    },
+    {
+      "cell": "R2",
+      "definition": "train-only subject-invariant feature selection",
+      "fit_scope": "train_fold_only",
+      "global_all_subject_feature_selection_allowed": false
+    },
+    {
+      "cell": "R3",
+      "definition": "diagnostics-first stable-feature subset",
+      "fit_scope": "train_fold_only",
+      "global_all_subject_stability_filter_allowed": false
+    }
+  ],
+  "planned_matrix": {
+    "cells": 4,
+    "folds": 6,
+    "planned_runs": 24,
+    "execution_authorized": false
+  },
+  "required_inputs": [
+    ".cache/idare_eeg_windows_32x640_float32_baseline_corrected.npy",
+    ".cache/idare_eeg_cache_index_baseline_corrected.csv"
+  ],
+  "hard_leakage_rules": {
+    "all_fitted_statistics_training_subjects_only": true,
+    "no_heldout_feature_statistics": true,
+    "no_test_labels_for_fit": true,
+    "no_global_all_subject_feature_selection": true,
+    "no_per_test_subject_normalization": true,
+    "no_target_adaptation": true,
+    "no_threshold_tuning_on_heldout": true,
+    "feature_selection_residualization_stability_train_fold_only": true
+  },
+  "forbidden": [
+    "DEAP",
+    "fusion",
+    "preprocessing changes",
+    "threshold changes",
+    "DG execution",
+    "model-capacity probe",
+    "augmentation",
+    "W1 branch-owned file edits",
+    "main push",
+    "24-run smoke execution before later Control approval"
+  ]
+}

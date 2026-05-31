@@ -1,0 +1,13 @@
+branch,recommended_action,classification,commits_ahead_target,changed_file_count,is_ancestor_of_other_candidate,covered_by,covers,last_commit
+origin/idare/control-tower,SKIP_COVERED_BY_LARGER_BRANCH,MERGE_AS_PLANNING_AND_AUTHORIZATION_EVIDENCE,24,65,True,origin/idare/postwave1/data-augmentation-track,,e6b021c docs: add data augmentation track authorization package
+origin/idare/postwave1/data-augmentation-track,MERGE_BRANCH_TIP,MERGE_AS_HISTORICAL_AUGMENTATION_EVIDENCE,29,96,False,,origin/idare/control-tower,f9728de exp: run I-DARE main-model data augmentation matrix
+origin/idare/postwave1/idare-prior-best-cell-confirmation,MERGE_BRANCH_TIP,MERGE_AS_PRIOR_BEST_CONFIRMATION_EVIDENCE,23,84,False,,,2b72f40 exp: run I-DARE prior-best confirmation
+origin/idare/postwave1/label-task-protocol-reconciliation,MERGE_BRANCH_TIP,MERGE_AS_PROTOCOL_LABEL_POLICY_EVIDENCE,18,60,False,,,19188db analysis: run label task protocol reconciliation audit
+origin/idare/postwave1/root-cause-triage,MERGE_BRANCH_TIP,MERGE_AS_ROOT_CAUSE_TRIAGE_EVIDENCE,17,58,False,,,86b239a analysis: run root-cause triage audit
+origin/idare/postwave1/representation-redesign-confirmation,MERGE_BRANCH_TIP,MERGE_AS_REPRESENTATION_REDESIGN_EVIDENCE,12,40,False,,,79438a0 docs: add representation redesign confirmation closeout
+origin/idare/postwave1/representation-redesign-smoke,MERGE_BRANCH_TIP,MERGE_AS_REPRESENTATION_REDESIGN_EVIDENCE,12,43,False,,,2fd7f18 chore: normalize representation redesign smoke CSV outputs
+origin/idare/postwave1/strict-ntd-norm-smoke,MERGE_BRANCH_TIP,MERGE_AS_STRICT_NORMALIZATION_DG_EVIDENCE,7,25,False,,,908dd55 analysis: add strict NTD norm smoke results
+origin/idare/wave1/eeg-input-definition,MERGE_BRANCH_TIP,MERGE_AS_EARLY_WAVE1_DIAGNOSTIC_EVIDENCE,2,11,False,,,195c148 analysis: close out W1A EEG input definition
+origin/idare/wave1/eeg-subject-normalization,MERGE_BRANCH_TIP,MERGE_AS_EARLY_WAVE1_DIAGNOSTIC_EVIDENCE,1,9,False,,,91f6573 analysis: add W1B EEG subject normalization audit
+origin/idare/wave1/emg-baseline-ablation,MERGE_BRANCH_TIP,MERGE_AS_EARLY_WAVE1_DIAGNOSTIC_EVIDENCE,1,11,False,,,5a008c8 analysis: add W1C EMG independent ridge baseline
+origin/idare/wave1/feature-discriminability,MERGE_BRANCH_TIP,MERGE_AS_EARLY_WAVE1_DIAGNOSTIC_EVIDENCE,2,7,False,,,f35d1a2 analysis: close out W1D feature discriminability audit

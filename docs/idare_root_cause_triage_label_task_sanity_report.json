@@ -1,0 +1,260 @@
+{
+  "audit_executed": true,
+  "cache_label_summary": {
+    "label_columns": {
+      "arousal_discard_midpoint": {
+        "counts": {
+          "0": 1112,
+          "1": 687,
+          "other_or_missing": 217
+        },
+        "majority_accuracy": 0.6181211784324625,
+        "one_class_subject_count": 4,
+        "one_class_subject_examples": [
+          "7",
+          "13",
+          "41",
+          "55"
+        ],
+        "subject_count_with_valid_labels": 63,
+        "valid_rows": 1799
+      },
+      "arousal_midpoint_as_high": {
+        "counts": {
+          "0": 1112,
+          "1": 904,
+          "other_or_missing": 0
+        },
+        "majority_accuracy": 0.5515873015873016,
+        "one_class_subject_count": 1,
+        "one_class_subject_examples": [
+          "41"
+        ],
+        "subject_count_with_valid_labels": 63,
+        "valid_rows": 2016
+      },
+      "arousal_midpoint_as_low": {
+        "counts": {
+          "0": 1329,
+          "1": 687,
+          "other_or_missing": 0
+        },
+        "majority_accuracy": 0.6592261904761905,
+        "one_class_subject_count": 4,
+        "one_class_subject_examples": [
+          "7",
+          "13",
+          "41",
+          "55"
+        ],
+        "subject_count_with_valid_labels": 63,
+        "valid_rows": 2016
+      },
+      "arousal_score": {
+        "counts": {
+          "0": 0,
+          "1": 341,
+          "other_or_missing": 1675
+        },
+        "majority_accuracy": 1.0,
+        "one_class_subject_count": 51,
+        "one_class_subject_examples": [
+          "1",
+          "3",
+          "5",
+          "8",
+          "9",
+          "10",
+          "11",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17"
+        ],
+        "subject_count_with_valid_labels": 51,
+        "valid_rows": 341
+      },
+      "valence_discard_midpoint": {
+        "counts": {
+          "0": 812,
+          "1": 855,
+          "other_or_missing": 349
+        },
+        "majority_accuracy": 0.5128974205158968,
+        "one_class_subject_count": 0,
+        "one_class_subject_examples": [],
+        "subject_count_with_valid_labels": 63,
+        "valid_rows": 1667
+      },
+      "valence_midpoint_as_high": {
+        "counts": {
+          "0": 812,
+          "1": 1204,
+          "other_or_missing": 0
+        },
+        "majority_accuracy": 0.5972222222222222,
+        "one_class_subject_count": 0,
+        "one_class_subject_examples": [],
+        "subject_count_with_valid_labels": 63,
+        "valid_rows": 2016
+      },
+      "valence_midpoint_as_low": {
+        "counts": {
+          "0": 1161,
+          "1": 855,
+          "other_or_missing": 0
+        },
+        "majority_accuracy": 0.5758928571428571,
+        "one_class_subject_count": 0,
+        "one_class_subject_examples": [],
+        "subject_count_with_valid_labels": 63,
+        "valid_rows": 2016
+      },
+      "valence_score": {
+        "counts": {
+          "0": 0,
+          "1": 283,
+          "other_or_missing": 1733
+        },
+        "majority_accuracy": 1.0,
+        "one_class_subject_count": 55,
+        "one_class_subject_examples": [
+          "1",
+          "2",
+          "3",
+          "5",
+          "6",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14"
+        ],
+        "subject_count_with_valid_labels": 55,
+        "valid_rows": 283
+      }
+    },
+    "path": ".cache/idare_eeg_cache_index.csv",
+    "rows": 2016,
+    "status": "present"
+  },
+  "category": "label/task sanity",
+  "classification_pressure": {
+    "A": "strong support if subject label tendencies and midpoint sensitivity dominate fold failures",
+    "B": "moderate support if label semantics are entangled with protocol definition",
+    "C": "weak until label/task sanity is cleared",
+    "D": "moderate as mechanism, but may reduce to label-subject coupling",
+    "E": "reviewable if binary arousal/valence held-out-subject target is not stable enough"
+  },
+  "evidence_snippets": [
+    {
+      "file": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_label_semantics_alternative_formulation_pair_guardrails.csv",
+      "line": 2,
+      "text": "PAIR_GUARD_001,Only within-subject pairs are allowed.,fail_smoke_tests,Avoids cross-subject rating-scale semantics that contributed to archived failure."
+    },
+    {
+      "file": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_label_semantics_alternative_formulation_pair_guardrails.csv",
+      "line": 3,
+      "text": "PAIR_GUARD_002,No pair may contain a held-out subject in train folds.,fail_smoke_tests,Maintains LOSO subject-disjoint protocol."
+    },
+    {
+      "file": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_label_semantics_alternative_formulation_pair_guardrails.csv",
+      "line": 5,
+      "text": "PAIR_GUARD_004,Ambiguous or tied pairs must be excluded or explicitly audited.,fail_or_fix_before_training,Weak pair labels would repeat label-semantics bottleneck."
+    },
+    {
+      "file": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_label_semantics_alternative_formulation_pair_guardrails.csv",
+      "line": 7,
+      "text": "PAIR_GUARD_006,A no-feature/position/majority baseline must remain near chance.,fail_or_fix_before_training,Prevents trivial artifact-driven task success."
+    },
+    {
+      "file": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_label_semantics_minimal_redesigned_task_metric_conflict_audit.csv",
+      "line": 2,
+      "text": "EEG,valence,-0.010522113541458251,-0.020680536072404665,-0.03306754128155209,0.5016693297244023,-0.011130770077244034,no_positive_rank_signal,not_confirmable"
+    },
+    {
+      "file": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_label_semantics_minimal_redesigned_task_metric_conflict_audit.csv",
+      "line": 3,
+      "text": "EMG,arousal,-0.0197887940153521,-0.0037260145154925928,-0.006542318312283579,0.47747942486010814,0.009338060991177568,no_positive_rank_signal;q33_not_strict_chance,not_confirmable"
+    },
+    {
+      "file": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_label_semantics_minimal_redesigned_task_metric_conflict_audit.csv",
+      "line": 4,
+      "text": "EMG,valence,0.019171068580299766,-0.021386912828270932,-0.0801157323820253,0.5070515450953589,0.0033614784728453174,positive_spearman_but_mae_worse;positive_spearman_but_rmse_worse,weak_signal_metric_conflict"
+    },
+    {
+      "file": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_label_semantics_minimal_redesigned_task_metric_conflict_audit.csv",
+      "line": 5,
+      "text": "EEG,arousal,0.006946207794990916,-0.015202638436321969,-0.028743806947596706,0.5048829233537683,0.008219972097111684,positive_spearman_but_mae_worse;positive_spearman_but_rmse_worse,weak_signal_metric_conflict"
+    },
+    {
+      "file": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_run_matrix.csv",
+      "line": 1,
+      "text": "objective_run_id,selected_formulation,patch_candidate_id,feature_set_id,model,training_category,modality,task,fold,train_subjects,val_subjects,include_predictions,authorized_status"
+    },
+    {
+      "file": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_run_matrix.csv",
+      "line": 2,
+      "text": "1,within_subject_pairwise_affect_preference_ranking_v1,CONTROL_current_summary_diff_control,current_summary_diff_control,random_balanced_no_training,no_training_control,EEG,arousal,1,fold_local_train_subjects,fold_heldout_subjects,yes,matri"
+    },
+    {
+      "file": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_run_matrix.csv",
+      "line": 3,
+      "text": "2,within_subject_pairwise_affect_preference_ranking_v1,CONTROL_current_summary_diff_control,current_summary_diff_control,random_balanced_no_training,no_training_control,EEG,arousal,2,fold_local_train_subjects,fold_heldout_subjects,yes,matri"
+    },
+    {
+      "file": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_run_matrix.csv",
+      "line": 4,
+      "text": "3,within_subject_pairwise_affect_preference_ranking_v1,CONTROL_current_summary_diff_control,current_summary_diff_control,random_balanced_no_training,no_training_control,EEG,arousal,3,fold_local_train_subjects,fold_heldout_subjects,yes,matri"
+    },
+    {
+      "file": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_run_matrix.csv",
+      "line": 5,
+      "text": "4,within_subject_pairwise_affect_preference_ranking_v1,CONTROL_current_summary_diff_control,current_summary_diff_control,random_balanced_no_training,no_training_control,EEG,arousal,4,fold_local_train_subjects,fold_heldout_subjects,yes,matri"
+    },
+    {
+      "file": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_run_matrix.csv",
+      "line": 6,
+      "text": "5,within_subject_pairwise_affect_preference_ranking_v1,CONTROL_current_summary_diff_control,current_summary_diff_control,random_balanced_no_training,no_training_control,EEG,arousal,5,fold_local_train_subjects,fold_heldout_subjects,yes,matri"
+    },
+    {
+      "file": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_run_matrix.csv",
+      "line": 7,
+      "text": "6,within_subject_pairwise_affect_preference_ranking_v1,CONTROL_current_summary_diff_control,current_summary_diff_control,random_balanced_no_training,no_training_control,EEG,arousal,6,fold_local_train_subjects,fold_heldout_subjects,yes,matri"
+    },
+    {
+      "file": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_run_matrix.csv",
+      "line": 8,
+      "text": "7,within_subject_pairwise_affect_preference_ranking_v1,CONTROL_current_summary_diff_control,current_summary_diff_control,majority_train_label_no_training,no_training_control,EEG,arousal,1,fold_local_train_subjects,fold_heldout_subjects,yes,"
+    },
+    {
+      "file": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_run_matrix.csv",
+      "line": 9,
+      "text": "8,within_subject_pairwise_affect_preference_ranking_v1,CONTROL_current_summary_diff_control,current_summary_diff_control,majority_train_label_no_training,no_training_control,EEG,arousal,2,fold_local_train_subjects,fold_heldout_subjects,yes,"
+    },
+    {
+      "file": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage/docs/idare_label_semantics_alternative_pairwise_feature_representation_patch_first_pass_run_matrix.csv",
+      "line": 10,
+      "text": "9,within_subject_pairwise_affect_preference_ranking_v1,CONTROL_current_summary_diff_control,current_summary_diff_control,majority_train_label_no_training,no_training_control,EEG,arousal,3,fold_local_train_subjects,fold_heldout_subjects,yes,"
+    }
+  ],
+  "experiment_executed": false,
+  "forbidden_scope_touched": false,
+  "generated_at_utc": "2026-05-12T09:37:02.701395+00:00",
+  "mode": "audit_label_task",
+  "model_results_created": false,
+  "notes": [
+    "No thresholds were changed.",
+    "No new labels were created.",
+    "Only existing cache/index metadata and committed docs were read."
+  ],
+  "status": "completed",
+  "summary": [
+    "The strongest label/task concern is subject-conditioned label tendency under held-out-subject evaluation.",
+    "Cache-index metadata allows direct review of valence/arousal policy columns without changing thresholds.",
+    "If label imbalance or subject-specific label tendency dominates, label/task redesign becomes a primary root-cause direction."
+  ]
+}

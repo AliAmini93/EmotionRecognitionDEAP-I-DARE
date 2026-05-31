@@ -1,0 +1,162 @@
+{
+  "decision": {
+    "generated_at": "2026-05-31T12:28:10+00:00",
+    "current_branch": "roca-consolidate-branches",
+    "target": "origin/roca-idare-killtest",
+    "target_head": "fe4c7b3",
+    "local_head": "bea7dcb",
+    "candidate_count": 12,
+    "existing_candidate_count": 12,
+    "missing": [],
+    "merge_tip_count": 11,
+    "redundant_count": 1,
+    "policy": "Merge only non-redundant branch tips into roca-consolidate-branches. Preserve current ROCA locked-gate conclusion as truth.",
+    "merge_order": [
+      "origin/idare/postwave1/data-augmentation-track",
+      "origin/idare/postwave1/idare-prior-best-cell-confirmation",
+      "origin/idare/postwave1/label-task-protocol-reconciliation",
+      "origin/idare/postwave1/root-cause-triage",
+      "origin/idare/postwave1/representation-redesign-confirmation",
+      "origin/idare/postwave1/representation-redesign-smoke",
+      "origin/idare/postwave1/strict-ntd-norm-smoke",
+      "origin/idare/wave1/eeg-input-definition",
+      "origin/idare/wave1/eeg-subject-normalization",
+      "origin/idare/wave1/emg-baseline-ablation",
+      "origin/idare/wave1/feature-discriminability"
+    ]
+  },
+  "branches": [
+    {
+      "branch": "origin/idare/control-tower",
+      "commits_ahead_target": 24,
+      "changed_file_count": 65,
+      "is_ancestor_of_other_candidate": true,
+      "covered_by": "origin/idare/postwave1/data-augmentation-track",
+      "covers": "",
+      "classification": "MERGE_AS_PLANNING_AND_AUTHORIZATION_EVIDENCE",
+      "recommended_action": "SKIP_COVERED_BY_LARGER_BRANCH",
+      "last_commit": "e6b021c docs: add data augmentation track authorization package"
+    },
+    {
+      "branch": "origin/idare/postwave1/data-augmentation-track",
+      "commits_ahead_target": 29,
+      "changed_file_count": 96,
+      "is_ancestor_of_other_candidate": false,
+      "covered_by": "",
+      "covers": "origin/idare/control-tower",
+      "classification": "MERGE_AS_HISTORICAL_AUGMENTATION_EVIDENCE",
+      "recommended_action": "MERGE_BRANCH_TIP",
+      "last_commit": "f9728de exp: run I-DARE main-model data augmentation matrix"
+    },
+    {
+      "branch": "origin/idare/postwave1/idare-prior-best-cell-confirmation",
+      "commits_ahead_target": 23,
+      "changed_file_count": 84,
+      "is_ancestor_of_other_candidate": false,
+      "covered_by": "",
+      "covers": "",
+      "classification": "MERGE_AS_PRIOR_BEST_CONFIRMATION_EVIDENCE",
+      "recommended_action": "MERGE_BRANCH_TIP",
+      "last_commit": "2b72f40 exp: run I-DARE prior-best confirmation"
+    },
+    {
+      "branch": "origin/idare/postwave1/label-task-protocol-reconciliation",
+      "commits_ahead_target": 18,
+      "changed_file_count": 60,
+      "is_ancestor_of_other_candidate": false,
+      "covered_by": "",
+      "covers": "",
+      "classification": "MERGE_AS_PROTOCOL_LABEL_POLICY_EVIDENCE",
+      "recommended_action": "MERGE_BRANCH_TIP",
+      "last_commit": "19188db analysis: run label task protocol reconciliation audit"
+    },
+    {
+      "branch": "origin/idare/postwave1/root-cause-triage",
+      "commits_ahead_target": 17,
+      "changed_file_count": 58,
+      "is_ancestor_of_other_candidate": false,
+      "covered_by": "",
+      "covers": "",
+      "classification": "MERGE_AS_ROOT_CAUSE_TRIAGE_EVIDENCE",
+      "recommended_action": "MERGE_BRANCH_TIP",
+      "last_commit": "86b239a analysis: run root-cause triage audit"
+    },
+    {
+      "branch": "origin/idare/postwave1/representation-redesign-confirmation",
+      "commits_ahead_target": 12,
+      "changed_file_count": 40,
+      "is_ancestor_of_other_candidate": false,
+      "covered_by": "",
+      "covers": "",
+      "classification": "MERGE_AS_REPRESENTATION_REDESIGN_EVIDENCE",
+      "recommended_action": "MERGE_BRANCH_TIP",
+      "last_commit": "79438a0 docs: add representation redesign confirmation closeout"
+    },
+    {
+      "branch": "origin/idare/postwave1/representation-redesign-smoke",
+      "commits_ahead_target": 12,
+      "changed_file_count": 43,
+      "is_ancestor_of_other_candidate": false,
+      "covered_by": "",
+      "covers": "",
+      "classification": "MERGE_AS_REPRESENTATION_REDESIGN_EVIDENCE",
+      "recommended_action": "MERGE_BRANCH_TIP",
+      "last_commit": "2fd7f18 chore: normalize representation redesign smoke CSV outputs"
+    },
+    {
+      "branch": "origin/idare/postwave1/strict-ntd-norm-smoke",
+      "commits_ahead_target": 7,
+      "changed_file_count": 25,
+      "is_ancestor_of_other_candidate": false,
+      "covered_by": "",
+      "covers": "",
+      "classification": "MERGE_AS_STRICT_NORMALIZATION_DG_EVIDENCE",
+      "recommended_action": "MERGE_BRANCH_TIP",
+      "last_commit": "908dd55 analysis: add strict NTD norm smoke results"
+    },
+    {
+      "branch": "origin/idare/wave1/eeg-input-definition",
+      "commits_ahead_target": 2,
+      "changed_file_count": 11,
+      "is_ancestor_of_other_candidate": false,
+      "covered_by": "",
+      "covers": "",
+      "classification": "MERGE_AS_EARLY_WAVE1_DIAGNOSTIC_EVIDENCE",
+      "recommended_action": "MERGE_BRANCH_TIP",
+      "last_commit": "195c148 analysis: close out W1A EEG input definition"
+    },
+    {
+      "branch": "origin/idare/wave1/eeg-subject-normalization",
+      "commits_ahead_target": 1,
+      "changed_file_count": 9,
+      "is_ancestor_of_other_candidate": false,
+      "covered_by": "",
+      "covers": "",
+      "classification": "MERGE_AS_EARLY_WAVE1_DIAGNOSTIC_EVIDENCE",
+      "recommended_action": "MERGE_BRANCH_TIP",
+      "last_commit": "91f6573 analysis: add W1B EEG subject normalization audit"
+    },
+    {
+      "branch": "origin/idare/wave1/emg-baseline-ablation",
+      "commits_ahead_target": 1,
+      "changed_file_count": 11,
+      "is_ancestor_of_other_candidate": false,
+      "covered_by": "",
+      "covers": "",
+      "classification": "MERGE_AS_EARLY_WAVE1_DIAGNOSTIC_EVIDENCE",
+      "recommended_action": "MERGE_BRANCH_TIP",
+      "last_commit": "5a008c8 analysis: add W1C EMG independent ridge baseline"
+    },
+    {
+      "branch": "origin/idare/wave1/feature-discriminability",
+      "commits_ahead_target": 2,
+      "changed_file_count": 7,
+      "is_ancestor_of_other_candidate": false,
+      "covered_by": "",
+      "covers": "",
+      "classification": "MERGE_AS_EARLY_WAVE1_DIAGNOSTIC_EVIDENCE",
+      "recommended_action": "MERGE_BRANCH_TIP",
+      "last_commit": "f35d1a2 analysis: close out W1D feature discriminability audit"
+    }
+  ]
+}

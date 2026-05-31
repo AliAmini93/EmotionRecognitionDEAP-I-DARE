@@ -1,0 +1,172 @@
+===== EXECUTION START 2026-05-12T14:47:55+03:00 =====
+===== STATUS BEFORE =====
+## idare/postwave1/idare-prior-best-cell-confirmation...origin/idare/postwave1/idare-prior-best-cell-confirmation
+ M scripts/idare_prior_best_confirm_runner.py
+?? docs/idare_prior_best_confirm_execution_terminal.log
+
+===== VALIDATE FIRST =====
+{
+  "status": "PASSED",
+  "blocker_count": 0,
+  "out_md": "docs/idare_prior_best_confirm_validation_report.md",
+  "out_json": "docs/idare_prior_best_confirm_validation_report.json",
+  "confirmation_execution_occurred": false,
+  "experiment_or_model_result_created": false
+}
+
+===== AUTHORIZED 24-RUN CONFIRMATION =====
+[INFO] device=cuda
+[INFO] authorized_runs=24
+[RUN] 01/24 C0 EEG arousal midpoint_as_high ce_class_weighted fold=1
+{"accuracy": 0.5426136363636364, "balanced_accuracy": 0.5395994832041344, "cell_id": "C0", "fold_id": 1, "macro_f1": 0.5328062784927001, "one_class_pred": false, "run_id": 1}
+[RUN] 02/24 C0 EEG arousal midpoint_as_high ce_class_weighted fold=2
+{"accuracy": 0.5, "balanced_accuracy": 0.5026029036117309, "cell_id": "C0", "fold_id": 2, "macro_f1": 0.4989648033126294, "one_class_pred": false, "run_id": 2}
+[RUN] 03/24 C0 EEG arousal midpoint_as_high ce_class_weighted fold=3
+{"accuracy": 0.5681818181818182, "balanced_accuracy": 0.5763482781026641, "cell_id": "C0", "fold_id": 3, "macro_f1": 0.5667832620805804, "one_class_pred": false, "run_id": 3}
+[RUN] 04/24 C0 EEG arousal midpoint_as_high ce_class_weighted fold=4
+{"accuracy": 0.5, "balanced_accuracy": 0.5020689655172415, "cell_id": "C0", "fold_id": 4, "macro_f1": 0.4996873045653534, "one_class_pred": false, "run_id": 4}
+[RUN] 05/24 C0 EEG arousal midpoint_as_high ce_class_weighted fold=5
+{"accuracy": 0.584375, "balanced_accuracy": 0.5475933385937954, "cell_id": "C0", "fold_id": 5, "macro_f1": 0.5478065002815584, "one_class_pred": false, "run_id": 5}
+[RUN] 06/24 C0 EEG arousal midpoint_as_high ce_class_weighted fold=6
+{"accuracy": 0.521875, "balanced_accuracy": 0.5080372077842601, "cell_id": "C0", "fold_id": 6, "macro_f1": 0.5073207547169811, "one_class_pred": false, "run_id": 6}
+[RUN] 07/24 C1 EEG valence discard_midpoint balanced_sampler_ce fold=1
+{"accuracy": 0.4825174825174825, "balanced_accuracy": 0.48026412325752016, "cell_id": "C1", "fold_id": 1, "macro_f1": 0.46751874402455595, "one_class_pred": false, "run_id": 7}
+[RUN] 08/24 C1 EEG valence discard_midpoint balanced_sampler_ce fold=2
+{"accuracy": 0.49169435215946844, "balanced_accuracy": 0.48318603623508616, "cell_id": "C1", "fold_id": 2, "macro_f1": 0.4417885843807954, "one_class_pred": false, "run_id": 8}
+[RUN] 09/24 C1 EEG valence discard_midpoint balanced_sampler_ce fold=3
+{"accuracy": 0.5, "balanced_accuracy": 0.5018259281801583, "cell_id": "C1", "fold_id": 3, "macro_f1": 0.4904441481389604, "one_class_pred": false, "run_id": 9}
+[RUN] 10/24 C1 EEG valence discard_midpoint balanced_sampler_ce fold=4
+{"accuracy": 0.49612403100775193, "balanced_accuracy": 0.5153085824493732, "cell_id": "C1", "fold_id": 4, "macro_f1": 0.43637830207703165, "one_class_pred": false, "run_id": 10}
+[RUN] 11/24 C1 EEG valence discard_midpoint balanced_sampler_ce fold=5
+{"accuracy": 0.5172413793103449, "balanced_accuracy": 0.5172930123311803, "cell_id": "C1", "fold_id": 5, "macro_f1": 0.5171775898520083, "one_class_pred": false, "run_id": 11}
+[RUN] 12/24 C1 EEG valence discard_midpoint balanced_sampler_ce fold=6
+{"accuracy": 0.5344129554655871, "balanced_accuracy": 0.5358362895808698, "cell_id": "C1", "fold_id": 6, "macro_f1": 0.5343824276698632, "one_class_pred": false, "run_id": 12}
+[RUN] 13/24 C2 EMG arousal discard_midpoint ce_class_weighted fold=1
+{"accuracy": 0.49201277955271566, "balanced_accuracy": 0.49369124195942604, "cell_id": "C2", "fold_id": 1, "macro_f1": 0.4914937314164853, "one_class_pred": false, "run_id": 13}
+[RUN] 14/24 C2 EMG arousal discard_midpoint ce_class_weighted fold=2
+{"accuracy": 0.4934640522875817, "balanced_accuracy": 0.48453951752632285, "cell_id": "C2", "fold_id": 2, "macro_f1": 0.4832601566670661, "one_class_pred": false, "run_id": 14}
+[RUN] 15/24 C2 EMG arousal discard_midpoint ce_class_weighted fold=3
+{"accuracy": 0.6049382716049383, "balanced_accuracy": 0.5795758051846033, "cell_id": "C2", "fold_id": 3, "macro_f1": 0.5792890764486285, "one_class_pred": false, "run_id": 15}
+[RUN] 16/24 C2 EMG arousal discard_midpoint ce_class_weighted fold=4
+{"accuracy": 0.5365853658536586, "balanced_accuracy": 0.49142857142857144, "cell_id": "C2", "fold_id": 4, "macro_f1": 0.4860439752790532, "one_class_pred": false, "run_id": 16}
+[RUN] 17/24 C2 EMG arousal discard_midpoint ce_class_weighted fold=5
+{"accuracy": 0.44802867383512546, "balanced_accuracy": 0.5345791457286433, "cell_id": "C2", "fold_id": 5, "macro_f1": 0.4476809954751131, "one_class_pred": false, "run_id": 17}
+[RUN] 18/24 C2 EMG arousal discard_midpoint ce_class_weighted fold=6
+{"accuracy": 0.5448275862068965, "balanced_accuracy": 0.5144490144757224, "cell_id": "C2", "fold_id": 6, "macro_f1": 0.51126091619427, "one_class_pred": false, "run_id": 18}
+[RUN] 19/24 C3 EMG valence midpoint_as_high ce_class_weighted fold=1
+{"accuracy": 0.5397727272727273, "balanced_accuracy": 0.5455278814157507, "cell_id": "C3", "fold_id": 1, "macro_f1": 0.5368421052631578, "one_class_pred": false, "run_id": 19}
+[RUN] 20/24 C3 EMG valence midpoint_as_high ce_class_weighted fold=2
+{"accuracy": 0.45454545454545453, "balanced_accuracy": 0.48211198297645963, "cell_id": "C3", "fold_id": 2, "macro_f1": 0.4510721247563353, "one_class_pred": false, "run_id": 20}
+[RUN] 21/24 C3 EMG valence midpoint_as_high ce_class_weighted fold=3
+{"accuracy": 0.5568181818181818, "balanced_accuracy": 0.5476666120844932, "cell_id": "C3", "fold_id": 3, "macro_f1": 0.5476920035583671, "one_class_pred": false, "run_id": 21}
+[RUN] 22/24 C3 EMG valence midpoint_as_high ce_class_weighted fold=4
+{"accuracy": 0.534375, "balanced_accuracy": 0.4821576419937076, "cell_id": "C3", "fold_id": 4, "macro_f1": 0.47576167386834667, "one_class_pred": false, "run_id": 22}
+[RUN] 23/24 C3 EMG valence midpoint_as_high ce_class_weighted fold=5
+{"accuracy": 0.559375, "balanced_accuracy": 0.5451417004048583, "cell_id": "C3", "fold_id": 5, "macro_f1": 0.544936510978205, "one_class_pred": false, "run_id": 23}
+[RUN] 24/24 C3 EMG valence midpoint_as_high ce_class_weighted fold=6
+{"accuracy": 0.515625, "balanced_accuracy": 0.5282346031213291, "cell_id": "C3", "fold_id": 6, "macro_f1": 0.5116139386957336, "one_class_pred": false, "run_id": 24}
+{
+  "status": "closeout_ready",
+  "run_count": 24,
+  "outputs": [
+    "docs/idare_prior_best_confirm_confirmation_runs.csv",
+    "docs/idare_prior_best_confirm_metric_summary.md",
+    "docs/idare_prior_best_confirm_fold_level_report.md",
+    "docs/idare_prior_best_confirm_prior_vs_confirmation_comparison.md",
+    "docs/idare_prior_best_confirm_leakage_scope_audit.md",
+    "docs/idare_prior_best_confirm_closeout_report.md",
+    "docs/idare_prior_best_confirm_artifact_review_bundle.md"
+  ],
+  "final_paper_level_claim_made": false
+}
+
+===== STATUS AFTER EXECUTION =====
+## idare/postwave1/idare-prior-best-cell-confirmation...origin/idare/postwave1/idare-prior-best-cell-confirmation
+ M docs/idare_prior_best_confirm_validation_report.json
+ M docs/idare_prior_best_confirm_validation_report.md
+ M scripts/idare_prior_best_confirm_runner.py
+?? docs/idare_prior_best_confirm_artifact_review_bundle.json
+?? docs/idare_prior_best_confirm_artifact_review_bundle.md
+?? docs/idare_prior_best_confirm_closeout_report.json
+?? docs/idare_prior_best_confirm_closeout_report.md
+?? docs/idare_prior_best_confirm_confirmation_runs.csv
+?? docs/idare_prior_best_confirm_execution_report.json
+?? docs/idare_prior_best_confirm_execution_report.md
+?? docs/idare_prior_best_confirm_execution_terminal.log
+?? docs/idare_prior_best_confirm_fold_level_report.csv
+?? docs/idare_prior_best_confirm_fold_level_report.json
+?? docs/idare_prior_best_confirm_fold_level_report.md
+?? docs/idare_prior_best_confirm_leakage_scope_audit.json
+?? docs/idare_prior_best_confirm_leakage_scope_audit.md
+?? docs/idare_prior_best_confirm_metric_summary.csv
+?? docs/idare_prior_best_confirm_metric_summary.json
+?? docs/idare_prior_best_confirm_metric_summary.md
+?? docs/idare_prior_best_confirm_prior_vs_confirmation_comparison.csv
+?? docs/idare_prior_best_confirm_prior_vs_confirmation_comparison.json
+?? docs/idare_prior_best_confirm_prior_vs_confirmation_comparison.md
+
+===== CLOSEOUT TOP =====
+# I-DARE Prior Best Confirmation Closeout Report
+
+- status: `closeout_ready`
+- blocker_status: `none`
+- confirmation_run_count: `24`
+- final_paper_level_claim_made: `false`
+
+## Produced Files
+
+- `docs/idare_prior_best_confirm_confirmation_runs.csv`
+- `docs/idare_prior_best_confirm_metric_summary.json`
+- `docs/idare_prior_best_confirm_metric_summary.md`
+- `docs/idare_prior_best_confirm_metric_summary.csv`
+- `docs/idare_prior_best_confirm_fold_level_report.json`
+- `docs/idare_prior_best_confirm_fold_level_report.md`
+- `docs/idare_prior_best_confirm_fold_level_report.csv`
+- `docs/idare_prior_best_confirm_prior_vs_confirmation_comparison.json`
+- `docs/idare_prior_best_confirm_prior_vs_confirmation_comparison.md`
+- `docs/idare_prior_best_confirm_prior_vs_confirmation_comparison.csv`
+- `docs/idare_prior_best_confirm_leakage_scope_audit.json`
+- `docs/idare_prior_best_confirm_leakage_scope_audit.md`
+- `docs/idare_prior_best_confirm_closeout_report.json`
+- `docs/idare_prior_best_confirm_closeout_report.md`
+- `docs/idare_prior_best_confirm_artifact_review_bundle.json`
+- `docs/idare_prior_best_confirm_artifact_review_bundle.md`
+- `docs/idare_prior_best_confirm_execution_report.json`
+- `docs/idare_prior_best_confirm_execution_report.md`
+
+===== PRIOR VS CONFIRMATION TOP =====
+# I-DARE Prior Best Confirmation Prior-vs-Confirmation Comparison
+
+Prior values are from the accepted label-policy ablation review status. Confirmation values are 6-fold means from this authorized 24-run confirmation.
+
+| Cell | Prior macro-F1 | Confirm macro-F1 mean | Delta | Prior balanced acc | Confirm balanced acc mean | Delta |
+|---|---:|---:|---:|---:|---:|---:|
+| C0 | 0.5313 | 0.5256 | -0.0057 | 0.5416 | 0.5294 | -0.0122 |
+| C1 | 0.5066 | 0.4813 | -0.0253 | 0.5219 | 0.5056 | -0.0163 |
+| C2 | 0.5253 | 0.4998 | -0.0255 | 0.5365 | 0.5164 | -0.0201 |
+| C3 | 0.5140 | 0.5113 | -0.0027 | 0.5202 | 0.5218 | 0.0016 |
+
+===== ARTIFACT BUNDLE =====
+# I-DARE Prior Best Confirmation Artifact Review Bundle
+
+## Files
+
+- `docs/idare_prior_best_confirm_confirmation_runs.csv`
+- `docs/idare_prior_best_confirm_metric_summary.json`
+- `docs/idare_prior_best_confirm_metric_summary.md`
+- `docs/idare_prior_best_confirm_metric_summary.csv`
+- `docs/idare_prior_best_confirm_fold_level_report.json`
+- `docs/idare_prior_best_confirm_fold_level_report.md`
+- `docs/idare_prior_best_confirm_fold_level_report.csv`
+- `docs/idare_prior_best_confirm_prior_vs_confirmation_comparison.json`
+- `docs/idare_prior_best_confirm_prior_vs_confirmation_comparison.md`
+- `docs/idare_prior_best_confirm_prior_vs_confirmation_comparison.csv`
+- `docs/idare_prior_best_confirm_leakage_scope_audit.json`
+- `docs/idare_prior_best_confirm_leakage_scope_audit.md`
+- `docs/idare_prior_best_confirm_closeout_report.json`
+- `docs/idare_prior_best_confirm_closeout_report.md`
+- `docs/idare_prior_best_confirm_artifact_review_bundle.json`
+- `docs/idare_prior_best_confirm_artifact_review_bundle.md`
+- `docs/idare_prior_best_confirm_execution_report.json`
+- `docs/idare_prior_best_confirm_execution_report.md`
+===== EXECUTION END 2026-05-12T14:49:47+03:00 =====

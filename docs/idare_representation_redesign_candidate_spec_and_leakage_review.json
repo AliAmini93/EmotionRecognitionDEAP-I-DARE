@@ -1,0 +1,74 @@
+{
+  "status": "created",
+  "branch": "idare/control-tower",
+  "scope": "documentation_design_leakage_review_only",
+  "execution_authorized": false,
+  "runner_creation_authorized": false,
+  "wave2_execution_authorized": false,
+  "dg_execution_authorized": false,
+  "model_capacity_probe_authorized": false,
+  "augmentation_authorized": false,
+  "deap": "frozen",
+  "fusion": "frozen",
+  "preprocessing_changes": "forbidden",
+  "threshold_changes": "forbidden",
+  "main_push": "forbidden",
+  "candidate_families": {
+    "R0": {
+      "name": "current_representation_anchor",
+      "risk": "low",
+      "decision": "include"
+    },
+    "R1": {
+      "name": "train_only_subject_residualized_features",
+      "risk": "low_medium",
+      "decision": "future_smoke_candidate"
+    },
+    "R2": {
+      "name": "train_only_subject_invariant_feature_selection",
+      "risk": "low_medium",
+      "decision": "future_smoke_candidate"
+    },
+    "R3": {
+      "name": "diagnostics_first_representation_quality_filter_stable_feature_subset",
+      "risk": "low",
+      "decision": "future_smoke_candidate"
+    },
+    "R4": {
+      "name": "temporal_spectral_redesign_candidate",
+      "risk": "medium_high",
+      "decision": "defer_do_not_repeat_failed_PATCH_A_blindly"
+    }
+  },
+  "minimum_future_smoke_matrix": [
+    "R0_current_representation_anchor",
+    "R1_train_only_subject_residualized_features",
+    "R2_train_only_subject_invariant_feature_selection",
+    "R3_train_only_diagnostics_first_stable_feature_subset"
+  ],
+  "leakage_boundaries": [
+    "all_statistics_fit_training_subjects_only",
+    "no_heldout_test_subject_feature_statistics",
+    "no_target_adaptation",
+    "no_global_all_subject_feature_selection",
+    "no_test_label_use",
+    "no_threshold_tuning_on_heldout_subjects",
+    "no_preprocessing_cache_rebuild",
+    "no_deap",
+    "no_fusion"
+  ],
+  "comparison_references": [
+    "REF-PW-EEG-ARO-001",
+    "W1A_input_definition_no_pass",
+    "W1B_heterogeneity_diagnostic",
+    "W1D_subject_dominance_diagnosis",
+    "Strict_NTD_clean_weak_effect_smoke",
+    "majority_baseline"
+  ],
+  "dg_position": "secondary_until_better_representation_exists",
+  "next_decision_options": [
+    "create_representation_redesign_smoke_authorization_package",
+    "stop_pivot"
+  ],
+  "next_state": "REQUEST_REPRESENTATION_REDESIGN_CANDIDATE_SPEC_REVIEW"
+}

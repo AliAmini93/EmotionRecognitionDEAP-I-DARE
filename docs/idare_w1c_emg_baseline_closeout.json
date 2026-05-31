@@ -1,0 +1,83 @@
+{
+  "any_moderate_pass": false,
+  "any_strong_pass": false,
+  "best_by_task": {
+    "arousal": {
+      "accuracy": {
+        "max": 0.61875,
+        "mean": 0.5329071969696969,
+        "min": 0.4744318181818182,
+        "std": 0.046081850546101276
+      },
+      "balanced_accuracy": {
+        "max": 0.5316666666666666,
+        "mean": 0.5059257161675091,
+        "min": 0.47026402640264026,
+        "std": 0.019049821286348245
+      },
+      "cell": "C6",
+      "delta_vs_reference_balanced_accuracy": -0.030574283832490834,
+      "input_kind": "emg_bsl",
+      "macro_f1": {
+        "max": 0.5038381373595648,
+        "mean": 0.46251340390410256,
+        "min": 0.404006845867311,
+        "std": 0.03207376762497621
+      },
+      "moderate_pass": false,
+      "normalization": "train_fold_standard_scaler",
+      "one_class_runs": 0,
+      "reference_balanced_accuracy": 0.5365,
+      "runs": 6,
+      "strong_pass": false,
+      "task": "arousal"
+    },
+    "valence": {
+      "accuracy": {
+        "max": 0.659375,
+        "mean": 0.5949810606060605,
+        "min": 0.5397727272727273,
+        "std": 0.04225310449306789
+      },
+      "balanced_accuracy": {
+        "max": 0.5587225274725275,
+        "mean": 0.5216063959835585,
+        "min": 0.4874633455240355,
+        "std": 0.022711433350297933
+      },
+      "cell": "C5",
+      "delta_vs_reference_balanced_accuracy": 0.0014063959835585171,
+      "input_kind": "emg_bsl",
+      "macro_f1": {
+        "max": 0.5439270910969025,
+        "mean": 0.47129069158451337,
+        "min": 0.43083003952569165,
+        "std": 0.039439789954881316
+      },
+      "moderate_pass": false,
+      "normalization": "per_subject_zscore",
+      "one_class_runs": 0,
+      "reference_balanced_accuracy": 0.5202,
+      "runs": 6,
+      "strong_pass": false,
+      "task": "valence"
+    }
+  },
+  "branch": "idare/wave1/emg-baseline-ablation",
+  "closed_at_utc": "2026-05-11T13:34:25.798766+00:00",
+  "decision": "no_pass_observed_keep_emg_as_independent_reference",
+  "forbidden_not_started": [
+    "EEG",
+    "fusion",
+    "pairwise EMG retest",
+    "neural training",
+    "broad hyperparameter search",
+    "DEAP",
+    "cache overwrite",
+    "push to main"
+  ],
+  "next_step": "Control Tower review only. Do not open Wave 2 EMG, pairwise EMG, or fusion from this branch without authorization.",
+  "registered_runs_executed": 72,
+  "scope": "W1C EMG independent ridge baseline",
+  "status": "closed"
+}

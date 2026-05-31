@@ -1,0 +1,28 @@
+{
+  "authorization_state": "documentation_design_only",
+  "created_at_utc": "2026-05-12T09:21:36.838097+00:00",
+  "decision_outcomes": {
+    "A": "label/task redesign as primary",
+    "B": "evaluation/protocol reconciliation as primary",
+    "C": "representation redesign v2 as primary",
+    "D": "subject/domain-generalization as primary",
+    "E": "stop/pivot away from current I-DARE cross-subject formulation"
+  },
+  "not_authorized": [
+    "scripts",
+    "triage_or_audit_execution",
+    "experiments",
+    "commit",
+    "push"
+  ],
+  "objective_id": "idare_root_cause_triage_branch_objective",
+  "official_state": "EXECUTION_PAUSED_PENDING_ROOT_CAUSE_TRIAGE",
+  "status": "created",
+  "triage_categories": [
+    "label_task_sanity",
+    "subject_domain_shift",
+    "evaluation_protocol_alignment",
+    "representation_failure",
+    "null_permutation_sanity"
+  ]
+}

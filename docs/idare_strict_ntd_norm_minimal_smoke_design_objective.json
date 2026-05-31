@@ -1,0 +1,75 @@
+{
+  "objective_id": "idare_strict_ntd_norm_minimal_smoke_design_objective",
+  "status": "created",
+  "branch": "idare/control-tower",
+  "scope": {
+    "type": "documentation_design_only",
+    "experiments": false,
+    "runner_creation": false,
+    "wave2_execution": false,
+    "w2e_execution": false,
+    "DEAP": "frozen",
+    "fusion": "frozen",
+    "preprocessing_changes": "forbidden",
+    "threshold_changes": "forbidden",
+    "main_push": "forbidden",
+    "w1_branch_owned_files": "do_not_modify"
+  },
+  "candidate_cells": [
+    {
+      "cell": "S0",
+      "candidate": "current_no_normalization_anchor",
+      "strict_ntd": true
+    },
+    {
+      "cell": "S1",
+      "candidate": "train_fold_standard_scaler",
+      "strict_ntd": true
+    },
+    {
+      "cell": "S2",
+      "candidate": "train_fold_robust_scaler",
+      "strict_ntd": true
+    },
+    {
+      "cell": "S3",
+      "candidate": "train_fold_frozen_quantile_rank_mapper",
+      "strict_ntd": true
+    }
+  ],
+  "train_only_rules": [
+    "fit_all_normalization_statistics_on_training_subjects_only",
+    "apply_frozen_train_derived_transforms_to_heldout_subjects",
+    "do_not_use_heldout_unlabeled_statistics",
+    "do_not_fit_global_all_subject_transform"
+  ],
+  "leakage_checklist": [
+    "no_test_subject_rows_in_fit_statistics",
+    "no_test_labels_in_transform_or_model_selection",
+    "no_global_scaler_across_all_subjects",
+    "no_per_test_subject_normalization",
+    "no_target_domain_adaptation",
+    "no_threshold_tuning_on_heldout_subjects"
+  ],
+  "future_output_schema": [
+    "runs_csv",
+    "metric_summary",
+    "fold_level_report",
+    "leakage_audit",
+    "closeout_report",
+    "decision_matrix"
+  ],
+  "comparison_references": [
+    "W1A_pairwise_input_definition_results",
+    "W1B_normalization_results",
+    "W1D_subject_dominance_diagnosis",
+    "REF-PW-EEG-ARO-001"
+  ],
+  "gates": {
+    "moderate_mean_balanced_accuracy": 0.53,
+    "strong_mean_balanced_accuracy": 0.55,
+    "thresholds_modified": false
+  },
+  "execution_authorized": false,
+  "next_state": "REQUEST_STRICT_NTD_NORM_MINIMAL_SMOKE_DESIGN_REVIEW"
+}

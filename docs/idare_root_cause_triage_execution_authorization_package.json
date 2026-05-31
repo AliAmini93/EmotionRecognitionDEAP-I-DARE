@@ -1,0 +1,60 @@
+{
+  "package_id": "idare_root_cause_triage_execution_authorization_package",
+  "status": "created",
+  "branch": "idare/control-tower",
+  "execution_authorized": false,
+  "required_human_approval_phrase": "APPROVE_ROOT_CAUSE_TRIAGE_EXECUTION",
+  "future_executable_branch": "idare/postwave1/root-cause-triage",
+  "future_worktree": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage",
+  "future_allowed_file_prefix": "idare_root_cause_triage_",
+  "scope": {
+    "type": "documentation_authorization_package_only",
+    "execution": false,
+    "runner_creation": false,
+    "branch_creation": false,
+    "worktree_creation": false,
+    "wave2_execution": false,
+    "dg_execution": false,
+    "model_capacity_probe": false,
+    "augmentation": false,
+    "DEAP": "frozen",
+    "fusion": "frozen",
+    "preprocessing_changes": "forbidden",
+    "threshold_changes": "forbidden",
+    "main_push": "forbidden"
+  },
+  "future_audit_categories": [
+    "label_task_sanity",
+    "subject_domain_shift",
+    "evaluation_protocol_alignment",
+    "representation_failure",
+    "null_permutation_sanity"
+  ],
+  "future_required_outputs": [
+    "objective_doc_json",
+    "guarded_runner_script",
+    "label_task_sanity_report",
+    "subject_domain_shift_report",
+    "protocol_alignment_report",
+    "representation_failure_report",
+    "null_permutation_sanity_report",
+    "final_root_cause_decision_matrix",
+    "closeout_report_json",
+    "artifact_review_bundle"
+  ],
+  "required_closeout_decision_matrix": {
+    "A": "label_task_redesign_as_primary",
+    "B": "evaluation_protocol_reconciliation_as_primary",
+    "C": "representation_redesign_v2_as_primary",
+    "D": "subject_domain_generalization_as_primary",
+    "E": "stop_pivot_current_cross_subject_formulation"
+  },
+  "stop_blocker_rules": [
+    "stop_if_required_artifacts_missing",
+    "stop_if_new_model_development_experiments_required",
+    "stop_if_scope_expands_to_wave2_dg_model_capacity_augmentation_fusion_deap_preprocessing_or_threshold_changes",
+    "stop_if_outputs_escape_allowed_prefix",
+    "stop_if_main_push_requested"
+  ],
+  "next_state": "AWAITING_APPROVE_ROOT_CAUSE_TRIAGE_EXECUTION"
+}
