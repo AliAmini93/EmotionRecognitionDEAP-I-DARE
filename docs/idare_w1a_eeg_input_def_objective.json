@@ -1,0 +1,61 @@
+{
+  "branch": "idare/wave1/eeg-input-definition",
+  "docs_prefix": "idare_w1a_eeg_input_def_",
+  "worktree": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-w1a",
+  "status": "objective_created",
+  "scope": {
+    "dataset": "I-DARE",
+    "modality": "EEG",
+    "task": "arousal",
+    "formulation": "within_subject_pairwise_affect_preference_ranking",
+    "model": "ridge_classifier",
+    "normalization": "current_default_none",
+    "folds": "existing_6_fold_subject_held_out",
+    "max_registered_runs": 18
+  },
+  "cells": [
+    {
+      "cell": "A1",
+      "input_definition": "current_STIM_BSL_summary",
+      "runs": 6
+    },
+    {
+      "cell": "A2",
+      "input_definition": "BSL_stats_sidecar",
+      "runs": 6
+    },
+    {
+      "cell": "A3",
+      "input_definition": "STIM_BSL_summary_plus_BSL_stats_concat",
+      "runs": 6
+    }
+  ],
+  "references": {
+    "REF-PW-EEG-ARO-001": {
+      "description": "pairwise EEG arousal ridge summary_diff",
+      "balanced_accuracy": 0.5216709095
+    },
+    "REF-BSL-EEG-ARO-001": {
+      "description": "binary EEG arousal + BSL-stats",
+      "balanced_accuracy": 0.5427
+    }
+  },
+  "gates": {
+    "moderate_pass_balanced_accuracy": 0.53,
+    "strong_pass_balanced_accuracy": 0.55
+  },
+  "forbidden": [
+    "normalization_ablation",
+    "neural_training",
+    "broad_hyperparameter_search",
+    "DEAP",
+    "fusion",
+    "rereference_OR_CAR",
+    "downsampling_rebuild",
+    "cache_overwrite",
+    "push_to_main",
+    "files_outside_docs_prefix"
+  ],
+  "allowed_outputs_prefix": "docs/idare_w1a_eeg_input_def_",
+  "runner": "docs/idare_w1a_eeg_input_def_runner.py"
+}
