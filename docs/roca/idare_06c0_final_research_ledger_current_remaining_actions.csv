@@ -1,0 +1,6 @@
+priority,action,why,success_condition
+1,Generate paper/report claim section,Turn the negative/partial-positive evidence into a defensible scientific narrative.,The text clearly separates pure LOSO failure from calibrated/personalized positive direction.
+2,Choose exactly one next positive route,Avoid another month of broad architecture search.,"Route is either calibration-budget, UDA with unlabeled target data, or explicitly personalized EEG+EMG fusion."
+3,Define allowed target-subject information budget,Calibration/adaptation claims are only defensible if the evaluation protocol states exactly what target data is allowed.,"A table states zero-calibration, unlabeled-target, and k-shot labeled-target settings separately."
+4,Run only one small confirmatory experiment if a positive claim is required,Current evidence already rules out blind raw EEG/EMG LOSO search.,The experiment is pre-gated against locked B2/personalization references and has a stop rule.
+5,Clean local worktrees/branches only after confirming no uncommitted work,Local branches with plus signs are checked out in other worktrees and cannot be safely deleted blindly.,git worktree list is reviewed; unused worktrees are removed intentionally.

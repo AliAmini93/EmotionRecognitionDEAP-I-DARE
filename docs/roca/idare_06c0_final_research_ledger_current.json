@@ -1,0 +1,267 @@
+{
+  "generated_at": "2026-05-31T12:42:11+00:00",
+  "git": {
+    "current_branch": "roca-idare-killtest",
+    "status_short": "?? scripts/roca/06c0_final_research_ledger.py",
+    "latest_roca": "b6ec1d1 (HEAD -> roca-idare-killtest, origin/roca-idare-killtest) Merge consolidated I-DARE historical evidence into ROCA\n660b799 (tag: archive/roca-consolidate-branches-before-delete) Add I-DARE final consolidated ROCA synthesis\na64315d Merge historical I-DARE evidence from origin/idare/wave1/feature-discriminability\n3959275 Merge historical I-DARE evidence from origin/idare/wave1/emg-baseline-ablation\naaebd45 Merge historical I-DARE evidence from origin/idare/wave1/eeg-subject-normalization\n0293e10 Merge historical I-DARE evidence from origin/idare/wave1/eeg-input-definition\n17a171f Merge historical I-DARE evidence from origin/idare/postwave1/strict-ntd-norm-smoke\nb0cd753 Merge historical I-DARE evidence from origin/idare/postwave1/representation-redesign-smoke\nc44dee6 Merge historical I-DARE evidence from origin/idare/postwave1/representation-redesign-confirmation\n10ad9c7 Merge historical I-DARE evidence from origin/idare/postwave1/root-cause-triage\nba067e0 Merge historical I-DARE evidence from origin/idare/postwave1/label-task-protocol-reconciliation\nfe1e58e Merge historical I-DARE evidence from origin/idare/postwave1/idare-prior-best-cell-confirmation",
+    "remote_branches": [
+      "origin/roca-idare-killtest",
+      "  origin/HEAD -> origin/main",
+      "  origin/main"
+    ],
+    "local_branches": [
+      "+ idare/control-tower",
+      "+ idare/postwave1/data-augmentation-track",
+      "+ idare/postwave1/idare-prior-best-cell-confirmation",
+      "+ idare/postwave1/label-task-protocol-reconciliation",
+      "+ idare/postwave1/representation-redesign-confirmation",
+      "+ idare/postwave1/representation-redesign-smoke",
+      "+ idare/postwave1/root-cause-triage",
+      "+ idare/postwave1/strict-ntd-norm-smoke",
+      "+ idare/wave1/eeg-input-definition",
+      "+ idare/wave1/eeg-subject-normalization",
+      "+ idare/wave1/emg-baseline-ablation",
+      "+ idare/wave1/feature-discriminability",
+      "  main",
+      "* roca-idare-killtest"
+    ],
+    "worktrees": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE                             b6ec1d1 [roca-idare-killtest]\n/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-control                     e6b021c [idare/control-tower]\n/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-data-augmentation           f9728de [idare/postwave1/data-augmentation-track]\n/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-idare-prior-best-confirm    2b72f40 [idare/postwave1/idare-prior-best-cell-confirmation]\n/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-label-task-protocol         19188db [idare/postwave1/label-task-protocol-reconciliation]\n/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-repr-redesign-confirmation  79438a0 [idare/postwave1/representation-redesign-confirmation]\n/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-repr-redesign-smoke         2fd7f18 [idare/postwave1/representation-redesign-smoke]\n/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-root-cause-triage           86b239a [idare/postwave1/root-cause-triage]\n/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-strict-ntd-smoke            908dd55 [idare/postwave1/strict-ntd-norm-smoke]\n/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-w1a                         195c148 [idare/wave1/eeg-input-definition]\n/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-w1b                         91f6573 [idare/wave1/eeg-subject-normalization]\n/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-w1c                         5a008c8 [idare/wave1/emg-baseline-ablation]\n/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-w1d                         f35d1a2 [idare/wave1/feature-discriminability]"
+  },
+  "decision": {
+    "final_decision": "ROCA_CURRENT_TRUTH_BRANCH_READY_FOR_RESEARCH_DECISION_PACK",
+    "current_branch": "roca-idare-killtest",
+    "clean_worktree": "False",
+    "main_status": "separate_restored_not_active_research_branch",
+    "scientific_state": "strict_LOSO_global_raw_EEG_EMG_residual_decoding_not_supported; calibration_personalization_is_the_only_partial_positive_route",
+    "recommended_next_action": "write final paper/report decision pack; choose one calibrated/adaptation-assisted route only if a positive model claim is required"
+  },
+  "phase_summary": [
+    {
+      "phase": "00_git_state",
+      "status": "complete",
+      "summary": "ROCA is the active research branch; main was restored after accidental merge; historical branches were merged into ROCA and archived/deleted remotely.",
+      "evidence": "origin/roca-idare-killtest plus archive tags"
+    },
+    {
+      "phase": "01_baselines_and_labels",
+      "status": "complete",
+      "summary": "Stimulus-only and label/task protocol baselines established; old literature-level LOSO difficulty was confirmed in this project-specific protocol.",
+      "evidence": "docs/roca/stimulus_only_baseline_current.*, docs/idare_label_task_protocol_*"
+    },
+    {
+      "phase": "02_emg_only",
+      "status": "complete_negative",
+      "summary": "EMG-only, expanded EMG, nonlinear EMG, and augmented EMG probes did not rescue strict LOSO residual emotion recognition.",
+      "evidence": "docs/roca/emg_*_current.*, docs/idare_w1c_emg_baseline_*"
+    },
+    {
+      "phase": "03_eeg_raw_deep",
+      "status": "complete_negative",
+      "summary": "Raw EEG residual/deep attempts, model-asset checks, residual training, multitask/sign auxiliary and oracle diagnostics did not provide a locked-gate global LOSO solution.",
+      "evidence": "docs/roca/eeg_*_current.*, docs/roca/idare_06a*_current.*"
+    },
+    {
+      "phase": "04_augmentation",
+      "status": "complete_negative_under_locked_gate",
+      "summary": "Old gaussian_0p10 evidence was promising but non-comparable; clean locked rerun showed Gaussian augmentation does not fix LOSO.",
+      "evidence": "idare_06a5 and idare_06a5b reports"
+    },
+    {
+      "phase": "05_calibration_personalization",
+      "status": "partial_positive_but_claim_shift",
+      "summary": "Subject calibration/k-shot/bias correction helped more than blind global models, but this changes the claim from pure zero-calibration LOSO to calibrated/personalized/adaptation-assisted recognition.",
+      "evidence": "idare_06a4b, 05aa-05af, personalization bridge reports"
+    },
+    {
+      "phase": "06_final_conclusion",
+      "status": "locked_current_conclusion",
+      "summary": "Strict LOSO global raw EEG/EMG residual decoding remains unsupported by locked gates. The dominant issue is subject calibration/domain shift plus weak transferable residual identifiability.",
+      "evidence": "idare_06a7, idare_06a7b, idare_06b3 reports"
+    }
+  ],
+  "remaining_actions": [
+    {
+      "priority": 1,
+      "action": "Generate paper/report claim section",
+      "why": "Turn the negative/partial-positive evidence into a defensible scientific narrative.",
+      "success_condition": "The text clearly separates pure LOSO failure from calibrated/personalized positive direction."
+    },
+    {
+      "priority": 2,
+      "action": "Choose exactly one next positive route",
+      "why": "Avoid another month of broad architecture search.",
+      "success_condition": "Route is either calibration-budget, UDA with unlabeled target data, or explicitly personalized EEG+EMG fusion."
+    },
+    {
+      "priority": 3,
+      "action": "Define allowed target-subject information budget",
+      "why": "Calibration/adaptation claims are only defensible if the evaluation protocol states exactly what target data is allowed.",
+      "success_condition": "A table states zero-calibration, unlabeled-target, and k-shot labeled-target settings separately."
+    },
+    {
+      "priority": 4,
+      "action": "Run only one small confirmatory experiment if a positive claim is required",
+      "why": "Current evidence already rules out blind raw EEG/EMG LOSO search.",
+      "success_condition": "The experiment is pre-gated against locked B2/personalization references and has a stop rule."
+    },
+    {
+      "priority": 5,
+      "action": "Clean local worktrees/branches only after confirming no uncommitted work",
+      "why": "Local branches with plus signs are checked out in other worktrees and cannot be safely deleted blindly.",
+      "success_condition": "git worktree list is reviewed; unused worktrees are removed intentionally."
+    }
+  ],
+  "key_decisions": [
+    {
+      "label": "final_root_cause",
+      "path": "docs/roca/idare_06a7_final_loso_root_cause_report_current_decision_table.csv",
+      "exists": true,
+      "rows": [
+        {
+          "target": "arousal_high_disagreement_residual_LOSO",
+          "final_decision": "FINAL_CALIBRATION_DOMINANT_NEGATIVE_RESULT_FOR_GLOBAL_RAW_EEG_RESIDUAL_DECODING",
+          "primary_root_cause": "subject calibration/domain shift plus weak transferable residual identifiability",
+          "ruled_out_as_primary_fix": "generic Gaussian augmentation; raw EEG neural capacity search; unanchored larger CNNs",
+          "what_did_help": "explicit subject calibration/k-shot bias correction helps, but does not beat the locked B2 personalization bridge",
+          "fixed_feature_status": "fixed EEG-bandpower remains a weak but more stable reference than raw neural anchor under the locked high-disagreement gate",
+          "paper_claim": "Under strict LOSO, the current residual target is calibration-dominant. Global physiology decoding from raw EEG is not supported by the locked gates.",
+          "recommended_next_action": "Stop blind architecture/augmentation search. Write the result as a calibration-dominant finding, or start a new explicitly personalized/calibrated target formulation."
+        }
+      ]
+    },
+    {
+      "label": "calibration_conclusion",
+      "path": "docs/roca/idare_06a7b_calibration_dominant_conclusion_current_conclusion_table.csv",
+      "exists": true,
+      "rows": [
+        {
+          "result_type": "calibration_dominant_negative_result",
+          "scope": "arousal high-disagreement residual under strict LOSO",
+          "main_root_cause": "subject calibration/domain shift plus weak transferable residual identifiability",
+          "not_primary_fixes": "generic gaussian augmentation; raw EEG neural capacity search; unanchored larger CNN search",
+          "what_worked_partially": "k-shot/subject calibration improved residuals but did not beat locked B2 personalization bridge",
+          "best_stable_nonpersonalized_reference": "fixed EEG bandpower is weak but more stable than raw neural anchor",
+          "final_action": "stop blind global residual decoding search; write result or redesign task as explicitly personalized/calibrated",
+          "gaussian10_locked_gate_decision": "NO_GO_AUGMENTATION_DOES_NOT_FIX_LOSO",
+          "neural_anchor_decision": "NO_GO_NEURAL_PIPELINE_NOT_ANCHORED",
+          "final_roca_decision": "FINAL_CALIBRATION_DOMINANT_NEGATIVE_RESULT_FOR_GLOBAL_RAW_EEG_RESIDUAL_DECODING"
+        }
+      ]
+    },
+    {
+      "label": "consolidated_synthesis",
+      "path": "docs/roca/idare_06b3_final_consolidated_roca_synthesis_current_decision_table.csv",
+      "exists": true,
+      "rows": [
+        {
+          "target": "I-DARE EEG/EMG emotion recognition under LOSO",
+          "current_branch": "roca-consolidate-branches",
+          "consolidated_branch_tip": "a64315d",
+          "origin_consolidated_tip": "a64315d",
+          "origin_roca_tip": "fe4c7b3",
+          "origin_main_tip": "dd44d0f",
+          "final_decision": "CONSOLIDATION_READY_FOR_REVIEW_NOT_MAIN",
+          "scientific_conclusion_changed_by_historical_merges": "NO",
+          "current_scientific_conclusion": "Strict LOSO global raw EEG/EMG residual decoding remains unsupported by locked gates. The dominant issue is subject calibration/domain shift plus weak transferable residual identifiability. Historical branches are useful evidence, but they do not overturn the final ROCA locked-gate conclusion.",
+          "recommended_action": "Review this 06b3 synthesis. If acceptable, merge roca-consolidate-branches into roca-idare-killtest only; do not merge into main."
+        }
+      ]
+    },
+    {
+      "label": "gaussian_locked_rerun",
+      "path": "docs/roca/idare_06a5b_gaussian10_locked_gate_rerun_current_decision_table.csv",
+      "exists": true,
+      "rows": [
+        {
+          "target": "arousal",
+          "decision": "NO_GO_AUGMENTATION_DOES_NOT_FIX_LOSO",
+          "best_method": "none_noaug_control",
+          "best_model_rmse_high": "3.2609287381060668",
+          "best_lift_vs_zero_high": "0.0007049251602690987",
+          "best_lift_vs_fixed_same_eval_high": "",
+          "best_lift_vs_locked_bridge_rmse": "-0.6386615887661216",
+          "gaussian_delta_rmse_vs_noaug": "-0.01932003879823485",
+          "passes_zero_gate": "False",
+          "passes_fixed_reference_gate": "False",
+          "passes_locked_bridge_gate": "False",
+          "interpretation": "Clean locked-gate gaussian augmentation does not solve the LOSO residual problem.",
+          "recommended_next_action": "Finalize diagnosis: weak residual identifiability plus subject calibration/domain shift; avoid further blind architecture search."
+        }
+      ]
+    },
+    {
+      "label": "neural_anchor",
+      "path": "docs/roca/idare_06a6_neural_anchor_fixed_bandpower_current_decision_table.csv",
+      "exists": true,
+      "rows": [
+        {
+          "target": "arousal",
+          "decision": "NO_GO_NEURAL_PIPELINE_NOT_ANCHORED",
+          "best_method": "neural_noaug_anchor",
+          "best_model_rmse_high": "3.275527238845825",
+          "best_lift_vs_zero_high": "-0.014489412307739258",
+          "fixed_bandpower_loaded": "True",
+          "best_lift_vs_fixed_same_eval_high": "-0.08140683174133301",
+          "best_lift_vs_locked_bridge_rmse": "-0.65326008950588",
+          "gaussian_delta_rmse_vs_noaug_positive_means_help": "-0.035349130630493164",
+          "passes_zero_gate": "False",
+          "passes_fixed_reference_gate": "False",
+          "passes_locked_bridge_gate": "False",
+          "anchor_close_to_fixed_reference_gate": "False",
+          "interpretation": "The neural raw-EEG pipeline does not beat the practical gates under LOSO. This supports the diagnosis: weak residual identifiability plus subject calibration/domain shift.",
+          "recommended_next_action": "Finalize the calibration-dominant negative result, unless a separate distillation/feature-anchor test is intentionally added."
+        }
+      ]
+    },
+    {
+      "label": "kshot_locked_bridge",
+      "path": "docs/roca/idare_06a4b_kshot_calibration_locked_bridge_confirm_current_decision_table.csv",
+      "exists": true,
+      "rows": [
+        {
+          "target": "arousal",
+          "decision": "PARTIAL_GO_CALIBRATION_BEATS_FIXED_BUT_NOT_LOCKED_B2",
+          "high_threshold": "2.2096774193548385",
+          "high_threshold_source": "05ajb_confirmatory_threshold",
+          "locked_bridge_rmse_05ak": "2.622267149339945",
+          "locked_bridge_source": "docs/roca/idare_high_disagreement_personalization_bridge_current_decision_table.csv",
+          "fixed_prediction_note": "loaded docs/roca/idare_residual_physiology_feature_audit_current_predictions.csv rows=2016 finite_rate=1.000",
+          "best_method": "kshot_subject_mean_only",
+          "best_k_calibration": "16",
+          "best_candidate_rmse": "2.6308015461020218",
+          "best_lift_vs_zero": "0.6105497713940342",
+          "best_lift_vs_fixed_same_eval": "0.5391969780367996",
+          "best_lift_vs_locked_bridge_rmse": "-0.008534396762076568",
+          "best_passes_zero_gate": "True",
+          "best_passes_fixed_reference_gate": "True",
+          "best_passes_locked_bridge_gate": "False",
+          "interpretation": "K-shot calibration strongly beats zero/fixed physiology, but it does not beat the locked B2 personalization bridge. This means the apparent 06a4 gain is mostly the same calibration effect that B2 already captures. Fixed EEG-bandpower plus k-shot improved over subject-mean-only in this run.",
+          "recommended_next_action": "Do not claim a new physiology/deep gain. Either test augmentation under locked gates or write the calibration-dominant conclusion."
+        }
+      ]
+    },
+    {
+      "label": "branch_consolidation",
+      "path": "docs/roca/idare_06b0_branch_consolidation_compact_audit_current_decision_table.csv",
+      "exists": true,
+      "rows": [
+        {
+          "decision": "DO_NOT_MERGE_OLD_BRANCHES_WHOLESALE",
+          "why": "old wave/postwave branches contain useful evidence but also outdated objectives, old protocols, and non-current claims",
+          "action": "cherry-pick only missing evidence docs; keep 06a7/06a7b as current root-cause conclusion"
+        },
+        {
+          "decision": "KEEP_ROCA_IDARE_KILLTEST_AS_CURRENT_TRUTH_BRANCH",
+          "why": "it contains locked-gate reruns: 06a5b augmentation no-go, 06a6 neural anchor no-go, 06a7/06a7b final conclusion",
+          "action": "merge this branch to main when ready, then archive/delete old experimental branches after confirming evidence is preserved"
+        },
+        {
+          "decision": "DATA_AUGMENTATION_TRACK_IS_HISTORICAL_EVIDENCE_ONLY",
+          "why": "old augmentation helped in older/non-current setups, but gaussian10 failed the current locked LOSO residual gate",
+          "action": "cite as prior attempt; do not use it as proof that augmentation solves current LOSO crisis"
+        }
+      ]
+    }
+  ],
+  "artifact_inventory_count": 1705
+}
