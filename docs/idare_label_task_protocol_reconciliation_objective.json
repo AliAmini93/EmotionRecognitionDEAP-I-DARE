@@ -1,0 +1,48 @@
+{
+  "id": "idare_label_task_protocol_reconciliation_objective",
+  "status": "created_for_control_authorized_runner_creation_only",
+  "authorization_boundary": {
+    "objective_creation_authorized": true,
+    "runner_creation_authorized": true,
+    "validation_preflight_authorized": true,
+    "reconciliation_audit_execution_authorized": false,
+    "experiment_authorized": false,
+    "model_result_authorized": false
+  },
+  "branch": "idare/postwave1/label-task-protocol-reconciliation",
+  "worktree": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-label-task-protocol",
+  "allowed_prefix": "idare_label_task_protocol_",
+  "allowed_paths": [
+    "docs/idare_label_task_protocol_*",
+    "scripts/idare_label_task_protocol_*"
+  ],
+  "scope": "compact label/task + protocol reconciliation only",
+  "audit_categories_encoded_for_future_approval": [
+    "protocol alignment",
+    "label/task formulation",
+    "midpoint and threshold policy review",
+    "fold/subject label-bias review",
+    "prior-results interpretation",
+    "final label-task/protocol decision matrix"
+  ],
+  "forbidden_now": [
+    "reconciliation audit execution",
+    "experiments",
+    "model results",
+    "Wave 2",
+    "DG",
+    "model-capacity probe",
+    "augmentation",
+    "representation redesign v2",
+    "DEAP",
+    "fusion",
+    "preprocessing changes",
+    "threshold changes",
+    "main push",
+    "W1-owned file edits"
+  ],
+  "expected_validation_outputs": [
+    "docs/idare_label_task_protocol_reconciliation_runner_validation.md",
+    "docs/idare_label_task_protocol_reconciliation_runner_validation.json"
+  ]
+}
