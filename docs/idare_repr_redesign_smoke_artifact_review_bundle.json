@@ -1,0 +1,84 @@
+{
+  "status": "artifact_review_bundle_ready",
+  "generated_at_utc": "2026-05-11T17:33:50+00:00",
+  "latest_known_head_before_commit": "c9f93ded15a6dcb6bea812e5bee3d1b5a6c53d86",
+  "closeout": {
+    "status": "closeout_ready",
+    "generated_at_utc": "2026-05-11T17:33:50+00:00",
+    "branch": "idare/postwave1/representation-redesign-smoke",
+    "worktree": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-repr-redesign-smoke",
+    "run_count": 24,
+    "expected_run_count": 24,
+    "best_cell": "R3",
+    "best_mean_balanced_accuracy": 0.532721790019799,
+    "leakage_audit_result": "passed",
+    "one_class_collapse_count": 0,
+    "gate_0_53_pass": true,
+    "gate_0_55_pass": false,
+    "smoke_execution_occurred": true,
+    "experiment_scope": "registered_24_run_representation_redesign_smoke_only",
+    "forbidden_scope_touched": false
+  },
+  "artifacts": [
+    {
+      "path": "docs/idare_repr_redesign_smoke_runs.csv",
+      "exists": true,
+      "sha256": "0472e43f948d6b3dc63cca95e78d6a84e5796b84d4e0aeaac645acc7078a62c1",
+      "allowed_prefix": true
+    },
+    {
+      "path": "docs/idare_repr_redesign_smoke_metric_summary.csv",
+      "exists": true,
+      "sha256": "1368978f4721037ef14912ca2e28ba976fff81d35b8f08e4becde16d9ef3039a",
+      "allowed_prefix": true
+    },
+    {
+      "path": "docs/idare_repr_redesign_smoke_fold_level_report.md",
+      "exists": true,
+      "sha256": "f64ac4f474e18a6e65ca32cb7e1f7606defda616954726269542d84f8ecb18fe",
+      "allowed_prefix": true
+    },
+    {
+      "path": "docs/idare_repr_redesign_smoke_fold_level_report.json",
+      "exists": true,
+      "sha256": "693fc0082fb3741a6b948740a7ce91030ebf879cba7a1c49baadc4e61e06ffbd",
+      "allowed_prefix": true
+    },
+    {
+      "path": "docs/idare_repr_redesign_smoke_leakage_audit.md",
+      "exists": true,
+      "sha256": "3e5ca89d702cdb15e3e7add10ce3e710f1887cafe25fc13ddeaf173c7ceba7c0",
+      "allowed_prefix": true
+    },
+    {
+      "path": "docs/idare_repr_redesign_smoke_leakage_audit.json",
+      "exists": true,
+      "sha256": "c1f960a0940fcb08a9e3aaf4687d7caca9143b58275f406233fcc2464c91fe56",
+      "allowed_prefix": true
+    },
+    {
+      "path": "docs/idare_repr_redesign_smoke_representation_diagnostic_report.md",
+      "exists": true,
+      "sha256": "3109422540a9615244894f810ad6fe543ddfbc3231ff334ebefcd3c403d74e43",
+      "allowed_prefix": true
+    },
+    {
+      "path": "docs/idare_repr_redesign_smoke_representation_diagnostic_report.json",
+      "exists": true,
+      "sha256": "328e33001ab004817a96617ad948ccee24f57e34379544d6ed6a306fcb34020e",
+      "allowed_prefix": true
+    },
+    {
+      "path": "docs/idare_repr_redesign_smoke_closeout_report.md",
+      "exists": true,
+      "sha256": "5ce6dab6df92b0cce00082fd0c41d61f02eb565c59a8cffe967e539cfdab1c09",
+      "allowed_prefix": true
+    },
+    {
+      "path": "docs/idare_repr_redesign_smoke_closeout_report.json",
+      "exists": true,
+      "sha256": "d9ed504c92e8a4789f3fa2d1f7ff7219a1a881231e1177d62e2b602d038c2567",
+      "allowed_prefix": true
+    }
+  ]
+}
