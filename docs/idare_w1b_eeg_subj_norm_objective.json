@@ -1,0 +1,35 @@
+{
+  "status": "objective_created",
+  "branch": "idare/wave1/eeg-subject-normalization",
+  "docs_prefix": "idare_w1b_eeg_subj_norm_",
+  "scope": {
+    "dataset": "I-DARE only",
+    "modality": "EEG only",
+    "task": "arousal only",
+    "formulation": "within-subject pairwise affect preference ranking",
+    "input": "current STIM-BSL summary",
+    "model": "ridge classifier",
+    "folds": "existing 6-fold subject-held-out structure",
+    "max_registered_runs": 24
+  },
+  "reference": {
+    "id": "REF-PW-EEG-ARO-001",
+    "mean_balanced_accuracy": 0.5216709095
+  },
+  "cells": [
+    {"cell_id": "B0", "normalization": "none/current", "transductive": false},
+    {"cell_id": "B1", "normalization": "per-subject z-score", "transductive": true},
+    {"cell_id": "B2", "normalization": "train-fold StandardScaler", "transductive": false},
+    {"cell_id": "B3", "normalization": "per-subject rank transform", "transductive": true}
+  ],
+  "forbidden": [
+    "input_definition_ablation",
+    "neural_training",
+    "DEAP",
+    "fusion",
+    "rereference_or_CAR",
+    "downsampling_rebuild",
+    "cache_overwrite",
+    "push_to_main"
+  ]
+}
