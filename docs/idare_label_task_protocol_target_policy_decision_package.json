@@ -1,0 +1,50 @@
+{
+  "package_id": "idare_label_task_protocol_target_policy_decision_package",
+  "status": "created",
+  "branch": "idare/control-tower",
+  "scope": "documentation_target_policy_decision_only",
+  "execution_authorized": false,
+  "runner_creation_authorized": false,
+  "new_audit_authorized": false,
+  "experiments_authorized": false,
+  "model_results_authorized": false,
+  "wave2_execution_authorized": false,
+  "dg_execution_authorized": false,
+  "model_capacity_probe_authorized": false,
+  "augmentation_authorized": false,
+  "representation_redesign_v2_authorized": false,
+  "deap": "frozen",
+  "fusion": "frozen",
+  "preprocessing_changes": "forbidden",
+  "threshold_changes": "forbidden",
+  "main_push": "forbidden",
+  "evidence_base": {
+    "project_conclusion": "NO_ROBUST_CROSS_SUBJECT_OPERATING_POINT_FOUND",
+    "root_cause_triage": "A_plus_B_primary",
+    "label_task_protocol_reconciliation": "B_plus_C_recommended",
+    "final_decision_objective": "current_heldout_binary_arousal_comparator_only_not_final_target"
+  },
+  "policy_options": {
+    "P0_current_heldout_binary_arousal": "comparator_only",
+    "P1_label_task_redesign": "primary",
+    "P2_protocol_target_reconciliation": "primary",
+    "P3_subject_relative_within_subject": "candidate_requires_explicit_scope",
+    "P4_stop_pivot": "fallback"
+  },
+  "recommended_policy": {
+    "current_binary_arousal": "keep_as_comparator_only",
+    "label_task_redesign": "prioritize",
+    "protocol_target_reconciliation": "prioritize",
+    "subject_relative_within_subject": "scoped_candidate_not_auto_mainline",
+    "stop_pivot": "fallback_if_no_defensible_target_locked"
+  },
+  "required_human_decision_before_execution": [
+    "LOCK_TARGET_POLICY_LABEL_TASK_REDESIGN",
+    "LOCK_TARGET_POLICY_PROTOCOL_RECONCILIATION",
+    "LOCK_TARGET_POLICY_SUBJECT_RELATIVE_CANDIDATE",
+    "LOCK_TARGET_POLICY_STOP_PIVOT",
+    "REQUEST_TARGET_POLICY_REVISION"
+  ],
+  "current_state": "TARGET_POLICY_DECISION_PACKAGE_CREATED_EXECUTION_BLOCKED",
+  "next_state": "AWAITING_HUMAN_TARGET_POLICY_DECISION"
+}

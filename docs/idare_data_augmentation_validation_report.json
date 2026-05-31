@@ -1,0 +1,142 @@
+{
+  "actual_branch": "idare/postwave1/data-augmentation-track",
+  "actual_worktree": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-data-augmentation",
+  "blocker_count": 0,
+  "blockers": [],
+  "checks": [
+    {
+      "details": {
+        "actual": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-data-augmentation",
+        "expected": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-data-augmentation"
+      },
+      "name": "expected_worktree",
+      "ok": true
+    },
+    {
+      "details": {
+        "actual": "idare/postwave1/data-augmentation-track",
+        "expected": "idare/postwave1/data-augmentation-track"
+      },
+      "name": "expected_branch",
+      "ok": true
+    },
+    {
+      "details": ".cache",
+      "name": "cache_symlink_or_dir_exists",
+      "ok": true
+    },
+    {
+      "details": ".venv",
+      "name": "venv_symlink_or_dir_exists",
+      "ok": true
+    },
+    {
+      "details": {
+        "changed_paths": [
+          "docs/idare_data_augmentation_option_a_implementation_report.json",
+          "docs/idare_data_augmentation_option_a_implementation_report.md",
+          "docs/idare_data_augmentation_validation_report.json",
+          "docs/idare_data_augmentation_validation_report.md",
+          "scripts/idare_data_augmentation_runner.py",
+          "docs/idare_data_augmentation_execution_terminal.log"
+        ],
+        "disallowed": []
+      },
+      "name": "dirty_paths_limited_to_allowed_prefix",
+      "ok": true
+    },
+    {
+      "details": "docs/idare_deap_cross_subject_data_augmentation_objective.md",
+      "name": "control_doc_exists:docs/idare_deap_cross_subject_data_augmentation_objective.md",
+      "ok": true
+    },
+    {
+      "details": "docs/idare_deap_cross_subject_data_augmentation_objective.json",
+      "name": "control_doc_exists:docs/idare_deap_cross_subject_data_augmentation_objective.json",
+      "ok": true
+    },
+    {
+      "details": "docs/idare_data_augmentation_track_execution_authorization_package.md",
+      "name": "control_doc_exists:docs/idare_data_augmentation_track_execution_authorization_package.md",
+      "ok": true
+    },
+    {
+      "details": "docs/idare_data_augmentation_track_execution_authorization_package.json",
+      "name": "control_doc_exists:docs/idare_data_augmentation_track_execution_authorization_package.json",
+      "ok": true
+    },
+    {
+      "details": "docs/project_status_current.md",
+      "name": "control_doc_exists:docs/project_status_current.md",
+      "ok": true
+    },
+    {
+      "details": "docs/project_status_current.json",
+      "name": "control_doc_exists:docs/project_status_current.json",
+      "ok": true
+    },
+    {
+      "details": "docs/project_operating_protocol.md",
+      "name": "control_doc_exists:docs/project_operating_protocol.md",
+      "ok": true
+    },
+    {
+      "details": "docs/research_scope_and_objectives.md",
+      "name": "control_doc_exists:docs/research_scope_and_objectives.md",
+      "ok": true
+    },
+    {
+      "details": "docs/smoke_and_evaluation_protocol.md",
+      "name": "control_doc_exists:docs/smoke_and_evaluation_protocol.md",
+      "ok": true
+    },
+    {
+      "details": "docs/idare_prior_best_confirmation_status_update.md",
+      "name": "control_doc_exists:docs/idare_prior_best_confirmation_status_update.md",
+      "ok": true
+    },
+    {
+      "details": "docs/idare_prior_best_confirmation_status_update.json",
+      "name": "control_doc_exists:docs/idare_prior_best_confirmation_status_update.json",
+      "ok": true
+    },
+    {
+      "details": ".cache/idare_eeg_windows_32x640_float32_baseline_corrected.npy",
+      "name": "required_input_exists:eeg_npy",
+      "ok": true
+    },
+    {
+      "details": ".cache/idare_eeg_cache_index_baseline_corrected.csv",
+      "name": "required_input_exists:eeg_index",
+      "ok": true
+    },
+    {
+      "details": ".cache/idare_emg_features.npy",
+      "name": "required_input_exists:emg_features_npy",
+      "ok": true
+    },
+    {
+      "details": ".cache/idare_emg_feature_cache_index.csv",
+      "name": "required_input_exists:emg_features_index",
+      "ok": true
+    },
+    {
+      "details": {
+        "rows": 120
+      },
+      "name": "option_A_matrix_has_120_rows",
+      "ok": true
+    }
+  ],
+  "da_execution_occurred": false,
+  "execution_authorized": false,
+  "expected_branch": "idare/postwave1/data-augmentation-track",
+  "expected_worktree": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-data-augmentation",
+  "experiment_or_model_result_created": false,
+  "generated_at_utc": "2026-05-12T14:55:12.163029+00:00",
+  "git_status_short_branch": "## idare/postwave1/data-augmentation-track...origin/idare/postwave1/data-augmentation-track\n M docs/idare_data_augmentation_option_a_implementation_report.json\n M docs/idare_data_augmentation_option_a_implementation_report.md\n M docs/idare_data_augmentation_validation_report.json\n M docs/idare_data_augmentation_validation_report.md\n M scripts/idare_data_augmentation_runner.py\n?? docs/idare_data_augmentation_execution_terminal.log",
+  "mode": "plan",
+  "model_results_created": false,
+  "option_A_expected_runs": 120,
+  "status": "PASSED"
+}

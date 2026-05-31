@@ -1,0 +1,94 @@
+{
+  "objective_id": "idare_target_protocol_lock_objective",
+  "status": "created",
+  "branch": "idare/control-tower",
+  "scope": "documentation_target_protocol_lock_only",
+  "execution_authorized": false,
+  "runner_creation_authorized": false,
+  "new_audit_authorized": false,
+  "experiments_authorized": false,
+  "model_results_authorized": false,
+  "wave2_execution_authorized": false,
+  "dg_execution_authorized": false,
+  "model_capacity_probe_authorized": false,
+  "augmentation_authorized": false,
+  "representation_redesign_v2_authorized": false,
+  "deap_execution_authorized": false,
+  "fusion_execution_authorized": false,
+  "preprocessing_changes": "forbidden",
+  "threshold_changes": "forbidden",
+  "main_push": "forbidden",
+  "human_policy_lock": {
+    "P1_label_task_redesign": "primary",
+    "P2_protocol_target_reconciliation": "primary",
+    "P0_current_heldout_binary_arousal": "comparator_only",
+    "P3_subject_relative_within_subject": "scoped_diagnostic_candidate_only",
+    "P4_stop_pivot": "fallback_only"
+  },
+  "project_level_target": {
+    "datasets": ["I-DARE", "DEAP"],
+    "tasks": ["valence", "arousal"],
+    "modalities": ["EEG", "EMG"],
+    "later_fusion": "EEG_plus_EMG_after_single_modality_readiness",
+    "evaluation": "cross_subject_heldout_subject_unless_reconciled"
+  },
+  "prior_idare_label_policy_matrix": {
+    "status": "reuse_as_valid_controlled_evidence_not_final_loso",
+    "tasks": 2,
+    "modalities": 2,
+    "policies": 3,
+    "recipes": 2,
+    "folds": 6,
+    "total_runs": 144,
+    "best_cells": [
+      {
+        "modality": "EEG",
+        "task": "valence",
+        "best_policy": "discard_midpoint",
+        "best_recipe": "balanced_sampler_ce",
+        "mean_balanced_accuracy": 0.5218687143901377,
+        "reuse_decision": "reuse_no_rerun_by_default"
+      },
+      {
+        "modality": "EEG",
+        "task": "arousal",
+        "best_policy": "midpoint_as_high",
+        "best_recipe": "ce_class_weighted",
+        "mean_balanced_accuracy": 0.5416327025978417,
+        "reuse_decision": "reuse_moderate_evidence_confirmation_candidate_only"
+      },
+      {
+        "modality": "EMG",
+        "task": "valence",
+        "best_policy": "midpoint_as_high",
+        "best_recipe": "ce_class_weighted",
+        "mean_balanced_accuracy": 0.5201507593591346,
+        "reuse_decision": "reuse_no_rerun_by_default"
+      },
+      {
+        "modality": "EMG",
+        "task": "arousal",
+        "best_policy": "discard_midpoint",
+        "best_recipe": "ce_class_weighted",
+        "mean_balanced_accuracy": 0.5364967332261366,
+        "reuse_decision": "reuse_moderate_evidence_confirmation_candidate_only"
+      }
+    ]
+  },
+  "missing_or_not_locked": {
+    "DEAP_equivalent_target_policy_coverage": "missing_not_authorized",
+    "EEG_EMG_fusion_target_policy_coverage": "missing_frozen",
+    "final_paper_level_protocol": "not_locked",
+    "subject_relative_within_subject_target": "candidate_only",
+    "final_label_policy": "not_locked",
+    "final_cross_dataset_claim": "not_authorized"
+  },
+  "minimal_future_execution_after_lock": [
+    "confirm_existing_best_IDARE_cells_if_needed",
+    "missing_DEAP_equivalent_after_protocol_lock",
+    "fusion_readiness_only_after_single_modality_target_locked",
+    "inductive_bias_comparison_only_after_target_policy_lock",
+    "learning_curve_data_size_diagnosis_only_if_target_defensible"
+  ],
+  "next_state": "REQUEST_TARGET_PROTOCOL_LOCK_REVIEW_AND_MINIMAL_EXECUTION_DECISION"
+}

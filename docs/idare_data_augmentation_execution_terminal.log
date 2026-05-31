@@ -1,0 +1,83 @@
+===== DA Option A execution started =====
+Tue May 12 02:55:10 PM UTC 2026
+===== branch/status before =====
+idare/postwave1/data-augmentation-track
+## idare/postwave1/data-augmentation-track...origin/idare/postwave1/data-augmentation-track
+ M scripts/idare_data_augmentation_runner.py
+?? docs/idare_data_augmentation_execution_terminal.log
+===== syntax check =====
+===== validate before run =====
+STATUS: PASSED
+MODE: validate
+BLOCKERS: 0
+DA_EXECUTION_OCCURRED: false
+MODEL_RESULTS_CREATED: false
+===== plan before run =====
+STATUS: PASSED
+MODE: plan
+BLOCKERS: 0
+DA_EXECUTION_OCCURRED: false
+MODEL_RESULTS_CREATED: false
+===== run Option A =====
+STATUS: RUNNING
+OPTION_A_EXPECTED_RUNS: 120
+Traceback (most recent call last):
+  File "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/.venv/lib/python3.12/site-packages/pandas/compat/_optional.py", line 158, in import_optional_dependency
+    module = importlib.import_module(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'tabulate'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-data-augmentation/scripts/idare_data_augmentation_runner.py", line 757, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-data-augmentation/scripts/idare_data_augmentation_runner.py", line 740, in main
+    write_outputs(results, audit)
+  File "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-data-augmentation/scripts/idare_data_augmentation_runner.py", line 503, in write_outputs
+    write_markdown_table(FOLD_MD, "I-DARE Data Augmentation Fold-Level Report", pd.DataFrame(results))
+  File "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-data-augmentation/scripts/idare_data_augmentation_runner.py", line 486, in write_markdown_table
+    lines = [f"# {title}", "", df.to_markdown(index=False), ""]
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/.venv/lib/python3.12/site-packages/pandas/core/frame.py", line 2983, in to_markdown
+    tabulate = import_optional_dependency("tabulate")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/.venv/lib/python3.12/site-packages/pandas/compat/_optional.py", line 161, in import_optional_dependency
+    raise ImportError(msg) from err
+ImportError: `Import tabulate` failed.  Use pip or conda to install the tabulate package.
+===== output sanity =====
+Traceback (most recent call last):
+  File "<stdin>", line 7, in <module>
+  File "/usr/lib/python3.12/pathlib.py", line 1029, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1015, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'docs/idare_data_augmentation_closeout_report.json'
+===== diff check =====
+===== final status =====
+## idare/postwave1/data-augmentation-track...origin/idare/postwave1/data-augmentation-track
+ M docs/idare_data_augmentation_option_a_implementation_report.json
+ M docs/idare_data_augmentation_option_a_implementation_report.md
+ M docs/idare_data_augmentation_validation_report.json
+ M docs/idare_data_augmentation_validation_report.md
+ M scripts/idare_data_augmentation_runner.py
+?? docs/idare_data_augmentation_execution_terminal.log
+?? docs/idare_data_augmentation_fold_level_report.json
+?? docs/idare_data_augmentation_metric_summary.csv
+?? docs/idare_data_augmentation_runs.csv
+docs/idare_data_augmentation_option_a_implementation_report.json
+docs/idare_data_augmentation_option_a_implementation_report.md
+docs/idare_data_augmentation_validation_report.json
+docs/idare_data_augmentation_validation_report.md
+scripts/idare_data_augmentation_runner.py
+===== DA Option A execution completed =====
+Tue May 12 02:55:46 PM UTC 2026

@@ -1,0 +1,65 @@
+{
+  "objective_id": "idare_data_augmentation_objective",
+  "status": "created",
+  "branch": "idare/postwave1/data-augmentation-track",
+  "scope": "branch_objective_and_guarded_runner_creation_only",
+  "execution_authorized": false,
+  "runner_creation_authorized": true,
+  "validation_authorized": true,
+  "experiments_authorized": false,
+  "model_results_authorized": false,
+  "stage_1_scope": {
+    "dataset": "I-DARE",
+    "setting": "cross_subject_heldout_subject",
+    "targets": ["valence", "arousal"],
+    "modalities": ["EEG", "EMG"],
+    "fusion": "blocked",
+    "DEAP": "blocked"
+  },
+  "planned_matrix_metadata": {
+    "option_A_preferred": {
+      "targets": 2,
+      "modalities": 2,
+      "da_policies": 5,
+      "folds": 6,
+      "total_runs": 120,
+      "execution_authorized": false
+    },
+    "option_B_runtime_fallback": {
+      "targets": 2,
+      "modalities": 1,
+      "modality": "EEG",
+      "da_policies": 5,
+      "folds": 6,
+      "total_runs": 60,
+      "execution_authorized": false
+    }
+  },
+  "eeg_da_policies": [
+    "E0_none_baseline",
+    "E1_additive_gaussian_noise_weak",
+    "E2_additive_gaussian_noise_medium",
+    "E3_amplitude_scaling",
+    "E4_time_channel_masking_or_dropout"
+  ],
+  "emg_da_policies": [
+    "M0_none_baseline",
+    "M1_feature_gaussian_jitter_weak",
+    "M2_feature_gaussian_jitter_medium",
+    "M3_feature_scaling",
+    "M4_feature_dropout"
+  ],
+  "leakage_rules": [
+    "augmentation_only_on_training_subjects_folds",
+    "never_augment_heldout_test_subjects",
+    "no_augmentation_derived_statistics_from_heldout_test_subjects",
+    "no_test_labels",
+    "no_target_subject_adaptation",
+    "no_threshold_tuning_on_heldout_folds",
+    "DA_parameters_fixed_before_fold_results_or_selected_only_inside_train_folds",
+    "no_global_all_subject_augmentation_fitting",
+    "no_preprocessing_changes_disguised_as_augmentation"
+  ],
+  "current_boundary": "VALIDATION_ONLY",
+  "next_required_control_decision": "AUTHORIZE_DATA_AUGMENTATION_OBJECTIVE_RUNNER_COMMIT_PUSH"
+}

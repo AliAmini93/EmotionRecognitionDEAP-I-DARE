@@ -1,0 +1,44 @@
+{
+  "status": "created",
+  "branch": "idare/control-tower",
+  "scope": "documentation_leakage_review_only",
+  "execution_authorized": false,
+  "wave2_execution_authorized": false,
+  "leakage_principle": "held_out_subject_statistics_are_not_allowed_for_strict_nontransductive_evidence_even_if_unlabeled",
+  "required_checks": [
+    "held_out_subjects_excluded_from_transform_fitting",
+    "explicit_subject_splits",
+    "train_only_scaler_fit",
+    "train_only_quantile_rank_fit",
+    "train_only_pca_whitening_fit_if_used",
+    "no_target_batch_stats",
+    "dg_domains_training_subjects_only",
+    "no_test_time_adaptation",
+    "no_threshold_tuning_on_heldout",
+    "no_deap",
+    "no_fusion",
+    "no_preprocessing_rebuild",
+    "no_w1_branch_owned_file_modification",
+    "no_main_push"
+  ],
+  "blocked_as_strict_evidence": [
+    "per_test_subject_z_score",
+    "per_test_subject_rank_transform",
+    "test_time_adaptation",
+    "target_distribution_alignment",
+    "global_all_subject_scaler",
+    "threshold_calibration_on_test"
+  ],
+  "evidence_needed_before_execution": [
+    "exact_cells",
+    "exact_input_files",
+    "train_only_transform_rules",
+    "leakage_validation_plan",
+    "output_file_list",
+    "closeout_schema",
+    "comparison_references",
+    "unchanged_gate_thresholds",
+    "freeze_enforcement_statement"
+  ],
+  "next_state": "REQUEST_STRICT_NTD_NORM_DG_CANDIDATE_SPEC_REVIEW"
+}

@@ -1,0 +1,93 @@
+{
+  "matrix_id": "idare_target_protocol_lock_decision_matrix",
+  "status": "created",
+  "policy_lock_matrix": {
+    "P0_current_heldout_binary_arousal": {
+      "ruling": "comparator_only",
+      "execution_implication": "reference_not_final_target"
+    },
+    "P1_label_task_redesign": {
+      "ruling": "primary",
+      "execution_implication": "define_final_label_task_policy_before_new_runs"
+    },
+    "P2_protocol_target_reconciliation": {
+      "ruling": "primary",
+      "execution_implication": "define_final_evaluation_target_before_new_runs"
+    },
+    "P3_subject_relative_within_subject": {
+      "ruling": "scoped_diagnostic_candidate",
+      "execution_implication": "not_auto_mainline"
+    },
+    "P4_stop_pivot": {
+      "ruling": "fallback_only",
+      "execution_implication": "not_selected_now"
+    }
+  },
+  "prior_coverage_matrix": [
+    {
+      "dataset": "I-DARE",
+      "modality": "EEG",
+      "task": "arousal",
+      "prior_coverage": "label_policy_matrix_plus_broader_single_modality_evidence",
+      "reuse_decision": "reuse_confirmation_candidate"
+    },
+    {
+      "dataset": "I-DARE",
+      "modality": "EEG",
+      "task": "valence",
+      "prior_coverage": "label_policy_matrix_plus_broader_single_modality_evidence",
+      "reuse_decision": "reuse"
+    },
+    {
+      "dataset": "I-DARE",
+      "modality": "EMG",
+      "task": "arousal",
+      "prior_coverage": "label_policy_matrix_plus_broader_single_modality_evidence",
+      "reuse_decision": "reuse_confirmation_candidate"
+    },
+    {
+      "dataset": "I-DARE",
+      "modality": "EMG",
+      "task": "valence",
+      "prior_coverage": "label_policy_matrix_plus_broader_single_modality_evidence",
+      "reuse_decision": "reuse"
+    },
+    {
+      "dataset": "I-DARE",
+      "modality": "EEG+EMG_fusion",
+      "task": "valence_arousal",
+      "prior_coverage": "not_ready_frozen",
+      "reuse_decision": "missing_do_not_execute_now"
+    },
+    {
+      "dataset": "DEAP",
+      "modality": "EEG_EMG",
+      "task": "valence_arousal",
+      "prior_coverage": "frozen_not_current_active_branch",
+      "reuse_decision": "missing_do_not_execute_now"
+    },
+    {
+      "dataset": "DEAP",
+      "modality": "EEG+EMG_fusion",
+      "task": "valence_arousal",
+      "prior_coverage": "frozen",
+      "reuse_decision": "missing_do_not_execute_now"
+    }
+  ],
+  "minimal_next_run_recommendation": {
+    "execution_authorized": false,
+    "preferred_order_after_lock": [
+      "confirm_prior_best_IDARE_cells",
+      "missing_DEAP_equivalent_only_if_unfrozen",
+      "fusion_readiness_only_after_single_modality_readiness"
+    ],
+    "avoid": [
+      "duplicate_144_run_label_policy_rerun",
+      "new_broad_search",
+      "fusion_before_single_modality_readiness",
+      "DEAP_before_unfreeze_review"
+    ]
+  },
+  "current_decision": "NO_NEW_EXECUTION_UNTIL_TARGET_PROTOCOL_LOCK_REVIEW_ACCEPTED",
+  "next_state": "REQUEST_TARGET_PROTOCOL_LOCK_REVIEW_AND_MINIMAL_EXECUTION_DECISION"
+}

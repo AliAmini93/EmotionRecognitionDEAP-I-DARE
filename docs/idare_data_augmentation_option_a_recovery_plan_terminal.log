@@ -1,0 +1,54 @@
+===== cleanup validation started =====
+Tue May 12 02:50:25 PM UTC 2026
+===== syntax check =====
+===== validate with report =====
+STATUS: PASSED
+MODE: validate
+BLOCKERS: 0
+OPTION_A_EXPECTED_RUNS: 120
+DA_EXECUTION_OCCURRED: false
+EXPERIMENT_OR_MODEL_RESULT_CREATED: false
+MODEL_RESULTS_CREATED: false
+===== plan Option A with report =====
+STATUS: PASSED
+MODE: plan
+BLOCKERS: 0
+OPTION_A_EXPECTED_RUNS: 120
+DA_EXECUTION_OCCURRED: false
+EXPERIMENT_OR_MODEL_RESULT_CREATED: false
+MODEL_RESULTS_CREATED: false
+===== verify run mode blocks =====
+BLOCKER: DA run/closeout is not authorized yet. Runner is implementation/validation-only at this gate.
+DA_EXECUTION_OCCURRED: false
+EXPERIMENT_OR_MODEL_RESULT_CREATED: false
+MODEL_RESULTS_CREATED: false
+RUN_RC=2
+run mode correctly blocked
+===== matrix sanity =====
+rows 120
+targets ['arousal', 'valence']
+modalities ['EEG', 'EMG']
+policies {'EEG': 5, 'EMG': 5}
+folds [1, 2, 3, 4, 5, 6]
+execution_authorized_values ['False']
+status_values ['planned_metadata_only']
+contains_CRLF False
+contains_CR False
+===== JSON validation =====
+validation json ok
+implementation json ok
+===== diff check before commit =====
+===== status =====
+## idare/postwave1/data-augmentation-track...origin/idare/postwave1/data-augmentation-track
+ M docs/idare_data_augmentation_option_a_recovery_plan_terminal.log
+ M docs/idare_data_augmentation_option_a_run_matrix.csv
+ M docs/idare_data_augmentation_validation_report.json
+ M docs/idare_data_augmentation_validation_report.md
+ M scripts/idare_data_augmentation_runner.py
+docs/idare_data_augmentation_option_a_recovery_plan_terminal.log
+docs/idare_data_augmentation_option_a_run_matrix.csv
+docs/idare_data_augmentation_validation_report.json
+docs/idare_data_augmentation_validation_report.md
+scripts/idare_data_augmentation_runner.py
+===== cleanup validation completed =====
+Tue May 12 02:50:26 PM UTC 2026

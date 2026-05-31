@@ -1,0 +1,61 @@
+{
+  "package_id": "idare_label_task_protocol_reconciliation_execution_authorization_package",
+  "status": "created",
+  "branch": "idare/control-tower",
+  "execution_authorized": false,
+  "required_human_approval_phrase": "APPROVE_LABEL_TASK_PROTOCOL_RECONCILIATION_EXECUTION",
+  "future_executable_branch": "idare/postwave1/label-task-protocol-reconciliation",
+  "future_worktree": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-label-task-protocol",
+  "future_allowed_file_prefix": "idare_label_task_protocol_",
+  "scope": {
+    "type": "documentation_authorization_package_only",
+    "execution": false,
+    "runner_creation": false,
+    "branch_creation": false,
+    "worktree_creation": false,
+    "wave2_execution": false,
+    "dg_execution": false,
+    "model_capacity_probe": false,
+    "augmentation": false,
+    "DEAP": "frozen",
+    "fusion": "frozen",
+    "preprocessing_changes": "forbidden",
+    "threshold_changes": "forbidden",
+    "main_push": "forbidden"
+  },
+  "future_audit_categories": [
+    "protocol_alignment",
+    "label_task_formulation",
+    "midpoint_threshold_policy_review",
+    "fold_subject_label_bias_review",
+    "prior_results_interpretation",
+    "final_label_task_protocol_decision_matrix"
+  ],
+  "future_required_outputs": [
+    "objective_doc_json",
+    "guarded_runner_script",
+    "protocol_comparison_report",
+    "label_task_policy_report",
+    "midpoint_fold_subject_bias_report",
+    "prior_results_interpretation_report",
+    "final_reconciliation_decision_matrix",
+    "closeout_report_json",
+    "artifact_review_bundle"
+  ],
+  "required_closeout_decision_matrix": {
+    "A": "keep_current_heldout_subject_binary_arousal_formulation",
+    "B": "redesign_label_task_policy_before_more_modeling",
+    "C": "reconcile_or_change_evaluation_protocol_target",
+    "D": "use_subject_relative_or_within_subject_formulation",
+    "E": "stop_pivot_if_current_formulation_unsupported"
+  },
+  "stop_blocker_rules": [
+    "stop_if_required_artifacts_missing",
+    "stop_if_idare_protocol_evidence_unavailable_or_ambiguous_enough_to_block_conclusions",
+    "stop_if_new_model_development_experiments_required",
+    "stop_if_scope_expands_to_wave2_dg_model_capacity_augmentation_fusion_deap_preprocessing_or_threshold_changes",
+    "stop_if_outputs_escape_allowed_prefix",
+    "stop_if_main_push_requested"
+  ],
+  "next_state": "AWAITING_APPROVE_LABEL_TASK_PROTOCOL_RECONCILIATION_EXECUTION"
+}

@@ -1,0 +1,77 @@
+{
+  "objective_id": "idare_representation_redesign_confirmation_objective",
+  "status": "created",
+  "branch": "idare/control-tower",
+  "execution_authorized": false,
+  "required_human_approval_phrase": "APPROVE_REPRESENTATION_REDESIGN_CONFIRMATION_EXECUTION",
+  "scope": {
+    "type": "documentation_design_authorization_package_only",
+    "execution": false,
+    "runner_creation": false,
+    "wave2_execution": false,
+    "dg_execution": false,
+    "model_capacity_probe": false,
+    "augmentation": false,
+    "DEAP": "frozen",
+    "fusion": "frozen",
+    "preprocessing_changes": "forbidden",
+    "threshold_changes": "forbidden",
+    "main_push": "forbidden"
+  },
+  "prior_smoke_result": {
+    "best_cell": "R3",
+    "R3_mean_balanced_accuracy": 0.532721790019799,
+    "R3_gate_0_53_pass": true,
+    "R3_gate_0_55_pass": false,
+    "R2_mean_balanced_accuracy": 0.5284867731698891,
+    "R2_fold_wins_vs_R0": 5,
+    "R3_fold_wins_vs_R0": 3,
+    "leakage_audit": "passed",
+    "one_class_collapse_count": 0,
+    "forbidden_scope_touched": false
+  },
+  "confirmation_cells": [
+    "R0_current_representation_anchor",
+    "R2_train_only_subject_invariant_feature_selection",
+    "R3_diagnostics_first_stable_feature_subset"
+  ],
+  "excluded_cells": [
+    "R1_train_only_subject_residualized_features"
+  ],
+  "future_run_count_if_authorized": {
+    "cells": 3,
+    "folds": 6,
+    "total_runs": 18
+  },
+  "allowed_future_file_prefix": "idare_repr_redesign_confirm_",
+  "confirmation_gates": {
+    "R3_mean_balanced_accuracy_must_remain_at_least": 0.53,
+    "strong_gate_mean_balanced_accuracy": 0.55,
+    "leakage_audit_must_pass": true,
+    "one_class_collapse_must_be": 0,
+    "forbidden_scope_touched_must_be": false,
+    "R3_positive_delta_vs_R0_required": true,
+    "thresholds_modified": false
+  },
+  "required_future_outputs": [
+    "objective_doc_json",
+    "guarded_runner_script",
+    "runs_csv",
+    "metric_summary",
+    "fold_level_report",
+    "leakage_audit",
+    "R2_vs_R3_stability_comparison",
+    "closeout_report_json",
+    "artifact_review_bundle"
+  ],
+  "stop_criteria": [
+    "archive_if_R3_below_0_53",
+    "archive_or_downgrade_if_R3_improvement_is_single_fold_driven",
+    "downgrade_if_R2_more_stable_without_clear_R3_advantage",
+    "stop_if_leakage_audit_fails",
+    "stop_if_one_class_collapse_occurs",
+    "stop_if_test_subject_statistics_are_used",
+    "stop_if_forbidden_scope_touched"
+  ],
+  "next_state": "AWAITING_APPROVE_REPRESENTATION_REDESIGN_CONFIRMATION_EXECUTION"
+}

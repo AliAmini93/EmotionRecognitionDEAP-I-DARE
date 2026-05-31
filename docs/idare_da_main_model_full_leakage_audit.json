@@ -1,0 +1,854 @@
+{
+  "status": "PASSED",
+  "generated_at_utc": "2026-05-12T15:51:40+00:00",
+  "run_count": 120,
+  "checks": [
+    {
+      "run_id": 1,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 2,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 3,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 4,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 5,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 6,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 7,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 8,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 9,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 10,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 11,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 12,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 13,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 14,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 15,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 16,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 17,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 18,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 19,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 20,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 21,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 22,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 23,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 24,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 25,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 26,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 27,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 28,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 29,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 30,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 31,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 32,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 33,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 34,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 35,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 36,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 37,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 38,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 39,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 40,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 41,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 42,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 43,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 44,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 45,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 46,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 47,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 48,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 49,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 50,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 51,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 52,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 53,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 54,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 55,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 56,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 57,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 58,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 59,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 60,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 61,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 62,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 63,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 64,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 65,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 66,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 67,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 68,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 69,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 70,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 71,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 72,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 73,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 74,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 75,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 76,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 77,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 78,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 79,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 80,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 81,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 82,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 83,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 84,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 85,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 86,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 87,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 88,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 89,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 90,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 91,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 92,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 93,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 94,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 95,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 96,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 97,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 98,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 99,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 100,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 101,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 102,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 103,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 104,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 105,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 106,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 107,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 108,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 109,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 110,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 111,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 112,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 113,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 114,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 115,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 116,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 117,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 118,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 119,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    },
+    {
+      "run_id": 120,
+      "overlap": [],
+      "augmentation_training_only": true,
+      "test_stats_used": false,
+      "test_labels_used": false
+    }
+  ],
+  "forbidden_scope": {
+    "deap": false,
+    "fusion": false,
+    "preprocessing_change": false,
+    "threshold_change": false,
+    "main_push": false
+  }
+}

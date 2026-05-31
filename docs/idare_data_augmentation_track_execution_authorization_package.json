@@ -1,0 +1,116 @@
+{
+  "package_id": "idare_data_augmentation_track_execution_authorization_package",
+  "status": "created",
+  "branch": "idare/control-tower",
+  "execution_authorized": false,
+  "required_human_approval_phrase": "APPROVE_DATA_AUGMENTATION_TRACK_EXECUTION",
+  "approval_boundary": "branch_worktree_setup_and_preflight_only",
+  "future_branch": "idare/postwave1/data-augmentation-track",
+  "future_worktree": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-data-augmentation",
+  "future_allowed_file_prefix": "idare_data_augmentation_",
+  "process_mode": "single_active_working_chat",
+  "scope_now": {
+    "type": "documentation_authorization_package_only",
+    "execution": false,
+    "runner_creation": false,
+    "branch_creation": false,
+    "worktree_creation": false,
+    "experiments": false,
+    "model_results": false,
+    "DEAP_stage_1": "blocked",
+    "fusion": "blocked",
+    "preprocessing_changes": "forbidden",
+    "threshold_tuning": "forbidden",
+    "DG": false,
+    "SupCon": false,
+    "augmentation_plus_broad_model_search": false,
+    "model_capacity_probe": false,
+    "main_push": "forbidden"
+  },
+  "stage_1_scope_if_later_approved": {
+    "dataset": "I-DARE",
+    "setting": "cross_subject_heldout_subject",
+    "targets": ["valence", "arousal"],
+    "modalities": ["EEG", "EMG"],
+    "fusion": "blocked",
+    "DEAP": "blocked",
+    "preprocessing_changes": "forbidden",
+    "threshold_tuning_on_heldout_subjects": "forbidden"
+  },
+  "eeg_da_policies": [
+    "E0_none_baseline",
+    "E1_additive_gaussian_noise_weak",
+    "E2_additive_gaussian_noise_medium",
+    "E3_amplitude_scaling",
+    "E4_time_channel_masking_or_dropout"
+  ],
+  "emg_da_policies": [
+    "M0_none_baseline",
+    "M1_feature_gaussian_jitter_weak",
+    "M2_feature_gaussian_jitter_medium",
+    "M3_feature_scaling",
+    "M4_feature_dropout"
+  ],
+  "future_smoke_matrix_options": {
+    "option_A_preferred": {
+      "targets": 2,
+      "modalities": 2,
+      "da_policies": 5,
+      "folds": 6,
+      "total_runs": 120
+    },
+    "option_B_runtime_fallback": {
+      "targets": 2,
+      "modalities": 1,
+      "modality": "EEG",
+      "da_policies": 5,
+      "folds": 6,
+      "total_runs": 60
+    }
+  },
+  "leakage_rules": [
+    "augmentation_only_on_training_subjects_folds",
+    "never_augment_heldout_test_subjects",
+    "no_augmentation_derived_statistics_from_heldout_test_subjects",
+    "no_test_labels",
+    "no_target_subject_adaptation",
+    "no_threshold_tuning_on_heldout_folds",
+    "DA_parameters_fixed_before_fold_results_or_selected_only_inside_train_folds",
+    "no_global_all_subject_augmentation_fitting",
+    "no_preprocessing_changes_disguised_as_augmentation"
+  ],
+  "future_runner_requirements": [
+    "modes_status_validate_run_closeout",
+    "default_status_or_validate_never_run",
+    "explicit_BLOCKER_messages",
+    "validate_branch_worktree",
+    "validate_cache_venv",
+    "validate_IDARE_EEG_EMG_inputs",
+    "validate_prior_Control_docs",
+    "validate_planned_run_matrix",
+    "validate_allowed_output_prefix",
+    "refuse_run_without_explicit_Control_approval",
+    "refuse_DEAP_fusion_DG_SupCon_model_capacity_preprocessing_threshold_scope"
+  ],
+  "required_future_outputs_if_later_approved": [
+    "objective_doc_json",
+    "guarded_runner_script",
+    "validation_report",
+    "run_matrix_csv",
+    "fold_level_metrics",
+    "metric_summary_by_target_modality_da_policy",
+    "leakage_audit",
+    "best_da_policy_per_target_modality",
+    "comparison_against_no_augmentation_baseline",
+    "one_class_collapse_count",
+    "closeout_report_json",
+    "artifact_review_bundle"
+  ],
+  "decision_criteria": {
+    "moderate_pass": "mean_balanced_accuracy >= 0.53 AND positive_delta_vs_no_DA_baseline",
+    "strong_pass": "mean_balanced_accuracy >= 0.55",
+    "useful_DA_requires": "consistent_fold_improvement_not_one_fold_spike",
+    "fusion": "blocked_until_at_least_one_EEG_or_EMG_DA_config_confirmed"
+  },
+  "next_state": "AWAITING_APPROVE_DATA_AUGMENTATION_TRACK_EXECUTION"
+}

@@ -1,0 +1,42 @@
+{
+  "status": "created",
+  "execution_authorized": false,
+  "required_human_approval_phrase": "APPROVE_STRICT_NTD_NORM_SMOKE_EXECUTION",
+  "future_executable_branch": "idare/postwave1/strict-ntd-norm-smoke",
+  "future_worktree": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE-strict-ntd-smoke",
+  "scope": {
+    "dataset": "I-DARE only",
+    "modality": "EEG-only",
+    "task": "arousal-only",
+    "formulation": "pairwise",
+    "model": "ridge fixed",
+    "normalization": "strict non-transductive only"
+  },
+  "cells": [
+    "S0_current_no_normalization",
+    "S1_train_fold_standard_scaler",
+    "S2_train_fold_robust_scaler",
+    "S3_train_fold_frozen_quantile_rank_mapper"
+  ],
+  "run_count": 24,
+  "leakage_assertions": [
+    "all_fitted_statistics_training_subjects_only",
+    "no_heldout_test_subject_feature_statistics",
+    "no_test_labels",
+    "no_global_scaler",
+    "no_per_test_subject_normalization",
+    "no_threshold_tuning_on_test_folds"
+  ],
+  "future_allowed_file_prefix": "idare_strict_ntd_norm_smoke_",
+  "forbidden": [
+    "DEAP",
+    "fusion",
+    "preprocessing_changes",
+    "threshold_changes",
+    "model_capacity_probe",
+    "augmentation",
+    "SupCon_DG_execution",
+    "main_push"
+  ],
+  "next_state": "AWAITING_APPROVE_STRICT_NTD_NORM_SMOKE_EXECUTION"
+}

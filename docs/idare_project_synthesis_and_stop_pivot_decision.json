@@ -1,0 +1,53 @@
+{
+  "status": "created",
+  "branch": "idare/control-tower",
+  "scope": "documentation_decision_only",
+  "execution_authorized": false,
+  "wave2_execution_authorized": false,
+  "dg_execution_authorized": false,
+  "model_capacity_probe_authorized": false,
+  "augmentation_authorized": false,
+  "deap": "frozen",
+  "fusion": "frozen",
+  "preprocessing_changes": "forbidden",
+  "threshold_changes": "forbidden",
+  "main_push": "forbidden",
+  "formal_synthesis": {
+    "robust_cross_subject_operating_point_found": false,
+    "within_subject_signal_exists": true,
+    "cross_subject_collapse_subject_dominated": true,
+    "current_representation_family_sufficient": false
+  },
+  "evidence": {
+    "wave1_performance_gate": "failed",
+    "w1a": "input_definition_variants_no_pass",
+    "w1b": "strict_nontransductive_no_pass_transductive_B3_diagnostic_only",
+    "w1c": "emg_aggregate_no_pass_reference_only",
+    "w1d": "within_subject_signal_cross_subject_collapse",
+    "strict_ntd_smoke": "clean_weak_effect_no_gate_pass",
+    "representation_redesign_smoke": "R3_moderate_pass_once_fragile",
+    "representation_confirmation": "failed_R3_not_robust_R2_weak"
+  },
+  "closed_paths": {
+    "W1A_input_definition": "archived_no_pass",
+    "W1B_normalization": "archived_no_pass",
+    "W1B_B3": "diagnostic_only_transductive",
+    "W1C_EMG": "independent_reference_only",
+    "strict_NTD_normalization": "archived_clean_weak_effect",
+    "representation_R3": "rejected_not_robust",
+    "representation_R2": "weak_comparator_not_operating_point"
+  },
+  "decision_matrix": {
+    "continue_execution_immediately": "reject",
+    "wave2_interaction_grid": "reject_for_now",
+    "dg_execution": "reject_for_now",
+    "model_capacity_probe": "reject_for_now",
+    "augmentation": "reject_for_now",
+    "fusion": "frozen",
+    "deap": "frozen",
+    "stop_execution_and_synthesize": "accept",
+    "future_pivot": "documentation_first_only"
+  },
+  "current_state": "EXECUTION_PAUSED_PENDING_PROJECT_SYNTHESIS_REVIEW",
+  "next_state": "REQUEST_PROJECT_SYNTHESIS_REVIEW_AND_FINAL_REGISTRY_UPDATE"
+}

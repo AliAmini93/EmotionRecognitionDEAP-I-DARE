@@ -1,0 +1,7 @@
+{
+  "execution_authorized": false,
+  "implementation_stage": "option_A_ready_for_authorized_run",
+  "option_A_expected_runs": 120,
+  "option_A_run_matrix_csv": "docs/idare_data_augmentation_option_a_run_matrix.csv",
+  "status": "PASSED"
+}
