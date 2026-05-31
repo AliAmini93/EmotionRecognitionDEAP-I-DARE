@@ -1,0 +1,103 @@
+{
+  "args": {
+    "target": "arousal",
+    "epochs": 8,
+    "smoke": false,
+    "smoke_subjects": 6,
+    "batch_size": 96,
+    "lr": 0.0003,
+    "weight_decay": 0.001,
+    "seed": 7066,
+    "high_threshold": 2.2096774193548385,
+    "out_prefix": null
+  },
+  "cache": {
+    "path": ".cache/idare_eeg_windows_32x640_float32_baseline_corrected.npy",
+    "shape": [
+      2016,
+      32,
+      640
+    ]
+  },
+  "index": {
+    "path": ".cache/idare_eeg_cache_index_baseline_corrected.csv",
+    "rows": 2016,
+    "subject_col": "subject_id",
+    "stimulus_col": "stimulus_id",
+    "score_col": "arousal_score"
+  },
+  "high_threshold": 2.2096774193548385,
+  "high_n": 496,
+  "fixed_bandpower_info": {
+    "path": "docs/roca/idare_residual_physiology_feature_audit_current_predictions.csv",
+    "exists": true,
+    "loaded": true,
+    "finite_rate": 1.0,
+    "prediction_column": "y_pred_deviation",
+    "model_filter": "physio_eeg_bandpower_ridge",
+    "merge_strategy": "row_order_after_filter",
+    "columns": [
+      "test_subject",
+      "stimulus_id",
+      "target",
+      "feature_block",
+      "model",
+      "y_true_score",
+      "train_stimulus_mean",
+      "true_deviation_from_train_stimulus_mean",
+      "y_pred_deviation",
+      "y_pred_score"
+    ],
+    "error": null
+  },
+  "locked_bridge_rmse_05ak": 2.622267149339945,
+  "decision": [
+    {
+      "target": "arousal",
+      "decision": "NO_GO_NEURAL_PIPELINE_NOT_ANCHORED",
+      "best_method": "neural_noaug_anchor",
+      "best_model_rmse_high": 3.275527238845825,
+      "best_lift_vs_zero_high": -0.014489412307739258,
+      "fixed_bandpower_loaded": true,
+      "best_lift_vs_fixed_same_eval_high": -0.08140683174133301,
+      "best_lift_vs_locked_bridge_rmse": -0.65326008950588,
+      "gaussian_delta_rmse_vs_noaug_positive_means_help": -0.035349130630493164,
+      "passes_zero_gate": false,
+      "passes_fixed_reference_gate": false,
+      "passes_locked_bridge_gate": false,
+      "anchor_close_to_fixed_reference_gate": false,
+      "interpretation": "The neural raw-EEG pipeline does not beat the practical gates under LOSO. This supports the diagnosis: weak residual identifiability plus subject calibration/domain shift.",
+      "recommended_next_action": "Finalize the calibration-dominant negative result, unless a separate distillation/feature-anchor test is intentionally added."
+    }
+  ],
+  "method_metrics": [
+    {
+      "method": "neural_noaug_anchor",
+      "n_eval": 2016,
+      "n_high": 496,
+      "zero_rmse_high": 3.261037826538086,
+      "model_rmse_high": 3.275527238845825,
+      "lift_vs_zero_high": -0.014489412307739258,
+      "fixed_rmse_same_eval_high": 3.194120407104492,
+      "lift_vs_fixed_same_eval_high": -0.08140683174133301,
+      "locked_bridge_rmse_05ak": 2.622267149339945,
+      "lift_vs_locked_bridge_rmse": -0.65326008950588,
+      "pearson_high": 0.03632879359250567,
+      "sign_acc_high": 0.46774193548387094
+    },
+    {
+      "method": "neural_gaussian_0p10_anchor",
+      "n_eval": 2016,
+      "n_high": 496,
+      "zero_rmse_high": 3.261037826538086,
+      "model_rmse_high": 3.3108763694763184,
+      "lift_vs_zero_high": -0.04983854293823242,
+      "fixed_rmse_same_eval_high": 3.194120407104492,
+      "lift_vs_fixed_same_eval_high": -0.11675596237182617,
+      "locked_bridge_rmse_05ak": 2.622267149339945,
+      "lift_vs_locked_bridge_rmse": -0.6886092201363732,
+      "pearson_high": -0.027195322390561837,
+      "sign_acc_high": 0.4939516129032258
+    }
+  ]
+}
