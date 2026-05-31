@@ -1,0 +1,240 @@
+{
+  "out_prefix": "idare_scientific_direction_lock_current",
+  "inputs": {
+    "residual_reliability_verdict": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/idare_residual_signal_reliability_audit_current_verdict.csv",
+    "zero_shot_physio_verdict": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/idare_residual_physiology_confirmatory_stats_current_verdict.csv",
+    "fewshot_verdict": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/idare_fewshot_calibration_confirmatory_stats_current_verdict.csv",
+    "physio_after_fewshot_verdict": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/idare_physiology_after_fewshot_audit_current_verdict.csv",
+    "model_family_confirmatory_verdict": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/idare_subject_calibration_model_family_confirmatory_stats_current_verdict.csv",
+    "personalization_decision": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/idare_personalization_decision_synthesis_current_decision_table.csv",
+    "personalization_evidence": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/idare_personalization_decision_synthesis_current_evidence_table.csv"
+  },
+  "outputs": {
+    "md": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/idare_scientific_direction_lock_current.md",
+    "json": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/idare_scientific_direction_lock_current.json",
+    "decision": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/idare_scientific_direction_lock_current_decision_table.csv",
+    "locked_baselines": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/idare_scientific_direction_lock_current_locked_baselines.csv",
+    "physiology_challenge_matrix": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/idare_scientific_direction_lock_current_physiology_challenge_matrix.csv",
+    "next_steps": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/idare_scientific_direction_lock_current_next_steps.csv",
+    "evidence_rollup": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/idare_scientific_direction_lock_current_evidence_rollup.csv"
+  },
+  "decision_table": [
+    {
+      "target": "arousal",
+      "final_direction": "LOCK_PERSONALIZED_KERNEL_RESIDUAL_BASELINE",
+      "residual_signal_verdict": "SUBJECT_STRUCTURED_RESIDUAL_PRESENT__ZERO_SHOT_PHYSIOLOGY_NO_GO__FEW_SHOT_RECOMMENDED",
+      "zero_shot_physiology_verdict": "NO_GO_CONFIRMED_CURRENT_FEATURE_SET",
+      "fewshot_decision": "GO_CONFIRMED_FEWSHOT_SUBJECT_CALIBRATION",
+      "physiology_after_fewshot_decision": "NO_GO_PHYSIOLOGY_AFTER_FEWSHOT",
+      "model_family_confirmatory_decision": "GO_CONFIRMED_MODEL_FAMILY_CALIBRATION",
+      "locked_best_model": "kernel_residual_shrink4",
+      "locked_k_calibration": 16.0,
+      "locked_reference_model": "bias_shrink4",
+      "locked_best_rmse": 1.6576672767528169,
+      "locked_reference_rmse": 1.7343610762407864,
+      "locked_lift_vs_reference_rmse": 0.0766937994879697,
+      "locked_lift_vs_stimulus_rmse": 0.2882764409522782,
+      "paired_ci95_low": 0.046819978646512,
+      "paired_signflip_p": 4.999750012499375e-05,
+      "wins": 47.0,
+      "losses": 16.0,
+      "win_margin": 31.0,
+      "physiology_claim_status": "PHYSIOLOGY_MUST_BEAT_LOCKED_PERSONALIZATION_BASELINE",
+      "recommended_next_focus": "05ah physiology-informed personalization challenge against locked kernel baseline",
+      "interpretation": "A personalized residual model is now the strongest confirmed baseline. EEG/EMG is still central to the project, but future physiology claims must show incremental value over this locked subject-calibration baseline, not merely over stimulus_only."
+    },
+    {
+      "target": "valence",
+      "final_direction": "LOCK_PERSONALIZED_KERNEL_RESIDUAL_BASELINE",
+      "residual_signal_verdict": "SUBJECT_STRUCTURED_RESIDUAL_PRESENT__ZERO_SHOT_PHYSIOLOGY_NO_GO__FEW_SHOT_RECOMMENDED",
+      "zero_shot_physiology_verdict": "NO_GO_CONFIRMED_CURRENT_FEATURE_SET",
+      "fewshot_decision": "WEAK_GO_FEWSHOT_NEEDS_CAUTION",
+      "physiology_after_fewshot_decision": "NO_GO_PHYSIOLOGY_AFTER_FEWSHOT",
+      "model_family_confirmatory_decision": "GO_CONFIRMED_MODEL_FAMILY_CALIBRATION",
+      "locked_best_model": "kernel_residual_shrink4",
+      "locked_k_calibration": 16.0,
+      "locked_reference_model": "bias_shrink4",
+      "locked_best_rmse": 1.1591886890005123,
+      "locked_reference_rmse": 1.2461179604777664,
+      "locked_lift_vs_reference_rmse": 0.086929271477254,
+      "locked_lift_vs_stimulus_rmse": 0.1000239849229198,
+      "paired_ci95_low": 0.0567690454354153,
+      "paired_signflip_p": 4.999750012499375e-05,
+      "wins": 43.0,
+      "losses": 20.0,
+      "win_margin": 23.0,
+      "physiology_claim_status": "PHYSIOLOGY_MUST_BEAT_LOCKED_PERSONALIZATION_BASELINE",
+      "recommended_next_focus": "05ah physiology-informed personalization challenge against locked kernel baseline",
+      "interpretation": "A personalized residual model is now the strongest confirmed baseline. EEG/EMG is still central to the project, but future physiology claims must show incremental value over this locked subject-calibration baseline, not merely over stimulus_only."
+    }
+  ],
+  "locked_baselines": [
+    {
+      "target": "arousal",
+      "baseline_level": "B0",
+      "baseline_name": "stimulus_only",
+      "status": "historical_reference_only",
+      "rmse": 1.944204982116596,
+      "how_to_use": "Do not claim physiology success by beating this alone."
+    },
+    {
+      "target": "arousal",
+      "baseline_level": "B1",
+      "baseline_name": "stimulus_plus_fewshot_bias_shrink4",
+      "status": "GO_CONFIRMED_FEWSHOT_SUBJECT_CALIBRATION",
+      "rmse": 1.7338282485895926,
+      "how_to_use": "Few-shot subject calibration reference."
+    },
+    {
+      "target": "arousal",
+      "baseline_level": "B2_LOCKED",
+      "baseline_name": "kernel_residual_shrink4",
+      "status": "GO_CONFIRMED_MODEL_FAMILY_CALIBRATION",
+      "rmse": 1.6576672767528169,
+      "how_to_use": "Locked challenge baseline for future EEG/EMG or multimodal personalization claims."
+    },
+    {
+      "target": "valence",
+      "baseline_level": "B0",
+      "baseline_name": "stimulus_only",
+      "status": "historical_reference_only",
+      "rmse": 1.257773694673858,
+      "how_to_use": "Do not claim physiology success by beating this alone."
+    },
+    {
+      "target": "valence",
+      "baseline_level": "B1",
+      "baseline_name": "stimulus_plus_fewshot_bias_shrink4",
+      "status": "WEAK_GO_FEWSHOT_NEEDS_CAUTION",
+      "rmse": 1.2418476288448907,
+      "how_to_use": "Few-shot subject calibration reference."
+    },
+    {
+      "target": "valence",
+      "baseline_level": "B2_LOCKED",
+      "baseline_name": "kernel_residual_shrink4",
+      "status": "GO_CONFIRMED_MODEL_FAMILY_CALIBRATION",
+      "rmse": 1.1591886890005123,
+      "how_to_use": "Locked challenge baseline for future EEG/EMG or multimodal personalization claims."
+    }
+  ],
+  "physiology_challenge_matrix": [
+    {
+      "target": "arousal",
+      "challenge": "C1_physio_moderator_over_locked_baseline",
+      "required_comparator": "kernel_residual_shrink4",
+      "required_k": 16.0,
+      "minimum_evidence": "positive pooled RMSE lift + positive paired subject mean + CI low > 0 + signflip p < 0.05 + win margin > 3",
+      "success_interpretation": "EEG/EMG provides incremental personalization value beyond subject residual calibration.",
+      "failure_interpretation": "EEG/EMG does not add measurable value beyond the locked personalized baseline under this protocol."
+    },
+    {
+      "target": "arousal",
+      "challenge": "C2_reduce_calibration_samples",
+      "required_comparator": "kernel_residual_shrink4 at k=16",
+      "required_k": "1,2,4,8",
+      "minimum_evidence": "physiology-assisted model at smaller k matches or beats locked k=16 baseline with paired evidence",
+      "success_interpretation": "EEG/EMG is useful by lowering calibration burden.",
+      "failure_interpretation": "Personalization still depends mainly on explicit subject calibration samples."
+    },
+    {
+      "target": "arousal",
+      "challenge": "C3_rescue_failure_subjects",
+      "required_comparator": "kernel_residual_shrink4",
+      "required_k": 16.0,
+      "minimum_evidence": "improvement concentrated in locked-baseline failure subjects without pooled regression",
+      "success_interpretation": "EEG/EMG helps specific subjects even if global average lift is modest.",
+      "failure_interpretation": "Physiology features are not explaining current failure modes."
+    },
+    {
+      "target": "valence",
+      "challenge": "C1_physio_moderator_over_locked_baseline",
+      "required_comparator": "kernel_residual_shrink4",
+      "required_k": 16.0,
+      "minimum_evidence": "positive pooled RMSE lift + positive paired subject mean + CI low > 0 + signflip p < 0.05 + win margin > 3",
+      "success_interpretation": "EEG/EMG provides incremental personalization value beyond subject residual calibration.",
+      "failure_interpretation": "EEG/EMG does not add measurable value beyond the locked personalized baseline under this protocol."
+    },
+    {
+      "target": "valence",
+      "challenge": "C2_reduce_calibration_samples",
+      "required_comparator": "kernel_residual_shrink4 at k=16",
+      "required_k": "1,2,4,8",
+      "minimum_evidence": "physiology-assisted model at smaller k matches or beats locked k=16 baseline with paired evidence",
+      "success_interpretation": "EEG/EMG is useful by lowering calibration burden.",
+      "failure_interpretation": "Personalization still depends mainly on explicit subject calibration samples."
+    },
+    {
+      "target": "valence",
+      "challenge": "C3_rescue_failure_subjects",
+      "required_comparator": "kernel_residual_shrink4",
+      "required_k": 16.0,
+      "minimum_evidence": "improvement concentrated in locked-baseline failure subjects without pooled regression",
+      "success_interpretation": "EEG/EMG helps specific subjects even if global average lift is modest.",
+      "failure_interpretation": "Physiology features are not explaining current failure modes."
+    }
+  ],
+  "next_steps": [
+    {
+      "step": "05ah",
+      "title": "Physiology-informed personalization challenge",
+      "purpose": "Test whether EEG/EMG improves over the locked kernel_residual_shrink4 personalization baseline.",
+      "why_now": "05af confirms the personalization baseline; the next physiology test must be stricter and targeted.",
+      "success_condition": "EEG/EMG model beats locked B2 baseline with paired subject-level confirmatory evidence."
+    },
+    {
+      "step": "05ai",
+      "title": "Calibration-sample reduction audit",
+      "purpose": "Test whether EEG/EMG reduces required calibration samples, e.g. k=4 or k=8 matching k=16 personalization.",
+      "why_now": "Even if EEG/EMG does not improve final RMSE, it may be valuable if it reduces subject calibration burden.",
+      "success_condition": "Physiology-assisted lower-k model matches or beats locked k=16 baseline without subject-level instability."
+    },
+    {
+      "step": "05aj",
+      "title": "Failure-subject physiology rescue audit",
+      "purpose": "Focus on subjects where locked personalization still regresses and test whether physiology explains those failures.",
+      "why_now": "05af failure subjects define the most scientifically useful error surface.",
+      "success_condition": "Physiology improves failure-subject RMSE while preserving pooled and paired metrics."
+    }
+  ],
+  "evidence_rollup": [
+    {
+      "target": "arousal",
+      "subject_r2_on_residual": 0.2691764326977258,
+      "stimulus_r2_on_residual": 3.0973951039380484e-33,
+      "subject_split_half_pearson_median": 0.8478204734856847,
+      "zero_shot_best_candidate_pooled_lift": -0.002162873744826,
+      "fewshot_best_lift_vs_stimulus": 0.210978608650781,
+      "fewshot_mean_subject_improvement": 0.1949205839792886,
+      "phys_after_fewshot_best_lift": -0.0008021310689463,
+      "model_family_lift_vs_locked": 0.0766937994879697,
+      "model_family_ci95_low": 0.046819978646512,
+      "model_family_signflip_p": 4.999750012499375e-05,
+      "model_family_win_margin": 31.0,
+      "personalization_prior_decision": "PIVOT_TO_PERSONALIZATION_FEWSHOT",
+      "personalization_prior_fewshot_best_k": 16.0
+    },
+    {
+      "target": "valence",
+      "subject_r2_on_residual": 0.0927771611219026,
+      "stimulus_r2_on_residual": 7.448844407039957e-33,
+      "subject_split_half_pearson_median": 0.5493548399721158,
+      "zero_shot_best_candidate_pooled_lift": -0.0013784622270007,
+      "fewshot_best_lift_vs_stimulus": 0.0147426851516412,
+      "fewshot_mean_subject_improvement": 0.016498685123133,
+      "phys_after_fewshot_best_lift": -0.0011507356427034,
+      "model_family_lift_vs_locked": 0.086929271477254,
+      "model_family_ci95_low": 0.0567690454354153,
+      "model_family_signflip_p": 4.999750012499375e-05,
+      "model_family_win_margin": 23.0,
+      "personalization_prior_decision": "PIVOT_TO_PERSONALIZATION_FEWSHOT",
+      "personalization_prior_fewshot_best_k": 16.0
+    }
+  ],
+  "claim_lock": {
+    "current_scientific_direction": "Personalization-first emotion recognition with physiology as an incremental moderator/challenge, not as an unconstrained zero-shot decoder.",
+    "locked_baseline_for_future_physio_claims": "kernel_residual_shrink4 at k=16.",
+    "forbidden_claim": "Do not claim EEG/EMG success merely because it beats stimulus_only.",
+    "required_claim": "EEG/EMG must beat the locked personalized baseline or reduce calibration burden with paired subject-level evidence."
+  }
+}

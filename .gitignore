@@ -40,3 +40,12 @@ lightning_logs/
 .DS_Store
 .vscode/
 .idea/
+
+# Large generated 05aa prediction dump; regenerate locally if needed
+docs/roca/idare_fewshot_residual_calibration_audit_current_predictions.csv
+
+# Large generated 05ae fold summary; regenerate locally if needed
+docs/roca/idare_subject_calibration_model_family_comparison_current_fold_summary.csv
+
+# Large generated 05ae smoke prediction dump; regenerate locally if needed
+docs/roca/idare_subject_calibration_model_family_comparison_smoke_current_predictions.csv

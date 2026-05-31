@@ -1,0 +1,3 @@
+target,decision,best_model,best_k_calibration,best_lift_vs_stimulus_rmse,best_lift_vs_stimulus_residual_rmse,best_rmse,best_residual_rmse,rmse_win_margin,reason
+arousal,GO_FEWSHOT_SUBJECT_CALIBRATION,stimulus_plus_fewshot_bias_shrink4,16,0.210978608650781,0.210978608650781,1.7338282485895926,1.7338282485895926,17.0,few-shot subject bias beats stimulus-only in pooled and subject-level residual metrics
+valence,WEAK_GO_FEWSHOT_CALIBRATION_NEEDS_CONFIRMATION,stimulus_plus_fewshot_bias_shrink4,16,0.014742685151641233,0.014742685151641233,1.2418476288448907,1.2418476288448907,-15.0,few-shot calibration has positive pooled lift but does not meet practical margin

@@ -1,0 +1,5 @@
+target,axis,metric,splits,mean,std,q025,q25,median,q75,q975,positive_rate,used_in_verdict,note
+arousal,subject_bias_across_stimuli,pearson,5000,0.8410254291554147,0.042740353450516175,0.7410062634743544,0.8175412327058154,0.8478204734856847,0.8704983398831878,0.9046056580449359,1.0,True,Meaningful split-half reliability of subject residual bias across stimuli.
+arousal,subject_bias_across_stimuli,spearman,5000,0.7989900867239734,0.04991887355574788,0.6858936444922721,0.7706692286058804,0.8053883098267252,0.8335254334673601,0.8772819718934858,1.0,True,Meaningful split-half reliability of subject residual bias across stimuli.
+valence,subject_bias_across_stimuli,pearson,5000,0.5334581460083564,0.10000889413507849,0.28737122701836043,0.4818247895902309,0.5493548399721158,0.6021308349978061,0.6877397907161095,1.0,True,Meaningful split-half reliability of subject residual bias across stimuli.
+valence,subject_bias_across_stimuli,spearman,5000,0.5203949497956363,0.1050871568933727,0.2645761153842632,0.46547066667069936,0.536636904636282,0.5928484323115695,0.6825434714652754,0.9998,True,Meaningful split-half reliability of subject residual bias across stimuli.

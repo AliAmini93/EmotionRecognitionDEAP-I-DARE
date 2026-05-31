@@ -1,0 +1,392 @@
+{
+  "trial_index": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/.cache/idare_trial_index.csv",
+  "n_rows": 2016,
+  "n_subjects": 63,
+  "n_stimuli": 32,
+  "targets": {
+    "valence": {
+      "n": 2016,
+      "mean": 4.911210317460317,
+      "std": 2.5185275392908553,
+      "min": 1.0,
+      "max": 9.0,
+      "score_counts_1_to_9": {
+        "1": 283,
+        "2": 188,
+        "3": 155,
+        "4": 186,
+        "5": 349,
+        "6": 241,
+        "7": 247,
+        "8": 190,
+        "9": 177
+      },
+      "low_y_le_5": 1161,
+      "high_y_gt_5": 855,
+      "minority_rate": 0.42410714285714285,
+      "near_midpoint_4_5_6": 776,
+      "near_midpoint_rate": 0.38492063492063494,
+      "subject_mean_min": 4.0625,
+      "subject_mean_max": 6.0,
+      "subject_mean_std": 0.3800568962242884,
+      "stimulus_mean_std": 2.2277229096076816,
+      "mean_stimulus_std": 1.2347865800664604,
+      "top10_disagreement_by_std": [
+        {
+          "stimulus_id": "Lake_3",
+          "count": 63,
+          "mean": 6.190476190476191,
+          "std": 1.6150216502807555,
+          "high_rate": 0.6507936507936508,
+          "entropy_high_low": 0.6469539532366189
+        },
+        {
+          "stimulus_id": "8370",
+          "count": 63,
+          "mean": 6.555555555555555,
+          "std": 1.478641243951829,
+          "high_rate": 0.8095238095238095,
+          "entropy_high_low": 0.48691270946460224
+        },
+        {
+          "stimulus_id": "Tumor_1",
+          "count": 63,
+          "mean": 2.634920634920635,
+          "std": 1.4402238547059647,
+          "high_rate": 0.0,
+          "entropy_high_low": 0.0
+        },
+        {
+          "stimulus_id": "Yarn_1",
+          "count": 63,
+          "mean": 5.333333333333333,
+          "std": 1.3912166872805052,
+          "high_rate": 0.23809523809523808,
+          "entropy_high_low": 0.5488743844849944
+        },
+        {
+          "stimulus_id": "8492",
+          "count": 63,
+          "mean": 6.666666666666667,
+          "std": 1.3795745019576193,
+          "high_rate": 0.8095238095238095,
+          "entropy_high_low": 0.48691270946460224
+        },
+        {
+          "stimulus_id": "9360",
+          "count": 63,
+          "mean": 4.158730158730159,
+          "std": 1.370264269382643,
+          "high_rate": 0.07936507936507936,
+          "entropy_high_low": 0.27721592998101163
+        },
+        {
+          "stimulus_id": "Flowers_6",
+          "count": 63,
+          "mean": 6.73015873015873,
+          "std": 1.3702642693826428,
+          "high_rate": 0.7777777777777778,
+          "entropy_high_low": 0.5297061990576545
+        },
+        {
+          "stimulus_id": "8080",
+          "count": 63,
+          "mean": 5.841269841269841,
+          "std": 1.3584425285710913,
+          "high_rate": 0.5396825396825397,
+          "entropy_high_low": 0.6899944580334814
+        },
+        {
+          "stimulus_id": "2314",
+          "count": 63,
+          "mean": 7.174603174603175,
+          "std": 1.3385076251446626,
+          "high_rate": 0.873015873015873,
+          "entropy_high_low": 0.38061317843558684
+        },
+        {
+          "stimulus_id": "Garbage_dump_6",
+          "count": 63,
+          "mean": 2.9206349206349205,
+          "std": 1.3356354933210428,
+          "high_rate": 0.0,
+          "entropy_high_low": 0.0
+        }
+      ],
+      "top10_disagreement_by_entropy": [
+        {
+          "stimulus_id": "8080",
+          "count": 63,
+          "mean": 5.841269841269841,
+          "std": 1.3584425285710913,
+          "high_rate": 0.5396825396825397,
+          "entropy_high_low": 0.6899944580334814
+        },
+        {
+          "stimulus_id": "Pinecone_1",
+          "count": 63,
+          "mean": 5.634920634920635,
+          "std": 1.1259632048876553,
+          "high_rate": 0.4126984126984127,
+          "entropy_high_low": 0.6778256350201861
+        },
+        {
+          "stimulus_id": "Lake_3",
+          "count": 63,
+          "mean": 6.190476190476191,
+          "std": 1.6150216502807555,
+          "high_rate": 0.6507936507936508,
+          "entropy_high_low": 0.6469539532366189
+        },
+        {
+          "stimulus_id": "Snow_1",
+          "count": 63,
+          "mean": 6.396825396825397,
+          "std": 1.2513177897550651,
+          "high_rate": 0.6984126984126984,
+          "entropy_high_low": 0.6122032264460429
+        },
+        {
+          "stimulus_id": "4220",
+          "count": 63,
+          "mean": 6.412698412698413,
+          "std": 1.2653562629134192,
+          "high_rate": 0.746031746031746,
+          "entropy_high_low": 0.5666528718485286
+        },
+        {
+          "stimulus_id": "Yarn_1",
+          "count": 63,
+          "mean": 5.333333333333333,
+          "std": 1.3912166872805052,
+          "high_rate": 0.23809523809523808,
+          "entropy_high_low": 0.5488743844849944
+        },
+        {
+          "stimulus_id": "Flowers_6",
+          "count": 63,
+          "mean": 6.73015873015873,
+          "std": 1.3702642693826428,
+          "high_rate": 0.7777777777777778,
+          "entropy_high_low": 0.5297061990576545
+        },
+        {
+          "stimulus_id": "2491",
+          "count": 63,
+          "mean": 4.73015873015873,
+          "std": 1.0807158500697165,
+          "high_rate": 0.19047619047619047,
+          "entropy_high_low": 0.48691270946460224
+        },
+        {
+          "stimulus_id": "8492",
+          "count": 63,
+          "mean": 6.666666666666667,
+          "std": 1.3795745019576193,
+          "high_rate": 0.8095238095238095,
+          "entropy_high_low": 0.48691270946460224
+        },
+        {
+          "stimulus_id": "8370",
+          "count": 63,
+          "mean": 6.555555555555555,
+          "std": 1.478641243951829,
+          "high_rate": 0.8095238095238095,
+          "entropy_high_low": 0.48691270946460224
+        }
+      ]
+    },
+    "arousal": {
+      "n": 2016,
+      "mean": 4.308035714285714,
+      "std": 2.5152349511069065,
+      "min": 1.0,
+      "max": 9.0,
+      "score_counts_1_to_9": {
+        "1": 341,
+        "2": 294,
+        "3": 246,
+        "4": 231,
+        "5": 217,
+        "6": 206,
+        "7": 193,
+        "8": 170,
+        "9": 118
+      },
+      "low_y_le_5": 1329,
+      "high_y_gt_5": 687,
+      "minority_rate": 0.34077380952380953,
+      "near_midpoint_4_5_6": 654,
+      "near_midpoint_rate": 0.3244047619047619,
+      "subject_mean_min": 2.09375,
+      "subject_mean_max": 7.53125,
+      "subject_mean_std": 1.0006590750047697,
+      "stimulus_mean_std": 1.6577890468482899,
+      "mean_stimulus_std": 1.913552150136372,
+      "top10_disagreement_by_std": [
+        {
+          "stimulus_id": "Dog_6",
+          "count": 63,
+          "mean": 3.3492063492063493,
+          "std": 2.4505347024070017,
+          "high_rate": 0.1746031746031746,
+          "entropy_high_low": 0.4631105777087343
+        },
+        {
+          "stimulus_id": "8080",
+          "count": 63,
+          "mean": 4.809523809523809,
+          "std": 2.3407824915636777,
+          "high_rate": 0.42857142857142855,
+          "entropy_high_low": 0.6829081047004717
+        },
+        {
+          "stimulus_id": "Lake_12",
+          "count": 63,
+          "mean": 2.9047619047619047,
+          "std": 2.3397979352671006,
+          "high_rate": 0.1746031746031746,
+          "entropy_high_low": 0.4631105777087343
+        },
+        {
+          "stimulus_id": "8370",
+          "count": 63,
+          "mean": 5.650793650793651,
+          "std": 2.322114790852192,
+          "high_rate": 0.6349206349206349,
+          "entropy_high_low": 0.6562848036783915
+        },
+        {
+          "stimulus_id": "4220",
+          "count": 63,
+          "mean": 4.444444444444445,
+          "std": 2.277362493832594,
+          "high_rate": 0.42857142857142855,
+          "entropy_high_low": 0.6829081047004717
+        },
+        {
+          "stimulus_id": "8492",
+          "count": 63,
+          "mean": 5.9523809523809526,
+          "std": 2.217442376082012,
+          "high_rate": 0.6507936507936508,
+          "entropy_high_low": 0.6469539532366189
+        },
+        {
+          "stimulus_id": "Garbage_dump_6",
+          "count": 63,
+          "mean": 4.222222222222222,
+          "std": 2.1284891237262147,
+          "high_rate": 0.2857142857142857,
+          "entropy_high_low": 0.5982695885852573
+        },
+        {
+          "stimulus_id": "Dog_18",
+          "count": 63,
+          "mean": 3.5873015873015874,
+          "std": 2.0917265644632694,
+          "high_rate": 0.1746031746031746,
+          "entropy_high_low": 0.4631105777087343
+        },
+        {
+          "stimulus_id": "9220",
+          "count": 63,
+          "mean": 4.079365079365079,
+          "std": 2.050189505808822,
+          "high_rate": 0.20634920634920634,
+          "entropy_high_low": 0.5090792991152266
+        },
+        {
+          "stimulus_id": "Dummy_1",
+          "count": 63,
+          "mean": 6.571428571428571,
+          "std": 1.9976945237293537,
+          "high_rate": 0.6825396825396826,
+          "entropy_high_low": 0.6249402748692627
+        }
+      ],
+      "top10_disagreement_by_entropy": [
+        {
+          "stimulus_id": "8080",
+          "count": 63,
+          "mean": 4.809523809523809,
+          "std": 2.3407824915636777,
+          "high_rate": 0.42857142857142855,
+          "entropy_high_low": 0.6829081047004717
+        },
+        {
+          "stimulus_id": "4220",
+          "count": 63,
+          "mean": 4.444444444444445,
+          "std": 2.277362493832594,
+          "high_rate": 0.42857142857142855,
+          "entropy_high_low": 0.6829081047004717
+        },
+        {
+          "stimulus_id": "8370",
+          "count": 63,
+          "mean": 5.650793650793651,
+          "std": 2.322114790852192,
+          "high_rate": 0.6349206349206349,
+          "entropy_high_low": 0.6562848036783915
+        },
+        {
+          "stimulus_id": "8492",
+          "count": 63,
+          "mean": 5.9523809523809526,
+          "std": 2.217442376082012,
+          "high_rate": 0.6507936507936508,
+          "entropy_high_low": 0.6469539532366189
+        },
+        {
+          "stimulus_id": "Dog_26",
+          "count": 63,
+          "mean": 6.2063492063492065,
+          "std": 1.6959033196607811,
+          "high_rate": 0.6666666666666666,
+          "entropy_high_low": 0.6365141682948128
+        },
+        {
+          "stimulus_id": "Dummy_1",
+          "count": 63,
+          "mean": 6.571428571428571,
+          "std": 1.9976945237293537,
+          "high_rate": 0.6825396825396826,
+          "entropy_high_low": 0.6249402748692627
+        },
+        {
+          "stimulus_id": "3170",
+          "count": 63,
+          "mean": 6.603174603174603,
+          "std": 1.879770769652878,
+          "high_rate": 0.7142857142857143,
+          "entropy_high_low": 0.5982695885852573
+        },
+        {
+          "stimulus_id": "Miserable_pose_3",
+          "count": 63,
+          "mean": 6.317460317460317,
+          "std": 1.847626173834579,
+          "high_rate": 0.7142857142857143,
+          "entropy_high_low": 0.5982695885852573
+        },
+        {
+          "stimulus_id": "Garbage_dump_6",
+          "count": 63,
+          "mean": 4.222222222222222,
+          "std": 2.1284891237262147,
+          "high_rate": 0.2857142857142857,
+          "entropy_high_low": 0.5982695885852573
+        },
+        {
+          "stimulus_id": "3080",
+          "count": 63,
+          "mean": 6.825396825396825,
+          "std": 1.6900055596366133,
+          "high_rate": 0.7777777777777778,
+          "entropy_high_low": 0.5297061990576545
+        }
+      ]
+    }
+  }
+}

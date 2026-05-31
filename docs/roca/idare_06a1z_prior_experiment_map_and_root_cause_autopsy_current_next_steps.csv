@@ -1,0 +1,4 @@
+priority,step,title,purpose,success_condition
+1,06a3,Residual identifiability and label-noise bound,Formalize whether arousal/valence residuals have repeatable structure strong enough for physiology learning.,Shared residual reliability and oracle bounds justify another modeling step; otherwise stop blind deep search.
+2,06a4,Subject-normalization and domain-adaptation ablation,"Test whether per-subject EEG normalization, CORAL/MMD-style alignment, or k-shot context closes the 06a1x overlap-vs-LOSO gap.",LOSO high-disagreement arousal improves beyond fixed EEG-bandpower or cleanly explains why it cannot.
+3,06a5,Augmentation rerun under current residual gates,"Only if prior augmentation evidence looks real, rerun the best old augmentation under 05ajb/06a1y residual gates.",Augmentation beats zero residual and fixed EEG-bandpower under subject-held-out gates.

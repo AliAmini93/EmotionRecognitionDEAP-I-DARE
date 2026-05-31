@@ -1,0 +1,5 @@
+route,status,why,keep
+A_fixed_engineered_features_plus_linear_or_kernel_correction,CLOSED_OR_DEPRIORITIZED,"Zero-shot, after-fewshot, locked-baseline bridge, failure-subject rescue, and sample-reduction gates did not pass.",Use as historical baseline and sanity-check only.
+B_high_disagreement_arousal_detection,KEEP_AS_SIGNAL_SOURCE_NOT_DIRECT_CORRECTION,"Arousal high-disagreement EEG-bandpower passed confirmatory residual gates, but failed bridge/rescue/sample-reduction actionability.","Use for gating, uncertainty, curriculum, or targeted representation learning."
+C_learned_EEG_or_EMG_representations,NEXT_PRIMARY_ROUTE,The fixed-feature bottleneck is now the most plausible blocker after repeated no-go actionability audits.,Raw/time-frequency/self-supervised/contrastive subject-adaptive representation learning.
+D_cross_dataset_or_pretraining,SECONDARY_SUPPORTING_ROUTE,"DEAP has limited per-subject calibration data, so representation learning may need pretraining or external affective physiology data.","Pretrain on available EEG/EMG datasets, then evaluate under locked I-DARE gates."

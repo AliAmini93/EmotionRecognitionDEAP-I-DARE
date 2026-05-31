@@ -1,0 +1,5 @@
+target,reliability_item,mean_split_half_r,n_repeats,interpretation
+arousal,shared_stimulus_residual_pattern_across_subjects,-1.0,300,high means residual has cross-subject stimulus structure; low means residual is mostly idiosyncratic/noisy
+arousal,subject_style_pattern_across_stimulus_halves,0.8438509594661343,300,high means subject calibration can be structurally useful
+valence,shared_stimulus_residual_pattern_across_subjects,-1.0,300,high means residual has cross-subject stimulus structure; low means residual is mostly idiosyncratic/noisy
+valence,subject_style_pattern_across_stimulus_halves,0.5360778102873938,300,high means subject calibration can be structurally useful

@@ -1,0 +1,3 @@
+target,decision,best_model,best_k_calibration,best_rmse,best_lift_vs_stimulus_rmse,mean_subject_rmse_improvement,ci95_low_mean_subject_rmse_improvement,signflip_p_one_sided_mean_gt_zero,rmse_wins,rmse_losses,rmse_win_margin,reason
+arousal,WEAK_GO_FEWSHOT_NEEDS_CAUTION,stimulus_plus_fewshot_bias,16,1.7516664236906534,0.6508586882000227,0.632777814664877,0.24741912019452011,0.033193361327734455,5,3,2,win margin < 3
+valence,WEAK_GO_FEWSHOT_NEEDS_CAUTION,stimulus_plus_fewshot_bias_shrink4,16,1.2838485470789516,0.0090776547072548,0.005147884014679693,-0.026163727659838102,0.39172165566886624,4,4,0,pooled lift < 0.02; bootstrap CI lower bound is not > 0; sign-flip p is not < 0.05; win margin < 3

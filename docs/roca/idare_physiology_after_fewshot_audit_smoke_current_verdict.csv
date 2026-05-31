@@ -1,0 +1,3 @@
+target,decision,best_block,best_model,best_k_calibration,best_rmse,best_lift_vs_fewshot_rmse,rmse_win_margin_vs_fewshot,reason
+arousal,WEAK_GO_PHYSIOLOGY_AFTER_FEWSHOT_NEEDS_CONFIRMATION,emg_lagged_interaction_experimental,stimulus_plus_fewshot_bias_plus_physio,0,2.4177375101936502,0.08017828769332658,2.0,physiology has positive pooled lift beyond few-shot but subject-level margin or practical lift is weak
+valence,WEAK_GO_PHYSIOLOGY_AFTER_FEWSHOT_NEEDS_CONFIRMATION,eeg_entropy_complexity,stimulus_plus_fewshot_bias_shrink4_plus_physio,4,1.549039610505959,0.01878267415191681,2.0,physiology has positive pooled lift beyond few-shot but subject-level margin or practical lift is weak

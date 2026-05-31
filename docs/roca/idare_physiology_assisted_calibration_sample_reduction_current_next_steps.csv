@@ -1,0 +1,4 @@
+priority,step,title,purpose,success_condition
+1,05an,Representation-learning feasibility gate,Decide whether fixed engineered EEG/EMG features are exhausted and define raw/learned representation experiments.,A learned EEG/EMG representation beats fixed-feature physiology under the same locked gates.
+2,05ao,Targeted arousal high-disagreement gating refinement,Use the confirmed arousal EEG-bandpower high-disagreement signal as a risk/gating signal rather than direct additive correction.,A gating or uncertainty-aware model improves high-disagreement arousal without degrading locked personalization.
+3,05ap,Cross-dataset physiology representation sanity check,Check whether current DEAP fixed-feature bottleneck is dataset/representation-specific by using another affective physiology dataset if available.,Physiology representation transfers or pretrains into an improved residual/deviation predictor.

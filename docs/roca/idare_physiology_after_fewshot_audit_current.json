@@ -1,0 +1,151 @@
+{
+  "purpose": "Test whether physiology adds predictive value after stimulus-only plus few-shot subject residual calibration.",
+  "baseline": "stimulus_plus_fewshot_bias_shrink4",
+  "no_full_predictions_written_for_full_run": true,
+  "args": {
+    "targets": "valence,arousal",
+    "blocks": "emg_existing_22,emg_bsl_stats_22,eeg_entropy_complexity,eeg_bandpower,emg_lagged_interaction_experimental",
+    "k_values": "0,1,2,4,8,16",
+    "n_repeats": 100,
+    "seed": 20260529,
+    "max_subjects": null,
+    "alphas": "0.1,1,10,100,1000",
+    "shrink_lambda": 4.0,
+    "out_prefix": "idare_physiology_after_fewshot_audit_current"
+  },
+  "feature_manifest": [
+    {
+      "block": "emg_existing_22",
+      "shape": [
+        2016,
+        22
+      ],
+      "feature_dim": 22,
+      "feature_names_preview": [
+        "emg_existing_00",
+        "emg_existing_01",
+        "emg_existing_02",
+        "emg_existing_03",
+        "emg_existing_04",
+        "emg_existing_05",
+        "emg_existing_06",
+        "emg_existing_07",
+        "emg_existing_08",
+        "emg_existing_09"
+      ]
+    },
+    {
+      "block": "emg_bsl_stats_22",
+      "shape": [
+        2016,
+        22
+      ],
+      "feature_dim": 22,
+      "feature_names_preview": [
+        "emg_bsl_00",
+        "emg_bsl_01",
+        "emg_bsl_02",
+        "emg_bsl_03",
+        "emg_bsl_04",
+        "emg_bsl_05",
+        "emg_bsl_06",
+        "emg_bsl_07",
+        "emg_bsl_08",
+        "emg_bsl_09"
+      ]
+    },
+    {
+      "block": "eeg_entropy_complexity",
+      "shape": [
+        2016,
+        160
+      ],
+      "feature_dim": 160,
+      "feature_names_preview": [
+        "eeg_mean_ch00",
+        "eeg_mean_ch01",
+        "eeg_mean_ch02",
+        "eeg_mean_ch03",
+        "eeg_mean_ch04",
+        "eeg_mean_ch05",
+        "eeg_mean_ch06",
+        "eeg_mean_ch07",
+        "eeg_mean_ch08",
+        "eeg_mean_ch09"
+      ]
+    },
+    {
+      "block": "eeg_bandpower",
+      "shape": [
+        2016,
+        352
+      ],
+      "feature_dim": 352,
+      "feature_names_preview": [
+        "eeg_logbp_delta_ch00",
+        "eeg_logbp_delta_ch01",
+        "eeg_logbp_delta_ch02",
+        "eeg_logbp_delta_ch03",
+        "eeg_logbp_delta_ch04",
+        "eeg_logbp_delta_ch05",
+        "eeg_logbp_delta_ch06",
+        "eeg_logbp_delta_ch07",
+        "eeg_logbp_delta_ch08",
+        "eeg_logbp_delta_ch09"
+      ]
+    },
+    {
+      "block": "emg_lagged_interaction_experimental",
+      "shape": [
+        2016,
+        6
+      ],
+      "feature_dim": 6,
+      "feature_names_preview": [
+        "emg_lag_direction_diff_1",
+        "emg_lag_direction_diff_5",
+        "emg_lag_direction_diff_10",
+        "emg_lag_direction_diff_25",
+        "emg_lag_direction_diff_50",
+        "emg_madiff_channel0_minus_channel1"
+      ]
+    }
+  ],
+  "outputs": {
+    "md": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/idare_physiology_after_fewshot_audit_current.md",
+    "json": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/idare_physiology_after_fewshot_audit_current.json",
+    "main_metrics": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/idare_physiology_after_fewshot_audit_current_main_metrics.csv",
+    "binary_metrics": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/idare_physiology_after_fewshot_audit_current_binary_metrics.csv",
+    "subject_metrics": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/idare_physiology_after_fewshot_audit_current_subject_metrics.csv",
+    "subject_winloss": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/idare_physiology_after_fewshot_audit_current_subject_winloss.csv",
+    "fold_summary": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/idare_physiology_after_fewshot_audit_current_fold_summary.csv",
+    "verdict": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/idare_physiology_after_fewshot_audit_current_verdict.csv",
+    "best_ranking": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/idare_physiology_after_fewshot_audit_current_best_ranking.csv",
+    "predictions": null
+  },
+  "verdict": [
+    {
+      "target": "arousal",
+      "decision": "NO_GO_PHYSIOLOGY_AFTER_FEWSHOT",
+      "best_block": "emg_lagged_interaction_experimental",
+      "best_model": "stimulus_plus_fewshot_bias_shrink4_plus_physio",
+      "best_k_calibration": 16,
+      "best_rmse": 1.7356069481606573,
+      "best_lift_vs_fewshot_rmse": -0.0008021310689463323,
+      "rmse_win_margin_vs_fewshot": -5.0,
+      "reason": "physiology does not improve the few-shot calibrated baseline"
+    },
+    {
+      "target": "valence",
+      "decision": "NO_GO_PHYSIOLOGY_AFTER_FEWSHOT",
+      "best_block": "emg_lagged_interaction_experimental",
+      "best_model": "stimulus_plus_fewshot_bias_shrink4_plus_physio",
+      "best_k_calibration": 8,
+      "best_rmse": 1.256355909867456,
+      "best_lift_vs_fewshot_rmse": -0.0011507356427034043,
+      "rmse_win_margin_vs_fewshot": -23.0,
+      "reason": "physiology does not improve the few-shot calibrated baseline"
+    }
+  ],
+  "runtime_seconds": 1161.9371197223663
+}

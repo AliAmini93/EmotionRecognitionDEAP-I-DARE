@@ -1,0 +1,172 @@
+{
+  "title": "I-DARE LOSO generalization failure autopsy",
+  "inputs": {
+    "eeg_cache": ".cache/idare_eeg_windows_32x640_float32_baseline_corrected.npy",
+    "eeg_shape": [
+      2016,
+      32,
+      640
+    ],
+    "index": ".cache/idare_eeg_cache_index_baseline_corrected.csv",
+    "previous_deep_decision": "docs/roca/idare_06a1_previous_model_deep_residual_probe_current_decision_table.csv",
+    "reference_05ajb": "docs/roca/idare_high_disagreement_direct_deviation_confirmatory_stats_current_verdict.csv",
+    "target": "arousal",
+    "high_disagreement_threshold": 2.2096774193548385,
+    "high_disagreement_n": 508
+  },
+  "decision_table": [
+    {
+      "diagnostic_item": "previous_deep_model_result",
+      "finding": "PREVIOUS_DEEP_MODEL_UNDERPERFORMS_SIMPLE_FIXED_BANDPOWER_SIGNAL",
+      "key_number": -0.0563593661977988,
+      "interpretation": "The old deep EEGSegmentEncoder residual probe did not beat zero residual or the fixed EEG-bandpower high-disagreement reference.",
+      "action": "Do not continue blind architecture search on the same LOSO residual target."
+    },
+    {
+      "diagnostic_item": "random_vs_loso_split_control",
+      "finding": "MIXED_SPLIT_CONTROL_RESULT_REQUIRES_REVIEW",
+      "key_number": 0.036677532055723105,
+      "interpretation": "This checks whether residual predictability appears only when subjects overlap between train and test.",
+      "action": "If subject-overlap works but LOSO fails, prioritize domain adaptation/subject normalization; if both fail, prioritize representation/target audit."
+    },
+    {
+      "diagnostic_item": "residual_variance_structure",
+      "finding": "SUBJECT_STYLE_EXPLAINS_NONTRIVIAL_RESIDUAL_VARIANCE_CALIBRATION_IS_STRUCTURALLY_NEEDED",
+      "key_number": 0.26917643269772584,
+      "interpretation": "A large subject-mean residual component means physiology has to solve a subject-style/calibration problem, not just decode stimulus emotion.",
+      "action": "Keep B2 personalization as required baseline; use physiology only if it adds beyond subject calibration."
+    },
+    {
+      "diagnostic_item": "confirmed_positive_pocket",
+      "finding": "AROUSAL_HIGH_DISAGREEMENT_FIXED_EEG_BANDPOWER_SIGNAL_IS_REAL_BUT_WEAK",
+      "key_number": 0.0717248010176145,
+      "interpretation": "The positive pocket exists, but it has not bridged into global personalization or failure rescue.",
+      "action": "Use it as a diagnostic/gating signal, not yet as an additive correction."
+    }
+  ],
+  "split_control_metrics": [
+    {
+      "split": "random_trial_kfold_subjects_overlap",
+      "folds": 5,
+      "alpha": 100.0,
+      "n_all": 2016,
+      "n_high": 508,
+      "zero_rmse_all": 1.9442049821165959,
+      "model_rmse_all": 1.8528002671329027,
+      "lift_vs_zero_all": 0.09140471498369318,
+      "pearson_all": 0.31787705534298727,
+      "sign_acc_all": 0.6011904761904762,
+      "zero_rmse_high": 3.24013921212341,
+      "model_rmse_high": 2.9060517852527568,
+      "lift_vs_zero_high": 0.3340874268706533,
+      "pearson_high": 0.49844014003358694,
+      "sign_acc_high": 0.7086614173228346
+    },
+    {
+      "split": "within_subject_trial_kfold_subjects_overlap",
+      "folds": 5,
+      "alpha": 100.0,
+      "n_all": 2016,
+      "n_high": 508,
+      "zero_rmse_all": 1.9442049821165959,
+      "model_rmse_all": 1.8552230998368562,
+      "lift_vs_zero_all": 0.08898188227973969,
+      "pearson_all": 0.3139342359808231,
+      "sign_acc_all": 0.6041666666666666,
+      "zero_rmse_high": 3.24013921212341,
+      "model_rmse_high": 2.9113086241178903,
+      "lift_vs_zero_high": 0.3288305880055198,
+      "pearson_high": 0.4955797653485486,
+      "sign_acc_high": 0.7165354330708661
+    },
+    {
+      "split": "loso_leave_one_subject_out",
+      "folds": 63,
+      "alpha": 100.0,
+      "n_all": 2016,
+      "n_high": 508,
+      "zero_rmse_all": 1.9442049821165959,
+      "model_rmse_all": 2.0921499199097537,
+      "lift_vs_zero_all": -0.14794493779315787,
+      "pearson_all": 0.07501795060779307,
+      "sign_acc_all": 0.5138888888888888,
+      "zero_rmse_high": 3.24013921212341,
+      "model_rmse_high": 3.203461680067687,
+      "lift_vs_zero_high": 0.036677532055723105,
+      "pearson_high": 0.16671402169245753,
+      "sign_acc_high": 0.5748031496062992
+    },
+    {
+      "split": "leave_one_stimulus_out",
+      "folds": 32,
+      "alpha": 100.0,
+      "n_all": 2016,
+      "n_high": 508,
+      "zero_rmse_all": 1.9442049821165959,
+      "model_rmse_all": 1.840627275465206,
+      "lift_vs_zero_all": 0.10357770665138988,
+      "pearson_all": 0.3314967488548209,
+      "sign_acc_all": 0.6021825396825397,
+      "zero_rmse_high": 3.24013921212341,
+      "model_rmse_high": 2.888017324828847,
+      "lift_vs_zero_high": 0.35212188729456306,
+      "pearson_high": 0.515764905005815,
+      "sign_acc_high": 0.7283464566929134
+    }
+  ],
+  "residual_variance_decomposition": [
+    {
+      "quantity": "raw_rating_total",
+      "variance": 6.323268760629253,
+      "proportion_of_total": 1.0
+    },
+    {
+      "quantity": "raw_rating_subject_mean_component",
+      "variance": 0.985424638605442,
+      "proportion_of_total": 0.15584101766178585
+    },
+    {
+      "quantity": "raw_rating_stimulus_mean_component",
+      "variance": 2.6623812574798436,
+      "proportion_of_total": 0.4210450889034961
+    },
+    {
+      "quantity": "leave_subject_out_deviation_total",
+      "variance": 3.779933012486993,
+      "proportion_of_total": 1.0
+    },
+    {
+      "quantity": "deviation_subject_mean_component",
+      "variance": 1.0174688841376172,
+      "proportion_of_total": 0.26917643269772584
+    },
+    {
+      "quantity": "deviation_stimulus_mean_component",
+      "variance": 1.1664274125265904e-32,
+      "proportion_of_total": 3.0858414915642746e-33
+    }
+  ],
+  "next_steps": [
+    {
+      "priority": 1,
+      "step": "06a1y",
+      "title": "Split-control learning probe",
+      "purpose": "Train the same lightweight model under random/within-subject/LOSO splits to isolate whether the failure is subject shift or weak signal.",
+      "success_condition": "Subject-overlap success plus LOSO failure proves generalization/domain shift; failure in all splits points to representation/target weakness."
+    },
+    {
+      "priority": 2,
+      "step": "06a2",
+      "title": "Subject-adaptive residual representation",
+      "purpose": "If split controls show subject shift, add explicit subject adaptation rather than larger generic CNNs.",
+      "success_condition": "Improves beyond B2 locked or matches B2 with fewer calibration samples under paired subject gates."
+    },
+    {
+      "priority": 3,
+      "step": "06a3",
+      "title": "Residual identifiability and label-noise bound",
+      "purpose": "Quantify whether single-trial subjective residuals have enough repeatable structure to support learning.",
+      "success_condition": "A clear upper bound explains whether more model capacity can realistically help."
+    }
+  ]
+}

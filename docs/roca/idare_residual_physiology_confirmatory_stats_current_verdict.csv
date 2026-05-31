@@ -1,0 +1,3 @@
+target,confirmatory_verdict,best_candidate_model,best_candidate_pooled_lift_vs_stimulus_rmse,criterion
+arousal,NO_GO_CONFIRMED_CURRENT_FEATURE_SET,physio_eeg_entropy_complexity_ridge,-0.002162873744826,"requires positive paired subject-level RMSE and dev-RMSE improvement, bootstrap CI lower bound > 0, sign-flip p < 0.05, win margin > 3, and pooled RMSE lift >= 0.02"
+valence,NO_GO_CONFIRMED_CURRENT_FEATURE_SET,physio_emg_lagged_interaction_experimental_ridge,-0.0013784622270007,"requires positive paired subject-level RMSE and dev-RMSE improvement, bootstrap CI lower bound > 0, sign-flip p < 0.05, win margin > 3, and pooled RMSE lift >= 0.02"

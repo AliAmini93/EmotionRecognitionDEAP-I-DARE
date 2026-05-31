@@ -1,0 +1,3 @@
+target,decision,best_model,best_k_calibration,best_rmse,best_lift_vs_stimulus_rmse,mean_subject_rmse_improvement,ci95_low_mean_subject_rmse_improvement,signflip_p_one_sided_mean_gt_zero,rmse_wins,rmse_losses,rmse_win_margin,reason
+arousal,GO_CONFIRMED_FEWSHOT_SUBJECT_CALIBRATION,stimulus_plus_fewshot_bias_shrink4,16,1.7338282485895926,0.210978608650781,0.1949205839792886,0.11075189387299318,4.999750012499375e-05,37,26,11,"pooled lift, paired subject improvement, bootstrap CI, sign-flip test, and win margin all pass"
+valence,WEAK_GO_FEWSHOT_NEEDS_CAUTION,stimulus_plus_fewshot_bias_shrink4,16,1.2418476288448907,0.0147426851516412,0.016498685123133006,-0.0010303550487346198,0.04414779261036948,27,36,-9,pooled lift < 0.02; bootstrap CI lower bound is not > 0; win margin < 3

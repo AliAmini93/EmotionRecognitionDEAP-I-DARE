@@ -1,0 +1,193 @@
+{
+  "title": "I-DARE residual signal reliability audit",
+  "patched_interpretation": {
+    "stimulus_split_half_status": "not used",
+    "reason": "LOSO stimulus residuals are centered by stimulus. Split-subject per-stimulus residual correlations can show algebraic anti-correlation and are not scientific reliability evidence.",
+    "main_claim": "Residual structure is mostly subject-specific. Current EEG/EMG feature blocks remain no-go for zero-shot LOSO, but few-shot subject calibration is plausible."
+  },
+  "inputs": {
+    "trial_index": ".cache/idare_trial_index.csv",
+    "confirmatory_verdict": "docs/roca/idare_residual_physiology_confirmatory_stats_current_verdict.csv",
+    "n_splits": 5000,
+    "seed": 20260516
+  },
+  "outputs": {
+    "md": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/idare_residual_signal_reliability_audit_current.md",
+    "json": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/idare_residual_signal_reliability_audit_current.json",
+    "residual_predictions": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/idare_residual_signal_reliability_audit_current_residual_predictions.csv",
+    "residual_summary": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/idare_residual_signal_reliability_audit_current_residual_summary.csv",
+    "residual_effects": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/idare_residual_signal_reliability_audit_current_residual_effects.csv",
+    "split_half_raw": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/idare_residual_signal_reliability_audit_current_split_half_raw.csv",
+    "split_half_reliability": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/idare_residual_signal_reliability_audit_current_split_half_reliability.csv",
+    "artifact_checks": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/idare_residual_signal_reliability_audit_current_artifact_checks.csv",
+    "subject_residual_profile": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/idare_residual_signal_reliability_audit_current_subject_residual_profile.csv",
+    "stimulus_residual_profile": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/idare_residual_signal_reliability_audit_current_stimulus_residual_profile.csv",
+    "verdict": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/idare_residual_signal_reliability_audit_current_verdict.csv"
+  },
+  "verdict": [
+    {
+      "target": "arousal",
+      "residual_signal_verdict": "SUBJECT_STRUCTURED_RESIDUAL_PRESENT__ZERO_SHOT_PHYSIOLOGY_NO_GO__FEW_SHOT_RECOMMENDED",
+      "confirmatory_physiology_verdict": "NO_GO_CONFIRMED_CURRENT_FEATURE_SET",
+      "residual_std": 1.9442049821165959,
+      "subject_r2_on_residual": 0.26917643269772584,
+      "stimulus_r2_on_residual": 3.0973951039380484e-33,
+      "additive_subject_stimulus_r2_on_residual": 0.26917643269772584,
+      "subject_split_half_pearson_median": 0.8478204734856847,
+      "subject_split_half_pearson_q025": 0.7410062634743544,
+      "stimulus_split_half_status": "NOT_USED_ARTIFACT_UNDER_LOSO_RESIDUAL_DEFINITION",
+      "stimulus_split_half_artifact_note": "Splitting subjects and correlating per-stimulus residual means is not used; LOSO stimulus residuals are algebraically centered within stimulus and can induce anti-correlation.",
+      "few_shot_or_subject_calibration_plausible": true,
+      "stimulus_residual_structure_plausible": false,
+      "interpretation": "Residual is reliable mainly as subject-specific bias/profile across stimuli. The current physiology feature audit remains no-go for zero-shot LOSO, but few-shot subject calibration is scientifically plausible."
+    },
+    {
+      "target": "valence",
+      "residual_signal_verdict": "SUBJECT_STRUCTURED_RESIDUAL_PRESENT__ZERO_SHOT_PHYSIOLOGY_NO_GO__FEW_SHOT_RECOMMENDED",
+      "confirmatory_physiology_verdict": "NO_GO_CONFIRMED_CURRENT_FEATURE_SET",
+      "residual_std": 1.257773694673858,
+      "subject_r2_on_residual": 0.09277716112190261,
+      "stimulus_r2_on_residual": 7.448844407039957e-33,
+      "additive_subject_stimulus_r2_on_residual": 0.09277716112190237,
+      "subject_split_half_pearson_median": 0.5493548399721158,
+      "subject_split_half_pearson_q025": 0.28737122701836043,
+      "stimulus_split_half_status": "NOT_USED_ARTIFACT_UNDER_LOSO_RESIDUAL_DEFINITION",
+      "stimulus_split_half_artifact_note": "Splitting subjects and correlating per-stimulus residual means is not used; LOSO stimulus residuals are algebraically centered within stimulus and can induce anti-correlation.",
+      "few_shot_or_subject_calibration_plausible": true,
+      "stimulus_residual_structure_plausible": false,
+      "interpretation": "Residual is reliable mainly as subject-specific bias/profile across stimuli. The current physiology feature audit remains no-go for zero-shot LOSO, but few-shot subject calibration is scientifically plausible."
+    }
+  ],
+  "residual_summary": [
+    {
+      "target": "arousal",
+      "n": 2016,
+      "mean": -1.409807015397024e-17,
+      "std": 1.9442049821165959,
+      "median": -0.19354838709677402,
+      "q25": -1.435483870967742,
+      "q75": 1.419354838709677,
+      "iqr": 2.854838709677419,
+      "mad": 1.3709677419354835,
+      "scaled_mad": 2.032596774193548,
+      "mean_abs": 1.5799251152073732,
+      "median_abs": 1.4274193548387095,
+      "q90_abs": 3.0,
+      "q95_abs": 3.8225806451612905,
+      "skew": 0.3470022368187549,
+      "kurtosis_excess": -0.08082549512908255,
+      "outlier_rate_3mad": 0.001984126984126984,
+      "positive_rate": 0.46378968253968256,
+      "negative_rate": 0.5362103174603174
+    },
+    {
+      "target": "valence",
+      "n": 2016,
+      "mean": -1.409807015397024e-17,
+      "std": 1.257773694673858,
+      "median": -0.16129032258064502,
+      "q25": -0.7741935483870968,
+      "q75": 0.854838709677419,
+      "iqr": 1.6290322580645158,
+      "mad": 0.774193548387097,
+      "scaled_mad": 1.14781935483871,
+      "mean_abs": 1.02206541218638,
+      "median_abs": 0.8225806451612903,
+      "q90_abs": 1.9112903225806452,
+      "q95_abs": 2.403225806451613,
+      "skew": 0.03669884927118261,
+      "kurtosis_excess": 0.10766581235595662,
+      "outlier_rate_3mad": 0.00992063492063492,
+      "positive_rate": 0.4851190476190476,
+      "negative_rate": 0.5148809523809523
+    }
+  ],
+  "residual_effects": [
+    {
+      "target": "arousal",
+      "subject_r2_on_residual": 0.26917643269772584,
+      "stimulus_r2_on_residual": 3.0973951039380484e-33,
+      "subject_plus_stimulus_r2_on_residual": 0.26917643269772584,
+      "unique_subject_r2_over_stimulus": 0.26917643269772584,
+      "unique_stimulus_r2_over_subject": 0.0,
+      "additive_design_rank": 94,
+      "additive_design_cols": 95
+    },
+    {
+      "target": "valence",
+      "subject_r2_on_residual": 0.09277716112190261,
+      "stimulus_r2_on_residual": 7.448844407039957e-33,
+      "subject_plus_stimulus_r2_on_residual": 0.09277716112190237,
+      "unique_subject_r2_over_stimulus": 0.09277716112190237,
+      "unique_stimulus_r2_over_subject": -2.3592239273284576e-16,
+      "additive_design_rank": 94,
+      "additive_design_cols": 95
+    }
+  ],
+  "split_half_reliability": [
+    {
+      "target": "arousal",
+      "axis": "subject_bias_across_stimuli",
+      "metric": "pearson",
+      "splits": 5000,
+      "mean": 0.8410254291554147,
+      "std": 0.042740353450516175,
+      "q025": 0.7410062634743544,
+      "q25": 0.8175412327058154,
+      "median": 0.8478204734856847,
+      "q75": 0.8704983398831878,
+      "q975": 0.9046056580449359,
+      "positive_rate": 1.0,
+      "used_in_verdict": true,
+      "note": "Meaningful split-half reliability of subject residual bias across stimuli."
+    },
+    {
+      "target": "arousal",
+      "axis": "subject_bias_across_stimuli",
+      "metric": "spearman",
+      "splits": 5000,
+      "mean": 0.7989900867239734,
+      "std": 0.04991887355574788,
+      "q025": 0.6858936444922721,
+      "q25": 0.7706692286058804,
+      "median": 0.8053883098267252,
+      "q75": 0.8335254334673601,
+      "q975": 0.8772819718934858,
+      "positive_rate": 1.0,
+      "used_in_verdict": true,
+      "note": "Meaningful split-half reliability of subject residual bias across stimuli."
+    },
+    {
+      "target": "valence",
+      "axis": "subject_bias_across_stimuli",
+      "metric": "pearson",
+      "splits": 5000,
+      "mean": 0.5334581460083564,
+      "std": 0.10000889413507849,
+      "q025": 0.28737122701836043,
+      "q25": 0.4818247895902309,
+      "median": 0.5493548399721158,
+      "q75": 0.6021308349978061,
+      "q975": 0.6877397907161095,
+      "positive_rate": 1.0,
+      "used_in_verdict": true,
+      "note": "Meaningful split-half reliability of subject residual bias across stimuli."
+    },
+    {
+      "target": "valence",
+      "axis": "subject_bias_across_stimuli",
+      "metric": "spearman",
+      "splits": 5000,
+      "mean": 0.5203949497956363,
+      "std": 0.1050871568933727,
+      "q025": 0.2645761153842632,
+      "q25": 0.46547066667069936,
+      "median": 0.536636904636282,
+      "q75": 0.5928484323115695,
+      "q975": 0.6825434714652754,
+      "positive_rate": 0.9998,
+      "used_in_verdict": true,
+      "note": "Meaningful split-half reliability of subject residual bias across stimuli."
+    }
+  ]
+}

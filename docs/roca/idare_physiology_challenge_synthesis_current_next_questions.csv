@@ -1,0 +1,5 @@
+priority,question,audit,purpose,success_condition
+1,Can physiology predict individual deviation directly?,direct_deviation_predictability_audit,"Model rating - stimulus_mean directly, especially on high-disagreement stimuli.",EEG/EMG or EEG+EMG predicts deviation above locked non-physiology baselines with paired subject-level support.
+2,Can physiology reduce calibration burden?,calibration_sample_reduction_challenge,Test whether physiology-assisted k=4 or k=8 can match locked k=16 personalization.,Lower-k physiology-assisted model matches or beats B2 locked k=16 without subject-level instability.
+3,Can physiology rescue failure subjects?,failure_subject_physiology_rescue,Focus on subjects where locked personalization still regresses.,Physiology improves failure-subject RMSE while preserving pooled metrics.
+4,Are current hand-crafted EEG/EMG features the bottleneck?,representation_learning_plan,"If direct deviation remains no-go, move from fixed features to learned representations.",Feature-learning method beats fixed-feature physiology against the locked challenge baseline.

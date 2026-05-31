@@ -1,0 +1,4 @@
+priority,step,title,purpose,success_condition
+1,06a5,Augmentation rerun under current residual locked gates,"Only rerun prior augmentation if it can be compared to zero, fixed EEG-bandpower, and locked B2 under the current arousal high-disagreement residual protocol.",Augmentation beats fixed EEG-bandpower and locked B2 by practical paired gates.
+2,06a6,Neural pipeline anchor against fixed EEG-bandpower,"Before any larger deep model, force the neural route to reproduce the simple fixed EEG-bandpower signal.",Neural or hybrid model matches/exceeds fixed EEG-bandpower under pure LOSO without k-shot labels.
+3,paper_note,Calibration-dominant negative-result framing,"If neither augmentation nor neural anchor helps, finalize the finding that physiology residual decoding is mostly subject calibration under LOSO.",A defensible paper section explaining why generic deep LOSO failed and why personalization/calibration is necessary.
