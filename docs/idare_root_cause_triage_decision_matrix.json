@@ -1,0 +1,82 @@
+{
+  "forbidden_scope_touched": false,
+  "generated_at_utc": "2026-05-12T09:37:03.331766+00:00",
+  "new_operating_point_claim": false,
+  "primary_recommendation": "A+B first; treat D as mechanism; defer C; keep E as fallback",
+  "rows": [
+    {
+      "classification": "PRIMARY_RECOMMENDED",
+      "code": "A",
+      "confidence": "high",
+      "contradicting_evidence": [
+        "within-subject signal exists, so labels are not entirely empty"
+      ],
+      "direction": "label/task redesign as primary",
+      "recommended_next_control_decision": "authorize label/task redesign design only, not training",
+      "supporting_evidence": [
+        "label/task sanity remains a primary risk",
+        "subject-conditioned label tendencies can explain fold instability",
+        "binary affect targets should be redesigned or stress-tested before more modeling"
+      ]
+    },
+    {
+      "classification": "PRIMARY_RECOMMENDED",
+      "code": "B",
+      "confidence": "high",
+      "contradicting_evidence": [
+        "strict protocol is scientifically valid, but may not match prior paper claims"
+      ],
+      "direction": "evaluation/protocol reconciliation as primary",
+      "recommended_next_control_decision": "authorize protocol reconciliation documentation only",
+      "supporting_evidence": [
+        "locked held-out-subject protocol must be reconciled with I-DARE source protocol",
+        "misaligned protocol can make further representation work misleading"
+      ]
+    },
+    {
+      "classification": "NOT_PRIMARY_NOW",
+      "code": "C",
+      "confidence": "medium",
+      "contradicting_evidence": [
+        "R3 confirmation failed",
+        "R2 remains weak",
+        "representation v2 risks noise chasing before A/B are resolved"
+      ],
+      "direction": "representation redesign v2 as primary",
+      "recommended_next_control_decision": "defer representation redesign v2 until label/protocol reconciliation",
+      "supporting_evidence": [
+        "representation failure is real",
+        "R3 smoke showed one fragile moderate pass"
+      ]
+    },
+    {
+      "classification": "MECHANISM_PRIMARY_BUT_EXECUTION_DEFERRED",
+      "code": "D",
+      "confidence": "medium_high",
+      "contradicting_evidence": [
+        "DG execution is premature until label and protocol targets are verified"
+      ],
+      "direction": "subject/domain-generalization as primary",
+      "recommended_next_control_decision": "do not authorize DG execution yet",
+      "supporting_evidence": [
+        "subject-domain shift is the strongest mechanistic explanation",
+        "within-subject signal with cross-subject collapse indicates subject-dominated geometry"
+      ]
+    },
+    {
+      "classification": "CONTINGENT_FALLBACK",
+      "code": "E",
+      "confidence": "medium",
+      "contradicting_evidence": [
+        "label/task and protocol redesign may still salvage a defensible formulation"
+      ],
+      "direction": "stop/pivot away from current I-DARE cross-subject formulation",
+      "recommended_next_control_decision": "keep stop/pivot available if A/B reconciliation fails",
+      "supporting_evidence": [
+        "no robust cross-subject operating point has been found",
+        "strict NTD and representation confirmation did not rescue the formulation"
+      ]
+    }
+  ],
+  "status": "completed"
+}
