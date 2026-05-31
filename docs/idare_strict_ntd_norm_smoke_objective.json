@@ -1,0 +1,58 @@
+{
+  "status": "guarded_objective_created_not_executed",
+  "human_approval_phrase_issued_in_chat": "APPROVE_STRICT_NTD_NORM_SMOKE_EXECUTION",
+  "execution_started": false,
+  "scope": {
+    "dataset": "I-DARE only",
+    "modality": "EEG-only",
+    "task": "arousal-only",
+    "formulation": "within_subject_pairwise_affect_preference_ranking_v1",
+    "readout": "fixed ridge",
+    "normalization": "strict non-transductive only"
+  },
+  "default_inputs": {
+    "cache_npy": ".cache/idare_eeg_windows_32x640_float32_baseline_corrected.npy",
+    "cache_index": ".cache/idare_eeg_cache_index_baseline_corrected.csv"
+  },
+  "cells": [
+    {
+      "cell": "S0",
+      "name": "current_no_additional_normalization",
+      "fit_rule": "no fitted transform"
+    },
+    {
+      "cell": "S1",
+      "name": "train_fold_standard_scaler",
+      "fit_rule": "fit mean/std on training subjects only"
+    },
+    {
+      "cell": "S2",
+      "name": "train_fold_robust_scaler",
+      "fit_rule": "fit median/IQR on training subjects only"
+    },
+    {
+      "cell": "S3",
+      "name": "train_fold_frozen_quantile_rank_mapper",
+      "fit_rule": "fit empirical per-feature rank map on training subjects only"
+    }
+  ],
+  "folds": 6,
+  "planned_runs": 24,
+  "leakage_rules": [
+    "all fitted statistics must use training subjects only",
+    "no held-out/test-subject feature statistics",
+    "no test labels in transform/model selection",
+    "no global scaler",
+    "no per-test-subject normalization",
+    "no target-domain adaptation",
+    "no threshold tuning on test folds"
+  ],
+  "allowed_file_prefix": "idare_strict_ntd_norm_smoke_",
+  "runner": "scripts/idare_strict_ntd_norm_smoke_runner.py",
+  "planned_outputs_after_separate_execution": [
+    "docs/idare_strict_ntd_norm_smoke_report.md",
+    "docs/idare_strict_ntd_norm_smoke_report.json",
+    "docs/idare_strict_ntd_norm_smoke_runs.csv"
+  ],
+  "current_step_boundary": "create objective and guarded runner only; do not execute smoke"
+}
