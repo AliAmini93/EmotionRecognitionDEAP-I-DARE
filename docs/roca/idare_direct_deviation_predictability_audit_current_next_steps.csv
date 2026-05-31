@@ -1,4 +1,0 @@
-priority,step,title,purpose,success_condition
-1,05aj,High-disagreement direct deviation challenge,"Restrict or weight samples where subjects disagree most with stimulus mean, then test EEG/EMG residual prediction.","Positive residual RMSE lift, positive paired subject statistics, and stable win margin."
-2,05ak,Representation-learning feasibility plan,Move beyond fixed engineered EEG/EMG features if direct deviation remains no-go.,Learned EEG/EMG representation beats fixed-feature residual models under locked evaluation.
-3,05al,Failure-subject physiology rescue,Test whether physiology helps only where locked personalization fails.,Improves failure-subject RMSE without harming pooled or paired metrics.

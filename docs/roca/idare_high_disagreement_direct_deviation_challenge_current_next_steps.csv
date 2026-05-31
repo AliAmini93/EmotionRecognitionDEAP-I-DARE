@@ -1,4 +1,0 @@
-priority,step,title,purpose,success_condition
-1,05ak,Representation-learning feasibility plan,"If high-disagreement residuals still do not pass, move beyond fixed engineered EEG/EMG features.",Learned EEG/EMG representations beat fixed-feature residual models under the locked evaluation.
-2,05al,Failure-subject physiology rescue,Test whether physiology helps only for subjects where locked personalization still regresses.,Improves failure-subject RMSE without harming pooled or paired metrics.
-3,05am,Physiology-assisted calibration sample reduction,Test if physiology can reduce k even when it cannot beat the k=16 locked model.,Physiology-assisted lower-k model matches the locked k=16 baseline with subject-level stability.

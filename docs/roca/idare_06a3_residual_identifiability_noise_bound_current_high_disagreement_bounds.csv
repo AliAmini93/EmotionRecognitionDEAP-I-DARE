@@ -1,3 +1,0 @@
-target,abs_residual_threshold,n_high,zero_rmse_high,subject_style_split_half_mean_r_high,shared_stimulus_residual_split_half_mean_r_high,interpretation
-arousal,2.2096774193548385,508,3.24013921212341,0.7812443317771156,0.8751509512146085,high-disagreement subset has enough rows for targeted analysis
-valence,1.435483870967742,505,2.1186046331336152,0.39829189564763073,0.7627248397441191,high-disagreement subset has enough rows for targeted analysis

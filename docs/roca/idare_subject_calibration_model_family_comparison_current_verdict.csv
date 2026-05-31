@@ -1,3 +1,0 @@
-target,decision,best_candidate_model,best_k_calibration,best_rmse,locked_reference_model,locked_reference_rmse,best_lift_vs_locked_reference_rmse,rmse_win_margin_vs_locked,mean_delta_rmse_model_minus_locked,reason
-arousal,GO_MODEL_FAMILY_BEATS_LOCKED_FEWSHOT,kernel_residual_shrink4,16,1.6576672767528167,bias_shrink4,1.7343610762407864,0.07669379948796973,31.0,-0.076916128845504,candidate beats locked few-shot baseline in pooled and subject-level metrics
-valence,GO_MODEL_FAMILY_BEATS_LOCKED_FEWSHOT,kernel_residual_shrink4,16,1.1591886890005123,bias_shrink4,1.2461179604777664,0.08692927147725404,23.0,-0.09141381954888458,candidate beats locked few-shot baseline in pooled and subject-level metrics

@@ -1,4 +1,0 @@
-priority,step,title,purpose,success_condition
-1,05am,Physiology-assisted calibration sample reduction,Test whether physiology can reduce calibration samples even if it cannot beat the locked k=16 personalization model.,A lower-k physiology-assisted model matches locked k=16 RMSE with stable paired subject evidence.
-2,05an,Representation-learning feasibility gate,Move beyond fixed engineered EEG/EMG features if failure-subject rescue remains no-go.,Learned EEG/EMG representations beat fixed-feature physiology under the same locked gates.
-3,05ao,Targeted arousal high-disagreement model refinement,Use the confirmed arousal high-disagreement EEG-bandpower signal as a detection/triage signal rather than a direct additive correction.,A gating or uncertainty-aware model improves high-disagreement arousal without degrading locked personalization.

@@ -1,3 +1,0 @@
-target,subject_r2_on_residual,stimulus_r2_on_residual,subject_split_half_pearson_median,subject_split_half_pearson_q025,fewshot_best_model,fewshot_best_k,fewshot_lift_vs_stimulus_rmse,fewshot_rmse_win_margin,phys_after_fewshot_best_block,phys_after_fewshot_best_k,phys_after_fewshot_lift_vs_fewshot_rmse,phys_after_fewshot_win_margin
-arousal,0.2691764326977258,3.0973951039380484e-33,0.8478204734856847,0.7410062634743544,stimulus_plus_fewshot_bias_shrink4,16.0,0.210978608650781,17.0,emg_lagged_interaction_experimental,16.0,-0.0008021310689463,-5.0
-valence,0.0927771611219026,7.448844407039957e-33,0.5493548399721158,0.2873712270183604,stimulus_plus_fewshot_bias_shrink4,16.0,0.0147426851516412,-15.0,emg_lagged_interaction_experimental,8.0,-0.0011507356427034,-23.0

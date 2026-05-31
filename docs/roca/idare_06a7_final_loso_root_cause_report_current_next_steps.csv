@@ -1,4 +1,0 @@
-priority,step,title,purpose,success_condition
-1,paper_note,Write calibration-dominant negative-result section,Turn the ROCA evidence into a defensible project conclusion instead of running more blind models.,The manuscript/report separates old oracle/overlap gains from locked LOSO residual evidence.
-2,optional_06a8,Only if needed: explicit personalized/calibrated formulation,"If the project needs a positive model, change the task to include allowed calibration context rather than pretending global LOSO residual decoding works.",Model is evaluated against locked B2 and reports calibration budget honestly.
-3,archive,Archive failed global residual routes,Prevent repeated re-running of augmentation/deep searches that have already failed locked gates.,Decision log records gaussian_0p10 and neural anchor as no-go under current locked gate.

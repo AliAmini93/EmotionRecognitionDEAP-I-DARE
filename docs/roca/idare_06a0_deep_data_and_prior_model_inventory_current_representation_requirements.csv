@@ -1,6 +1,0 @@
-requirement,must_have,failure_if_missing
-R1_raw_or_preprocessed_trial_tensor,"Per-trial EEG/EMG time series aligned as subject_id, stimulus_id, trial_id, channel, time.","If only engineered feature tables exist, this is not true representation learning."
-R2_baseline_policy,"Explicit handling of 3 s baseline: subtract, encode as separate context, or drop.",Baseline leakage or inconsistent residual target definition.
-R3_loso_and_stimulus_prior_lock,Evaluation must keep subject out of training and compare against B2_LOCKED kernel_residual_shrink4 k=16.,Model can look good while only rediscovering stimulus priors or subject leakage.
-R4_high_disagreement_arousal_entry_point,"First representation experiment should test arousal high-disagreement EEG, where fixed EEG-bandpower had confirmed residual signal.",Deep model search becomes an unbounded architecture fishing exercise.
-R5_prior_deep_model_forensics,"Find prior proposed deep model scripts/logs/metrics and compare exact protocol, split, targets, and leakage controls.",We may repeat the same failed deep-learning experiment without understanding why.

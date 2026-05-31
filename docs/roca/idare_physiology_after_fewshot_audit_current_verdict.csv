@@ -1,3 +1,0 @@
-target,decision,best_block,best_model,best_k_calibration,best_rmse,best_lift_vs_fewshot_rmse,rmse_win_margin_vs_fewshot,reason
-arousal,NO_GO_PHYSIOLOGY_AFTER_FEWSHOT,emg_lagged_interaction_experimental,stimulus_plus_fewshot_bias_shrink4_plus_physio,16,1.7356069481606573,-0.0008021310689463323,-5.0,physiology does not improve the few-shot calibrated baseline
-valence,NO_GO_PHYSIOLOGY_AFTER_FEWSHOT,emg_lagged_interaction_experimental,stimulus_plus_fewshot_bias_shrink4_plus_physio,8,1.256355909867456,-0.0011507356427034043,-23.0,physiology does not improve the few-shot calibrated baseline

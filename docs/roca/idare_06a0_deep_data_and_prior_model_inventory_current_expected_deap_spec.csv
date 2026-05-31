@@ -1,8 +1,0 @@
-item,expected,why_it_matters
-DEAP original participants,32,"Original DEAP has 32 participants; project outputs may have more rows/subjects if merged or using derived pseudo-subject IDs, so inventory must separate DEAP raw from project-derived tables."
-DEAP trials per participant,40 music-video trials,Representation learning should preserve trial identity and avoid stimulus leakage in cross-subject evaluation.
-DEAP preprocessed signal shape,usually 40 trials x 40 channels x 8064 samples per subject file,8064 samples at 128 Hz equals 63 seconds: 3 s baseline + 60 s stimulus.
-EEG channels,32 EEG channels in the 40-channel preprocessed array,Deep EEG models should use EEG channels separately from peripheral channels unless multimodal design is explicit.
-Peripheral channels,8 non-EEG peripheral channels in the 40-channel preprocessed array,"EMG/EOG/GSR/resp/etc. should be handled as separate modalities, not silently mixed as EEG."
-Labels,"valence, arousal, dominance, liking",Current ROCA target focus is valence/arousal; dominance/liking can be auxiliary only if leakage-safe.
-Baseline/stimulus split,3 s baseline = 384 samples; 60 s stimulus = 7680 samples at 128 Hz,"Model inputs must document whether baseline is removed, concatenated, used as context, or excluded."

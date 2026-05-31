@@ -1,7 +1,0 @@
-target,baseline_level,baseline_name,status,rmse,how_to_use
-arousal,B0,stimulus_only,historical_reference_only,1.944204982116596,Do not claim physiology success by beating this alone.
-arousal,B1,stimulus_plus_fewshot_bias_shrink4,GO_CONFIRMED_FEWSHOT_SUBJECT_CALIBRATION,1.7338282485895926,Few-shot subject calibration reference.
-arousal,B2_LOCKED,kernel_residual_shrink4,GO_CONFIRMED_MODEL_FAMILY_CALIBRATION,1.6576672767528169,Locked challenge baseline for future EEG/EMG or multimodal personalization claims.
-valence,B0,stimulus_only,historical_reference_only,1.257773694673858,Do not claim physiology success by beating this alone.
-valence,B1,stimulus_plus_fewshot_bias_shrink4,WEAK_GO_FEWSHOT_NEEDS_CAUTION,1.2418476288448907,Few-shot subject calibration reference.
-valence,B2_LOCKED,kernel_residual_shrink4,GO_CONFIRMED_MODEL_FAMILY_CALIBRATION,1.1591886890005123,Locked challenge baseline for future EEG/EMG or multimodal personalization claims.

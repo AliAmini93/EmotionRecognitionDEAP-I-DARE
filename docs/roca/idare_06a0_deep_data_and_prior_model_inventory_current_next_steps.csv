@@ -1,4 +1,0 @@
-priority,step,title,purpose,success_condition
-1,06a0b,Prior deep-learning run forensic review,"Open the candidate scripts/logs found by this inventory and extract model architecture, input tensor, split protocol, and exact metrics.","A short table says whether the old model failed because of input representation, split/generalization, target definition, or training instability."
-2,06a1,Minimal arousal high-disagreement EEG representation prototype,"Only after data readiness is confirmed, test a small GPU model on raw/time-frequency EEG for the one confirmed signal pocket.",Beats fixed EEG-bandpower high-disagreement residual model and does not degrade locked B2 evaluation.
-3,06a2,Subject-adaptive residual representation,Learn EEG/EMG embeddings with k-shot subject context instead of linear correction on fixed features.,Beats B2 locked baseline or matches B2 with fewer calibration samples under paired subject-level gates.

@@ -1,4 +1,0 @@
-priority,step,title,purpose,success_condition
-1,06a2,Subject-adaptive residual representation,"If subject-overlap works but LOSO fails, add explicit subject/domain adaptation instead of blindly scaling architecture.",Improves high-disagreement arousal under LOSO and then improves/matches locked B2 with paired subject support.
-2,06a3,Residual identifiability and label-noise bound,Quantify whether single-trial subjective residuals have enough repeatable structure for physiology learning.,Upper/lower bounds explain whether model capacity can realistically help under LOSO.
-3,06a4,Subject-normalization and calibration ablation,"Test per-subject EEG normalization, CORAL/MMD alignment, and k-shot calibration context before larger deep models.",Reduces overlap-vs-LOSO gap without worsening high-disagreement residual metrics.

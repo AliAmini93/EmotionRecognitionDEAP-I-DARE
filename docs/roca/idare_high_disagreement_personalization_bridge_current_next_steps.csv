@@ -1,4 +1,0 @@
-priority,step,title,purpose,success_condition
-1,05al,Failure-subject physiology rescue audit,Test confirmed arousal EEG-bandpower residual signal specifically on subjects where personalization still fails.,Physiology improves failure-subject RMSE without worsening pooled or paired metrics.
-2,05am,Physiology-assisted calibration sample reduction,"Test whether physiology can reduce calibration samples, e.g. k=4/k=8 approaching locked k=16.",Lower-k physiology-assisted model matches locked k=16 with stable subject-level evidence.
-3,05an,Representation-learning feasibility gate,"If fixed-feature physiology cannot bridge to personalization, define raw/learned EEG representation experiments.",Learned representation beats fixed-feature high-disagreement physiology under the same gates.

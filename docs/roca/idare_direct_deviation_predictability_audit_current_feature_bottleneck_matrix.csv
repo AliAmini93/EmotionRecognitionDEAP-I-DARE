@@ -1,4 +1,0 @@
-hypothesis,status,evidence,next_test
-H1_current_fixed_EEG_EMG_features_are_insufficient,SUPPORTED_BY_CURRENT_AUDITS,05w direct residual/dev metrics and 05ah/05ahx locked-baseline challenge do not show incremental physiology value.,representation_learning_or_raw_signal_modeling
-H2_current_adaptation_method_is_insufficient,PARTLY_SUPPORTED,"Calibration/personalization works without physiology, but fixed-feature physiology does not improve it.",physiology_as_gating_or_reliability_weighting_after_direct_deviation_test
-H3_no_learnable_physiology_signal_exists,NOT_TESTED_AS_FINAL_CLAIM,Current audits only reject current feature/model route; they do not prove raw EEG/EMG lacks usable signal.,deep_representation_learning_and_high_disagreement_protocol

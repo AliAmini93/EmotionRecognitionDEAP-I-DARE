@@ -1,5 +1,0 @@
-gate,required_for_claim,metric
-G1_locked_personalization_incremental_value,"Any new EEG/EMG model must beat or complement B2_LOCKED kernel_residual_shrink4 k=16, not merely stimulus-only.",pooled RMSE lift >= 0.02 plus paired subject CI/sign tests and stable win margin
-G2_high_disagreement_residual_signal,"If claiming targeted residual learning, evaluate high-disagreement residuals separately.","positive residual RMSE lift, residual Pearson > 0.1, permutation p < 0.05, paired subject support"
-G3_calibration_reduction,"If claiming practical calibration savings, lower-k model must match locked k=16.",candidate RMSE within +0.02 of B2 plus subject-level stability
-G4_no_degradation,Gating or targeted corrections must not improve one subset by harming pooled performance.,pooled and paired subject metrics remain non-inferior to B2
