@@ -1,0 +1,50 @@
+artifact_path,line_number,category,line,excerpt
+scripts/roca/01_deap_stimulus_only_loso.py,324,stimulus_assignment,"out = test[[""subject_id"", ""stimulus_id"", ""trial_id""]].rename(columns={""subject_id"": ""test_subject""}).copy()","321:         stim_p_high = train_bin.groupby(""stimulus_id"")[""bin""].mean()
+322: 
+323:         for model in [""global_mean"", ""stimulus_only""]:
+324:             out = test[[""subject_id"", ""stimulus_id"", ""trial_id""]].rename(columns={""subject_id"": ""test_subject""}).copy()
+325:             out[""target""] = target
+326:             out[""model""] = model
+327:             out[""y_true_score""] = test[score_col].to_numpy(dtype=float)"
+scripts/roca/01_deap_stimulus_only_loso.py,324,trial_assignment,"out = test[[""subject_id"", ""stimulus_id"", ""trial_id""]].rename(columns={""subject_id"": ""test_subject""}).copy()","321:         stim_p_high = train_bin.groupby(""stimulus_id"")[""bin""].mean()
+322: 
+323:         for model in [""global_mean"", ""stimulus_only""]:
+324:             out = test[[""subject_id"", ""stimulus_id"", ""trial_id""]].rename(columns={""subject_id"": ""test_subject""}).copy()
+325:             out[""target""] = target
+326:             out[""model""] = model
+327:             out[""y_true_score""] = test[score_col].to_numpy(dtype=float)"
+scripts/roca/01_deap_stimulus_only_loso.py,324,explicit_assumption,"out = test[[""subject_id"", ""stimulus_id"", ""trial_id""]].rename(columns={""subject_id"": ""test_subject""}).copy()","321:         stim_p_high = train_bin.groupby(""stimulus_id"")[""bin""].mean()
+322: 
+323:         for model in [""global_mean"", ""stimulus_only""]:
+324:             out = test[[""subject_id"", ""stimulus_id"", ""trial_id""]].rename(columns={""subject_id"": ""test_subject""}).copy()
+325:             out[""target""] = target
+326:             out[""model""] = model
+327:             out[""y_true_score""] = test[score_col].to_numpy(dtype=float)"
+scripts/roca/01_deap_stimulus_only_loso.py,398,explicit_assumption,"""DEAP trial_id is treated as stimulus/video id."",","395:             ""No EEG/EMG data are used."",
+396:             ""For every LOSO fold, stimulus means and P(high) are computed from train subjects only."",
+397:             ""Test subject labels are used only for final evaluation."",
+398:             ""DEAP trial_id is treated as stimulus/video id."",
+399:             ""High label is computed with the selected label policy."",
+400:         ],
+401:         ""issues"": issues,"
+scripts/roca/01c_prior_baselines_no_global.py,235,stimulus_assignment,"out[""stimulus_id""] = out[""stimulus_id""].astype(str)","232:     out = df[needed].copy()
+233:     out[""dataset""] = ""I-DARE""
+234:     out[""subject_id""] = out[""subject_id""].astype(int)
+235:     out[""stimulus_id""] = out[""stimulus_id""].astype(str)
+236:     out = out.drop_duplicates([""subject_id"", ""stimulus_id""]).reset_index(drop=True)
+237:     return out[[""dataset"", ""subject_id"", ""stimulus_id"", ""valence_score"", ""arousal_score""]]
+238: "
+scripts/roca/01c_prior_baselines_no_global.py,236,stimulus_assignment,"out = out.drop_duplicates([""subject_id"", ""stimulus_id""]).reset_index(drop=True)","233:     out[""dataset""] = ""I-DARE""
+234:     out[""subject_id""] = out[""subject_id""].astype(int)
+235:     out[""stimulus_id""] = out[""stimulus_id""].astype(str)
+236:     out = out.drop_duplicates([""subject_id"", ""stimulus_id""]).reset_index(drop=True)
+237:     return out[[""dataset"", ""subject_id"", ""stimulus_id"", ""valence_score"", ""arousal_score""]]
+238: 
+239: "
+scripts/roca/01c_prior_baselines_no_global.py,300,stimulus_assignment,"stim_code = pd.Categorical(df[""stimulus_id""].astype(str), categories=stimuli).codes","297:     stimuli = sorted(df[""stimulus_id""].astype(str).unique().tolist())
+298: 
+299:     subj_code = pd.Categorical(df[""subject_id""].astype(int), categories=subjects).codes
+300:     stim_code = pd.Categorical(df[""stimulus_id""].astype(str), categories=stimuli).codes
+301: 
+302:     n = len(df)
+303:     p = 1 + max(0, len(subjects) - 1) + max(0, len(stimuli) - 1)"

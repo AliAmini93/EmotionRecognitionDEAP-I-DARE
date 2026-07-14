@@ -1,0 +1,140 @@
+{
+  "repository": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE",
+  "branch": "joint-cv-capacity-audit",
+  "head": "78946cb168b5839dac88703ddfcad584137a046f",
+  "training_performed": false,
+  "eligibility_rule": {
+    "same_outer_cell_source_train": true,
+    "same_binary_class": true,
+    "different_subject": true,
+    "different_stimulus": true,
+    "paired_eeg_emg": true,
+    "different_physical_trial": true,
+    "test_trials_allowed_as_donors": false
+  },
+  "operational_gates": {
+    "strong": "zero donor rate = 0 and minimum eligible donors >= 20",
+    "minimal": "zero donor rate = 0 and no anchor has fewer than 5 donors",
+    "note": "These thresholds measure source-pool capacity and are not a theorem about augmentation quality."
+  },
+  "dataset_metadata": [
+    {
+      "dataset": "DEAP",
+      "manifest": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/joint_cv/deap_trial_manifest.csv",
+      "manifest_sha256": "c40aa73e17098e17c95c79417176308e2459e1f709fe0f8583b48cfcd659a478",
+      "protocol": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/folds/deap_4x4_label_blind_repeated_protocol.json",
+      "protocol_decision": "LOCK_LABEL_BLIND_4X4_PROTOCOL",
+      "anchor_rows": 344115,
+      "cell_rows": 480
+    },
+    {
+      "dataset": "I-DARE",
+      "manifest": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/joint_cv/idare_trial_manifest.csv",
+      "manifest_sha256": "72cbefb8a437959abd7a4892070ac468a27dff4c04e05ef8b56344ecbebb3a4b",
+      "protocol": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/folds/idare_4x4_label_blind_repeated_protocol.json",
+      "protocol_decision": "LOCK_LABEL_BLIND_4X4_PROTOCOL",
+      "anchor_rows": 518850,
+      "cell_rows": 480
+    }
+  ],
+  "dataset_decisions": {
+    "DEAP": {
+      "dataset": "DEAP",
+      "verdict": "PM_SSI_DONOR_SUPPORT_STRONG",
+      "primary_discard_midpoint_zero_donor_rate_max": 0.0,
+      "primary_discard_midpoint_min_donors": 230,
+      "primary_discard_midpoint_below_20_rate_max": 0.0,
+      "all_repetitions_policies_zero_donor_rate_max": 0.0,
+      "all_repetitions_policies_min_donors": 209,
+      "interpretation": "Strong means every primary main-policy source anchor has at least 20 legal same-class donors from different subjects and different stimuli. This is an operational audit threshold, not a guarantee of model benefit."
+    },
+    "I-DARE": {
+      "dataset": "I-DARE",
+      "verdict": "PM_SSI_DONOR_SUPPORT_STRONG",
+      "primary_discard_midpoint_zero_donor_rate_max": 0.0,
+      "primary_discard_midpoint_min_donors": 254,
+      "primary_discard_midpoint_below_20_rate_max": 0.0,
+      "all_repetitions_policies_zero_donor_rate_max": 0.0,
+      "all_repetitions_policies_min_donors": 236,
+      "interpretation": "Strong means every primary main-policy source anchor has at least 20 legal same-class donors from different subjects and different stimuli. This is an operational audit threshold, not a guarantee of model benefit."
+    }
+  },
+  "primary_discard_midpoint_summary": [
+    {
+      "dataset": "DEAP",
+      "task": "arousal",
+      "anchors": 11367,
+      "min": 230,
+      "p10": 257.0,
+      "median": 361.0,
+      "p90": 400.0,
+      "max": 424,
+      "zero_rate": 0.0,
+      "below_5_rate": 0.0,
+      "below_20_rate": 0.0,
+      "min_unique_subjects": 23,
+      "min_unique_stimuli": 29,
+      "verdict": "PASS_STRONG"
+    },
+    {
+      "dataset": "DEAP",
+      "task": "valence",
+      "anchors": 11376,
+      "min": 249,
+      "p10": 264.0,
+      "median": 334.0,
+      "p90": 387.0,
+      "max": 412,
+      "zero_rate": 0.0,
+      "below_5_rate": 0.0,
+      "below_20_rate": 0.0,
+      "min_unique_subjects": 23,
+      "min_unique_stimuli": 26,
+      "verdict": "PASS_STRONG"
+    },
+    {
+      "dataset": "I-DARE",
+      "task": "arousal",
+      "anchors": 16191,
+      "min": 254,
+      "p10": 319.0,
+      "median": 536.0,
+      "p90": 627.0,
+      "max": 679,
+      "zero_rate": 0.0,
+      "below_5_rate": 0.0,
+      "below_20_rate": 0.0,
+      "min_unique_subjects": 41,
+      "min_unique_stimuli": 21,
+      "verdict": "PASS_STRONG"
+    },
+    {
+      "dataset": "I-DARE",
+      "task": "valence",
+      "anchors": 15003,
+      "min": 348,
+      "p10": 368.0,
+      "median": 432.0,
+      "p90": 468.0,
+      "max": 515,
+      "zero_rate": 0.0,
+      "below_5_rate": 0.0,
+      "below_20_rate": 0.0,
+      "min_unique_subjects": 46,
+      "min_unique_stimuli": 14,
+      "verdict": "PASS_STRONG"
+    }
+  ],
+  "output_shapes": {
+    "anchor_rows": 862965,
+    "cell_rows": 960,
+    "summary_rows": 60
+  },
+  "outputs": {
+    "anchor_csv_gz": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/joint_cv/pm_ssi_donor_anchor_support.csv.gz",
+    "cell_csv": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/joint_cv/pm_ssi_donor_cell_support.csv",
+    "summary_csv": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/joint_cv/pm_ssi_donor_protocol_summary.csv",
+    "report_md": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/joint_cv/pm_ssi_donor_feasibility_audit.md",
+    "report_json": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/joint_cv/pm_ssi_donor_feasibility_audit.json"
+  }
+}

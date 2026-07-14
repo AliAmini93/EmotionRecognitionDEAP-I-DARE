@@ -1,0 +1,245 @@
+{
+  "repository": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE",
+  "branch": "joint-cv-capacity-audit",
+  "head": "78946cb168b5839dac88703ddfcad584137a046f",
+  "manifest": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/joint_cv/idare_trial_manifest.csv",
+  "random_partitions_per_scheme": 1000,
+  "base_seed": 260713,
+  "current_fold_construction_used_label_support": true,
+  "random_reference_partitions_are_label_blind": true,
+  "summaries": [
+    {
+      "scheme": "idare_4x4",
+      "random_partition_count": 1000,
+      "current_assignment": {
+        "scheme": "idare_4x4",
+        "min_test_class_support": 37,
+        "min_train_class_support": 378,
+        "min_test_retained": 97,
+        "max_midpoint_removed_fraction": 0.2109375,
+        "single_class_test_cells": 0,
+        "single_class_train_cells": 0,
+        "min_held_subjects": 15,
+        "max_held_subjects": 16,
+        "min_held_stimuli": 8,
+        "max_held_stimuli": 8,
+        "min_test_rows_before_policy": 120,
+        "max_test_rows_before_policy": 128,
+        "strong_capacity_pass": true,
+        "minimal_capacity_pass": true,
+        "task_policy": {
+          "valence": {
+            "discard_midpoint": {
+              "min_test_class_support": 41,
+              "min_train_class_support": 447,
+              "min_test_retained": 97,
+              "max_midpoint_removed_fraction": 0.2109375,
+              "single_class_test_cells": 0,
+              "single_class_train_cells": 0
+            },
+            "midpoint_as_low": {
+              "min_test_class_support": 50,
+              "min_train_class_support": 471,
+              "min_test_retained": 120,
+              "max_midpoint_removed_fraction": 0.0,
+              "single_class_test_cells": 0,
+              "single_class_train_cells": 0
+            },
+            "midpoint_as_high": {
+              "min_test_class_support": 41,
+              "min_train_class_support": 447,
+              "min_test_retained": 120,
+              "max_midpoint_removed_fraction": 0.0,
+              "single_class_test_cells": 0,
+              "single_class_train_cells": 0
+            }
+          },
+          "arousal": {
+            "discard_midpoint": {
+              "min_test_class_support": 37,
+              "min_train_class_support": 378,
+              "min_test_retained": 105,
+              "max_midpoint_removed_fraction": 0.15625,
+              "single_class_test_cells": 0,
+              "single_class_train_cells": 0
+            },
+            "midpoint_as_low": {
+              "min_test_class_support": 37,
+              "min_train_class_support": 378,
+              "min_test_retained": 120,
+              "max_midpoint_removed_fraction": 0.0,
+              "single_class_test_cells": 0,
+              "single_class_train_cells": 0
+            },
+            "midpoint_as_high": {
+              "min_test_class_support": 49,
+              "min_train_class_support": 497,
+              "min_test_retained": 120,
+              "max_midpoint_removed_fraction": 0.0,
+              "single_class_test_cells": 0,
+              "single_class_train_cells": 0
+            }
+          }
+        }
+      },
+      "random_strong_pass_rate": 0.95,
+      "random_minimal_pass_rate": 0.988,
+      "min_test_class_support_random_min": 0.0,
+      "min_test_class_support_random_p05": 9.950000000000003,
+      "min_test_class_support_random_median": 22.0,
+      "min_test_class_support_random_p95": 30.0,
+      "min_test_class_support_random_max": 36.0,
+      "min_test_class_support_current_percentile_leq": 1.0,
+      "min_train_class_support_random_min": 233.0,
+      "min_train_class_support_random_p05": 292.0,
+      "min_train_class_support_random_median": 332.0,
+      "min_train_class_support_random_p95": 358.0,
+      "min_train_class_support_random_max": 374.0,
+      "min_train_class_support_current_percentile_leq": 1.0,
+      "min_test_retained_random_min": 67.0,
+      "min_test_retained_random_p05": 80.0,
+      "min_test_retained_random_median": 90.0,
+      "min_test_retained_random_p95": 96.0,
+      "min_test_retained_random_max": 100.0,
+      "min_test_retained_current_percentile_leq": 0.982,
+      "max_midpoint_removed_fraction_random_min": 0.2109375,
+      "max_midpoint_removed_fraction_random_p05": 0.2265625,
+      "max_midpoint_removed_fraction_random_median": 0.28125,
+      "max_midpoint_removed_fraction_random_p95": 0.35190104166666636,
+      "max_midpoint_removed_fraction_random_max": 0.44166666666666665,
+      "max_midpoint_removed_fraction_current_percentile_leq": 0.009,
+      "single_class_test_cells_random_min": 0.0,
+      "single_class_test_cells_random_p05": 0.0,
+      "single_class_test_cells_random_median": 0.0,
+      "single_class_test_cells_random_p95": 0.0,
+      "single_class_test_cells_random_max": 2.0,
+      "single_class_test_cells_current_percentile_leq": 0.998,
+      "single_class_train_cells_random_min": 0.0,
+      "single_class_train_cells_random_p05": 0.0,
+      "single_class_train_cells_random_median": 0.0,
+      "single_class_train_cells_random_p95": 0.0,
+      "single_class_train_cells_random_max": 0.0,
+      "single_class_train_cells_current_percentile_leq": 1.0,
+      "robustness_verdict": "ROBUST_MINIMAL",
+      "balance_extremeness_note": "Current split is more label-balanced than over 99% of label-blind random partitions."
+    },
+    {
+      "scheme": "idare_5x5",
+      "random_partition_count": 1000,
+      "current_assignment": {
+        "scheme": "idare_5x5",
+        "min_test_class_support": 20,
+        "min_train_class_support": 419,
+        "min_test_retained": 56,
+        "max_midpoint_removed_fraction": 0.23076923076923078,
+        "single_class_test_cells": 0,
+        "single_class_train_cells": 0,
+        "min_held_subjects": 12,
+        "max_held_subjects": 13,
+        "min_held_stimuli": 6,
+        "max_held_stimuli": 7,
+        "min_test_rows_before_policy": 72,
+        "max_test_rows_before_policy": 91,
+        "strong_capacity_pass": true,
+        "minimal_capacity_pass": true,
+        "task_policy": {
+          "valence": {
+            "discard_midpoint": {
+              "min_test_class_support": 24,
+              "min_train_class_support": 495,
+              "min_test_retained": 56,
+              "max_midpoint_removed_fraction": 0.23076923076923078,
+              "single_class_test_cells": 0,
+              "single_class_train_cells": 0
+            },
+            "midpoint_as_low": {
+              "min_test_class_support": 26,
+              "min_train_class_support": 529,
+              "min_test_retained": 72,
+              "max_midpoint_removed_fraction": 0.0,
+              "single_class_test_cells": 0,
+              "single_class_train_cells": 0
+            },
+            "midpoint_as_high": {
+              "min_test_class_support": 24,
+              "min_train_class_support": 495,
+              "min_test_retained": 72,
+              "max_midpoint_removed_fraction": 0.0,
+              "single_class_test_cells": 0,
+              "single_class_train_cells": 0
+            }
+          },
+          "arousal": {
+            "discard_midpoint": {
+              "min_test_class_support": 20,
+              "min_train_class_support": 419,
+              "min_test_retained": 61,
+              "max_midpoint_removed_fraction": 0.21794871794871795,
+              "single_class_test_cells": 0,
+              "single_class_train_cells": 0
+            },
+            "midpoint_as_low": {
+              "min_test_class_support": 20,
+              "min_train_class_support": 419,
+              "min_test_retained": 72,
+              "max_midpoint_removed_fraction": 0.0,
+              "single_class_test_cells": 0,
+              "single_class_train_cells": 0
+            },
+            "midpoint_as_high": {
+              "min_test_class_support": 30,
+              "min_train_class_support": 557,
+              "min_test_retained": 72,
+              "max_midpoint_removed_fraction": 0.0,
+              "single_class_test_cells": 0,
+              "single_class_train_cells": 0
+            }
+          }
+        }
+      },
+      "random_strong_pass_rate": 0.568,
+      "random_minimal_pass_rate": 0.856,
+      "min_test_class_support_random_min": 0.0,
+      "min_test_class_support_random_p05": 2.0,
+      "min_test_class_support_random_median": 10.0,
+      "min_test_class_support_random_p95": 16.0,
+      "min_test_class_support_random_max": 22.0,
+      "min_test_class_support_current_percentile_leq": 0.998,
+      "min_train_class_support_random_min": 292.0,
+      "min_train_class_support_random_p05": 339.0,
+      "min_train_class_support_random_median": 378.5,
+      "min_train_class_support_random_p95": 406.0,
+      "min_train_class_support_random_max": 421.0,
+      "min_train_class_support_current_percentile_leq": 0.997,
+      "min_test_retained_random_min": 37.0,
+      "min_test_retained_random_p05": 45.0,
+      "min_test_retained_random_median": 53.0,
+      "min_test_retained_random_p95": 58.0,
+      "min_test_retained_random_max": 60.0,
+      "min_test_retained_current_percentile_leq": 0.876,
+      "max_midpoint_removed_fraction_random_min": 0.21978021978021978,
+      "max_midpoint_removed_fraction_random_p05": 0.2564102564102564,
+      "max_midpoint_removed_fraction_random_median": 0.3141025641025641,
+      "max_midpoint_removed_fraction_random_p95": 0.41025641025641024,
+      "max_midpoint_removed_fraction_random_max": 0.48717948717948717,
+      "max_midpoint_removed_fraction_current_percentile_leq": 0.009,
+      "single_class_test_cells_random_min": 0.0,
+      "single_class_test_cells_random_p05": 0.0,
+      "single_class_test_cells_random_median": 0.0,
+      "single_class_test_cells_random_p95": 0.0,
+      "single_class_test_cells_random_max": 11.0,
+      "single_class_test_cells_current_percentile_leq": 0.979,
+      "single_class_train_cells_random_min": 0.0,
+      "single_class_train_cells_random_p05": 0.0,
+      "single_class_train_cells_random_median": 0.0,
+      "single_class_train_cells_random_p95": 0.0,
+      "single_class_train_cells_random_max": 0.0,
+      "single_class_train_cells_current_percentile_leq": 1.0,
+      "robustness_verdict": "PARTITION_SENSITIVE",
+      "balance_extremeness_note": "Current split is more label-balanced than over 99% of label-blind random partitions."
+    }
+  ],
+  "recommendation": "DO_NOT_LOCK_STRICT_JOINT_SCHEME",
+  "recommendation_reason": "Neither candidate demonstrates strong partition-robust capacity.",
+  "interpretation": "Label-based stratification may be defensible for a frozen benchmark split, but robustness to label-blind partitions must be reported to avoid a cherry-picked-capacity concern."
+}

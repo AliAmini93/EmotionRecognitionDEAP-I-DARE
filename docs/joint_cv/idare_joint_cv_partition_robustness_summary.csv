@@ -1,0 +1,3 @@
+scheme,random_partitions,current_min_test_class,random_min_test_class_p05,random_min_test_class_median,random_min_test_class_p95,current_min_test_class_percentile,random_strong_pass_rate,random_minimal_pass_rate,robustness_verdict,balance_note
+idare_4x4,1000,37,9.95,22.0,30.0,1.0,0.95,0.988,ROBUST_MINIMAL,Current split is more label-balanced than over 99% of label-blind random partitions.
+idare_5x5,1000,20,2.0,10.0,16.0,0.998,0.568,0.856,PARTITION_SENSITIVE,Current split is more label-balanced than over 99% of label-blind random partitions.

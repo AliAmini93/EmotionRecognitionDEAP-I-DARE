@@ -1,0 +1,93 @@
+{
+  "dataset": "DEAP",
+  "row_count": 1280,
+  "column_count": 32,
+  "columns": [
+    "dataset",
+    "subject_id",
+    "session_id",
+    "trial_id",
+    "stimulus_id",
+    "presentation_order",
+    "valence_score",
+    "arousal_score",
+    "valence_discard_midpoint",
+    "valence_midpoint_as_low",
+    "valence_midpoint_as_high",
+    "arousal_discard_midpoint",
+    "arousal_midpoint_as_low",
+    "arousal_midpoint_as_high",
+    "eeg_available",
+    "emg_available",
+    "eeg_path",
+    "emg_path",
+    "eeg_sampling_rate",
+    "emg_sampling_rate",
+    "trial_duration_sec",
+    "chronology_verified",
+    "quality_flag",
+    "source_file",
+    "source_trial_index_0based",
+    "source_trial_index_1based",
+    "recorded_duration_sec",
+    "baseline_duration_sec",
+    "stimulus_duration_sec",
+    "eeg_channel_indices_0based",
+    "emg_channel_indices_0based",
+    "stimulus_identity_verified"
+  ],
+  "subject_count": 32,
+  "stimulus_count_excluding_missing": 0,
+  "trials_per_subject_min": 40,
+  "trials_per_subject_max": 40,
+  "duplicate_trial_id_rows": 0,
+  "missing_stimulus_id_rows": 1280,
+  "chronology_unverified_rows": 1280,
+  "missing_eeg_rows": 0,
+  "missing_emg_rows": 0,
+  "valence_score_min": 1.0,
+  "valence_score_max": 9.0,
+  "arousal_score_min": 1.0,
+  "arousal_score_max": 9.0,
+  "label_policy_counts": {
+    "valence": {
+      "discard_midpoint": {
+        "low_0": 556,
+        "high_1": 708,
+        "discard_or_missing": 16
+      },
+      "midpoint_as_low": {
+        "low_0": 572,
+        "high_1": 708,
+        "discard_or_missing": 0
+      },
+      "midpoint_as_high": {
+        "low_0": 556,
+        "high_1": 724,
+        "discard_or_missing": 0
+      }
+    },
+    "arousal": {
+      "discard_midpoint": {
+        "low_0": 526,
+        "high_1": 737,
+        "discard_or_missing": 17
+      },
+      "midpoint_as_low": {
+        "low_0": 543,
+        "high_1": 737,
+        "discard_or_missing": 0
+      },
+      "midpoint_as_high": {
+        "low_0": 526,
+        "high_1": 754,
+        "discard_or_missing": 0
+      }
+    }
+  },
+  "issues": [],
+  "warnings": [
+    "DEAP physical-trial manifest is valid for subject-held-out analyses only; stimulus-held-out and Strict Joint folds remain blocked."
+  ],
+  "passed": true
+}

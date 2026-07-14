@@ -49,3 +49,6 @@ docs/roca/idare_subject_calibration_model_family_comparison_current_fold_summary
 
 # Large generated 05ae smoke prediction dump; regenerate locally if needed
 docs/roca/idare_subject_calibration_model_family_comparison_smoke_current_predictions.csv
+scripts/joint_cv/*_pre_*.py
+scripts/joint_cv/__pycache__/
+docs/joint_cv/pm_ssi_donor_anchor_support.csv.gz

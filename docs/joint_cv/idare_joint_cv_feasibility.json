@@ -1,0 +1,320 @@
+{
+  "repository": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE",
+  "branch": "joint-cv-capacity-audit",
+  "head": "78946cb168b5839dac88703ddfcad584137a046f",
+  "manifest": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/joint_cv/idare_trial_manifest.csv",
+  "scheme_summaries": [
+    {
+      "scheme": "idare_4x4",
+      "k_subject": 4,
+      "k_stimulus": 4,
+      "outer_cells_expected": 16,
+      "outer_cells_observed": 16,
+      "all_combinations_evaluated": true,
+      "min_held_subjects": 15,
+      "max_held_subjects": 16,
+      "min_held_stimuli": 8,
+      "max_held_stimuli": 8,
+      "min_test_physical_trials_before_policy": 120,
+      "max_test_physical_trials_before_policy": 128,
+      "global_min_test_class_support": 37,
+      "global_min_train_class_support": 378,
+      "total_single_class_train_or_test_flags": 0,
+      "leakage_free": true,
+      "verdict": "PASS_STRONG_CAPACITY",
+      "threshold_note": "PASS_STRONG_CAPACITY is a pre-training audit heuristic: zero single-class train/test cells across all six task-policy combinations, minimum test class support >=10, >=10 held subjects, >=5 held stimuli, zero leakage, and exhaustive cells.",
+      "task_policy": {
+        "valence": {
+          "discard_midpoint": {
+            "outer_cells": 16,
+            "min_test_low": 41,
+            "min_test_high": 50,
+            "min_test_class_support": 41,
+            "min_train_class_support": 447,
+            "single_class_test_cells": 0,
+            "single_class_train_cells": 0,
+            "min_test_retained": 97,
+            "max_test_retained": 111,
+            "max_midpoint_removed_fraction": 0.2109375,
+            "min_majority_test_accuracy": 0.4774774774774775,
+            "max_majority_test_accuracy": 0.5773195876288659,
+            "max_test_stimulus_label_nmi": 0.4612678284749616,
+            "max_test_presentation_order_js_divergence": 0.5574610258237098
+          },
+          "midpoint_as_low": {
+            "outer_cells": 16,
+            "min_test_low": 64,
+            "min_test_high": 50,
+            "min_test_class_support": 50,
+            "min_train_class_support": 471,
+            "single_class_test_cells": 0,
+            "single_class_train_cells": 0,
+            "min_test_retained": 120,
+            "max_test_retained": 128,
+            "max_midpoint_removed_fraction": 0.0,
+            "min_majority_test_accuracy": 0.5333333333333333,
+            "max_majority_test_accuracy": 0.609375,
+            "max_test_stimulus_label_nmi": 0.400073534942218,
+            "max_test_presentation_order_js_divergence": 0.5487949406953986
+          },
+          "midpoint_as_high": {
+            "outer_cells": 16,
+            "min_test_low": 41,
+            "min_test_high": 69,
+            "min_test_class_support": 41,
+            "min_train_class_support": 447,
+            "single_class_test_cells": 0,
+            "single_class_train_cells": 0,
+            "min_test_retained": 120,
+            "max_test_retained": 128,
+            "max_midpoint_removed_fraction": 0.0,
+            "min_majority_test_accuracy": 0.546875,
+            "max_majority_test_accuracy": 0.6583333333333333,
+            "max_test_stimulus_label_nmi": 0.37736584333000295,
+            "max_test_presentation_order_js_divergence": 0.5487949406953986
+          }
+        },
+        "arousal": {
+          "discard_midpoint": {
+            "outer_cells": 16,
+            "min_test_low": 61,
+            "min_test_high": 37,
+            "min_test_class_support": 37,
+            "min_train_class_support": 378,
+            "single_class_test_cells": 0,
+            "single_class_train_cells": 0,
+            "min_test_retained": 105,
+            "max_test_retained": 117,
+            "max_midpoint_removed_fraction": 0.15625,
+            "min_majority_test_accuracy": 0.580952380952381,
+            "max_majority_test_accuracy": 0.6574074074074074,
+            "max_test_stimulus_label_nmi": 0.26288287526851806,
+            "max_test_presentation_order_js_divergence": 0.5504446469342323
+          },
+          "midpoint_as_low": {
+            "outer_cells": 16,
+            "min_test_low": 76,
+            "min_test_high": 37,
+            "min_test_class_support": 37,
+            "min_train_class_support": 378,
+            "single_class_test_cells": 0,
+            "single_class_train_cells": 0,
+            "min_test_retained": 120,
+            "max_test_retained": 128,
+            "max_midpoint_removed_fraction": 0.0,
+            "min_majority_test_accuracy": 0.625,
+            "max_majority_test_accuracy": 0.7109375,
+            "max_test_stimulus_label_nmi": 0.21219947119953475,
+            "max_test_presentation_order_js_divergence": 0.5487949406953986
+          },
+          "midpoint_as_high": {
+            "outer_cells": 16,
+            "min_test_low": 61,
+            "min_test_high": 49,
+            "min_test_class_support": 49,
+            "min_train_class_support": 497,
+            "single_class_test_cells": 0,
+            "single_class_train_cells": 0,
+            "min_test_retained": 120,
+            "max_test_retained": 128,
+            "max_midpoint_removed_fraction": 0.0,
+            "min_majority_test_accuracy": 0.5078125,
+            "max_majority_test_accuracy": 0.59375,
+            "max_test_stimulus_label_nmi": 0.2040239015156061,
+            "max_test_presentation_order_js_divergence": 0.5487949406953986
+          }
+        }
+      }
+    },
+    {
+      "scheme": "idare_5x5",
+      "k_subject": 5,
+      "k_stimulus": 5,
+      "outer_cells_expected": 25,
+      "outer_cells_observed": 25,
+      "all_combinations_evaluated": true,
+      "min_held_subjects": 12,
+      "max_held_subjects": 13,
+      "min_held_stimuli": 6,
+      "max_held_stimuli": 7,
+      "min_test_physical_trials_before_policy": 72,
+      "max_test_physical_trials_before_policy": 91,
+      "global_min_test_class_support": 20,
+      "global_min_train_class_support": 419,
+      "total_single_class_train_or_test_flags": 0,
+      "leakage_free": true,
+      "verdict": "PASS_STRONG_CAPACITY",
+      "threshold_note": "PASS_STRONG_CAPACITY is a pre-training audit heuristic: zero single-class train/test cells across all six task-policy combinations, minimum test class support >=10, >=10 held subjects, >=5 held stimuli, zero leakage, and exhaustive cells.",
+      "task_policy": {
+        "valence": {
+          "discard_midpoint": {
+            "outer_cells": 25,
+            "min_test_low": 24,
+            "min_test_high": 26,
+            "min_test_class_support": 24,
+            "min_train_class_support": 495,
+            "single_class_test_cells": 0,
+            "single_class_train_cells": 0,
+            "min_test_retained": 56,
+            "max_test_retained": 79,
+            "max_midpoint_removed_fraction": 0.23076923076923078,
+            "min_majority_test_accuracy": 0.453125,
+            "max_majority_test_accuracy": 0.5714285714285714,
+            "max_test_stimulus_label_nmi": 0.5305170177631753,
+            "max_test_presentation_order_js_divergence": 0.6331525472371131
+          },
+          "midpoint_as_low": {
+            "outer_cells": 25,
+            "min_test_low": 37,
+            "min_test_high": 26,
+            "min_test_class_support": 26,
+            "min_train_class_support": 529,
+            "single_class_test_cells": 0,
+            "single_class_train_cells": 0,
+            "min_test_retained": 72,
+            "max_test_retained": 91,
+            "max_midpoint_removed_fraction": 0.0,
+            "min_majority_test_accuracy": 0.5138888888888888,
+            "max_majority_test_accuracy": 0.6483516483516484,
+            "max_test_stimulus_label_nmi": 0.4422127095445247,
+            "max_test_presentation_order_js_divergence": 0.6263832733354796
+          },
+          "midpoint_as_high": {
+            "outer_cells": 25,
+            "min_test_low": 24,
+            "min_test_high": 41,
+            "min_test_class_support": 24,
+            "min_train_class_support": 495,
+            "single_class_test_cells": 0,
+            "single_class_train_cells": 0,
+            "min_test_retained": 72,
+            "max_test_retained": 91,
+            "max_midpoint_removed_fraction": 0.0,
+            "min_majority_test_accuracy": 0.5476190476190477,
+            "max_majority_test_accuracy": 0.6666666666666666,
+            "max_test_stimulus_label_nmi": 0.45623595131058736,
+            "max_test_presentation_order_js_divergence": 0.6263832733354796
+          }
+        },
+        "arousal": {
+          "discard_midpoint": {
+            "outer_cells": 25,
+            "min_test_low": 39,
+            "min_test_high": 20,
+            "min_test_class_support": 20,
+            "min_train_class_support": 419,
+            "single_class_test_cells": 0,
+            "single_class_train_cells": 0,
+            "min_test_retained": 61,
+            "max_test_retained": 84,
+            "max_midpoint_removed_fraction": 0.21794871794871795,
+            "min_majority_test_accuracy": 0.5833333333333334,
+            "max_majority_test_accuracy": 0.6721311475409836,
+            "max_test_stimulus_label_nmi": 0.4642179449767625,
+            "max_test_presentation_order_js_divergence": 0.6281954084412227
+          },
+          "midpoint_as_low": {
+            "outer_cells": 25,
+            "min_test_low": 46,
+            "min_test_high": 20,
+            "min_test_class_support": 20,
+            "min_train_class_support": 419,
+            "single_class_test_cells": 0,
+            "single_class_train_cells": 0,
+            "min_test_retained": 72,
+            "max_test_retained": 91,
+            "max_midpoint_removed_fraction": 0.0,
+            "min_majority_test_accuracy": 0.6153846153846154,
+            "max_majority_test_accuracy": 0.7435897435897436,
+            "max_test_stimulus_label_nmi": 0.4181221338121931,
+            "max_test_presentation_order_js_divergence": 0.6263832733354796
+          },
+          "midpoint_as_high": {
+            "outer_cells": 25,
+            "min_test_low": 39,
+            "min_test_high": 30,
+            "min_test_class_support": 30,
+            "min_train_class_support": 557,
+            "single_class_test_cells": 0,
+            "single_class_train_cells": 0,
+            "min_test_retained": 72,
+            "max_test_retained": 91,
+            "max_midpoint_removed_fraction": 0.0,
+            "min_majority_test_accuracy": 0.5128205128205128,
+            "max_majority_test_accuracy": 0.6153846153846154,
+            "max_test_stimulus_label_nmi": 0.3733403410147532,
+            "max_test_presentation_order_js_divergence": 0.6263832733354796
+          }
+        }
+      }
+    }
+  ],
+  "recommended_candidate_pretraining": "idare_5x5",
+  "assignment_metadata": {
+    "idare_4x4": {
+      "subject": {
+        "k": 4,
+        "capacities": [
+          16,
+          16,
+          16,
+          15
+        ],
+        "objective": 0.00016108319794804203,
+        "refinement_passes": 50,
+        "construction": "deterministic greedy label-support balancing plus pairwise-swap refinement; no model outputs used"
+      },
+      "stimulus": {
+        "k": 4,
+        "capacities": [
+          8,
+          8,
+          8,
+          8
+        ],
+        "objective": 0.0006373220493302125,
+        "refinement_passes": 22,
+        "construction": "deterministic greedy label-support balancing plus pairwise-swap refinement; no model outputs used"
+      }
+    },
+    "idare_5x5": {
+      "subject": {
+        "k": 5,
+        "capacities": [
+          13,
+          13,
+          13,
+          12,
+          12
+        ],
+        "objective": 0.00022054341204113544,
+        "refinement_passes": 50,
+        "construction": "deterministic greedy label-support balancing plus pairwise-swap refinement; no model outputs used"
+      },
+      "stimulus": {
+        "k": 5,
+        "capacities": [
+          7,
+          7,
+          6,
+          6,
+          6
+        ],
+        "objective": 0.0018310185847006852,
+        "refinement_passes": 23,
+        "construction": "deterministic greedy label-support balancing plus pairwise-swap refinement; no model outputs used"
+      }
+    }
+  },
+  "outputs": {
+    "candidates_json": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/folds/idare_joint_cv_candidates.json",
+    "assignments_csv": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/joint_cv/idare_joint_cv_fold_assignments.csv",
+    "cell_support_csv": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/joint_cv/idare_joint_cv_cell_support.csv",
+    "feasibility_md": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/joint_cv/idare_joint_cv_feasibility.md",
+    "feasibility_json": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/joint_cv/idare_joint_cv_feasibility.json",
+    "idare_4x4_subject_csv": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/folds/idare_4x4_subject_folds.csv",
+    "idare_4x4_stimulus_csv": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/folds/idare_4x4_stimulus_folds.csv",
+    "idare_5x5_subject_csv": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/folds/idare_5x5_subject_folds.csv",
+    "idare_5x5_stimulus_csv": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/folds/idare_5x5_stimulus_folds.csv"
+  }
+}

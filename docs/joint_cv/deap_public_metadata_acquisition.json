@@ -1,0 +1,79 @@
+{
+  "decision": "PUBLIC_MIRROR_CONSENSUS_ACQUIRED",
+  "target": "/home/armin/Downloads/DEAP_metadata/participant_ratings.csv",
+  "canonical_sha256": "ca239332dfb86d3f1ddafa5ebf9650ab4bf576e47bf70af6552571eb26d997e1",
+  "successful_source_count": 3,
+  "failed_source_count": 0,
+  "validation": {
+    "rows": 1280,
+    "participants": 32,
+    "trials_per_participant": 40,
+    "experiment_ids_per_participant": "1..40 exactly once",
+    "ratings_in_range_1_to_9": true,
+    "all_successful_mirrors_identical_after_normalization": true
+  },
+  "sources": [
+    {
+      "name": "dweidai_DEAP_JRP",
+      "repository": "dweidai/DEAP-JRP-Emotion-Classification",
+      "commit": "7c34612f7da98b63c4b9133e787f4e219cd69dcd",
+      "url": "https://raw.githubusercontent.com/dweidai/DEAP-JRP-Emotion-Classification/7c34612f7da98b63c4b9133e787f4e219cd69dcd/participant_ratings.csv",
+      "download_sha256": "249a402f167e8726e2d5dcf36ce38ade57815f0a132347a9ba20e81a06a1d88f",
+      "normalized_sha256": "ca239332dfb86d3f1ddafa5ebf9650ab4bf576e47bf70af6552571eb26d997e1",
+      "rows": 1280,
+      "columns": [
+        "Participant_id",
+        "Trial",
+        "Experiment_id",
+        "Start_time",
+        "Valence",
+        "Arousal",
+        "Dominance",
+        "Liking",
+        "Familiarity"
+      ]
+    },
+    {
+      "name": "hsiehjackson_DEAP_GSR",
+      "repository": "hsiehjackson/Emotion-Recognition-DEAP_GSR",
+      "commit": "0d00e8f41f9f61fa732eb806cc44f63dba71e325",
+      "url": "https://raw.githubusercontent.com/hsiehjackson/Emotion-Recognition-DEAP_GSR/0d00e8f41f9f61fa732eb806cc44f63dba71e325/zip/participant_ratings.csv",
+      "download_sha256": "7bc0c19d31769b01597866ca55b59221635a7bf4237a27c820ef437e1d8ea1b8",
+      "normalized_sha256": "ca239332dfb86d3f1ddafa5ebf9650ab4bf576e47bf70af6552571eb26d997e1",
+      "rows": 1280,
+      "columns": [
+        "Participant_id",
+        "Trial",
+        "Experiment_id",
+        "Start_time",
+        "Valence",
+        "Arousal",
+        "Dominance",
+        "Liking",
+        "Familiarity"
+      ]
+    },
+    {
+      "name": "pnvamshi_prediction_emotions",
+      "repository": "pnvamshi/Prediction-of-Emotions-Using-Machine-Learning",
+      "commit": "5cc302657af43d66000e0cfee0bca883dedf165a",
+      "url": "https://raw.githubusercontent.com/pnvamshi/Prediction-of-Emotions-Using-Machine-Learning/5cc302657af43d66000e0cfee0bca883dedf165a/EmotionAnalysis/src/metadata/participant_ratings.csv",
+      "download_sha256": "7bc0c19d31769b01597866ca55b59221635a7bf4237a27c820ef437e1d8ea1b8",
+      "normalized_sha256": "ca239332dfb86d3f1ddafa5ebf9650ab4bf576e47bf70af6552571eb26d997e1",
+      "rows": 1280,
+      "columns": [
+        "Participant_id",
+        "Trial",
+        "Experiment_id",
+        "Start_time",
+        "Valence",
+        "Arousal",
+        "Dominance",
+        "Liking",
+        "Familiarity"
+      ]
+    }
+  ],
+  "failures": [],
+  "note": "This is a consensus copy from commit-pinned public mirrors. Scientific acceptance is determined separately by exact alignment against the 32 local DEAP .dat label arrays."
+}

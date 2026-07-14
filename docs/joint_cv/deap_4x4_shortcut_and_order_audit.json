@@ -1,0 +1,115 @@
+{
+  "repository": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE",
+  "branch": "joint-cv-capacity-audit",
+  "head": "78946cb168b5839dac88703ddfcad584137a046f",
+  "manifest_sha256": "c40aa73e17098e17c95c79417176308e2459e1f709fe0f8583b48cfcd659a478",
+  "protocol_decision": "LOCK_LABEL_BLIND_4X4_PROTOCOL",
+  "training_performed": false,
+  "sequence_structure": {
+    "subject_count": 32,
+    "unique_complete_sequences": 32,
+    "largest_identical_sequence_group": 1,
+    "pairwise_same_position_fraction_mean": 0.024546370967741937,
+    "pairwise_same_position_fraction_median": 0.025,
+    "pairwise_same_position_fraction_max": 0.1,
+    "stimulus_unique_positions_min": 19,
+    "stimulus_unique_positions_median": 22.0,
+    "stimulus_unique_positions_max": 25
+  },
+  "best_legal_primary_shortcut_discard_midpoint": {
+    "valence": {
+      "baseline": "global_train_prior",
+      "balanced_accuracy": 0.47561273015485916,
+      "macro_f1": 0.373941255468241,
+      "roc_auc": 0.4020635186765842
+    },
+    "arousal": {
+      "baseline": "global_train_prior",
+      "balanced_accuracy": 0.5,
+      "macro_f1": 0.3685,
+      "roc_auc": 0.4190338490747095
+    }
+  },
+  "primary_order_null_tests": [
+    {
+      "repetition": 0,
+      "role": "primary",
+      "task": "valence",
+      "policy": "discard_midpoint",
+      "baseline": "order_quadratic_logistic",
+      "permutations": 250,
+      "observed_ba": 0.46245376580091857,
+      "null_mean": 0.4748263016705279,
+      "null_median": 0.474337479169207,
+      "null_std": 0.009078483440706291,
+      "null_p05": 0.46126260008942,
+      "null_p95": 0.48987369426492705,
+      "effect_over_null_median": -0.011883713368288418,
+      "p_value_upper_tail": 0.9203187250996016,
+      "fdr_q": 0.9442231075697212,
+      "significant_at_fdr_0_05": false
+    },
+    {
+      "repetition": 0,
+      "role": "primary",
+      "task": "arousal",
+      "policy": "discard_midpoint",
+      "baseline": "order_quadratic_logistic",
+      "permutations": 250,
+      "observed_ba": 0.5,
+      "null_mean": 0.49794374480862197,
+      "null_median": 0.49918743647816916,
+      "null_std": 0.0034416599765355665,
+      "null_p05": 0.49062662835150206,
+      "null_p95": 0.5017083825600652,
+      "effect_over_null_median": 0.0008125635218308447,
+      "p_value_upper_tail": 0.350597609561753,
+      "fdr_q": 0.701195219123506,
+      "significant_at_fdr_0_05": false
+    }
+  ],
+  "stimulus_order_nmi_null_tests": [
+    {
+      "association": "exact_position",
+      "permutations": 500,
+      "observed_nmi": 0.1856051550277127,
+      "null_mean": 0.1862962394574202,
+      "null_median": 0.18638722459104812,
+      "null_std": 0.004384156680516629,
+      "null_p05": 0.17914028998724474,
+      "null_p95": 0.19319493860821618,
+      "effect_over_null_median": -0.0007820695633354302,
+      "p_value_upper_tail": 0.562874251497006,
+      "fdr_q": 0.9301397205588823,
+      "significant_at_fdr_0_05": false
+    },
+    {
+      "association": "five_trial_bin",
+      "permutations": 500,
+      "observed_nmi": 0.035029994066554895,
+      "null_mean": 0.04069415271243371,
+      "null_median": 0.04075232159616192,
+      "null_std": 0.0036604640194049464,
+      "null_p05": 0.034243532273027955,
+      "null_p95": 0.046698477232097,
+      "effect_over_null_median": -0.005722327529607024,
+      "p_value_upper_tail": 0.9301397205588823,
+      "fdr_q": 0.9301397205588823,
+      "significant_at_fdr_0_05": false
+    }
+  ],
+  "decision": "NO_MATERIAL_PRIMARY_ORDER_SHORTCUT",
+  "mandatory_future_model_gates": [
+    "Do not provide presentation_order as a physiological-model input.",
+    "Report improvement over the best legal primary shortcut baseline.",
+    "Report subject-prior and stimulus-prior diagnostics in their legal regions.",
+    "Use repetition 0 as primary and repetitions 1-4 only as sensitivity analyses.",
+    "Use paired uncertainty respecting crossed subject and stimulus structure."
+  ],
+  "output_shapes": {
+    "cell_metrics_rows": 3360,
+    "summary_rows": 210,
+    "order_null_rows": 10,
+    "nmi_null_rows": 2
+  }
+}

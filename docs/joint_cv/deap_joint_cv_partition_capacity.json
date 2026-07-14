@@ -1,0 +1,45 @@
+{
+  "repository": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE",
+  "branch": "joint-cv-capacity-audit",
+  "head": "78946cb168b5839dac88703ddfcad584137a046f",
+  "manifest": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/joint_cv/deap_trial_manifest.csv",
+  "manifest_sha256": "c40aa73e17098e17c95c79417176308e2459e1f709fe0f8583b48cfcd659a478",
+  "random_partitions_per_scheme": 1000,
+  "partition_construction_uses_labels": false,
+  "capacity_summaries": [
+    {
+      "scheme": "deap_4x4",
+      "random_partitions": 1000,
+      "outer_cells": 16,
+      "held_subjects": "8..8",
+      "held_stimuli": "10..10",
+      "min_test_class_random_min": 8,
+      "min_test_class_p05": 14.0,
+      "min_test_class_median": 20.0,
+      "min_test_class_p95": 25.0,
+      "min_test_class_random_max": 27,
+      "strong_pass_rate": 0.997,
+      "minimal_pass_rate": 1.0,
+      "single_class_test_partition_rate": 0.0,
+      "verdict": "ROBUST_STRONG"
+    },
+    {
+      "scheme": "deap_5x5",
+      "random_partitions": 1000,
+      "outer_cells": 25,
+      "held_subjects": "6..7",
+      "held_stimuli": "8..8",
+      "min_test_class_random_min": 2,
+      "min_test_class_p05": 6.0,
+      "min_test_class_median": 10.0,
+      "min_test_class_p95": 13.0,
+      "min_test_class_random_max": 16,
+      "strong_pass_rate": 0.644,
+      "minimal_pass_rate": 0.985,
+      "single_class_test_partition_rate": 0.0,
+      "verdict": "ROBUST_MINIMAL"
+    }
+  ],
+  "recommended_pre_freeze_scheme": "deap_4x4",
+  "interpretation": "This is a capacity and partition-robustness result, not model selection. The selected scheme must still be frozen with deterministic label-blind repetitions before training."
+}

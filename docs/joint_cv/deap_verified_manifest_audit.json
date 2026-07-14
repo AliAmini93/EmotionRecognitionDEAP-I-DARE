@@ -1,0 +1,96 @@
+{
+  "repository": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE",
+  "branch": "joint-cv-capacity-audit",
+  "head": "78946cb168b5839dac88703ddfcad584137a046f",
+  "training_performed": false,
+  "mapping_path": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/joint_cv/deap_verified_trial_stimulus_mapping.csv",
+  "mapping_sha256": "bc7ab2c13b47817478e1bd9a43905e875c4b0a5c2c31bb9e6d9c1ebc44b62be5",
+  "manifest_installation": {
+    "action": "REPLACED_WITH_BACKUP",
+    "canonical_path": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/joint_cv/deap_trial_manifest.csv",
+    "canonical_sha256": "c40aa73e17098e17c95c79417176308e2459e1f709fe0f8583b48cfcd659a478",
+    "backup_path": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/joint_cv/deap_trial_manifest_pre_verified_mapping.csv"
+  },
+  "manifest_rows": 1280,
+  "subjects": 32,
+  "stimuli": 40,
+  "complete_grid": true,
+  "chronology_verified_rows": 1280,
+  "stimulus_identity_verified_rows": 1280,
+  "eeg_available_rows": 1280,
+  "emg_available_rows": 1280,
+  "rating_verification": {
+    "embedded_rating_comparisons": 5120,
+    "exact_rating_comparisons_at_1e_8": 5120,
+    "exact_match_fraction": 1.0,
+    "max_absolute_error": 0.0
+  },
+  "sequence_audit": {
+    "subject_count": 32,
+    "unique_complete_sequences": 32,
+    "largest_identical_sequence_group": 1,
+    "pairwise_same_position_fraction_mean": 0.024546370967741937,
+    "pairwise_same_position_fraction_median": 0.025,
+    "pairwise_same_position_fraction_max": 0.1,
+    "stimulus_unique_position_count_min": 19,
+    "stimulus_unique_position_count_median": 22.0,
+    "stimulus_unique_position_count_max": 25
+  },
+  "label_counts": [
+    {
+      "task": "valence",
+      "policy": "discard_midpoint",
+      "rows_total": 1280,
+      "rows_retained": 1264,
+      "midpoints_removed": 16,
+      "low": 556,
+      "high": 708
+    },
+    {
+      "task": "valence",
+      "policy": "midpoint_as_low",
+      "rows_total": 1280,
+      "rows_retained": 1280,
+      "midpoints_removed": 0,
+      "low": 572,
+      "high": 708
+    },
+    {
+      "task": "valence",
+      "policy": "midpoint_as_high",
+      "rows_total": 1280,
+      "rows_retained": 1280,
+      "midpoints_removed": 0,
+      "low": 556,
+      "high": 724
+    },
+    {
+      "task": "arousal",
+      "policy": "discard_midpoint",
+      "rows_total": 1280,
+      "rows_retained": 1263,
+      "midpoints_removed": 17,
+      "low": 526,
+      "high": 737
+    },
+    {
+      "task": "arousal",
+      "policy": "midpoint_as_low",
+      "rows_total": 1280,
+      "rows_retained": 1280,
+      "midpoints_removed": 0,
+      "low": 543,
+      "high": 737
+    },
+    {
+      "task": "arousal",
+      "policy": "midpoint_as_high",
+      "rows_total": 1280,
+      "rows_retained": 1280,
+      "midpoints_removed": 0,
+      "low": 526,
+      "high": 754
+    }
+  ],
+  "deap_strict_joint_ready": true
+}

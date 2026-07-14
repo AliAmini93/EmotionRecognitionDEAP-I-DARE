@@ -1,0 +1,16 @@
+{
+  "repository": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE",
+  "branch": "joint-cv-capacity-audit",
+  "head": "78946cb168b5839dac88703ddfcad584137a046f",
+  "previous_audit_path": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/joint_cv/manifest_prerequisites_audit.json",
+  "previous_deap_mapping_status": "needs_manual_review",
+  "previous_joint_cv_ready": true,
+  "correction_reason": "A status of needs_manual_review is not equivalent to verified. The previous Boolean decision used a too-permissive condition.",
+  "idare_manifest_ready": true,
+  "deap_stimulus_aware_manifest_ready": false,
+  "deap_joint_cv_fold_construction_ready": false,
+  "idare_joint_cv_fold_construction_ready": true,
+  "combined_deap_idare_joint_cv_ready": false,
+  "deap_verdict": "UNVERIFIED_TRIAL_POSITION_AS_STIMULUS_ID",
+  "remaining_critical_uncertainty": "Verified DEAP mapping from subject-specific trial position to common video/stimulus identity and presentation order."
+}

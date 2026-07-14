@@ -1,0 +1,25 @@
+{
+  "repository": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE",
+  "branch": "joint-cv-capacity-audit",
+  "head": "78946cb168b5839dac88703ddfcad584137a046f",
+  "physical_trial_is_statistical_unit": true,
+  "deap": {
+    "manifest_built": true,
+    "manifest_audit_passed": true,
+    "row_count": 1280,
+    "subject_held_out_ready": true,
+    "stimulus_held_out_ready": false,
+    "strict_joint_ready": false,
+    "blocking_reason": "Official subject-specific trial-position to common stimulus identity mapping is unavailable."
+  },
+  "idare": {
+    "manifest_built": true,
+    "manifest_audit_passed": true,
+    "row_count": 2016,
+    "subject_held_out_ready": true,
+    "stimulus_held_out_ready": true,
+    "strict_joint_ready": true,
+    "blocking_reason": null
+  },
+  "safe_next_step": "Review the two manifests and audits. If accepted, construct Strict Joint folds for I-DARE only. Keep DEAP Strict Joint fold construction blocked."
+}

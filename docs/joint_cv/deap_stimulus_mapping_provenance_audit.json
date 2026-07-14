@@ -1,0 +1,989 @@
+{
+  "audit_type": "deap_stimulus_mapping_provenance",
+  "read_only": true,
+  "repository": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE",
+  "branch": "joint-cv-capacity-audit",
+  "head": "78946cb168b5839dac88703ddfcad584137a046f",
+  "local_mapping_candidates": [
+    {
+      "root_kind": "repository",
+      "path": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/deap_stimulus_only_loso_current_trial_labels.csv",
+      "relative_path": "docs/roca/deap_stimulus_only_loso_current_trial_labels.csv",
+      "size_bytes": 71015,
+      "name_hits": "",
+      "columns": "subject_id;subject_file;stimulus_id;trial_id;trial_index_0based;data_shape;valence_score;arousal_score;dominance_score;liking_score",
+      "authoritative_column_match": true,
+      "outside_project_derived_outputs": false,
+      "candidate_strength": "project-derived-or-weak"
+    },
+    {
+      "root_kind": "repository",
+      "path": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/roca/deap_stimulus_only_loso_midpoint_high_current_trial_labels.csv",
+      "relative_path": "docs/roca/deap_stimulus_only_loso_midpoint_high_current_trial_labels.csv",
+      "size_bytes": 71015,
+      "name_hits": "",
+      "columns": "subject_id;subject_file;stimulus_id;trial_id;trial_index_0based;data_shape;valence_score;arousal_score;dominance_score;liking_score",
+      "authoritative_column_match": true,
+      "outside_project_derived_outputs": false,
+      "candidate_strength": "project-derived-or-weak"
+    }
+  ],
+  "artifact_summary": [
+    {
+      "artifact_path": "docs/joint_cv/deap_stimulus_mapping_candidates.csv",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "categories": [],
+      "suspicious_trial_position_assignment": false,
+      "mapping_source_reference": false
+    },
+    {
+      "artifact_path": "docs/roca/deap_papers_vs_stimulus_only_loso_threshold_matched_current.csv",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "categories": [],
+      "suspicious_trial_position_assignment": false,
+      "mapping_source_reference": false
+    },
+    {
+      "artifact_path": "docs/roca/deap_stimulus_only_loso_current.json",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "categories": [
+        "mapping_source_reference",
+        "trial_index_reference"
+      ],
+      "suspicious_trial_position_assignment": false,
+      "mapping_source_reference": true
+    },
+    {
+      "artifact_path": "docs/roca/deap_stimulus_only_loso_current.md",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "categories": [],
+      "suspicious_trial_position_assignment": false,
+      "mapping_source_reference": false
+    },
+    {
+      "artifact_path": "docs/roca/deap_stimulus_only_loso_current_main_metrics.csv",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "categories": [],
+      "suspicious_trial_position_assignment": false,
+      "mapping_source_reference": false
+    },
+    {
+      "artifact_path": "docs/roca/deap_stimulus_only_loso_current_predictions.csv",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "categories": [
+        "stimulus_id_reference",
+        "trial_index_reference"
+      ],
+      "suspicious_trial_position_assignment": false,
+      "mapping_source_reference": false
+    },
+    {
+      "artifact_path": "docs/roca/deap_stimulus_only_loso_current_subject_metrics.csv",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "categories": [],
+      "suspicious_trial_position_assignment": false,
+      "mapping_source_reference": false
+    },
+    {
+      "artifact_path": "docs/roca/deap_stimulus_only_loso_current_trial_labels.csv",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "categories": [
+        "stimulus_id_reference",
+        "trial_index_reference"
+      ],
+      "suspicious_trial_position_assignment": false,
+      "mapping_source_reference": false
+    },
+    {
+      "artifact_path": "docs/roca/deap_stimulus_only_loso_midpoint_high_current.json",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "categories": [
+        "mapping_source_reference",
+        "trial_index_reference"
+      ],
+      "suspicious_trial_position_assignment": false,
+      "mapping_source_reference": true
+    },
+    {
+      "artifact_path": "docs/roca/deap_stimulus_only_loso_midpoint_high_current.md",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "categories": [],
+      "suspicious_trial_position_assignment": false,
+      "mapping_source_reference": false
+    },
+    {
+      "artifact_path": "docs/roca/deap_stimulus_only_loso_midpoint_high_current_main_metrics.csv",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "categories": [],
+      "suspicious_trial_position_assignment": false,
+      "mapping_source_reference": false
+    },
+    {
+      "artifact_path": "docs/roca/deap_stimulus_only_loso_midpoint_high_current_predictions.csv",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "categories": [
+        "stimulus_id_reference",
+        "trial_index_reference"
+      ],
+      "suspicious_trial_position_assignment": false,
+      "mapping_source_reference": false
+    },
+    {
+      "artifact_path": "docs/roca/deap_stimulus_only_loso_midpoint_high_current_subject_metrics.csv",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "categories": [],
+      "suspicious_trial_position_assignment": false,
+      "mapping_source_reference": false
+    },
+    {
+      "artifact_path": "docs/roca/deap_stimulus_only_loso_midpoint_high_current_trial_labels.csv",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "categories": [
+        "stimulus_id_reference",
+        "trial_index_reference"
+      ],
+      "suspicious_trial_position_assignment": false,
+      "mapping_source_reference": false
+    },
+    {
+      "artifact_path": "docs/roca/prior_baselines_no_global_current.json",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "categories": [],
+      "suspicious_trial_position_assignment": false,
+      "mapping_source_reference": false
+    },
+    {
+      "artifact_path": "docs/roca/prior_baselines_no_global_current.md",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "categories": [],
+      "suspicious_trial_position_assignment": false,
+      "mapping_source_reference": false
+    },
+    {
+      "artifact_path": "docs/roca/prior_baselines_no_global_current_binary_metrics.csv",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "categories": [],
+      "suspicious_trial_position_assignment": false,
+      "mapping_source_reference": false
+    },
+    {
+      "artifact_path": "docs/roca/prior_baselines_no_global_current_main_metrics.csv",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "categories": [],
+      "suspicious_trial_position_assignment": false,
+      "mapping_source_reference": false
+    },
+    {
+      "artifact_path": "docs/roca/prior_baselines_no_global_current_predictions.csv",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "categories": [
+        "stimulus_id_reference"
+      ],
+      "suspicious_trial_position_assignment": false,
+      "mapping_source_reference": false
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "categories": [
+        "mapping_source_reference",
+        "stimulus_id_reference",
+        "trial_index_reference",
+        "trial_position_used_as_stimulus_id"
+      ],
+      "suspicious_trial_position_assignment": true,
+      "mapping_source_reference": true
+    },
+    {
+      "artifact_path": "scripts/roca/01_deap_stimulus_only_loso.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "categories": [
+        "mapping_source_reference",
+        "stimulus_id_reference",
+        "trial_index_reference"
+      ],
+      "suspicious_trial_position_assignment": false,
+      "mapping_source_reference": true
+    },
+    {
+      "artifact_path": "scripts/roca/01c_prior_baselines_no_global.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "categories": [
+        "stimulus_id_reference",
+        "trial_index_reference"
+      ],
+      "suspicious_trial_position_assignment": false,
+      "mapping_source_reference": false
+    }
+  ],
+  "code_evidence": [
+    {
+      "artifact_path": "docs/roca/deap_stimulus_only_loso_current.json",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 20,
+      "category": "trial_index_reference",
+      "line": "\"DEAP trial_id is treated as stimulus/video id.\",",
+      "excerpt": "16:   \"notes\": [\n17:     \"No EEG/EMG data are used.\",\n18:     \"For every LOSO fold, stimulus means and P(high) are computed from train subjects only.\",\n19:     \"Test subject labels are used only for final evaluation.\",\n20:     \"DEAP trial_id is treated as stimulus/video id.\",\n21:     \"High label is computed with the selected label policy.\"\n22:   ],\n23:   \"issues\": [],\n24:   \"outputs\": {"
+    },
+    {
+      "artifact_path": "docs/roca/deap_stimulus_only_loso_current.json",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 20,
+      "category": "mapping_source_reference",
+      "line": "\"DEAP trial_id is treated as stimulus/video id.\",",
+      "excerpt": "16:   \"notes\": [\n17:     \"No EEG/EMG data are used.\",\n18:     \"For every LOSO fold, stimulus means and P(high) are computed from train subjects only.\",\n19:     \"Test subject labels are used only for final evaluation.\",\n20:     \"DEAP trial_id is treated as stimulus/video id.\",\n21:     \"High label is computed with the selected label policy.\"\n22:   ],\n23:   \"issues\": [],\n24:   \"outputs\": {"
+    },
+    {
+      "artifact_path": "docs/roca/deap_stimulus_only_loso_current_predictions.csv",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 1,
+      "category": "stimulus_id_reference",
+      "line": "test_subject,stimulus_id,trial_id,target,model,y_true_score,y_true_bin,y_pred_score,p_high,y_pred_bin",
+      "excerpt": "1: test_subject,stimulus_id,trial_id,target,model,y_true_score,y_true_bin,y_pred_score,p_high,y_pred_bin\n2: 1,1,1,valence,global_mean,7.71,1.0,5.258717741935484,0.5556451612903226,1.0\n3: 1,2,2,valence,global_mean,8.1,1.0,5.258717741935484,0.5556451612903226,1.0\n4: 1,3,3,valence,global_mean,8.58,1.0,5.258717741935484,0.5556451612903226,1.0\n5: 1,4,4,valence,global_mean,4.94,0.0,5.258717741935484,0.5556451612903226,1.0"
+    },
+    {
+      "artifact_path": "docs/roca/deap_stimulus_only_loso_current_predictions.csv",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 1,
+      "category": "trial_index_reference",
+      "line": "test_subject,stimulus_id,trial_id,target,model,y_true_score,y_true_bin,y_pred_score,p_high,y_pred_bin",
+      "excerpt": "1: test_subject,stimulus_id,trial_id,target,model,y_true_score,y_true_bin,y_pred_score,p_high,y_pred_bin\n2: 1,1,1,valence,global_mean,7.71,1.0,5.258717741935484,0.5556451612903226,1.0\n3: 1,2,2,valence,global_mean,8.1,1.0,5.258717741935484,0.5556451612903226,1.0\n4: 1,3,3,valence,global_mean,8.58,1.0,5.258717741935484,0.5556451612903226,1.0\n5: 1,4,4,valence,global_mean,4.94,0.0,5.258717741935484,0.5556451612903226,1.0"
+    },
+    {
+      "artifact_path": "docs/roca/deap_stimulus_only_loso_current_trial_labels.csv",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 1,
+      "category": "stimulus_id_reference",
+      "line": "subject_id,subject_file,stimulus_id,trial_id,trial_index_0based,data_shape,valence_score,arousal_score,dominance_score,liking_score",
+      "excerpt": "1: subject_id,subject_file,stimulus_id,trial_id,trial_index_0based,data_shape,valence_score,arousal_score,dominance_score,liking_score\n2: 1,s01.dat,1,1,0,\"[40, 40, 8064]\",7.71,7.6,6.9,7.83\n3: 1,s01.dat,2,2,1,\"[40, 40, 8064]\",8.1,7.31,7.28,8.47\n4: 1,s01.dat,3,3,2,\"[40, 40, 8064]\",8.58,7.54,9.0,7.08\n5: 1,s01.dat,4,4,3,\"[40, 40, 8064]\",4.94,6.01,6.12,8.06"
+    },
+    {
+      "artifact_path": "docs/roca/deap_stimulus_only_loso_current_trial_labels.csv",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 1,
+      "category": "trial_index_reference",
+      "line": "subject_id,subject_file,stimulus_id,trial_id,trial_index_0based,data_shape,valence_score,arousal_score,dominance_score,liking_score",
+      "excerpt": "1: subject_id,subject_file,stimulus_id,trial_id,trial_index_0based,data_shape,valence_score,arousal_score,dominance_score,liking_score\n2: 1,s01.dat,1,1,0,\"[40, 40, 8064]\",7.71,7.6,6.9,7.83\n3: 1,s01.dat,2,2,1,\"[40, 40, 8064]\",8.1,7.31,7.28,8.47\n4: 1,s01.dat,3,3,2,\"[40, 40, 8064]\",8.58,7.54,9.0,7.08\n5: 1,s01.dat,4,4,3,\"[40, 40, 8064]\",4.94,6.01,6.12,8.06"
+    },
+    {
+      "artifact_path": "docs/roca/deap_stimulus_only_loso_midpoint_high_current.json",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 20,
+      "category": "trial_index_reference",
+      "line": "\"DEAP trial_id is treated as stimulus/video id.\",",
+      "excerpt": "16:   \"notes\": [\n17:     \"No EEG/EMG data are used.\",\n18:     \"For every LOSO fold, stimulus means and P(high) are computed from train subjects only.\",\n19:     \"Test subject labels are used only for final evaluation.\",\n20:     \"DEAP trial_id is treated as stimulus/video id.\",\n21:     \"High label is computed with the selected label policy.\"\n22:   ],\n23:   \"issues\": [],\n24:   \"outputs\": {"
+    },
+    {
+      "artifact_path": "docs/roca/deap_stimulus_only_loso_midpoint_high_current.json",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 20,
+      "category": "mapping_source_reference",
+      "line": "\"DEAP trial_id is treated as stimulus/video id.\",",
+      "excerpt": "16:   \"notes\": [\n17:     \"No EEG/EMG data are used.\",\n18:     \"For every LOSO fold, stimulus means and P(high) are computed from train subjects only.\",\n19:     \"Test subject labels are used only for final evaluation.\",\n20:     \"DEAP trial_id is treated as stimulus/video id.\",\n21:     \"High label is computed with the selected label policy.\"\n22:   ],\n23:   \"issues\": [],\n24:   \"outputs\": {"
+    },
+    {
+      "artifact_path": "docs/roca/deap_stimulus_only_loso_midpoint_high_current_predictions.csv",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 1,
+      "category": "stimulus_id_reference",
+      "line": "test_subject,stimulus_id,trial_id,target,model,y_true_score,y_true_bin,y_pred_score,p_high,y_pred_bin",
+      "excerpt": "1: test_subject,stimulus_id,trial_id,target,model,y_true_score,y_true_bin,y_pred_score,p_high,y_pred_bin\n2: 1,1,1,valence,global_mean,7.71,1.0,5.258717741935484,0.5685483870967742,1.0\n3: 1,2,2,valence,global_mean,8.1,1.0,5.258717741935484,0.5685483870967742,1.0\n4: 1,3,3,valence,global_mean,8.58,1.0,5.258717741935484,0.5685483870967742,1.0\n5: 1,4,4,valence,global_mean,4.94,0.0,5.258717741935484,0.5685483870967742,1.0"
+    },
+    {
+      "artifact_path": "docs/roca/deap_stimulus_only_loso_midpoint_high_current_predictions.csv",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 1,
+      "category": "trial_index_reference",
+      "line": "test_subject,stimulus_id,trial_id,target,model,y_true_score,y_true_bin,y_pred_score,p_high,y_pred_bin",
+      "excerpt": "1: test_subject,stimulus_id,trial_id,target,model,y_true_score,y_true_bin,y_pred_score,p_high,y_pred_bin\n2: 1,1,1,valence,global_mean,7.71,1.0,5.258717741935484,0.5685483870967742,1.0\n3: 1,2,2,valence,global_mean,8.1,1.0,5.258717741935484,0.5685483870967742,1.0\n4: 1,3,3,valence,global_mean,8.58,1.0,5.258717741935484,0.5685483870967742,1.0\n5: 1,4,4,valence,global_mean,4.94,0.0,5.258717741935484,0.5685483870967742,1.0"
+    },
+    {
+      "artifact_path": "docs/roca/deap_stimulus_only_loso_midpoint_high_current_trial_labels.csv",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 1,
+      "category": "stimulus_id_reference",
+      "line": "subject_id,subject_file,stimulus_id,trial_id,trial_index_0based,data_shape,valence_score,arousal_score,dominance_score,liking_score",
+      "excerpt": "1: subject_id,subject_file,stimulus_id,trial_id,trial_index_0based,data_shape,valence_score,arousal_score,dominance_score,liking_score\n2: 1,s01.dat,1,1,0,\"[40, 40, 8064]\",7.71,7.6,6.9,7.83\n3: 1,s01.dat,2,2,1,\"[40, 40, 8064]\",8.1,7.31,7.28,8.47\n4: 1,s01.dat,3,3,2,\"[40, 40, 8064]\",8.58,7.54,9.0,7.08\n5: 1,s01.dat,4,4,3,\"[40, 40, 8064]\",4.94,6.01,6.12,8.06"
+    },
+    {
+      "artifact_path": "docs/roca/deap_stimulus_only_loso_midpoint_high_current_trial_labels.csv",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 1,
+      "category": "trial_index_reference",
+      "line": "subject_id,subject_file,stimulus_id,trial_id,trial_index_0based,data_shape,valence_score,arousal_score,dominance_score,liking_score",
+      "excerpt": "1: subject_id,subject_file,stimulus_id,trial_id,trial_index_0based,data_shape,valence_score,arousal_score,dominance_score,liking_score\n2: 1,s01.dat,1,1,0,\"[40, 40, 8064]\",7.71,7.6,6.9,7.83\n3: 1,s01.dat,2,2,1,\"[40, 40, 8064]\",8.1,7.31,7.28,8.47\n4: 1,s01.dat,3,3,2,\"[40, 40, 8064]\",8.58,7.54,9.0,7.08\n5: 1,s01.dat,4,4,3,\"[40, 40, 8064]\",4.94,6.01,6.12,8.06"
+    },
+    {
+      "artifact_path": "docs/roca/prior_baselines_no_global_current_predictions.csv",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 1,
+      "category": "stimulus_id_reference",
+      "line": "dataset,subject_id,stimulus_id,target,protocol,model,y_true_score,y_pred_score",
+      "excerpt": "1: dataset,subject_id,stimulus_id,target,protocol,model,y_true_score,y_pred_score\n2: DEAP,1,1,valence,leave_one_subject_out,stimulus_only,7.71,6.738709677419355\n3: DEAP,1,2,valence,leave_one_subject_out,stimulus_only,8.1,6.353225806451613\n4: DEAP,1,3,valence,leave_one_subject_out,stimulus_only,8.58,7.498709677419354\n5: DEAP,1,4,valence,leave_one_subject_out,stimulus_only,4.94,6.8425806451612905"
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 8,
+      "category": "stimulus_id_reference",
+      "line": "(subject_id, physical_trial_index) -> stimulus_id / video_id",
+      "excerpt": "4: This is a read-only scientific audit. It does not train models, construct\n5: Joint-CV folds, modify datasets/caches, or alter Git state.\n6: \n7: The key question is whether the local evidence contains a verified mapping:\n8:     (subject_id, physical_trial_index) -> stimulus_id / video_id\n9: rather than merely treating the row position 0..39 as a shared stimulus ID.\n10: \"\"\"\n11: \n12: from __future__ import annotations"
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 8,
+      "category": "trial_index_reference",
+      "line": "(subject_id, physical_trial_index) -> stimulus_id / video_id",
+      "excerpt": "4: This is a read-only scientific audit. It does not train models, construct\n5: Joint-CV folds, modify datasets/caches, or alter Git state.\n6: \n7: The key question is whether the local evidence contains a verified mapping:\n8:     (subject_id, physical_trial_index) -> stimulus_id / video_id\n9: rather than merely treating the row position 0..39 as a shared stimulus ID.\n10: \"\"\"\n11: \n12: from __future__ import annotations"
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 8,
+      "category": "mapping_source_reference",
+      "line": "(subject_id, physical_trial_index) -> stimulus_id / video_id",
+      "excerpt": "4: This is a read-only scientific audit. It does not train models, construct\n5: Joint-CV folds, modify datasets/caches, or alter Git state.\n6: \n7: The key question is whether the local evidence contains a verified mapping:\n8:     (subject_id, physical_trial_index) -> stimulus_id / video_id\n9: rather than merely treating the row position 0..39 as a shared stimulus ID.\n10: \"\"\"\n11: \n12: from __future__ import annotations"
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 33,
+      "category": "mapping_source_reference",
+      "line": "\"participant_ratings\", \"video_list\", \"video_order\", \"stimulus_order\",",
+      "excerpt": "29: EXPECTED_BRANCH = \"joint-cv-capacity-audit\"\n30: \n31: TEXT_SUFFIXES = {\".py\", \".md\", \".txt\", \".json\", \".csv\", \".sh\", \".yaml\", \".yml\"}\n32: MAPPING_NAME_TERMS = (\n33:     \"participant_ratings\", \"video_list\", \"video_order\", \"stimulus_order\",\n34:     \"trial_order\", \"experiment_id\", \"playlist\", \"sequence\", \"metadata\",\n35: )\n36: AUTHORITATIVE_COLUMN_SETS = (\n37:     {\"subject_id\", \"trial_id\", \"stimulus_id\"},"
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 34,
+      "category": "mapping_source_reference",
+      "line": "\"trial_order\", \"experiment_id\", \"playlist\", \"sequence\", \"metadata\",",
+      "excerpt": "30: \n31: TEXT_SUFFIXES = {\".py\", \".md\", \".txt\", \".json\", \".csv\", \".sh\", \".yaml\", \".yml\"}\n32: MAPPING_NAME_TERMS = (\n33:     \"participant_ratings\", \"video_list\", \"video_order\", \"stimulus_order\",\n34:     \"trial_order\", \"experiment_id\", \"playlist\", \"sequence\", \"metadata\",\n35: )\n36: AUTHORITATIVE_COLUMN_SETS = (\n37:     {\"subject_id\", \"trial_id\", \"stimulus_id\"},\n38:     {\"participant_id\", \"trial\", \"experiment_id\"},"
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 37,
+      "category": "stimulus_id_reference",
+      "line": "{\"subject_id\", \"trial_id\", \"stimulus_id\"},",
+      "excerpt": "33:     \"participant_ratings\", \"video_list\", \"video_order\", \"stimulus_order\",\n34:     \"trial_order\", \"experiment_id\", \"playlist\", \"sequence\", \"metadata\",\n35: )\n36: AUTHORITATIVE_COLUMN_SETS = (\n37:     {\"subject_id\", \"trial_id\", \"stimulus_id\"},\n38:     {\"participant_id\", \"trial\", \"experiment_id\"},\n39:     {\"participant\", \"trial\", \"video_id\"},\n40: )\n41: SUSPICIOUS_ASSIGNMENT_PATTERNS = ("
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 37,
+      "category": "trial_index_reference",
+      "line": "{\"subject_id\", \"trial_id\", \"stimulus_id\"},",
+      "excerpt": "33:     \"participant_ratings\", \"video_list\", \"video_order\", \"stimulus_order\",\n34:     \"trial_order\", \"experiment_id\", \"playlist\", \"sequence\", \"metadata\",\n35: )\n36: AUTHORITATIVE_COLUMN_SETS = (\n37:     {\"subject_id\", \"trial_id\", \"stimulus_id\"},\n38:     {\"participant_id\", \"trial\", \"experiment_id\"},\n39:     {\"participant\", \"trial\", \"video_id\"},\n40: )\n41: SUSPICIOUS_ASSIGNMENT_PATTERNS = ("
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 38,
+      "category": "mapping_source_reference",
+      "line": "{\"participant_id\", \"trial\", \"experiment_id\"},",
+      "excerpt": "34:     \"trial_order\", \"experiment_id\", \"playlist\", \"sequence\", \"metadata\",\n35: )\n36: AUTHORITATIVE_COLUMN_SETS = (\n37:     {\"subject_id\", \"trial_id\", \"stimulus_id\"},\n38:     {\"participant_id\", \"trial\", \"experiment_id\"},\n39:     {\"participant\", \"trial\", \"video_id\"},\n40: )\n41: SUSPICIOUS_ASSIGNMENT_PATTERNS = (\n42:     re.compile("
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 39,
+      "category": "mapping_source_reference",
+      "line": "{\"participant\", \"trial\", \"video_id\"},",
+      "excerpt": "35: )\n36: AUTHORITATIVE_COLUMN_SETS = (\n37:     {\"subject_id\", \"trial_id\", \"stimulus_id\"},\n38:     {\"participant_id\", \"trial\", \"experiment_id\"},\n39:     {\"participant\", \"trial\", \"video_id\"},\n40: )\n41: SUSPICIOUS_ASSIGNMENT_PATTERNS = (\n42:     re.compile(\n43:         r'[\"\\']stimulus_id[\"\\']\\s*:\\s*'"
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 43,
+      "category": "stimulus_id_reference",
+      "line": "r'[\"\\']stimulus_id[\"\\']\\s*:\\s*'",
+      "excerpt": "39:     {\"participant\", \"trial\", \"video_id\"},\n40: )\n41: SUSPICIOUS_ASSIGNMENT_PATTERNS = (\n42:     re.compile(\n43:         r'[\"\\']stimulus_id[\"\\']\\s*:\\s*'\n44:         r'(?:int\\()?(?:trial|trial_i|trial_idx|trial_index|i|j)'\n45:         r'(?:\\s*\\+\\s*1)?(?:\\))?',\n46:         re.I,\n47:     ),"
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 44,
+      "category": "trial_index_reference",
+      "line": "r'(?:int\\()?(?:trial|trial_i|trial_idx|trial_index|i|j)'",
+      "excerpt": "40: )\n41: SUSPICIOUS_ASSIGNMENT_PATTERNS = (\n42:     re.compile(\n43:         r'[\"\\']stimulus_id[\"\\']\\s*:\\s*'\n44:         r'(?:int\\()?(?:trial|trial_i|trial_idx|trial_index|i|j)'\n45:         r'(?:\\s*\\+\\s*1)?(?:\\))?',\n46:         re.I,\n47:     ),\n48:     re.compile("
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 49,
+      "category": "stimulus_id_reference",
+      "line": "r'\\bstimulus_id\\s*=\\s*'",
+      "excerpt": "45:         r'(?:\\s*\\+\\s*1)?(?:\\))?',\n46:         re.I,\n47:     ),\n48:     re.compile(\n49:         r'\\bstimulus_id\\s*=\\s*'\n50:         r'(?:int\\()?(?:trial|trial_i|trial_idx|trial_index|i|j)'\n51:         r'(?:\\s*\\+\\s*1)?(?:\\))?',\n52:         re.I,\n53:     ),"
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 50,
+      "category": "trial_index_reference",
+      "line": "r'(?:int\\()?(?:trial|trial_i|trial_idx|trial_index|i|j)'",
+      "excerpt": "46:         re.I,\n47:     ),\n48:     re.compile(\n49:         r'\\bstimulus_id\\s*=\\s*'\n50:         r'(?:int\\()?(?:trial|trial_i|trial_idx|trial_index|i|j)'\n51:         r'(?:\\s*\\+\\s*1)?(?:\\))?',\n52:         re.I,\n53:     ),\n54: )"
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 56,
+      "category": "mapping_source_reference",
+      "line": "re.compile(r\"participant_ratings\", re.I),",
+      "excerpt": "52:         re.I,\n53:     ),\n54: )\n55: MAPPING_EVIDENCE_PATTERNS = (\n56:     re.compile(r\"participant_ratings\", re.I),\n57:     re.compile(r\"experiment_id\", re.I),\n58:     re.compile(r\"video[_ -]?id\", re.I),\n59:     re.compile(r\"stimulus[_ -]?mapping\", re.I),\n60:     re.compile(r\"trial[_ -]?to[_ -]?(?:video|stimulus)\", re.I),"
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 57,
+      "category": "mapping_source_reference",
+      "line": "re.compile(r\"experiment_id\", re.I),",
+      "excerpt": "53:     ),\n54: )\n55: MAPPING_EVIDENCE_PATTERNS = (\n56:     re.compile(r\"participant_ratings\", re.I),\n57:     re.compile(r\"experiment_id\", re.I),\n58:     re.compile(r\"video[_ -]?id\", re.I),\n59:     re.compile(r\"stimulus[_ -]?mapping\", re.I),\n60:     re.compile(r\"trial[_ -]?to[_ -]?(?:video|stimulus)\", re.I),\n61: )"
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 107,
+      "category": "mapping_source_reference",
+      "line": "\"md\": out_dir / \"deap_stimulus_mapping_provenance_audit.md\",",
+      "excerpt": "103: \n104: \n105: def ensure_outputs(out_dir: Path, overwrite: bool) -> dict[str, Path]:\n106:     paths = {\n107:         \"md\": out_dir / \"deap_stimulus_mapping_provenance_audit.md\",\n108:         \"json\": out_dir / \"deap_stimulus_mapping_provenance_audit.json\",\n109:         \"evidence\": out_dir / \"deap_stimulus_mapping_code_evidence.csv\",\n110:         \"correction_md\": out_dir / \"manifest_prerequisites_audit_correction.md\",\n111:         \"correction_json\": out_dir / \"manifest_prerequisites_audit_correction.json\","
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 108,
+      "category": "mapping_source_reference",
+      "line": "\"json\": out_dir / \"deap_stimulus_mapping_provenance_audit.json\",",
+      "excerpt": "104: \n105: def ensure_outputs(out_dir: Path, overwrite: bool) -> dict[str, Path]:\n106:     paths = {\n107:         \"md\": out_dir / \"deap_stimulus_mapping_provenance_audit.md\",\n108:         \"json\": out_dir / \"deap_stimulus_mapping_provenance_audit.json\",\n109:         \"evidence\": out_dir / \"deap_stimulus_mapping_code_evidence.csv\",\n110:         \"correction_md\": out_dir / \"manifest_prerequisites_audit_correction.md\",\n111:         \"correction_json\": out_dir / \"manifest_prerequisites_audit_correction.json\",\n112:     }"
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 109,
+      "category": "mapping_source_reference",
+      "line": "\"evidence\": out_dir / \"deap_stimulus_mapping_code_evidence.csv\",",
+      "excerpt": "105: def ensure_outputs(out_dir: Path, overwrite: bool) -> dict[str, Path]:\n106:     paths = {\n107:         \"md\": out_dir / \"deap_stimulus_mapping_provenance_audit.md\",\n108:         \"json\": out_dir / \"deap_stimulus_mapping_provenance_audit.json\",\n109:         \"evidence\": out_dir / \"deap_stimulus_mapping_code_evidence.csv\",\n110:         \"correction_md\": out_dir / \"manifest_prerequisites_audit_correction.md\",\n111:         \"correction_json\": out_dir / \"manifest_prerequisites_audit_correction.json\",\n112:     }\n113:     out_dir.mkdir(parents=True, exist_ok=True)"
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 253,
+      "category": "stimulus_id_reference",
+      "line": "if \"stimulus_id\" in line_lower:",
+      "excerpt": "249:     for line_no, line in enumerate(text.splitlines(), start=1):\n250:         line_lower = line.lower()\n251:         categories: list[str] = []\n252: \n253:         if \"stimulus_id\" in line_lower:\n254:             categories.append(\"stimulus_id_reference\")\n255:         if \"trial_id\" in line_lower or \"trial_idx\" in line_lower or \"trial_index\" in line_lower:\n256:             categories.append(\"trial_index_reference\")\n257:         if any(p.search(line) for p in MAPPING_EVIDENCE_PATTERNS):"
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 254,
+      "category": "stimulus_id_reference",
+      "line": "categories.append(\"stimulus_id_reference\")",
+      "excerpt": "250:         line_lower = line.lower()\n251:         categories: list[str] = []\n252: \n253:         if \"stimulus_id\" in line_lower:\n254:             categories.append(\"stimulus_id_reference\")\n255:         if \"trial_id\" in line_lower or \"trial_idx\" in line_lower or \"trial_index\" in line_lower:\n256:             categories.append(\"trial_index_reference\")\n257:         if any(p.search(line) for p in MAPPING_EVIDENCE_PATTERNS):\n258:             categories.append(\"mapping_source_reference\")"
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 255,
+      "category": "trial_index_reference",
+      "line": "if \"trial_id\" in line_lower or \"trial_idx\" in line_lower or \"trial_index\" in line_lower:",
+      "excerpt": "251:         categories: list[str] = []\n252: \n253:         if \"stimulus_id\" in line_lower:\n254:             categories.append(\"stimulus_id_reference\")\n255:         if \"trial_id\" in line_lower or \"trial_idx\" in line_lower or \"trial_index\" in line_lower:\n256:             categories.append(\"trial_index_reference\")\n257:         if any(p.search(line) for p in MAPPING_EVIDENCE_PATTERNS):\n258:             categories.append(\"mapping_source_reference\")\n259:         if any(p.search(line) for p in SUSPICIOUS_ASSIGNMENT_PATTERNS):"
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 256,
+      "category": "trial_index_reference",
+      "line": "categories.append(\"trial_index_reference\")",
+      "excerpt": "252: \n253:         if \"stimulus_id\" in line_lower:\n254:             categories.append(\"stimulus_id_reference\")\n255:         if \"trial_id\" in line_lower or \"trial_idx\" in line_lower or \"trial_index\" in line_lower:\n256:             categories.append(\"trial_index_reference\")\n257:         if any(p.search(line) for p in MAPPING_EVIDENCE_PATTERNS):\n258:             categories.append(\"mapping_source_reference\")\n259:         if any(p.search(line) for p in SUSPICIOUS_ASSIGNMENT_PATTERNS):\n260:             categories.append(\"trial_position_used_as_stimulus_id\")"
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 260,
+      "category": "stimulus_id_reference",
+      "line": "categories.append(\"trial_position_used_as_stimulus_id\")",
+      "excerpt": "256:             categories.append(\"trial_index_reference\")\n257:         if any(p.search(line) for p in MAPPING_EVIDENCE_PATTERNS):\n258:             categories.append(\"mapping_source_reference\")\n259:         if any(p.search(line) for p in SUSPICIOUS_ASSIGNMENT_PATTERNS):\n260:             categories.append(\"trial_position_used_as_stimulus_id\")\n261: \n262:         for category in categories:\n263:             key = (artifact_path, line_no, category)\n264:             if key in seen:"
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 323,
+      "category": "stimulus_id_reference",
+      "line": "\"trial_position_used_as_stimulus_id\" in categories",
+      "excerpt": "319:                 \"source_kind\": source_kind,\n320:                 \"commit_sha\": sha or \"\",\n321:                 \"categories\": categories,\n322:                 \"suspicious_trial_position_assignment\": (\n323:                     \"trial_position_used_as_stimulus_id\" in categories\n324:                 ),\n325:                 \"mapping_source_reference\": (\n326:                     \"mapping_source_reference\" in categories\n327:                 ),"
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 365,
+      "category": "stimulus_id_reference",
+      "line": "if r[\"category\"] == \"trial_position_used_as_stimulus_id\"",
+      "excerpt": "361:     ]\n362:     position_assumptions = [\n363:         r\n364:         for r in code_evidence\n365:         if r[\"category\"] == \"trial_position_used_as_stimulus_id\"\n366:     ]\n367:     mapping_refs = [\n368:         r\n369:         for r in code_evidence"
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 378,
+      "category": "mapping_source_reference",
+      "line": "\"stimulus mapping schema. Its completeness and semantics must still be \"",
+      "excerpt": "374:         verdict = \"POTENTIALLY_VERIFIABLE_MAPPING_FOUND\"\n375:         deap_ready = False\n376:         reason = (\n377:             \"At least one local dataset-level file has a plausible subject/trial/\"\n378:             \"stimulus mapping schema. Its completeness and semantics must still be \"\n379:             \"validated before DEAP Joint-CV folds are built.\"\n380:         )\n381:     elif medium_authoritative:\n382:         verdict = \"POTENTIAL_METADATA_FOUND_NEEDS_SCHEMA_REVIEW\""
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 389,
+      "category": "stimulus_id_reference",
+      "line": "verdict = \"UNVERIFIED_TRIAL_POSITION_AS_STIMULUS_ID\"",
+      "excerpt": "385:             \"Dataset-level files with mapping-related names were found, but no \"\n386:             \"verified mapping schema was established.\"\n387:         )\n388:     elif position_assumptions:\n389:         verdict = \"UNVERIFIED_TRIAL_POSITION_AS_STIMULUS_ID\"\n390:         deap_ready = False\n391:         reason = (\n392:             \"Project code appears to use the DEAP row/trial position as stimulus_id, \"\n393:             \"while no authoritative local mapping from participant trial position to \""
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 392,
+      "category": "stimulus_id_reference",
+      "line": "\"Project code appears to use the DEAP row/trial position as stimulus_id, \"",
+      "excerpt": "388:     elif position_assumptions:\n389:         verdict = \"UNVERIFIED_TRIAL_POSITION_AS_STIMULUS_ID\"\n390:         deap_ready = False\n391:         reason = (\n392:             \"Project code appears to use the DEAP row/trial position as stimulus_id, \"\n393:             \"while no authoritative local mapping from participant trial position to \"\n394:             \"video/stimulus identity was found. Previous DEAP stimulus-only results \"\n395:             \"must therefore be treated as relying on an unverified alignment assumption.\"\n396:         )"
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 405,
+      "category": "mapping_source_reference",
+      "line": "verdict = \"NO_VERIFIED_DEAP_STIMULUS_MAPPING\"",
+      "excerpt": "401:             \"Project text/code refers to a mapping source, but the authoritative mapping \"\n402:             \"file was not verified locally.\"\n403:         )\n404:     else:\n405:         verdict = \"NO_VERIFIED_DEAP_STIMULUS_MAPPING\"\n406:         deap_ready = False\n407:         reason = (\n408:             \"No authoritative local mapping from DEAP subject/trial position to \"\n409:             \"stimulus identity was found.\""
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 491,
+      "category": "mapping_source_reference",
+      "line": ".get(\"stimulus_mapping_assessment\", {})",
+      "excerpt": "487:             \"joint_cv_fold_construction_ready\"\n488:         )\n489:         previous_deap_status = (\n490:             data.get(\"deap\", {})\n491:             .get(\"stimulus_mapping_assessment\", {})\n492:             .get(\"status\")\n493:         )\n494: \n495:     corrected = {"
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 524,
+      "category": "mapping_source_reference",
+      "line": "\"audit_type\": \"deap_stimulus_mapping_provenance\",",
+      "excerpt": "520:         ),\n521:     }\n522: \n523:     report = {\n524:         \"audit_type\": \"deap_stimulus_mapping_provenance\",\n525:         \"read_only\": True,\n526:         \"repository\": str(repo),\n527:         \"branch\": branch,\n528:         \"head\": head,"
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 549,
+      "category": "stimulus_id_reference",
+      "line": "if row[\"category\"] == \"trial_position_used_as_stimulus_id\"",
+      "excerpt": "545: \n546:     suspicious = [\n547:         row\n548:         for row in code_evidence\n549:         if row[\"category\"] == \"trial_position_used_as_stimulus_id\"\n550:     ]\n551:     mapping_refs = [\n552:         row\n553:         for row in code_evidence"
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 558,
+      "category": "mapping_source_reference",
+      "line": "\"# DEAP Stimulus-Mapping Provenance Audit\",",
+      "excerpt": "554:         if row[\"category\"] == \"mapping_source_reference\"\n555:     ]\n556: \n557:     md = [\n558:         \"# DEAP Stimulus-Mapping Provenance Audit\",\n559:         \"\",\n560:         \"Read-only audit. No training or fold construction was performed.\",\n561:         \"\",\n562:         \"## Result\","
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 579,
+      "category": "stimulus_id_reference",
+      "line": "\"`stimulus_id = trial_index` is not by itself evidence that row positions \"",
+      "excerpt": "575:         \"\",\n576:         \"A DEAP physical-trial row can be identified as `(subject_id, row_index)`, \"\n577:         \"but Strict Joint subject–stimulus CV additionally requires a verified \"\n578:         \"common stimulus identity across subjects. A project script assigning \"\n579:         \"`stimulus_id = trial_index` is not by itself evidence that row positions \"\n580:         \"represent the same video for every participant.\",\n581:         \"\",\n582:         \"## Dataset-Level Mapping Candidates\",\n583:         \"\","
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 579,
+      "category": "trial_index_reference",
+      "line": "\"`stimulus_id = trial_index` is not by itself evidence that row positions \"",
+      "excerpt": "575:         \"\",\n576:         \"A DEAP physical-trial row can be identified as `(subject_id, row_index)`, \"\n577:         \"but Strict Joint subject–stimulus CV additionally requires a verified \"\n578:         \"common stimulus identity across subjects. A project script assigning \"\n579:         \"`stimulus_id = trial_index` is not by itself evidence that row positions \"\n580:         \"represent the same video for every participant.\",\n581:         \"\",\n582:         \"## Dataset-Level Mapping Candidates\",\n583:         \"\","
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 579,
+      "category": "trial_position_used_as_stimulus_id",
+      "line": "\"`stimulus_id = trial_index` is not by itself evidence that row positions \"",
+      "excerpt": "575:         \"\",\n576:         \"A DEAP physical-trial row can be identified as `(subject_id, row_index)`, \"\n577:         \"but Strict Joint subject–stimulus CV additionally requires a verified \"\n578:         \"common stimulus identity across subjects. A project script assigning \"\n579:         \"`stimulus_id = trial_index` is not by itself evidence that row positions \"\n580:         \"represent the same video for every participant.\",\n581:         \"\",\n582:         \"## Dataset-Level Mapping Candidates\",\n583:         \"\","
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 648,
+      "category": "mapping_source_reference",
+      "line": "\"trials/windowing and do not constitute a verified subject-trial-to-video \"",
+      "excerpt": "644:         f\"- Corrected DEAP Joint-CV readiness: `False`\",\n645:         f\"- I-DARE readiness remains: `{previous_idare_ready}`\",\n646:         \"\",\n647:         \"The earlier 38 repository hits were mostly generic mentions of DEAP \"\n648:         \"trials/windowing and do not constitute a verified subject-trial-to-video \"\n649:         \"mapping.\",\n650:         \"\",\n651:     ]\n652:     outputs[\"correction_md\"].write_text("
+    },
+    {
+      "artifact_path": "scripts/joint_cv/02_audit_deap_stimulus_mapping.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 657,
+      "category": "mapping_source_reference",
+      "line": "print(\"DEAP stimulus-mapping provenance audit completed.\")",
+      "excerpt": "653:         \"\\n\".join(correction_md),\n654:         encoding=\"utf-8\",\n655:     )\n656: \n657:     print(\"DEAP stimulus-mapping provenance audit completed.\")\n658:     print(f\"Branch: {branch}\")\n659:     print(f\"HEAD: {head}\")\n660:     print(f\"Local mapping candidates: {len(local_candidates)}\")\n661:     print(f\"Artifacts reviewed: {assessment['artifacts_reviewed']}\")"
+    },
+    {
+      "artifact_path": "scripts/roca/01_deap_stimulus_only_loso.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 283,
+      "category": "stimulus_id_reference",
+      "line": "\"stimulus_id\": str(trial_i + 1),",
+      "excerpt": "279:         for trial_i in range(40):\n280:             row = {\n281:                 \"subject_id\": sid,\n282:                 \"subject_file\": path.name,\n283:                 \"stimulus_id\": str(trial_i + 1),\n284:                 \"trial_id\": trial_i + 1,\n285:                 \"trial_index_0based\": trial_i,\n286:                 \"data_shape\": data_shape,\n287:             }"
+    },
+    {
+      "artifact_path": "scripts/roca/01_deap_stimulus_only_loso.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 284,
+      "category": "trial_index_reference",
+      "line": "\"trial_id\": trial_i + 1,",
+      "excerpt": "280:             row = {\n281:                 \"subject_id\": sid,\n282:                 \"subject_file\": path.name,\n283:                 \"stimulus_id\": str(trial_i + 1),\n284:                 \"trial_id\": trial_i + 1,\n285:                 \"trial_index_0based\": trial_i,\n286:                 \"data_shape\": data_shape,\n287:             }\n288:             for j, name in enumerate(LABEL_COLUMNS):"
+    },
+    {
+      "artifact_path": "scripts/roca/01_deap_stimulus_only_loso.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 285,
+      "category": "trial_index_reference",
+      "line": "\"trial_index_0based\": trial_i,",
+      "excerpt": "281:                 \"subject_id\": sid,\n282:                 \"subject_file\": path.name,\n283:                 \"stimulus_id\": str(trial_i + 1),\n284:                 \"trial_id\": trial_i + 1,\n285:                 \"trial_index_0based\": trial_i,\n286:                 \"data_shape\": data_shape,\n287:             }\n288:             for j, name in enumerate(LABEL_COLUMNS):\n289:                 row[f\"{name}_score\"] = float(labels[trial_i, j])"
+    },
+    {
+      "artifact_path": "scripts/roca/01_deap_stimulus_only_loso.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 318,
+      "category": "stimulus_id_reference",
+      "line": "stim_mean = train.groupby(\"stimulus_id\")[score_col].mean()",
+      "excerpt": "314: \n315:         global_mean = float(train[score_col].mean())\n316:         global_p_high = float(np.nanmean(binarize(train[score_col].to_numpy(dtype=float), label_policy)))\n317: \n318:         stim_mean = train.groupby(\"stimulus_id\")[score_col].mean()\n319:         train_bin = train.copy()\n320:         train_bin[\"bin\"] = binarize(train_bin[score_col].to_numpy(dtype=float), label_policy)\n321:         stim_p_high = train_bin.groupby(\"stimulus_id\")[\"bin\"].mean()\n322: "
+    },
+    {
+      "artifact_path": "scripts/roca/01_deap_stimulus_only_loso.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 321,
+      "category": "stimulus_id_reference",
+      "line": "stim_p_high = train_bin.groupby(\"stimulus_id\")[\"bin\"].mean()",
+      "excerpt": "317: \n318:         stim_mean = train.groupby(\"stimulus_id\")[score_col].mean()\n319:         train_bin = train.copy()\n320:         train_bin[\"bin\"] = binarize(train_bin[score_col].to_numpy(dtype=float), label_policy)\n321:         stim_p_high = train_bin.groupby(\"stimulus_id\")[\"bin\"].mean()\n322: \n323:         for model in [\"global_mean\", \"stimulus_only\"]:\n324:             out = test[[\"subject_id\", \"stimulus_id\", \"trial_id\"]].rename(columns={\"subject_id\": \"test_subject\"}).copy()\n325:             out[\"target\"] = target"
+    },
+    {
+      "artifact_path": "scripts/roca/01_deap_stimulus_only_loso.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 324,
+      "category": "stimulus_id_reference",
+      "line": "out = test[[\"subject_id\", \"stimulus_id\", \"trial_id\"]].rename(columns={\"subject_id\": \"test_subject\"}).copy()",
+      "excerpt": "320:         train_bin[\"bin\"] = binarize(train_bin[score_col].to_numpy(dtype=float), label_policy)\n321:         stim_p_high = train_bin.groupby(\"stimulus_id\")[\"bin\"].mean()\n322: \n323:         for model in [\"global_mean\", \"stimulus_only\"]:\n324:             out = test[[\"subject_id\", \"stimulus_id\", \"trial_id\"]].rename(columns={\"subject_id\": \"test_subject\"}).copy()\n325:             out[\"target\"] = target\n326:             out[\"model\"] = model\n327:             out[\"y_true_score\"] = test[score_col].to_numpy(dtype=float)\n328:             out[\"y_true_bin\"] = binarize(out[\"y_true_score\"].to_numpy(dtype=float), label_policy)"
+    },
+    {
+      "artifact_path": "scripts/roca/01_deap_stimulus_only_loso.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 324,
+      "category": "trial_index_reference",
+      "line": "out = test[[\"subject_id\", \"stimulus_id\", \"trial_id\"]].rename(columns={\"subject_id\": \"test_subject\"}).copy()",
+      "excerpt": "320:         train_bin[\"bin\"] = binarize(train_bin[score_col].to_numpy(dtype=float), label_policy)\n321:         stim_p_high = train_bin.groupby(\"stimulus_id\")[\"bin\"].mean()\n322: \n323:         for model in [\"global_mean\", \"stimulus_only\"]:\n324:             out = test[[\"subject_id\", \"stimulus_id\", \"trial_id\"]].rename(columns={\"subject_id\": \"test_subject\"}).copy()\n325:             out[\"target\"] = target\n326:             out[\"model\"] = model\n327:             out[\"y_true_score\"] = test[score_col].to_numpy(dtype=float)\n328:             out[\"y_true_bin\"] = binarize(out[\"y_true_score\"].to_numpy(dtype=float), label_policy)"
+    },
+    {
+      "artifact_path": "scripts/roca/01_deap_stimulus_only_loso.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 334,
+      "category": "stimulus_id_reference",
+      "line": "out[\"y_pred_score\"] = out[\"stimulus_id\"].map(stim_mean).astype(float)",
+      "excerpt": "330:             if model == \"global_mean\":\n331:                 out[\"y_pred_score\"] = global_mean\n332:                 out[\"p_high\"] = global_p_high\n333:             else:\n334:                 out[\"y_pred_score\"] = out[\"stimulus_id\"].map(stim_mean).astype(float)\n335:                 out[\"p_high\"] = out[\"stimulus_id\"].map(stim_p_high).astype(float)\n336: \n337:             out[\"y_pred_bin\"] = (out[\"p_high\"].to_numpy(dtype=float) >= 0.5).astype(float)\n338:             all_rows.append(out)"
+    },
+    {
+      "artifact_path": "scripts/roca/01_deap_stimulus_only_loso.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 335,
+      "category": "stimulus_id_reference",
+      "line": "out[\"p_high\"] = out[\"stimulus_id\"].map(stim_p_high).astype(float)",
+      "excerpt": "331:                 out[\"y_pred_score\"] = global_mean\n332:                 out[\"p_high\"] = global_p_high\n333:             else:\n334:                 out[\"y_pred_score\"] = out[\"stimulus_id\"].map(stim_mean).astype(float)\n335:                 out[\"p_high\"] = out[\"stimulus_id\"].map(stim_p_high).astype(float)\n336: \n337:             out[\"y_pred_bin\"] = (out[\"p_high\"].to_numpy(dtype=float) >= 0.5).astype(float)\n338:             all_rows.append(out)\n339: "
+    },
+    {
+      "artifact_path": "scripts/roca/01_deap_stimulus_only_loso.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 390,
+      "category": "stimulus_id_reference",
+      "line": "\"stimuli\": int(trial_df[\"stimulus_id\"].nunique()),",
+      "excerpt": "386:         \"protocol\": \"DEAP stimulus-only LOSO baseline\",\n387:         \"deap_dir\": str(args.deap_dir),\n388:         \"label_policy\": args.label_policy,\n389:         \"subjects\": int(trial_df[\"subject_id\"].nunique()),\n390:         \"stimuli\": int(trial_df[\"stimulus_id\"].nunique()),\n391:         \"trials\": int(len(trial_df)),\n392:         \"models\": [\"global_mean\", \"stimulus_only\"],\n393:         \"targets\": [\"valence\", \"arousal\"],\n394:         \"notes\": ["
+    },
+    {
+      "artifact_path": "scripts/roca/01_deap_stimulus_only_loso.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 398,
+      "category": "trial_index_reference",
+      "line": "\"DEAP trial_id is treated as stimulus/video id.\",",
+      "excerpt": "394:         \"notes\": [\n395:             \"No EEG/EMG data are used.\",\n396:             \"For every LOSO fold, stimulus means and P(high) are computed from train subjects only.\",\n397:             \"Test subject labels are used only for final evaluation.\",\n398:             \"DEAP trial_id is treated as stimulus/video id.\",\n399:             \"High label is computed with the selected label policy.\",\n400:         ],\n401:         \"issues\": issues,\n402:         \"outputs\": {"
+    },
+    {
+      "artifact_path": "scripts/roca/01_deap_stimulus_only_loso.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 398,
+      "category": "mapping_source_reference",
+      "line": "\"DEAP trial_id is treated as stimulus/video id.\",",
+      "excerpt": "394:         \"notes\": [\n395:             \"No EEG/EMG data are used.\",\n396:             \"For every LOSO fold, stimulus means and P(high) are computed from train subjects only.\",\n397:             \"Test subject labels are used only for final evaluation.\",\n398:             \"DEAP trial_id is treated as stimulus/video id.\",\n399:             \"High label is computed with the selected label policy.\",\n400:         ],\n401:         \"issues\": issues,\n402:         \"outputs\": {"
+    },
+    {
+      "artifact_path": "scripts/roca/01_deap_stimulus_only_loso.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 433,
+      "category": "stimulus_id_reference",
+      "line": "lines.append(f\"- stimuli/trials per subject: `{trial_df['stimulus_id'].nunique()}`\")",
+      "excerpt": "429:     lines.append(\"- targets: `valence`, `arousal`\")\n430:     lines.append(\"- leakage control: stimulus means and P(high) are computed from train subjects only.\\n\")\n431:     lines.append(\"## Dataset\\n\")\n432:     lines.append(f\"- subjects: `{trial_df['subject_id'].nunique()}`\")\n433:     lines.append(f\"- stimuli/trials per subject: `{trial_df['stimulus_id'].nunique()}`\")\n434:     lines.append(f\"- total subject-trials: `{len(trial_df)}`\\n\")\n435:     lines.append(\"## Main metrics\\n\")\n436:     lines.append(md_table(main.to_dict(orient=\"records\"), [c for c in cols if c in main.columns]))\n437:     lines.append(\"\\n## Interpretation\\n\")"
+    },
+    {
+      "artifact_path": "scripts/roca/01c_prior_baselines_no_global.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 19,
+      "category": "trial_index_reference",
+      "line": "DEFAULT_IDARE_TRIAL_INDEX = CACHE_DIR / \"idare_trial_index.csv\"",
+      "excerpt": "15: ROOT = Path(__file__).resolve().parents[2]\n16: CACHE_DIR = ROOT / \".cache\"\n17: ROCA_DIR = ROOT / \"docs\" / \"roca\"\n18: \n19: DEFAULT_IDARE_TRIAL_INDEX = CACHE_DIR / \"idare_trial_index.csv\"\n20: DEFAULT_DEAP_DIR = Path(\"/mnt/HDD/AliWorks/DEAP/data_preprocessed_python\")\n21: \n22: TARGETS = {\n23:     \"valence\": \"valence_score\","
+    },
+    {
+      "artifact_path": "scripts/roca/01c_prior_baselines_no_global.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 34,
+      "category": "trial_index_reference",
+      "line": "p.add_argument(\"--idare-trial-index\", type=Path, default=DEFAULT_IDARE_TRIAL_INDEX)",
+      "excerpt": "30: \n31: def parse_args():\n32:     p = argparse.ArgumentParser()\n33:     p.add_argument(\"--dataset\", choices=[\"idare\", \"deap\", \"both\"], default=\"both\")\n34:     p.add_argument(\"--idare-trial-index\", type=Path, default=DEFAULT_IDARE_TRIAL_INDEX)\n35:     p.add_argument(\"--deap-dir\", type=Path, default=DEFAULT_DEAP_DIR)\n36:     p.add_argument(\"--out-prefix\", type=str, default=\"prior_baselines_no_global_current\")\n37:     return p.parse_args()\n38: "
+    },
+    {
+      "artifact_path": "scripts/roca/01c_prior_baselines_no_global.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 227,
+      "category": "stimulus_id_reference",
+      "line": "needed = [\"subject_id\", \"stimulus_id\", \"valence_score\", \"arousal_score\"]",
+      "excerpt": "223:     if not path.exists():\n224:         raise FileNotFoundError(path)\n225: \n226:     df = pd.read_csv(path)\n227:     needed = [\"subject_id\", \"stimulus_id\", \"valence_score\", \"arousal_score\"]\n228:     missing = [c for c in needed if c not in df.columns]\n229:     if missing:\n230:         raise KeyError(f\"I-DARE trial index missing columns: {missing}\")\n231: "
+    },
+    {
+      "artifact_path": "scripts/roca/01c_prior_baselines_no_global.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 235,
+      "category": "stimulus_id_reference",
+      "line": "out[\"stimulus_id\"] = out[\"stimulus_id\"].astype(str)",
+      "excerpt": "231: \n232:     out = df[needed].copy()\n233:     out[\"dataset\"] = \"I-DARE\"\n234:     out[\"subject_id\"] = out[\"subject_id\"].astype(int)\n235:     out[\"stimulus_id\"] = out[\"stimulus_id\"].astype(str)\n236:     out = out.drop_duplicates([\"subject_id\", \"stimulus_id\"]).reset_index(drop=True)\n237:     return out[[\"dataset\", \"subject_id\", \"stimulus_id\", \"valence_score\", \"arousal_score\"]]\n238: \n239: "
+    },
+    {
+      "artifact_path": "scripts/roca/01c_prior_baselines_no_global.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 236,
+      "category": "stimulus_id_reference",
+      "line": "out = out.drop_duplicates([\"subject_id\", \"stimulus_id\"]).reset_index(drop=True)",
+      "excerpt": "232:     out = df[needed].copy()\n233:     out[\"dataset\"] = \"I-DARE\"\n234:     out[\"subject_id\"] = out[\"subject_id\"].astype(int)\n235:     out[\"stimulus_id\"] = out[\"stimulus_id\"].astype(str)\n236:     out = out.drop_duplicates([\"subject_id\", \"stimulus_id\"]).reset_index(drop=True)\n237:     return out[[\"dataset\", \"subject_id\", \"stimulus_id\", \"valence_score\", \"arousal_score\"]]\n238: \n239: \n240: def load_deap(deap_dir: Path) -> pd.DataFrame:"
+    },
+    {
+      "artifact_path": "scripts/roca/01c_prior_baselines_no_global.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 237,
+      "category": "stimulus_id_reference",
+      "line": "return out[[\"dataset\", \"subject_id\", \"stimulus_id\", \"valence_score\", \"arousal_score\"]]",
+      "excerpt": "233:     out[\"dataset\"] = \"I-DARE\"\n234:     out[\"subject_id\"] = out[\"subject_id\"].astype(int)\n235:     out[\"stimulus_id\"] = out[\"stimulus_id\"].astype(str)\n236:     out = out.drop_duplicates([\"subject_id\", \"stimulus_id\"]).reset_index(drop=True)\n237:     return out[[\"dataset\", \"subject_id\", \"stimulus_id\", \"valence_score\", \"arousal_score\"]]\n238: \n239: \n240: def load_deap(deap_dir: Path) -> pd.DataFrame:\n241:     if not deap_dir.exists():"
+    },
+    {
+      "artifact_path": "scripts/roca/01c_prior_baselines_no_global.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 260,
+      "category": "stimulus_id_reference",
+      "line": "\"stimulus_id\": str(trial_i + 1),",
+      "excerpt": "256:         for trial_i in range(labels.shape[0]):\n257:             rows.append({\n258:                 \"dataset\": \"DEAP\",\n259:                 \"subject_id\": int(sid),\n260:                 \"stimulus_id\": str(trial_i + 1),\n261:                 \"valence_score\": float(labels[trial_i, 0]),\n262:                 \"arousal_score\": float(labels[trial_i, 1]),\n263:             })\n264: "
+    },
+    {
+      "artifact_path": "scripts/roca/01c_prior_baselines_no_global.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 270,
+      "category": "stimulus_id_reference",
+      "line": "n_stimuli = int(df[\"stimulus_id\"].nunique())",
+      "excerpt": "266: \n267: \n268: def check_grid(df: pd.DataFrame, dataset: str):\n269:     n_subjects = int(df[\"subject_id\"].nunique())\n270:     n_stimuli = int(df[\"stimulus_id\"].nunique())\n271:     expected = n_subjects * n_stimuli\n272:     duplicated = int(df.duplicated([\"subject_id\", \"stimulus_id\"]).sum())\n273: \n274:     if duplicated:"
+    },
+    {
+      "artifact_path": "scripts/roca/01c_prior_baselines_no_global.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 272,
+      "category": "stimulus_id_reference",
+      "line": "duplicated = int(df.duplicated([\"subject_id\", \"stimulus_id\"]).sum())",
+      "excerpt": "268: def check_grid(df: pd.DataFrame, dataset: str):\n269:     n_subjects = int(df[\"subject_id\"].nunique())\n270:     n_stimuli = int(df[\"stimulus_id\"].nunique())\n271:     expected = n_subjects * n_stimuli\n272:     duplicated = int(df.duplicated([\"subject_id\", \"stimulus_id\"]).sum())\n273: \n274:     if duplicated:\n275:         raise ValueError(f\"{dataset}: duplicated subject/stimulus cells={duplicated}\")\n276: "
+    },
+    {
+      "artifact_path": "scripts/roca/01c_prior_baselines_no_global.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 297,
+      "category": "stimulus_id_reference",
+      "line": "stimuli = sorted(df[\"stimulus_id\"].astype(str).unique().tolist())",
+      "excerpt": "293: \n294: \n295: def additive_design(df: pd.DataFrame) -> np.ndarray:\n296:     subjects = sorted(df[\"subject_id\"].astype(int).unique().tolist())\n297:     stimuli = sorted(df[\"stimulus_id\"].astype(str).unique().tolist())\n298: \n299:     subj_code = pd.Categorical(df[\"subject_id\"].astype(int), categories=subjects).codes\n300:     stim_code = pd.Categorical(df[\"stimulus_id\"].astype(str), categories=stimuli).codes\n301: "
+    },
+    {
+      "artifact_path": "scripts/roca/01c_prior_baselines_no_global.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 300,
+      "category": "stimulus_id_reference",
+      "line": "stim_code = pd.Categorical(df[\"stimulus_id\"].astype(str), categories=stimuli).codes",
+      "excerpt": "296:     subjects = sorted(df[\"subject_id\"].astype(int).unique().tolist())\n297:     stimuli = sorted(df[\"stimulus_id\"].astype(str).unique().tolist())\n298: \n299:     subj_code = pd.Categorical(df[\"subject_id\"].astype(int), categories=subjects).codes\n300:     stim_code = pd.Categorical(df[\"stimulus_id\"].astype(str), categories=stimuli).codes\n301: \n302:     n = len(df)\n303:     p = 1 + max(0, len(subjects) - 1) + max(0, len(stimuli) - 1)\n304:     x = np.zeros((n, p), dtype=float)"
+    },
+    {
+      "artifact_path": "scripts/roca/01c_prior_baselines_no_global.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 381,
+      "category": "stimulus_id_reference",
+      "line": "n_stimuli = int(df[\"stimulus_id\"].nunique())",
+      "excerpt": "377:     binary_rows = []\n378:     pred_rows = []\n379: \n380:     n_subjects = int(df[\"subject_id\"].nunique())\n381:     n_stimuli = int(df[\"stimulus_id\"].nunique())\n382: \n383:     print(f\"[DATASET] {dataset}: rows={len(df)} subjects={n_subjects} stimuli={n_stimuli}\")\n384: \n385:     for target, y_col in TARGETS.items():"
+    },
+    {
+      "artifact_path": "scripts/roca/01c_prior_baselines_no_global.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 394,
+      "category": "stimulus_id_reference",
+      "line": "marginal_loo_mean(df, y_col, \"stimulus_id\"),",
+      "excerpt": "390:         score_protocols = [\n391:             (\n392:                 \"leave_one_subject_out\",\n393:                 \"stimulus_only\",\n394:                 marginal_loo_mean(df, y_col, \"stimulus_id\"),\n395:                 \"For each held-out subject, predict each stimulus by train-subject mean of the same stimulus.\",\n396:             ),\n397:             (\n398:                 \"leave_one_stimulus_out\","
+    },
+    {
+      "artifact_path": "scripts/roca/01c_prior_baselines_no_global.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 422,
+      "category": "stimulus_id_reference",
+      "line": "p_df = df[[\"subject_id\", \"stimulus_id\"]].copy()",
+      "excerpt": "418:             }\n419:             row.update(continuous_metrics(y, pred))\n420:             main_rows.append(row)\n421: \n422:             p_df = df[[\"subject_id\", \"stimulus_id\"]].copy()\n423:             p_df.insert(0, \"dataset\", dataset)\n424:             p_df[\"target\"] = target\n425:             p_df[\"protocol\"] = protocol\n426:             p_df[\"model\"] = model"
+    },
+    {
+      "artifact_path": "scripts/roca/01c_prior_baselines_no_global.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 449,
+      "category": "stimulus_id_reference",
+      "line": "class_marginal_loo_prob(df, y_col, policy, \"stimulus_id\"),",
+      "excerpt": "445:             prob_protocols_by_policy[policy] = [\n446:                 (\n447:                     \"leave_one_subject_out\",\n448:                     \"stimulus_only\",\n449:                     class_marginal_loo_prob(df, y_col, policy, \"stimulus_id\"),\n450:                 ),\n451:                 (\n452:                     \"leave_one_stimulus_out\",\n453:                     \"subject_only\","
+    },
+    {
+      "artifact_path": "scripts/roca/01c_prior_baselines_no_global.py",
+      "source_kind": "current_worktree",
+      "commit_sha": "",
+      "line_number": 556,
+      "category": "trial_index_reference",
+      "line": "datasets[\"I-DARE\"] = load_idare(args.idare_trial_index)",
+      "excerpt": "552:     if args.dataset in {\"deap\", \"both\"}:\n553:         datasets[\"DEAP\"] = load_deap(args.deap_dir)\n554: \n555:     if args.dataset in {\"idare\", \"both\"}:\n556:         datasets[\"I-DARE\"] = load_idare(args.idare_trial_index)\n557: \n558:     for dataset, df in datasets.items():\n559:         m, b, p = run_dataset(df, dataset)\n560:         all_main.extend(m)"
+    }
+  ],
+  "assessment": {
+    "verdict": "UNVERIFIED_TRIAL_POSITION_AS_STIMULUS_ID",
+    "deap_stimulus_aware_manifest_ready": false,
+    "reason": "Project code appears to use the DEAP row/trial position as stimulus_id, while no authoritative local mapping from participant trial position to video/stimulus identity was found. Previous DEAP stimulus-only results must therefore be treated as relying on an unverified alignment assumption.",
+    "strong_authoritative_candidates": 0,
+    "medium_authoritative_candidates": 0,
+    "trial_position_assignment_evidence_count": 1,
+    "mapping_source_reference_count": 20,
+    "artifacts_reviewed": 22
+  },
+  "correction": {
+    "repository": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE",
+    "branch": "joint-cv-capacity-audit",
+    "head": "78946cb168b5839dac88703ddfcad584137a046f",
+    "previous_audit_path": "/mnt/HDD/AliWorks/EmotionRecognitionDEAP-I-DARE/docs/joint_cv/manifest_prerequisites_audit.json",
+    "previous_deap_mapping_status": "needs_manual_review",
+    "previous_joint_cv_ready": true,
+    "correction_reason": "A status of needs_manual_review is not equivalent to verified. The previous Boolean decision used a too-permissive condition.",
+    "idare_manifest_ready": true,
+    "deap_stimulus_aware_manifest_ready": false,
+    "deap_joint_cv_fold_construction_ready": false,
+    "idare_joint_cv_fold_construction_ready": true,
+    "combined_deap_idare_joint_cv_ready": false,
+    "deap_verdict": "UNVERIFIED_TRIAL_POSITION_AS_STIMULUS_ID",
+    "remaining_critical_uncertainty": "Verified DEAP mapping from subject-specific trial position to common video/stimulus identity and presentation order."
+  }
+}

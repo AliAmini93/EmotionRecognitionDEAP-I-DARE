@@ -1,0 +1,2 @@
+path,filename,exact_expected_name,archive_candidate,size_bytes,search_root
+/home/armin/Downloads/DEAP_metadata/participant_ratings.csv,participant_ratings.csv,True,False,51471,/home/armin/Downloads

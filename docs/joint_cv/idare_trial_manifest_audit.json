@@ -1,0 +1,90 @@
+{
+  "dataset": "I-DARE",
+  "row_count": 2016,
+  "column_count": 31,
+  "columns": [
+    "dataset",
+    "subject_id",
+    "session_id",
+    "trial_id",
+    "stimulus_id",
+    "presentation_order",
+    "valence_score",
+    "arousal_score",
+    "valence_discard_midpoint",
+    "valence_midpoint_as_low",
+    "valence_midpoint_as_high",
+    "arousal_discard_midpoint",
+    "arousal_midpoint_as_low",
+    "arousal_midpoint_as_high",
+    "eeg_available",
+    "emg_available",
+    "eeg_path",
+    "emg_path",
+    "eeg_sampling_rate",
+    "emg_sampling_rate",
+    "trial_duration_sec",
+    "chronology_verified",
+    "quality_flag",
+    "raw_event_name",
+    "event_index_0based",
+    "event_index_1based",
+    "metadata_duration_sec",
+    "eeg_duration_sec",
+    "emg_duration_sec",
+    "stimulus_identity_verified",
+    "source_trial_index_path"
+  ],
+  "subject_count": 63,
+  "stimulus_count_excluding_missing": 32,
+  "trials_per_subject_min": 32,
+  "trials_per_subject_max": 32,
+  "duplicate_trial_id_rows": 0,
+  "missing_stimulus_id_rows": 0,
+  "chronology_unverified_rows": 0,
+  "missing_eeg_rows": 0,
+  "missing_emg_rows": 0,
+  "valence_score_min": 1.0,
+  "valence_score_max": 9.0,
+  "arousal_score_min": 1.0,
+  "arousal_score_max": 9.0,
+  "label_policy_counts": {
+    "valence": {
+      "discard_midpoint": {
+        "low_0": 812,
+        "high_1": 855,
+        "discard_or_missing": 349
+      },
+      "midpoint_as_low": {
+        "low_0": 1161,
+        "high_1": 855,
+        "discard_or_missing": 0
+      },
+      "midpoint_as_high": {
+        "low_0": 812,
+        "high_1": 1204,
+        "discard_or_missing": 0
+      }
+    },
+    "arousal": {
+      "discard_midpoint": {
+        "low_0": 1112,
+        "high_1": 687,
+        "discard_or_missing": 217
+      },
+      "midpoint_as_low": {
+        "low_0": 1329,
+        "high_1": 687,
+        "discard_or_missing": 0
+      },
+      "midpoint_as_high": {
+        "low_0": 1112,
+        "high_1": 904,
+        "discard_or_missing": 0
+      }
+    }
+  },
+  "issues": [],
+  "warnings": [],
+  "passed": true
+}
