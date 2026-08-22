@@ -1,0 +1,29 @@
+{
+  "determinism_note": "All stochastic steps seeded from root seed 20260822 via SHA-256 derived child seeds; predictions contain no stochastic step.",
+  "content_sha256": {
+    "CANONICAL_TRIAL_TABLE_DEAP": "fbebcd324a071908c4cee56aa148b5e5e454f176a61c1e7cb3e58df8ada686b4",
+    "CANONICAL_TRIAL_TABLE_IDARE": "8251979b8737c158d862c4f836f2a3c014f82743e8cb155bf04599b5a81482be",
+    "CANONICAL_TRIAL_TABLE_DEJAVU": "ef2a3c305f6a3834ff043cb53e61b76940672ee0f4d8b755c1b4adf51bc04c23",
+    "STIMULUS_OVERLAP_BY_FOLD": "c629b40e05acd2b41f19d91bfbac46a60d9973bf4da1c7079c687b69249670f9",
+    "STIMULUS_PRIOR_OOF_PREDICTIONS": "37836e5355ddfc99034974f7887ce9212f2bee0a841f894513d156813b5dc150",
+    "STIMULUS_PRIOR_METRICS_BY_FOLD": "97e5a0465ce9a4710294aeec7a1d999e73f52d931deb3e236eb5596759912d0b",
+    "STIMULUS_PRIOR_SUMMARY": "569c57871df798fe9a6cad8c9b11d1280440bfa0edd59a2a43ce4612b24ae941",
+    "STIMULUS_LABEL_CONSISTENCY": "48d393eb5eb31f7c54389e168d62bf260f888e2571e80a9e0b75ad493a62b4b0",
+    "STIMULUS_LABEL_CONSISTENCY_SUMMARY": "29fd944b0d1af6233fae2ab8f1e62b522047a51a14b6731b9fef35e907f8b798",
+    "STIMULUS_PRIOR_BOOTSTRAP_CI": "0a89241481d56ee6b92978bedaee2064c3174298d5be4b63c7819899742140a7",
+    "STIMULUS_PRIOR_PERMUTATION_SUMMARY": "cd0ed388fd9d344bb4f8da1b277e718bd74627f5ff231a6f66432ce436f9e025",
+    "CONTINUOUS_RATING_PRIOR_SUMMARY": "34d1ada39ebecc8ef79080ec5426d066603898a860628164de36c526ce68e912"
+  },
+  "cross_process_rerun": {
+    "description": "Content hashes of every derived artefact compared against an independent full run of this same script in a separate Python process writing to a different output directory.",
+    "reference_run": "/tmp/claude-1000/-mnt-HDD-AliWorks/9b5a761c-cf97-4c36-99d2-6d309744d35c/scratchpad/refrun",
+    "reference_file": "/tmp/claude-1000/-mnt-HDD-AliWorks/9b5a761c-cf97-4c36-99d2-6d309744d35c/scratchpad/refrun/validation/REPRODUCIBILITY_VALIDATION.json",
+    "n_artefacts_compared": 12,
+    "n_identical": 12,
+    "mismatched_artefacts": [],
+    "artefacts_absent_from_reference": [],
+    "result": "PASS",
+    "generated_by": "run_stimulus_prior_audit.py --verify-against"
+  },
+  "determinism_result": "PASS"
+}

@@ -1,0 +1,167 @@
+{
+  "root_seed": 20260822,
+  "datasets": {
+    "DEAP": {
+      "n_physical_trials": 1280,
+      "n_participants": 32,
+      "n_sessions": null,
+      "n_canonical_stimuli": 40,
+      "physical_trial_id_unique": true,
+      "duplicate_participant_stimulus_pairs": 0,
+      "valence": {
+        "retained": 1264,
+        "dropped_midpoint": 16,
+        "missing_score": 0,
+        "low": 556,
+        "high": 708,
+        "n_stimuli_with_retained_trials": 40,
+        "n_participants_with_retained_trials": 32
+      },
+      "arousal": {
+        "retained": 1263,
+        "dropped_midpoint": 17,
+        "missing_score": 0,
+        "low": 526,
+        "high": 737,
+        "n_stimuli_with_retained_trials": 40,
+        "n_participants_with_retained_trials": 32
+      }
+    },
+    "IDARE": {
+      "n_physical_trials": 2016,
+      "n_participants": 63,
+      "n_sessions": null,
+      "n_canonical_stimuli": 32,
+      "physical_trial_id_unique": true,
+      "duplicate_participant_stimulus_pairs": 0,
+      "valence": {
+        "retained": 1667,
+        "dropped_midpoint": 349,
+        "missing_score": 0,
+        "low": 812,
+        "high": 855,
+        "n_stimuli_with_retained_trials": 32,
+        "n_participants_with_retained_trials": 63
+      },
+      "arousal": {
+        "retained": 1799,
+        "dropped_midpoint": 217,
+        "missing_score": 0,
+        "low": 1112,
+        "high": 687,
+        "n_stimuli_with_retained_trials": 32,
+        "n_participants_with_retained_trials": 63
+      }
+    },
+    "DEJAVU": {
+      "n_physical_trials": 90,
+      "n_participants": 24,
+      "n_sessions": 30,
+      "n_canonical_stimuli": 16,
+      "physical_trial_id_unique": true,
+      "duplicate_participant_stimulus_pairs": 0,
+      "valence": {
+        "retained": 75,
+        "dropped_midpoint": 15,
+        "missing_score": 0,
+        "low": 53,
+        "high": 22,
+        "n_stimuli_with_retained_trials": 16,
+        "n_participants_with_retained_trials": 24
+      },
+      "arousal": {
+        "retained": 71,
+        "dropped_midpoint": 19,
+        "missing_score": 0,
+        "low": 33,
+        "high": 38,
+        "n_stimuli_with_retained_trials": 15,
+        "n_participants_with_retained_trials": 24
+      }
+    }
+  },
+  "dejavu_authority_crosscheck": {
+    "emotional_physical_trials": {
+      "observed": 90,
+      "expected": 90,
+      "match": true
+    },
+    "exact_videos": {
+      "observed": 16,
+      "expected": 16,
+      "match": true
+    },
+    "participants": {
+      "observed": 24,
+      "expected": 24,
+      "match": true
+    },
+    "participant_sessions": {
+      "observed": 30,
+      "expected": 30,
+      "match": true
+    },
+    "valence_low": {
+      "observed": 53,
+      "expected": 53,
+      "match": true
+    },
+    "valence_high": {
+      "observed": 22,
+      "expected": 22,
+      "match": true
+    },
+    "valence_retained": {
+      "observed": 75,
+      "expected": 75,
+      "match": true
+    },
+    "valence_drop": {
+      "observed": 15,
+      "expected": 15,
+      "match": true
+    },
+    "arousal_low": {
+      "observed": 33,
+      "expected": 33,
+      "match": true
+    },
+    "arousal_high": {
+      "observed": 38,
+      "expected": 38,
+      "match": true
+    },
+    "arousal_retained": {
+      "observed": 71,
+      "expected": 71,
+      "match": true
+    },
+    "arousal_drop": {
+      "observed": 19,
+      "expected": 19,
+      "match": true
+    }
+  },
+  "dejavu_authority_crosscheck_all_match": true,
+  "deap_design_facts": {
+    "subjects_is_32": true,
+    "trials_per_subject_all_40": true,
+    "canonical_stimuli_is_40": true,
+    "fully_crossed_subject_by_stimulus": true
+  },
+  "idare_design_facts": {
+    "subjects": 63,
+    "canonical_stimuli": 32,
+    "fully_crossed_subject_by_stimulus": true
+  },
+  "dejavu_design_facts": {
+    "fully_crossed_participant_by_stimulus": false,
+    "trials_per_session": {
+      "3": 30
+    },
+    "sessions_per_participant": {
+      "1": 18,
+      "2": 6
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "audit_status": "PASS",
+  "leakage_assertions_total": 16,
+  "leakage_independent_computations": 12,
+  "leakage_tests_failed": 0,
+  "dejavu_authority_crosscheck_all_match": true,
+  "dejavu_pinned_commit_match": true,
+  "bootstrap_replicates": 10000,
+  "permutation_replicates": 10000,
+  "dataset_task_conditions": 6,
+  "views": [
+    "A_LOPO",
+    "B_SUBJECT_FOLD"
+  ]
+}

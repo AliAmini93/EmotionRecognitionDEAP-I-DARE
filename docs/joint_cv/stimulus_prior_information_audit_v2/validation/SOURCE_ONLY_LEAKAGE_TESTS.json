@@ -1,0 +1,140 @@
+{
+  "n_assertions": 16,
+  "n_independent_computations": 12,
+  "n_restatements_of_another_computation": 3,
+  "n_code_inspection_assertions": 1,
+  "counting_note": "Quote n_independent_computations, not n_assertions. T04/T05/T06 restate the single T02 computation and T03 is a structural assertion about the source whose empirical evidence is T02.",
+  "n_pass": 16,
+  "n_fail": 0,
+  "overall": "PASS",
+  "tests": [
+    {
+      "test_id": "T01",
+      "name": "Source and target participant IDs disjoint in every fold",
+      "result": "PASS",
+      "kind": "computed",
+      "derives_from": null,
+      "detail": "checked 20 dataset-task-views; violations=none"
+    },
+    {
+      "test_id": "T02",
+      "name": "Target labels are not accessed when fitting the predictor",
+      "result": "PASS",
+      "kind": "computed",
+      "derives_from": null,
+      "detail": "per-fold target labels replaced with noise (3 independent draws per fold); out-of-fold probabilities bitwise unchanged"
+    },
+    {
+      "test_id": "T04",
+      "name": "Post-hoc target-label changes do not change any predicted probability",
+      "result": "PASS",
+      "kind": "derived_from",
+      "derives_from": "T02",
+      "detail": "RESTATEMENT of the T02 computation, read per held-out fold"
+    },
+    {
+      "test_id": "T05",
+      "name": "No target-derived class prior is used",
+      "result": "PASS",
+      "kind": "derived_from",
+      "derives_from": "T02",
+      "detail": "RESTATEMENT of T02: the global prior is invariant to target-label corruption"
+    },
+    {
+      "test_id": "T06",
+      "name": "No target-derived stimulus statistics are used",
+      "result": "PASS",
+      "kind": "derived_from",
+      "derives_from": "T02",
+      "detail": "RESTATEMENT of T02: the stimulus-conditioned prior is invariant to target-label corruption"
+    },
+    {
+      "test_id": "T03",
+      "name": "Target labels joined only at the evaluation stage",
+      "result": "PASS",
+      "kind": "code_inspection",
+      "derives_from": "T02",
+      "detail": "STRUCTURAL ASSERTION, not a computation: predict_reference() reads label[] only through the boolean source mask `src = ~tgt`; target rows enter solely via stim[tgt]. The empirical evidence for this property is T02."
+    },
+    {
+      "test_id": "T07",
+      "name": "Task-specific midpoint exclusion applied before fold metrics",
+      "result": "PASS",
+      "kind": "computed",
+      "derives_from": null,
+      "detail": "violations=none"
+    },
+    {
+      "test_id": "T08",
+      "name": "Each retained physical trial appears exactly once in the emitted LOPO OOF frame",
+      "result": "PASS",
+      "kind": "computed",
+      "derives_from": null,
+      "detail": "checked 6 dataset-task conditions on STIMULUS_PRIOR_OOF_PREDICTIONS; verified no duplicate prediction, exact retained-count match, one held-out group per trial, and fallback rows equal to the global prior; violations=none"
+    },
+    {
+      "test_id": "T09",
+      "name": "View-B subject-fold OOF coverage exact in the emitted frame, no duplicate predictions",
+      "result": "PASS",
+      "kind": "computed",
+      "derives_from": null,
+      "detail": "checked 14 dataset-task-repetition conditions; violations=none"
+    },
+    {
+      "test_id": "T10",
+      "name": "DEJA-VU participant sessions never cross source/target",
+      "result": "PASS",
+      "kind": "computed",
+      "derives_from": null,
+      "detail": "session-level test on participant/session keys: no session appears on both sides of any fold; additionally verified that all sessions of each of the 6 multi-session participants ['P001', 'P002', 'P007', 'P009', 'P011', 'P017'] share one held-out group (72 participant-condition checks); violations=none"
+    },
+    {
+      "test_id": "T11",
+      "name": "Canonical stimulus IDs stable and provenance-traceable",
+      "result": "PASS",
+      "kind": "computed",
+      "derives_from": null,
+      "detail": "violations=none"
+    },
+    {
+      "test_id": "T12",
+      "name": "Predictions bitwise deterministic across two recomputations",
+      "result": "PASS",
+      "kind": "computed",
+      "derives_from": null,
+      "detail": "violations=none"
+    },
+    {
+      "test_id": "T13",
+      "name": "Reference (source-only loop) and fast (aggregate-minus-own) agree",
+      "result": "PASS",
+      "kind": "computed",
+      "derives_from": null,
+      "detail": "real + 5 permuted draws per dataset-task-view; violations=none"
+    },
+    {
+      "test_id": "T14a",
+      "name": "Toy: labels independent of stimulus -> ~zero information",
+      "result": "PASS",
+      "kind": "computed",
+      "derives_from": null,
+      "detail": "bits_per_trial=-0.0173 (|.|<0.05), delta_BA_pp=1.53 (|.|<10.61 = 3 sigma of the blocked null)"
+    },
+    {
+      "test_id": "T14b",
+      "name": "Toy: stimulus perfectly determines label -> strong information",
+      "result": "PASS",
+      "kind": "computed",
+      "derives_from": null,
+      "detail": "bits_per_trial=0.9819, delta_BA_pp=50.00, stim_BA=1.0000"
+    },
+    {
+      "test_id": "T14c",
+      "name": "Toy: unseen-stimulus fallback to source global prior",
+      "result": "PASS",
+      "kind": "computed",
+      "derives_from": null,
+      "detail": "fallback_mask=[False, False, False, False, False, True], expected=[False, False, False, False, False, True], p_stim[5]=0.700000 p_global[5]=0.700000"
+    }
+  ]
+}

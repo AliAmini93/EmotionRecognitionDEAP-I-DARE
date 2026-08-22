@@ -1,0 +1,22 @@
+{
+  "package": "stimulus_prior_information_audit_v2",
+  "status": "PASS",
+  "original_candidate_audit_status": "PASS",
+  "cross_process_determinism_result": "PASS",
+  "independent_revalidation_status": "PASS",
+  "scientific_numbers_changed": false,
+  "archival_corrections": [
+    "excluded __pycache__ and .pyc",
+    "qualified manuscript Option 3 to distinguish primary fixed-prediction bootstrap from refit sensitivity",
+    "added an explicit final freeze gate requiring original audit PASS, determinism PASS, and independent revalidation PASS"
+  ],
+  "authority_scope": {
+    "DEAP": "primary",
+    "IDARE": "primary",
+    "DEJAVU": "external validation; source authority remains DEJA-VU-Emotion-Recognition"
+  },
+  "intended_consumers": [
+    "Paper 1",
+    "Paper 2"
+  ]
+}

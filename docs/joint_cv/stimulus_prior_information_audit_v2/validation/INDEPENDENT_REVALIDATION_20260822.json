@@ -1,0 +1,96 @@
+{
+  "date": "2026-08-22",
+  "status": "PASS",
+  "scientific_numbers_changed": false,
+  "ready_for_versioned_shared_freeze": true,
+  "oof_rows": 12862,
+  "prediction_max_abs_error": {
+    "p_stimulus_prior": 1.1102230246251565e-16,
+    "p_global_prior": 5.551115123125783e-17
+  },
+  "per_fold_metric_rows_verified": 280,
+  "structural_overlap_rows_verified": 280,
+  "per_fold_discrepancies_gt_1e-12": 0,
+  "overlap_discrepancies_gt_1e-12": 0,
+  "primary_bootstrap_replicates_per_condition": 10000,
+  "refit_bootstrap_replicates_per_condition": 10000,
+  "permutation_replicates_per_condition": 10000,
+  "primary_lopo": [
+    {
+      "dataset": "DEAP",
+      "task": "valence",
+      "overlap": 1.0,
+      "stimulus_ba": 0.739462667154412,
+      "global_ba": 0.5,
+      "delta_ba_pp": 23.9462667154412,
+      "bits_per_trial": 0.2888670141604288,
+      "permutation_p_bits": 9.999000099990002e-05
+    },
+    {
+      "dataset": "DEAP",
+      "task": "arousal",
+      "overlap": 1.0,
+      "stimulus_ba": 0.6190444252983269,
+      "global_ba": 0.5,
+      "delta_ba_pp": 11.90444252983269,
+      "bits_per_trial": 0.0692966635705959,
+      "permutation_p_bits": 9.999000099990002e-05
+    },
+    {
+      "dataset": "IDARE",
+      "task": "valence",
+      "overlap": 1.0,
+      "stimulus_ba": 0.95588540316308,
+      "global_ba": 0.5,
+      "delta_ba_pp": 45.588540316308,
+      "bits_per_trial": 0.7938044626421001,
+      "permutation_p_bits": 9.999000099990002e-05
+    },
+    {
+      "dataset": "IDARE",
+      "task": "arousal",
+      "overlap": 1.0,
+      "stimulus_ba": 0.7861211031175059,
+      "global_ba": 0.5,
+      "delta_ba_pp": 28.61211031175059,
+      "bits_per_trial": 0.3030684530674785,
+      "permutation_p_bits": 9.999000099990002e-05
+    },
+    {
+      "dataset": "DEJAVU",
+      "task": "valence",
+      "overlap": 0.9466666666666668,
+      "stimulus_ba": 0.8031732418524871,
+      "global_ba": 0.5,
+      "delta_ba_pp": 30.31732418524871,
+      "bits_per_trial": 0.423443644172794,
+      "permutation_p_bits": 9.999000099990002e-05
+    },
+    {
+      "dataset": "DEJAVU",
+      "task": "arousal",
+      "overlap": 0.9577464788732396,
+      "stimulus_ba": 0.5311004784688995,
+      "global_ba": 0.4342105263157895,
+      "delta_ba_pp": 9.688995215311,
+      "bits_per_trial": -0.0571757189174134,
+      "permutation_p_bits": 0.2035796420357964
+    }
+  ],
+  "wording_qualification": {
+    "condition": "DEAP arousal",
+    "primary_fixed_bits_ci95": [
+      0.0203762766527736,
+      0.1177764299611582
+    ],
+    "refit_sensitivity_bits_ci95": [
+      -0.0057870207978505,
+      0.1010495054760951
+    ],
+    "recommendation": "Do not say unqualified that bootstrap intervals exclude zero in all four primary conditions."
+  },
+  "archival_notes": [
+    "Exclude __pycache__ and .pyc from frozen successor.",
+    "Preserve original FINAL_AUDIT_VALIDATION.json and REPRODUCIBILITY_VALIDATION.json; add a separate final freeze gate requiring both audit PASS and determinism PASS."
+  ]
+}

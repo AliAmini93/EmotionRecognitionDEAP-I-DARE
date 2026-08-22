@@ -1,0 +1,119 @@
+{
+  "dataset_roots": {
+    "DEAP": "/mnt/HDD/AliWorks/DEAP",
+    "IDARE": "/mnt/HDD/AliWorks/I-DARE",
+    "DEJAVU": "/mnt/HDD/AliWorks/DEJA-VU-Emotion-Recognition"
+  },
+  "dejavu_pinned_commit_expected": "01351073683eaa6c4469bf8b8728227a184b1ac4",
+  "dejavu_pinned_commit_observed": "01351073683eaa6c4469bf8b8728227a184b1ac4",
+  "dejavu_pinned_commit_match": true,
+  "authority_files": {
+    "deap_yaml": {
+      "path": "/mnt/HDD/AliWorks/MM-SAGE-DG-PARALLEL-UNIVERSE/configs/data/deap.yaml",
+      "exists": true,
+      "sha256": "7d59a462809c6984538dc5029073f02a66b5bd4bdbad9aff5b81a04e15d61647"
+    },
+    "deap_verified_stimulus_mapping": {
+      "path": "/mnt/HDD/AliWorks/MM-SAGE-DG-PARALLEL-UNIVERSE/configs/data/deap_verified_stimulus_mapping.csv",
+      "exists": true,
+      "sha256": "c469db58b1e3a1c201d32f0b4adb4048b3f77d91d84896d04fb67a35205413f2"
+    },
+    "deap_subject_presentation_order": {
+      "path": "/mnt/HDD/AliWorks/MM-SAGE-DG-PARALLEL-UNIVERSE/configs/data/deap_subject_presentation_order.csv",
+      "exists": true,
+      "sha256": "2022bb4993faeb7a4389a5511f347b1ebb9a2805c5a36fa8fd9e6c240f543240"
+    },
+    "deap_subject_folds": {
+      "path": "/mnt/HDD/AliWorks/MM-SAGE-DG-PARALLEL-UNIVERSE/configs/cv/folds/deap_subject_folds.csv",
+      "exists": true,
+      "sha256": "1fd658c2df48b387ae2647b240f094ba8d298be7aa383c4a21efb013d143860a"
+    },
+    "idare_yaml": {
+      "path": "/mnt/HDD/AliWorks/MM-SAGE-DG-PARALLEL-UNIVERSE/configs/data/idare.yaml",
+      "exists": true,
+      "sha256": "e7eb4c290cc3772215d74c0c463e025e5aeece80fc5b3a242c35c6b6a7727adf"
+    },
+    "idare_event_pairing": {
+      "path": "/mnt/HDD/AliWorks/MM-SAGE-DG-PARALLEL-UNIVERSE/configs/data/idare_event_pairing.csv",
+      "exists": true,
+      "sha256": "bdd03bcb76ce4d076430fcc8958bd6b51a9a91cfdc012e289803ffd17133ca4e"
+    },
+    "idare_valence_labels": {
+      "path": "/mnt/HDD/AliWorks/I-DARE/labels/Valence_SAM.csv",
+      "exists": true,
+      "sha256": "503974f1131111ac80a8840dc4750fd02d0a1d98b65148cbcdac144af2863f5a"
+    },
+    "idare_arousal_labels": {
+      "path": "/mnt/HDD/AliWorks/I-DARE/labels/Arousal_SAM.csv",
+      "exists": true,
+      "sha256": "d9b193874623fa43019a423afe142b19c1a6e782016fd21489c7836e68b7304a"
+    },
+    "idare_stimuli_specifications": {
+      "path": "/mnt/HDD/AliWorks/I-DARE/metadata/Stimuli_Specifications.csv",
+      "exists": true,
+      "sha256": "1adc1da898f01176b35314637ad245a7bf7b65a77aafc3cf5226869f8250b9a7"
+    },
+    "idare_subject_folds": {
+      "path": "/mnt/HDD/AliWorks/MM-SAGE-DG-PARALLEL-UNIVERSE/configs/cv/folds/idare_subject_folds.csv",
+      "exists": true,
+      "sha256": "70832878e59a9e970569810c9faa163b51ca0cc58c42a8c6e22abd77ba675534"
+    },
+    "dejavu_primary_labels": {
+      "path": "/mnt/HDD/AliWorks/DEJA-VU-Emotion-Recognition/manifests/dejavu_cohort_b_primary_labels.csv",
+      "exists": true,
+      "sha256": "0fb0d40696d1f700d7f517e3296b58c4e180ea9834f326fd16e9700c1cfa9890"
+    },
+    "dejavu_fold_assignments": {
+      "path": "/mnt/HDD/AliWorks/DEJA-VU-Emotion-Recognition/folds/dejavu_joint_cv_repeated_assignments.csv",
+      "exists": true,
+      "sha256": "a3979ef5c3d01aedbe852d2a6557de58642d3f40158844c9a46807c940f08b36"
+    },
+    "dejavu_label_active_pointer": {
+      "path": "/mnt/HDD/AliWorks/MM-SAGE-DG-dejavu-paper2/docs/dejavu/PAPER2_DEJAVU_LABEL_ACTIVE_VERSION.md",
+      "exists": true,
+      "sha256": "0760416e2d9c9392fde79d2e8f5690e1eb7a3f759c4ea5dc52720300a62e8e9e"
+    },
+    "dejavu_label_state_v3": {
+      "path": "/mnt/HDD/AliWorks/MM-SAGE-DG-dejavu-paper2/docs/dejavu/paper2-label-v3/DEJAVU_PAPER2_LABEL_STATE_v3.json",
+      "exists": true,
+      "sha256": "7aa509f2a7df5be056e7547759f817706753a3d75876bb1b0400bf55e621c9c7"
+    },
+    "dejavu_folds_state_v2": {
+      "path": "/mnt/HDD/AliWorks/MM-SAGE-DG-dejavu-paper2/docs/dejavu/paper2-folds-v2/DEJAVU_PAPER2_FOLD_STATE_v2.json",
+      "exists": true,
+      "sha256": "0d2ae9b17aba503d786e7995dcbba755bbdb331c55ee32e55834941392b2ab81"
+    },
+    "dejavu_content_state_v2": {
+      "path": "/mnt/HDD/AliWorks/MM-SAGE-DG-dejavu-paper2/docs/dejavu/paper2-content-v2/DEJAVU_PAPER2_CONTENT_STATE_v2.json",
+      "exists": true,
+      "sha256": "aae81ee15ad7b8eb1b22d0246c098e6d40ceb82c1ef5d5ba616d6fb7608f3db3"
+    },
+    "dejavu_admission_state_v3": {
+      "path": "/mnt/HDD/AliWorks/MM-SAGE-DG-dejavu-paper2/docs/dejavu/paper2-admission-v3/DEJAVU_PAPER2_ADMISSION_STATE_v3.json",
+      "exists": true,
+      "sha256": "a9daf2943c76e86e493364f1e3a4aecbf50138b6bf5cc6b099518abf9e171a2b"
+    },
+    "loader_deap_inventory": {
+      "path": "/mnt/HDD/AliWorks/MM-SAGE-DG-PARALLEL-UNIVERSE/src/mm_sage_dg/data/deap_inventory.py",
+      "exists": true,
+      "sha256": "5b1d35cdd493d8b4ca90af38811ee5d034b5ebbeee6ba80387724051948ca127"
+    },
+    "loader_idare_inventory": {
+      "path": "/mnt/HDD/AliWorks/MM-SAGE-DG-PARALLEL-UNIVERSE/src/mm_sage_dg/data/idare_inventory.py",
+      "exists": true,
+      "sha256": "65863672913a99fb420616ef51275523d511849921873e41e872308657d0dcdd"
+    },
+    "loader_schemas": {
+      "path": "/mnt/HDD/AliWorks/MM-SAGE-DG-PARALLEL-UNIVERSE/src/mm_sage_dg/data/schemas.py",
+      "exists": true,
+      "sha256": "576db057aa164b9e62984d180ca9c7fe05cbfbb35ce475732a7fb4203ed01c0b"
+    }
+  },
+  "label_rule": "score < 5 -> LOW(0); score > 5 -> HIGH(1); score == 5 -> DROP (task-specific)",
+  "smoothing": "Jeffreys/Beta(0.5,0.5): p = (n_HIGH + 0.5) / (n_total + 1.0)",
+  "tie_policy": "p>0.5 HIGH; p<0.5 LOW; p==0.5 -> source global majority; global also 0.5 -> LOW",
+  "notes": [
+    "configs/paths/local.yaml is absent from the working tree; only configs/paths/local.example.yaml (placeholder paths) exists. Dataset roots were resolved from the on-disk dataset locations used by the repository's own loaders and recorded explicitly here.",
+    "DEJA-VU Paper-2 authority pointer documents live in the integration repository MM-SAGE-DG-dejavu-paper2, not under docs/dejavu/ of the parallel-universe worktree."
+  ]
+}
